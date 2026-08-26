@@ -10,17 +10,17 @@ it — with EMPTY kernel; and, the carrier `P(Ω₇)` being a finite Boolean alg
 whose two-valued states are all Dirac, it has NO σ-additive global two-valued
 extension.
 
-Under the LITERAL (pre-amendment) definition this would make a **Boolean**
-carrier a "witness", refuting the old Prop 2.1. The amended definition
-(`SigmaEssentialAmended`) excludes it: `s₀` is NOT finitely coherent.
+Drop the coherence clause from `IsSigmaEssential` and this would make a
+**Boolean** carrier a "witness", contradicting Prop 2.1. The clause excludes it:
+`s₀` is NOT finitely coherent.
 
 Four public theorems:
 * `omega7_kernel_empty` — clause (i) holds: `K(s₀) = ∅`.
 * `omega7_no_sigma_extension` — no σ-additive two-valued state extends `s₀`.
-* `omega7_not_coherent` — the amendment does its job: `s₀` is not coherent.
-* `omega7_not_witness` — sanity, from the amended Boolean baseline.
+* `omega7_not_coherent` — the coherence clause does its job: `s₀` fails it.
+* `omega7_not_witness` — sanity, from the Boolean baseline.
 -/
-import QuerySystem.SigmaEssentialAmended
+import QuerySystem.SigmaEssentialWitness
 import QuerySystem.UlamWitnessCore
 import Mathlib.Data.Fin.VecNotation
 import Mathlib.Tactic.FinCases
@@ -29,7 +29,7 @@ open Set Function MeasurableSpace
 
 namespace SigmaEssential.Omega7
 
-open SigmaEssential SigmaEssential.Amended
+open SigmaEssential
 
 /-- The seven-point space: `Bool³` minus the all-`true` point. -/
 def Ω₇ : Type := {v : Fin 3 → Bool // v ≠ fun _ => true}
@@ -103,10 +103,10 @@ theorem s₀_val_A2 : s₀.Val (A 2) := Or.inr (Or.inr ⟨w₁_mem_A2, w₂_mem_
 /-- Clause (i) holds on a BOOLEAN carrier: the pattern has empty kernel.
 Any kernel point lies in `A 0 ∩ A 1 ∩ A 2 = ∅` (it would be the all-`+`
 point, which is not in `Ω₇`). -/
-theorem omega7_kernel_empty : kernelL s₀ = ∅ := by
+theorem omega7_kernel_empty : kernel s₀ = ∅ := by
   rw [eq_empty_iff_forall_notMem]
   intro x hx
-  rw [kernelL, mem_sInter] at hx
+  rw [kernel, mem_sInter] at hx
   have h0 : x ∈ A 0 := hx (A 0) ⟨A0_mem_blk, s₀_val_A0⟩
   have h1 : x ∈ A 1 := hx (A 1) ⟨A1_mem_blk, s₀_val_A1⟩
   have h2 : x ∈ A 2 := hx (A 2) ⟨A2_mem_blk, s₀_val_A2⟩
@@ -146,29 +146,29 @@ theorem exists_dirac_point (s : TwoValuedState powerDynkin) :
 /-! ### Public theorems 2–4 -/
 
 /-- The literal-definition "witness" half: NO σ-additive two-valued state on
-the (Boolean!) carrier extends the pattern. Under the pre-amendment reading
+the (Boolean!) carrier extends the pattern. Without the coherence clause
 this refutes the old Prop 2.1. -/
 theorem omega7_no_sigma_extension :
     ¬ ∃ s : TwoValuedState powerDynkin, ExtendsS s s₀ := by
   rintro ⟨s, hs⟩
   obtain ⟨ω, hω⟩ := exists_dirac_point s
   have hd : ExtendsS (dirac ω) s₀ := fun S hS => (hω S).symm.trans (hs S hS)
-  have hker : ω ∈ kernelL s₀ := (dirac_iff_local s₀ ω).mp hd
+  have hker : ω ∈ kernel s₀ := (dirac_iff s₀ ω).mp hd
   rw [omega7_kernel_empty] at hker
   exact notMem_empty ω hker
 
-/-- The amendment does its job: the pattern is NOT finitely coherent. If it
-were, the amended Boolean baseline (Prop 1.6) would produce a Dirac extension,
+/-- The coherence clause does its job: the pattern is NOT finitely coherent. If
+it were, the Boolean baseline (Prop 1.6) would produce a Dirac extension,
 i.e. a kernel point — but the kernel is empty. -/
 theorem omega7_not_coherent : ¬ FinitelyCoherent s₀ := by
   intro hcoh
   obtain ⟨ω, hω⟩ := boolean_baseline powerDynkin_interClosed s₀ hcoh
-  have hker : ω ∈ kernelL s₀ := (dirac_iff_local s₀ ω).mp hω
+  have hker : ω ∈ kernel s₀ := (dirac_iff s₀ ω).mp hω
   rw [omega7_kernel_empty] at hker
   exact notMem_empty ω hker
 
-/-- Sanity (from the amended baseline): the pattern is not a witness. -/
-theorem omega7_not_witness : ¬ IsSigmaEssentialL s₀ :=
-  boolean_no_witness_amended powerDynkin_interClosed s₀
+/-- Sanity (from the Boolean baseline): the pattern is not a witness. -/
+theorem omega7_not_witness : ¬ IsSigmaEssential s₀ :=
+  boolean_no_witness powerDynkin_interClosed s₀
 
 end SigmaEssential.Omega7

@@ -24,9 +24,9 @@ and GSD imply `Phi`.  This makes the open mathematical inputs explicit rather
 than encoding fine or coarse ODBC as an axiom or theorem. -/
 theorem phi_of_fine_coarse_odbc_sections
     {Omega : Type*} {d : DynkinSystem Omega}
-    (atlas : ∀ (_ : Block d) (_ : Amended.FinAddState d),
+    (atlas : ∀ (_ : Block d) (_ : FinAddState d),
       SectionSystem.{u, v})
-    (Fine Coarse : Block d → Amended.FinAddState d → Prop)
+    (Fine Coarse : Block d → FinAddState d → Prop)
     (hcover : ∀ B mu, Fine B mu ∨ Coarse B mu)
     (hFineODBC : ∀ B mu, Fine B mu → (atlas B mu).ODBC)
     (hCoarseODBC : ∀ B mu, Coarse B mu → (atlas B mu).ODBC)
@@ -47,9 +47,9 @@ can be inserted here without claiming that countable generation alone proves
 that theorem. -/
 theorem phi_of_regime_odbc_sections
     {Omega : Type*} {d : DynkinSystem Omega}
-    (atlas : ∀ (_ : Block d) (_ : Amended.FinAddState d),
+    (atlas : ∀ (_ : Block d) (_ : FinAddState d),
       SectionSystem.{u, v})
-    (Regime : Block d → Amended.FinAddState d → Prop)
+    (Regime : Block d → FinAddState d → Prop)
     (hregime : ∀ B mu, Regime B mu)
     (hODBC : ∀ B mu, Regime B mu → (atlas B mu).ODBC)
     (hfinite : ∀ B mu, (atlas B mu).FiniteSectionSolvable)

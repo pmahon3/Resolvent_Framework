@@ -67,7 +67,7 @@ end SectionSystem
 each finite trace, its concrete eligible-lift system, compatible subsystem
 sections, and the GSD extraction from a *global* section. -/
 theorem phi_of_odbc_sections {Omega : Type*} {d : DynkinSystem Omega}
-    (atlas : ∀ (_ : Block d) (_ : Amended.FinAddState d), SectionSystem)
+    (atlas : ∀ (_ : Block d) (_ : FinAddState d), SectionSystem)
     (hODBC : ∀ B mu, (atlas B mu).ODBC)
     (hfinite : ∀ B mu, (atlas B mu).FiniteSectionSolvable)
     (hcountable : ∀ B mu, (atlas B mu).CountableSectionSolvable)

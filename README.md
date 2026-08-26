@@ -4,7 +4,7 @@
 
 **Active flagship: reconstruction/commensurability** (`papers/reconstruction/`)
 — EA/PR(𝓡) structure theory proved; universal-impossibility attack live.
-**σ-essential** (`papers/sigma_essential/`) — the amended form is a
+**σ-essential** (`papers/sigma_essential/`) — the OMP form is a
 machine-checked ZFC theorem (0-sorry Lean witness); paper dissemination-ready.
 
 Authoritative state: `notes/programme/program_overview.md`.
@@ -15,7 +15,7 @@ Zoom-out navigation: `notes/taxonomies_index.json` (load FIRST).
 ### Papers
 
 - **reconstruction** — ACTIVE flagship; skeleton public face, Type-6 bridge.
-- **sigma_essential** — Ψ amended form machine-checked; dissemination-ready.
+- **sigma_essential** — Ψ machine-checked; dissemination-ready.
 - **spine** — corpus-level umbrella (reference-only, reads the three
   transitions as one classification).
 - **Paper I** — audited, fixed honest, PARKED (no submission).
@@ -54,7 +54,6 @@ Resolvent_Framework/
 ## Lean formalization
 
 `formalization/QuerySystem/` — source of truth is `#print axioms` on each
-certificate. Key certified results: `psiAmended_ZFC` (σ-essential amended
-form, 0-sorry), `WindingInjectivity` + `WindingDichotomy` (reconstruction,
+certificate. Key certified results: `psi_ZFC` (σ-essential, 0-sorry), `WindingInjectivity` + `WindingDichotomy` (reconstruction,
 0-sorry, classical flow-decomposition axiomatized). Paper-I
 `StoneDualityExtension` carries 1 sorry (Yosida–Hewitt).

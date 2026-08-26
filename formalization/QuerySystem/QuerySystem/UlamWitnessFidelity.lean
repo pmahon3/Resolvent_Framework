@@ -9,7 +9,7 @@ ways, in Lean:
 * `coherent_pattern_fully_additive` — clause (0) upgrades for free: a finitely
   coherent local pattern satisfies EVERY Def-1.2 additivity constraint on `B`
   (finite pairwise-disjoint family with union in `B` ⟹ union true iff some
-  member true, and no two disjoint true members). So wherever the amended
+  member true, and no two disjoint true members). So wherever the
   σ-essential definition applies, the pattern is a genuine state on `B`.
 * `coreBlock_disjoint_eq_compl` — on the witness's block specifically, the only
   disjoint pairs are the complement pairs (the twelve cross-intersections are
@@ -23,7 +23,7 @@ import QuerySystem.UlamWitnessMain
 
 open Set Function MeasurableSpace
 
-namespace SigmaEssential.Amended
+namespace SigmaEssential
 
 open SigmaEssential
 
@@ -95,7 +95,7 @@ theorem FinAddState.val_sUnion_finset (μ : FinAddState d) (fam : Finset (Set Ω
 pattern satisfies every Def-1.2 additivity constraint on `B`: for a finite
 pairwise-disjoint family of `B`-members whose union lies in `B`, the union is
 `s₀`-true iff some member is, and no two distinct members are both true. So the
-weaker `LocalState` structure is faithful wherever the amended σ-essential
+weaker `LocalState` structure is faithful wherever the σ-essential
 definition (which requires coherence) applies: a coherent pattern IS a state on
 `B` in the paper's full sense. -/
 theorem coherent_pattern_fully_additive {s₀ : LocalState d B}
@@ -123,11 +123,11 @@ theorem coherent_pattern_fully_additive {s₀ : LocalState d B}
     exact μ.val_at_most_one (hmem A hA) (hmem A' hA')
       (hdisj A hA A' hA' hne) hμA hμA'
 
-end SigmaEssential.Amended
+end SigmaEssential
 
 namespace SigmaEssential.Ulam
 
-open SigmaEssential SigmaEssential.Amended
+open SigmaEssential
 
 variable {M : Type*} [LinearOrder M]
 

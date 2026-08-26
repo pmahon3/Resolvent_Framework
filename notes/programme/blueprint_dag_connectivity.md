@@ -216,7 +216,7 @@ Claimed at the time to close the 43/27 split. It did close it, and the closure
 was worthless, which is not the same thing.
 
 The content: a query's outcome space carries a σ-algebra, σ-algebras are
-intersection-closed, so `boolean_no_witness_amended` forbids a witness on one.
+intersection-closed, so `boolean_no_witness` forbids a witness on one.
 That much is true and mildly worth knowing — it says C1′ holds for structural
 reasons rather than the finiteness/compactness ones the seed gives.
 
@@ -335,7 +335,7 @@ ch2-internal edge and remove a duplicated argument.
 
 - **43 (ch0–3) vs 27 (ch4–5).** Structural, not an oversight. Checked
   2026-08-24: no OML module imports ch0/ch1. `ConcreteOMLBlocks →
-  SigmaEssentialAmended → SigmaEssentialLocalization → Mathlib`;
+  SigmaEssentialWitness → SigmaEssentialLocalization → Mathlib`;
   `OrthomodularMO2 → Mathlib`. The σ-essential lane genuinely does not use the
   query-system core. A bridge would have to be *written*, not annotated.
 - **17 (ch6, pruning).** Its own opening says it: "a separate line of work…
@@ -350,10 +350,10 @@ blueprint (so adding them yields immediate edges):
 |---|---|---|
 | `DescentWitness{Finite,Infinite,Consistency,Closure}` | → `OrthomodularMO2` | **highest** — de-orphans MO₂, 4 rungs |
 | `SigmaEssentialOpenCore` | → `SigmaEssentialLocalization` | high — Ψ/Φ open core, `TargetA_sharp`, the admissibility work |
-| `ConcreteOMLBlocks`, `MarczewskiTransport`, `ConcreteOMLPatterns` | chain from `SigmaEssentialAmended` | high — the block/pattern layer, ~1700L axiom-free |
+| `ConcreteOMLBlocks`, `MarczewskiTransport`, `ConcreteOMLPatterns` | chain from `SigmaEssentialWitness` | high — the block/pattern layer, ~1700L axiom-free |
 | `SigmaEssentialBareForm` | → `SigmaEssentialLocalization` | medium |
 | `ReconstructionTheorem` | → `QuerySystem` | medium — would attach to ch0 AND is what `DelayEmbedding` imports |
-| `EncodingDefectCheck`, `UlamWitnessReceipts` | → covered modules | low — receipts, not results |
+| `UlamWitnessReceipts` | → covered modules | low — receipts, not results |
 | `BandClosure`, `Commensurability`, `FibreProductReflection`, `FiniteAtomFoldKernel`, `UltrafilterCharge`, `WindingInjectivity` | no project imports | none — would be new islands |
 
 ## What would actually make it a network

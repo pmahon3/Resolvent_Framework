@@ -17,13 +17,13 @@ Formalizes the σ-side of the witness construction
   holds for ALL sets — no set-inequality case analysis).
 * `kernel_empty` (clause (i)), `no_sigma_state_extends` (= Thm 7.1(2), the
   σ-side), and the reduction `witness_iff_coherent`: the pattern is a witness
-  (amended encoding, `SigmaEssentialAmended`) **iff** it is finitely coherent.
+  (`SigmaEssentialWitness`) **iff** it is finitely coherent.
   The coherence half (§3 invariant + §6 vote state) is the remaining work.
 
 Everything is parameterized over `(M, <)` uncountable with countable initial
 segments; instantiation at `ω₁` is a separate step.
 -/
-import QuerySystem.SigmaEssentialAmended
+import QuerySystem.SigmaEssentialWitness
 import Mathlib.Data.Set.Countable
 import Mathlib.Order.Interval.Set.Basic
 
@@ -31,7 +31,7 @@ open Set Function MeasurableSpace
 
 namespace SigmaEssential.Ulam
 
-open SigmaEssential SigmaEssential.Amended
+open SigmaEssential
 
 /-! ## §0. Dynkin-system helpers -/
 
@@ -416,10 +416,10 @@ theorem cores_inter_empty : coreA M ∩ coreB M ∩ coreC M = (∅ : Set (M × F
     simp_all
 
 /-- **Clause (i): the kernel is empty.** No point realizes the pattern. -/
-theorem kernel_empty (m₀ : M) : kernelL (corePattern U m₀) = ∅ := by
+theorem kernel_empty (m₀ : M) : kernel (corePattern U m₀) = ∅ := by
   apply Set.eq_empty_iff_forall_notMem.mpr
   intro p hp
-  rw [kernelL, mem_sInter] at hp
+  rw [kernel, mem_sInter] at hp
   have hmemA : p ∈ coreA M := by
     refine hp _ ⟨?_, corePattern_val_coreA U m₀⟩
     simp [coreBlock]
@@ -459,12 +459,12 @@ theorem no_sigma_state_extends (huncount : ¬ (Set.univ : Set M).Countable)
   exact this
 
 /-- **The reduction: witness ⟺ coherence.** With the σ-side discharged
-unconditionally, the pattern is a σ-essential contextual state (amended
+unconditionally, the pattern is a σ-essential contextual state (
 encoding) iff it is finitely coherent — clause (0) is the sole remaining
 obligation, exactly the paper's §3 + §6. -/
 theorem witness_iff_coherent (huncount : ¬ (Set.univ : Set M).Countable)
     (hseg : ∀ β : M, (Set.Iio β).Countable) (m₀ : M) :
-    IsSigmaEssentialL (corePattern U m₀) ↔ FinitelyCoherent (corePattern U m₀) := by
+    IsSigmaEssential (corePattern U m₀) ↔ FinitelyCoherent (corePattern U m₀) := by
   constructor
   · exact fun h => h.1
   · intro h
@@ -492,13 +492,13 @@ The whole content is finite fiber (`Fin 4`) set arithmetic, discharged by
 BPI/ultrafilter dependency lives only in the converse direction (FIP ⟹
 extendable) of the E1 lemma, which is *not* formalized here. The
 `#print axioms` receipts below are the certificate of that: `Classical.choice`
-appears only via the ambient `corePattern`/`kernelL` machinery, never from an
+appears only via the ambient `corePattern`/`kernel` machinery, never from an
 ultrafilter extension.
 
 *Scope (honest).* This certifies **clause (i)** of the witness (no *Dirac*
 extends, via empty kernel) with its sharp FIP-stage structure. It does **not**
 re-derive that a two-valued state realizing this pattern *exists* — that is
-`corePattern` + the coherence side (`psiAmended_ZFC` upstream), imported, not
+`corePattern` + the coherence side (`psi_ZFC` upstream), imported, not
 re-proved here. Clause (ii) (σ-point-selection / no non-Dirac extension) is the
 separate, open-mathematics part and is untouched. -/
 

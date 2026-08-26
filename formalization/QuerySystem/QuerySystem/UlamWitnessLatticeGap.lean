@@ -1,7 +1,7 @@
 /-
 # The lattice gap — the proved witness is an OMP, not an OML (the pinned boundary)
 
-The product-Ulam carrier `L₁` (`UlamWitnessMain`, `psiAmended_ZFC`) is a proved
+The product-Ulam carrier `L₁` (`UlamWitnessMain`, `psi_ZFC`) is a proved
 σ-essential witness: a **σ-complete orthomodular POSET** carrying a σ-essential
 contextual state in ZFC. This file machine-checks the exact boundary between what
 is *proved* and what is *open*:
@@ -52,7 +52,7 @@ open Set Function MeasurableSpace
 
 namespace SigmaEssential.Ulam
 
-open SigmaEssential SigmaEssential.Blocks SigmaEssential.Amended
+open SigmaEssential SigmaEssential.Blocks
 
 variable {M : Type*} [LinearOrder M]
 
@@ -180,27 +180,27 @@ theorem witness_carrier_not_lattice : ¬ MeetsExist L₁ := by
 
 /-- **PsiOML — the OML form of the σ-essential question (OPEN).** Does a
 σ-essential witness exist on a carrier that IS a lattice (`MeetsExist`)? The
-proved witness `psiAmended_ZFC` establishes the OMP form; `PsiOML` is the
+proved witness `psi_ZFC` establishes the OMP form; `PsiOML` is the
 surviving open core — a named `Prop`, NEVER assumed. (Paper §9 conjectures it is
 FALSE: every concrete σ-complete OML satisfies Φ, so the OMP/OML line is exactly
 the boundary of σ-essential contextuality.) -/
 def PsiOML : Prop :=
   ∃ (Ω : Type) (d : DynkinSystem Ω) (B : Block d) (s₀ : LocalState d B),
-    MeetsExist d ∧ IsSigmaEssentialL s₀
+    MeetsExist d ∧ IsSigmaEssential s₀
 
 /-- **`PsiOML → Ψ` (proved).** An OML witness drops its latticehood conjunct to
 give a bare σ-essential witness. (Only this implication is formalized; the
 converse `Ψ → PsiOML` is FALSE-or-open and NOT claimed here.)
 
 The pin is NOT this trivial conjunct-drop. It is the pair of facts:
-`Ψ` (`psiAmended_ZFC`) is a *theorem* — the OMP witness exists in ZFC — while
+`Ψ` (`psi_ZFC`) is a *theorem* — the OMP witness exists in ZFC — while
 `PsiOML` is *open*, and the proved witness `L₁` provably fails the extra
 latticehood conjunct (`witness_carrier_not_lattice`). So the proved witness
 inhabits the OMP existence sentence but, being non-lattice, contributes nothing
 to `PsiOML`: the OMP/OML line is exactly where "proved" turns into "open." -/
 theorem psiOML_gives_sigmaEssential (h : PsiOML) :
     ∃ (Ω : Type) (d : DynkinSystem Ω) (B : Block d) (s₀ : LocalState d B),
-      IsSigmaEssentialL s₀ := by
+      IsSigmaEssential s₀ := by
   obtain ⟨Ω, d, B, s₀, _, hw⟩ := h
   exact ⟨Ω, d, B, s₀, hw⟩
 

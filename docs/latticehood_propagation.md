@@ -137,7 +137,7 @@ two-paragraph letter statement follows.
 > Equivalently, is the set of sigma-additive two-valued states dense in the
 > finitely additive two-valued states for the finite-coordinate product
 > topology, throughout that OML class? The analogous orthomodular-poset form
-> fails by the corpus's amended sigma-essential witness, while no OML proof or
+> fails by the corpus's sigma-essential witness, while no OML proof or
 > counterexample is known in the audited literature. I would be grateful for a
 > reference to any state-extension, normality, or orthomodular-lattice theorem
 > that settles this density question, or for a known counterexample under these

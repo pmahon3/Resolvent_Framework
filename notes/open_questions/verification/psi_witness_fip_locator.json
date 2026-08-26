@@ -39,7 +39,7 @@
    ]
   },
   "solo_regions_empty": true,
-  "state_values_source": "m(A)=m(B)=m(C)=1: Lemma 6.2 of sigma_essential_witness.md; m two-valued f.a. state: Theorem 6.3; Lean suite UlamWitnessMain.lean (psiAmended_ZFC)",
+  "state_values_source": "m(A)=m(B)=m(C)=1: Lemma 6.2 of sigma_essential_witness.md; m two-valued f.a. state: Theorem 6.3; Lean suite UlamWitnessMain.lean (psi_ZFC)",
   "triple_intersection": []
  },
  "payload_sha256": "4678f610508e29119d99e856f5a9b734abdbaccaafa6ea0da5816f3086c72a99",
@@ -49,5 +49,5 @@
  },
  "scope": "trace-level identities of the product-Ulam cores ONLY; state values imported from the machine-checked witness note (not re-proved here); locator = {A,B,C}, FIP failure at stage exactly 3",
  "script": "psi_witness_fip_locator.py",
- "verdict": "DIRECT LOCATOR FOUND: value-1 family {A,B,C} of the amended product-Ulam witness state fails FIP at stage 3; necessary condition fires; HAND fallback not needed"
+ "verdict": "DIRECT LOCATOR FOUND: value-1 family {A,B,C} of the product-Ulam witness state fails FIP at stage 3; necessary condition fires; HAND fallback not needed"
 }

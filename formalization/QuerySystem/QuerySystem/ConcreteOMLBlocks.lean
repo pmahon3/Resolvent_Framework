@@ -38,7 +38,7 @@ Setting: a concrete σ-class `L` on `Ω` = Mathlib's `DynkinSystem Ω` (as in
   concrete compatibility. So on σ-class OMLs concrete and lattice
   compatibility coincide.
 * Monotonicity of f.a. states needs no latticehood: already
-  `FinAddState.val_mono` (`SigmaEssentialAmended`), reused as-is.
+  `FinAddState.val_mono` (`SigmaEssentialWitness`), reused as-is.
 
 ## Phase B — ALSO PROVED (the anticipated Foulis–Holland axiom was
 ## unnecessary)
@@ -63,7 +63,7 @@ Setting: a concrete σ-class `L` on `Ω` = Mathlib's `DynkinSystem Ω` (as in
 file depends on `[propext, Classical.choice, Quot.sound]` only — plain ZFC,
 no cited axioms, no sorry.
 -/
-import QuerySystem.SigmaEssentialAmended
+import QuerySystem.SigmaEssentialWitness
 import Mathlib.Order.Zorn
 import Mathlib.Order.Disjointed
 
@@ -210,7 +210,7 @@ end IsMaxBlock
 `F`: countable pairwise-disjoint families inside `F` are σ-additively
 evaluated. `IsSigmaOn μ (Carrier d)` is the GLOBAL σ-condition (the extra
 clause turning `FinAddState` into the σ-additive `TwoValuedState`). -/
-def IsSigmaOn (μ : Amended.FinAddState d) (F : Set (Set Ω)) : Prop :=
+def IsSigmaOn (μ : FinAddState d) (F : Set (Set Ω)) : Prop :=
   ∀ f : ℕ → Set Ω, Pairwise (Disjoint on f) → (∀ n, f n ∈ F) →
     (μ.Val (⋃ n, f n) ↔ ∃ n, μ.Val (f n))
 
@@ -218,7 +218,7 @@ def IsSigmaOn (μ : Amended.FinAddState d) (F : Set (Set Ω)) : Prop :=
 σ-additive globally iff it is σ-additive on every maximal block: every
 countable disjoint family, with its union, lives inside a single maximal
 block (A1a extends the family; A1b puts the union in the same block). -/
-theorem isSigmaOn_carrier_iff_maxBlocks (μ : Amended.FinAddState d) :
+theorem isSigmaOn_carrier_iff_maxBlocks (μ : FinAddState d) :
     IsSigmaOn μ (Carrier d) ↔ ∀ M, IsMaxBlock d M → IsSigmaOn μ M := by
   constructor
   · intro h M hM f hdisj hf
@@ -238,7 +238,7 @@ theorem isSigmaOn_carrier_iff_maxBlocks (μ : Amended.FinAddState d) :
 /-- **C1′, part 1.** A finitely additive two-valued state putting `1` on both
 `A` and `B` forces `A ∩ B ≠ ∅` (else the pair is disjoint and two disjoint
 sets carry value 1, contradicting derived at-most-one). -/
-theorem pattern_pair_overlap_nonempty (μ : Amended.FinAddState d)
+theorem pattern_pair_overlap_nonempty (μ : FinAddState d)
     (hA : d.Has A) (hB : d.Has B) (h1 : μ.Val A) (h2 : μ.Val B) :
     (A ∩ B).Nonempty := by
   rw [Set.nonempty_iff_ne_empty]
@@ -247,7 +247,7 @@ theorem pattern_pair_overlap_nonempty (μ : Amended.FinAddState d)
 
 /-- **C1′, part 2.** Any point of the (nonempty) overlap gives a Dirac state
 agreeing with `μ` on the ⊥-closed pattern `{A, B, Aᶜ, Bᶜ}`. -/
-theorem pattern_pair_dirac_rescue (μ : Amended.FinAddState d)
+theorem pattern_pair_dirac_rescue (μ : FinAddState d)
     (hA : d.Has A) (hB : d.Has B) (h1 : μ.Val A) (h2 : μ.Val B) :
     ∃ ω ∈ A ∩ B, ∀ E ∈ ({A, B, Aᶜ, Bᶜ} : Set (Set Ω)),
       ((dirac ω : TwoValuedState d).Val E ↔ μ.Val E) := by

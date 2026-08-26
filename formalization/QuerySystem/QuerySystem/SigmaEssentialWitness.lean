@@ -1,11 +1,11 @@
 /-
-# σ-essential, amended encoding (2026-07-06)
+# The σ-essential witness: definition, localization, Boolean baseline
 
-Repairs the encoding defect certified in `EncodingDefectCheck.lean`: the local
-pattern is now a **local** state on the block `B` (a `LocalState`), NOT a global
-σ-additive `TwoValuedState`. With that fix the witness predicate is satisfiable in
-principle and the paper's amended definitions (v2, `def:coherence` +
-`def:sigma-essential`) are encoded faithfully:
+The pattern is a **local** state on the block `B` (a `LocalState`), not a global
+σ-additive `TwoValuedState`. That distinction is the whole encoding: a witness is
+a pattern that coheres locally and admits no global σ-additive extension, so
+typing it globally would make it extend itself and the predicate would be
+unsatisfiable.
 
 * `FinAddState d` — a global **finitely additive** two-valued state (pair
   additivity; finite-family additivity is derived, since a σ-class is closed under
@@ -15,22 +15,20 @@ principle and the paper's amended definitions (v2, `def:coherence` +
   paper's blocks — Navara–Pták's and the witness's — complement pairs are exactly
   the additivity constraints that exist in `B`).
 * `FinitelyCoherent` — clause (0): some global finitely additive state extends the
-  pattern. `IsSigmaEssentialL` — coherent but with NO global σ-additive extension.
-* `dirac_iff_local`, `localization_amended` — the spine re-proved: witness ⟺
+  pattern. `IsSigmaEssential` — coherent but with NO global σ-additive extension.
+* `dirac_iff`, `localization` — the spine re-proved: witness ⟺
   (0) coherent ∧ (i) `K(s₀) = ∅` ∧ (ii) no non-Dirac σ-state extends.
-* `boolean_baseline` (amended Prop 1.6) — on an intersection-closed (Boolean)
-  carrier, coherence alone produces a Dirac extension; hence
-  `boolean_no_witness_amended`: no witness on a Boolean carrier. This is the
-  meaningfulness certificate for the new encoding: the old file could only prove
-  the Boolean baseline from the extra hypothesis `BooleanLocal` (block
-  intersection-closure) — the hole the Ω₇ example walks through; here coherence
-  does the work, as in the paper.
+* `boolean_baseline` (Prop 1.6) — on an intersection-closed (Boolean) carrier,
+  coherence alone produces a Dirac extension; hence `boolean_no_witness`: no
+  witness on a Boolean carrier. Coherence is what does the work, and it has to:
+  without it the baseline needs block intersection-closure as a separate
+  hypothesis, which is the hole `Omega7Counterexample` walks through.
 -/
 import QuerySystem.SigmaEssentialLocalization
 
 open Set Function MeasurableSpace
 
-namespace SigmaEssential.Amended
+namespace SigmaEssential
 
 open SigmaEssential
 
@@ -117,7 +115,7 @@ def _root_.SigmaEssential.TwoValuedState.toFinAdd (s : TwoValuedState d) :
 /-! ## §2. Local patterns (the encoding fix) -/
 
 /-- A **local** two-valued pattern on the block `B`: values constrained only by
-complement-additivity inside `B`. This replaces the broken encoding (pattern as a
+complement-additivity inside `B`. This is the encoding (pattern as a
 global σ-additive state). On the paper's blocks — the ⊥-closure of the Navara–Pták
 triple and of the witness's cores — complement pairs are exactly the additivity
 constraints that exist inside `B`, so this IS Def 1.2 restricted to `B` there. -/
@@ -149,72 +147,70 @@ def TwoValuedState.restrictLocal (s : TwoValuedState d) (B : Block d) :
   val_compl hA := s.val_compl (B.mem_has _ hA)
 
 /-- The kernel of a local pattern: `⋂ {A ∈ B : s₀(A) = 1}`. -/
-def kernelL (s₀ : LocalState d B) : Set Ω :=
+def kernel (s₀ : LocalState d B) : Set Ω :=
   ⋂₀ {A | A ∈ B.sets ∧ s₀.Val A}
 
 /-- **dirac-iff, local form.** `δ_ω` extends `s₀` iff `ω ∈ K(s₀)`. Same proof as
 the spine's `dirac_iff`, now consuming only the LOCAL complement-additivity. -/
-theorem dirac_iff_local (s₀ : LocalState d B) (ω : Ω) :
-    ExtendsS (dirac ω) s₀ ↔ ω ∈ kernelL s₀ := by
+theorem dirac_iff (s₀ : LocalState d B) (ω : Ω) :
+    ExtendsS (dirac ω) s₀ ↔ ω ∈ kernel s₀ := by
   constructor
   · intro h
-    rw [kernelL, mem_sInter]
+    rw [kernel, mem_sInter]
     rintro A ⟨hAB, hA1⟩
     exact ((h A hAB).mpr hA1)
   · intro hω
     intro A hAB
     by_cases hA : s₀.Val A
     · have : ω ∈ A := by
-        rw [kernelL, mem_sInter] at hω
+        rw [kernel, mem_sInter] at hω
         exact hω A ⟨hAB, hA⟩
       exact ⟨fun _ => hA, fun _ => this⟩
     · have hcB : Aᶜ ∈ B.sets := B.compl_closed A hAB
       have hc1 : s₀.Val Aᶜ := (s₀.val_compl hAB).mpr hA
       have hωc : ω ∈ Aᶜ := by
-        rw [kernelL, mem_sInter] at hω
+        rw [kernel, mem_sInter] at hω
         exact hω Aᶜ ⟨hcB, hc1⟩
       have hωnA : ω ∉ A := by simpa [mem_compl_iff] using hωc
       exact ⟨fun h => absurd h hωnA, fun h => absurd h hA⟩
 
 /-- No Dirac extends `s₀` iff the kernel is empty. -/
-theorem no_dirac_extendsL_iff_kernel_empty (s₀ : LocalState d B) :
-    (¬ ∃ ω : Ω, ExtendsS (dirac ω) s₀) ↔ kernelL s₀ = ∅ := by
+theorem no_dirac_extends_iff_kernel_empty (s₀ : LocalState d B) :
+    (¬ ∃ ω : Ω, ExtendsS (dirac ω) s₀) ↔ kernel s₀ = ∅ := by
   constructor
   · intro h
     rw [eq_empty_iff_forall_notMem]
     intro ω hω
-    exact h ⟨ω, (dirac_iff_local s₀ ω).mpr hω⟩
+    exact h ⟨ω, (dirac_iff s₀ ω).mpr hω⟩
   · intro h
     rintro ⟨ω, hω⟩
-    have : ω ∈ kernelL s₀ := (dirac_iff_local s₀ ω).mp hω
+    have : ω ∈ kernel s₀ := (dirac_iff s₀ ω).mp hω
     rw [h] at this
     exact notMem_empty ω this
 
-/-! ## §3. The amended σ-essential definition and localization -/
+/-! ## §3. The σ-essential definition and localization -/
 
 /-- Clause (0): the pattern is **finitely coherent** — some global finitely
 additive two-valued state extends it (paper v2 `def:coherence`). -/
 def FinitelyCoherent (s₀ : LocalState d B) : Prop :=
   ∃ μ : FinAddState d, ExtendsF μ s₀
 
-/-- **σ-essential contextual state, amended** (paper v2 `def:sigma-essential`):
-finitely coherent, but NO global σ-additive two-valued state extends it. This is
-the SATISFIABLE replacement of the broken `IsSigmaEssential`. -/
-def IsSigmaEssentialL (s₀ : LocalState d B) : Prop :=
+/-- **σ-essential contextual state** (`def:sigma-essential`): finitely coherent,
+but NO global σ-additive two-valued state extends it. -/
+def IsSigmaEssential (s₀ : LocalState d B) : Prop :=
   FinitelyCoherent s₀ ∧ ¬ ∃ s : TwoValuedState d, ExtendsS s s₀
 
 /-- Clause (ii): no non-Dirac σ-additive state extends. -/
-def NoNonDiracExtendsL (s₀ : LocalState d B) : Prop :=
+def NoNonDiracExtends (s₀ : LocalState d B) : Prop :=
   ¬ ∃ s : TwoValuedState d, ¬ s.IsDirac ∧ ExtendsS s s₀
 
-/-- **Localization, amended** — the three-clause form (paper v2
-`thm:localization`): witness ⟺ (0) coherent ∧ (i) `K(s₀)=∅` ∧ (ii) no non-Dirac
-σ-state extends. -/
-theorem localization_amended (s₀ : LocalState d B) :
-    IsSigmaEssentialL s₀ ↔
-      (FinitelyCoherent s₀ ∧ kernelL s₀ = ∅ ∧ NoNonDiracExtendsL s₀) := by
-  unfold IsSigmaEssentialL NoNonDiracExtendsL
-  rw [← no_dirac_extendsL_iff_kernel_empty]
+/-- **Localization** (`thm:localization`) — the three-clause form: witness ⟺
+(0) coherent ∧ (i) `K(s₀)=∅` ∧ (ii) no non-Dirac σ-state extends. -/
+theorem localization (s₀ : LocalState d B) :
+    IsSigmaEssential s₀ ↔
+      (FinitelyCoherent s₀ ∧ kernel s₀ = ∅ ∧ NoNonDiracExtends s₀) := by
+  unfold IsSigmaEssential NoNonDiracExtends
+  rw [← no_dirac_extends_iff_kernel_empty]
   constructor
   · rintro ⟨hcoh, h⟩
     refine ⟨hcoh, ?_, ?_⟩
@@ -228,18 +224,20 @@ theorem localization_amended (s₀ : LocalState d B) :
       exact hDir ⟨ω, hs⟩
     · exact hNon ⟨s, hd, hs⟩
 
-/-- **Ψ, amended** — the satisfiable existence sentence. OPEN as far as this file
-is concerned; the Product Ulam Carrier development targets it. -/
-def PsiAmended : Prop :=
+/-- **Ψ** — the existence sentence: some carrier, block and pattern is
+σ-essential. Proved by the Product Ulam Carrier development (`Ulam.psi_ZFC`);
+the surviving open form is the lattice one, `Ulam.PsiOML`. -/
+def Psi : Prop :=
   ∃ (Ω : Type) (d : DynkinSystem Ω) (B : Block d) (s₀ : LocalState d B),
-    IsSigmaEssentialL s₀
+    IsSigmaEssential s₀
 
-/-! ## §4. The amended Boolean baseline (Prop 1.6)
+/-! ## §4. The Boolean baseline (Prop 1.6)
 
 On an intersection-closed carrier, coherence alone produces a Dirac extension —
-no `BooleanLocal`/`hBinter` crutch. The old spine could not state this (its
+no block-intersection-closure hypothesis is needed. (Without coherence one
+cannot state this: the
 baseline needed the block itself intersection-closed, which is exactly the hole
-the Ω₇ example exposes); the amended definitions close it. -/
+the Ω₇ example exposes.) -/
 
 /-- Fold the μ-true sets of `B` into a single μ-true set contained in all of them
 (finite intersection via multiplicativity on a Boolean carrier). Shape follows the
@@ -267,7 +265,7 @@ private theorem fold_true_sets (hInter : InterClosed d)
       · exact inter_subset_right
       · exact inter_subset_left.trans (hMsub C hCt)
 
-/-- **Amended Boolean baseline (Prop 1.6).** On an intersection-closed (Boolean)
+/-- **Boolean baseline (Prop 1.6).** On an intersection-closed (Boolean)
 carrier, a finitely coherent local pattern has nonempty kernel — a Dirac extends
 it. Coherence does the work distributivity converts into a point. -/
 theorem boolean_baseline (hInter : InterClosed d)
@@ -287,21 +285,21 @@ theorem boolean_baseline (hInter : InterClosed d)
     rintro rfl
     exact μ.not_val_empty hM1
   obtain ⟨x, hxM⟩ := hMne
-  refine ⟨x, (dirac_iff_local s₀ x).mpr ?_⟩
-  rw [kernelL, mem_sInter]
+  refine ⟨x, (dirac_iff s₀ x).mpr ?_⟩
+  rw [kernel, mem_sInter]
   rintro A ⟨hAB, hA1⟩
   have hAT : A ∈ T := by
     rw [hT, Finset.mem_filter]
     exact ⟨hAB, (hμ A hAB).mpr hA1⟩
   exact hMsub A hAT hxM
 
-/-- **No witness on a Boolean carrier (amended Prop 2.1, machine-checked).** The
+/-- **No witness on a Boolean carrier (Prop 2.1, machine-checked).** The
 meaningfulness certificate for the new encoding: with coherence in the definition,
 the Boolean baseline is restored — no `BooleanLocal` crutch, no Ω₇ hole. -/
-theorem boolean_no_witness_amended (hInter : InterClosed d)
-    (s₀ : LocalState d B) : ¬ IsSigmaEssentialL s₀ := by
+theorem boolean_no_witness (hInter : InterClosed d)
+    (s₀ : LocalState d B) : ¬ IsSigmaEssential s₀ := by
   rintro ⟨hcoh, hno⟩
   obtain ⟨ω, hω⟩ := boolean_baseline hInter s₀ hcoh
   exact hno ⟨dirac ω, hω⟩
 
-end SigmaEssential.Amended
+end SigmaEssential

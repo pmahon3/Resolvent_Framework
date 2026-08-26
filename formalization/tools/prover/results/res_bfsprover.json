@@ -847,7 +847,7 @@
  },
  {
   "file": "UlamWitnessOmega1.lean",
-  "name": "psiAmended_of_coherent",
+  "name": "psi_of_coherent",
   "ok": false,
   "proof": null,
   "reason": "budget",

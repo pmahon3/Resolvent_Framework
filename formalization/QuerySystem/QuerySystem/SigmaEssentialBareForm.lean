@@ -25,6 +25,7 @@ independently for that future step; the coherence→non-globalization bridge is 
 recorded open gap. Receipts (`#print axioms`) are clean — no smuggling.
 -/
 import QuerySystem.SigmaEssentialLocalization
+import QuerySystem.SigmaEssentialWitness
 
 open Set MeasurableSpace
 namespace SigmaEssential.BareForm
@@ -101,8 +102,9 @@ with clause (i) arranged (`K(s₀)=∅`, no point realizes it) AND admits **no g
 section** — no global two-valued state on `d` extends `s₀`. This is the witness
 condition, lifted to the selection. -/
 def Selection.QBarePositive {P : PartitionSystem d} (_σ : Selection P)
-    (s₀ : TwoValuedState d) (B : Block d) : Prop :=
-  kernel s₀ B = ∅ ∧ ¬ ∃ s : TwoValuedState d, Extends s s₀ B
+    {B : Block d} (s₀ : LocalState d B) : Prop :=
+  FinitelyCoherent s₀ ∧ kernel s₀ = ∅ ∧
+    ¬ ∃ s : TwoValuedState d, ExtendsS s s₀
 
 /-! ## §3. The correspondence (NON-TRIVIAL): positive Q:bare ⟺ witness
 
@@ -115,10 +117,10 @@ through `IsSigmaEssential`'s unfolding and clause (i)). -/
 with `K(s₀)=∅` and admits no global section, then `s₀` is a σ-essential witness. -/
 theorem qbare_pos_gives_witness
     {P : PartitionSystem d} (σ : Selection P)
-    (s₀ : TwoValuedState d) (B : Block d)
-    (hpos : σ.QBarePositive s₀ B) :
-    IsSigmaEssential s₀ B :=
-  hpos.2
+    {B : Block d} (s₀ : LocalState d B)
+    (hpos : σ.QBarePositive s₀) :
+    IsSigmaEssential s₀ :=
+  ⟨hpos.1, hpos.2.2⟩
 
 /-- **Witness ⟹ Q:bare positive.** A σ-essential witness, together with ANY local
 selection on a partition system over the same carrier, gives a positive Q:bare:
@@ -126,11 +128,10 @@ the witness supplies both clauses (no global section = `IsSigmaEssential`; `K(s�
 from the localization (i)). -/
 theorem witness_gives_qbare_pos
     {P : PartitionSystem d} (σ : Selection P)
-    (s₀ : TwoValuedState d) (B : Block d)
-    (hw : IsSigmaEssential s₀ B) :
-    σ.QBarePositive s₀ B := by
-  refine ⟨?_, hw⟩
-  exact ((localization s₀ B).mp hw).1
+    {B : Block d} (s₀ : LocalState d B)
+    (hw : IsSigmaEssential s₀) :
+    σ.QBarePositive s₀ :=
+  ⟨hw.1, ((localization s₀).mp hw).2.1, hw.2⟩
 
 /-- **The correspondence (POSITIVE = witness).** For any local selection over the
 carrier, Q:bare-positive ⟺ `s₀` is a σ-essential witness. The polarity matches the
@@ -138,9 +139,9 @@ paper. The selection's role is to exhibit the no-point pattern as coherent local
 the witness is the absence of a global section. -/
 theorem qbare_iff_witness
     {P : PartitionSystem d} (σ : Selection P)
-    (s₀ : TwoValuedState d) (B : Block d) :
-    σ.QBarePositive s₀ B ↔ IsSigmaEssential s₀ B :=
-  ⟨qbare_pos_gives_witness σ s₀ B, witness_gives_qbare_pos σ s₀ B⟩
+    {B : Block d} (s₀ : LocalState d B) :
+    σ.QBarePositive s₀ ↔ IsSigmaEssential s₀ :=
+  ⟨qbare_pos_gives_witness σ s₀, witness_gives_qbare_pos σ s₀⟩
 
 /-! ## §4. The non-globalization lemma — what makes it contextual, not vacuous
 
@@ -153,9 +154,9 @@ content of "no global section". This is the genuine (non-`rfl`) content. -/
 `s₀`. (Directly the "no global section" half — the contextuality.) -/
 theorem qbare_pos_no_global_section
     {P : PartitionSystem d} (σ : Selection P)
-    (s₀ : TwoValuedState d) (B : Block d)
-    (hpos : σ.QBarePositive s₀ B) :
-    ¬ ∃ s : TwoValuedState d, Extends s s₀ B :=
-  hpos.2
+    {B : Block d} (s₀ : LocalState d B)
+    (hpos : σ.QBarePositive s₀) :
+    ¬ ∃ s : TwoValuedState d, ExtendsS s s₀ :=
+  hpos.2.2
 
 end SigmaEssential.BareForm

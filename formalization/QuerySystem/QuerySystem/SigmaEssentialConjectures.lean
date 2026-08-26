@@ -23,7 +23,7 @@ open Set MeasurableSpace
 namespace SigmaEssential.Conjectures
 open SigmaEssential SigmaEssential.OpenCore
 
-variable {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
+variable {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
 
 /-! ## §1. The intrinsic-𝒦 conjecture (taxonomy `open.intrinsic_K`)
 
@@ -42,34 +42,36 @@ structure IntrinsicK where
   /-- (c) the carrier is NOT intersection-closed for the pattern — the non-distributive
       core. (Forced on any witness by `witness_not_intersection_closed`; here it is a
       *claimed* ingredient of the construction.) -/
-  notIntersectionClosed : ¬ IntersectionClosed s₀ B
+  notIntersectionClosed : ¬ IntersectionClosed d
+  /-- (0) the pattern is finitely coherent — some finitely additive state realizes it. -/
+  coherent : FinitelyCoherent s₀
   /-- (i) clause (i) is arranged: no Dirac extends. -/
-  kernelEmpty : kernel s₀ B = ∅
+  kernelEmpty : kernel s₀ = ∅
   /-- (ii) wall A: no non-Dirac state extends. THE open core — the conjecture must
       supply this; it cannot be proved. Stated as a hypothesis, honestly open. -/
-  wallA : WallA s₀ B
+  wallA : WallA s₀
 
 /-- **Sufficiency check (PROVED).** The intrinsic-𝒦 ingredients DO entail a witness.
 So the conjecture is *internally sufficient*: if a carrier delivers (i)+(ii)+(¬closed),
 it is a witness. This tells us the construction's TARGET is correctly specified —
 the whole burden is `wallA` (clause (ii)), exactly as the taxonomy says. -/
-theorem intrinsicK_suffices (h : IntrinsicK s₀ B) : WitnessAt s₀ B :=
-  (witness_iff_kernel_empty_and_wallA s₀ B).mpr ⟨h.kernelEmpty, h.wallA⟩
+theorem intrinsicK_suffices (h : IntrinsicK s₀) : WitnessAt s₀ :=
+  (witness_iff_kernel_empty_and_wallA s₀).mpr ⟨h.coherent, h.kernelEmpty, h.wallA⟩
 
 /-- **Consistency check (PROVED).** The ingredients are NOT jointly contradictory:
 the `¬IntersectionClosed` ingredient is *consistent with* (indeed forced by) being a
 witness — it does not collide with (i)+(ii). Formally: from the ingredients we derive
 a witness, and a witness refutes `IntersectionClosed`, matching ingredient (c). So the
 construction does not self-destruct (unlike a costume). -/
-theorem intrinsicK_consistent (h : IntrinsicK s₀ B) :
-    ¬ IntersectionClosed s₀ B :=
-  witness_not_intersection_closed s₀ B (intrinsicK_suffices s₀ B h)
+theorem intrinsicK_consistent (h : IntrinsicK s₀) :
+    ¬ IntersectionClosed d :=
+  witness_not_intersection_closed s₀ (intrinsicK_suffices s₀ h)
 
 /-- **The gap, stated precisely.** Stripping the freely-arrangeable (i) and the
 structural (c), the entire open content of intrinsic-𝒦 is `WallA` (clause (ii)).
 The conjecture reduces the construction to *exactly* the open core — no more, no less.
 This is the investigative payoff: intrinsic-𝒦 is well-posed and gap = wall A. -/
-theorem intrinsicK_gap_is_wallA (h : IntrinsicK s₀ B) : WallA s₀ B := h.wallA
+theorem intrinsicK_gap_is_wallA (h : IntrinsicK s₀) : WallA s₀ := h.wallA
 
 /-! ## §1b. CANDIDATE SHAPE — atomless blocks on an uncountable carrier (2026-06-26)
 
@@ -143,10 +145,10 @@ self-defeating: a state is an extension, and a witness forbids all extensions.
 Use as the polarity check — a construction that yields a global state has produced a
 rescuer, not a witness. -/
 theorem builds_state_implies_not_witness
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
-    (s : TwoValuedState d) (hext : Extends s s₀ B) :
-    ¬ IsSigmaEssential s₀ B :=
-  fun hess => hess ⟨s, hext⟩
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
+    (s : TwoValuedState d) (hext : ExtendsS s s₀) :
+    ¬ IsSigmaEssential s₀ :=
+  fun hess => hess.2 ⟨s, hext⟩
 
 /-- **Corollary — the large-cardinal-ultrafilter trap, abstractly.** Reading a state
 off any global object (e.g. `U↾L` for an ultrafilter `U`) gives an extension, hence
@@ -156,10 +158,10 @@ GLOBAL, so "U supplies the witness's state" always rescues. "Direct construction
 U" must instead mean **U builds the CARRIER** (Ω uncountable/non-Polish), with
 non-extendability emerging structurally from `L`, `U` never read as a state. -/
 theorem ultrafilter_as_state_is_rescuer
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
-    (uState : TwoValuedState d) (huext : Extends uState s₀ B) :
-    ¬ IsSigmaEssential s₀ B :=
-  builds_state_implies_not_witness s₀ B uState huext
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
+    (uState : TwoValuedState d) (huext : ExtendsS uState s₀) :
+    ¬ IsSigmaEssential s₀ :=
+  builds_state_implies_not_witness s₀ uState huext
 
 /-! ## §2. Detector validation — re-run COVERED (killed) items, expect death
 
@@ -172,24 +174,24 @@ death: "∪-closed ⟹ Boolean". The ∪-closed regime's defining property entai
 intersection-closure the detector tests, so the detector fires: no witness. We model
 the band-family's fatal hypothesis as `IntersectionClosed` (its ∪-closed-⟹-Boolean
 horn) and confirm death. -/
-theorem band_family_dead (hBand : IntersectionClosed s₀ B) : ¬ WitnessAt s₀ B :=
-  costume_kills_witness s₀ B hBand
+theorem band_family_dead (hBand : IntersectionClosed d) : ¬ WitnessAt s₀ :=
+  costume_kills_witness hBand s₀
 
 /-- **`selection_first` re-killed (taxonomy `costume.selection_first`, 6th costume).**
 Recorded death: "coherence conditions ARE closure conditions (BandClosure.lean); the
 selection dies the same collapse." Its closure condition entails intersection-closure,
 so the detector fires. Same mechanism, different dress — exactly "6th costume". -/
-theorem selection_first_dead (hClosure : IntersectionClosed s₀ B) : ¬ WitnessAt s₀ B :=
-  costume_kills_witness s₀ B hClosure
+theorem selection_first_dead (hClosure : IntersectionClosed d) : ¬ WitnessAt s₀ :=
+  costume_kills_witness hClosure s₀
 
 /-- **`embedding_transport` re-killed (taxonomy `costume.embedding_transport`, #8,
 FORBIDDEN).** Recorded: transporting `U` onto orthogonal-only closure "bottoms out at
 the same identity". The transport's success would require the carrier to be
 intersection-closed (so `U`'s κ-completeness, stated via intersections, applies) —
 which the detector kills. Confirms #8 is a costume without ever building it. -/
-theorem embedding_transport_dead (hTransport : IntersectionClosed s₀ B) :
-    ¬ WitnessAt s₀ B :=
-  costume_kills_witness s₀ B hTransport
+theorem embedding_transport_dead (hTransport : IntersectionClosed d) :
+    ¬ WitnessAt s₀ :=
+  costume_kills_witness hTransport s₀
 
 /-! ## §2b. The tree-incidence detector (2026-07-02, the recursive-MO₂ death, generalized)
 
@@ -241,9 +243,9 @@ tree carrier satisfies `WallA` for free, because it has no non-Dirac states at a
 `diracOnly_gives_wallA` specialized — and it is the honest statement: the obstruction
 clause is met by *absence of the objects it would obstruct*, not by genuine contextuality. -/
 theorem treeIncidence_wallA_vacuous {Ω : Type*} {d : DynkinSystem Ω}
-    (h : TreeIncidence d) (s₀ : TwoValuedState d) (B : Block d) :
-    WallA s₀ B :=
-  diracOnly_gives_wallA (treeIncidence_diracOnly h) s₀ B
+    {B : Block d} (h : TreeIncidence d) (s₀ : LocalState d B) :
+    WallA s₀ :=
+  diracOnly_gives_wallA (treeIncidence_diracOnly h) s₀
 
 /-- **The detector fires: tree-incidence witnesses only DEGENERATELY (proved).** If a
 tree-incidence carrier is a witness at all, it is one *only* via clause (i) — no Dirac
@@ -252,10 +254,11 @@ extends — with clause (ii) vacuous. So any witness it produces is Dirac-domina
 state this as: on a tree carrier, being a witness is EQUIVALENT to clause (i) alone (the
 non-Dirac content is empty). -/
 theorem treeIncidence_witness_is_degenerate {Ω : Type*} {d : DynkinSystem Ω}
-    (h : TreeIncidence d) (s₀ : TwoValuedState d) (B : Block d) :
-    WitnessAt s₀ B ↔ kernel s₀ B = ∅ := by
-  rw [WitnessAt, localization]
-  exact ⟨fun hw => hw.1, fun hi => ⟨hi, treeIncidence_wallA_vacuous h s₀ B⟩⟩
+    {B : Block d} (h : TreeIncidence d) (s₀ : LocalState d B) :
+    WitnessAt s₀ ↔ (FinitelyCoherent s₀ ∧ kernel s₀ = ∅) := by
+  rw [witness_iff_kernel_empty_and_wallA]
+  exact ⟨fun hw => ⟨hw.1, hw.2.1⟩,
+    fun hi => ⟨hi.1, hi.2, treeIncidence_wallA_vacuous h s₀⟩⟩
 
 /-- **The honest non-claim (proved): tree-incidence does NOT give `¬Ψ`.** This certifies the
 distinction between the detector `(B)` and the false universal `(A)`. From `TreeIncidence`
@@ -264,10 +267,10 @@ alone one cannot conclude `¬ WitnessAt` — indeed, combined with clause (i), t
 kills tree-incidence as a route to a *genuine* witness (its states are all Dirac) WITHOUT
 claiming impossibility. The universal `(A)` (which would be `¬Ψ`) is not proved and not used. -/
 theorem treeIncidence_not_impossibility {Ω : Type*} {d : DynkinSystem Ω}
-    (h : TreeIncidence d) (s₀ : TwoValuedState d) (B : Block d)
-    (hi : kernel s₀ B = ∅) :
-    WitnessAt s₀ B :=
-  diracOnly_with_clause_i_gives_witness (treeIncidence_diracOnly h) s₀ B hi
+    {B : Block d} (h : TreeIncidence d) (s₀ : LocalState d B)
+    (hcoh : FinitelyCoherent s₀) (hi : kernel s₀ = ∅) :
+    WitnessAt s₀ :=
+  diracOnly_with_clause_i_gives_witness (treeIncidence_diracOnly h) s₀ hcoh hi
 
 /-! ## §3. The contrast that makes the detector meaningful
 
@@ -282,8 +285,8 @@ That is the formal content of "is this a costume?". -/
 supply `¬ IntersectionClosed`; that is necessary (witnesses fail closure) but NOT
 sufficient (clause (ii) still open). -/
 theorem costume_discriminator :
-    (IntersectionClosed s₀ B → ¬ WitnessAt s₀ B) ∧
-    (WitnessAt s₀ B → ¬ IntersectionClosed s₀ B) :=
-  ⟨costume_kills_witness s₀ B, witness_not_intersection_closed s₀ B⟩
+    (IntersectionClosed d → ¬ WitnessAt s₀) ∧
+    (WitnessAt s₀ → ¬ IntersectionClosed d) :=
+  ⟨fun hc => costume_kills_witness hc s₀, witness_not_intersection_closed s₀⟩
 
 end SigmaEssential.Conjectures

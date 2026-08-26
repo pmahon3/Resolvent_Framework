@@ -3,13 +3,13 @@
 > **STATUS NOTE 2026-07-06 (verification session).** Two developments bear on
 > this scope. (1) The detectors it targets are built on the OLD spine's witness
 > predicate, which was proved UNSATISFIABLE as encoded
-> (`EncodingDefectCheck.lean`: `psi_false`; pattern typed as a global
+> (pattern typed as a global
 > σ-additive state) — every theorem routed through `WitnessAt`/`IsSigmaEssential`
 > is vacuous, so a guard consuming them would certify nothing. Any build of this
-> scope must target the AMENDED encoding (`SigmaEssentialAmended.lean`:
-> `IsSigmaEssentialL`, coherence clause included). (2) The amended Ψ has since
+> scope must target the pattern encoding (`SigmaEssentialWitness.lean`:
+> `IsSigmaEssential`, coherence clause included). (2) Ψ has since
 > been RESOLVED in ZFC and machine-checked end-to-end
-> (`UlamWitnessMain.lean : psiAmended_ZFC`), so the guard's original purpose —
+> (`UlamWitnessMain.lean : psi_ZFC`), so the guard's original purpose —
 > screening candidate mechanisms for THAT problem — is moot; the surviving use
 > case is the successor problem (the lattice form, latticehood ⟹ Φ), where a
 > detector suite would first need lattice-aware definitions. Park until that

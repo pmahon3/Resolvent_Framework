@@ -17,7 +17,7 @@ to prove + vacant lots shipped as invitations).
 
 Active flagship: **reconstruction/commensurability**
 (`papers/reconstruction/` — paper skeleton + notes/ hubs + oracles/).
-σ-essential: amended form is a machine-checked ZFC theorem; paper
+σ-essential: machine-checked ZFC theorem; paper
 dissemination-ready (`papers/sigma_essential/`); OML/lattice +
 positive-selection + Φ-slice forms open (shovel plan). Paper I parked;
 Paper II is the survivor (Type-6); `papers/spine/` reads the corpus

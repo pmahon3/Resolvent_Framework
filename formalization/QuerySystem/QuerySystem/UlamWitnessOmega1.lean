@@ -13,7 +13,7 @@ import Mathlib.SetTheory.Cardinal.Aleph
 
 namespace SigmaEssential.Ulam
 
-open Set Ordinal Cardinal SigmaEssential SigmaEssential.Amended
+open Set Ordinal Cardinal SigmaEssential
 
 /-- The concrete index set: the type of the first uncountable ordinal. -/
 def M₁ : Type := (ω₁ : Ordinal).ToType
@@ -66,7 +66,7 @@ noncomputable def m₀ : M₁ := Classical.arbitrary M₁
 noncomputable def s₀ : LocalState L₁ (coreBlock U₁) := corePattern U₁ m₀
 
 /-- **Clause (i), ZFC:** the kernel is empty — no point realizes the pattern. -/
-theorem s₀_kernel_empty : kernelL s₀ = ∅ := kernel_empty U₁ m₀
+theorem s₀_kernel_empty : kernel s₀ = ∅ := kernel_empty U₁ m₀
 
 /-- **The σ-side of the main theorem, ZFC-unconditional:** no σ-additive
 two-valued state on the carrier extends the pattern (Thm 7.1(2)). -/
@@ -74,14 +74,14 @@ theorem s₀_no_sigma_extension (s : TwoValuedState L₁) : ¬ ExtendsS s s₀ :
   no_sigma_state_extends M₁_uncountable M₁_seg m₀ s
 
 /-- **The reduction, ZFC-unconditional:** the pattern is a σ-essential
-contextual state (amended encoding) **iff** it is finitely coherent. Clause (0)
+contextual state **iff** it is finitely coherent. Clause (0)
 — the §3 invariant + §6 vote state — is the sole remaining obligation; once
-`FinitelyCoherent s₀` is proved, `PsiAmended` follows. -/
-theorem s₀_witness_iff_coherent : IsSigmaEssentialL s₀ ↔ FinitelyCoherent s₀ :=
+`FinitelyCoherent s₀` is proved, `Psi` follows. -/
+theorem s₀_witness_iff_coherent : IsSigmaEssential s₀ ↔ FinitelyCoherent s₀ :=
   witness_iff_coherent M₁_uncountable M₁_seg m₀
 
-/-- Coherence would close the whole problem: `FinitelyCoherent s₀ → PsiAmended`. -/
-theorem psiAmended_of_coherent (h : FinitelyCoherent s₀) : PsiAmended :=
+/-- Coherence would close the whole problem: `FinitelyCoherent s₀ → Psi`. -/
+theorem psi_of_coherent (h : FinitelyCoherent s₀) : Psi :=
   ⟨M₁ × Fin 4, L₁, coreBlock U₁, s₀, s₀_witness_iff_coherent.mpr h⟩
 
 end SigmaEssential.Ulam

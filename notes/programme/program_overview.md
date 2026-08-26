@@ -64,7 +64,7 @@ set are countably equal to a single ξ). What remains is ξ-triviality (ξ ≈ �
 ξ ≈ M), which does NOT follow from the invariant. `row_conull` is the lever:
 with countable initial segments each row covers M up to a countable set, so one
 row's cells partition a conull set. Closing this closes the Ψ-fidelity gap —
-`PsiAmended` still does not carry essential irreducibility as a hypothesis, so
+`Psi` still does not carry essential irreducibility as a hypothesis, so
 it is strictly weaker than the paper's Ψ.
 
 ### Where the accurate detail lives
@@ -466,21 +466,20 @@ remains open and is now the whole theory-front target.
 
 Ordered by downstream leverage:
 
-**⚑⚑ AMENDED Ψ = MACHINE-CHECKED ZFC THEOREM (2026-07-06)
+**⚑⚑ Ψ = MACHINE-CHECKED ZFC THEOREM (2026-07-06)
 ⟦LEAN — 0-sorry end-to-end; axioms = [propext, Classical.choice, Quot.sound] only⟧.**
 The **Product Ulam Carrier** (`papers/sigma_essential/witness_candidate/`) cleared
 adversarial verification (two independent proof passes, no mathematical error; verdict —
 outcome (i), qualified — in `witness_candidate/VERIFICATION_VERDICT.md`) and was then
-**formalized end-to-end in Lean the same day**: `psiAmended_ZFC`
+**formalized end-to-end in Lean the same day**: `psi_ZFC`
 (`formalization/QuerySystem/QuerySystem/UlamWitnessMain.lean`) proves Ψ on
-**σ-classes/OMPs, coherence-amended, irreducible mod the countable ideal, in ZFC** — the
-full chain (encoding fix `SigmaEssentialAmended`; Ulam matrix + rigidity Thm 5.1 + empty
+**σ-classes/OMPs, irreducible mod the countable ideal, in ZFC** — the
+full chain (the pattern encoding `SigmaEssentialWitness`; Ulam matrix + rigidity Thm 5.1 + empty
 kernel `UlamWitnessCore`; ω₁ instantiation `UlamWitnessOmega1`; §3 trace invariant with
 the complete disjointness table `UlamWitnessInvariant`; §6 vote state + coherence
-`UlamWitnessState`), receipts in `UlamWitnessReceipts.lean`. The Ω₇ example — the
-amendment-forcing counterexample refuting [M] Prop 2.1 as literally stated — is also
-machine-checked (`Omega7Counterexample.lean`), so the coherence amendment's
-**repair-not-retreat** status is itself certified. Per-statement:
+`UlamWitnessState`), receipts in `UlamWitnessReceipts.lean`. The Ω₇ example — the counterexample showing [M] Prop 2.1 fails without the
+coherence clause — is also machine-checked (`Omega7Counterexample.lean`), so the
+clause's necessity is itself certified. Per-statement:
 Ψ (OMP + coherence + irred-mod-ctble) — **ZFC theorem, Lean-certified**;
 Ψ on **lattices (OML)** — OPEN, conjectured *opposite* (latticehood ⟹ Φ);
 attack ACTIVE 2026-07-10 s8–s12 (shovel thm 2): banked ⟦HAND⟧ theorem-lets
@@ -510,7 +509,7 @@ the write-up question. Reversal trigger (binding): downgrade only on a prior-art
 a located definitional-fidelity flaw.
 
 **⚑ NEW ACTIVE THREAD (2026-07-06): reconstruction / commensurability classification.**
-With the amended Ψ machine-checked, the programme reorients toward **practical
+With Ψ machine-checked, the programme reorients toward **practical
 reconstruction, foundations-first** (user decision, design session = the witness
 capture session continued). Division of labour: design session does mathematical
 planning/design via discussion; this repo verifies (Lean + audit tools); writing
@@ -549,7 +548,7 @@ positive-selection strength) stands separately in the taxonomy.
 **[SUPERSEDED-IN-PART 2026-07-06]** The block below stands as the record for the
 **literal (lattice / literal-irreducibility) forms only**. Its mathematical content
 (walls, import-sweep kills) is unrefuted; its strategic judgment ("not close") is
-falsified for the amended/OMP form — the 13-carrier sample contained no two-layer design
+falsified for the OMP form — the 13-carrier sample contained no two-layer design
 (Boolean rigidity layer ⊗ native parity incompatibility, coupled only through the
 countable ideal). Not a verdict swing: the prior swings re-read one proposition; this
 update splits it on new evidence (a verified object).
@@ -613,7 +612,7 @@ results + session-history pointers below.)
   no non-Dirac σ-additive two-valued state does — and (i) is freely arrangeable
   (Navara–Pták), so the entire content is clause (ii) = Wall A. Machine-checked (Lean
   `localization`, 0-sorry). Full statement: `notes/open_questions/sigma_essential/sigma_essential_reduction_writeup.md`.
-- **Derr–Williamson Polish boundary (`rem:dw`) — amended s13.** On a Polish-representable
+- **Derr–Williamson Polish boundary (`rem:dw`), s13.** On a Polish-representable
   carrier with **blockwise inner-regular** restrictions every finitely-coherent pattern
   globalises — no witness (DW 2023 Thm D.6, via Maharam §8; topological hypothesis
   load-bearing). *s13 (2026-07-10):* the inner-regularity leg is independently binding

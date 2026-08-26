@@ -410,15 +410,18 @@ of thick sets.
 \label{thm:no-extension-tower}
 \lean{QuerySystem.not_exists_extension_of_escapingTower}
 \leanok
-\uses{def:escaping-tower}
+\uses{def:escaping-tower, lem:cont-above}
 A query system carrying an escaping tower admits no extension of its charges to
 a probability measure on $\Omega$.
 \end{theorem}
 
 \begin{proof}
 \leanok
-Continuity from above: each stage has measure $1$, the intersection has measure
-$0$, and a constant sequence cannot converge to both.
+\uses{lem:cont-above}
+The tower's cylinders are an antitone measurable sequence with empty
+intersection and every stage of mass $1$, which is exactly what
+\ref{lem:cont-above} forbids. Continuity from above is not re-derived here: it
+was proved once, in the diagonal layer, and this is its consumer.
 
 Note the hypotheses: there are none on $S$. No directedness, no surjectivity,
 no collective exhaustion. The tower alone is fatal --- which is why
@@ -831,7 +834,7 @@ the depths are unbounded. The two hypotheses differ exactly here, and the delay
 system sits between them.
 \end{proof}
 
-\begin{proposition}[A definitional mismatch with the source, recorded]
+\begin{remark}[A definitional mismatch with the source, recorded]
 \label{prop:delay-mismatch}
 \uses{thm:delay-not-sud}
 Paper 1's Proposition 2 establishes that every \emph{finite} subfamily of delay
@@ -843,7 +846,7 @@ strictly stronger; the finite-subfamily property is exactly
 paper's extension theorem is stated at a scope its hypothesis does not reach,
 and \ref{thm:delay-not-sud} is the witness. The repair is the fixed-lag
 restriction below, not a weakening of the theorem.
-\end{proposition}
+\end{remark}
 
 \section{Where the extension theorem does apply}
 
@@ -1536,17 +1539,17 @@ pushed.
 \begin{definition}[Finite coherence]
   \label{def:fincoherent}
   \uses{def:local-pattern}
-  \lean{SigmaEssential.Amended.FinitelyCoherent}
+  \lean{SigmaEssential.FinitelyCoherent}
   \leanok
   The pattern is realized by some finitely additive global state. This is the
-  amendment: coherence sits \emph{in} the definition, which is what repairs the
-  Boolean baseline.
+  Coherence sits \emph{in} the definition, which is what the Boolean baseline
+  consumes.
 \end{definition}
 
 \begin{theorem}[Boolean baseline]
   \label{thm:boolean-baseline}
   \uses{def:interclosed, def:fincoherent, lem:val-inter}
-  \lean{SigmaEssential.Amended.boolean_baseline}
+  \lean{SigmaEssential.boolean_baseline}
   \leanok
   On an intersection-closed carrier every finitely coherent local pattern has
   nonempty kernel: some Dirac state extends it.
@@ -1568,7 +1571,7 @@ pushed.
 
 \chapter{The $\sigma$-essential witness, and the OML gap}
 
-The flagship result. \texttt{psiAmended\_ZFC} is a ZFC theorem with zero
+The flagship result. \texttt{psi\_ZFC} is a ZFC theorem with zero
 sorries, axioms exactly \texttt{[propext, Classical.choice, Quot.sound]}: a
 concrete $\sigma$-complete orthomodular \emph{poset} carrying a finite
 two-valued pattern that is finitely coherent yet extends to no global
@@ -1608,7 +1611,7 @@ weaker-or-equal and the derived lemma restores equality.
 
 \begin{definition}[Finitely additive two-valued state]
 \label{def:finadd-state}
-\lean{SigmaEssential.Amended.FinAddState}
+\lean{SigmaEssential.FinAddState}
 \leanok
 \uses{def:sigma-class}
 Pair additivity only. Finite-family additivity is derived
@@ -1618,7 +1621,7 @@ coherence clause quantifies over exactly the paper's finitely additive states.
 
 \begin{definition}[The local pattern]
 \label{def:local-pattern}
-\lean{SigmaEssential.Amended.LocalState}
+\lean{SigmaEssential.LocalState}
 \leanok
 \uses{def:sigma-class, def:se-block}
 A two-valued assignment on a finite $\perp$-closed block $B \subseteq L$.
@@ -1629,7 +1632,7 @@ restricted to $B$. It is closed both ways below.
 
 \begin{lemma}[The weaker encoding is upgraded by coherence]
 \label{lem:pattern-fully-additive}
-\lean{SigmaEssential.Amended.coherent_pattern_fully_additive}
+\lean{SigmaEssential.coherent_pattern_fully_additive}
 \leanok
 \uses{def:local-pattern, def:finadd-state}
 A finitely coherent \texttt{LocalState} satisfies \emph{every} Def-1.2
@@ -1659,9 +1662,20 @@ The twelve cross-intersections of the three cores and their complements are each
 
 \section{$\sigma$-essentiality and $\Psi$}
 
+The definition below carries a coherence clause, and that clause is the whole
+difference between this development and the paper's first version. It is
+constitutive, not a convenience, and the evidence sits in this section rather
+than after the flagship: \ref{thm:omega7} exhibits a Boolean object that the
+clause-free definition calls a witness and this one does not.
+
+The clause is also what makes the definition satisfiable. A pattern is
+\emph{local} data on a block; typed instead as a global $\sigma$-additive state
+it would extend itself, and nothing could be $\sigma$-essential at all. Locality
+and coherence are the definition, not adjustments to one.
+
 \begin{definition}[$\sigma$-essential contextual state]
 \label{def:sigma-essential}
-\lean{SigmaEssential.Amended.IsSigmaEssentialL}
+\lean{SigmaEssential.IsSigmaEssential}
 \leanok
 \uses{def:local-pattern, def:two-valued-state, def:finadd-state}
 $s_0$ is finitely coherent (extends to \emph{some} finitely additive
@@ -1671,47 +1685,48 @@ negative clause quantifies over all $\sigma$-additive states, Dirac and
 non-Dirac alike.
 \end{definition}
 
-\begin{definition}[The amended $\Psi$]
-\label{def:psi-amended}
-\lean{SigmaEssential.Amended.PsiAmended}
+\begin{definition}[$\Psi$: the localized existence sentence]
+\label{def:psi}
+\lean{SigmaEssential.Psi}
 \leanok
 \uses{def:sigma-essential}
 The localized existence sentence: some $\Omega$, $\sigma$-class, block and
 pattern with $s_0$ $\sigma$-essential. Admissibility predicates are not
 bundled in --- non-Booleanness is \ref{lem:carrier-not-boolean}; essential
 irreducibility and non-segregation are paper-level facts about the carrier and
-do not affect the truth of \ref{thm:psi-amended-zfc}.
+do not affect the truth of \ref{thm:psi-zfc}.
+
+What \ref{thm:omega7} rules out is the clause-free reading --- this definition
+minus its coherence conjunct --- which a Boolean carrier would satisfy.
 \end{definition}
 
 \begin{theorem}[Localization --- the whole content is clause (ii)]
 \label{thm:localization}
-\lean{SigmaEssential.Amended.localization_amended}
+\lean{SigmaEssential.localization}
 \leanok
 \uses{def:sigma-essential}
 $s_0$ is a witness if and only if (0) it is finitely coherent, (i) no
 point-evaluation extends it ($K(s_0) = \emptyset$), \emph{and} (ii) no
 non-Dirac $\sigma$-additive two-valued state does. Clause (i) is freely
 arrangeable by the Navara--Pt\'ak intersection device, so the entire
-difficulty is clause (ii) --- Wall A. (The pre-amendment two-clause form is
-\texttt{SigmaEssential.localization}.)
+difficulty is clause (ii) --- Wall A.
 \end{theorem}
 
 \begin{proof}
 \leanok
-A global $\sigma$-additive two-valued state either agrees with a point evaluation on the carrier or does not; splitting on that alternative gives clauses (i) and (ii). Clause (0) is the amendment's coherence conjunct, carried through unchanged.
+A global $\sigma$-additive two-valued state either agrees with a point evaluation on the carrier or does not; splitting on that alternative gives clauses (i) and (ii). Clause (0) is the coherence conjunct, carried through unchanged.
 \end{proof}
 
 \begin{lemma}[No witness on a Boolean carrier]
 \label{lem:boolean-no-witness}
-\lean{SigmaEssential.Amended.boolean_no_witness_amended}
+\lean{SigmaEssential.boolean_no_witness}
 \leanok
 \uses{def:sigma-essential, thm:boolean-baseline, def:interclosed}
 On an intersection-closed (Boolean) carrier no $\sigma$-essential contextual
 state exists: coherence alone folds the finitely many true sets of the block to
 a nonempty intersection, and any point of it gives a Dirac extension. This is
-the amended Prop 2.1 --- the statement the $\Omega_7$ example
-(\ref{thm:omega7}) shows is \emph{false} under the literal, unamended
-definition.
+Prop 2.1 --- the statement the $\Omega_7$ example (\ref{thm:omega7}) shows
+would fail without the coherence clause.
 \end{lemma}
 
 \begin{proof}
@@ -1720,6 +1735,28 @@ Via \texttt{boolean\_baseline}: the finitely additive extension supplied by
 coherence is multiplicative on the intersection-closed carrier, so the block's
 true sets have the finite intersection property; a common point is a kernel
 point.
+\end{proof}
+
+\begin{theorem}[$\Omega_7$: why the coherence clause is constitutive]
+\label{thm:omega7}
+\lean{SigmaEssential.Omega7.omega7_no_sigma_extension, SigmaEssential.Omega7.omega7_not_coherent, SigmaEssential.Omega7.omega7_not_witness}
+\leanok
+\uses{def:sigma-essential, lem:boolean-no-witness}
+Drop the coherence clause from \ref{def:sigma-essential} and a Boolean
+carrier acquires a ``witness''. Keep it and that object is excluded. The clause
+is therefore load-bearing: without it the definition is satisfied by something
+no Boolean carrier should admit, which is what \ref{lem:boolean-no-witness}
+forbids.
+\end{theorem}
+
+\begin{proof}
+\leanok
+On the seven-point Boolean carrier $\Omega_7$ the pattern has empty kernel and
+no $\sigma$-additive two-valued extension
+(\texttt{omega7\_no\_sigma\_extension}) --- the literal definition's
+``witness'' half --- while coherence fails
+(\texttt{omega7\_not\_coherent}, via \ref{lem:boolean-no-witness}), so the
+the coherence clause excludes an object the clause-free reading admits.
 \end{proof}
 
 \section{The witness carrier}
@@ -1764,7 +1801,7 @@ From Mathlib's ordinal API: cardinality $\aleph_1$ gives uncountability, and $\m
 \uses{def:core-block, def:ulam-matrix, def:two-valued-state}
 Stated for \emph{any} uncountable $M$ with countable initial segments carrying
 an Ulam matrix --- the $\omega_1$ instantiation enters only at
-\ref{thm:psi-amended-zfc}. The conclusion is \texttt{IsDiracOn}, ``agrees with
+\ref{thm:psi-zfc}. The conclusion is \texttt{IsDiracOn}, ``agrees with
 $\delta_\omega$ on $L$'', not structure-equality --- the paper never
 constrains a state off the carrier, and the kernel argument evaluates only on
 carrier sets.
@@ -1791,13 +1828,13 @@ Derived, not exhibited: a Boolean carrier admits no witness
 certifies the carrier's non-Booleanness.
 \end{proof}
 
-\begin{theorem}[$\Psi$ amended, in ZFC]
-\label{thm:psi-amended-zfc}
-\lean{SigmaEssential.Ulam.psiAmended_ZFC}
+\begin{theorem}[$\Psi$, in ZFC]
+\label{thm:psi-zfc}
+\lean{SigmaEssential.Ulam.psi_ZFC}
 \leanok
-\uses{thm:core-pattern-witness, lem:omega1, def:psi-amended}
-The amended $\Psi$ holds on $\sigma$-classes/OMPs, coherence-amended and
-irreducible modulo the countable ideal, in ZFC. Zero sorries end to end; axioms
+\uses{thm:core-pattern-witness, lem:omega1, def:psi}
+$\Psi$ holds on $\sigma$-classes/OMPs, irreducible modulo the countable ideal,
+in ZFC. Zero sorries end to end; axioms
 exactly \texttt{[propext, Classical.choice, Quot.sound]}.
 \end{theorem}
 
@@ -1806,26 +1843,6 @@ exactly \texttt{[propext, Classical.choice, Quot.sound]}.
 \ref{thm:core-pattern-witness} assembled at $\omega_1$ via \ref{lem:omega1}.
 Zero sorries; \texttt{\#print axioms} returns exactly
 \texttt{[propext, Classical.choice, Quot.sound]}.
-\end{proof}
-
-\begin{theorem}[$\Omega_7$: the amendment is forced, not a retreat]
-\label{thm:omega7}
-\lean{SigmaEssential.Omega7.omega7_no_sigma_extension, SigmaEssential.Omega7.omega7_not_coherent, SigmaEssential.Omega7.omega7_not_witness}
-\leanok
-\uses{def:sigma-essential, lem:boolean-no-witness}
-The literal (unamended) definition admits a Boolean ``witness''; the amended
-definition excludes it. So the coherence amendment repairs a real defect rather
-than weakening the claim until it became provable.
-\end{theorem}
-
-\begin{proof}
-\leanok
-On the seven-point Boolean carrier $\Omega_7$ the pattern has empty kernel and
-no $\sigma$-additive two-valued extension
-(\texttt{omega7\_no\_sigma\_extension}) --- the literal definition's
-``witness'' half --- while coherence fails
-(\texttt{omega7\_not\_coherent}, via \ref{lem:boolean-no-witness}), so the
-amended definition excludes the object the literal one admits.
 \end{proof}
 
 \begin{theorem}[Thm 3.5 --- normal form for carrier sets]
@@ -1871,7 +1888,7 @@ representation rigidity and additivity read off the disjointness table.
 \uses{thm:vote-state, thm:rigidity, def:sigma-essential}
 Coherence (\ref{thm:vote-state}) together with rigidity (\ref{thm:rigidity})
 gives a pattern that is finitely coherent and has no global $\sigma$-additive
-extension --- a $\sigma$-essential contextual state. \ref{thm:psi-amended-zfc}
+extension --- a $\sigma$-essential contextual state. \ref{thm:psi-zfc}
 is this at $\omega_1$.
 \end{theorem}
 
@@ -1889,7 +1906,7 @@ Coherence gives the positive clause, rigidity the negative one.
 \uses{def:core-block}
 $L_1$ has no meet at the cores: a greatest lower bound would have to be the
 slab $M \times \{0\}$, which is not in the carrier. This is exactly why
-\ref{thm:psi-amended-zfc} does not settle the lattice case --- and it is the
+\ref{thm:psi-zfc} does not settle the lattice case --- and it is the
 formal counterpart of the recurring observation that every regularity-wild
 object built so far is a non-lattice.
 \end{lemma}
@@ -1934,6 +1951,179 @@ the complete Hilbert lattice's Kochen--Specker failure of sharpness. Nothing in
 this section is evidence either way; it exists so that the settled OMP result
 and the open lattice gap are visible as one picture.
 \end{remark}
+
+\section{Inner regularity: what forces $\sigma$-additivity, and what refuses it}
+
+The witness above is a finitely additive two-valued state with no $\sigma$-additive
+extension. That raises the complementary question: what would \emph{force}
+$\sigma$-additivity, and how close does the boundary run? Two answers, in
+opposite directions, and a counterexample that fixes the gap between them.
+
+\subsection{Transport: a compact class forces the $\sigma$-condition}
+
+\begin{definition}[Countably compact class]
+  \label{def:countably-compact-class}
+  \lean{SigmaEssential.Blocks.CountablyCompactClass}
+  \leanok
+  A family $\mathcal{K}$ of sets such that every sequence from $\mathcal{K}$
+  with the finite intersection property has nonempty total intersection.
+\end{definition}
+
+\begin{definition}[Marczewski approximation, two-valued in-block form]
+  \label{def:approximates-on}
+  \uses{def:countably-compact-class, def:finadd-state}
+  \lean{SigmaEssential.Blocks.ApproximatesOn}
+  \leanok
+  Every value-$1$ member $E$ of the family carries a value-$1$ inner witness
+  sandwiched below a class member: $D \subseteq K \subseteq E$ with
+  $K \in \mathcal{K}$. Two-valuedness is what collapses Marczewski's general
+  $\eta$-form to this.
+\end{definition}
+
+\begin{theorem}[Compact transport]
+  \label{thm:compact-transport}
+  \uses{def:approximates-on, def:countably-compact-class, def:sigma-class}
+  \lean{SigmaEssential.Blocks.compact_transport,
+        SigmaEssential.Blocks.IsMaxBlock.isSigmaOn_of_compact_class}
+  \leanok
+  On a carrier where meets exist, a finitely additive two-valued state
+  approximated on every maximal block by a countably compact class satisfies the
+  $\sigma$-condition on the whole carrier.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:approximates-on}
+  Run inside one maximal block and glue. Tails of a disjoint sequence are
+  value-$1$, so their inner witnesses have value-$1$ --- hence nonempty ---
+  finite intersections; the sandwiching compacts therefore have the finite
+  intersection property, and countable compactness contradicts the empty tail
+  intersection. Marczewski 1953, 4(i), two-valued.
+\end{proof}
+
+\subsection{Forcing: (8.1) makes a finitely additive state Dirac}
+
+\begin{definition}[A field of sets and a two-valued state on it]
+  \label{def:set-field}
+  \lean{SigmaEssential.Blocks.SetField, SigmaEssential.Blocks.FieldState}
+  \leanok
+  Finite closure only --- no $\sigma$-structure anywhere. Theorem-let R is a
+  finitely additive statement and is stated where that is all there is.
+\end{definition}
+
+\begin{definition}[Inner regularity (8.1)]
+  \label{def:inner-regular-81}
+  \uses{def:set-field}
+  \lean{SigmaEssential.Blocks.InnerRegular81}
+  \leanok
+  Every value-$1$ member of the field contains a value-$1$ in-field
+  \emph{compact}.
+\end{definition}
+
+\begin{theorem}[Theorem-let R: (8.1) forces Dirac]
+  \label{thm:dirac-forcing}
+  \uses{def:inner-regular-81, def:set-field}
+  \lean{SigmaEssential.Blocks.dirac_forcing}
+  \leanok
+  On a Hausdorff space, a two-valued finitely additive state satisfying (8.1)
+  has nonempty $\mathcal{K}_1$ (its value-$1$ in-field compacts), nonempty
+  $D = \bigcap \mathcal{K}_1$, and \emph{equals} $\delta_\omega$ on the field
+  for every $\omega \in D$.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:inner-regular-81}
+  The finite intersection property is the machine-checked content: value-$1$
+  in-field compacts are $\cap$-stable (compact $\cap$ closed, and Hausdorff
+  makes compacts closed), finite intersections are value-$1$ hence nonempty, and
+  compactness of one fixed member turns an empty total intersection into an
+  empty finite one. Both nonemptiness claims are conclusions, not hypotheses.
+  \textbf{No $\sigma$-additivity is used anywhere.}
+\end{proof}
+
+\subsection{The gap: the co-countable state refuses}
+
+\begin{definition}[The co-countable state]
+  \label{def:cocountable-state}
+  \uses{def:sigma-class, def:two-valued-state}
+  \lean{SigmaEssential.Blocks.cocountableMeasurableSpace,
+        SigmaEssential.Blocks.cocountableState}
+  \leanok
+  On an uncountable $\Omega$, the countable/co-countable $\sigma$-field with the
+  state that is $1$ exactly on the co-countable sets. The coarse killer state of
+  the $\omega_1$ scoping bank; nothing below uses more than uncountability.
+\end{definition}
+
+\begin{lemma}[It is not Dirac]
+  \label{lem:cocountable-not-dirac}
+  \uses{def:cocountable-state}
+  \lean{SigmaEssential.Blocks.cocountableState_not_dirac}
+  \leanok
+  For every $\omega$ there is a carrier set of value $1$ missing $\omega$ ---
+  namely $\{\omega\}^{c}$.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  A singleton is countable, so its complement is co-countable and carries
+  value $1$.
+\end{proof}
+
+\begin{theorem}[Theorem-let P: (8.1) fails, at a named set]
+  \label{thm:cocountable-fails-81}
+  \uses{def:cocountable-state, def:inner-regular-81}
+  \lean{SigmaEssential.Blocks.cocountable_fails_81_at}
+  \leanok
+  On an uncountable second-countable Hausdorff space, (8.1) fails at the
+  specific set $F = X \setminus \{x\}$ for $x$ a condensation point. Second
+  countability subsumes Polish, so this is a strengthening of the note's
+  statement.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:cocountable-state}
+  Via \texttt{exists\_condensation\_point}, replacing the Cantor--Bendixson
+  route: ``closed co-countable contains the perfect kernel'' is consumed only at
+  the chosen point, where ``no countable open neighbourhood'' already suffices.
+\end{proof}
+
+\begin{corollary}[The all-Hausdorff strengthening]
+  \label{cor:cocountable-fails-hausdorff}
+  \uses{thm:dirac-forcing, lem:cocountable-not-dirac, def:inner-regular-81}
+  \lean{SigmaEssential.Blocks.cocountable_fails_81_hausdorff}
+  \leanok
+  On \emph{any} uncountable Hausdorff space the co-countable state fails (8.1)
+  somewhere --- no second countability needed.
+\end{corollary}
+
+\begin{proof}
+  \leanok
+  \uses{thm:dirac-forcing, lem:cocountable-not-dirac}
+  By \ref{thm:dirac-forcing}, (8.1) would make the state a Dirac restriction,
+  and \ref{lem:cocountable-not-dirac} says it is none. The reduction to R is
+  what removes the countability hypothesis of \ref{thm:cocountable-fails-81}.
+\end{proof}
+
+\begin{proposition}[The Hausdorff red flag]
+  \label{prop:cofinite-red-flag}
+  \uses{thm:dirac-forcing}
+  \lean{SigmaEssential.Blocks.not_t2Space_cofiniteTopology}
+  \leanok
+  Hausdorffness is not decoration in \ref{thm:dirac-forcing}. On the cofinite
+  topology over an infinite set, with the finite/cofinite field and the cofinite
+  state, every set is compact and (8.1) holds --- yet the state is not Dirac. By
+  \ref{thm:dirac-forcing} that space cannot be Hausdorff, which it is not.
+\end{proposition}
+
+\begin{proof}
+  \leanok
+  \uses{thm:dirac-forcing}
+  Run \ref{thm:dirac-forcing} on the cofinite data and read the contradiction
+  backwards: the counterexample to dropping $T_2$ doubles as a proof that the
+  cofinite topology fails $T_2$.
+\end{proof}
 
 \chapter{The pruning theorem and eventual periodicity of Safe}
 

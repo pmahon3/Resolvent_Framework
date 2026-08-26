@@ -42,7 +42,7 @@ formalized here.
   **clause (ii)** (σ-point-selection / no non-Dirac extension) is the separate
   open-mathematics part — untouched, correctly excluded.
 - Does **not** re-derive that a state realizing this pattern *exists*. That is
-  `corePattern` + the coherence side (`psiAmended_ZFC`, upstream) — **imported,
+  `corePattern` + the coherence side (`psi_ZFC`, upstream) — **imported,
   not re-proved** by this row. So this row certifies the *mechanism on the
   witness cores*, and the witness's existence is the surrounding ZFC theorem it
   sits inside — not a fresh existence proof.
@@ -55,7 +55,7 @@ formalized here.
 checkout's built Mathlib (v4.29.0) after a full-disk incident (the worktree's
 own 5.6 GB Mathlib build filled the disk; removed + symlinked). Whole package
 rebuilds clean: `lake build QuerySystem.UlamWitnessReceipts` → 1079 jobs,
-exit 0, downstream `psiAmended_ZFC` unaffected.
+exit 0, downstream `psi_ZFC` unaffected.
 
 ---
 
@@ -94,7 +94,7 @@ gap-fill. **Flagged as the scoped next Lean unit; not started this session.**
 **Correctly excluded as irreducible-creative (per the task):** C11 puncture-meet
 in its *valuable* universal form (quantifies over the opaque
 `IsConcrete`/`IsSigmaComplete` axioms ⇒ any Lean statement of it is vacuous —
-the `EncodingDefectCheck` burn; the non-vacuous form needs the hub *constructed*
+the vacuity burn; the non-vacuous form needs the hub *constructed*
 at `UlamWitnessOmega1` scale with the countable-meet crux on the infinitary
 line); C12 σ-state extension (infinitary); clause (ii) / σ-point-selection (the
 file itself flags this open); the grand Φ.

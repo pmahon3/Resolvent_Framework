@@ -110,7 +110,7 @@ outcome. Verified this session:**
 - **Pentagon is FINITE** ⇒ by the key negative above, every twist tower
   closes ⇒ it can ONLY ever report outcome (a) "always closes." The
   survival-witness outcome (b) is impossible there by construction.
-- **The amended product-Ulam Ψ-witness is NOT A LATTICE.** Its carrier is
+- **The product-Ulam Ψ-witness is NOT A LATTICE.** Its carrier is
   a σ-complete orthomodular POSET (`sigma_essential_witness.md`
   Corollary 4.4: `A ∧ B` does not exist in L — no maximum among the lower
   bounds). So the "latticehood forces the bound" RACE cannot run on it —

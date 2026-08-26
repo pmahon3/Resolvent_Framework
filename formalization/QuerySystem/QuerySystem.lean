@@ -42,7 +42,6 @@ import QuerySystem.DescentWitnessFinite
 import QuerySystem.DescentWitnessInfinite
 import QuerySystem.Diagonal
 import QuerySystem.DiscriminabilityFoundations
-import QuerySystem.EncodingDefectCheck
 import QuerySystem.ExtensionObstruction
 import QuerySystem.FibreProductReflection
 import QuerySystem.FiniteAtomFoldKernel
@@ -58,7 +57,7 @@ import QuerySystem.PruningTheorem
 import QuerySystem.QuerySystem
 import QuerySystem.ReconstructionTheorem
 import QuerySystem.RelationalDelay
-import QuerySystem.SigmaEssentialAmended
+import QuerySystem.SigmaEssentialWitness
 import QuerySystem.SigmaEssentialBareForm
 import QuerySystem.SigmaEssentialConjectures
 import QuerySystem.SigmaEssentialLocalization

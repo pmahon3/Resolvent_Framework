@@ -127,7 +127,7 @@ theorem glueBlockStates_agrees
 /-- A finite trace of a finitely additive state inside a Boolean block is
 realized by a carrier point. This is the finite augmented-boundary atom
 argument in concrete form. -/
-theorem finite_trace_dirac (hMeets : MeetsExist d) (μ : Amended.FinAddState d)
+theorem finite_trace_dirac (hMeets : MeetsExist d) (μ : FinAddState d)
     (hM : IsMaxBlock d M) {s : Set (Set Ω)} (hs : s.Finite)
     (hsub : s ⊆ M) :
     ∃ ω : Ω, ∀ A ∈ s, (ω ∈ A ↔ μ.Val A) := by
@@ -170,7 +170,7 @@ finite traces.  No compatibility equation between the two chosen carrier
 points is asserted; that absence is exactly the rectangular-relation
 hypothesis used in independent-fibre inflations. -/
 theorem independent_finite_traces_dirac (hMeets : MeetsExist d)
-    (μ : Amended.FinAddState d) {N : Set (Set Ω)}
+    (μ : FinAddState d) {N : Set (Set Ω)}
     (hM : IsMaxBlock d M) (hN : IsMaxBlock d N)
     {s t : Set (Set Ω)} (hs : s.Finite) (ht : t.Finite)
     (hsubM : s ⊆ M) (hsubN : t ⊆ N) :
@@ -205,20 +205,20 @@ theorem augmentedTrace_subset (B : Block d) (M : Set (Set Ω)) :
   · exact hA.2
 
 theorem exists_boundary_preserving_point (hMeets : MeetsExist d)
-    (μ : Amended.FinAddState d) (B : Block d) (hM : IsMaxBlock d M)
+    (μ : FinAddState d) (B : Block d) (hM : IsMaxBlock d M)
     (hfin : (overlapEvents d M).Finite) :
     ∃ ω : Ω, ∀ A ∈ augmentedTrace d B M, (ω ∈ A ↔ μ.Val A) :=
   finite_trace_dirac hMeets μ hM (augmentedTrace_finite B hfin)
     (augmentedTrace_subset B M)
 
 noncomputable def quarantinePoint (hMeets : MeetsExist d)
-    (μ : Amended.FinAddState d) (B : Block d)
+    (μ : FinAddState d) (B : Block d)
     (hfin : ∀ M, IsMaxBlock d M → (overlapEvents d M).Finite)
     (M : Set (Set Ω)) (hM : IsMaxBlock d M) : Ω :=
   Classical.choose (exists_boundary_preserving_point hMeets μ B hM (hfin M hM))
 
 theorem quarantinePoint_agrees (hMeets : MeetsExist d)
-    (μ : Amended.FinAddState d) (B : Block d)
+    (μ : FinAddState d) (B : Block d)
     (hfin : ∀ M, IsMaxBlock d M → (overlapEvents d M).Finite)
     (hM : IsMaxBlock d M) {A : Set Ω} (hA : A ∈ augmentedTrace d B M) :
     (quarantinePoint hMeets μ B hfin M hM ∈ A ↔ μ.Val A) :=
@@ -226,7 +226,7 @@ theorem quarantinePoint_agrees (hMeets : MeetsExist d)
     (exists_boundary_preserving_point hMeets μ B hM (hfin M hM)) A hA
 
 theorem quarantinePoints_compatible (hMeets : MeetsExist d)
-    (μ : Amended.FinAddState d) (B : Block d)
+    (μ : FinAddState d) (B : Block d)
     (hfin : ∀ M, IsMaxBlock d M → (overlapEvents d M).Finite) :
     CompatibleBlockStates
       (fun M hM => pointBlockState (quarantinePoint hMeets μ B hfin M hM) M hM) := by

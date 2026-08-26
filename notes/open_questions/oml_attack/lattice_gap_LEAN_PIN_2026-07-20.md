@@ -67,7 +67,7 @@ else opaque; **no `sorryAx`** (it is an honest cited axiom, not a hidden
 lattice (`MeetsExist`)? A named `Prop`, NEVER assumed. `psiOML_gives_sigmaEssential`
 proves `PsiOML → Ψ` (a trivial conjunct-drop); the converse `Ψ → PsiOML` is
 FALSE-or-open and is NOT claimed. **The pin is not that implication.** It is the
-pair: `Ψ` (`psiAmended_ZFC`) is a THEOREM (the OMP witness exists in ZFC), while
+pair: `Ψ` (`psi_ZFC`) is a THEOREM (the OMP witness exists in ZFC), while
 `PsiOML` is OPEN, and the proved witness `L₁` provably FAILS the extra
 latticehood conjunct (`witness_carrier_not_lattice`). So the proved witness
 inhabits the OMP existence sentence but, being non-lattice, contributes nothing
@@ -80,7 +80,7 @@ so that line is conjectured to be the boundary of σ-essential contextuality.
 > Machine-checked: the σ-essential witness that exists in ZFC is an OMP; whether
 > one exists that is an OML is `PsiOML`, open, and the proved witness fails
 > latticehood at the single membership `M×{0} ∉ L` (Cor 4.1). The grand Φ
-> question is now formally isolated as `PsiOML`, in the amended vocabulary, with
+> question is now formally isolated as `PsiOML`, with
 > its one load-bearing imported fact visible in the axiom receipt.
 
 ## Follow-up unit (flagged, not started)

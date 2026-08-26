@@ -147,7 +147,7 @@ triple. The Ulam row/cell families used for sigma-state rigidity are different.
 `D_0` already prevents any finitely additive two-valued state from assigning
 one to all of `A,B,C`. The same local pattern remains statable, and absence of
 a sigma-additive extension persists by restriction, but `FinitelyCoherent`
-becomes false. Hence `IsSigmaEssentialL` changes from true on `L_1` to false on
+becomes false. Hence `IsSigmaEssential` changes from true on `L_1` to false on
 every same-base concrete `MeetsExist` extension.
 
 **Scope audit.** **PREMISE FALSE.** `PsiOML` is not a proposition about `L_1`.
@@ -156,12 +156,12 @@ It is the closed existential
 \[
  \exists\,\Omega,d,\mathcal B,s_0,\quad
    \operatorname{MeetsExist}(d)\ \wedge\
-   \operatorname{IsSigmaEssentialL}(s_0).
+   \operatorname{IsSigmaEssential}(s_0).
 \]
 
 It remains well-formed when one particular carrier is completed. Neither
 `L_1` nor its completion realizes the conjunction: the former fails
-`MeetsExist`, while the latter fails `IsSigmaEssentialL`. Hence this completion
+`MeetsExist`, while the latter fails `IsSigmaEssential`. Hence this completion
 calculation supplies no witness and does not adjudicate the closed existential.
 
 **Phase B verdict on `PsiOML`.** **CO-LOCATED; OPEN — NOT ADJUDICATED.** The

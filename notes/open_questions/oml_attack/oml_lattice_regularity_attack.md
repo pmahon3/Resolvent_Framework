@@ -94,7 +94,7 @@ there `L ∈ Adm ∩ OML` with `¬Φ(L)`? (Φ, Adm as in
 (shovel plan §2): tame ⟹ *the phenomenon lives strictly between orthomodular
 poset and orthomodular lattice*, non-latticehood certified as the
 discriminator; a lattice witness ⟹ strictly bigger theorem than
-`psiAmended_ZFC`.
+`psi_ZFC`.
 
 Guard: MO₂ is a lattice and the disjointification identity
 `(a∨b)∧a⊥ = b∧a⊥` already fails on it. So latticehood does **not** restore

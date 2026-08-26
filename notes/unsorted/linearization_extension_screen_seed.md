@@ -102,7 +102,7 @@ With `closure(points) ⊆ closure(St_σ) ⊆ St_fa`:
   §2. Receipt: `verification/pentagon_state_layer_calibration.py/.json`.
 - **E2b — Ψ-witness FIP locator (the σ-scale orientation check).** Locate
   an explicit finite value-1 family with empty intersection inside the
-  amended product-Ulam witness state (expected via its
+  product-Ulam witness state (expected via its
   Specker-incompatible joins). Confirms the necessary condition fires on
   the one known σ-essential state. Fallback if the witness encoding
   resists a direct locator: derive FIP failure by hand from the

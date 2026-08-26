@@ -22,6 +22,7 @@ open core, so claims like "witness ⟺ wall A", "wall A is the bottleneck", "the
 strength axis factors out", "the center route fails" become machine-checked.
 -/
 import QuerySystem.SigmaEssentialLocalization
+import QuerySystem.SigmaEssentialWitness
 
 open Set MeasurableSpace
 
@@ -33,19 +34,15 @@ open SigmaEssential
 
 /-- **Clause (ii) / Wall A (σ-point-selection)**, relative to a fixed pattern:
 no *non-Dirac* σ-additive 2-valued state extends `s₀`. This is the open core. -/
-def WallA {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d) : Prop :=
-  NoNonDiracExtends s₀ B
+def WallA {Ω : Type*} {d : DynkinSystem Ω} {B : Block d}
+    (s₀ : LocalState d B) : Prop :=
+  NoNonDiracExtends s₀
 
 /-- A **concrete σ-essential witness** for a fixed `(s₀, B)`: `s₀` extends to no global
 state (the localized form; clause (i) ∧ clause (ii)). -/
-def WitnessAt {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d) : Prop :=
-  IsSigmaEssential s₀ B
-
-/-- **Ψ — a σ-essential witness exists** (the existence sentence). Quantifies over
-carriers `(Ω, d)` and patterns. OPEN. -/
-def Psi : Prop :=
-  ∃ (Ω : Type) (d : DynkinSystem Ω) (s₀ : TwoValuedState d) (B : Block d),
-    IsSigmaEssential s₀ B
+def WitnessAt {Ω : Type*} {d : DynkinSystem Ω} {B : Block d}
+    (s₀ : LocalState d B) : Prop :=
+  IsSigmaEssential s₀
 
 /-! ## §2. The localization edge (PROVED — the reduction, certified)
 
@@ -56,19 +53,20 @@ It holds unconditionally — neither side need be true. -/
 /-- **Reduction edge (proved).** A witness at `(s₀,B)` ⟺ clause (i) `K(s₀)=∅` ∧ wall A.
 Triangulates the taxonomy's central "witness ⟺ σ-point-selection" claim. -/
 theorem witness_iff_kernel_empty_and_wallA
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d) :
-    WitnessAt s₀ B ↔ (kernel s₀ B = ∅ ∧ WallA s₀ B) :=
-  localization s₀ B
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B) :
+    WitnessAt s₀ ↔
+      (FinitelyCoherent s₀ ∧ kernel s₀ = ∅ ∧ WallA s₀) :=
+  localization s₀
 
 /-- **Bottleneck edge (proved).** With clause (i) freely arranged (`K(s₀)=∅`), the
 witness is *exactly* wall A — every complete attack must engage clause (ii). This is
 the taxonomy's "wall A is the sole bottleneck", as a proved biconditional. -/
 theorem wallA_is_bottleneck
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
-    (hi : kernel s₀ B = ∅) :
-    WitnessAt s₀ B ↔ WallA s₀ B := by
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
+    (hcoh : FinitelyCoherent s₀) (hi : kernel s₀ = ∅) :
+    WitnessAt s₀ ↔ WallA s₀ := by
   rw [witness_iff_kernel_empty_and_wallA]
-  exact ⟨fun h => h.2, fun h => ⟨hi, h⟩⟩
+  exact ⟨fun h => h.2.2, fun h => ⟨hcoh, hi, h⟩⟩
 
 /-! ## §3. The large-cardinal bounds (named conjectures + their structure)
 
@@ -119,9 +117,9 @@ def DiracOnly {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
 
 /-- **Dirac-only ⟹ clause (ii) holds (vacuously).** If every state is Dirac there is no
 non-Dirac state to extend `s₀`, so `WallA` is satisfied for free. -/
-theorem diracOnly_gives_wallA {Ω : Type*} {d : DynkinSystem Ω}
-    (hDO : DiracOnly d) (s₀ : TwoValuedState d) (B : Block d) :
-    WallA s₀ B := by
+theorem diracOnly_gives_wallA {Ω : Type*} {d : DynkinSystem Ω} {B : Block d}
+    (hDO : DiracOnly d) (s₀ : LocalState d B) :
+    WallA s₀ := by
   rintro ⟨s, hnd, _⟩
   exact hnd (hDO s)
 
@@ -131,10 +129,11 @@ with clause (i) (`K(s₀)=∅`, freely arrangeable) yields a WITNESS — the opp
 arrow: Dirac-only pushes toward Ψ. (The premise itself is also false by Navara–Pták;
 this certifies the inference is invalid even granting it.) -/
 theorem diracOnly_with_clause_i_gives_witness {Ω : Type*} {d : DynkinSystem Ω}
-    (hDO : DiracOnly d) (s₀ : TwoValuedState d) (B : Block d)
-    (hi : kernel s₀ B = ∅) :
-    WitnessAt s₀ B :=
-  (witness_iff_kernel_empty_and_wallA s₀ B).mpr ⟨hi, diracOnly_gives_wallA hDO s₀ B⟩
+    {B : Block d} (hDO : DiracOnly d) (s₀ : LocalState d B)
+    (hcoh : FinitelyCoherent s₀) (hi : kernel s₀ = ∅) :
+    WitnessAt s₀ :=
+  (witness_iff_kernel_empty_and_wallA s₀).mpr
+    ⟨hcoh, hi, diracOnly_gives_wallA hDO s₀⟩
 
 /-! ## §4. The disjointification wall, as a checkable obstruction (the costume-detector)
 
@@ -149,28 +148,27 @@ baseline used — the property a non-distributive carrier LACKS. -/
 /-- The carrier `d` is **intersection-closed on `B`'s `s₀`-true sets**: the Boolean
 property. A genuine non-distributive witness carrier must FAIL this (else the Boolean
 baseline `boolean_not_sigma_essential` applies and there is no witness). -/
-def IntersectionClosed {Ω : Type*} {d : DynkinSystem Ω}
-    (s₀ : TwoValuedState d) (B : Block d) : Prop :=
-  BooleanLocal s₀ B
+def IntersectionClosed {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
+  InterClosed d
 
 /-- **Costume theorem (proved).** Any route whose load-bearing step entails
 intersection-closure CANNOT produce a witness — it has walked into the Boolean
 baseline. This is the formal costume-detector: prove `route_step → IntersectionClosed`
 and you have proved the route dead. -/
 theorem costume_kills_witness
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
-    (hroute : IntersectionClosed s₀ B) :
-    ¬ WitnessAt s₀ B :=
-  boolean_not_sigma_essential s₀ B hroute
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d}
+    (hroute : IntersectionClosed d) (s₀ : LocalState d B) :
+    ¬ WitnessAt s₀ :=
+  boolean_no_witness hroute s₀
 
 /-- **Contrapositive (proved).** A genuine witness carrier provably FAILS
 intersection-closure. So "the witness is non-distributive" is not a hope but a
 theorem: any `(s₀,B)` that *is* a witness refutes `IntersectionClosed`. -/
 theorem witness_not_intersection_closed
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
-    (hw : WitnessAt s₀ B) :
-    ¬ IntersectionClosed s₀ B :=
-  fun hclosed => costume_kills_witness s₀ B hclosed hw
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
+    (hw : WitnessAt s₀) :
+    ¬ IntersectionClosed d :=
+  fun hclosed => costume_kills_witness hclosed s₀ hw
 
 /-! ## §5. The Polish boundary (cited result) -/
 
@@ -182,17 +180,17 @@ predicate on carriers we do not unfold. -/
 axiom PolishRepresentable {Ω : Type*} (d : DynkinSystem Ω) : Prop
 
 /-- Derr–Williamson 2023 (Thm D.6): Polish-representable ⟹ no witness. CITED. -/
-axiom dw_polish_no_witness {Ω : Type*} {d : DynkinSystem Ω}
-    (s₀ : TwoValuedState d) (B : Block d) :
-    PolishRepresentable d → ¬ WitnessAt s₀ B
+axiom dw_polish_no_witness {Ω : Type*} {d : DynkinSystem Ω} {B : Block d}
+    (s₀ : LocalState d B) :
+    PolishRepresentable d → ¬ WitnessAt s₀
 
 /-- **Upper-boundary edge (proved from the cited axiom).** A witness must live on a
 NON-Polish-representable carrier. -/
 theorem witness_not_polish
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
-    (hw : WitnessAt s₀ B) :
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
+    (hw : WitnessAt s₀) :
     ¬ PolishRepresentable d :=
-  fun hp => dw_polish_no_witness s₀ B hp hw
+  fun hp => dw_polish_no_witness s₀ hp hw
 
 /-! ## §6. The hybrid analysis (strength axis factors out; center route fails)
 
@@ -207,9 +205,9 @@ center" means the relevant structure is intersection-closed — but then there i
 witness (§4). Formal confirmation of the hand-claim "the center hybrid fails":
 if a purported witness ran through an intersection-closed center, contradiction. -/
 theorem center_route_fails
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
-    (hw : WitnessAt s₀ B) (hcenter : IntersectionClosed s₀ B) : False :=
-  witness_not_intersection_closed s₀ B hw hcenter
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
+    (hw : WitnessAt s₀) (hcenter : IntersectionClosed d) : False :=
+  witness_not_intersection_closed s₀ hw hcenter
 
 /-! ## §7. The two exit-targets, isolated (BOOKKEEPING — no new mathematics)
 
@@ -247,9 +245,9 @@ theorem targetA_or_targetB : TargetA ∨ TargetB := em Psi
 /-- **Trivial direction (proved).** A localized witness at any `(s₀,B)` yields `TargetA`.
 The whole burden of Exit A is producing such a witness on an admissible carrier. -/
 theorem witnessAt_gives_targetA
-    {Ω : Type} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
-    (hw : WitnessAt s₀ B) : TargetA :=
-  ⟨Ω, d, s₀, B, hw⟩
+    {Ω : Type} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
+    (hw : WitnessAt s₀) : TargetA :=
+  ⟨Ω, d, B, s₀, hw⟩
 
 /-! ### The carrier-forcing gap, made explicit (the four paper-level hypotheses)
 
@@ -272,22 +270,22 @@ axiom IsNonSegregated {Ω : Type*} (d : DynkinSystem Ω) : Prop
 /-- **The admissible carrier class 𝒜 (definition).** All six boundary-map constraints.
 Two conjuncts (`¬IntersectionClosed`, `¬PolishRepresentable`) are forced by proved
 theorems on any witness; the other four are the opaque paper-level predicates above. -/
-def Admissible {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d) : Prop :=
+def Admissible {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
   IsConcrete d ∧ IsSigmaComplete d ∧ IsIrreducible d ∧ IsNonSegregated d ∧
-    ¬ IntersectionClosed s₀ B ∧ ¬ PolishRepresentable d
+    ¬ IntersectionClosed d ∧ ¬ PolishRepresentable d
 
 /-- **The sharp Exit-A target (named conjecture).** A witness on an ADMISSIBLE carrier.
 This is the precise object Exit A must construct. Open; never assumed. -/
 def TargetA_sharp : Prop :=
-  ∃ (Ω : Type) (d : DynkinSystem Ω) (s₀ : TwoValuedState d) (B : Block d),
-    Admissible s₀ B ∧ WitnessAt s₀ B
+  ∃ (Ω : Type) (d : DynkinSystem Ω) (B : Block d) (s₀ : LocalState d B),
+    Admissible d ∧ WitnessAt s₀
 
 /-- **Sharp ⟹ Exit A (proved).** The sharp target entails `TargetA`: dropping the
 admissibility data leaves a witness. (The CONVERSE — every witness is admissible — needs
 the four paper-level forcing lemmas and is NOT proved here; that is the visible gap.) -/
 theorem targetA_sharp_gives_targetA (h : TargetA_sharp) : TargetA := by
-  obtain ⟨Ω, d, s₀, B, _, hw⟩ := h
-  exact ⟨Ω, d, s₀, B, hw⟩
+  obtain ⟨Ω, d, B, s₀, _, hw⟩ := h
+  exact ⟨Ω, d, B, s₀, hw⟩
 
 /-! ## §8. The σ-orthocompletion gap: abstract is free, concrete is Wall A (bounds §3s)
 
@@ -320,16 +318,16 @@ true sets to be intersection-closed away from the witness. We take the operation
 content the thread established: a concrete σ-orthostructure witnessing the pattern is a
 σ-orthostructure on a carrier where `s₀` still has no global σ-additive extension, i.e.
 it coexists with a witness rather than rescuing it. -/
-def ConcreteSigmaOrtho {Ω : Type*} {d : DynkinSystem Ω}
-    (s₀ : TwoValuedState d) (B : Block d) : Prop :=
-  AbstractSigmaOrtho d ∧ WitnessAt s₀ B
+def ConcreteSigmaOrtho {Ω : Type*} {d : DynkinSystem Ω} {B : Block d}
+    (s₀ : LocalState d B) : Prop :=
+  AbstractSigmaOrtho d ∧ WitnessAt s₀
 
 /-- **The gap is free-on-one-side (proved).** The abstract half of a concrete
 σ-orthostructure is automatic (Feldman–Wilce); so `ConcreteSigmaOrtho` reduces to
 `WitnessAt` — all its open content is the witness, nothing in the σ-machinery. -/
 theorem concreteSigmaOrtho_iff_witness
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d) :
-    ConcreteSigmaOrtho s₀ B ↔ WitnessAt s₀ B :=
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B) :
+    ConcreteSigmaOrtho s₀ ↔ WitnessAt s₀ :=
   ⟨fun h => h.2, fun hw => ⟨fw_abstract_sigma_free d, hw⟩⟩
 
 /-- **The gap IS Wall A (proved).** With clause (i) freely arranged, a concrete
@@ -338,21 +336,21 @@ concrete σ-ortho is the open core" is a machine-checked biconditional: the lang
 σ-primitive contributes NOTHING to the difficulty — the entire gap between abstract
 (free, ultrapower) and concrete is `WallA`. This triangulates bounds §3s. -/
 theorem sigma_ortho_gap_is_wallA
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
-    (hi : kernel s₀ B = ∅) :
-    ConcreteSigmaOrtho s₀ B ↔ WallA s₀ B := by
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
+    (hcoh : FinitelyCoherent s₀) (hi : kernel s₀ = ∅) :
+    ConcreteSigmaOrtho s₀ ↔ WallA s₀ := by
   rw [concreteSigmaOrtho_iff_witness]
-  exact wallA_is_bottleneck s₀ B hi
+  exact wallA_is_bottleneck s₀ hcoh hi
 
 /-- **Language expresses but does not dissolve (proved).** A concrete σ-orthostructure
 witnessing `s₀` refutes intersection-closure — the abstract-free σ-machinery does not
 Booleanize the carrier, but neither does it supply the witness; the non-distributivity
 is still carried entirely by the witness, not by the σ-primitive. -/
 theorem concreteSigmaOrtho_not_intersection_closed
-    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
-    (h : ConcreteSigmaOrtho s₀ B) :
-    ¬ IntersectionClosed s₀ B :=
-  witness_not_intersection_closed s₀ B h.2
+    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
+    (h : ConcreteSigmaOrtho s₀) :
+    ¬ IntersectionClosed d :=
+  witness_not_intersection_closed s₀ h.2
 
 /-! ## §9. Ψ nailed down: the definition + its equivalent characterizations (capstone)
 
@@ -366,8 +364,8 @@ No new mathematics: a proved re-expression of `Psi` in the §8 vocabulary. -/
 /-- **Ψ in language vocabulary (definition).** There is a carrier and pattern admitting
 a concrete σ-orthostructure that witnesses (no global σ-additive extension). -/
 def Psi_concreteSigma : Prop :=
-  ∃ (Ω : Type) (d : DynkinSystem Ω) (s₀ : TwoValuedState d) (B : Block d),
-    ConcreteSigmaOrtho s₀ B
+  ∃ (Ω : Type) (d : DynkinSystem Ω) (B : Block d) (s₀ : LocalState d B),
+    ConcreteSigmaOrtho s₀
 
 /-- **Ψ characterization (PROVED).** `Psi ↔ Psi_concreteSigma`. The two formulations
 coincide: since `ConcreteSigmaOrtho s₀ B ↔ WitnessAt s₀ B` (§8) and `Psi` is the
@@ -376,10 +374,10 @@ the open conjecture is exactly "the free abstract σ-orthostructure admits a con
 witnessing inhabitation." -/
 theorem psi_iff_concreteSigma : Psi ↔ Psi_concreteSigma := by
   constructor
-  · rintro ⟨Ω, d, s₀, B, hw⟩
-    exact ⟨Ω, d, s₀, B, (concreteSigmaOrtho_iff_witness s₀ B).mpr hw⟩
-  · rintro ⟨Ω, d, s₀, B, h⟩
-    exact ⟨Ω, d, s₀, B, (concreteSigmaOrtho_iff_witness s₀ B).mp h⟩
+  · rintro ⟨Ω, d, B, s₀, hw⟩
+    exact ⟨Ω, d, B, s₀, (concreteSigmaOrtho_iff_witness s₀).mpr hw⟩
+  · rintro ⟨Ω, d, B, s₀, h⟩
+    exact ⟨Ω, d, B, s₀, (concreteSigmaOrtho_iff_witness s₀).mp h⟩
 
 /-- **The located wall (proved).** `Psi_concreteSigma` unfolds to: the abstract
 σ-orthostructure (FREE, Feldman–Wilce `fw_abstract_sigma_free`) plus a witness. So the
@@ -388,13 +386,13 @@ free and contributes nothing. This is the §3s finding, machine-checked: abstrac
 free, concrete-σ is Wall A; the language expresses Ψ, it does not dissolve it. -/
 theorem psi_concreteSigma_open_content_is_witness :
     Psi_concreteSigma ↔
-      ∃ (Ω : Type) (d : DynkinSystem Ω) (s₀ : TwoValuedState d) (B : Block d),
-        WitnessAt s₀ B := by
+      ∃ (Ω : Type) (d : DynkinSystem Ω) (B : Block d) (s₀ : LocalState d B),
+        WitnessAt s₀ := by
   constructor
-  · rintro ⟨Ω, d, s₀, B, h⟩
-    exact ⟨Ω, d, s₀, B, (concreteSigmaOrtho_iff_witness s₀ B).mp h⟩
-  · rintro ⟨Ω, d, s₀, B, hw⟩
-    exact ⟨Ω, d, s₀, B, (concreteSigmaOrtho_iff_witness s₀ B).mpr hw⟩
+  · rintro ⟨Ω, d, B, s₀, h⟩
+    exact ⟨Ω, d, B, s₀, (concreteSigmaOrtho_iff_witness s₀).mp h⟩
+  · rintro ⟨Ω, d, B, s₀, hw⟩
+    exact ⟨Ω, d, B, s₀, (concreteSigmaOrtho_iff_witness s₀).mpr hw⟩
 
 
 /-! ### The two structural conjuncts of `prop:adm`, discharged

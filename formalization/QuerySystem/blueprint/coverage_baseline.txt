@@ -4,7 +4,6 @@ BoundaryDescent.lean
 Commensurability.lean
 ConcreteOMLBlocks.lean
 ConcreteOMLPatterns.lean
-EncodingDefectCheck.lean
 FibreProductReflection.lean
 FiniteAtomFoldKernel.lean
 FullCycleAssemblyKernel.lean

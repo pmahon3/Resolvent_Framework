@@ -101,8 +101,8 @@ parity forces the fourth. Multi-step but every input is present.
 
 ## The fidelity gap, stated correctly
 
-My memory records `PsiAmended` as strictly weaker than the paper's Ψ because
-`IsIrreducible` is an unconnected stub. Precisely: the gap is that `PsiAmended`
+My memory records `Psi` as strictly weaker than the paper's Ψ because
+`IsIrreducible` is an unconnected stub. Precisely: the gap is that `Psi`
 does not carry essential irreducibility **as a hypothesis**. Proving `cor:centre`
 for the witness fixes that. **Defining `IsIrreducible` would not** — that is
 bookkeeping, not fidelity.

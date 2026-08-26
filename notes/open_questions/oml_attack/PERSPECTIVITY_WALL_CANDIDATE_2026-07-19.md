@@ -145,7 +145,7 @@ Every finite sub-nerve must be perspectivity-connected: (i) a
 perspectivity-disconnected finite sub-nerve would be refuted at finite
 scale; (ii) worse, it would be finitely tame for free (finite ⇒
 orthogonal families finite ⇒ St_fa = St_σ), so never the witness. Run:
-on the pentagon and the amended product-Ulam Ψ-witness, compute the
+on the pentagon and the product-Ulam Ψ-witness, compute the
 perspectivity relation on projections, confirm finite/countable
 connectivity, and locate the first stage where a countably-existing
 perspective bridge fails to close (the finite shadow of the ω₁ twist).

@@ -9,9 +9,9 @@ extending the co-countable filter on `M`, through the parity vote
   `nrep_unique`; Thm 6.3 pair additivity via the §3 disjointness table);
 * `mState_extends` — `m` extends the Specker pattern `s₀` (Cor 6.4);
 * `corePattern_coherent` — clause (0): `FinitelyCoherent s₀`;
-* `witnessAt` / `psiAmended_holds` — with the σ-side (`UlamWitnessCore`),
+* `witnessAt` / `psi_holds` — with the σ-side (`UlamWitnessCore`),
   **Theorem 7.1**: the pattern is a σ-essential contextual state, so
-  `PsiAmended` holds — in ZFC once instantiated at `ω₁` (`UlamWitnessMain`).
+  `Psi` holds — in ZFC once instantiated at `ω₁` (`UlamWitnessMain`).
 -/
 import QuerySystem.UlamWitnessInvariant
 import Mathlib.Order.Filter.Cocardinal
@@ -21,7 +21,7 @@ open Set Function MeasurableSpace Filter
 
 namespace SigmaEssential.Ulam
 
-open SigmaEssential SigmaEssential.Amended
+open SigmaEssential
 
 variable {M : Type*} [LinearOrder M]
 
@@ -296,10 +296,10 @@ theorem corePattern_coherent (h : ¬ (Set.univ : Set M).Countable) (m₀ : M) :
 
 /-- **Theorem 7.1 (parameterized).** On any uncountable `M` with countable
 initial segments, the Specker pattern on the product Ulam carrier is a
-σ-essential contextual state (amended encoding). -/
+σ-essential contextual state. -/
 theorem corePattern_witness (h : ¬ (Set.univ : Set M).Countable)
     (hseg : ∀ β : M, (Set.Iio β).Countable) (m₀ : M) :
-    IsSigmaEssentialL (corePattern U m₀) :=
+    IsSigmaEssential (corePattern U m₀) :=
   (witness_iff_coherent h hseg m₀).mpr (corePattern_coherent U h m₀)
 
 end SigmaEssential.Ulam

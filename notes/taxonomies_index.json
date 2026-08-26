@@ -15,8 +15,8 @@
    "id": "sigma_essential",
    "name": "σ-essential contextual state / OML descent",
    "taxonomy": "notes/open_questions/sigma_essential_taxonomy.json",
-   "status": "RESOLVED-AMENDED: the OMP witness is Lean-certified and promoted. The OML/lattice form and literal irreducibility remain open; the lattice attack now has its own taxonomy.",
-   "one_line": "The amended OMP form is a ZFC theorem; the OML finite-trace liftability problem is tracked separately in oml_lattice_taxonomy.json.",
+   "status": "RESOLVED: the OMP witness is Lean-certified and promoted. The OML/lattice form and literal irreducibility remain open; the lattice attack now has its own taxonomy.",
+   "one_line": "The OMP form is a ZFC theorem; the OML finite-trace liftability problem is tracked separately in oml_lattice_taxonomy.json.",
    "entries": 99,
    "pruned": "CHARTED ledger + 4 dead maps retired; unique content extracted to load_bearing_facts / construction_runs / navara_ptak leaves"
   },

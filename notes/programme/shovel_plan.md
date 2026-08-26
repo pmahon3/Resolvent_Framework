@@ -37,7 +37,7 @@ irreducible OML satisfy `Phi`? Conjectured YES for `Phi` (hence NO for such a
 witness). This is the first question the quantum-logic community asks (lattice
 = their default object; the lineage is lattice-titled) and the paper's most
 visible open edge. Either exit settles the regularity boundary: a proof makes
-non-latticehood the discriminator between the amended OMP witness and the OML
+non-latticehood the discriminator between the OMP witness and the OML
 class; a lattice witness is a stronger negative result than the current one.
 Evidence is strong but local to regularity (three independent meet-destruction
 mechanisms; every regularity-wild object constructed so far is a non-lattice).

@@ -325,7 +325,7 @@ same-base concrete supercarrier extending the pattern would restrict to one on
 $L_1$, contrary to `s_0_no_sigma_extension`. What changes is finite coherence.
 Hence
 
-| Carrier | `MeetsExist` | `IsSigmaEssentialL` for the core pattern |
+| Carrier | `MeetsExist` | `IsSigmaEssential` for the core pattern |
 |---|---:|---:|
 | $L_1$ | false | true |
 | $\sigma(L_1)$ or $\mathcal P(\Omega)$ | true | false |
@@ -342,13 +342,13 @@ definition is
 \[
  \exists (\Omega,d,\mathcal K,s_0),\qquad
    \operatorname{MeetsExist}(d)\ \wedge
-   \operatorname{IsSigmaEssentialL}(s_0).
+   \operatorname{IsSigmaEssential}(s_0).
 \]
 
 It contains no reference to `L_1`, `U_1`, or the Ulam core pattern. The same
 finite block and local pattern remain statable after completion. The original
 Ulam tuple fails the `MeetsExist` conjunct; each completed tuple fails the
-`IsSigmaEssentialL` conjunct. None is a `PsiOML` witness, so this calculation
+`IsSigmaEssential` conjunct. None is a `PsiOML` witness, so this calculation
 neither proves nor refutes the closed existential.
 
 **Phase B verdict: CO-LOCATED FOR `PsiOML`; OPEN — NOT ADJUDICATED.** The
@@ -362,5 +362,5 @@ not decide the global proposition named `PsiOML`.
 - `formalization/QuerySystem/QuerySystem/UlamWitnessCore.lean`
 - `formalization/QuerySystem/QuerySystem/UlamWitnessOmega1.lean`
 - `formalization/QuerySystem/QuerySystem/UlamWitnessState.lean`
-- `formalization/QuerySystem/QuerySystem/SigmaEssentialAmended.lean`
+- `formalization/QuerySystem/QuerySystem/SigmaEssentialWitness.lean`
 - `formalization/QuerySystem/QuerySystem/ConcreteOMLBlocks.lean`

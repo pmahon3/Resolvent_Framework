@@ -1539,17 +1539,17 @@ pushed.
 \begin{definition}[Finite coherence]
   \label{def:fincoherent}
   \uses{def:local-pattern}
-  \lean{SigmaEssential.Amended.FinitelyCoherent}
+  \lean{SigmaEssential.FinitelyCoherent}
   \leanok
   The pattern is realized by some finitely additive global state. This is the
-  amendment: coherence sits \emph{in} the definition, which is what repairs the
-  Boolean baseline.
+  Coherence sits \emph{in} the definition, which is what the Boolean baseline
+  consumes.
 \end{definition}
 
 \begin{theorem}[Boolean baseline]
   \label{thm:boolean-baseline}
   \uses{def:interclosed, def:fincoherent, lem:val-inter}
-  \lean{SigmaEssential.Amended.boolean_baseline}
+  \lean{SigmaEssential.boolean_baseline}
   \leanok
   On an intersection-closed carrier every finitely coherent local pattern has
   nonempty kernel: some Dirac state extends it.
@@ -1571,7 +1571,7 @@ pushed.
 
 \chapter{The $\sigma$-essential witness, and the OML gap}
 
-The flagship result. \texttt{psiAmended\_ZFC} is a ZFC theorem with zero
+The flagship result. \texttt{psi\_ZFC} is a ZFC theorem with zero
 sorries, axioms exactly \texttt{[propext, Classical.choice, Quot.sound]}: a
 concrete $\sigma$-complete orthomodular \emph{poset} carrying a finite
 two-valued pattern that is finitely coherent yet extends to no global
@@ -1611,7 +1611,7 @@ weaker-or-equal and the derived lemma restores equality.
 
 \begin{definition}[Finitely additive two-valued state]
 \label{def:finadd-state}
-\lean{SigmaEssential.Amended.FinAddState}
+\lean{SigmaEssential.FinAddState}
 \leanok
 \uses{def:sigma-class}
 Pair additivity only. Finite-family additivity is derived
@@ -1621,7 +1621,7 @@ coherence clause quantifies over exactly the paper's finitely additive states.
 
 \begin{definition}[The local pattern]
 \label{def:local-pattern}
-\lean{SigmaEssential.Amended.LocalState}
+\lean{SigmaEssential.LocalState}
 \leanok
 \uses{def:sigma-class, def:se-block}
 A two-valued assignment on a finite $\perp$-closed block $B \subseteq L$.
@@ -1632,7 +1632,7 @@ restricted to $B$. It is closed both ways below.
 
 \begin{lemma}[The weaker encoding is upgraded by coherence]
 \label{lem:pattern-fully-additive}
-\lean{SigmaEssential.Amended.coherent_pattern_fully_additive}
+\lean{SigmaEssential.coherent_pattern_fully_additive}
 \leanok
 \uses{def:local-pattern, def:finadd-state}
 A finitely coherent \texttt{LocalState} satisfies \emph{every} Def-1.2
@@ -1668,24 +1668,14 @@ constitutive, not a convenience, and the evidence sits in this section rather
 than after the flagship: \ref{thm:omega7} exhibits a Boolean object that the
 clause-free definition calls a witness and this one does not.
 
-So there is one definition of $\sigma$-essentiality here, not two in
-succession.
-
-The Lean names carry \texttt{Amended}, and that qualifier is a scar, not
-information. It does not record a paper amendment: the unqualified
-\texttt{IsSigmaEssential} and \texttt{Psi} in this library are a formalization
-defect from 2026-07-06 --- the scaffold typed the local pattern as a
-\emph{global} state, so the pattern extends itself, the predicate is
-unsatisfiable, and \texttt{EncodingDefect.psi\_false} certifies it false as an
-artefact of the encoding rather than a fact about the mathematics. The live
-definition is qualified only because the defective one still holds the plain
-name. Read \texttt{Amended} and the \texttt{L} suffix as spelling mistakes the
-library has not yet corrected, and the definition below as simply the
-definition.
+The clause is also what makes the definition satisfiable. A pattern is
+\emph{local} data on a block; typed instead as a global $\sigma$-additive state
+it would extend itself, and nothing could be $\sigma$-essential at all. Locality
+and coherence are the definition, not adjustments to one.
 
 \begin{definition}[$\sigma$-essential contextual state]
 \label{def:sigma-essential}
-\lean{SigmaEssential.Amended.IsSigmaEssentialL}
+\lean{SigmaEssential.IsSigmaEssential}
 \leanok
 \uses{def:local-pattern, def:two-valued-state, def:finadd-state}
 $s_0$ is finitely coherent (extends to \emph{some} finitely additive
@@ -1696,54 +1686,47 @@ non-Dirac alike.
 \end{definition}
 
 \begin{definition}[$\Psi$: the localized existence sentence]
-\label{def:psi-amended}
-\lean{SigmaEssential.Amended.PsiAmended}
+\label{def:psi}
+\lean{SigmaEssential.Psi}
 \leanok
 \uses{def:sigma-essential}
 The localized existence sentence: some $\Omega$, $\sigma$-class, block and
 pattern with $s_0$ $\sigma$-essential. Admissibility predicates are not
 bundled in --- non-Booleanness is \ref{lem:carrier-not-boolean}; essential
 irreducibility and non-segregation are paper-level facts about the carrier and
-do not affect the truth of \ref{thm:psi-amended-zfc}.
+do not affect the truth of \ref{thm:psi-zfc}.
 
-The Lean name is \texttt{PsiAmended}; see the section preamble for why the
-qualifier is there and why it carries no content. What \ref{thm:omega7} refutes
-is the clause-free \emph{mathematical} reading, which is this definition minus
-its coherence conjunct --- a different thing from the encoding defect the name
-is avoiding.
+What \ref{thm:omega7} rules out is the clause-free reading --- this definition
+minus its coherence conjunct --- which a Boolean carrier would satisfy.
 \end{definition}
 
 \begin{theorem}[Localization --- the whole content is clause (ii)]
 \label{thm:localization}
-\lean{SigmaEssential.Amended.localization_amended}
+\lean{SigmaEssential.localization}
 \leanok
 \uses{def:sigma-essential}
 $s_0$ is a witness if and only if (0) it is finitely coherent, (i) no
 point-evaluation extends it ($K(s_0) = \emptyset$), \emph{and} (ii) no
 non-Dirac $\sigma$-additive two-valued state does. Clause (i) is freely
 arrangeable by the Navara--Pt\'ak intersection device, so the entire
-difficulty is clause (ii) --- Wall A. (\texttt{SigmaEssential.localization} is
-the same statement over the defective encoding, kept only because
-\texttt{EncodingDefectCheck} refutes that encoding; it is not an earlier
-mathematical form of this.)
+difficulty is clause (ii) --- Wall A.
 \end{theorem}
 
 \begin{proof}
 \leanok
-A global $\sigma$-additive two-valued state either agrees with a point evaluation on the carrier or does not; splitting on that alternative gives clauses (i) and (ii). Clause (0) is the amendment's coherence conjunct, carried through unchanged.
+A global $\sigma$-additive two-valued state either agrees with a point evaluation on the carrier or does not; splitting on that alternative gives clauses (i) and (ii). Clause (0) is the coherence conjunct, carried through unchanged.
 \end{proof}
 
 \begin{lemma}[No witness on a Boolean carrier]
 \label{lem:boolean-no-witness}
-\lean{SigmaEssential.Amended.boolean_no_witness_amended}
+\lean{SigmaEssential.boolean_no_witness}
 \leanok
 \uses{def:sigma-essential, thm:boolean-baseline, def:interclosed}
 On an intersection-closed (Boolean) carrier no $\sigma$-essential contextual
 state exists: coherence alone folds the finitely many true sets of the block to
 a nonempty intersection, and any point of it gives a Dirac extension. This is
-the amended Prop 2.1 --- the statement the $\Omega_7$ example
-(\ref{thm:omega7}) shows is \emph{false} under the literal, unamended
-definition.
+Prop 2.1 --- the statement the $\Omega_7$ example (\ref{thm:omega7}) shows
+would fail without the coherence clause.
 \end{lemma}
 
 \begin{proof}
@@ -1773,7 +1756,7 @@ no $\sigma$-additive two-valued extension
 (\texttt{omega7\_no\_sigma\_extension}) --- the literal definition's
 ``witness'' half --- while coherence fails
 (\texttt{omega7\_not\_coherent}, via \ref{lem:boolean-no-witness}), so the
-amended definition excludes the object the literal one admits.
+the coherence clause excludes an object the clause-free reading admits.
 \end{proof}
 
 \section{The witness carrier}
@@ -1818,7 +1801,7 @@ From Mathlib's ordinal API: cardinality $\aleph_1$ gives uncountability, and $\m
 \uses{def:core-block, def:ulam-matrix, def:two-valued-state}
 Stated for \emph{any} uncountable $M$ with countable initial segments carrying
 an Ulam matrix --- the $\omega_1$ instantiation enters only at
-\ref{thm:psi-amended-zfc}. The conclusion is \texttt{IsDiracOn}, ``agrees with
+\ref{thm:psi-zfc}. The conclusion is \texttt{IsDiracOn}, ``agrees with
 $\delta_\omega$ on $L$'', not structure-equality --- the paper never
 constrains a state off the carrier, and the kernel argument evaluates only on
 carrier sets.
@@ -1845,13 +1828,13 @@ Derived, not exhibited: a Boolean carrier admits no witness
 certifies the carrier's non-Booleanness.
 \end{proof}
 
-\begin{theorem}[$\Psi$ amended, in ZFC]
-\label{thm:psi-amended-zfc}
-\lean{SigmaEssential.Ulam.psiAmended_ZFC}
+\begin{theorem}[$\Psi$, in ZFC]
+\label{thm:psi-zfc}
+\lean{SigmaEssential.Ulam.psi_ZFC}
 \leanok
-\uses{thm:core-pattern-witness, lem:omega1, def:psi-amended}
-The amended $\Psi$ holds on $\sigma$-classes/OMPs, coherence-amended and
-irreducible modulo the countable ideal, in ZFC. Zero sorries end to end; axioms
+\uses{thm:core-pattern-witness, lem:omega1, def:psi}
+$\Psi$ holds on $\sigma$-classes/OMPs, irreducible modulo the countable ideal,
+in ZFC. Zero sorries end to end; axioms
 exactly \texttt{[propext, Classical.choice, Quot.sound]}.
 \end{theorem}
 
@@ -1905,7 +1888,7 @@ representation rigidity and additivity read off the disjointness table.
 \uses{thm:vote-state, thm:rigidity, def:sigma-essential}
 Coherence (\ref{thm:vote-state}) together with rigidity (\ref{thm:rigidity})
 gives a pattern that is finitely coherent and has no global $\sigma$-additive
-extension --- a $\sigma$-essential contextual state. \ref{thm:psi-amended-zfc}
+extension --- a $\sigma$-essential contextual state. \ref{thm:psi-zfc}
 is this at $\omega_1$.
 \end{theorem}
 
@@ -1923,7 +1906,7 @@ Coherence gives the positive clause, rigidity the negative one.
 \uses{def:core-block}
 $L_1$ has no meet at the cores: a greatest lower bound would have to be the
 slab $M \times \{0\}$, which is not in the carrier. This is exactly why
-\ref{thm:psi-amended-zfc} does not settle the lattice case --- and it is the
+\ref{thm:psi-zfc} does not settle the lattice case --- and it is the
 formal counterpart of the recurring observation that every regularity-wild
 object built so far is a non-lattice.
 \end{lemma}

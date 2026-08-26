@@ -43,7 +43,7 @@ Use `axiom` with citation"). NOT gaps.**
 - `slab0_not_mem` — §3 Normal Form, proved on paper, not re-proved in Lean
 
 ⚠ **Fidelity consequence that must survive into the blueprint:** `IsIrreducible`
-being an unconnected stub is why `PsiAmended` omits essential irreducibility and is
+being an unconnected stub is why `Psi` omits essential irreducibility and is
 **strictly weaker than the paper's Ψ** (`FIDELITY_REVIEW.md`). A blanket `\leanok`
 over this cluster would erase that.
 
@@ -82,7 +82,7 @@ And the axis is load-bearing, not decorative. `TwoValuedState.val_inter`'s docst
 > `InterClosed`) is used — exactly the step that fails on a non-Boolean OML."
 
 The distributive case is *closed*: `boolean_baseline` (Prop 1.6) and
-`boolean_no_witness_amended` (amended Prop 2.1) prove a Boolean carrier admits NO
+`boolean_no_witness` (Prop 2.1) prove a Boolean carrier admits NO
 σ-essential witness. The non-distributive case is where the witness lives
 (`UlamWitness*`) and where Φ stays open (`rmk:phi-open`).
 
@@ -94,7 +94,7 @@ preparation, the orthomodular case as the destination.
 The existing blueprint's chapters are near-disconnected (only ch0→ch1 carries real
 edges; ch2/3/4 have no incoming mathematical dependencies). Adding OML chapters will
 NOT automatically fix that — a cross-chapter edge requires a real Lean dependency,
-not a prose reference. Checked: `ConcreteOMLBlocks` imports `SigmaEssentialAmended`
+not a prose reference. Checked: `ConcreteOMLBlocks` imports `SigmaEssentialWitness`
 → `SigmaEssentialLocalization` → Mathlib only. `OrthomodularMO2` imports Mathlib only.
 **No OML module imports ch0/ch1.** So the OML chapters will form their own connected
 component unless a genuine dependency is written.

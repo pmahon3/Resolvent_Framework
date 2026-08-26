@@ -63,8 +63,8 @@ variable {Ω : Type*} {d : DynkinSystem Ω} {A B : Set Ω} {M : Set (Set Ω)}
 
 /-- A finitely additive state satisfying the GLOBAL σ-condition is a
 σ-additive state. -/
-def _root_.SigmaEssential.Amended.FinAddState.toTwoValued
-    (μ : Amended.FinAddState d) (h : IsSigmaOn μ (Carrier d)) :
+def _root_.SigmaEssential.FinAddState.toTwoValued
+    (μ : FinAddState d) (h : IsSigmaOn μ (Carrier d)) :
     TwoValuedState d where
   Val := μ.Val
   decVal := μ.decVal
@@ -83,12 +83,12 @@ theorem _root_.SigmaEssential.TwoValuedState.isSigmaOn_toFinAdd
 
 /-- The **kernel** of a state on a block: the intersection of its value-1
 members (`D_Bl` of the note). -/
-def blockKernel (μ : Amended.FinAddState d) (M : Set (Set Ω)) : Set Ω :=
+def blockKernel (μ : FinAddState d) (M : Set (Set Ω)) : Set Ω :=
   ⋂₀ {A | A ∈ M ∧ μ.Val A}
 
 /-- A state is **blockwise pointed** if every maximal block's kernel is
 inhabited. -/
-def BlockwisePointed (μ : Amended.FinAddState d) : Prop :=
+def BlockwisePointed (μ : FinAddState d) : Prop :=
   ∀ M, IsMaxBlock d M → (blockKernel μ M).Nonempty
 
 /-- All maximal blocks are countably generated (as the σ-fields A2 makes
@@ -102,7 +102,7 @@ def CountablyGeneratedBlocks (d : DynkinSystem Ω) (hMeets : MeetsExist d) :
 are σ-additive. NO countable generation and NO latticehood: of a disjoint
 union covering the kernel point, exactly one member absorbs it, and
 blockwise σ globalizes by A1c. -/
-theorem isSigmaOn_of_blockwisePointed (μ : Amended.FinAddState d)
+theorem isSigmaOn_of_blockwisePointed (μ : FinAddState d)
     (h : BlockwisePointed μ) : IsSigmaOn μ (Carrier d) := by
   rw [isSigmaOn_carrier_iff_maxBlocks]
   intro M hM f hdisj hf
@@ -123,7 +123,7 @@ theorem isSigmaOn_of_blockwisePointed (μ : Amended.FinAddState d)
 blockwise pointed on countably generated blocks (T3 run on a countable
 generating family; the kernel contains the T3 witness set). -/
 theorem blockwisePointed_of_isSigmaOn (hMeets : MeetsExist d)
-    (hgen : CountablyGeneratedBlocks d hMeets) (μ : Amended.FinAddState d)
+    (hgen : CountablyGeneratedBlocks d hMeets) (μ : FinAddState d)
     (hσ : IsSigmaOn μ (Carrier d)) : BlockwisePointed μ := by
   intro M hM
   obtain ⟨G, hG⟩ := hgen M hM
@@ -136,7 +136,7 @@ theorem blockwisePointed_of_isSigmaOn (hMeets : MeetsExist d)
 blocks: σ-additive ⟺ blockwise pointed. `St_σ` = coherent atomic
 selections; B′(i) is a pure selection problem. -/
 theorem pointed_iff_sigma (hMeets : MeetsExist d)
-    (hgen : CountablyGeneratedBlocks d hMeets) (μ : Amended.FinAddState d) :
+    (hgen : CountablyGeneratedBlocks d hMeets) (μ : FinAddState d) :
     IsSigmaOn μ (Carrier d) ↔ BlockwisePointed μ :=
   ⟨blockwisePointed_of_isSigmaOn hMeets hgen μ,
     isSigmaOn_of_blockwisePointed μ⟩
@@ -147,7 +147,7 @@ theorem pointed_iff_sigma (hMeets : MeetsExist d)
 σ-liftability): every finite trace of a finitely additive two-valued state
 is reproduced by some σ-additive two-valued state. -/
 def Phi (d : DynkinSystem Ω) : Prop :=
-  ∀ (B : Block d) (μ : Amended.FinAddState d),
+  ∀ (B : Block d) (μ : FinAddState d),
     ∃ ν : TwoValuedState d, ∀ A ∈ B.sets, (ν.Val A ↔ μ.Val A)
 
 /-- A finite carrier family that some f.a. state values 1 throughout —
@@ -155,7 +155,7 @@ the "f.a.-coherent cluster" of §11b (normal-form optimizations like
 pairwise incompatibility are NOT built in; they are reductions, not part
 of the notion). -/
 def FACoherentCluster (d : DynkinSystem Ω) (𝒞 : Finset (Set Ω)) : Prop :=
-  (∀ E ∈ 𝒞, d.Has E) ∧ ∃ μ : Amended.FinAddState d, ∀ E ∈ 𝒞, μ.Val E
+  (∀ E ∈ 𝒞, d.Has E) ∧ ∃ μ : FinAddState d, ∀ E ∈ 𝒞, μ.Val E
 
 /-- **Φ, cluster form** (§11b): every f.a.-coherent cluster carries a
 σ-state that is 1 on it. -/
@@ -216,7 +216,7 @@ theorem phi_iff_phiCluster : Phi d ↔ PhiCluster d := by
 below the value-1 part of a pattern reproduces the pattern's WHOLE trace —
 monotonicity upward, ⊥-closure for the zeros. (The "any σ-state ≡ 1 on the
 cluster extends `s` on `B`" step of the cluster normal form.) -/
-theorem cluster_extension (B : Block d) (μ : Amended.FinAddState d)
+theorem cluster_extension (B : Block d) (μ : FinAddState d)
     {𝒞 : Finset (Set Ω)} (h𝒞 : ∀ E ∈ 𝒞, d.Has E)
     (habove : ∀ A ∈ B.sets, μ.Val A → ∃ E ∈ 𝒞, E ⊆ A)
     (ν : TwoValuedState d) (hν : ∀ E ∈ 𝒞, ν.Val E) :
@@ -242,7 +242,7 @@ patterns whose value-1 part needs ≥ 3 blocks, and the product-Ulam
 witness's |V| = 3 is optimal. -/
 theorem two_block_rescue (hMeets : MeetsExist d) {M₁ M₂ : Set (Set Ω)}
     (hM₁ : IsMaxBlock d M₁) (hM₂ : IsMaxBlock d M₂)
-    (B : Block d) (μ : Amended.FinAddState d)
+    (B : Block d) (μ : FinAddState d)
     (hcover : ∀ A ∈ B.sets, μ.Val A → A ∈ M₁ ∨ A ∈ M₂) :
     ∃ ω : Ω, ∀ A ∈ B.sets, ((dirac ω : TwoValuedState d).Val A ↔ μ.Val A) := by
   classical
@@ -345,7 +345,7 @@ theorem phiCluster_iff_pointedSelection (hMeets : MeetsExist d)
     (hgen : CountablyGeneratedBlocks d hMeets) :
     PhiCluster d ↔
       ∀ 𝒞 : Finset (Set Ω), FACoherentCluster d 𝒞 →
-        ∃ μ : Amended.FinAddState d,
+        ∃ μ : FinAddState d,
           (∀ E ∈ 𝒞, μ.Val E) ∧ BlockwisePointed μ := by
   constructor
   · intro h 𝒞 hcoh
@@ -366,13 +366,13 @@ variable (d)
 
 /-- The Boolean value function of a f.a. state, as a point of the Cantor
 cube over the carrier. -/
-noncomputable def valFun (μ : Amended.FinAddState d) :
+noncomputable def valFun (μ : FinAddState d) :
     ↥(Carrier d) → Bool :=
   fun A => decide (μ.Val A.1)
 
 /-- The finitely additive states, as a subset of the cube. -/
 noncomputable def stFA : Set (↥(Carrier d) → Bool) :=
-  Set.range fun μ : Amended.FinAddState d => valFun d μ
+  Set.range fun μ : FinAddState d => valFun d μ
 
 /-- The σ-additive states, as a subset of the cube. -/
 noncomputable def stSigma : Set (↥(Carrier d) → Bool) :=
@@ -574,7 +574,7 @@ theorem isCompact_stFA : IsCompact (stFA d) :=
 
 /-! ## §7. Receipts -/
 
-#print axioms SigmaEssential.Amended.FinAddState.toTwoValued
+#print axioms SigmaEssential.FinAddState.toTwoValued
 #print axioms SigmaEssential.TwoValuedState.isSigmaOn_toFinAdd
 #print axioms isSigmaOn_of_blockwisePointed
 #print axioms blockwisePointed_of_isSigmaOn
@@ -609,21 +609,21 @@ definition handed to the predicate. Same shape as `witness_not_polish` and
 additive state is blockwise pointed: each maximal block supplies a kernel point,
 so blockwise σ-additive states are available to rescue any trace. -/
 def SegregatedStructural (d : DynkinSystem Ω) : Prop :=
-  ∀ μ : Amended.FinAddState d, BlockwisePointed μ
+  ∀ μ : FinAddState d, BlockwisePointed μ
 
 /-- **`lem:horizontal`, derived.** On a segregated carrier every finitely
 additive state is σ-additive. The content is `isSigmaOn_of_blockwisePointed`:
 blockwise σ globalizes, no cross-block constraint existing. -/
 theorem isSigmaOn_of_segregated (hseg : SegregatedStructural d)
-    (μ : Amended.FinAddState d) : IsSigmaOn μ (Carrier d) :=
+    (μ : FinAddState d) : IsSigmaOn μ (Carrier d) :=
   isSigmaOn_of_blockwisePointed μ (hseg μ)
 
 /-- **Φ holds on a segregated carrier.** A finitely coherent pattern has a
 finitely additive realization, which segregation upgrades to a genuine
 σ-additive two-valued state -- so the pattern is not σ-essential. -/
 theorem no_witness_of_segregated {B : Block d} (hseg : SegregatedStructural d)
-    (s₀ : Amended.LocalState d B) (hcoh : Amended.FinitelyCoherent s₀) :
-    ¬ Amended.IsSigmaEssentialL s₀ := by
+    (s₀ : LocalState d B) (hcoh : FinitelyCoherent s₀) :
+    ¬ IsSigmaEssential s₀ := by
   rintro ⟨_, hno⟩
   obtain ⟨μ, hμ⟩ := hcoh
   exact hno ⟨μ.toTwoValued (isSigmaOn_of_segregated hseg μ), by
@@ -631,8 +631,8 @@ theorem no_witness_of_segregated {B : Block d} (hseg : SegregatedStructural d)
 
 /-- **A witness carrier is non-segregated (the forcing lemma).** One of the six
 admissibility conjuncts of `prop:adm`, proved rather than assumed. -/
-theorem witness_not_segregated {B : Block d} {s₀ : Amended.LocalState d B}
-    (hw : Amended.IsSigmaEssentialL s₀) : ¬ SegregatedStructural d :=
+theorem witness_not_segregated {B : Block d} {s₀ : LocalState d B}
+    (hw : IsSigmaEssential s₀) : ¬ SegregatedStructural d :=
   fun hseg => no_witness_of_segregated hseg s₀ hw.1 hw
 
 #print axioms witness_not_segregated

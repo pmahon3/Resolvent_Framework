@@ -73,8 +73,8 @@ theorem has_finsetSup_of_disjoint {f : ℕ → Set Ω}
 
 /-- A two-valued f.a. state vanishing on each member of a pairwise-disjoint
 family vanishes on every finite sup. -/
-theorem _root_.SigmaEssential.Amended.FinAddState.not_val_finsetSup
-    (μ : Amended.FinAddState d) {f : ℕ → Set Ω}
+theorem _root_.SigmaEssential.FinAddState.not_val_finsetSup
+    (μ : FinAddState d) {f : ℕ → Set Ω}
     (hdisj : Pairwise (Disjoint on f)) (hf : ∀ n, d.Has (f n))
     (s : Finset ℕ) (h : ∀ i ∈ s, ¬ μ.Val (f i)) : ¬ μ.Val (s.sup f) := by
   classical
@@ -95,7 +95,7 @@ theorem _root_.SigmaEssential.Amended.FinAddState.not_val_finsetSup
 two-valued f.a. states multiply (the block is ∩-closed by A2, so the
 Boolean `val_inter` derivation runs inside it). -/
 theorem IsMaxBlock.val_inter (hM : IsMaxBlock d M) (hMeets : MeetsExist d)
-    (μ : Amended.FinAddState d) (hA : A ∈ M) (hB : B ∈ M)
+    (μ : FinAddState d) (hA : A ∈ M) (hB : B ∈ M)
     (h1 : μ.Val A) (h2 : μ.Val B) : μ.Val (A ∩ B) := by
   have hII : d.Has (A ∩ B) := hM.has (hM.inter_mem hMeets hA hB)
   have hID : d.Has (A ∩ Bᶜ) := by
@@ -118,7 +118,7 @@ theorem IsMaxBlock.val_inter (hM : IsMaxBlock d M) (hMeets : MeetsExist d)
 /-- In-block multiplicativity over finite families: the inf of finitely
 many value-1 block members is value-1 (hence nonempty). -/
 theorem IsMaxBlock.val_finsetInf (hM : IsMaxBlock d M) (hMeets : MeetsExist d)
-    (μ : Amended.FinAddState d) {ι : Type*} {D : ι → Set Ω} {s : Finset ι}
+    (μ : FinAddState d) {ι : Type*} {D : ι → Set Ω} {s : Finset ι}
     (hD : ∀ i ∈ s, D i ∈ M) (hval : ∀ i ∈ s, μ.Val (D i)) :
     (s.inf D ∈ M) ∧ μ.Val (s.inf D) := by
   classical
@@ -150,7 +150,7 @@ specialized as in note §11e / kit gap 4.4(a)): every value-1 member of the
 family carries a value-1 INNER witness `D` in the family sandwiched below a
 class member, `D ⊆ K ⊆ E`. (For value-0 members the general `η`-form is
 vacuous once `∅ ∈ 𝒦`; two-valuedness reduces it to this.) -/
-def ApproximatesOn (𝒦 : Set (Set Ω)) (μ : Amended.FinAddState d)
+def ApproximatesOn (𝒦 : Set (Set Ω)) (μ : FinAddState d)
     (F : Set (Set Ω)) : Prop :=
   ∀ E ∈ F, μ.Val E → ∃ D ∈ F, ∃ K ∈ 𝒦, μ.Val D ∧ D ⊆ K ∧ K ⊆ E
 
@@ -162,7 +162,7 @@ value-1, their inner witnesses have value-1 (hence nonempty) finite
 intersections, so the sandwich compacts have the FIP; countable compactness
 then meets the empty tail intersection. -/
 theorem IsMaxBlock.isSigmaOn_of_compact_class (hM : IsMaxBlock d M)
-    (hMeets : MeetsExist d) (μ : Amended.FinAddState d) {𝒦 : Set (Set Ω)}
+    (hMeets : MeetsExist d) (μ : FinAddState d) {𝒦 : Set (Set Ω)}
     (hcc : CountablyCompactClass 𝒦) (happrox : ApproximatesOn 𝒦 μ M) :
     IsSigmaOn μ M := by
   classical
@@ -222,7 +222,7 @@ every maximal block in-block makes a two-valued f.a. state σ-additive
 (per-block 4(i) + the A1c blockwise reduction). This is the intrinsic
 engine for the coarse factor; B′(i) does not need it (§11c). -/
 theorem compact_transport (hMeets : MeetsExist d)
-    (μ : Amended.FinAddState d) {𝒦 : Set (Set Ω)}
+    (μ : FinAddState d) {𝒦 : Set (Set Ω)}
     (hcc : CountablyCompactClass 𝒦)
     (happrox : ∀ M, IsMaxBlock d M → ApproximatesOn 𝒦 μ M) :
     IsSigmaOn μ (Carrier d) :=
@@ -380,7 +380,7 @@ end Cocountable
 /-! ## §4. Receipts -/
 
 #print axioms has_finsetSup_of_disjoint
-#print axioms SigmaEssential.Amended.FinAddState.not_val_finsetSup
+#print axioms SigmaEssential.FinAddState.not_val_finsetSup
 #print axioms IsMaxBlock.val_inter
 #print axioms IsMaxBlock.val_finsetInf
 #print axioms IsMaxBlock.isSigmaOn_of_compact_class

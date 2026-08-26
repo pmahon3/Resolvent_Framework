@@ -108,11 +108,6 @@ SigmaEssential.Ulam.corePattern_coherent
 SigmaEssential.Ulam.corePattern_witness
 SigmaEssential.Ulam.witness_carrier_not_lattice
 SigmaEssential.Ulam.PsiOML
-QuerySystem.Quarantine.interClosed_ofMeasurableSpace
-QuerySystem.Quarantine.no_witness_ofMeasurableSpace
-QuerySystem.Quarantine.query_no_witness
-QuerySystem.Quarantine.delayQuery_no_witness
-QuerySystem.Quarantine.witness_carrier_not_ofMeasurableSpace
 Reconstruction.Pruning.IsLISC
 Reconstruction.Pruning.IsTR
 Reconstruction.Pruning.isTR_one_of_isLISC

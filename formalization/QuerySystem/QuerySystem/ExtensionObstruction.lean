@@ -36,6 +36,7 @@ the kernel.
 Blueprint: `rmk:kolmogorov-refuted`, `rmk:extension-repaired`.
 -/
 import QuerySystem.DiscriminabilityFoundations
+import QuerySystem.Diagonal
 
 open MeasureTheory Filter Topology
 open scoped ENNReal
@@ -83,15 +84,13 @@ theorem not_exists_extension_of_escapingTower
   set C : ℕ → Set S.Omega := fun n => S.Cyl (T.idx n) (T.base n) with hC
   have hone : ∀ n, μ (C n) = 1 := fun n => by
     rw [hC, hcyl (T.idx n) (T.base n) (T.meas n), T.full n]
-  have hmeas : ∀ n, NullMeasurableSet (C n) μ := fun n =>
-    (S.measurableSet_cyl (T.idx n) (T.base n) (T.meas n)).nullMeasurableSet
-  have hlim : Tendsto (μ ∘ C) atTop (𝓝 (μ (⋂ n, C n))) :=
-    tendsto_measure_iInter_atTop hmeas T.anti ⟨0, by rw [hone 0]; exact ENNReal.one_ne_top⟩
-  -- the intersection is empty, so the limit is 0 -- while every term is 1
-  rw [T.empty, measure_empty] at hlim
-  have hconst : (fun n => μ (C n)) = fun _ : ℕ => (1 : ℝ≥0∞) := funext hone
-  rw [show (μ ∘ C) = fun n => μ (C n) from rfl, hconst] at hlim
-  exact zero_ne_one (tendsto_nhds_unique hlim tendsto_const_nhds)
+  -- Continuity from above is not re-derived here: the tower's cylinders are an
+  -- antitone measurable sequence with empty intersection, which is exactly the
+  -- hypothesis set of `Diagonal.no_mass_one_of_iInter_empty`, and every term
+  -- having mass one is exactly what it forbids.
+  exact Diagonal.no_mass_one_of_iInter_empty μ C
+    (fun n => S.measurableSet_cyl (T.idx n) (T.base n) (T.meas n))
+    T.anti T.empty hone
 
 /-- Contrapositive, in the form the repaired theorem uses: a query system whose
 charges *do* extend carries no escaping tower. -/

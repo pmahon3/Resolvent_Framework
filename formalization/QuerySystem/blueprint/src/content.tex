@@ -410,15 +410,18 @@ of thick sets.
 \label{thm:no-extension-tower}
 \lean{QuerySystem.not_exists_extension_of_escapingTower}
 \leanok
-\uses{def:escaping-tower}
+\uses{def:escaping-tower, lem:cont-above}
 A query system carrying an escaping tower admits no extension of its charges to
 a probability measure on $\Omega$.
 \end{theorem}
 
 \begin{proof}
 \leanok
-Continuity from above: each stage has measure $1$, the intersection has measure
-$0$, and a constant sequence cannot converge to both.
+\uses{lem:cont-above}
+The tower's cylinders are an antitone measurable sequence with empty
+intersection and every stage of mass $1$, which is exactly what
+\ref{lem:cont-above} forbids. Continuity from above is not re-derived here: it
+was proved once, in the diagonal layer, and this is its consumer.
 
 Note the hypotheses: there are none on $S$. No directedness, no surjectivity,
 no collective exhaustion. The tower alone is fatal --- which is why

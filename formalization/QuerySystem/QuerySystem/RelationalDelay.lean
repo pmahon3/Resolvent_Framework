@@ -17,11 +17,14 @@ between chapters. This file supplies one.
 
 ## Why the relation side is the general one
 
-Specialising pruning to a deterministic `ρ` trivialises it: a functional graph
-has out-degree one, so its cycles are vertex-disjoint and `IsLISC ρ k L`
-collapses to "some cycle has length exactly `k*L`". Theorem P's content is in
-the nondeterministic case. So the join has to carry the delay side up to
-relations, not push pruning down to maps.
+Specialising pruning to a deterministic `ρ` collapses it. A functional graph is
+rho-shaped -- one cycle per component -- so every closed walk is a repeated
+cycle, and traversing a cycle of length `m` gives winding `m / gcd(m, L)`: the
+layer-`i` states are `{i + jL mod m}`, and `C_m × C_L` is `gcd(m,L)` copies of
+`C_lcm(m,L)`. For a function every strand therefore lies on ONE orbit.
+Branching is what lets strands sit on different orbits, so Theorem P's content
+is in the nondeterministic case, and the join has to carry the delay side up to
+relations rather than push pruning down to maps.
 
 The carrying object is the **subshift**: the bi-infinite `ρ`-trajectories inside
 `SensorStream α`. A relation has no orbit map, but it does have a trajectory

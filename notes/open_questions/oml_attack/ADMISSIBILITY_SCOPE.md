@@ -190,6 +190,38 @@ tactic fix — which is why this stops here rather than being pushed through.
 
 ---
 
+## Update 2026-08-26: ξ-triviality CLOSED — the core route, not the cell route
+
+`cor:centre` is proved. `central_countable_or_cocountable`: a central set of the
+witness carrier is countable or co-countable. Receipts
+`[propext, Classical.choice, Quot.sound]`, zero sorries.
+
+The missing step was `[E] ∈ {0,1}` — that the common `ξ` is trivial. It is
+`central_xi_trivial`, and it does not go through cells:
+
+* centrality is used a second time at **`coreA`**, not at a cell: `E ∩ coreA` is
+  again a carrier element;
+* meeting `coreA` empties coordinate 3, and the normal form is **anchored**
+  there (`κ 3 = false`), so its representing set `η` satisfies `∅ ≈ η` — `η` is
+  countable outright, with nothing existentially bound;
+* coordinate 0 is untouched by that meet and carries `ξ`, so `ξ ≈ η` or
+  `ξ ≈ ηᶜ`, i.e. countable or co-countable.
+
+**Why the cell route stalled, in hindsight.** A cell constrains only
+`ξ ∩ C α n`, so normalizing leaves the representing set free. A core constrains
+all of `ξ` at once *because it kills the anchor coordinate*. The stall was not
+that the constraint was too weak in degree; it was aimed at the wrong
+coordinate.
+
+**The `hseg` lever is not needed for this.** `row_conull` was built for the cell
+route and the core route does not use it, nor does it use `row_cover` or
+`col_disjoint`. `central_xi_trivial` and `cor:centre` take only `huncount`. The
+lever remains available and correct; it is simply not what closed this. Decision
+1 (adopting `hseg` for the centre chain) is therefore not load-bearing here —
+`central_all_traces` never took it and still does not.
+
+Blueprint: `def:central`, `thm:central-traces`, `thm:xi-trivial`, `cor:centre`.
+
 ## Update 2026-08-25: `hseg` adopted (user decision), and the lever it supplies
 
 Decision 1 resolved: **the centre chain gains

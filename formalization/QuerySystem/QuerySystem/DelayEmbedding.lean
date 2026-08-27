@@ -389,39 +389,6 @@ end delayQuerySystem
 
 /-! ## Fixed-lag delay query system -/
 
-/-- The fixed-lag delay query system at lag `τ₀`, with dimensions `{1, 2, …}`.
-
-    Index set `ℕ+` (dimension only); lag is fixed at `τ₀`. The refinement order is
-    just `d ≤ d'` (larger dimension is finer), and the refinement map picks the first `d`
-    coordinates of a `d'`-tuple.
-
-    **Motivation:** The full `delayQuerySystem` is not sequentially upper-directed.
-    Fixing the lag removes the multi-lag complication: with lag fixed at `τ₀`, any sequence
-    of dimensions `d_n` is bounded above by `sup_n d_n` (possibly infinite), but for any
-    *bounded* sequence the sup is finite and gives a concrete upper bound.
-
-    More precisely, this system IS sequentially upper-directed if and only if every sequence
-    in `ℕ+` is bounded — which is false.  The correct scope is the subsystem
-    `delayFixedLagBoundedSystem` below (dimensions `d ≤ N` for fixed lag and fixed `N`),
-    which is a finite chain and trivially directed.
-
-    The present definition serves as a stepping stone and documents the fixed-lag case. -/
-noncomputable def delayFixedLagSystem (X : Type u) [MeasurableSpace X] (τ₀ : ℕ+) :
-    QuerySystem.{u, 0} where
-  ι        := ℕ+
-  q        := fun ⟨d, _⟩ => delayQuery X d τ₀
-  le       := fun ⟨d, _⟩ ⟨d', _⟩ => d ≤ d'
-  π        := fun {i} {j} h =>
-    ⟨fun v k => v ⟨k.val, Nat.lt_of_lt_of_le k.isLt h⟩,
-     measurable_pi_lambda _ fun _ => measurable_pi_apply _⟩
-  le_refl  := fun _ => le_refl _
-  le_trans := fun h₁₂ h₂₃ => le_trans h₁₂ h₂₃
-  π_refl   := fun ⟨d, _⟩ => by funext v k; simp
-  π_trans  := by
-    intro ⟨d₁, _⟩ ⟨d₂, _⟩ ⟨d₃, _⟩ h₁₂ h₂₃
-    funext v k
-    simp
-
 /-! ## Bounded fixed-lag delay query system -/
 
 /-- The bounded fixed-lag delay query system: dimension `d ≤ N`, lag fixed at `τ₀`.

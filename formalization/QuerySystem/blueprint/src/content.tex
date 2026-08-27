@@ -650,6 +650,48 @@ This is what makes the falsity of the original \texttt{UpperDirected} statement
 a theorem of the kernel rather than a hand check against the source.
 \end{proof}
 
+\begin{theorem}[The hypotheses, discharged]
+\label{thm:aj-hypotheses}
+\uses{thm:aj-no-extension, def:query-system}
+\lean{ASM.sys_upperDirected, ASM.sys_evalSurjective}
+\leanok
+The Andersen--Jessen system is upper-directed, and every level's evaluation is
+onto.
+\end{theorem}
+
+\begin{proof}
+\leanok
+$\iota = \mathbb{N}$ under $\leq$, so upper bounds are maxima. For surjectivity,
+extend a given level-$n$ outcome by an arbitrary choice above $n$; the result is
+coherent and restricts correctly.
+\end{proof}
+
+\begin{corollary}[The \texttt{UpperDirected} form is false]
+\label{cor:upper-directed-false}
+\uses{thm:aj-hypotheses, thm:aj-no-extension, def:seq-upper-directed}
+\lean{ASM.upperDirected_extension_false}
+\leanok
+There is a query system satisfying \texttt{UpperDirected} and
+\texttt{EvalSurjective} whose compatible $\sigma$-additive marginals admit no
+extension.
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:aj-hypotheses}
+The Andersen--Jessen system, with \ref{thm:aj-hypotheses} supplying the two
+hypotheses and \ref{thm:aj-no-extension} the failure.
+
+This is what makes the repair to \ref{def:seq-upper-directed} forced.
+$\iota = \mathbb{N}$ is exactly where the two hypotheses come apart: every
+finite set of levels has an upper bound, an unbounded sequence of them does not.
+
+\textbf{Collective exhaustion is not discharged.} The statement is scoped to the
+two hypotheses that are, so the gap is visible: whether the Andersen--Jessen
+contents are collectively exhaustive is open here, and the form including that
+hypothesis is not refuted by this corollary.
+\end{proof}
+
 \section{The diagonal layer}
 
 \begin{definition}[Diagonal cylinders]
@@ -1741,26 +1783,26 @@ true sets have the finite intersection property; a common point is a kernel
 point.
 \end{proof}
 
-\begin{theorem}[$\Omega_7$: why the coherence clause is constitutive]
+\begin{theorem}[$\Omega_7$: a Boolean pattern that fails only coherence]
 \label{thm:omega7}
 \lean{SigmaEssential.Omega7.omega7_no_sigma_extension, SigmaEssential.Omega7.omega7_not_coherent, SigmaEssential.Omega7.omega7_not_witness}
 \leanok
 \uses{def:sigma-essential, lem:boolean-no-witness}
-Drop the coherence clause from \ref{def:sigma-essential} and a Boolean
-carrier acquires a ``witness''. Keep it and that object is excluded. The clause
-is therefore load-bearing: without it the definition is satisfied by something
-no Boolean carrier should admit, which is what \ref{lem:boolean-no-witness}
-forbids.
+$\Omega_7$ is the seven-point Boolean carrier $\{+,-\}^3 \setminus \{(+,+,+)\}$,
+and $s_0$ the majority vote of the three marked points. Then $s_0$ has empty
+kernel and no $\sigma$-additive two-valued extension, and $s_0$ is not finitely
+coherent. So $s_0$ satisfies every clause of \ref{def:sigma-essential} except
+coherence, and is not a witness.
 \end{theorem}
 
 \begin{proof}
 \leanok
-On the seven-point Boolean carrier $\Omega_7$ the pattern has empty kernel and
-no $\sigma$-additive two-valued extension
-(\texttt{omega7\_no\_sigma\_extension}) --- the literal definition's
-``witness'' half --- while coherence fails
-(\texttt{omega7\_not\_coherent}, via \ref{lem:boolean-no-witness}), so the
-the coherence clause excludes an object the clause-free reading admits.
+The three coordinate events pairwise intersect and have empty triple
+intersection, so no point realises $s_0$ and no $\sigma$-additive state extends
+it (\texttt{omega7\_no\_sigma\_extension}). The carrier is Boolean, so by
+\ref{lem:boolean-no-witness} no pattern on it is a witness; the clause that
+fails is therefore coherence (\texttt{omega7\_not\_coherent}), and $s_0$ is not
+a witness (\texttt{omega7\_not\_witness}).
 \end{proof}
 
 \section{The witness carrier}
@@ -1903,6 +1945,23 @@ Coherence gives the positive clause, rigidity the negative one.
 
 \section{The OML gap --- the open question}
 
+\begin{lemma}[The carrier is not Polish-representable]
+\label{lem:carrier-not-polish}
+\uses{thm:psi-zfc, lem:carrier-not-boolean}
+\lean{SigmaEssential.Ulam.carrier_not_polish}
+\leanok
+$L_1$ lies outside the Derr--Williamson boundary.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{thm:psi-zfc}
+A Polish-representable carrier admits no witness (DW Thm D.6, cited), and $L_1$
+carries one. Derived from the witness rather than exhibited, exactly as
+\ref{lem:carrier-not-boolean} is --- the construction certifies its own position
+relative to the boundary.
+\end{proof}
+
 \begin{lemma}[The witness carrier is not a lattice]
 \label{lem:witness-not-lattice}
 \lean{SigmaEssential.Ulam.witness_carrier_not_lattice}
@@ -1931,6 +1990,82 @@ from the other three (\texttt{slab\_codes\_differ}, since the $f = 0$ trace is
 co-countable and the rest are countable), so the code is the odd-weight $1000$
 or its complement $0111$, and \texttt{EvenCode} excludes both.
 \texttt{\#print axioms} now returns the standard three and nothing else.
+\end{proof}
+
+\subsection{The centre of the carrier}
+
+A carrier element is \emph{central} when it meets every carrier element back
+inside the carrier. On a non-distributive carrier that is a real restriction ---
+\ref{lem:witness-not-lattice} says meets can fail to exist at all --- and the
+question is what survives it.
+
+\begin{definition}[Central set]
+\label{def:central}
+\uses{def:core-block}
+\lean{SigmaEssential.Ulam.IsCentral}
+\leanok
+$E$ lies in the carrier and $E \cap A$ is again in the carrier for every carrier
+element $A$.
+\end{definition}
+
+\begin{theorem}[All four traces of a central set agree]
+\label{thm:central-traces}
+\uses{def:central, thm:normal-form}
+\lean{SigmaEssential.Ulam.central_all_traces}
+\leanok
+A central $E$ has a single $\xi$ with $\mathrm{trace}(E,f) \approx \xi$ for every
+coordinate $f$.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:normal-form}
+The code analysis: coordinates $0,1,2$ carry countably equal traces, $\kappa_3$
+is false, and even weight forces the fourth. Equal traces force equal codes,
+since $\kappa_a \neq \kappa_b$ would make $\xi \approx \xi^{c}$ and $M$
+countable.
+\end{proof}
+
+\begin{theorem}[$\xi$-triviality, the paper's $[E] \in \{0,1\}$]
+\label{thm:xi-trivial}
+\uses{thm:central-traces, def:central, thm:normal-form}
+\lean{SigmaEssential.Ulam.central_xi_trivial}
+\leanok
+That common $\xi$ is countable or co-countable.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{def:central, thm:normal-form}
+Centrality is used a \emph{second} time, and at a core rather than a cell.
+$E \cap \mathrm{coreA}$ is again a carrier element, so \ref{thm:normal-form}
+represents it as $\eta^{(\kappa)}$ with $\kappa_3$ false. But meeting
+$\mathrm{coreA}$ empties coordinate $3$, and the normal form is
+\emph{anchored} there: $\emptyset \approx \eta$, so $\eta$ is countable. Coordinate
+$0$ is untouched by the meet and carries $\xi$, so $\xi \approx \eta$ or
+$\xi \approx \eta^{c}$ --- countable or co-countable respectively.
+
+The cell route does not do this. Meeting a cell constrains only $\xi \cap
+C_{\alpha,n}$, and normalizing leaves the representing set existentially bound;
+a core constrains all of $\xi$ at once because it kills the anchor coordinate.
+\end{proof}
+
+\begin{corollary}[The centre is trivial modulo the countable ideal]
+\label{cor:centre}
+\uses{thm:xi-trivial, thm:central-traces}
+\lean{SigmaEssential.Ulam.central_countable_or_cocountable}
+\leanok
+A central set is countable or co-countable.
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:xi-trivial}
+\ref{thm:central-traces} reduces the question to $\xi$ and
+\ref{thm:xi-trivial} makes $\xi$ trivial; countable traces force a countable set
+and co-countable traces a co-countable one. Neither input alone suffices --- the
+invariant permits any $\xi$, and centrality without the code analysis does not
+say the four coordinates agree.
 \end{proof}
 
 \begin{definition}[$\Psi_{\mathrm{OML}}$ --- the lattice form]

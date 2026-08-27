@@ -256,6 +256,62 @@ theorem AJ_no_extension_unconditional (hα : Irrational α) :
             = (NCC α (ajMu α hα) (ajMu_compat α hα) (ajMu_univ α hα)).ν i A :=
   AJ_no_extension α (ajMu α hα) (ajMu_compat α hα) (ajMu_univ α hα)
 
+/-! ## The hypotheses, discharged: what the counterexample actually refutes
+
+`AJ_no_extension_unconditional` says the system admits no extension. On its own
+that is not yet a refutation of anything: a counterexample to a theorem has to
+satisfy the theorem's hypotheses, and until they are discharged the claim "the
+`UpperDirected` form was false" is prose.
+
+Two of them are discharged here. `UpperDirected` is `max`. `EvalSurjective` is
+the H1 argument: pick any coherent family agreeing with the given outcome below
+`n` and anything above it.
+
+Collective exhaustion is NOT discharged, and the statement below is scoped so
+that the gap is visible rather than assumed: it refutes the form with
+`UpperDirected` and `EvalSurjective`, which is the form the tower alone kills.
+Whether the AJ contents are collectively exhaustive is open here. -/
+
+/-- `ι = ℕ` under `≤`, so upper bounds are maxima. -/
+theorem sys_upperDirected : (Sys α).UpperDirected := by
+  change ∀ i j : ℕ, ∃ k : ℕ, i ≤ k ∧ j ≤ k
+  exact fun i j => ⟨max i j, le_max_left i j, le_max_right i j⟩
+
+/-- **H1.** Every level's evaluation is onto, given nonempty levels: extend the
+given outcome by an arbitrary choice above `n`, and the result is coherent. -/
+theorem sys_evalSurjective (hne : ∀ k, Nonempty (Lev α k)) :
+    (Sys α).EvalSurjective := by
+  classical
+  intro n a
+  let g : ∀ k, Lev α k := fun k => if h : k ≤ n then a ⟨k, by omega⟩ else (hne k).some
+  refine ⟨⟨fun _ => fun i => g i.1, ?_⟩, ?_⟩
+  · intro m n' h; rfl
+  · funext i
+    change g i.1 = a i
+    simp only [g]
+    rw [dif_pos (by omega : i.1 ≤ n)]
+
+/-- **The `UpperDirected` form of the extension theorem is false.**
+
+Not "there is a system with no extension" -- that alone refutes nothing -- but:
+there is a system satisfying `UpperDirected` and `EvalSurjective` whose
+compatible σ-additive marginals admit no extension. So those two hypotheses
+cannot suffice, and the repair to `SequentiallyUpperDirected`
+(`stone_observational_extension`) was forced rather than chosen.
+
+`ι = ℕ` is exactly where the two hypotheses come apart: every finite set of
+levels has an upper bound, and an unbounded sequence of them does not. -/
+theorem upperDirected_extension_false (hα : Irrational α)
+    (hne : ∀ k, Nonempty (Lev α k)) :
+    ∃ (S : QuerySystem.{0, 0}) (P : S.NormalizedCompatibleContents),
+      S.UpperDirected ∧ S.EvalSurjective ∧
+      ¬ ∃ μ : Measure S.Omega, IsProbabilityMeasure μ ∧
+          ∀ (i : S.ι) (A : Set ((S.q i).Outcome)), MeasurableSet A →
+            μ (S.Cyl i A) = P.ν i A :=
+  ⟨Sys α, NCC α (ajMu α hα) (ajMu_compat α hα) (ajMu_univ α hα),
+   sys_upperDirected α, sys_evalSurjective α hne,
+   AJ_no_extension_unconditional α hα⟩
+
 #print axioms AJ_no_extension_unconditional
 
 end ASM

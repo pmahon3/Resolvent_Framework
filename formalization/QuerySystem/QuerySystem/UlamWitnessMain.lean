@@ -9,6 +9,7 @@ The assembly: instantiation at `ω₁` (`UlamWitnessOmega1`) + the coherence sta
 -/
 import QuerySystem.UlamWitnessOmega1
 import QuerySystem.UlamWitnessState
+import QuerySystem.SigmaEssentialOpenCore
 
 namespace SigmaEssential.Ulam
 
@@ -34,5 +35,17 @@ theorem carrier_not_interClosed : ¬ InterClosed L₁ :=
 
 #print axioms psi_ZFC
 #print axioms carrier_not_interClosed
+
+/-- **The carrier lies outside the Derr–Williamson boundary.** A witness carrier
+cannot be Polish-representable (`witness_not_polish`, from DW Thm D.6), and `L₁`
+carries one. Derived from the witness rather than exhibited, exactly as
+`carrier_not_interClosed` is: the construction certifies its own position
+relative to the boundary. -/
+theorem carrier_not_polish :
+    ¬ SigmaEssential.OpenCore.PolishRepresentable L₁ :=
+  SigmaEssential.OpenCore.witness_not_polish s₀ product_ulam_witness_ZFC
+
+#print axioms carrier_not_polish
+
 
 end SigmaEssential.Ulam

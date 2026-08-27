@@ -514,4 +514,117 @@ theorem row_conull (hseg : ∀ β : M, (Set.Iio β).Countable) (U : UlamMatrix M
 
 #print axioms row_conull
 
+/-! ### ξ-triviality: the second use of centrality, at a core rather than a cell
+
+`ADMISSIBILITY_SCOPE.md` records the cell route as a dead end: normalizing
+`E ∩ cell` yields `ξ ∩ C α n ≈ η` with `η` existentially bound, which says
+nothing. The obstruction there is that a cell constrains only *part* of `ξ`.
+
+A core constrains all of it, and for a reason the cell route cannot use: the
+normal form is **anchored at coordinate 3** (`κ 3 = false`), and `coreA` makes
+coordinate 3 empty. So one application of centrality at `coreA` pins the
+representing set outright.
+
+`E ∩ coreA` is in the carrier by centrality; its coordinate-3 trace is `∅`; the
+anchor makes its representing set `≈ ∅`, i.e. countable; and its coordinate-0
+trace is `trace E 0 ≈ ξ`. Reading the code at coordinate 0 then leaves exactly
+two options — `ξ` countable or `ξᶜ` countable. -/
+
+/-- Meeting with `coreA` keeps coordinates `0` and `1` untouched. -/
+theorem trace_inter_coreA_01 (E : Set (M × Fin 4)) {f : Fin 4} (hf : f = 0 ∨ f = 1) :
+    trace (E ∩ coreA M) f = trace E f := by
+  ext x
+  simp only [trace, Set.mem_setOf_eq, Set.mem_inter_iff, coreA,
+    Set.mem_preimage, Set.mem_insert_iff, Set.mem_singleton_iff]
+  constructor
+  · exact fun h => h.1
+  · intro h
+    refine ⟨h, ?_⟩
+    rcases hf with rfl | rfl
+    · exact Or.inl rfl
+    · exact Or.inr rfl
+
+/-- **ξ-triviality (`[E] ∈ {0,1}`).** The common `ξ` of a central `E` is
+countable or co-countable. This is the step `cor:centre` was missing. -/
+theorem central_xi_trivial (huncount : ¬ (Set.univ : Set M).Countable)
+    (U : UlamMatrix M) {E : Set (M × Fin 4)} (hc : IsCentral U E)
+    {ξ : Set M} (hξ : ∀ f, CEq (trace E f) ξ) :
+    ξ.Countable ∨ ξᶜ.Countable := by
+  -- centrality, used at a CORE: `E ∩ coreA` is again a carrier set
+  obtain ⟨η, κ, _, hκ3, hrep⟩ := nrep_exists huncount (hc.2 _ (has_coreA U))
+  -- the anchor: coordinate 3 is empty and `κ 3 = false`, so `η ≈ ∅`
+  have h3 := hrep 3
+  rw [trace_inter_coreA_23 E (Or.inr rfl), hκ3, sel_false] at h3
+  have hη : η.Countable := by
+    have : symmDiff (∅ : Set M) η = η := by simp
+    rw [CEq, this] at h3; exact h3
+  -- coordinate 0 carries ξ
+  have h0 := hrep 0
+  rw [trace_inter_coreA_01 E (Or.inl rfl)] at h0
+  have hx : CEq ξ (sel η (κ 0)) := cEq_trans (cEq_symm (hξ 0)) h0
+  -- read the code at coordinate 0
+  cases hk : κ 0
+  · -- κ 0 = false: ξ ≈ η, and η is countable
+    left
+    rw [hk, sel_false] at hx
+    refine Set.Countable.mono ?_ (hx.union hη)
+    intro x hxx
+    by_cases hxe : x ∈ η
+    · exact Or.inr hxe
+    · exact Or.inl (Set.mem_symmDiff.mpr (Or.inl ⟨hxx, hxe⟩))
+  · -- κ 0 = true: ξ ≈ ηᶜ, so ξᶜ ⊆ (ξ △ ηᶜ) ∪ η
+    right
+    rw [hk, sel_true] at hx
+    refine Set.Countable.mono ?_ (hx.union hη)
+    intro x hxx
+    by_cases hxe : x ∈ η
+    · exact Or.inr hxe
+    · exact Or.inl (Set.mem_symmDiff.mpr (Or.inr ⟨hxe, hxx⟩))
+
+/-- Dual of `countable_of_traces_countable`: co-countable traces force a
+co-countable set. -/
+theorem cocountable_of_traces_cocountable {E : Set (M × Fin 4)}
+    (h : ∀ f, (trace E f)ᶜ.Countable) : Eᶜ.Countable := by
+  have hsub : Eᶜ ⊆ ⋃ f : Fin 4, (fun x => (x, f)) '' (trace E f)ᶜ := by
+    rintro ⟨x, f⟩ hx
+    exact Set.mem_iUnion.mpr ⟨f, ⟨x, hx, rfl⟩⟩
+  exact Set.Countable.mono hsub
+    (Set.countable_iUnion fun f => ((h f).image _))
+
+/-- A trace countably equal to a co-countable `ξ` is itself co-countable. -/
+theorem trace_cocountable_of_cEq {X ξ : Set M} (h : CEq X ξ) (hξ : ξᶜ.Countable) :
+    Xᶜ.Countable := by
+  refine Set.Countable.mono ?_ (h.union hξ)
+  intro x hx
+  by_cases hxξ : x ∈ ξ
+  · exact Or.inl (Set.mem_symmDiff.mpr (Or.inr ⟨hxξ, hx⟩))
+  · exact Or.inr hxξ
+
+/-- **`cor:centre`.** A central set of the witness carrier is countable or
+co-countable — the paper's `[E] ∈ {0,1}`, now in the kernel.
+
+The two halves come from different places. `central_all_traces` reduces the
+question to the single representing set `ξ` (all four traces are countably equal
+to it), and `central_xi_trivial` makes `ξ` trivial by applying centrality a
+second time, at `coreA`. Neither alone suffices: the invariant permits any `ξ`,
+and centrality without the code analysis does not tell you the four coordinates
+agree. -/
+theorem central_countable_or_cocountable (huncount : ¬ (Set.univ : Set M).Countable)
+    (U : UlamMatrix M) {E : Set (M × Fin 4)} (hc : IsCentral U E) :
+    E.Countable ∨ Eᶜ.Countable := by
+  obtain ⟨ξ, hξ⟩ := central_all_traces huncount U hc
+  rcases central_xi_trivial huncount U hc hξ with hc0 | hc1
+  · -- ξ countable: every trace is countable, hence E is
+    left
+    refine countable_of_traces_countable (fun f => ?_)
+    refine Set.Countable.mono ?_ ((hξ f).union hc0)
+    intro x hx
+    by_cases hxξ : x ∈ ξ
+    · exact Or.inr hxξ
+    · exact Or.inl (Set.mem_symmDiff.mpr (Or.inl ⟨hx, hxξ⟩))
+  · -- ξ co-countable: every trace is co-countable, hence E is
+    right
+    exact cocountable_of_traces_cocountable
+      (fun f => trace_cocountable_of_cEq (hξ f) hc1)
+
 end SigmaEssential.Ulam

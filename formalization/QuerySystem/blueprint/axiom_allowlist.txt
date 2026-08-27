@@ -36,3 +36,17 @@ QuerySystem.pWitness	Navara, PAMS 115 (1992) p. 428 -- the element p = \/_n b|C_
 QuerySystem.blockVal_pWitness	Navara, PAMS 115 (1992) p. 428 -- block-values of p
 QuerySystem.aWitness	Navara, PAMS 115 (1992) p. 428 -- the orthogonal family a_n = a|C_n
 QuerySystem.blockVal_aWitness	Navara, PAMS 115 (1992) p. 428 -- block-values of a_n
+
+# --- The Derr-Williamson Polish cut ------------------------------------------
+# D. Derr and R. Williamson (2023), Thm D.6, via Maharam: on a
+# Polish-representable carrier every finitely-coherent pattern globalises, so no
+# sigma-essential witness lives there. `PolishRepresentable` is the abstract
+# carrier predicate the theorem is stated over; it is deliberately not unfolded.
+#
+# ENTERED 2026-08-26 because `carrier_not_polish` is the first BLUEPRINT node to
+# depend on this axiom -- it has been in the library since the open core was
+# written, but nothing blueprinted consumed it, so the gate never saw it. The
+# citation is the repo's own (SigmaEssentialOpenCore.lean, section 5); it has NOT
+# been re-checked against the primary source in this session.
+SigmaEssential.OpenCore.PolishRepresentable	Derr-Williamson 2023 Thm D.6 -- abstract carrier predicate, not unfolded
+SigmaEssential.OpenCore.dw_polish_no_witness	Derr-Williamson 2023 Thm D.6 (via Maharam) -- Polish-representable implies no witness

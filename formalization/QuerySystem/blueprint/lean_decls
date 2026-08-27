@@ -36,6 +36,9 @@ ThickTrace.ThickFor
 ThickTrace.traceMeasure
 ThickTrace.traceMeasure_apply
 ASM.AJ_no_extension_unconditional
+ASM.sys_upperDirected
+ASM.sys_evalSurjective
+ASM.upperDirected_extension_false
 Diagonal.Diag
 Diagonal.Diag_iInter
 Diagonal.pi_inter_diag_eq_empty
@@ -106,7 +109,12 @@ SigmaEssential.Ulam.psi_ZFC
 SigmaEssential.Ulam.nrep_exists
 SigmaEssential.Ulam.corePattern_coherent
 SigmaEssential.Ulam.corePattern_witness
+SigmaEssential.Ulam.carrier_not_polish
 SigmaEssential.Ulam.witness_carrier_not_lattice
+SigmaEssential.Ulam.IsCentral
+SigmaEssential.Ulam.central_all_traces
+SigmaEssential.Ulam.central_xi_trivial
+SigmaEssential.Ulam.central_countable_or_cocountable
 SigmaEssential.Ulam.PsiOML
 SigmaEssential.Blocks.CountablyCompactClass
 SigmaEssential.Blocks.ApproximatesOn

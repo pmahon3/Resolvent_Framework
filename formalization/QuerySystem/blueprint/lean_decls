@@ -107,6 +107,10 @@ SigmaEssential.Ulam.nrep_exists
 SigmaEssential.Ulam.corePattern_coherent
 SigmaEssential.Ulam.corePattern_witness
 SigmaEssential.Ulam.witness_carrier_not_lattice
+SigmaEssential.Ulam.IsCentral
+SigmaEssential.Ulam.central_all_traces
+SigmaEssential.Ulam.central_xi_trivial
+SigmaEssential.Ulam.central_countable_or_cocountable
 SigmaEssential.Ulam.PsiOML
 SigmaEssential.Blocks.CountablyCompactClass
 SigmaEssential.Blocks.ApproximatesOn

@@ -1933,6 +1933,82 @@ or its complement $0111$, and \texttt{EvenCode} excludes both.
 \texttt{\#print axioms} now returns the standard three and nothing else.
 \end{proof}
 
+\subsection{The centre of the carrier}
+
+A carrier element is \emph{central} when it meets every carrier element back
+inside the carrier. On a non-distributive carrier that is a real restriction ---
+\ref{lem:witness-not-lattice} says meets can fail to exist at all --- and the
+question is what survives it.
+
+\begin{definition}[Central set]
+\label{def:central}
+\uses{def:core-block}
+\lean{SigmaEssential.Ulam.IsCentral}
+\leanok
+$E$ lies in the carrier and $E \cap A$ is again in the carrier for every carrier
+element $A$.
+\end{definition}
+
+\begin{theorem}[All four traces of a central set agree]
+\label{thm:central-traces}
+\uses{def:central, thm:normal-form}
+\lean{SigmaEssential.Ulam.central_all_traces}
+\leanok
+A central $E$ has a single $\xi$ with $\mathrm{trace}(E,f) \approx \xi$ for every
+coordinate $f$.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:normal-form}
+The code analysis: coordinates $0,1,2$ carry countably equal traces, $\kappa_3$
+is false, and even weight forces the fourth. Equal traces force equal codes,
+since $\kappa_a \neq \kappa_b$ would make $\xi \approx \xi^{c}$ and $M$
+countable.
+\end{proof}
+
+\begin{theorem}[$\xi$-triviality, the paper's $[E] \in \{0,1\}$]
+\label{thm:xi-trivial}
+\uses{thm:central-traces, def:central, thm:normal-form}
+\lean{SigmaEssential.Ulam.central_xi_trivial}
+\leanok
+That common $\xi$ is countable or co-countable.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{def:central, thm:normal-form}
+Centrality is used a \emph{second} time, and at a core rather than a cell.
+$E \cap \mathrm{coreA}$ is again a carrier element, so \ref{thm:normal-form}
+represents it as $\eta^{(\kappa)}$ with $\kappa_3$ false. But meeting
+$\mathrm{coreA}$ empties coordinate $3$, and the normal form is
+\emph{anchored} there: $\emptyset \approx \eta$, so $\eta$ is countable. Coordinate
+$0$ is untouched by the meet and carries $\xi$, so $\xi \approx \eta$ or
+$\xi \approx \eta^{c}$ --- countable or co-countable respectively.
+
+The cell route does not do this. Meeting a cell constrains only $\xi \cap
+C_{\alpha,n}$, and normalizing leaves the representing set existentially bound;
+a core constrains all of $\xi$ at once because it kills the anchor coordinate.
+\end{proof}
+
+\begin{corollary}[The centre is trivial modulo the countable ideal]
+\label{cor:centre}
+\uses{thm:xi-trivial, thm:central-traces}
+\lean{SigmaEssential.Ulam.central_countable_or_cocountable}
+\leanok
+A central set is countable or co-countable.
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:xi-trivial}
+\ref{thm:central-traces} reduces the question to $\xi$ and
+\ref{thm:xi-trivial} makes $\xi$ trivial; countable traces force a countable set
+and co-countable traces a co-countable one. Neither input alone suffices --- the
+invariant permits any $\xi$, and centrality without the code analysis does not
+say the four coordinates agree.
+\end{proof}
+
 \begin{definition}[$\Psi_{\mathrm{OML}}$ --- the lattice form]
 \label{def:psi-oml}
 \lean{SigmaEssential.Ulam.PsiOML}

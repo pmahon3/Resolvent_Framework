@@ -650,6 +650,48 @@ This is what makes the falsity of the original \texttt{UpperDirected} statement
 a theorem of the kernel rather than a hand check against the source.
 \end{proof}
 
+\begin{theorem}[The hypotheses, discharged]
+\label{thm:aj-hypotheses}
+\uses{thm:aj-no-extension, def:query-system}
+\lean{ASM.sys_upperDirected, ASM.sys_evalSurjective}
+\leanok
+The Andersen--Jessen system is upper-directed, and every level's evaluation is
+onto.
+\end{theorem}
+
+\begin{proof}
+\leanok
+$\iota = \mathbb{N}$ under $\leq$, so upper bounds are maxima. For surjectivity,
+extend a given level-$n$ outcome by an arbitrary choice above $n$; the result is
+coherent and restricts correctly.
+\end{proof}
+
+\begin{corollary}[The \texttt{UpperDirected} form is false]
+\label{cor:upper-directed-false}
+\uses{thm:aj-hypotheses, thm:aj-no-extension, def:seq-upper-directed}
+\lean{ASM.upperDirected_extension_false}
+\leanok
+There is a query system satisfying \texttt{UpperDirected} and
+\texttt{EvalSurjective} whose compatible $\sigma$-additive marginals admit no
+extension.
+\end{corollary}
+
+\begin{proof}
+\leanok
+\uses{thm:aj-hypotheses}
+The Andersen--Jessen system, with \ref{thm:aj-hypotheses} supplying the two
+hypotheses and \ref{thm:aj-no-extension} the failure.
+
+This is what makes the repair to \ref{def:seq-upper-directed} forced.
+$\iota = \mathbb{N}$ is exactly where the two hypotheses come apart: every
+finite set of levels has an upper bound, an unbounded sequence of them does not.
+
+\textbf{Collective exhaustion is not discharged.} The statement is scoped to the
+two hypotheses that are, so the gap is visible: whether the Andersen--Jessen
+contents are collectively exhaustive is open here, and the form including that
+hypothesis is not refuted by this corollary.
+\end{proof}
+
 \section{The diagonal layer}
 
 \begin{definition}[Diagonal cylinders]
@@ -1902,6 +1944,23 @@ Coherence gives the positive clause, rigidity the negative one.
 \end{proof}
 
 \section{The OML gap --- the open question}
+
+\begin{lemma}[The carrier is not Polish-representable]
+\label{lem:carrier-not-polish}
+\uses{thm:psi-zfc, lem:carrier-not-boolean}
+\lean{SigmaEssential.Ulam.carrier_not_polish}
+\leanok
+$L_1$ lies outside the Derr--Williamson boundary.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{thm:psi-zfc}
+A Polish-representable carrier admits no witness (DW Thm D.6, cited), and $L_1$
+carries one. Derived from the witness rather than exhibited, exactly as
+\ref{lem:carrier-not-boolean} is --- the construction certifies its own position
+relative to the boundary.
+\end{proof}
 
 \begin{lemma}[The witness carrier is not a lattice]
 \label{lem:witness-not-lattice}

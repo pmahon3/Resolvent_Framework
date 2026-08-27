@@ -36,6 +36,18 @@ as reference and teaching material, not publishable as novel work.
   structure is invisible at finite resolution — no improved floor.
   Synthesis folded into literature review §2.9.
 
+- [lisc_root_of_unity_CLASSICAL.md](lisc_root_of_unity_CLASSICAL.md) —
+  LISC_k(L) read as a k-th root of unity: a cycle of length m gives winding
+  m/gcd(m,L), and TR_k is that statement on the k-point configuration space.
+  The reading is right and every step is published: the layered ring is the
+  categorical product D × C_L, and C_m × C_L = gcd(m,L) copies of C_lcm(m,L)
+  is the standard component count; Theorem B's eventual periodicity is the
+  Boolean-matrix index/period fact. Kills the "generalize pruning to ℝ"
+  direction for deterministic dynamics (it reduces to Halmos–von Neumann) and
+  explains why determinism trivialises pruning — it collapses every strand onto
+  one orbit. Does NOT touch Theorem P, whose injective-tuple digraph is not a
+  product of cycles.
+
 - [relational_reconstruction_separation.md](relational_reconstruction_separation.md) —
   Posing reconstruction relationally separates predictive/probabilistic
   content (recoverable, no assumed space) from geometric state-space

@@ -1142,12 +1142,16 @@ lag is the pruning chapter's ring length.
 
   It is not yet a theorem connecting them, and the gap is specific. Pruning's
   $\rho \subseteq A \times A$ is a \emph{relation}; the delay side's $T$ is a
-  \emph{function}. Specialising pruning to a deterministic $\rho$ looks to
-  trivialise it --- a functional graph has out-degree one, so its cycles are
-  disjoint and $\mathrm{LISC}_k(L)$ collapses to ``some cycle has length exactly
-  $kL$'' --- so the content of \ref{thm:pruning} lives in the nondeterministic
-  case. Closing the gap therefore means carrying the delay side to relations,
-  not restricting pruning to maps.
+  \emph{function}. Specialising pruning to a deterministic $\rho$
+  collapses it. A functional graph is rho-shaped, so every closed walk is a
+  repeated cycle, and traversing one of length $m$ gives winding
+  $m/\gcd(m,L)$: the layer-$i$ states are
+  $\{i + jL \bmod m\}$, and the product $C_m \times C_L$ is
+  $\gcd(m,L)$ copies of $C_{\mathrm{lcm}(m,L)}$. For a function every strand
+  therefore lies on \emph{one} orbit. Branching is what lets strands sit on
+  different orbits, so the content of \ref{thm:pruning} lives in the
+  nondeterministic case, and closing the gap means carrying the delay side to
+  relations rather than restricting pruning to maps.
 \end{remark}
 
 \section{The predictive layer, and what is not formalized}

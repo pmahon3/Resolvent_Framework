@@ -1741,26 +1741,26 @@ true sets have the finite intersection property; a common point is a kernel
 point.
 \end{proof}
 
-\begin{theorem}[$\Omega_7$: why the coherence clause is constitutive]
+\begin{theorem}[$\Omega_7$: a Boolean pattern that fails only coherence]
 \label{thm:omega7}
 \lean{SigmaEssential.Omega7.omega7_no_sigma_extension, SigmaEssential.Omega7.omega7_not_coherent, SigmaEssential.Omega7.omega7_not_witness}
 \leanok
 \uses{def:sigma-essential, lem:boolean-no-witness}
-Drop the coherence clause from \ref{def:sigma-essential} and a Boolean
-carrier acquires a ``witness''. Keep it and that object is excluded. The clause
-is therefore load-bearing: without it the definition is satisfied by something
-no Boolean carrier should admit, which is what \ref{lem:boolean-no-witness}
-forbids.
+$\Omega_7$ is the seven-point Boolean carrier $\{+,-\}^3 \setminus \{(+,+,+)\}$,
+and $s_0$ the majority vote of the three marked points. Then $s_0$ has empty
+kernel and no $\sigma$-additive two-valued extension, and $s_0$ is not finitely
+coherent. So $s_0$ satisfies every clause of \ref{def:sigma-essential} except
+coherence, and is not a witness.
 \end{theorem}
 
 \begin{proof}
 \leanok
-On the seven-point Boolean carrier $\Omega_7$ the pattern has empty kernel and
-no $\sigma$-additive two-valued extension
-(\texttt{omega7\_no\_sigma\_extension}) --- the literal definition's
-``witness'' half --- while coherence fails
-(\texttt{omega7\_not\_coherent}, via \ref{lem:boolean-no-witness}), so the
-the coherence clause excludes an object the clause-free reading admits.
+The three coordinate events pairwise intersect and have empty triple
+intersection, so no point realises $s_0$ and no $\sigma$-additive state extends
+it (\texttt{omega7\_no\_sigma\_extension}). The carrier is Boolean, so by
+\ref{lem:boolean-no-witness} no pattern on it is a witness; the clause that
+fails is therefore coherence (\texttt{omega7\_not\_coherent}), and $s_0$ is not
+a witness (\texttt{omega7\_not\_witness}).
 \end{proof}
 
 \section{The witness carrier}

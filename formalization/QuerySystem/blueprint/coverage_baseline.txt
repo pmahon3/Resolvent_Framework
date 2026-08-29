@@ -2,7 +2,6 @@
 BandClosure.lean
 BoundaryDescent.lean
 Commensurability.lean
-ConcreteOMLBlocks.lean
 ConcreteOMLPatterns.lean
 FibreProductReflection.lean
 FiniteAtomFoldKernel.lean

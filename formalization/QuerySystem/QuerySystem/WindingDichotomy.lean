@@ -12,7 +12,7 @@ characterization (reconstruction paper, `thm:winding`), and *only* that kernel.
 It does **not** certify the winding characterization itself. Read the boundary
 carefully before recalling this file:
 
-**CERTIFIED here (0-sorry, on top of one cited axiom + `WindingInjectivity`):**
+**CERTIFIED here (0-sorry, on top of `WindingInjectivity`):**
 the correspondence
   *a layer-injective simple cycle has winding 1  ⟺  it is the graph of a global
   configuration `ZMod L → Fin A`*,
@@ -20,12 +20,10 @@ and its contrapositive, the **fractional dichotomy**:
   *a layer-injective simple cycle of winding ≥ 2 visits some layer in ≥ 2 distinct
   states, so its marginal profile is not a `{0,1}`-configuration (it is fractional).*
 
-**AXIOMATIZED (classical, Mathlib-absent):** the network **flow-decomposition
-theorem** — every circulation on a finite digraph is a nonnegative sum of
-simple-directed-cycle flows (`flow_decomposition`). This is standard
-(Ford–Fulkerson; Ahuja–Magnanti–Orlin, *Network Flows*, Thm 3.5) and stated here
-abstractly, NOT as the winding conclusion. The specialization *extreme ⟹ single
-cycle* and *fractional ⟺ winding ≥ 2* are proven on top of it, not assumed.
+**NOT axiomatized:** the network flow-decomposition theorem (Ford–Fulkerson;
+Ahuja–Magnanti–Orlin, *Network Flows*, Thm 3.5) is classical and Mathlib-absent,
+and is NOT stated here. Nothing below consumes it: the winding-1/config
+correspondence and the fractional dichotomy are pure finite combinatorics.
 
 **NOT certifiable without a convex-geometry / LP / polytope-vertex library**
 (absent from Mathlib v4.29): the gate lemma and the coherence-polytope equality
@@ -35,8 +33,8 @@ below — it is a `rfl`-grade remark, deliberately not dressed as a theorem). Th
 polytope-vertex step (`C ≠ R ⟺ ∃ fractional vertex`) has no Mathlib home.
 
 So the honest one-line summary of this file is:
-  **"winding-1 ⟺ config correspondence + injectivity, given classical
-    flow-decomposition"** — NOT "the winding characterization is Lean-certified".
+  **"winding-1 ⟺ config correspondence + injectivity"** — NOT "the winding
+  characterization is Lean-certified".
 -/
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Data.Fintype.Basic
@@ -57,10 +55,6 @@ We reuse the vertex model of `WindingInjectivity`: a length-`n` closed walk is a
 ring. (For a genuine closed layered walk the layer advances by one each step and
 closes after `n` steps, so `L ∣ n` and the winding is `n / L`.) -/
 
-/-- The winding number of a length-`n` closed layered walk: full wraps of the
-ring, `n / L`. -/
-def winding (L n : ℕ) : ℕ := n / L
-
 /-! ## The gate lemma is definitional — a remark, not a theorem
 
 In the layered graph the value a circulation puts on the arc
@@ -74,18 +68,6 @@ would require defining coherence independently of the context structure, and onc
 arc-values carry the cell-probabilities that independence is gone. We record the
 identification as a definitional statement about a single vertex and move on;
 the certified content is the winding dichotomy below. -/
-section GateRemark
-variable (inflow outflow : ℚ)
-
-/-- Conservation at a vertex is inflow = outflow. Coherence (adjacent contexts
-agree on the shared layer-marginal) is the SAME equation once arc-values are the
-context cell-probabilities. This is the gate lemma, and it is definitional: the
-two sides are literally the same rational. Stated to make the boundary explicit,
-not to claim a theorem. -/
-theorem coherence_is_conservation (h : inflow = outflow) : inflow = outflow := h
-
-end GateRemark
-
 /-! ## The certified kernel: winding-1 ⟺ graph of a configuration
 
 This is the trap-3 content the advisor flagged: proven, not assumed. A global
@@ -189,39 +171,10 @@ theorem winding_ge_two_fractional [NeZero L] (t : Trace L A n) (hn : L < n)
   -- same layer + same state ⟹ same step by layer-injectivity, contradicting i ≠ j.
   exact hne (hsimple i j hlayer hstate)
 
-/-! ## The classical bridge, honestly axiomatized
-
-The one genuinely convex-geometric fact — *every circulation on a finite digraph
-is a nonnegative sum of simple-directed-cycle flows* — is classical (Ahuja–
-Magnanti–Orlin, *Network Flows*, Thm 3.5) and absent from Mathlib v4.29. We state
-it abstractly as an axiom over an arbitrary finite arc type. It is deliberately
-the GENERAL decomposition, **not** the paper's specialized winding conclusion:
-the specialization (extreme ⟹ single cycle; fractional ⟺ winding ≥ 2) is proven
-above from the certified kernel, not assumed here. -/
-
-/-- Abstract circulation on a finite digraph: a `ℚ≥0` arc-weighting with
-conservation at every vertex, packaged as an opaque carrier so the axiom commits
-only to the decomposition's existence, not to a coordinate model. -/
-axiom Circulation (Arc : Type*) : Type _
-
-/-- A simple-cycle flow: an indicator-supported circulation on one simple directed
-cycle, with a nonnegative scale. -/
-axiom SimpleCycleFlow (Arc : Type*) : Type _
-
-/-- **Flow-decomposition theorem (classical; Ahuja–Magnanti–Orlin Thm 3.5).**
-Every circulation on a finite digraph decomposes as a nonnegative sum of
-simple-directed-cycle flows. Stated as the general theorem; the winding
-specialization is the *proven* content of this file, not part of this axiom. -/
-axiom flow_decomposition {Arc : Type*} [Fintype Arc] (c : Circulation Arc) :
-    ∃ (ι : Type) (_ : Fintype ι) (_ : ι → SimpleCycleFlow Arc), True
-
 /-! ## Trust signature
 
-The certified kernel depends only on the standard axioms `[propext,
-Classical.choice, Quot.sound]` — NOT on `flow_decomposition`. The flow-decomposition
-axiom is stated for the paper's bridge but is not consumed by the kernel theorems:
-the winding-1/config correspondence and the fractional dichotomy are pure finite
-combinatorics. Verify by the receipts below. -/
+Everything here depends only on the standard axioms `[propext,
+Classical.choice, Quot.sound]`. Verify by the receipts below. -/
 
 #print axioms winding_one_isConfig
 #print axioms config_trace_layerInjective

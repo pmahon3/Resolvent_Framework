@@ -28,16 +28,24 @@ L = {∅, Aᶜ, A, univ} ∪ {∅, Bᶜ, B, univ}
 
 * `mo2Class` is a `DynkinSystem`: the only disjoint pairs it contains are the
   complementary ones, so every countable disjoint union lands back inside.
+* `rep_le_iff` / `rep_ortho` / `rep_injective` / `rep_surjective` — the six
+  members *are* `MO2`, in order and orthocomplement.
 * `mo2Class_not_interClosed` — it is **not** intersection-closed: `A ∩ B` is a
-  single point, which is not in `L`. Four points suffice for the failure that
-  `carrier_not_interClosed` establishes for `L₁` over `ω₁`.
-* `mo2Class_meet_eq_bot` — the greatest carrier element below both `A` and `B`
-  is `∅`, while `A ∩ B ≠ ∅`. Lattice meet and set intersection come apart here,
-  which is the concrete content of `MO2.gap`.
+  single point, which is not in `L`. That is the failure
+  `carrier_not_interClosed` establishes for `L₁` over `ω₁`, here on four points.
+* `meet_AB_ne_inter` — the greatest carrier element below both `A` and `B` is
+  `∅`, while `A ∩ B ≠ ∅`. Lattice meet and set intersection come apart here,
+  which is the concrete content of `MO2.gap`. Meets nonetheless all exist
+  (`mo2Class_meetsExist`), so the gap is not their absence.
+* `interClosed_of_card_le_three` — four points are also **necessary**: a pair
+  whose intersection escapes the carrier has all four Venn cells inhabited
+  (`four_cells_nonempty`), each forced by a different closure property. So every
+  Dynkin system on three or fewer points is a σ-algebra, and `mo2Class_minimal`
+  records that this carrier attains the bound.
 
-So the pivot `TwoValuedState.val_inter` turns on is visible at four points: its
-hypothesis `InterClosed` fails, and it fails because the meet is not the
-intersection.
+So the pivot `TwoValuedState.val_inter` turns on is visible at four points and
+at no fewer: its hypothesis `InterClosed` fails, and it fails because the meet
+is not the intersection.
 -/
 
 namespace QuerySystem
@@ -157,7 +165,8 @@ def mo2Class : DynkinSystem P where
           have hrest : ∀ j, j ≠ i₀ → f j = ∅ := by
             intro j hj
             by_contra hne
-            exact hcomp j hj (disjoint_fam_compl (hf i₀) (hf j) (hdisj (Ne.symm hj)) (Set.nonempty_iff_ne_empty.mp hi₀) hne)
+            exact hcomp j hj (disjoint_fam_compl (hf i₀) (hf j) (hdisj (Ne.symm hj))
+              (Set.nonempty_iff_ne_empty.mp hi₀) hne)
           have : (⋃ k, f k) = f i₀ := by
             refine Set.Subset.antisymm ?_ (Set.subset_iUnion f i₀)
             intro x hx
@@ -204,12 +213,12 @@ theorem rep_le_iff (x y : MO2) : x ≤ y ↔ rep x ⊆ rep y := by
 /-- `rep` carries the orthocomplement to set complement. -/
 theorem rep_ortho (x : MO2) : rep xᗮ = (rep x)ᶜ := by
   cases x
-  · show (univ : Set P) = (∅ : Set P)ᶜ; simp
-  · show (Aᶜ : Set P) = Aᶜ; rfl
-  · show (A : Set P) = Aᶜᶜ; simp
-  · show (Bᶜ : Set P) = Bᶜ; rfl
-  · show (B : Set P) = Bᶜᶜ; simp
-  · show (∅ : Set P) = (univ : Set P)ᶜ; simp
+  · change (univ : Set P) = (∅ : Set P)ᶜ; simp
+  · change (Aᶜ : Set P) = Aᶜ; rfl
+  · change (A : Set P) = Aᶜᶜ; simp
+  · change (Bᶜ : Set P) = Bᶜ; rfl
+  · change (B : Set P) = Bᶜᶜ; simp
+  · change (∅ : Set P) = (univ : Set P)ᶜ; simp
 
 /-- `rep` is injective, so the carrier has exactly six elements. -/
 theorem rep_injective : Function.Injective rep := by
@@ -248,14 +257,9 @@ nowhere to land. -/
 theorem singleton_not_mem : ¬ mo2Class.Has {((true, true) : P)} :=
   mo2Class_poorPair.singleton_notMem ⟨rfl, rfl⟩
 
-/-- `A` and `B` are incompatible in the concrete sense of `Blocks.Compat`. -/
-theorem not_compat_AB : ¬ SigmaEssential.Blocks.Compat mo2Class A B :=
-  mo2Class_poorPair.not_compat
-
-/-- **The carrier is not intersection-closed.** Four points suffice for the
-failure `carrier_not_interClosed` establishes over `ω₁`. -/
+/-- **The carrier is not intersection-closed** --- `A ∩ B` escapes it. -/
 theorem mo2Class_not_interClosed : ¬ SigmaEssential.InterClosed mo2Class :=
-  fun h => not_compat_AB (h (rep_mem .a) (rep_mem .b))
+  fun h => mo2Class_poorPair.not_compat (h (rep_mem .a) (rep_mem .b))
 
 /-- `A` and `B` lie in no common maximal block: the horizontal sum really is
 split into two blocks. -/
@@ -318,6 +322,92 @@ theorem meet_AB_ne_inter :
   exact le_of_eq (mo2Class_poorPair.2 C hC.1 (subset_inter hC.2.1 hC.2.2))
 
 
+/-! ## §5. Four points are necessary
+
+`mo2Class` fails `InterClosed` on four points. Four is also the minimum: a pair
+whose intersection escapes the carrier has all four of its Venn cells inhabited,
+and each cell is forced by a *different* Dynkin closure property. So every
+Dynkin system on three or fewer points is a σ-algebra, and `mo2Class` is the
+smallest carrier on which the pivot can fail. -/
+
+/-- **The four cells.** If `S ∩ T` escapes a Dynkin system containing `S` and
+`T`, then `S ∩ T`, `S \ T`, `T \ S` and `(S ∪ T)ᶜ` are all inhabited: emptiness
+of the first contradicts `has_empty`, of the second or third makes the
+intersection `S` or `T`, and of the fourth makes `Sᶜ` and `Tᶜ` disjoint members
+whose union has complement `S ∩ T`. -/
+theorem four_cells_nonempty {Ω : Type*} {d : DynkinSystem Ω} {S T : Set Ω}
+    (hS : d.Has S) (hT : d.Has T) (hST : ¬ d.Has (S ∩ T)) :
+    (S ∩ T).Nonempty ∧ (S \ T).Nonempty ∧ (T \ S).Nonempty ∧ (S ∪ T)ᶜ.Nonempty := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · rw [Set.nonempty_iff_ne_empty]
+    intro he
+    exact hST (by rw [he]; exact d.has_empty)
+  · rw [Set.nonempty_iff_ne_empty]
+    intro he
+    have hsub : S ⊆ T := Set.diff_eq_empty.mp he
+    exact hST (by rw [Set.inter_eq_self_of_subset_left hsub]; exact hS)
+  · rw [Set.nonempty_iff_ne_empty]
+    intro he
+    have hsub : T ⊆ S := Set.diff_eq_empty.mp he
+    exact hST (by rw [Set.inter_eq_self_of_subset_right hsub]; exact hT)
+  · rw [Set.nonempty_iff_ne_empty]
+    intro he
+    have huniv : S ∪ T = Set.univ := Set.compl_empty_iff.mp he
+    have hdisj : Disjoint Sᶜ Tᶜ := by
+      rw [Set.disjoint_iff_inter_eq_empty, ← Set.compl_union, huniv, Set.compl_univ]
+    have hu : d.Has (Sᶜ ∪ Tᶜ) := d.has_union (d.has_compl hS) (d.has_compl hT) hdisj
+    have hc : d.Has (Sᶜ ∪ Tᶜ)ᶜ := d.has_compl hu
+    rw [Set.compl_union, compl_compl, compl_compl] at hc
+    exact hST hc
+
+/-- The four cells give four distinct points. -/
+theorem exists_four_distinct {Ω : Type*} {d : DynkinSystem Ω} {S T : Set Ω}
+    (hS : d.Has S) (hT : d.Has T) (hST : ¬ d.Has (S ∩ T)) :
+    ∃ p q r w : Ω, p ≠ q ∧ p ≠ r ∧ p ≠ w ∧ q ≠ r ∧ q ≠ w ∧ r ≠ w := by
+  obtain ⟨⟨p, hp⟩, ⟨q, hq⟩, ⟨r, hr⟩, ⟨w, hw⟩⟩ := four_cells_nonempty hS hT hST
+  simp only [Set.mem_inter_iff, Set.mem_diff, Set.mem_compl_iff, Set.mem_union,
+    not_or] at hp hq hr hw
+  exact ⟨p, q, r, w,
+    fun h => hq.2 (h ▸ hp.2),
+    fun h => hr.2 (h ▸ hp.1),
+    fun h => hw.1 (h ▸ hp.1),
+    fun h => hr.2 (h ▸ hq.1),
+    fun h => hw.1 (h ▸ hq.1),
+    fun h => hw.2 (h ▸ hr.1)⟩
+
+/-- **A carrier that fails the pivot has at least four points.** -/
+theorem four_le_card_of_not_has_inter {Ω : Type*} [Fintype Ω]
+    {d : DynkinSystem Ω} {S T : Set Ω}
+    (hS : d.Has S) (hT : d.Has T) (hST : ¬ d.Has (S ∩ T)) : 4 ≤ Fintype.card Ω := by
+  classical
+  obtain ⟨p, q, r, w, h1, h2, h3, h4, h5, h6⟩ := exists_four_distinct hS hT hST
+  have hcard : ({p, q, r, w} : Finset Ω).card = 4 := by
+    simp [Finset.card_insert_of_notMem, h1, h2, h3, h4, h5, h6]
+  calc 4 = ({p, q, r, w} : Finset Ω).card := hcard.symm
+    _ ≤ Fintype.card Ω := Finset.card_le_univ _
+
+/-- **Minimality.** Every Dynkin system on three or fewer points is
+intersection-closed, hence a σ-algebra. -/
+theorem interClosed_of_card_le_three {Ω : Type*} [Fintype Ω]
+    (hcard : Fintype.card Ω ≤ 3) (d : DynkinSystem Ω) :
+    SigmaEssential.InterClosed d := by
+  intro S T hS hT
+  by_contra hST
+  have := four_le_card_of_not_has_inter hS hT hST
+  omega
+
+/-- `mo2Class` attains the bound: its carrier has exactly four points. -/
+theorem card_P : Fintype.card P = 4 := rfl
+
+/-- **The pivot fails at four points and no fewer.** `mo2Class` is a Dynkin
+system that is not intersection-closed, on a carrier of exactly four points, and
+by `interClosed_of_card_le_three` no smaller carrier admits one. -/
+theorem mo2Class_minimal :
+    ¬ SigmaEssential.InterClosed mo2Class ∧ Fintype.card P = 4 ∧
+      ∀ {Ω : Type} [Fintype Ω], Fintype.card Ω ≤ 3 →
+        ∀ e : DynkinSystem Ω, SigmaEssential.InterClosed e :=
+  ⟨mo2Class_not_interClosed, card_P, fun h e => interClosed_of_card_le_three h e⟩
+
 /-! ## Receipts -/
 
 #print axioms mo2Class
@@ -328,6 +418,11 @@ theorem meet_AB_ne_inter :
 #print axioms mo2Class_not_interClosed
 #print axioms mo2Class_meetsExist
 #print axioms meet_AB_ne_inter
+#print axioms four_cells_nonempty
+#print axioms exists_four_distinct
+#print axioms four_le_card_of_not_has_inter
+#print axioms interClosed_of_card_le_three
+#print axioms mo2Class_minimal
 
 end ConcreteMO2
 end QuerySystem

@@ -1189,14 +1189,41 @@ which the pivot fails.
   subsingleton is empty.
 \end{proof}
 
-\begin{corollary}[The pivot fails, exhibited]
+\begin{corollary}[The pivot fails]
   \label{cor:concrete-mo2-not-interclosed}
   \uses{thm:concrete-mo2-poor, thm:concrete-mo2-iso, def:interclosed}
-  \lean{QuerySystem.ConcreteMO2.mo2Class_not_interClosed,
-        QuerySystem.ConcreteMO2.not_compat_AB}
+  \lean{QuerySystem.ConcreteMO2.mo2Class_not_interClosed}
   \leanok
-  $L$ is not intersection-closed, so \ref{lem:val-inter} does not apply to it.
+  $L$ is not intersection-closed.
 \end{corollary}
+
+\begin{theorem}[Four points are necessary, and $L$ attains the bound]
+  \label{thm:interclosed-needs-four}
+  \uses{def:interclosed, def:sigma-class, cor:concrete-mo2-not-interclosed}
+  \lean{QuerySystem.ConcreteMO2.four_cells_nonempty,
+        QuerySystem.ConcreteMO2.four_le_card_of_not_has_inter,
+        QuerySystem.ConcreteMO2.interClosed_of_card_le_three,
+        QuerySystem.ConcreteMO2.mo2Class_minimal}
+  \leanok
+  If $S$ and $T$ lie in a $\sigma$-class and $S \cap T$ does not, then
+  $S \cap T$, $S \setminus T$, $T \setminus S$ and $(S \cup T)^{c}$ are all
+  inhabited, so the carrier has at least four points. Every $\sigma$-class on
+  three or fewer points is therefore intersection-closed, hence a
+  $\sigma$-algebra; and $|\Omega| = 4$, so $L$ realizes the failure on the
+  smallest carrier that admits one.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:sigma-class}
+  Each cell is forced by a different closure property. $S \cap T = \emptyset$
+  would put it in the carrier. $S \setminus T = \emptyset$ gives $S \subseteq T$
+  and $S \cap T = S$; symmetrically $T \setminus S = \emptyset$ gives
+  $S \cap T = T$. And $(S \cup T)^{c} = \emptyset$ makes $S^{c}$ and $T^{c}$
+  disjoint members, so $S^{c} \cup T^{c}$ lies in the carrier and its complement
+  is $S \cap T$. The four cells are pairwise disjoint, so one point from each
+  gives four distinct points.
+\end{proof}
 \begin{theorem}[Meets exist; the gap is not their absence]
   \label{thm:concrete-mo2-meets}
   \uses{thm:concrete-mo2-poor}

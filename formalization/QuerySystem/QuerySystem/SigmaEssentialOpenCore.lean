@@ -240,12 +240,23 @@ satisfying all six admissibility constraints. Two are proved (`witness_not_inter
 conditional whose hypotheses are exactly those four facts, passed explicitly — so the
 machine shows precisely what is still owed. Nothing is assumed: the hypotheses are `→`. -/
 
-/-- Abstract carrier predicates for the four not-yet-Lean-proved admissibility
-constraints (concrete, σ-complete, irreducible, non-segregated). Opaque Props — we do
-NOT unfold them and do NOT give them truth values; they stand for the paper-level
-forcing lemmas. -/
-axiom IsConcrete {Ω : Type*} (d : DynkinSystem Ω) : Prop
-axiom IsSigmaComplete {Ω : Type*} (d : DynkinSystem Ω) : Prop
+/-- **Concreteness.** The elements are sets, the order is inclusion, the
+orthocomplement is set complement. Proved for every carrier by
+`isConcreteCarrier` — it defines the category rather than cutting it down. -/
+def IsConcreteCarrier {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
+  d.Has ∅ ∧ d.Has Set.univ ∧ ∀ {A}, d.Has A → d.Has Aᶜ
+
+/-- **σ-completeness.** Closure under countable disjoint unions. Proved for every
+carrier by `isSigmaCompleteCarrier`. -/
+def IsSigmaCompleteCarrier {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
+  ∀ {f : ℕ → Set Ω}, Pairwise (Function.onFun Disjoint f) →
+    (∀ i, d.Has (f i)) → d.Has (⋃ i, f i)
+
+/-- Abstract carrier predicates for the two admissibility constraints that are
+genuinely not yet Lean-proved. Opaque Props — we do NOT unfold them and do NOT
+give them truth values; they stand for the paper-level forcing lemmas. The other
+two constraints, concreteness and σ-completeness, are the defs above and hold of
+every carrier. -/
 axiom IsIrreducible {Ω : Type*} (d : DynkinSystem Ω) : Prop
 axiom IsNonSegregated {Ω : Type*} (d : DynkinSystem Ω) : Prop
 
@@ -253,8 +264,8 @@ axiom IsNonSegregated {Ω : Type*} (d : DynkinSystem Ω) : Prop
 Two conjuncts (`¬InterClosed`, `¬PolishRepresentable`) are forced by proved
 theorems on any witness; the other four are the opaque paper-level predicates above. -/
 def Admissible {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
-  IsConcrete d ∧ IsSigmaComplete d ∧ IsIrreducible d ∧ IsNonSegregated d ∧
-    ¬ InterClosed d ∧ ¬ PolishRepresentable d
+  IsConcreteCarrier d ∧ IsSigmaCompleteCarrier d ∧ IsIrreducible d ∧
+    IsNonSegregated d ∧ ¬ InterClosed d ∧ ¬ PolishRepresentable d
 
 /-- **The sharp Exit-A target (named conjecture).** A witness on an ADMISSIBLE carrier.
 This is the precise object Exit A must construct. Open; never assumed. -/
@@ -285,14 +296,17 @@ edge is that a concrete σ-orthostructure on a witness carrier is UNAVAILABLE by
 same non-distributivity that blocks the Floor — i.e. the abstract→concrete gap is the
 wall. Classical machinery (manuals, ultrapower, Thm 4.7) is CITED, never re-proved. -/
 
-/-- **Abstract σ-orthostructure (cited predicate).** The carrier admits Feldman–Wilce's
-intrinsic countable-orthogonal-sum. Abstract predicate we do not unfold. -/
-axiom AbstractSigmaOrtho {Ω : Type*} (d : DynkinSystem Ω) : Prop
+/-- **Abstract σ-orthostructure (Feldman–Wilce Thm 4.7).** The carrier admits
+Feldman–Wilce's intrinsic countable-orthogonal-sum. Their theorem says every carrier
+has one (via iterated ultrapower; uniqueness is their Thm 4.2), so the predicate holds
+of everything and `True` states exactly that — an opaque `axiom` plus an `axiom` that
+it always holds would assert no more, and two axioms more. -/
+def AbstractSigmaOrtho {Ω : Type*} (_d : DynkinSystem Ω) : Prop := True
 
-/-- **Feldman–Wilce Thm 4.7 (cited).** Abstract σ-orthostructure is FREE: every carrier
-has one (via iterated ultrapower; uniqueness is their Thm 4.2). CITED — not proved. -/
-axiom fw_abstract_sigma_free {Ω : Type*} (d : DynkinSystem Ω) :
-    AbstractSigmaOrtho d
+/-- **Feldman–Wilce Thm 4.7.** Abstract σ-orthostructure is FREE: every carrier has
+one. Cited, and recorded as the triviality it is under the encoding above. -/
+theorem fw_abstract_sigma_free {Ω : Type*} (d : DynkinSystem Ω) :
+    AbstractSigmaOrtho d := trivial
 
 /-- **Concrete σ-orthostructure (definition).** The abstract σ-orthostructure TOGETHER
 with concreteness surviving — modelled as: the σ-structure does not force the pattern's
@@ -402,16 +416,6 @@ The paper's other gloss of concreteness -- "exactly order-determination by
 two-valued states (Gudder, Harding)", body l.100 -- is a cited THEOREM relating
 two notions, not a competing definition. Formalizing it would mean proving the
 Gudder characterization for no gain here. -/
-
-/-- **Concreteness.** The elements are sets, the order is inclusion, the
-orthocomplement is set complement. -/
-def IsConcreteCarrier {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
-  d.Has ∅ ∧ d.Has Set.univ ∧ ∀ {A}, d.Has A → d.Has Aᶜ
-
-/-- **σ-completeness.** Closure under countable disjoint unions. -/
-def IsSigmaCompleteCarrier {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
-  ∀ {f : ℕ → Set Ω}, Pairwise (Function.onFun Disjoint f) →
-    (∀ i, d.Has (f i)) → d.Has (⋃ i, f i)
 
 theorem isConcreteCarrier {Ω : Type*} (d : DynkinSystem Ω) : IsConcreteCarrier d :=
   ⟨d.has_empty, d.has_univ, fun h => d.has_compl h⟩

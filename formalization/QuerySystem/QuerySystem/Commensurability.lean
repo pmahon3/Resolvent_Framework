@@ -6,6 +6,7 @@ Authors: Patrick S. Mahon
 import Mathlib.Order.BooleanAlgebra.Defs
 import Mathlib.Order.ZornAtoms
 import Mathlib.Data.Real.Basic
+import QuerySystem.OrthomodularMO2
 
 /-!
 # Commensurability of Value-Definite Realism and Empirical Adequacy
@@ -19,8 +20,12 @@ We define three nested positions on a Boolean algebra and prove the Boolean
 half of the commensurability theorem: nontrivial Boolean algebras admit
 dispersion-free states (via lattice ultrafilters / Zorn's lemma).
 
-The OML half (Kochen-Specker blocks VDR) is axiomatized since Mathlib has
-no orthomodular lattice class.
+The OML half (Kochen-Specker blocks VDR) is axiomatized -- Kochen-Specker is a
+deep theorem about `L(H)` for `dim H ≥ 3`, not something to re-prove here -- but
+it is now stated over `QuerySystem.OrthomodularLattice`, the class this repo
+defines in `OrthomodularMO2`. Stating it over `BooleanAlgebra` as a stand-in
+would make it FALSE: `vdr_boolean` below proves every nontrivial Boolean algebra
+has a dispersion-free state, and the trivial one has no state at all.
 
 ## Sorry inventory
 
@@ -154,16 +159,18 @@ theorem lattice_ultrafilter_exists (α : Type*) [BooleanAlgebra α] [Nontrivial 
 -- §2. States and dispersion-free states
 -- ===========================================================================
 
-/-- A state on a Boolean algebra: nonneg, normalized, finitely additive on
-disjoint pairs. -/
-structure BAState (α : Type*) [BooleanAlgebra α] where
+/-- A state on a bounded lattice: nonneg, normalized, finitely additive on
+disjoint pairs. Stated at this generality so the Boolean and orthomodular halves
+of the theorem below speak about the *same* notion of state. -/
+structure LatState (α : Type*) [Lattice α] [BoundedOrder α] where
   val : α → ℝ
   nonneg : ∀ a, (0 : ℝ) ≤ val a
   top_eq_one : val ⊤ = (1 : ℝ)
   add_disjoint : ∀ a b : α, a ⊓ b = ⊥ → val (a ⊔ b) = (val a : ℝ) + val b
 
 /-- A state is dispersion-free if it takes values in `{0, 1}` only. -/
-def BAState.IsDispersionFree {α : Type*} [BooleanAlgebra α] (s : BAState α) : Prop :=
+def LatState.IsDispersionFree {α : Type*} [Lattice α] [BoundedOrder α]
+    (s : LatState α) : Prop :=
   ∀ a : α, s.val a = 0 ∨ s.val a = 1
 
 -- ===========================================================================
@@ -171,15 +178,16 @@ def BAState.IsDispersionFree {α : Type*} [BooleanAlgebra α] (s : BAState α) :
 -- ===========================================================================
 
 /-- **Empirical adequacy (EA):** a state exists. -/
-def EA (α : Type*) [BooleanAlgebra α] : Prop :=
-  Nonempty (BAState α)
+def EA (α : Type*) [Lattice α] [BoundedOrder α] : Prop :=
+  Nonempty (LatState α)
 
 /-- **Value-definite realism (VDR):** a dispersion-free state exists. -/
-def VDR (α : Type*) [BooleanAlgebra α] : Prop :=
-  ∃ s : BAState α, s.IsDispersionFree
+def VDR (α : Type*) [Lattice α] [BoundedOrder α] : Prop :=
+  ∃ s : LatState α, s.IsDispersionFree
 
 /-- VDR implies EA. -/
-theorem vdr_implies_ea {α : Type*} [BooleanAlgebra α] (h : VDR α) : EA α :=
+theorem vdr_implies_ea {α : Type*} [Lattice α] [BoundedOrder α] (h : VDR α) :
+    EA α :=
   ⟨h.choose⟩
 
 -- ===========================================================================
@@ -193,7 +201,7 @@ private noncomputable def ultrafilterInd {α : Type*} [BooleanAlgebra α]
   if a ∈ u.carrier then (1 : ℝ) else 0
 
 noncomputable def ultrafilterState {α : Type*} [BooleanAlgebra α]
-    (u : LatticeUltrafilter α) : BAState α where
+    (u : LatticeUltrafilter α) : LatState α where
   val := ultrafilterInd u
   nonneg := fun a => by unfold ultrafilterInd; split_ifs <;> norm_num
   top_eq_one := by unfold ultrafilterInd; simp [u.top_mem]
@@ -241,15 +249,17 @@ theorem boolean_commensurability {α : Type*} [BooleanAlgebra α] [Nontrivial α
 -- §5. OML direction (axiomatized)
 -- ===========================================================================
 
-/-- **Kochen-Specker (axiomatized):** There exists a complemented lattice
-(standing in for an OML, which Mathlib lacks) where states exist but no
-dispersion-free state exists.
+/-- **Kochen-Specker (axiomatized, cited).** There is an orthomodular lattice
+carrying states but no dispersion-free state: `L(H)` for `dim H ≥ 3` admits
+states by Gleason's theorem and none that are dispersion-free by Kochen-Specker.
 
-Mathematical content: L(H) for dim H ≥ 3 is an orthomodular lattice
-admitting states (Gleason) but no dispersion-free states (KS). -/
+S. Kochen and E. P. Specker, "The problem of hidden variables in quantum
+mechanics", J. Math. Mech. 17 (1967) 59-87.
+
+Stated over `OrthomodularLattice`, not `BooleanAlgebra`: over the latter it is
+refutable from `vdr_boolean` below. -/
 axiom KochenSpecker_witness :
-  ∃ (α : Type) (_ : BooleanAlgebra α),
-    Nonempty (BAState α) ∧ ¬ ∃ s : BAState α, s.IsDispersionFree
+  ∃ (α : Type) (_ : QuerySystem.OrthomodularLattice α), EA α ∧ ¬ VDR α
 
 -- ===========================================================================
 -- §6. The commensurability theorem
@@ -264,6 +274,5 @@ theorem distributivity_controls_vdr :
     -- Boolean direction (proved): nontrivial Boolean → VDR
     (∀ (α : Type*) [BooleanAlgebra α] [Nontrivial α], VDR α) ∧
     -- OML direction (axiomatized): ∃ OML with EA but ¬VDR
-    (∃ (α : Type) (_ : BooleanAlgebra α),
-      Nonempty (BAState α) ∧ ¬ ∃ s : BAState α, s.IsDispersionFree) :=
+    (∃ (α : Type) (_ : QuerySystem.OrthomodularLattice α), EA α ∧ ¬ VDR α) :=
   ⟨fun α _ _ => vdr_boolean, KochenSpecker_witness⟩

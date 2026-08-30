@@ -1333,7 +1333,132 @@ because that step is unavailable.
   This is the concrete content of non-distributivity, and what \ref{lem:val-inter}
   needs and cannot get: meeting to $\bot$ no longer implies orthogonality, so the
   disjoint decomposition used there is unavailable. MO$_2$ is the smallest
-  structure where the Boolean argument breaks.
+  structure where the Boolean argument breaks, and ef{cor:concrete-mo2-not-interclosed}
+  carries the break into the $\sigma$-class setting on four points.
+\end{proof}
+
+\section{MO$_2$ realized: the gap inside a $\sigma$-class}
+
+MO$_2$ is a lattice; \ref{def:interclosed} is a condition on a $\sigma$-class of
+sets. \ref{thm:mo2-gap} claims the two concern the same failure. This section
+proves that rather than asserting it: on four points there is a $\sigma$-class
+whose carrier \emph{is} MO$_2$, and on which the pivot fails for exactly the
+reason MO$_2$ predicts.
+
+\begin{definition}[The four-point carrier]
+  \label{def:concrete-mo2}
+  \uses{def:sigma-class, def:mo2}
+  \lean{QuerySystem.ConcreteMO2.mo2Class}
+  \leanok
+  On $\Omega = \{0,1\}^{2}$ set $A = \{p : p_1 = 1\}$ and $B = \{p : p_2 = 1\}$,
+  and let
+  \[
+    L \;=\; \{\emptyset, A, A^{c}, \Omega\} \;\cup\;
+            \{\emptyset, B, B^{c}, \Omega\},
+  \]
+  the horizontal sum of two four-element Boolean blocks glued along
+  $\{\emptyset, \Omega\}$. $L$ is a Dynkin system.
+\end{definition}
+
+\begin{proof}
+  \leanok
+  \uses{def:sigma-class}
+  Complement-closure is immediate. For countable disjoint unions: two nonempty
+  members of $L$ that are disjoint are complementary, because a member of one
+  block always meets a member of the other --- $A \cap B$, $A \cap B^{c}$,
+  $A^{c} \cap B$, $A^{c} \cap B^{c}$ are each a point. So a disjoint family in
+  $L$ contains at most one nonempty member up to its complement, and its union
+  is $\emptyset$, that member, or $\Omega$.
+\end{proof}
+
+\begin{theorem}[The carrier is MO$_2$]
+  \label{thm:concrete-mo2-iso}
+  \uses{def:concrete-mo2, def:mo2}
+  \lean{QuerySystem.ConcreteMO2.rep, QuerySystem.ConcreteMO2.rep_le_iff,
+        QuerySystem.ConcreteMO2.rep_ortho, QuerySystem.ConcreteMO2.rep_injective,
+        QuerySystem.ConcreteMO2.rep_surjective}
+  \leanok
+  The indexing
+  $\bot, a, a', b, b', \top \;\mapsto\; \emptyset, A, A^{c}, B, B^{c}, \Omega$
+  is a bijection onto $L$; it carries the order of MO$_2$ to inclusion and
+  $(\cdot)^{\perp}$ to set complement. So $L$ is MO$_2$, not merely a lattice
+  resembling it.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:concrete-mo2}
+  Inclusion and complement are decidable over four points; injectivity follows
+  from antisymmetry once the order correspondence is known, and surjectivity is
+  the definition of $L$.
+\end{proof}
+
+\begin{definition}[Concrete compatibility, and a poor pair]
+  \label{def:poor-pair}
+  \uses{def:sigma-class}
+  \lean{SigmaEssential.Blocks.Compat, SigmaEssential.Blocks.PoorPair}
+  \leanok
+  $A \leftrightarrow B$ (\emph{compatible}) means $A \cap B$ is itself in the
+  carrier. The pair is \emph{poor} when $A \cap B$ is inhabited and yet the only
+  carrier member inside it is $\emptyset$: the lattice meet is $\bot$ while the
+  intersection is not.
+\end{definition}
+
+\begin{theorem}[The four-point carrier has a poor pair]
+  \label{thm:concrete-mo2-poor}
+  \uses{def:poor-pair, def:concrete-mo2}
+  \lean{QuerySystem.ConcreteMO2.mo2Class_poorPair,
+        QuerySystem.ConcreteMO2.singleton_not_mem}
+  \leanok
+  $A \cap B$ is the single point $(1,1)$, which is not in $L$, and no nonempty
+  member of $L$ fits inside it. So $(A,B)$ is poor, and $A$ and $B$ lie in no
+  common maximal block.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:concrete-mo2}
+  Every nonempty member of $L$ has two points, so a member contained in a
+  subsingleton is empty.
+\end{proof}
+
+\begin{corollary}[The pivot fails, exhibited]
+  \label{cor:concrete-mo2-not-interclosed}
+  \uses{thm:concrete-mo2-poor, thm:concrete-mo2-iso, def:interclosed}
+  \lean{QuerySystem.ConcreteMO2.mo2Class_not_interClosed,
+        QuerySystem.ConcreteMO2.not_compat_AB}
+  \leanok
+  $L$ is not intersection-closed, so \ref{lem:val-inter} does not apply to it.
+
+  \ref{lem:carrier-not-boolean} reaches the same failure for $L_1$ over
+  $\omega_1$, but derives it from the witness rather than displaying it. Here
+  the failure is exhibited on four points and identified: the carrier fails the
+  pivot because it is MO$_2$, and the offending intersection is the point where
+  the gap of \ref{thm:mo2-gap} sits.
+\end{corollary}
+
+\begin{theorem}[Meets exist; the gap is not their absence]
+  \label{thm:concrete-mo2-meets}
+  \uses{thm:concrete-mo2-poor}
+  \lean{QuerySystem.ConcreteMO2.mo2Class_meetsExist,
+        QuerySystem.ConcreteMO2.meet_AB_ne_inter}
+  \leanok
+  Any two members of $L$ have a greatest member of $L$ below both. In
+  particular $A \wedge B = \emptyset$ while $A \cap B \neq \emptyset$.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:concrete-mo2}
+  Comparable pairs meet at the smaller one. For any other pair the intersection
+  holds at most one point, so by the previous proof the only member below both
+  is $\emptyset$.
+
+  This separates two ways the Boolean argument can fail. \ref{def:interclosed}
+  can fail because meets do not exist, or because they exist and are not
+  intersections. Here they exist --- the carrier satisfies the latticehood
+  hypothesis --- and the pivot still fails. The obstruction is the second kind,
+  which is the kind MO$_2$ names.
 \end{proof}
 
 \section{The descent ladder: MO$_2$ carried to infinity}

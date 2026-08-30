@@ -85,7 +85,10 @@ SigmaEssential.Blocks.PoorPair
 QuerySystem.ConcreteMO2.mo2Class_poorPair
 QuerySystem.ConcreteMO2.singleton_not_mem
 QuerySystem.ConcreteMO2.mo2Class_not_interClosed
-QuerySystem.ConcreteMO2.not_compat_AB
+QuerySystem.ConcreteMO2.four_cells_nonempty
+QuerySystem.ConcreteMO2.four_le_card_of_not_has_inter
+QuerySystem.ConcreteMO2.interClosed_of_card_le_three
+QuerySystem.ConcreteMO2.mo2Class_minimal
 QuerySystem.ConcreteMO2.mo2Class_meetsExist
 QuerySystem.ConcreteMO2.meet_AB_ne_inter
 QuerySystem.L2N

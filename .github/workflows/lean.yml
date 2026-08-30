@@ -111,7 +111,15 @@ jobs:
       # cited axiom is added later (the CLAUDE.md rule allows them), this will
       # fail and the fix is an explicit allowlist in axiomcheck.sh -- not
       # deleting the gate.
-      - name: blueprint declarations rest on standard axioms only
+      #
+      # Reachability from a node was still the wrong scope, and the same script
+      # now also censuses the environment: EVERY axiom declared in a
+      # QuerySystem.* module must be on the allowlist with a citation, reached
+      # or not. KochenSpecker_witness sat in Commensurability.lean -- a module
+      # with no blueprint nodes -- and was FALSE (`False` was derivable from
+      # it), behind four green gates, for months. An axiom no node reaches is
+      # precisely the one nothing was checking.
+      - name: axioms -- blueprint receipts, and every library axiom cited
         run: bash formalization/QuerySystem/blueprint/axiomcheck.sh
 
       # formalization/staging/ is deliberately OUTSIDE the lake globs, so that

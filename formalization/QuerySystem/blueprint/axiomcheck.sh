@@ -1,5 +1,6 @@
 #!/bin/bash
-# Axiom receipts for every blueprint \lean{} declaration.
+# Axiom receipts for every blueprint \lean{} declaration, AND a census of every
+# axiom declared anywhere in the library.
 #
 # Why this exists alongside checkdecls.sh: the three CI gates cannot see an
 # `axiom`. `lake build` accepts it, `sorries.py` counts no `sorry` in it, and
@@ -17,6 +18,17 @@
 # assumed rather than reformalized. Declarations resting on allowlisted axioms
 # are reported separately as CITED, never silently folded in with the closed
 # ones, so the count of things actually proved stays visible.
+#
+# THE CENSUS (second check, added 2026-08-30). Reachability from a blueprint
+# node was the wrong scope. An axiom in a module the blueprint never mentions is
+# invisible to the receipts above, and one such axiom -- KochenSpecker_witness
+# in Commensurability.lean, a module with no blueprint nodes -- was FALSE:
+# `False` was derivable from it, and all four gates stayed green for months. So
+# the environment is now enumerated directly: every `axiom` declared in a
+# `QuerySystem.*` module must be on the allowlist with a citation, whether or
+# not anything blueprinted reaches it. The census is taken from the Lean
+# environment, not by grepping sources -- a source scan missed
+# `QuerySystem.L2.instOML`.
 #
 # Run blueprint-web.sh first: it writes blueprint/lean_decls.
 set -euo pipefail
@@ -47,6 +59,21 @@ done
     [ -z "$d" ] && continue
     echo "#print axioms _root_.$d"
   done < <(cat "$DECLS"; echo)
+  echo ""
+  echo "-- Census: every axiom declared in a QuerySystem.* module. Read off the"
+  echo "-- environment rather than the sources, so a declaration form the source"
+  echo "-- scanner does not recognise cannot hide."
+  echo "open Lean in"
+  echo "run_cmd do"
+  echo "  let env ← Lean.getEnv"
+  echo "  let mut out : Array Name := #[]"
+  echo "  for (m, md) in env.header.moduleNames.zip env.header.moduleData do"
+  echo "    if (\`QuerySystem).isPrefixOf m then"
+  echo "      for n in md.constNames do"
+  echo "        if let some (.axiomInfo _) := env.find? n then"
+  echo "          out := out.push n"
+  echo "  for n in out do"
+  echo "    Lean.logInfo m!\"PROJECT_AXIOM {n}\""
 } > "$OUT"
 
 cd "$PKG"
@@ -91,6 +118,14 @@ if bad:
         print("  line %d: %s" % (ln, s), file=sys.stderr)
     sys.exit(1)
 
+# --- the census: every axiom DECLARED in the library ------------------------
+declared = sorted(set(re.findall(r"PROJECT_AXIOM\s+(\S+)", log)))
+if not declared:
+    print("AXIOMCHECK FAIL -- the census produced no output; it did not run.",
+          file=sys.stderr)
+    sys.exit(1)
+uncited = [a for a in declared if a not in allow]
+
 # --- the receipts -----------------------------------------------------------
 closed, cited, dirty, n, used = 0, [], [], 0, set()
 for e in re.split(r"\n(?=')", log):
@@ -111,7 +146,8 @@ for e in re.split(r"\n(?=')", log):
         cited.append((m.group(1), extra))
         used.update(extra)
 
-print("axiom receipts for %d blueprint declarations" % n)
+print("axiom receipts for %d blueprint declarations; %d axioms declared in the library"
+      % (n, len(declared)))
 
 if dirty:
     print("%d closed; %d on cited axioms; %d resting on UNCITED repo-local axioms:"
@@ -126,7 +162,22 @@ if dirty:
     print("it is read from. Do not add one you have not checked against a source.", file=sys.stderr)
     sys.exit(1)
 
-stale = sorted(set(allow) - used)
+if uncited:
+    print("")
+    print("%d axiom%s declared in the library and NOT on the allowlist:"
+          % (len(uncited), "" if len(uncited) == 1 else "s"))
+    for a in uncited:
+        print("        %s" % a)
+    print("", file=sys.stderr)
+    print("AXIOMCHECK FAIL -- an uncited axiom is sitting in the library.", file=sys.stderr)
+    print("It does not have to hold up a blueprint node to be wrong: an axiom no", file=sys.stderr)
+    print("node reaches is exactly the one nothing checks. Prove it, delete it, or", file=sys.stderr)
+    print("add it to blueprint/axiom_allowlist.txt WITH the citation it is read", file=sys.stderr)
+    print("from -- and check that it is TRUE as stated before you do.", file=sys.stderr)
+    sys.exit(1)
+
+# an allowlist entry earns its place by being reached from a node OR declared
+stale = sorted(set(allow) - used - set(declared))
 if cited:
     print("%d closed on standard axioms; %d resting on cited axioms:" % (closed, len(cited)))
     for name, ex in cited:
@@ -138,7 +189,7 @@ else:
 
 if stale:
     print("")
-    print("note: %d allowlist entr%s used by no blueprint declaration --"
+    print("note: %d allowlist entr%s neither declared nor reached by a node --"
           % (len(stale), "y" if len(stale) == 1 else "ies"))
     print("      remove them unless a node is about to need them:")
     for a in stale:
@@ -146,6 +197,7 @@ if stale:
 
 if cited:
     print("")
-    print("AXIOMCHECK OK -- %d closed, %d cited, 0 uncited." % (closed, len(cited)))
+    print("AXIOMCHECK OK -- %d closed, %d cited, 0 uncited; %d library axioms all cited."
+          % (closed, len(cited), len(declared)))
 sys.exit(0)
 PY

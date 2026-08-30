@@ -33,6 +33,7 @@ import QuerySystem.AndersenJessen
 import QuerySystem.BandClosure
 import QuerySystem.BoundaryDescent
 import QuerySystem.Commensurability
+import QuerySystem.ConcreteDescent
 import QuerySystem.ConcreteMO2
 import QuerySystem.ConcreteOMLBlocks
 import QuerySystem.ConcreteOMLPatterns

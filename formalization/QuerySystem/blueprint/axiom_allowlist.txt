@@ -3,17 +3,30 @@
 # The default in axiomcheck.sh is absolute: a blueprint declaration must rest on
 # {propext, Classical.choice, Quot.sound} and nothing else. This file is the ONE
 # documented exception, and it exists for the case CLAUDE.md permits -- "don't
-# formalize known results; `axiom` with citation". An entry here is an assertion
-# that the axiom states a published classical fact, checked against the primary
-# source, and NOT that it was inconvenient to prove.
+# formalize known results; `axiom` with citation".
+#
+# EVERY axiom declared in a QuerySystem.* module must appear here, whether or not
+# a blueprint node reaches it. That scope is deliberate: KochenSpecker_witness sat
+# in Commensurability.lean -- a module with no blueprint nodes -- and was FALSE,
+# behind four green gates, because the old check only followed axioms reachable
+# from a node. An axiom nothing reaches is the one nothing checks.
+#
+# Two kinds of entry are admitted, and the citation says which:
+#   (a) a published result assumed rather than reformalized. The entry asserts
+#       the axiom states that result faithfully.
+#   (b) an opaque predicate standing for a paper-level definition, deliberately
+#       not unfolded, with a pointer to where it is defined. It asserts nothing
+#       beyond its own name and gives the gate something to check against.
+# Neither kind may be added because proving it was inconvenient, and an axiom
+# that is FALSE as stated is not admitted by either -- check it before listing.
 #
 # Format:  <fully-qualified axiom name> <TAB> <citation>
 # The citation is mandatory. A line with a bare name is a hard error -- an
 # uncited axiom on the allowlist would be exactly the unproved stub this gate
 # exists to catch. An axiom absent from this file still fails the gate.
 #
-# Entries listed here but used by no blueprint declaration are reported as stale
-# so the file cannot silently accumulate permissions nothing needs.
+# Entries neither declared in the library nor reached by a blueprint declaration
+# are reported as stale, so the file cannot accumulate permissions nothing needs.
 
 # --- Navara's (beta)-construction, the Rung-3 infinite descent witness --------
 # M. Navara, "An alternative proof of Shultz's theorem", Proc. Amer. Math. Soc.
@@ -50,3 +63,35 @@ QuerySystem.blockVal_aWitness	Navara, PAMS 115 (1992) p. 428 -- block-values of 
 # been re-checked against the primary source in this session.
 SigmaEssential.OpenCore.PolishRepresentable	Derr-Williamson 2023 Thm D.6 -- abstract carrier predicate, not unfolded
 SigmaEssential.OpenCore.dw_polish_no_witness	Derr-Williamson 2023 Thm D.6 (via Maharam) -- Polish-representable implies no witness
+
+# --- Kochen-Specker ----------------------------------------------------------
+# S. Kochen and E. P. Specker, "The problem of hidden variables in quantum
+# mechanics", J. Math. Mech. 17 (1967) 59-87. An orthomodular lattice carrying
+# states but no dispersion-free state: L(H) for dim H >= 3 has states by Gleason
+# and none dispersion-free by KS.
+#
+# ENTERED 2026-08-30. This axiom previously stood over `BooleanAlgebra` as a
+# stand-in "since Mathlib has no orthomodular lattice class", and in that form it
+# was FALSE -- `vdr_boolean` in the same file refutes it, and `False` was
+# derivable. It is now stated over `QuerySystem.OrthomodularLattice`, which this
+# repo defines. The RESTATEMENT was checked; the primary source was NOT re-read
+# in that session, and the statement is taken from standard textbook accounts.
+KochenSpecker_witness	Kochen-Specker 1967, J. Math. Mech. 17, 59-87 -- an OML with states but no dispersion-free state
+
+# --- Opaque paper-level predicates (kind (b)) --------------------------------
+# These name constraints the paper states and the Lean development does not yet
+# prove. They are never unfolded and never given a truth value; they exist so a
+# conditional can be stated with its hypotheses visible. The two carrier
+# predicates that ARE proved -- concreteness and sigma-completeness -- were
+# discharged on 2026-08-30 and are now defs (`IsConcreteCarrier`,
+# `IsSigmaCompleteCarrier`), not axioms.
+SigmaEssential.OpenCore.IsIrreducible	sigma_essential paper, admissibility: essential irreducibility -- opaque predicate, not unfolded, open as a forcing lemma
+SigmaEssential.OpenCore.IsNonSegregated	sigma_essential paper, admissibility: non-segregation -- opaque predicate, not unfolded; the forcing lemma is Blocks.witness_not_segregated
+
+# --- The measurable-cardinal hypothesis --------------------------------------
+# An opaque Prop standing for "a measurable cardinal exists". Mathlib v4.29 has
+# no measurable-cardinal notion to define it against (checked 2026-08-30). It is
+# never assumed: it appears only inside the statements of the OPEN conjectures
+# `LowerBound` (Psi -> MeasurableExists) and `UpperBound` (MeasurableExists ->
+# Psi), which are `def`s of Props, not theorems.
+SigmaEssential.OpenCore.MeasurableExists	Jech, Set Theory (3rd millennium ed.) Ch. 17 -- existence of a measurable cardinal; opaque Prop, appears only in open conjecture statements

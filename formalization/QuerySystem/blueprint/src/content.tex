@@ -1340,6 +1340,59 @@ $a_n = a|_{C_n}$. None of the eleven mentions $(\star)$.
   the blockwise order reduces the meet to a blockwise identity; the
   non-orthogonality is refuted at block $n$.
 \end{proof}
+\subsection{Rung 3 without the citation}
+
+\begin{definition}[The concrete descent carrier]
+  \label{def:concrete-descent}
+  \uses{def:concrete-mo2, def:sigma-class}
+  \lean{QuerySystem.ConcreteDescent.descentClass}
+  \leanok
+  On $\Omega = \mathbb{N} \times \{0,1\}^{2}$, the sets every fibre of which
+  lies in the four-point carrier of \ref{def:concrete-mo2}: countably many
+  disjoint copies of MO$_2$.
+\end{definition}
+
+\begin{proof}
+  \leanok
+  \uses{def:concrete-mo2}
+  A Dynkin system. Complement and countable disjoint union are computed
+  fibrewise --- the fibre of a complement is the complement of the fibre, the
+  fibre of a union the union of the fibres, and disjointness passes to fibres
+  --- so each closure property reduces to the same property of
+  \ref{def:concrete-mo2}.
+\end{proof}
+
+\begin{theorem}[$(\star)$ at infinity, on a concrete carrier, with no cited axiom]
+  \label{thm:concrete-descent}
+  \uses{def:concrete-descent, thm:mo2-gap, thm:concrete-mo2-poor}
+  \lean{QuerySystem.ConcreteDescent.star_concrete,
+        QuerySystem.ConcreteDescent.aW_ortho,
+        QuerySystem.ConcreteDescent.aW_pairwise_ne,
+        QuerySystem.ConcreteDescent.not_interClosed}
+  \leanok
+  Put $p = \{q : q_2 \in B\}$ and $a_n = \{n\} \times A$. Then $\{a_n\}$ is an
+  infinite pairwise-orthogonal family in the carrier, the greatest carrier
+  element below both $p$ and $a_n$ is $\emptyset$, and
+  $p \not\subseteq a_n^{c}$. The carrier is not intersection-closed.
+
+  So a concrete, $\sigma$-complete, non-Boolean orthomodular carrier realizes
+  $(\star)$ against an infinite orthogonal family --- the conclusion
+  \ref{thm:star-infinite} draws from the eleven cited axioms of
+  \ref{def:navara-l2}, here with none.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:concrete-descent, thm:mo2-gap}
+  Orthogonality and distinctness are the block index: $a_n$ and $a_m$ live in
+  different fibres. For the meet, a carrier element below both $p$ and $a_n$
+  has empty fibre off block $n$, and at block $n$ its fibre sits inside
+  $A \cap B$, a single point, so it is empty by \ref{thm:concrete-mo2-poor}.
+  Non-orthogonality is witnessed at block $n$ by the point $(n, (1,1))$, which
+  lies in $p$ and in $a_n$; that same point is the fibre of $p \cap a_n$, which
+  the carrier does not contain.
+\end{proof}
+
 \subsection{The axioms are consistent}
 
 An axiom set with no model proves everything, so the obligation is discharged by

@@ -97,6 +97,11 @@ QuerySystem.p
 QuerySystem.star_finite
 QuerySystem.L2
 QuerySystem.star_infinite
+QuerySystem.ConcreteDescent.descentClass
+QuerySystem.ConcreteDescent.star_concrete
+QuerySystem.ConcreteDescent.aW_ortho
+QuerySystem.ConcreteDescent.aW_pairwise_ne
+QuerySystem.ConcreteDescent.not_interClosed
 QuerySystem.instPiOrthomodularLattice
 QuerySystem.ConsistencyModel.axioms_consistent
 QuerySystem.ClosureLegs.meet_bot_iff_blockwise

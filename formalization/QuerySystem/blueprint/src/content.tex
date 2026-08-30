@@ -63,7 +63,8 @@ whenever $i \le j$, the pushforward of $\nu_i$ along $\pi_{ij}$ equals $\nu_j$.
 \label{def:upper-directed}
 \lean{QuerySystem.UpperDirected}
 \leanok
-A query system is \emph{upper-directed} if any two queries have a common refinement: $\forall i\,j, \exists k, i \le k \land j \le k$. This, not lower-directedness, is what the extension arguments actually use --- a query system pieces together finer information, and directedness has to run that direction.
+A query system is \emph{upper-directed} if any two queries have a common
+refinement: $\forall i\,j, \exists k, i \le k \land j \le k$.
 \end{definition}
 
 \begin{definition}[Sequentially upper-directed]
@@ -73,10 +74,8 @@ A query system is \emph{upper-directed} if any two queries have a common refinem
 \uses{def:upper-directed}
 Every \emph{sequence} of queries has a common refinement:
 $\forall u : \mathbb{N} \to \iota, \exists k, \forall n, u_n \le k$. Strictly
-stronger than upper-directedness (which bounds pairs), and the analytic
-hypothesis of the extension theorem: it lets a single level dominate a
-countable cylinder cover. It says the completed query $\bigvee_n Q_n$ is
-itself a query.
+stronger than upper-directedness, which bounds pairs. It says the completed
+query $\bigvee_n Q_n$ is itself a query.
 \end{definition}
 
 \begin{definition}[Surjective evaluations]
@@ -85,11 +84,9 @@ itself a query.
 \leanok
 \uses{def:omega}
 Every evaluation $\mathrm{eval}_i : \Omega \to \mathrm{Outcome}_i$ is
-surjective: each local outcome extends to a coherent global realization. A
-realizability condition on the projective limit, needed to read off events at
-a level from their cylinders ($\mathrm{Cyl}_k E_1 = \mathrm{Cyl}_k E_2
-\Rightarrow E_1 = E_2$), which the well-definedness and additivity of the
-cylinder content require.
+surjective: each local outcome extends to a coherent global realization. It
+gives $\mathrm{Cyl}_k E_1 = \mathrm{Cyl}_k E_2 \Rightarrow E_1 = E_2$, which
+the well-definedness and additivity of the cylinder content require.
 \end{definition}
 
 \section{Main Results}
@@ -114,7 +111,9 @@ Upper-directedness gives a common refinement of any two cylinder-generating quer
 \lean{QuerySystem.observational_determination}
 \leanok
 \uses{lem:pi-system, def:omega}
-Two (finite) measures on the projective limit $\Omega$ are equal if and only if they have equal marginals on all queries. (``Equal marginals'' means equal pushforwards along every $\mathrm{eval}_i$; no compatibility hypothesis is consumed.)
+Two (finite) measures on the projective limit $\Omega$ are equal if and only if
+they have equal marginals on all queries, i.e.\ equal pushforwards along every
+$\mathrm{eval}_i$. No compatibility hypothesis is consumed.
 \end{theorem}
 
 \begin{proof}
@@ -136,7 +135,6 @@ The premeasure defined on finite cylinders is well-defined: it doesn't depend on
 \leanok
 Given two upper bounds, use upper-directedness to find a common refinement of both. Show the measure values agree using compatibility and proof irrelevance for the transitivity witnesses.
 \end{proof}
-
 \chapter{The observational extension theorem, and the obstruction}
 
 From a compatible family of finitely additive charges to a single probability
@@ -174,9 +172,7 @@ set semiring, and generate the $\sigma$-algebra used on $\mathrm{St}(S)$.
 \lean{QuerySystem.NormalizedCompatibleContents}
 \leanok
 A family $\nu_i$ of finitely additive contents on the outcome spaces,
-compatible under refinement, each of total mass $1$. Finitely additive only:
-this is the whole point, since assuming $\sigma$-additivity would beg the
-question.
+compatible under refinement, each of total mass $1$. Finitely additive only.
 \end{definition}
 
 \begin{definition}[Collective exhaustion]
@@ -185,8 +181,8 @@ question.
 \leanok
 For every index $i$ and every decreasing sequence of measurable events
 shrinking to $\emptyset$, some finer level $j \geq i$ witnesses convergence:
-the charge of the pulled-back sequence at $j$ tends to $0$. This is the
-valuation-layer condition; index-layer conditions provably do not suffice
+the charge of the pulled-back sequence at $j$ tends to $0$. Index-layer
+conditions do not suffice
 (\texttt{counterexampleQS\_no\_finitary\_condition}).
 \end{definition}
 
@@ -201,13 +197,9 @@ $\emptyset$, i.e. $\sigma$-additive.
 
 \begin{proof}
 \leanok
-The definition reads as though the finer level $j$ carries content --- ``some
-$j \geq i$ witnesses the convergence''. It does not. Compatibility gives
-$\nu_i(A) = \nu_j(\pi^{-1}A)$ outright, so the quantity tested at $j$ is
-\emph{equal} to the one at $i$ and the existential is cosmetic. CE is
-therefore strictly a per-level condition; it cannot see the passage between
-levels, and \S\ref{sec:sequentiality} shows the failure of extension lives
-exactly there.
+Compatibility gives $\nu_i(A) = \nu_j(\pi^{-1}A)$ outright, so the quantity
+tested at the finer level $j$ is equal to the one at $i$ and the existential in
+\ref{def:collectively-exhaustive} is cosmetic.
 \end{proof}
 
 \begin{theorem}[SP1]
@@ -221,10 +213,9 @@ genuine measure on that level's outcome space.
 
 \begin{proof}
 \leanok
-This is the form the extension theorem consumes: collective exhaustion is
-available as ``each $\nu_i$ is countably additive''. It characterises
-\emph{per-level} extensibility only; read as global extensibility the
-characterisation is false (\S\ref{sec:sequentiality}).
+By \ref{lem:ce-levelwise} collective exhaustion is continuity at $\emptyset$ of
+each $\nu_i$, which for a content on a $\sigma$-algebra is countable
+additivity.
 \end{proof}
 
 \section{The extension theorem}
@@ -243,12 +234,11 @@ $\mathrm{map}(\mathrm{eval}_i)\,P = \nu_i$ for every $i$.
 \begin{proof}
 \leanok
 \uses{lem:cylgen-sigma-subadd, lem:premu-well-defined, thm:observational-determination}
-Carath\'eodory on the cylinder semiring directly --- no Stone space. Build the
-cylinder content --- its value on a cylinder is \texttt{pre}$\mu$ at a
-singleton presentation, so \ref{lem:premu-well-defined} is what makes the
-content well defined at all --- prove $\sigma$-subadditivity
-(\ref{lem:cylgen-sigma-subadd}), extend, recover marginals; uniqueness is
-\ref{thm:observational-determination}.
+Carath\'eodory on the cylinder semiring. Build the cylinder content --- its
+value on a cylinder is \texttt{pre}$\mu$ at a singleton presentation, so
+\ref{lem:premu-well-defined} is what makes the content well defined --- prove
+$\sigma$-subadditivity (\ref{lem:cylgen-sigma-subadd}), extend, recover
+marginals; uniqueness is \ref{thm:observational-determination}.
 \end{proof}
 
 \begin{lemma}[$\sigma$-subadditivity from a common upper bound]
@@ -262,18 +252,14 @@ compatible marginal measures) the cylinder content is $\sigma$-subadditive.
 
 \begin{proof}
 \leanok
-Sequentiality is used exactly once, and it is the crux of the whole chapter:
-given a countable cover, it produces a \emph{single} index $m$ above every
-index appearing in it, after which $\sigma$-subadditivity of the one measure
-$\nu_m$ finishes the argument. Every other step is bookkeeping. Ordinary
-upper-directedness bounds \emph{pairs} of indices, not countable families, so
-no single $\nu_m$ dominates a countable cover --- and that gap is not a gap in
-ingenuity: with ordinary upper-directedness plus collective exhaustion in
-place of sequentiality, this lemma is \textbf{false}, by the same
-Andersen--Jessen system that refutes the extension theorem
-(\S\ref{sec:sequentiality}). Were it true, the Carath\'eodory pipeline
-above --- which past this lemma needs only pairwise upper-directedness ---
-would manufacture the extension that system provably lacks.
+Sequentiality is used exactly once: given a countable cover, it produces a
+\emph{single} index $m$ above every index appearing in it, after which
+$\sigma$-subadditivity of the one measure $\nu_m$ finishes the argument.
+Ordinary upper-directedness bounds \emph{pairs} of indices, not countable
+families, so no single $\nu_m$ dominates a countable cover; with ordinary
+upper-directedness plus collective exhaustion in place of sequentiality this
+lemma is \textbf{false}, by the Andersen--Jessen system of
+\S\ref{sec:sequentiality}.
 \end{proof}
 
 \begin{theorem}[Observational extension from charges]
@@ -291,11 +277,10 @@ $\mu(\mathrm{Cyl}_i A) = \nu_i(A)$ for every query $i$ and measurable $A$.
 \begin{proof}
 \leanok
 \uses{thm:sp1-iff, thm:observational-extension-seq}
-Proved, and not by the Stone route. \ref{thm:sp1-iff} converts collective
-exhaustion into a genuine measure at each level; compatibility transfers
-because each $\mu_i$ agrees with $\nu_i$ on every measurable set; and
-\ref{thm:observational-extension-seq} finishes on $\Omega$ directly, its
-uniqueness clause included. No Stone space and no charge theory are needed.
+\ref{thm:sp1-iff} converts collective exhaustion into a genuine measure at each
+level; compatibility transfers because each $\mu_i$ agrees with $\nu_i$ on every
+measurable set; and \ref{thm:observational-extension-seq} finishes on $\Omega$,
+its uniqueness clause included.
 \end{proof}
 
 \section{Sequentiality is not removable}
@@ -330,43 +315,21 @@ decreasing sequence mass $1$ and the limit mass $0$.
 
 \emph{Every hypothesis holds.} $\mathbb{N}$ is a chain, hence upper-directed,
 and \emph{not} sequentially upper-directed, since $(0,1,2,\dots)$ has no upper
-bound --- exactly the gap. Every $\mathrm{eval}_n$ is a projection onto an
-initial segment, hence surjective (each $X_k$ is thick, so nonempty). Each
-$P_n$ is a genuine measure, so collective exhaustion holds by
-\ref{lem:ce-levelwise}. The variance matches: \texttt{QuerySystem} has
-$\pi : \mathrm{Outcome}_j \to \mathrm{Outcome}_i$ for $i \leq j$, the
-inverse-system direction.
+bound. Every $\mathrm{eval}_n$ is a projection onto an initial segment, hence
+surjective (each $X_k$ is thick, so nonempty). Each $P_n$ is a genuine measure,
+so collective exhaustion holds by \ref{lem:ce-levelwise}. Note $\Omega$ is the
+subtype of \emph{coherent} families, not the bare product --- surjectivity onto
+a projective limit can fail with every level nonempty --- but the bonding maps
+are initial-segment restrictions, so coherence is automatically satisfiable and
+nonemptiness of each $X_k$ suffices. The thick tower is machine-checked
+(\ref{thm:aj-tower}) and the refutation is assembled at
+\ref{thm:aj-no-extension}.
 
 So the failure lives entirely in the passage between levels, where a per-level
 condition cannot see it: collective exhaustion characterises $\sigma$-additive
 extensibility \emph{per level} (\ref{thm:sp1-iff}) and not globally. The
 alternative to assuming sequentiality is a compact-class or perfect-measure
 condition on the marginals (Marczewski), the classical hypothesis.
-
-The hypothesis-match above is verified against the source hypothesis by
-hypothesis. Its load-bearing step, the surjectivity clause, is no longer a hand
-check: \texttt{staging/H1\_EvalSurjective.lean} proves \texttt{EvalSurjective}
-for this shape against \texttt{Omega} and \texttt{eval} themselves, receipts
-\texttt{[propext, Classical.choice, Quot.sound]}. Note $\Omega$ is the subtype
-of \emph{coherent} families, not the bare product --- surjectivity onto a
-projective limit can fail with every level nonempty --- but here the bonding
-maps are initial-segment restrictions, so coherence is automatically
-satisfiable and nonemptiness of each $X_k$ suffices. The thick tower is
-machine-checked too (\ref{thm:aj-tower}); \ref{rmk:aj-remaining} states what
-remains to make the whole refutation kernel-checked.
-
-What sequentiality costs is that the completed query $\bigvee_n Q_n$ must
-itself be a query. That is natural when a query is a $\sigma$-algebra of
-resolvable events closed under countable joins, and it is not a fresh
-idealisation --- making each query a $\sigma$-algebra already assumes
-completed countable operations, and $\bigcup_n E_n$ is as unphysical as
-$\bigvee_n Q_n$. What it excludes is precisely the finite-dimensional marginal
-family above. Weakening instead to finitely additive contents keeps a theorem
-without it (\ref{thm:stone-measure-exists}); assuming neither leaves nothing,
-and the index layer alone does not suffice either
-(\texttt{counterexampleQS\_no\_finitary\_condition}), so a valuation-layer and
-an index-layer condition are both required, with a counterexample in each
-direction.
 
 \section{The finitely additive theorem on the Stone space}
 
@@ -378,9 +341,7 @@ direction.
 There is a probability measure $\hat P$ on $\mathrm{St}(S)$ with
 $\hat P(E) = m(E)$ for every cylinder clopen $E$, where $m$ is the additive
 content transferred from $\nu$ along the Stone embedding. No collective
-exhaustion and no directedness beyond upper: this is the theorem available to
-an observer who never completes a countable family of queries, and on it free
-ultrafilters carrying mass are not a pathology but the trace of exactly that.
+exhaustion and no directedness beyond upper is used.
 \end{theorem}
 
 \begin{proof}
@@ -388,9 +349,7 @@ ultrafilters carrying mass are not a pathology but the trace of exactly that.
 \uses{def:stone-clopens}
 Transfer $\nu$ to an additive content on the cylinder clopens; prove
 $\sigma$-subadditivity using compactness of the Stone space (every countable
-cover of a clopen has a finite subcover); apply Carath\'eodory. The agreement
-clause is the content of the statement: without it the conclusion never
-mentions $\nu$ and is satisfied by a Dirac measure at any ultrafilter.
+cover of a clopen has a finite subcover); apply Carath\'eodory.
 \end{proof}
 
 \section{The obstruction, formalized}
@@ -401,9 +360,8 @@ mentions $\nu$ and is satisfied by a Dirac measure at any ultrafilter.
 \leanok
 \uses{def:cylinder, def:ncc}
 A decreasing sequence of cylinder events, each of full charge, with empty
-intersection. Every finite stage carries all the mass; the limit carries none.
-In Andersen--Jessen these are the diagonal cylinders over a decreasing sequence
-of thick sets.
+intersection. In Andersen--Jessen these are the diagonal cylinders over a
+decreasing sequence of thick sets.
 \end{definition}
 
 \begin{theorem}[No extension over an escaping tower]
@@ -412,7 +370,8 @@ of thick sets.
 \leanok
 \uses{def:escaping-tower, lem:cont-above}
 A query system carrying an escaping tower admits no extension of its charges to
-a probability measure on $\Omega$.
+a probability measure on $\Omega$. No hypotheses on $S$ are used --- no
+directedness, no surjectivity, no collective exhaustion.
 \end{theorem}
 
 \begin{proof}
@@ -420,15 +379,7 @@ a probability measure on $\Omega$.
 \uses{lem:cont-above}
 The tower's cylinders are an antitone measurable sequence with empty
 intersection and every stage of mass $1$, which is exactly what
-\ref{lem:cont-above} forbids. Continuity from above is not re-derived here: it
-was proved once, in the diagonal layer, and this is its consumer.
-
-Note the hypotheses: there are none on $S$. No directedness, no surjectivity,
-no collective exhaustion. The tower alone is fatal --- which is why
-strengthening the index layer was the only available repair for
-\ref{thm:stone-observational-extension}. One cannot patch the conclusion or the
-valuation layer around a tower; one can only assume an index layer rich enough
-that no tower exists.
+\ref{lem:cont-above} forbids.
 \end{proof}
 
 \begin{theorem}[The obstruction is not vacuous]
@@ -443,10 +394,7 @@ the hyperfilter hence of content $1$, while $\bigcap_n E_n = \emptyset$.
 
 \begin{proof}
 \leanok
-Direct. The point is not the construction --- the same sequence already
-appears in \texttt{counterexampleNCC\_not\_collectivelyExhaustive} --- but that
-\ref{def:escaping-tower} is inhabited, without which
-\ref{thm:no-extension-tower} would be empty content.
+Direct.
 \end{proof}
 
 \begin{corollary}[The finite--cofinite system admits no extension]
@@ -454,29 +402,22 @@ appears in \texttt{counterexampleNCC\_not\_collectivelyExhaustive} --- but that
 \lean{QuerySystem.counterexample_no_extension}
 \leanok
 \uses{thm:tower-inhabited, thm:no-extension-tower}
-Recovered from the abstract obstruction rather than re-argued, which is the
-point: the tower is the reusable content of that counterexample.
-
-Note what it does \emph{not} show. This system fails collective exhaustion
+The finite--cofinite query system admits no extension of its charges to a
+probability measure on $\Omega$. It fails collective exhaustion
 (\texttt{counterexampleNCC\_not\_collectivelyExhaustive}), so it does not
-refute the plain-upper-directedness extension statement
-(\S\ref{sec:sequentiality}). Refuting that needs a tower in a system
-where every level \emph{is} $\sigma$-additive, which is what forces the thick
-sets of \ref{thm:aj-tower} and why Andersen--Jessen is harder than this.
+refute the plain-upper-directedness extension statement of
+\S\ref{sec:sequentiality}.
 \end{corollary}
 
 \begin{proof}
 \leanok
 Instantiate \ref{thm:no-extension-tower} at the finite--cofinite escaping tower of \ref{thm:tower-inhabited}.
 \end{proof}
-
 \chapter{Andersen--Jessen: the thick tower and the diagonal layer}
 
 The counterexample that refutes observational extension under plain
 upper-directedness needs one object: a decreasing family of subsets of $[0,1]$,
-each of full outer measure, whose intersection is empty. Every level carries all
-the measure, the limit carries none. That is the non-regularity phenomenon
-itself, and it has no analogue over Polish spaces.
+each of full outer measure, whose intersection is empty.
 
 The tower is built from \emph{finiteness} rather than the parity split of the
 source (Border, following Halmos pp.~68--70). Parity caps out: a set with all
@@ -484,7 +425,6 @@ even differences lies in a coset of $2\mathbb{Z}+\alpha\mathbb{Z}$, of which
 there are two, so it can never separate more than two pieces and gives
 thickness only at $k = 0$. A finite set has no such cap, and
 \ref{thm:aj-finite} gives thickness at every level.
-See \texttt{notes/andersen\_jessen\_brief.md}.
 
 \begin{definition}[The group]
 \label{def:aj-A}
@@ -541,9 +481,6 @@ If it did, Steinhaus
 of $0$ inside $F' - F'$. $F - F$ is finite while $A$ is dense, so some element of
 $A$ lies in that neighbourhood and outside $F - F$; the transversal then forces
 it into $F - F$ after all.
-
-This is the replacement for the source's Proposition 13, and it is what gives
-thickness at EVERY level rather than only at $k = 0$.
 \end{proof}
 
 \begin{theorem}[The thick tower]
@@ -567,15 +504,6 @@ the enumeration covering $A$ and the transversal property
 eventually falls out of every tail.
 \end{proof}
 
-\begin{remark}[What remains]
-\label{rmk:aj-remaining}
-\uses{thm:aj-tower, def:escaping-tower}
-The tower was the hard half, and the layer above it --- the trace measure and
-the projective system --- is now done too: see \ref{thm:trace-measure} and
-\ref{thm:aj-no-extension}. The refutation is kernel-checked; nothing here rests
-on a hand check any more.
-\end{remark}
-
 \section{The trace measure, and the refutation}
 
 \begin{definition}[Thickness, relative to a base measure]
@@ -583,12 +511,11 @@ on a hand check any more.
 \lean{ThickTrace.ThickFor}
 \leanok
 $X$ is \emph{thick for} $\mu$ when every measurable set disjoint from $X$ is
-$\mu$-null. Stating it for an arbitrary base rather than for Lebesgue measure
-is what makes the total mass finite: the marginals need mass $1$, and
-$\lambda(\mathbb{R}) = \infty$. Confining the levels to $[0,1]$ does not work
---- $X_k \cap [0,1]$ is not thick in $\mathbb{R}$ --- but restricting the
-\emph{ambient} measure to $\mathrm{Icc}\,0\,1$ does, and leaves the levels
-exactly as \ref{thm:aj-tower} builds them.
+$\mu$-null. The base is arbitrary rather than Lebesgue so that the total mass is
+finite: the marginals need mass $1$ and $\lambda(\mathbb{R}) = \infty$, while
+$X_k \cap [0,1]$ is not thick in $\mathbb{R}$. Restricting the \emph{ambient}
+measure to $\mathrm{Icc}\,0\,1$ leaves the levels exactly as
+\ref{thm:aj-tower} builds them.
 \end{definition}
 
 \begin{theorem}[The trace measure on a thick set]
@@ -603,16 +530,12 @@ $\lambda_X(E \cap X) = \mu(E)$ (Border, Prop.~14).
 \begin{proof}
 \leanok
 \uses{thm:aj-tower}
-Not obtainable from \texttt{Measure.comap}: that is guarded by ``every
-measurable subset has null-measurable image'' and returns $0$ when the guard
-fails, which it does for a thick set with thick complement ---
-\texttt{Measure.Subtype.measureSpace} is that comap, so it degenerates too. The
-$\sigma$-algebra is fine (it is the comap $\sigma$-algebra); only the measure
-must be built, via \texttt{Measure.ofMeasurable}. Well-definedness is the one
-place thickness is spent: two measurable sets with the same trace differ by a
-measurable set disjoint from $X$, hence null, and \ref{thm:aj-tower} is exactly
-that hypothesis. $\sigma$-additivity follows because disjoint traces force
-a.e.-disjoint representatives.
+The $\sigma$-algebra is the comap one, but the measure must be built by
+\texttt{Measure.ofMeasurable}: \texttt{Measure.comap} returns $0$ for a thick
+set with thick complement. Well-definedness is where thickness is spent --- two
+measurable sets with the same trace differ by a measurable set disjoint from
+$X$, hence null --- and $\sigma$-additivity follows because disjoint traces
+force a.e.-disjoint representatives.
 \end{proof}
 
 \begin{theorem}[Andersen--Jessen admits no extension]
@@ -636,18 +559,14 @@ marginals; the commutation $\mathrm{bond} \circ \mathrm{diag} = \mathrm{diag}
 escaping tower: each carries full mass because the diagonal map lands in the
 diagonal, and their intersection is empty by \ref{thm:diag-empty}.
 
-That last step is where the diagonal layer is spent. A coherent family is not a
-sequence, so it is carried to one by $\mathrm{toSeq}\,\omega : k \mapsto
-(\omega_k)_k$, reading off the top coordinate at each level. Two facts about
-that sequence are needed, and they come from different places: every entry lies
-in its own $X_k$ by the subtype alone, while constancy needs both the coherence
-(to move coordinate $0$ down from level $i$ to level $0$) and the base cylinders
-(to move it across level $i$ from coordinate $0$ to coordinate $i$).
-\ref{thm:diag-empty} then supplies the emptiness, against \ref{thm:aj-tower},
-and \ref{thm:no-extension-tower} finishes.
-
-This is what makes the falsity of the original \texttt{UpperDirected} statement
-a theorem of the kernel rather than a hand check against the source.
+A coherent family is not a sequence, so it is carried to one by
+$\mathrm{toSeq}\,\omega : k \mapsto (\omega_k)_k$, reading off the top
+coordinate at each level. Every entry lies in its own $X_k$ by the subtype
+alone, while constancy needs both the coherence (to move coordinate $0$ down
+from level $i$ to level $0$) and the base cylinders (to move it across level $i$
+from coordinate $0$ to coordinate $i$). \ref{thm:diag-empty} then supplies the
+emptiness, against \ref{thm:aj-tower}, and \ref{thm:no-extension-tower}
+finishes.
 \end{proof}
 
 \begin{theorem}[The hypotheses, discharged]
@@ -680,16 +599,12 @@ extension.
 \leanok
 \uses{thm:aj-hypotheses}
 The Andersen--Jessen system, with \ref{thm:aj-hypotheses} supplying the two
-hypotheses and \ref{thm:aj-no-extension} the failure.
+hypotheses and \ref{thm:aj-no-extension} the failure. At $\iota = \mathbb{N}$
+the two hypotheses come apart: every finite set of levels has an upper bound, an
+unbounded sequence of them does not.
 
-This is what makes the repair to \ref{def:seq-upper-directed} forced.
-$\iota = \mathbb{N}$ is exactly where the two hypotheses come apart: every
-finite set of levels has an upper bound, an unbounded sequence of them does not.
-
-\textbf{Collective exhaustion is not discharged.} The statement is scoped to the
-two hypotheses that are, so the gap is visible: whether the Andersen--Jessen
-contents are collectively exhaustive is open here, and the form including that
-hypothesis is not refuted by this corollary.
+Collective exhaustion is not discharged, so the form including that hypothesis
+is not refuted by this corollary.
 \end{proof}
 
 \section{The diagonal layer}
@@ -703,7 +618,6 @@ $\mathbb{N} \to \mathbb{R}$ with the product $\sigma$-algebra, and
 $\Pi'(Y) = \{\omega : \omega_k \in Y_k \text{ for all } k\}$ (\texttt{Pi'}).
 The cylinders decrease (\texttt{Diag\_antitone}), and a point of $D_n$ is
 determined on $[0,n]$ by its first coordinate (\texttt{Diag\_eq\_of\_le}).
-Phrased in Mathlib vocabulary rather than over the project's own definitions.
 \end{definition}
 
 \begin{lemma}[The cylinders shrink to the constants]
@@ -726,11 +640,9 @@ bound $i \leq n$ at $n = i$.
 \lean{Diagonal.pi_inter_diag_eq_empty}
 \leanok
 \uses{lem:diag-inter}
-If $\bigcap_k Y_k = \emptyset$ then $\Pi'(Y) \cap \bigcap_n D_n = \emptyset$.
-Generic in $Y$ --- the Lean statement consumes nothing from the tower. Applied
-to the thick tower $Y_k = X_k$ of \ref{thm:aj-tower}, whose intersection
-is empty, it is the second half of the contradiction: every finite stage
-carries the diagonal, the limit contains nothing.
+If $\bigcap_k Y_k = \emptyset$ then $\Pi'(Y) \cap \bigcap_n D_n = \emptyset$,
+generically in $Y$. Applied to the thick tower $Y_k = X_k$ of
+\ref{thm:aj-tower}.
 \end{theorem}
 
 \begin{proof}
@@ -745,16 +657,15 @@ $\omega_0$ lies in $Y_k$ for every $k$, i.e.\ in $\bigcap_k Y_k = \emptyset$.
 \lean{Diagonal.measurableSet_Diag}
 \leanok
 \uses{def:diag-cylinders}
-Each $D_n$ is measurable, so it makes sense to ask for its measure. Coordinate
-evaluation is measurable (\texttt{measurable\_coord}), hence so is agreement of
-two coordinates (\texttt{measurableSet\_eq\_coord}), and $D_n$ is a finite
-intersection of those.
+Each $D_n$ is measurable.
 \end{lemma}
 
 \begin{proof}
 \leanok
-$D_n = \bigcap_{i \leq n} \{\omega : \omega_i = \omega_0\}$, a finite
-intersection of measurable sets.
+Coordinate evaluation is measurable (\texttt{measurable\_coord}), hence so is
+agreement of two coordinates (\texttt{measurableSet\_eq\_coord}), and
+$D_n = \bigcap_{i \leq n} \{\omega : \omega_i = \omega_0\}$ is a finite
+intersection of those.
 \end{proof}
 
 \begin{lemma}[Continuity from above, in the form the contradiction uses]
@@ -770,26 +681,14 @@ mass one when the intersection is empty.
 The measures converge to that of the intersection, which is $0$; if every term
 were $1$ the limit would be both $0$ and $1$.
 \end{proof}
-
 \chapter{Delay embeddings: a system on the wrong side of the hypothesis}
 
-The extension theorem of the previous chapters needs
-\ref{def:seq-upper-directed}, and \S\ref{sec:sequentiality} showed the plain
-upper-directed form is false. That leaves a question the counterexample alone
-does not answer: is the gap between the two hypotheses a pathology, reachable
-only by a construction built to break things, or does an ordinary system fall
-into it?
-
-It is not a pathology. The delay query system --- the standard object of
-time-series reconstruction, reading $d$ samples at lag $\tau$ --- is
-upper-directed and \emph{not} sequentially upper-directed
-(\ref{thm:delay-not-sud}). So the extension theorem does not apply to it, and
-this is not a defect of the formalization but a fact about delay embeddings.
-What does apply is the bounded fixed-lag subsystem (\ref{thm:delay-extension}),
-and that is the honest scope of the result.
-
-This chapter is otherwise independent of the $\sigma$-essential material: it
-shares the query-system core of Chapter 1 and nothing below it.
+The extension theorem needs \ref{def:seq-upper-directed}, and
+\S\ref{sec:sequentiality} showed the plain upper-directed form is false. The
+delay query system --- reading $d$ samples at lag $\tau$ --- is upper-directed
+and \emph{not} sequentially upper-directed (\ref{thm:delay-not-sud}), so the
+extension theorem does not apply to it. What does apply is the bounded
+fixed-lag subsystem (\ref{thm:delay-extension}).
 
 \section{The delay system}
 
@@ -867,28 +766,7 @@ There is no single query above the whole sequence $u_n = (n+2,\ 1)$.
 \uses{def:delay-refine}
 An upper bound $(d'',\tau'')$ would need $\tau'' \mid 1$, hence $\tau''=1$, and
 then $(n+2)-1 = n+1 < d''$ for every $n$ --- impossible for a finite $d''$.
-Deepening the window is free, but no finite window contains all of them.
-
-Note what separates this from \ref{thm:delay-upper}: upper-directedness asks
-for a bound above any \emph{two} queries, and gcd-plus-max supplies one;
-sequential upper-directedness asks for a bound above a countable family, and
-the depths are unbounded. The two hypotheses differ exactly here, and the delay
-system sits between them.
 \end{proof}
-
-\begin{remark}[A definitional mismatch with the source, recorded]
-\label{prop:delay-mismatch}
-\uses{thm:delay-not-sud}
-Paper 1's Proposition 2 establishes that every \emph{finite} subfamily of delay
-queries has a common refinement, and its Definition 3.3 calls this ``sequential
-upper-directedness''. That is not the condition of
-\ref{def:seq-upper-directed}, which quantifies over a countable family and is
-strictly stronger; the finite-subfamily property is exactly
-\ref{thm:delay-upper}. The Lean development uses the stronger reading, so the
-paper's extension theorem is stated at a scope its hypothesis does not reach,
-and \ref{thm:delay-not-sud} is the witness. The repair is the fixed-lag
-restriction below, not a weakening of the theorem.
-\end{remark}
 
 \section{Where the extension theorem does apply}
 
@@ -912,9 +790,7 @@ $N$ is a universal upper bound.
 \begin{proof}
 \leanok
 \uses{def:delay-fixed-lag}
-Every index is $\leq N$, so the constant family at $N$ bounds any sequence. The
-obstruction of \ref{thm:delay-not-sud} was unbounded depth, and bounding the
-depth removes it.
+Every index is $\leq N$, so the constant family at $N$ bounds any sequence.
 \end{proof}
 
 \begin{theorem}[Extension for bounded fixed-lag delay embeddings]
@@ -933,38 +809,18 @@ $\Omega$.
 \ref{thm:delay-fixed-sud} supplies sequential upper-directedness and
 \texttt{evalSurjective} the realizability hypothesis; the extension theorem
 applies directly.
-
-This is the honest scope of the delay-embedding extension result:
-finite-window, fixed-lag. \ref{thm:delay-not-sud} is why it cannot be stated for
-the full system, and \S\ref{sec:sequentiality} is why the hypothesis cannot
-simply be weakened to \ref{def:upper-directed} --- that form is refuted.
 \end{proof}
 
 \section{Reconstruction, and the join to the query system}
 
-The reconstruction material and the delay query system have shared a file since
-the delay chapter was written, and shared nothing else --- no definition, no
-lemma, no dependency. They were two subjects with one filename. This section
-states the reconstruction side and then joins it, which requires knowing what
-the two sides mean by their variables.
-
-The join is not automatic and it is not notation. It rests on two modelling
-answers, both of which could have gone the other way:
-
-\begin{itemize}
-  \item \emph{Whose space is the query system's parameter?} The
-    \textbf{observation} space. \ref{def:delay-query} samples streams
-    $\mathbb{Z} \to Y$; taking $Y = \mathbb{R}$ makes its outcomes tuples of
-    sensor readings. The state space never appears in it. A state is not an
-    outcome of any delay query --- only its observations are.
-  \item \emph{Which time direction?} \ref{def:delay-query} samples at
-    $0, -\tau, \dots, -(d-1)\tau$ --- the past --- while reconstruction iterates
-    $T$ forward. They agree once reading the stream backwards is reading the
-    orbit forwards, which is the ordinary delay-coordinate convention. The
-    alternative --- past times as \emph{backward} iterates --- needs $T$
-    invertible; for invertible $T$ the two generate the same $\sigma$-algebra,
-    and for non-invertible $T$ only the convention taken here exists at all.
-\end{itemize}
+The join rests on two conventions. The query system's parameter is the
+\textbf{observation} space: \ref{def:delay-query} samples streams
+$\mathbb{Z} \to Y$, and the state space never appears in it. And
+\ref{def:delay-query} samples the past, at $0, -\tau, \dots, -(d-1)\tau$, while
+reconstruction iterates $T$ forward; the two agree once reading the stream
+backwards is reading the orbit forwards. Reading past times as \emph{backward}
+iterates instead would need $T$ invertible, and for invertible $T$ the two
+generate the same $\sigma$-algebra.
 
 \subsection{The reconstruction side}
 
@@ -985,9 +841,8 @@ answers, both of which could have gone the other way:
   \leanok
   The $\sigma$-algebra on the state space generated by a family
   $f : \mathbb{Z} \to (X \to \mathbb{R})$;
-  $\mathcal{O}_h := \mathrm{observableAlgebra}(n \mapsto h \circ T^{n})$ is the
-  case that matters (\texttt{delayObservableAlgebra}). It is what the observer
-  can resolve using $h$ and the dynamics alone.
+  $\mathcal{O}_h := \mathrm{observableAlgebra}(n \mapsto h \circ T^{n})$
+  (\texttt{delayObservableAlgebra}).
 \end{definition}
 
 \begin{theorem}[Pullback identity]
@@ -1049,7 +904,6 @@ answers, both of which could have gone the other way:
   \uses{thm:reconstruction}
   Direct instantiation.
 \end{proof}
-
 \subsection{The join}
 
 \begin{definition}[The observation stream of a state]
@@ -1059,9 +913,7 @@ answers, both of which could have gone the other way:
   \leanok
   $\mathrm{orbitStream}\,h\,T\,x$ is the sensor stream a state emits:
   at time $t$ it carries $h(T^{(-t)^{+}} x)$, the observation of the state
-  $(-t)$ steps ahead. This is the map that takes a state to an object the delay
-  queries can be applied to, and it is where the time convention above is
-  discharged.
+  $(-t)$ steps ahead.
 \end{definition}
 
 \begin{theorem}[Sampling the orbit stream is taking delay coordinates]
@@ -1071,9 +923,7 @@ answers, both of which could have gone the other way:
   \leanok
   $\mathrm{delayEval}\,d\,\tau\,(\mathrm{orbitStream}\,h\,T\,x)
    = (h(T^{k\tau} x))_{k < d}$. At $\tau = 1$ this is $\Phi_h$ truncated to its
-  first $d$ coordinates (\texttt{delayEval\_orbitStream\_one}): the query
-  system's outcomes and the reconstruction map are the same data, read at finite
-  and at infinite depth.
+  first $d$ coordinates (\texttt{delayEval\_orbitStream\_one}).
 \end{theorem}
 
 \begin{proof}
@@ -1091,9 +941,6 @@ answers, both of which could have gone the other way:
   space by pulling every delay query's outcome back along
   \ref{def:orbit-stream}. Then
   \[ \mathrm{delayQueryAlgebra}\,h\,T = \mathcal{O}_h. \]
-  What the delay \emph{queries} can resolve about a state is exactly what the
-  observable algebra contains --- so \ref{thm:reconstruction} is a statement
-  about the query system, not merely about a map that resembles it.
 \end{theorem}
 
 \begin{proof}
@@ -1104,35 +951,17 @@ answers, both of which could have gone the other way:
   and its pullback sits below. $(\ge)$ conversely every generator
   $h \circ T^{n}$ is a coordinate of the query $(n+1, 1)$; the negative indices
   of the $\mathbb{Z}$-indexed family collapse to $h$ itself and are covered by
-  $d = 1$. Unit lag alone therefore already generates everything --- the lag
-  parameter adds resolution to no purpose here, which is worth knowing.
+  $d = 1$. Unit lag alone therefore already generates everything.
 \end{proof}
-
-\begin{remark}[What the join does and does not settle]
-  \label{rmk:bridge-scope}
-  \uses{thm:query-reconstruction-bridge}
-  This connects the two halves of the delay chapter, and it connects the
-  reconstruction lane to the query-system core --- the first edge between them.
-  It does not transfer the extension theorem: \ref{thm:delay-not-sud} still puts
-  the delay query system on the wrong side of sequential upper-directedness, and
-  the bridge changes nothing about that. What it buys is that reconstruction is
-  now a statement in the query system's own vocabulary.
-\end{remark}
 
 \subsection{Fixed lag, and where the pruning chapter's index lives}
 
-\ref{thm:query-reconstruction-bridge} ranges over every lag, and its proof shows
-unit lag alone already attains the supremum --- so $\tau$ is invisible to it.
-That is a fact about the \emph{supremum}, and it is what has kept this chapter
-and the pruning chapter apart: the reconstruction question takes the sup and
-washes the lag out, while the pruning question is asked at a fixed lag, which
-the sup destroys.
-
-Fixing $\tau$ puts it back, and the two indices turn out to be the same index.
-\ref{def:delay-query} samples at $0, -\tau, \dots, -(d-1)\tau$ --- stroboscopic
-sampling --- while \ref{def:lisc}'s layered ring $R_L$ has vertex set
-$\mathbb{Z}_L \times A$, its layer being position mod $L$. The delay chapter's
-lag is the pruning chapter's ring length.
+\ref{thm:query-reconstruction-bridge} ranges over every lag, and unit lag alone
+already attains the supremum, so $\tau$ is invisible to it. Fixing $\tau$ puts
+it back. \ref{def:delay-query} samples at $0, -\tau, \dots, -(d-1)\tau$, while
+\ref{def:lisc}'s layered ring $R_L$ has vertex set $\mathbb{Z}_L \times A$ with
+layer position mod $L$: the delay chapter's lag is the pruning chapter's ring
+length.
 
 \begin{theorem}[Lag-$\tau$ data is unit-lag data of the power map]
   \label{thm:delay-eval-iterate}
@@ -1157,12 +986,8 @@ lag is the pruning chapter's ring length.
   Let $\mathrm{delayQueryAlgebraAtLag}\,h\,T\,\tau$ be the $\sigma$-algebra
   induced by the delay queries \emph{at the single lag} $\tau$. Then
   \[ \mathrm{delayQueryAlgebraAtLag}\,h\,T\,\tau = \mathcal{O}_h(T^{\tau}). \]
-  Stroboscopic observation at lag $\tau$ is therefore not a degraded view of
-  $T$; it is the same reconstruction question asked of $T^{\tau}$. In general
-  $\mathcal{O}_h(T^{\tau}) < \mathcal{O}_h(T)$ strictly --- the intermediate
-  times are genuinely lost --- which is the content
-  \ref{thm:query-reconstruction-bridge} cannot see. At $\tau = 1$ nothing is
-  lost (\texttt{delayQueryAlgebraAtLag\_one}).
+  In general $\mathcal{O}_h(T^{\tau}) < \mathcal{O}_h(T)$ strictly; at
+  $\tau = 1$ nothing is lost (\texttt{delayQueryAlgebraAtLag\_one}).
 \end{theorem}
 
 \begin{proof}
@@ -1174,63 +999,26 @@ lag is the pruning chapter's ring length.
   coordinate $n$ of the query $(n+1, \tau)$.
 \end{proof}
 
-\begin{remark}[What this buys against the pruning chapter]
-  \label{rmk:lag-is-ring-length}
-  \uses{thm:lag-algebra}
-  $\mathrm{Safe}(\rho)$ (\ref{def:unsafe-safe}) is a statement about which ring
-  lengths reconstruct; \ref{thm:lag-algebra} says what ``reconstructs at lag
-  $\tau$'' means on the measure-theoretic side. The two chapters are asking one
-  question in two vocabularies, and this is the dictionary entry.
-
-  It is not yet a theorem connecting them, and the gap is specific. Pruning's
-  $\rho \subseteq A \times A$ is a \emph{relation}; the delay side's $T$ is a
-  \emph{function}. Specialising pruning to a deterministic $\rho$
-  collapses it. A functional graph is rho-shaped, so every closed walk is a
-  repeated cycle, and traversing one of length $m$ gives winding
-  $m/\gcd(m,L)$: the layer-$i$ states are
-  $\{i + jL \bmod m\}$, and the product $C_m \times C_L$ is
-  $\gcd(m,L)$ copies of $C_{\mathrm{lcm}(m,L)}$. For a function every strand
-  therefore lies on \emph{one} orbit. Branching is what lets strands sit on
-  different orbits, so the content of \ref{thm:pruning} lives in the
-  nondeterministic case, and closing the gap means carrying the delay side to
-  relations rather than restricting pruning to maps.
-\end{remark}
-
 \section{The predictive layer, and what is not formalized}
 \label{sec:delay-gaps}
 
-The structural theory above is complete. The probabilistic half of Paper 1 ---
-the predictive law map $\varphi_{d,\tau} : X^d \to \mathcal{P}(X)$, predictive
-sufficiency as injectivity of $\varphi$ on the support, the $\tau$-Markov order
-$m(\tau,P)$, the characterization $d \geq m(\tau,P) \iff$ sufficiency, and
-stationarity of the delay distributions --- is not formalized.
+The probabilistic half of Paper 1 --- the predictive law map
+$\varphi_{d,\tau} : X^d \to \mathcal{P}(X)$, predictive sufficiency as
+injectivity of $\varphi$ on the support, the $\tau$-Markov order $m(\tau,P)$,
+the characterization $d \geq m(\tau,P) \iff$ sufficiency, and stationarity of
+the delay distributions --- is not formalized. Mathlib's disintegration
+(\texttt{Measure.condKernel}, \texttt{Measure.disintegrate}) requires a standard
+Borel target, while the results above are proved for an arbitrary measurable
+sensor alphabet, so $\varphi_{d,\tau}$ is definable only on a subclass.
 
-The obstruction recorded when the file was written, that Lean lacked
-conditional-distribution infrastructure, no longer holds: Mathlib now has
-disintegration for standard Borel spaces
-(\texttt{Measure.condKernel}, \texttt{Measure.disintegrate}). The live
-constraint is different and worth stating precisely, because it is a question
-about \emph{statements} rather than proofs: disintegration requires the target
-to be standard Borel, while everything above is proved for an arbitrary
-measurable sensor alphabet. Defining $\varphi_{d,\tau}$ therefore either
-narrows the whole chapter or applies only to a subclass. The structural results
-deserve their generality, so the second is the intended reading.
-
-Takens' theorem is a separate matter: it needs generic-embedding machinery that
-Mathlib does not have at all, and it is not a near-term target.
-
+Takens' theorem needs generic-embedding machinery that Mathlib does not have.
 \chapter{From Boolean to orthomodular: where distributivity is spent}
 
 Everything above is the distributive case. A query system's outcome
 $\sigma$-algebras are Boolean, and the extension questions there are settled by
-$\sigma$-additivity together with an index-layer condition.
-
-This chapter is the hinge to the chapter that follows. It isolates the single
-predicate separating that regime from the orthomodular one, and shows the
-distributive side of the separation is closed. The point of stating it as one
-predicate is that distributivity is not diffused through the theory: it is
-spent in exactly one step, and what fails on a non-Boolean structure fails
-because that step is unavailable.
+$\sigma$-additivity together with an index-layer condition. This chapter
+isolates the single predicate separating that regime from the orthomodular one,
+and closes the distributive side of the separation.
 
 \section{The pivot}
 
@@ -1239,10 +1027,7 @@ because that step is unavailable.
   \uses{def:sigma-class}
   \lean{SigmaEssential.Block}
   \leanok
-  A finite $\bot$-closed family of carrier sets --- a finite context, the
-  orthomodular analogue of a finite sub-algebra. States are compared on blocks,
-  never globally: the encoding discipline that keeps a local pattern from being
-  a global state in disguise.
+  A finite $\bot$-closed family of carrier sets.
 \end{definition}
 
 \begin{definition}[Intersection-closure: the pivot]
@@ -1250,13 +1035,9 @@ because that step is unavailable.
   \uses{def:sigma-class}
   \lean{SigmaEssential.InterClosed}
   \leanok
-  $\mathrm{InterClosed}(d)$ says $A, A' \in d \Rightarrow A \cap A' \in d$.
-
-  A Dynkin system with this property is exactly a $\sigma$-algebra, by Dynkin's
-  $\pi$--$\lambda$ theorem. So this one predicate is the Boolean/orthomodular
-  divide: \textbf{with} it the carrier is distributive and the earlier chapters
-  apply; \textbf{without} it the carrier is a concrete orthomodular structure in
-  which lattice meet need not be set intersection, and need not exist at all.
+  $\mathrm{InterClosed}(d)$ says $A, A' \in d \Rightarrow A \cap A' \in d$. A
+  Dynkin system with this property is exactly a $\sigma$-algebra, by Dynkin's
+  $\pi$--$\lambda$ theorem.
 \end{definition}
 
 \begin{lemma}[Distributivity is spent here, and only here]
@@ -1274,11 +1055,6 @@ because that step is unavailable.
   $A = (A \cap A') \sqcup (A \cap A'^{c})$ is a disjoint union inside $d$. Since
   $A \cap A'^{c} \subseteq A'^{c}$ and $A'$ is true, monotonicity makes
   $A \cap A'^{c}$ false; additivity on the disjoint pair forces $A \cap A'$ true.
-
-  This is the only place distributivity is used in the development, and exactly
-  the step that fails on a non-Boolean orthomodular lattice: the disjoint
-  decomposition of $A$ along $A'$ needs the meet to be set intersection and to
-  lie in the carrier.
 \end{proof}
 
 \section{MO$_2$: the smallest non-distributive witness}
@@ -1329,21 +1105,13 @@ because that step is unavailable.
   \leanok
   \uses{def:mo2}
   By decision over the finite type.
-
-  This is the concrete content of non-distributivity, and what \ref{lem:val-inter}
-  needs and cannot get: meeting to $\bot$ no longer implies orthogonality, so the
-  disjoint decomposition used there is unavailable. MO$_2$ is the smallest
-  structure where the Boolean argument breaks, and ef{cor:concrete-mo2-not-interclosed}
-  carries the break into the $\sigma$-class setting on four points.
 \end{proof}
 
 \section{MO$_2$ realized: the gap inside a $\sigma$-class}
 
 MO$_2$ is a lattice; \ref{def:interclosed} is a condition on a $\sigma$-class of
-sets. \ref{thm:mo2-gap} claims the two concern the same failure. This section
-proves that rather than asserting it: on four points there is a $\sigma$-class
-whose carrier \emph{is} MO$_2$, and on which the pivot fails for exactly the
-reason MO$_2$ predicts.
+sets. On four points there is a $\sigma$-class whose carrier is MO$_2$ and on
+which the pivot fails.
 
 \begin{definition}[The four-point carrier]
   \label{def:concrete-mo2}
@@ -1381,8 +1149,7 @@ reason MO$_2$ predicts.
   The indexing
   $\bot, a, a', b, b', \top \;\mapsto\; \emptyset, A, A^{c}, B, B^{c}, \Omega$
   is a bijection onto $L$; it carries the order of MO$_2$ to inclusion and
-  $(\cdot)^{\perp}$ to set complement. So $L$ is MO$_2$, not merely a lattice
-  resembling it.
+  $(\cdot)^{\perp}$ to set complement.
 \end{theorem}
 
 \begin{proof}
@@ -1429,14 +1196,7 @@ reason MO$_2$ predicts.
         QuerySystem.ConcreteMO2.not_compat_AB}
   \leanok
   $L$ is not intersection-closed, so \ref{lem:val-inter} does not apply to it.
-
-  \ref{lem:carrier-not-boolean} reaches the same failure for $L_1$ over
-  $\omega_1$, but derives it from the witness rather than displaying it. Here
-  the failure is exhibited on four points and identified: the carrier fails the
-  pivot because it is MO$_2$, and the offending intersection is the point where
-  the gap of \ref{thm:mo2-gap} sits.
 \end{corollary}
-
 \begin{theorem}[Meets exist; the gap is not their absence]
   \label{thm:concrete-mo2-meets}
   \uses{thm:concrete-mo2-poor}
@@ -1453,29 +1213,16 @@ reason MO$_2$ predicts.
   Comparable pairs meet at the smaller one. For any other pair the intersection
   holds at most one point, so by the previous proof the only member below both
   is $\emptyset$.
-
-  This separates two ways the Boolean argument can fail. \ref{def:interclosed}
-  can fail because meets do not exist, or because they exist and are not
-  intersections. Here they exist --- the carrier satisfies the latticehood
-  hypothesis --- and the pivot still fails. The obstruction is the second kind,
-  which is the kind MO$_2$ names.
 \end{proof}
 
 \section{The descent ladder: MO$_2$ carried to infinity}
 
-MO$_2$ above is a six-element counterexample, and on its own that is all it is.
-This section is what it was built for. The gap $a \wedge b = \bot$ with
-$a \not\le b^{\perp}$ relates \emph{one} element to \emph{one} other; the
-descent question asks for one element interleaved in the same way with an
-\emph{infinite orthogonal family}. The construction that delivers this is
-Navara's, and the route to it is a ladder: replicate the gap across finitely
-many blocks, then across countably many.
-
-Every rung is stated over a product of MO$_2$ copies with order, meet,
-orthocomplement and bottom all computed coordinatewise. That is the whole
-reason the ladder climbs: the star condition is a coordinatewise test, so it
-survives replication, and each rung reduces to \ref{thm:mo2-gap} at a single
-block.
+The gap $a \wedge b = \bot$ with $a \not\le b^{\perp}$ relates \emph{one}
+element to \emph{one} other; the descent question asks for one element
+interleaved in the same way with an \emph{infinite orthogonal family}. Every
+rung below is stated over a product of MO$_2$ copies with order, meet,
+orthocomplement and bottom all computed coordinatewise, so each reduces to
+\ref{thm:mo2-gap} at a single block.
 
 \subsection{Rung 2: finite truncation}
 
@@ -1503,7 +1250,7 @@ block.
   \leanok
   $p := b$ on every block, and $a_i := a$ on block $i$, $\bot$ elsewhere
   (\texttt{QuerySystem.aFam}). The family is orthogonal because its members have
-  disjoint supports; $p$ meets all of them.
+  disjoint supports.
 \end{definition}
 
 \begin{theorem}[$(\star)$ at every finite truncation]
@@ -1523,26 +1270,16 @@ block.
   \ref{thm:mo2-gap}. For the non-orthogonality: $\le$ on the product is
   pointwise, so $p \le a_i^{\perp}$ would force $b \le a^{\perp}$ at block $i$,
   which \ref{thm:mo2-gap} refutes.
-
-  One block suffices to refute an inequality; every block must be checked to
-  confirm one. That asymmetry is why the second half costs a single instance and
-  the first is where the work is.
 \end{proof}
 
 \subsection{Rung 3: the infinite object, and what is assumed}
 
-Navara's $L_2$ is a genuine infinite object and a published construction
-(PAMS 115 (1992) 425--431, p.~428). Per the repository's convention it is
-\emph{assumed}, not reformalized. Eleven axioms record its carrier, the fact
-that it is an orthomodular lattice, and --- the load-bearing point --- that it
-is built as a \textbf{sublogic of the product}, so its order, orthocomplement,
-bottom and meet are the restrictions of the coordinatewise ones. Two more name
-the witness $p = \bigvee_n b|_{C_n}$ and the family $a_n = a|_{C_n}$.
-
-\emph{None of the eleven mentions $(\star)$.} What is proved is that $(\star)$
-follows from the blockwise description, and it follows for the reason it did at
-Rung 2: reduction to \ref{thm:mo2-gap} at a single block. The content assumed is
-the existence of the object; the content proved is what the object does.
+Navara's $L_2$ (PAMS 115 (1992) 425--431, p.~428) is assumed, not reformalized.
+Eleven axioms record its carrier, that it is an orthomodular lattice, and that
+it is built as a \textbf{sublogic of the product}, so its order,
+orthocomplement, bottom and meet are the restrictions of the coordinatewise
+ones. Two more name the witness $p = \bigvee_n b|_{C_n}$ and the family
+$a_n = a|_{C_n}$. None of the eleven mentions $(\star)$.
 
 \begin{definition}[Navara's $L_2$, blockwise]
   \label{def:navara-l2}
@@ -1576,23 +1313,10 @@ the existence of the object; the content proved is what the object does.
   the blockwise order reduces the meet to a blockwise identity; the
   non-orthogonality is refuted at block $n$.
 \end{proof}
-
-\begin{remark}[What this refutes, and what it does not]
-  \label{rmk:descent-refutation}
-  \uses{thm:star-infinite}
-  This is a second concrete witness alongside $L(H)$, and it tells against the
-  reading on which richness starves concreteness: $L_2$ is rich enough to
-  exercise descent and concrete all the same. It bears on $\Phi$ only
-  indirectly. $\Phi$ is a question about \emph{states}, and nothing here
-  constructs a finitely additive two-valued state with no $\sigma$-additive
-  reproduction.
-\end{remark}
-
 \subsection{The axioms are consistent}
 
-An axiom set with no model proves everything, so \ref{thm:star-infinite} is
-worth exactly what the consistency of the eleven axioms behind it is worth.
-That obligation is discharged by exhibiting a model, not argued.
+An axiom set with no model proves everything, so the obligation is discharged by
+exhibiting a model.
 
 \begin{theorem}[Products of orthomodular lattices are orthomodular]
   \label{thm:prod-oml}
@@ -1607,10 +1331,7 @@ That obligation is discharged by exhibiting a model, not argued.
   \leanok
   Every law of the class is an equation or an implication between elements, and
   the product order, lattice and bounded-order structures are pointwise; so each
-  law follows from the same law in each factor, applied at each coordinate. The
-  instance is built \emph{from} the existing product lattice and bounded-order
-  structures rather than restating them, so no second, non-defeq copy of the
-  operations is introduced.
+  law follows from the same law in each factor, applied at each coordinate.
 \end{proof}
 
 \begin{theorem}[A model of the Rung-3 axioms]
@@ -1621,29 +1342,23 @@ That obligation is discharged by exhibiting a model, not argued.
   Take $M := \mathbb{N} \to \mathrm{MO}_2$ with all operations coordinatewise,
   $p := b$ everywhere, $a_n := a$ on block $n$. Then every one of the eleven
   Rung-3 axioms is a \emph{theorem} about $M$, and $(\star)$ holds in it
-  directly. Hence the axiom set is consistent and \ref{thm:star-infinite} is not
-  vacuous.
+  directly. Hence the axiom set is consistent.
 \end{theorem}
 
 \begin{proof}
   \leanok
   \uses{thm:prod-oml}
-  Each blockwise axiom is the corresponding product lemma. The remaining
-  obligation is the axiom asserting that $L_2$ \emph{is} an orthomodular
-  lattice: without it the symbols $\sqcap$, $\le$, $^{\perp}$ and $\bot$ in the
-  other ten are undefined, so a model supplying only those ten would establish
-  the consistency of a fragment with no vocabulary. \ref{thm:prod-oml} supplies
-  it, and the model's orthocomplement is definitionally that structure's
-  (\texttt{mOrtho\_eq\_ortho}) rather than a similarly-defined function that
-  happens to agree.
+  Each blockwise axiom is the corresponding product lemma. The axiom asserting
+  that $L_2$ is an orthomodular lattice --- without which $\sqcap$, $\le$,
+  $^{\perp}$ and $\bot$ in the other ten are undefined --- is supplied by
+  \ref{thm:prod-oml}, and the model's orthocomplement is definitionally that
+  structure's (\texttt{mOrtho\_eq\_ortho}).
 \end{proof}
 
 \subsection{Closure: the family is genuinely infinite and orthogonal}
 
 $(\star)$ is a descent statement only if $\{a_n\}$ really is an infinite
-orthogonal family. Otherwise it is \ref{thm:mo2-gap} in disguise. These legs
-check that, together with one structural fact about how far MO$_2$ can be
-pushed.
+orthogonal family; otherwise it is \ref{thm:mo2-gap} in disguise.
 
 \begin{lemma}[The tests localize per block]
   \label{lem:legs-localize}
@@ -1653,8 +1368,7 @@ pushed.
   In $M$, $x \sqcap y = \bot$ iff $x_n \sqcap y_n = \bot$ at every block, and
   $x \le y^{\perp}$ iff $x_n \le (y_n)^{\perp}$ at every block
   (\texttt{ortho\_iff\_blockwise}). Both hold for arbitrary supports, not only
-  for single-block elements --- which is what licenses the blockwise reading of
-  $p$, whose support is all of $\mathbb{N}$.
+  for single-block elements.
 \end{lemma}
 
 \begin{proof}
@@ -1675,10 +1389,6 @@ pushed.
 \begin{proof}
   \leanok
   Finite case check over the six-element type.
-
-  This is why the family has to be spread across blocks rather than found inside
-  one: a single MO$_2$ admits no infinite orthogonal family, so the infinitude in
-  \ref{thm:star-infinite} comes from the block index and from nowhere else.
 \end{proof}
 
 \begin{lemma}[The witness family is infinite and orthogonal]
@@ -1687,8 +1397,7 @@ pushed.
   \lean{QuerySystem.ClosureLegs.aW_pairwise_ortho}
   \leanok
   For $n \ne m$, $a_n \le a_m^{\perp}$. The family is indexed by $\mathbb{N}$,
-  so it is infinite --- which by \ref{lem:mo2-cap-two} it could not have been
-  inside a single block.
+  so it is infinite.
 \end{lemma}
 
 \begin{proof}
@@ -1698,11 +1407,10 @@ pushed.
   fail is $k = n = m$, excluded by $n \ne m$; the rest are $a \le \top$,
   $\bot \le a^{\perp}$ and $\bot \le \top$.
 
-  Closure here is \emph{witness-scoped}. The supports $C_n = \{n\}$ are
-  singletons, on which Navara's constancy clause is vacuous, so the join
-  $p = \bigvee_n b|_{C_n}$ lands in the sublogic automatically. The general
-  $\sigma$-orthocompleteness of the construction, for arbitrary $C$, is the
-  cited classical result assumed at \ref{def:navara-l2} and is not reproved.
+  The supports $C_n = \{n\}$ are singletons, on which Navara's constancy clause
+  is vacuous, so $p = \bigvee_n b|_{C_n}$ lands in the sublogic. General
+  $\sigma$-orthocompleteness, for arbitrary $C$, is the cited result assumed at
+  \ref{def:navara-l2}.
 \end{proof}
 
 \section{The distributive case is closed}
@@ -1712,9 +1420,7 @@ pushed.
   \uses{def:local-pattern}
   \lean{SigmaEssential.FinitelyCoherent}
   \leanok
-  The pattern is realized by some finitely additive global state. This is the
-  Coherence sits \emph{in} the definition, which is what the Boolean baseline
-  consumes.
+  The pattern is realized by some finitely additive global state.
 \end{definition}
 
 \begin{theorem}[Boolean baseline]
@@ -1732,28 +1438,14 @@ pushed.
   Fold the pattern-true block sets under intersection. Multiplicativity
   (\ref{lem:val-inter}) keeps every partial intersection true, hence nonempty,
   and the block is finite, so the total intersection is nonempty. Any point of it
-  carries the required Dirac state. Coherence supplies the state that
-  distributivity then converts into a point.
-
-  Its contrapositive, \ref{lem:boolean-no-witness} in the next chapter, is what
-  forces any witness to be non-Boolean --- and \ref{lem:carrier-not-boolean}
-  confirms the constructed witness is exactly that.
+  carries the required Dirac state.
 \end{proof}
-
 \chapter{The $\sigma$-essential witness, and the OML gap}
 
-The flagship result. \texttt{psi\_ZFC} is a ZFC theorem with zero
-sorries, axioms exactly \texttt{[propext, Classical.choice, Quot.sound]}: a
-concrete $\sigma$-complete orthomodular \emph{poset} carrying a finite
-two-valued pattern that is finitely coherent yet extends to no global
-$\sigma$-additive two-valued state.
-
-This chapter is the fidelity spine of \texttt{papers/sigma\_essential/}. Every
-definition on the path from the paper's statement to the Lean theorem appears
-as a node with its Lean name attached, so \texttt{checkdecls} enforces the
-paper--Lean correspondence rather than leaving it to a hand-maintained
-side-by-side. The chapter closes on what is \emph{not} settled: the same
-question with latticehood adjoined.
+\texttt{psi\_ZFC} is a ZFC theorem: a concrete $\sigma$-complete orthomodular
+\emph{poset} carrying a finite two-valued pattern that is finitely coherent yet
+extends to no global $\sigma$-additive two-valued state. The chapter closes on
+the same question with latticehood adjoined, which is open.
 
 \section{The carrier and its states}
 
@@ -1764,8 +1456,8 @@ question with latticehood adjoined.
 A family $L \subseteq \mathcal{P}(\Omega)$ with $\emptyset, \Omega \in L$,
 closed under complement, and closed under countable \emph{disjoint} unions.
 Formalized as Mathlib's \texttt{DynkinSystem}: \texttt{has\_iUnion\_nat} takes
-\texttt{Pairwise (Disjoint on f)}, so this is a $\sigma$-class and \emph{not} a
-$\sigma$-algebra --- the distinction the whole question turns on.
+\texttt{Pairwise (Disjoint on f)}, so this is a $\sigma$-class and not a
+$\sigma$-algebra.
 \end{definition}
 
 \begin{definition}[$\sigma$-additive two-valued state]
@@ -1775,9 +1467,8 @@ $\sigma$-algebra --- the distinction the whole question turns on.
 \uses{def:sigma-class}
 $s : L \to \{0,1\}$ with $s(\Omega) = 1$, additive over countable orthogonal
 joins. The paper's $s(\bigcup_n A_n) = \sum_n s(A_n)$ becomes ``union true
-if and only if some member true''; the at-most-one half is \emph{derived}
-(\texttt{val\_at\_most\_one}) rather than assumed, which makes the structure
-weaker-or-equal and the derived lemma restores equality.
+if and only if some member true''; the at-most-one half is derived
+(\texttt{val\_at\_most\_one}) rather than assumed.
 \end{definition}
 
 \begin{definition}[Finitely additive two-valued state]
@@ -1786,8 +1477,7 @@ weaker-or-equal and the derived lemma restores equality.
 \leanok
 \uses{def:sigma-class}
 Pair additivity only. Finite-family additivity is derived
-(\texttt{val\_sUnion\_finset}). Nothing $\sigma$-additive is assumed, so the
-coherence clause quantifies over exactly the paper's finitely additive states.
+(\texttt{val\_sUnion\_finset}).
 \end{definition}
 
 \begin{definition}[The local pattern]
@@ -1796,9 +1486,8 @@ coherence clause quantifies over exactly the paper's finitely additive states.
 \leanok
 \uses{def:sigma-class, def:se-block}
 A two-valued assignment on a finite $\perp$-closed block $B \subseteq L$.
-\textbf{The one substantive encoding choice:} \texttt{LocalState} demands only
-complement-additivity inside $B$, weaker in general than the paper's Def 1.2
-restricted to $B$. It is closed both ways below.
+\texttt{LocalState} demands only complement-additivity inside $B$, which is
+weaker in general than the paper's Def 1.2 restricted to $B$.
 \end{definition}
 
 \begin{lemma}[The weaker encoding is upgraded by coherence]
@@ -1806,9 +1495,8 @@ restricted to $B$. It is closed both ways below.
 \lean{SigmaEssential.coherent_pattern_fully_additive}
 \leanok
 \uses{def:local-pattern, def:finadd-state}
-A finitely coherent \texttt{LocalState} satisfies \emph{every} Def-1.2
-constraint on $B$. Since $\sigma$-essentiality requires coherence, the pattern
-is a genuine paper-state wherever the definition applies.
+A finitely coherent \texttt{LocalState} satisfies every Def-1.2 constraint on
+$B$.
 \end{lemma}
 
 \begin{proof}
@@ -1821,9 +1509,8 @@ Coherence supplies a finitely additive extension on all of $L$; its additivity r
 \lean{SigmaEssential.Ulam.coreBlock_disjoint_eq_compl}
 \leanok
 \uses{def:local-pattern, def:core-block}
-On the witness's own block the only disjoint pairs are the complement pairs
---- the twelve cross-intersections are nonempty --- so for \emph{this} $B$,
-\texttt{LocalState} equals Def 1.2-on-$B$ exactly, coherence or not.
+On the witness's own block the only disjoint pairs are the complement pairs, so
+there \texttt{LocalState} equals Def 1.2-on-$B$ exactly, coherence or not.
 \end{lemma}
 
 \begin{proof}
@@ -1833,17 +1520,6 @@ The twelve cross-intersections of the three cores and their complements are each
 
 \section{$\sigma$-essentiality and $\Psi$}
 
-The definition below carries a coherence clause, and that clause is the whole
-difference between this development and the paper's first version. It is
-constitutive, not a convenience, and the evidence sits in this section rather
-than after the flagship: \ref{thm:omega7} exhibits a Boolean object that the
-clause-free definition calls a witness and this one does not.
-
-The clause is also what makes the definition satisfiable. A pattern is
-\emph{local} data on a block; typed instead as a global $\sigma$-additive state
-it would extend itself, and nothing could be $\sigma$-essential at all. Locality
-and coherence are the definition, not adjustments to one.
-
 \begin{definition}[$\sigma$-essential contextual state]
 \label{def:sigma-essential}
 \lean{SigmaEssential.IsSigmaEssential}
@@ -1851,9 +1527,7 @@ and coherence are the definition, not adjustments to one.
 \uses{def:local-pattern, def:two-valued-state, def:finadd-state}
 $s_0$ is finitely coherent (extends to \emph{some} finitely additive
 two-valued state on all of $L$) and extends to \textbf{no} global
-$\sigma$-additive two-valued state. Extension means agreement on $B$; the
-negative clause quantifies over all $\sigma$-additive states, Dirac and
-non-Dirac alike.
+$\sigma$-additive two-valued state. Extension means agreement on $B$.
 \end{definition}
 
 \begin{definition}[$\Psi$: the localized existence sentence]
@@ -1861,14 +1535,9 @@ non-Dirac alike.
 \lean{SigmaEssential.Psi}
 \leanok
 \uses{def:sigma-essential}
-The localized existence sentence: some $\Omega$, $\sigma$-class, block and
-pattern with $s_0$ $\sigma$-essential. Admissibility predicates are not
-bundled in --- non-Booleanness is \ref{lem:carrier-not-boolean}; essential
-irreducibility and non-segregation are paper-level facts about the carrier and
-do not affect the truth of \ref{thm:psi-zfc}.
-
-What \ref{thm:omega7} rules out is the clause-free reading --- this definition
-minus its coherence conjunct --- which a Boolean carrier would satisfy.
+Some $\Omega$, $\sigma$-class, block and pattern with $s_0$ $\sigma$-essential.
+Admissibility predicates are not bundled in: non-Booleanness is
+\ref{lem:carrier-not-boolean}.
 \end{definition}
 
 \begin{theorem}[Localization --- the whole content is clause (ii)]
@@ -1879,8 +1548,7 @@ minus its coherence conjunct --- which a Boolean carrier would satisfy.
 $s_0$ is a witness if and only if (0) it is finitely coherent, (i) no
 point-evaluation extends it ($K(s_0) = \emptyset$), \emph{and} (ii) no
 non-Dirac $\sigma$-additive two-valued state does. Clause (i) is freely
-arrangeable by the Navara--Pt\'ak intersection device, so the entire
-difficulty is clause (ii) --- Wall A.
+arrangeable by the Navara--Pt\'ak intersection device.
 \end{theorem}
 
 \begin{proof}
@@ -1894,10 +1562,7 @@ A global $\sigma$-additive two-valued state either agrees with a point evaluatio
 \leanok
 \uses{def:sigma-essential, thm:boolean-baseline, def:interclosed}
 On an intersection-closed (Boolean) carrier no $\sigma$-essential contextual
-state exists: coherence alone folds the finitely many true sets of the block to
-a nonempty intersection, and any point of it gives a Dirac extension. This is
-Prop 2.1 --- the statement the $\Omega_7$ example (\ref{thm:omega7}) shows
-would fail without the coherence clause.
+state exists (Prop 2.1).
 \end{lemma}
 
 \begin{proof}
@@ -1929,7 +1594,6 @@ it (\texttt{omega7\_no\_sigma\_extension}). The carrier is Boolean, so by
 fails is therefore coherence (\texttt{omega7\_not\_coherent}), and $s_0$ is not
 a witness (\texttt{omega7\_not\_witness}).
 \end{proof}
-
 \section{The witness carrier}
 
 \begin{definition}[Ulam matrix]
@@ -1956,8 +1620,6 @@ points (self-dual, so the complement values are forced).
 \lean{SigmaEssential.Ulam.M₁}
 \leanok
 $M_1 = \omega_1$ as a type: uncountable, with every initial segment countable.
-These two facts are the only inputs the abstract development consumes, and both
-are discharged from Mathlib's ordinal API --- no extra axioms in the receipts.
 \end{lemma}
 
 \begin{proof}
@@ -1970,12 +1632,9 @@ From Mathlib's ordinal API: cardinality $\aleph_1$ gives uncountability, and $\m
 \lean{SigmaEssential.Ulam.rigidity}
 \leanok
 \uses{def:core-block, def:ulam-matrix, def:two-valued-state}
-Stated for \emph{any} uncountable $M$ with countable initial segments carrying
-an Ulam matrix --- the $\omega_1$ instantiation enters only at
-\ref{thm:psi-zfc}. The conclusion is \texttt{IsDiracOn}, ``agrees with
-$\delta_\omega$ on $L$'', not structure-equality --- the paper never
-constrains a state off the carrier, and the kernel argument evaluates only on
-carrier sets.
+For any uncountable $M$ with countable initial segments carrying an Ulam matrix,
+every $\sigma$-additive two-valued state on the carrier agrees with some
+$\delta_\omega$ on it (\texttt{IsDiracOn}).
 \end{theorem}
 
 \begin{proof}
@@ -1988,15 +1647,13 @@ Exact column disjointness forces all but countably many columns to miss the supp
 \lean{SigmaEssential.Ulam.carrier_not_interClosed}
 \leanok
 \uses{lem:boolean-no-witness, thm:core-pattern-witness, lem:omega1}
-$L_1$ is not intersection-closed, so non-Booleanness is not a prose caveat.
+$L_1$ is not intersection-closed.
 \end{lemma}
 
 \begin{proof}
 \leanok
-Derived, not exhibited: a Boolean carrier admits no witness
-(\ref{lem:boolean-no-witness}), and the pattern IS a witness
-(\ref{thm:core-pattern-witness} at $\omega_1$) --- so the witness itself
-certifies the carrier's non-Booleanness.
+A Boolean carrier admits no witness (\ref{lem:boolean-no-witness}), and the
+pattern is a witness (\ref{thm:core-pattern-witness} at $\omega_1$).
 \end{proof}
 
 \begin{theorem}[$\Psi$, in ZFC]
@@ -2005,15 +1662,12 @@ certifies the carrier's non-Booleanness.
 \leanok
 \uses{thm:core-pattern-witness, lem:omega1, def:psi}
 $\Psi$ holds on $\sigma$-classes/OMPs, irreducible modulo the countable ideal,
-in ZFC. Zero sorries end to end; axioms
-exactly \texttt{[propext, Classical.choice, Quot.sound]}.
+in ZFC.
 \end{theorem}
 
 \begin{proof}
 \leanok
 \ref{thm:core-pattern-witness} assembled at $\omega_1$ via \ref{lem:omega1}.
-Zero sorries; \texttt{\#print axioms} returns exactly
-\texttt{[propext, Classical.choice, Quot.sound]}.
 \end{proof}
 
 \begin{theorem}[Thm 3.5 --- normal form for carrier sets]
@@ -2021,12 +1675,8 @@ Zero sorries; \texttt{\#print axioms} returns exactly
 \lean{SigmaEssential.Ulam.nrep_exists}
 \leanok
 \uses{def:core-block, def:ulam-matrix}
-Every set in the carrier has a normalized representation. This is the
-$\S$3 trace invariant: representation rigidity fixes coordinate 3 as the
-anchor, and the disjointness table settles all four cases --- including the
-parity-triangle impossibility (case IV), which is what makes the invariant
-complete rather than merely sufficient. Proved by \texttt{GenerateHas}
-induction with the trichotomy inline.
+Every set in the carrier has a normalized representation, with coordinate $3$ as
+the anchor.
 \end{theorem}
 
 \begin{proof}
@@ -2039,12 +1689,8 @@ By \texttt{GenerateHas} induction. The disjointness table supplies all four case
 \lean{SigmaEssential.Ulam.corePattern_coherent}
 \leanok
 \uses{thm:normal-form, def:finadd-state, def:core-block}
-The majority-vote assignment is a genuine finitely additive two-valued state on
-the whole carrier and it extends the core pattern. This discharges the positive
-clause of $\sigma$-essentiality: the pattern really is finitely coherent, so
-the theorem is not vacuous for want of a finitely additive extension. Built as
-an ultrafilter of cocountable sets, with \texttt{mVal} well defined by
-representation rigidity and additivity read off the disjointness table.
+The majority-vote assignment is a finitely additive two-valued state on the
+whole carrier, and it extends the core pattern.
 \end{theorem}
 
 \begin{proof}
@@ -2059,15 +1705,13 @@ representation rigidity and additivity read off the disjointness table.
 \uses{thm:vote-state, thm:rigidity, def:sigma-essential}
 Coherence (\ref{thm:vote-state}) together with rigidity (\ref{thm:rigidity})
 gives a pattern that is finitely coherent and has no global $\sigma$-additive
-extension --- a $\sigma$-essential contextual state. \ref{thm:psi-zfc}
-is this at $\omega_1$.
+extension --- a $\sigma$-essential contextual state.
 \end{theorem}
 
 \begin{proof}
 \leanok
 Coherence gives the positive clause, rigidity the negative one.
 \end{proof}
-
 \section{The OML gap --- the open question}
 
 \begin{lemma}[The carrier is not Polish-representable]
@@ -2082,9 +1726,7 @@ $L_1$ lies outside the Derr--Williamson boundary.
 \leanok
 \uses{thm:psi-zfc}
 A Polish-representable carrier admits no witness (DW Thm D.6, cited), and $L_1$
-carries one. Derived from the witness rather than exhibited, exactly as
-\ref{lem:carrier-not-boolean} is --- the construction certifies its own position
-relative to the boundary.
+carries one.
 \end{proof}
 
 \begin{lemma}[The witness carrier is not a lattice]
@@ -2093,28 +1735,18 @@ relative to the boundary.
 \leanok
 \uses{def:core-block}
 $L_1$ has no meet at the cores: a greatest lower bound would have to be the
-slab $M \times \{0\}$, which is not in the carrier. This is exactly why
-\ref{thm:psi-zfc} does not settle the lattice case --- and it is the
-formal counterpart of the recurring observation that every regularity-wild
-object built so far is a non-lattice.
+slab $M \times \{0\}$, which is not in the carrier.
 \end{lemma}
 
 \begin{proof}
 \leanok
-Fully proved in Lean, end to end. Forced by the singletons, a greatest carrier
-lower bound of the cores would have to equal the slab $M \times \{0\}$
-(\texttt{greatest\_lowerBound\_eq\_slab}), and the slab is not in the carrier
-(\texttt{slab0\_not\_mem}).
-
-That last fact was a cited \texttt{axiom} --- Cor 4.1 of the paper, imported
-under the don't-re-formalize-known-results rule --- until the \S3 invariant
-machinery it rests on turned out to be formalized already
-(\texttt{nrep\_exists}, Theorem 3.5). The paper's argument now runs in the
-kernel: any normalized representation must give coordinate $0$ a code differing
-from the other three (\texttt{slab\_codes\_differ}, since the $f = 0$ trace is
-co-countable and the rest are countable), so the code is the odd-weight $1000$
-or its complement $0111$, and \texttt{EvenCode} excludes both.
-\texttt{\#print axioms} now returns the standard three and nothing else.
+Forced by the singletons, a greatest carrier lower bound of the cores would have
+to equal the slab $M \times \{0\}$ (\texttt{greatest\_lowerBound\_eq\_slab}).
+The slab is not in the carrier (\texttt{slab0\_not\_mem}): any normalized
+representation must give coordinate $0$ a code differing from the other three
+(\texttt{slab\_codes\_differ}, since the $f = 0$ trace is co-countable and the
+rest are countable), so the code is the odd-weight $1000$ or its complement
+$0111$, and \texttt{EvenCode} excludes both.
 \end{proof}
 
 \subsection{The centre of the carrier}
@@ -2145,10 +1777,9 @@ coordinate $f$.
 \begin{proof}
 \leanok
 \uses{thm:normal-form}
-The code analysis: coordinates $0,1,2$ carry countably equal traces, $\kappa_3$
-is false, and even weight forces the fourth. Equal traces force equal codes,
-since $\kappa_a \neq \kappa_b$ would make $\xi \approx \xi^{c}$ and $M$
-countable.
+Coordinates $0,1,2$ carry countably equal traces, $\kappa_3$ is false, and even
+weight forces the fourth. Equal traces force equal codes, since
+$\kappa_a \neq \kappa_b$ would make $\xi \approx \xi^{c}$ and $M$ countable.
 \end{proof}
 
 \begin{theorem}[$\xi$-triviality, the paper's $[E] \in \{0,1\}$]
@@ -2162,17 +1793,12 @@ That common $\xi$ is countable or co-countable.
 \begin{proof}
 \leanok
 \uses{def:central, thm:normal-form}
-Centrality is used a \emph{second} time, and at a core rather than a cell.
-$E \cap \mathrm{coreA}$ is again a carrier element, so \ref{thm:normal-form}
-represents it as $\eta^{(\kappa)}$ with $\kappa_3$ false. But meeting
-$\mathrm{coreA}$ empties coordinate $3$, and the normal form is
-\emph{anchored} there: $\emptyset \approx \eta$, so $\eta$ is countable. Coordinate
-$0$ is untouched by the meet and carries $\xi$, so $\xi \approx \eta$ or
+Apply centrality at a core. $E \cap \mathrm{coreA}$ is again a carrier element,
+so \ref{thm:normal-form} represents it as $\eta^{(\kappa)}$ with $\kappa_3$
+false. Meeting $\mathrm{coreA}$ empties coordinate $3$, where the normal form is
+anchored: $\emptyset \approx \eta$, so $\eta$ is countable. Coordinate $0$ is
+untouched by the meet and carries $\xi$, so $\xi \approx \eta$ or
 $\xi \approx \eta^{c}$ --- countable or co-countable respectively.
-
-The cell route does not do this. Meeting a cell constrains only $\xi \cap
-C_{\alpha,n}$, and normalizing leaves the representing set existentially bound;
-a core constrains all of $\xi$ at once because it kills the anchor coordinate.
 \end{proof}
 
 \begin{corollary}[The centre is trivial modulo the countable ideal]
@@ -2188,9 +1814,7 @@ A central set is countable or co-countable.
 \uses{thm:xi-trivial}
 \ref{thm:central-traces} reduces the question to $\xi$ and
 \ref{thm:xi-trivial} makes $\xi$ trivial; countable traces force a countable set
-and co-countable traces a co-countable one. Neither input alone suffices --- the
-invariant permits any $\xi$, and centrality without the code analysis does not
-say the four coordinates agree.
+and co-countable traces a co-countable one.
 \end{proof}
 
 \begin{definition}[$\Psi_{\mathrm{OML}}$ --- the lattice form]
@@ -2199,23 +1823,17 @@ say the four coordinates agree.
 \leanok
 \uses{def:sigma-essential}
 The same existence sentence with latticehood (\texttt{MeetsExist}) adjoined to
-the carrier. Stated in Lean as a \texttt{Prop}, never assumed.
+the carrier.
 \end{definition}
 
-\begin{remark}[$\Phi$, and what is actually open]
+\begin{remark}[$\Phi$]
 \label{rmk:phi-open}
 \uses{def:psi-oml, lem:witness-not-lattice}
-The open question is $\Phi$: does every concrete, $\sigma$-complete,
-non-Boolean, essentially irreducible OML have each finite trace of each
-finitely additive two-valued state reproduced by some $\sigma$-additive one?
-Conjectured \emph{yes} --- hence no lattice witness, i.e.\ the negation of
-$\Psi_{\mathrm{OML}}$. This is the whole surviving latticehood theory front:
-the former three-way latticehood family is refuted under its literal reading by
-the complete Hilbert lattice's Kochen--Specker failure of sharpness. Nothing in
-this section is evidence either way; it exists so that the settled OMP result
-and the open lattice gap are visible as one picture.
+$\Phi$: does every concrete, $\sigma$-complete, non-Boolean, essentially
+irreducible OML have each finite trace of each finitely additive two-valued
+state reproduced by some $\sigma$-additive one? A positive answer is the
+negation of $\Psi_{\mathrm{OML}}$. Open.
 \end{remark}
-
 \section{Inner regularity: what forces $\sigma$-additivity, and what refuses it}
 
 The witness above is a finitely additive two-valued state with no $\sigma$-additive
@@ -2240,8 +1858,7 @@ opposite directions, and a counterexample that fixes the gap between them.
   \leanok
   Every value-$1$ member $E$ of the family carries a value-$1$ inner witness
   sandwiched below a class member: $D \subseteq K \subseteq E$ with
-  $K \in \mathcal{K}$. Two-valuedness is what collapses Marczewski's general
-  $\eta$-form to this.
+  $K \in \mathcal{K}$.
 \end{definition}
 
 \begin{theorem}[Compact transport]
@@ -2271,8 +1888,7 @@ opposite directions, and a counterexample that fixes the gap between them.
   \label{def:set-field}
   \lean{SigmaEssential.Blocks.SetField, SigmaEssential.Blocks.FieldState}
   \leanok
-  Finite closure only --- no $\sigma$-structure anywhere. Theorem-let R is a
-  finitely additive statement and is stated where that is all there is.
+  A field of sets: finite closure only, no $\sigma$-structure.
 \end{definition}
 
 \begin{definition}[Inner regularity (8.1)]
@@ -2298,12 +1914,10 @@ opposite directions, and a counterexample that fixes the gap between them.
 \begin{proof}
   \leanok
   \uses{def:inner-regular-81}
-  The finite intersection property is the machine-checked content: value-$1$
-  in-field compacts are $\cap$-stable (compact $\cap$ closed, and Hausdorff
-  makes compacts closed), finite intersections are value-$1$ hence nonempty, and
-  compactness of one fixed member turns an empty total intersection into an
-  empty finite one. Both nonemptiness claims are conclusions, not hypotheses.
-  \textbf{No $\sigma$-additivity is used anywhere.}
+  Value-$1$ in-field compacts are $\cap$-stable (compact $\cap$ closed, and
+  Hausdorff makes compacts closed), finite intersections are value-$1$ hence
+  nonempty, and compactness of one fixed member turns an empty total
+  intersection into an empty finite one.
 \end{proof}
 
 \subsection{The gap: the co-countable state refuses}
@@ -2315,8 +1929,7 @@ opposite directions, and a counterexample that fixes the gap between them.
         SigmaEssential.Blocks.cocountableState}
   \leanok
   On an uncountable $\Omega$, the countable/co-countable $\sigma$-field with the
-  state that is $1$ exactly on the co-countable sets. The coarse killer state of
-  the $\omega_1$ scoping bank; nothing below uses more than uncountability.
+  state that is $1$ exactly on the co-countable sets.
 \end{definition}
 
 \begin{lemma}[It is not Dirac]
@@ -2340,17 +1953,14 @@ opposite directions, and a counterexample that fixes the gap between them.
   \lean{SigmaEssential.Blocks.cocountable_fails_81_at}
   \leanok
   On an uncountable second-countable Hausdorff space, (8.1) fails at the
-  specific set $F = X \setminus \{x\}$ for $x$ a condensation point. Second
-  countability subsumes Polish, so this is a strengthening of the note's
-  statement.
+  specific set $F = X \setminus \{x\}$ for $x$ a condensation point.
 \end{theorem}
 
 \begin{proof}
   \leanok
   \uses{def:cocountable-state}
-  Via \texttt{exists\_condensation\_point}, replacing the Cantor--Bendixson
-  route: ``closed co-countable contains the perfect kernel'' is consumed only at
-  the chosen point, where ``no countable open neighbourhood'' already suffices.
+  Via \texttt{exists\_condensation\_point}: at $x$ no open neighbourhood is
+  countable, which is all that is consumed.
 \end{proof}
 
 \begin{corollary}[The all-Hausdorff strengthening]
@@ -2366,29 +1976,25 @@ opposite directions, and a counterexample that fixes the gap between them.
   \leanok
   \uses{thm:dirac-forcing, lem:cocountable-not-dirac}
   By \ref{thm:dirac-forcing}, (8.1) would make the state a Dirac restriction,
-  and \ref{lem:cocountable-not-dirac} says it is none. The reduction to R is
-  what removes the countability hypothesis of \ref{thm:cocountable-fails-81}.
+  and \ref{lem:cocountable-not-dirac} says it is none.
 \end{proof}
 
-\begin{proposition}[The Hausdorff red flag]
+\begin{proposition}[The cofinite topology is not Hausdorff]
   \label{prop:cofinite-red-flag}
   \uses{thm:dirac-forcing}
   \lean{SigmaEssential.Blocks.not_t2Space_cofiniteTopology}
   \leanok
-  Hausdorffness is not decoration in \ref{thm:dirac-forcing}. On the cofinite
-  topology over an infinite set, with the finite/cofinite field and the cofinite
-  state, every set is compact and (8.1) holds --- yet the state is not Dirac. By
-  \ref{thm:dirac-forcing} that space cannot be Hausdorff, which it is not.
+  On the cofinite topology over an infinite set, with the finite/cofinite field
+  and the cofinite state, every set is compact and (8.1) holds, yet the state is
+  not Dirac. By \ref{thm:dirac-forcing} the space is not Hausdorff.
 \end{proposition}
 
 \begin{proof}
   \leanok
   \uses{thm:dirac-forcing}
-  Run \ref{thm:dirac-forcing} on the cofinite data and read the contradiction
-  backwards: the counterexample to dropping $T_2$ doubles as a proof that the
-  cofinite topology fails $T_2$.
+  Run \ref{thm:dirac-forcing} on the cofinite data; the conclusion fails, so its
+  Hausdorff hypothesis does.
 \end{proof}
-
 \chapter{The pruning theorem and eventual periodicity of Safe}
 
 The certificate layer of the reconstruction/commensurability lane
@@ -2413,8 +2019,7 @@ exists.
 
 Encoded by the state sequence $W$ on positions $t < kL$: $\rho$-steps between
 consecutive positions, a closing $\rho$-step, and the simplicity clause ---
-same layer $(t \bmod L)$ plus same state implies same position --- which is
-exactly layer-injectivity, automatic given simplicity.
+same layer $(t \bmod L)$ plus same state implies same position.
 \end{definition}
 
 \begin{definition}[Tuple digraph and rotation walks]
@@ -2445,9 +2050,8 @@ For $0 < L$, $\mathrm{LISC}_k(L)$ implies $\mathrm{TR}_k^{(1)}(L)$.
 \leanok
 \uses{def:lisc, def:tr}
 Read the $k$ strands at each layer: set $\tau_i[j]$ to the state of $W[jL+i]$.
-Injectivity of each $\tau_i$ is forced by simplicity --- distinct vertices at
-the same layer have distinct states --- so off-diagonality is not an extra
-assumption. The endpoint computes to $\sigma_1(\tau_0)$.
+Injectivity of each $\tau_i$ is forced by simplicity: distinct vertices at the
+same layer have distinct states. The endpoint computes to $\sigma_1(\tau_0)$.
 \end{proof}
 
 \begin{lemma}[Step 3: assembly]
@@ -2465,7 +2069,7 @@ Place position $t = jL+i$ at vertex $(i, \tau_i[j])$. Arcs within a strand are
 the tuple-walk arcs; at a strand boundary the rotation endpoint supplies
 $\tau_L[j] = \tau_0[j+1]$, which is the state at position $(j+1)L$, and at
 $j = k-1$ this is the closure. Simplicity follows from the layer clock plus
-injectivity of each $\tau_i$. Ratification kit gap 5.1.
+injectivity of each $\tau_i$.
 \end{proof}
 
 \begin{lemma}[Step 4: generator conjugation]
@@ -2482,8 +2086,7 @@ $\mathrm{TR}_k^{(r)}(L)$ holds iff $\mathrm{TR}_k^{(1)}(L)$ does.
 \uses{def:tr}
 The slot relabelling $P(u)[j] = u[j\bar r]$, with $\bar r = r^{-1}$, is a
 bijection of injective tuples, preserves arcs (a fixed coordinate permutation),
-and conjugates the rotations via $(j+r)\bar r = j\bar r + 1$. Ring algebra in
-$\mathbb{Z}_k$, so no index chasing is possible. Ratification kit gap 5.2.
+and conjugates the rotations via $(j+r)\bar r = j\bar r + 1$.
 \end{proof}
 
 \begin{theorem}[Theorem P: pruning, phase-parametrized]
@@ -2493,7 +2096,6 @@ $\mathbb{Z}_k$, so no index chasing is possible. Ratification kit gap 5.2.
 \uses{lem:extraction, lem:assembly, lem:conjugation}
 For every $\rho$, every $L \geq 1$, every $k \geq 1$ and every $r$ generating
 $\mathbb{Z}_k$, $\mathrm{LISC}_k(L)$ holds iff $\mathrm{TR}_k^{(r)}(L)$ does.
-Exact for every $L$, not merely cofinitely, and with no strong connectivity.
 \end{theorem}
 
 \begin{proof}
@@ -2520,13 +2122,9 @@ strictly weaker $m = k/d$.
 \uses{lem:assembly}
 Read the walk through $f$: this is a rotation-$1$ witness of width $m$, so
 \ref{lem:assembly} assembles it. The instance $m=k$, $f = \mathrm{id}$, $r=1$
-recovers Step 3 exactly, and that instance is checked in the Lean file so the
-parametrization cannot drift.
+recovers Step 3.
 
-The construction of $f$ at $m = k/\gcd(r,k)$ is formalized
-(\ref{lem:ng-orbit}) and the refutation half is in the kernel
-(\ref{thm:ng-refute}). Not formalized, and recorded as such: that the $d$
-orbit cycles are pairwise vertex-disjoint --- bookkeeping, not load-bearing.
+Not formalized: that the $d$ orbit cycles are pairwise vertex-disjoint.
 \end{proof}
 
 \section{Theorem B}
@@ -2588,8 +2186,7 @@ converts each $\mathrm{LISC}_k$ into $\mathrm{TR}_k^{(1)}$.
 \lean{Reconstruction.Pruning.exists_evPeriodic_iterate}
 \leanok
 For $f : \beta \to \beta$ with $\beta$ finite and any $b$, there are $s$ and
-$p > 0$ with $f^{n+p}(b) = f^{n}(b)$ for all $n \geq s$. (Despite the name, the
-statement is about iterates directly; \ref{def:evperiodic} is not consumed.)
+$p > 0$ with $f^{n+p}(b) = f^{n}(b)$ for all $n \geq s$.
 \end{lemma}
 
 \begin{proof}
@@ -2611,9 +2208,7 @@ $v$.
 
 \begin{proof}
 \leanok
-Induction on $n$, rebuilding the walk one layer at a time. This bridge is what
-the iterate formulation costs, and it is where the work of the formalization
-went.
+Induction on $n$, rebuilding the walk one layer at a time.
 \end{proof}
 
 \begin{lemma}[Per-k eventual periodicity]
@@ -2633,7 +2228,7 @@ it; apply \ref{lem:iterate} to the step operator and transport along
 \ref{lem:reach-walk}.
 \end{proof}
 
-\begin{theorem}[Theorem B, ratification kit gap 5.3]
+\begin{theorem}[Theorem B]
 \label{thm:B}
 \lean{Reconstruction.Pruning.isEvPeriodic_safe}
 \leanok
@@ -2641,8 +2236,7 @@ it; apply \ref{lem:iterate} to the step operator and transport along
 For every relation $\rho$ on a finite alphabet, $\mathrm{Safe}(\rho)$ is
 eventually periodic: there are a threshold $S$ and a period $P > 0$ with
 $L \in \mathrm{Safe}(\rho)$ iff $L+P \in \mathrm{Safe}(\rho)$, for every
-$L \geq S$. Membership is therefore decided by a finite table, the certificate
-an outsider can run on their own examples.
+$L \geq S$. Membership is therefore decided by a finite table.
 \end{theorem}
 
 \begin{proof}
@@ -2662,20 +2256,19 @@ $\mathrm{Safe}$ is its complement among the positives.
 \leanok
 \uses{lem:ng}
 A rotation-$r$ tuple walk certifies a simple cycle of winding
-$\mathrm{addOrderOf}(r) = k/\gcd(r,k)$ --- equal to $k$ exactly when $r$
-generates. No orbit map has to be supplied by hand.
+$\mathrm{addOrderOf}(r) = k/\gcd(r,k)$, equal to $k$ exactly when $r$
+generates.
 \end{lemma}
 
 \begin{proof}
 \leanok
 \uses{lem:ng}
 The orbit map is \texttt{ZMod.lift} applied to \texttt{zmultiplesHom}, so
-$f(j+1) = f(j) + r$ falls out of \texttt{map\_add} rather than a case split on
-the wrap-around at $j = m-1$. Injectivity is the one place \texttt{.val} is
-needed, and there it is a single divisibility step.
+$f(j+1) = f(j) + r$ follows from \texttt{map\_add}; injectivity is a
+divisibility step. Feeding this to \ref{lem:ng} gives the winding-$m$
+conclusion.
 
-Feeding this to \ref{lem:ng} gives the winding-$m$ conclusion with no data
-argument. Still open: pairwise disjointness of the $d$ orbit cycles.
+Still open: pairwise disjointness of the $d$ orbit cycles.
 \end{proof}
 
 \begin{theorem}[Lemma NG, refutation half]
@@ -2691,28 +2284,20 @@ and $\mathrm{LISC}_4(2)$ \emph{fails}.
 \begin{proof}
 \leanok
 \uses{lem:ng-orbit}
-The relation is a FUNCTION, so every vertex of the layered ring has out-degree
+The relation is a function, so every vertex of the layered ring has out-degree
 one and a walk is determined by its start; it returns to its starting state
 after four steps. A winding-4 simple cycle needs eight pairwise distinct
-positions, but positions $0$ and $4$ share a layer and a state. The
-winding-2 cycle and the rotation-2 slot walk $\tau_i(j) = j + i$ are exhibited
-directly.
-
+positions, but positions $0$ and $4$ share a layer and a state. The winding-2
+cycle and the rotation-2 slot walk $\tau_i(j) = j + i$ are exhibited directly.
 So a rotation witness at a non-generator certifies winding $k/d = 2$, not
-winding $k$ --- Theorem P's equivalence genuinely needs $r$ to generate, and
-\ref{lem:ng-orbit} is sharp.
+winding $k$.
 \end{proof}
-
 \section{Relational delay systems: the pruning objects as delay data}
 
-\ref{rmk:lag-is-ring-length} left a dictionary and named the obstruction to
-turning it into a theorem: the delay chapter observes a \emph{function}, the
-pruning chapter studies a \emph{relation}, and specialising pruning to a
-deterministic $\rho$ trivialises it. So the join carries the delay side up to
-relations.
-
-A relation has no orbit map, but it has a \emph{trajectory space}, and delay
-queries apply to a trajectory space exactly as they apply to a stream.
+The delay chapter observes a \emph{function}; the pruning chapter studies a
+\emph{relation}. A relation has no orbit map, but it has a \emph{trajectory
+space}, and delay queries apply to a trajectory space exactly as they apply to
+a stream.
 
 \begin{definition}[The subshift of a relation]
   \label{def:subshift}
@@ -2721,9 +2306,7 @@ queries apply to a trajectory space exactly as they apply to a stream.
   \leanok
   $\Sigma_{\rho} = \{\omega : \mathbb{Z} \to A \mid \rho(\omega_{t+1},
   \omega_t) \text{ for all } t\}$, the bi-infinite $\rho$-trajectories inside
-  the sensor streams. The orientation is the one \ref{def:orbit-stream} already
-  fixed and \ref{def:delay-query}'s backward sampling forces: reading the stream
-  backwards runs the relation forwards.
+  the sensor streams.
 \end{definition}
 
 \begin{definition}[The trajectory of a cycle]
@@ -2732,8 +2315,7 @@ queries apply to a trajectory space exactly as they apply to a stream.
   \lean{QuerySystem.RelationalDelay.cycleStream}
   \leanok
   From a cycle witness $W$ and modulus $n$, the stream carrying $W$ at index
-  $(-t) \bmod n$. The negation is the time convention; the modulus makes it
-  bi-infinite and $n$-periodic (\texttt{cycleStream\_periodic}).
+  $(-t) \bmod n$. It is $n$-periodic (\texttt{cycleStream\_periodic}).
 \end{definition}
 
 \begin{lemma}[A cycle is a trajectory]
@@ -2747,35 +2329,27 @@ queries apply to a trajectory space exactly as they apply to a stream.
 \begin{proof}
   \leanok
   \uses{def:cycle-stream}
-  Interior positions are the cycle's own arcs. The one position where the index
-  rolls over is where the closing arc $\rho(W_{kL-1}, W_0)$ is spent --- which is
-  the only place the \emph{cycle} hypothesis, as opposed to the walk hypothesis,
-  is used.
+  Interior positions are the cycle's own arcs; where the index rolls over the
+  condition is the closing arc $\rho(W_{kL-1}, W_0)$.
 \end{proof}
 
-\begin{theorem}[The bridge: layer-injectivity is delay-injectivity]
+\begin{theorem}[Layer-injectivity is delay-injectivity]
   \label{thm:lisc-delay-witness}
   \uses{lem:cycle-stream-subshift, def:lisc, def:delay-query, thm:lag-algebra}
   \lean{QuerySystem.RelationalDelay.isLISC_delay_witness}
   \leanok
   If $\mathrm{LISC}_k(L)$ then there is a $\rho$-trajectory $\omega$, periodic
-  of period $kL$, whose depth-$k$, lag-$L$ delay query is \textbf{injective}.
+  of period $kL$, whose depth-$k$, lag-$L$ delay query is injective.
 \end{theorem}
 
 \begin{proof}
   \leanok
   \uses{lem:cycle-stream-subshift, def:lisc}
   Take $\omega = \mathrm{cycleStream}\,W\,(kL)$; \ref{lem:cycle-stream-subshift}
-  gives membership and periodicity is immediate. For injectivity: the delay
-  query at lag $L$ and depth $k$ samples $\omega$ at $0, -L, \dots, -(k-1)L$,
-  and those are precisely the positions $0, L, \dots, (k-1)L$ of the cycle ---
-  the $k$ positions sharing layer $0$. \ref{def:lisc}'s simplicity clause says
-  exactly that these carry distinct states.
-
-  So the two chapters' injectivity conditions are one condition. Layer
-  injectivity in the layered ring \emph{is} injectivity of the lag-$L$ delay
-  query on the trajectory, and this is why the two lanes kept meeting the same
-  combinatorics from opposite sides.
+  gives membership, and periodicity is immediate. The delay query at lag $L$ and
+  depth $k$ samples $\omega$ at $0, -L, \dots, -(k-1)L$, which are the positions
+  $0, L, \dots, (k-1)L$ of the cycle --- the $k$ positions sharing layer $0$. By
+  \ref{def:lisc}'s simplicity clause these carry distinct states.
 \end{proof}
 
 \begin{corollary}[$\mathrm{Unsafe}$, in the delay vocabulary]
@@ -2784,8 +2358,7 @@ queries apply to a trajectory space exactly as they apply to a stream.
   \lean{QuerySystem.RelationalDelay.unsafe_delay_witness}
   \leanok
   $L \in \mathrm{Unsafe}(\rho)$ yields a periodic $\rho$-trajectory on which
-  lag-$L$ sampling fails to collapse: it resolves $k \geq 2$ distinct strands
-  where safety would see one.
+  the lag-$L$ delay query resolves $k \geq 2$ distinct strands.
 \end{corollary}
 
 \begin{proof}
@@ -2795,28 +2368,23 @@ queries apply to a trajectory space exactly as they apply to a stream.
   apply \ref{thm:lisc-delay-witness}.
 \end{proof}
 
-\begin{lemma}[The bridge is not vacuous]
+\begin{lemma}[The hypothesis is satisfiable]
   \label{lem:lisc-inhabited}
   \uses{thm:lisc-delay-witness}
   \lean{QuerySystem.RelationalDelay.isLISC_complete_bool,
         QuerySystem.RelationalDelay.exists_delay_witness_complete_bool}
   \leanok
-  The complete relation on $\{\bot,\top\}$ has $\mathrm{LISC}_2(1)$, so
-  \ref{thm:lisc-delay-witness} fires and its conclusion is inhabited.
+  The complete relation on $\{\bot,\top\}$ satisfies $\mathrm{LISC}_2(1)$, so
+  the conclusion of \ref{thm:lisc-delay-witness} is inhabited.
 \end{lemma}
 
 \begin{proof}
   \leanok
-  Steps and closure are trivially available; simplicity is the two-case check
-  that the cycle's two states differ. An implication with an unsatisfiable
-  hypothesis proves nothing, so this is recorded rather than assumed.
+  Steps and closure are immediate; simplicity is the two-case check that the
+  cycle's two states differ.
 \end{proof}
 
 \subsection{The deterministic case, as a subclass}
-
-The relational description is the general one, so the deterministic theory has
-to sit \emph{inside} it at $\rho = \mathrm{graph}(T)$ rather than beside it.
-It does.
 
 \begin{lemma}[Delay queries see only non-positive times]
   \label{lem:delay-nonpos}
@@ -2846,7 +2414,7 @@ It does.
 \begin{proof}
   \leanok
   \uses{def:subshift}
-  Induction in each direction; the trajectory condition read forwards and
+  Induction in each direction, from the trajectory condition read forwards and
   backwards respectively.
 \end{proof}
 
@@ -2856,41 +2424,24 @@ It does.
   \lean{QuerySystem.RelationalDelay.delayEval_comp_eq_orbitStream}
   \leanok
   For $\omega \in \Sigma_{\mathrm{graph}(T)}$ and an observable $h$, the delay
-  data the relational picture assigns to $\omega$ is literally the delay data
-  the deterministic picture assigns to $\omega_0$.
-
-  So \ref{def:orbit-stream} and everything proved from it ---
-  \ref{thm:delay-eval-orbit}, \ref{thm:lag-algebra},
-  \ref{thm:query-reconstruction-bridge} --- are the $\rho = \mathrm{graph}(T)$
-  instance of this chapter, not a parallel development that resembles it.
+  data the relational picture assigns to $\omega$ equals the delay data the
+  deterministic picture assigns to $\omega_0$.
 \end{theorem}
 
 \begin{proof}
   \leanok
   \uses{lem:graph-subshift-halves}
-  Both sides evaluate at $-(k\tau)$, and \ref{lem:graph-subshift-halves} says
-  that is $T^{k\tau}(\omega_0)$.
+  Both sides evaluate at $-(k\tau)$, which \ref{lem:graph-subshift-halves} makes
+  $T^{k\tau}(\omega_0)$.
 \end{proof}
 
-\begin{remark}[The honest residue]
+\begin{remark}[Base points outside the subshift]
   \label{rmk:deterministic-residue}
   \uses{thm:deterministic-subclass}
   \lean{QuerySystem.RelationalDelay.graphSubshift_base_mem_range}
   \leanok
-  An earlier draft of this section claimed there was no deterministic embedding
-  at all, on the grounds that the state stream $t \mapsto T^{(-t)^{+}}x$ is not
-  in $\Sigma_{\mathrm{graph}(T)}$ --- the clamp makes its positive half
-  constant, so the trajectory condition there would demand $x = Tx$. That is
-  true and it is the wrong shape of objection: by \ref{lem:delay-nonpos} the
-  positive half is never sampled, so agreement there was never something the
-  theory needed.
-
-  What genuinely does not transfer is smaller, and is a condition on $T$ rather
-  than on observation. Being the base of a bi-infinite trajectory forces
-  $\omega_0 \in \mathrm{range}(T^n)$ for every $n$, so a non-surjective $T$ has
-  points no relational trajectory can be based at --- while the delay data of
-  those points is perfectly well defined by \ref{def:orbit-stream}. The
-  deterministic picture is the $\rho = \mathrm{graph}(T)$ case on delay data,
-  which is what the theory observes, and is strictly larger in base points.
+  Being the base of a bi-infinite trajectory forces $\omega_0 \in
+  \mathrm{range}(T^n)$ for every $n$. For non-surjective $T$ there are therefore
+  points based at no relational trajectory whose delay data is still defined by
+  \ref{def:orbit-stream}.
 \end{remark}
-

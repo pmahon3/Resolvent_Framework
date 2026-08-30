@@ -290,10 +290,6 @@ def T4At (d : DynkinSystem Ω) : Prop :=
     ∀ M, IsMaxBlock d M →
       ∃ D, IsAtomOf M D ∧ FACoherentCluster d (insert D 𝒞)
 
-/-- **Conjecture B′(i), per carrier**: Φ holds. (The hypotheses —
-latticehood and countably generated blocks — are quantified at use.) -/
-def BPrimeIAt (d : DynkinSystem Ω) : Prop := Phi d
-
 universe u
 
 /-- **Conjecture B′(i) (OPEN)**: every concrete σ-class OML all of whose

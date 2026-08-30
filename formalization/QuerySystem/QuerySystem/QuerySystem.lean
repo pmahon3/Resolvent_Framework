@@ -237,10 +237,6 @@ theorem cyl_refine {i j : S.ι} (hij : S.le i j) (A : Set ((S.q i).Outcome)) :
 def LowerDirected : Prop :=
   ∀ i j : S.ι, ∃ k : S.ι, S.le k i ∧ S.le k j
 
-/-- Deprecated alias for `LowerDirected`. -/
-@[deprecated LowerDirected (since := "2026-03-04")]
-def Directed : Prop := S.LowerDirected
-
 /-- Upper-directedness: any two queries have a common refinement (join-like condition).
 
     `∀ i j, ∃ k, le i k ∧ le j k`
@@ -731,13 +727,6 @@ work should either (a) prove `EvalSurjective` from a weaker richness assumption 
     well-definedness and additivity of `preμ` (to conclude `E₁ = E₂` from
     `eval i ⁻¹' E₁ = eval i ⁻¹' E₂`).  See the note in the Stage 2 section header. -/
 def EvalSurjective : Prop := ∀ i : S.ι, Function.Surjective (S.eval i)
-
-/-- **Discriminability** (Paper I, Definition 2.6): the query system separates points.
-    For every `ω ≠ ω'` in `Omega`, some cylinder event distinguishes them.
-    This is injectivity of the Stone embedding `pure : Omega → Ultrafilter Omega`. -/
-def Discriminability : Prop :=
-  ∀ ω ω' : S.Omega, ω ≠ ω' → ∃ i : S.ι, ∃ A : Set (S.q i).Outcome,
-    S.eval i ω ∈ A ∧ S.eval i ω' ∉ A
 
 /-- **`preμAt` on a singleton index equals `ν i (A i)`.**
 

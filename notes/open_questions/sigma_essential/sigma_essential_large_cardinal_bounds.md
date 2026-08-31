@@ -1024,3 +1024,98 @@ the actual language goal. (3) The wall is now located with MAXIMAL precision: ex
 ABSTRACT σ-orthostructure" (free, ultrapower) and "L has a CONCRETE one" (= Wall A); the ultrapower is the
 fingerprint of that gap. PDF filed `notes/literature_review/literature/feldman_wilce_1993.pdf`. ⟦HAND/primary —
 hinge NO; foothold real for expression, bottoms at the Floor for inhabitation.⟧
+
+---
+
+## AMENDMENT 2026-08-31 — §3g's elimination has lost a leg; the Polish regime is NOT excluded
+
+§3g locates the frontier by **elimination**, and its second leg is
+
+> Polish-representable → DW D.6, no witness. Closed.
+
+**That leg is unsupported.** Derr–Williamson Thm D.6 was read against the primary
+source (arXiv:2302.03522, *Systems of Precision*) on 2026-08-31 and does not say
+it. D.6 is a necessary-and-sufficient criterion for σ-extendability of a
+**countably additive** probability on a Dynkin system inside the Borel σ-algebra
+of a Polish space, assuming σ(D)=F and inner regularity on each σ-block, about
+**real-valued** probabilities. A witness pattern is only *finitely* coherent, so
+it does not meet D.6's hypothesis at all. The axiom asserting the two-valued
+form has been deleted; the claim is now the open conjecture
+`OpenCore.DWPolishCut`.
+
+**Consequences for this file, which are not small:**
+
+1. **§3g's conclusion does not follow.** "A witness MUST live in the
+   non-Polish-representable regime" was inferred by eliminating the Polish one.
+   It is not eliminated. The located cell is wider than recorded, and the second
+   "independent direction" cited in §3g (the DW boundary) is not independent
+   evidence of anything.
+2. **§3h item (4) was excluded on these grounds and is live again.**
+   Analytic-not-Borel ideals / σ-classes (Solecki; the Pták school) were swept
+   with "right object type but base is countable/Polish = DW-killed". That
+   exclusion is void. It is the one corner of the DST sweep whose *only*
+   disqualifier was the DW boundary, and it was flagged as the right object type.
+3. Line ~340's "countable gluing stay Polish-representable ⟹ DW D.6 kills them"
+   goes the same way.
+
+**What did NOT change.** The other four legs stand: Boolean → FIP → clause (i)
+fails; forcing is strength-preserving (Lévy–Solovay); U-as-state is a rescuer;
+U-as-carrier gives size not strength. And the strength question stays UNKNOWN
+per §3f.
+
+**What replaces the Polish leg.** `Conjectures.polishCut_iff_polishKernel`:
+granting that Polish-representability forces Dirac-onlyness, the cut is
+*equivalent* to clause (i) restricted to Polish carriers. So the Polish regime is
+not closed — it is exactly as open as clause (i) is there. Worse for the old
+reading, `diracOnly_gives_wallA` makes clause (ii) vacuous on such carriers,
+which pushes **toward** a witness. That is the §3f non-sequitur again.
+
+**Net:** this does not hand anyone a tool, and §3g's STOP-condition ("needs
+genuinely new abstract input") still stands for the non-Polish cell. But the
+search space is larger than this file says, and the one previously-swept corner
+with the right object type is open. That is a better position than "located with
+no entering tool", because the Polish regime is where tools actually exist.
+
+### Follow-up 2026-08-31 — CORRECTED: both "leads" were already read, and neither helps
+
+An earlier version of this section, written the same day, named Navara–Pták 1983
+and De Simone–Navara–Pták 2015 as unread leads and said of the first: "This, not
+Derr–Williamson, is the plausible home of the claim `dw_polish_no_witness` was
+making." **Both statements were wrong.** Both papers are in
+`notes/literature_review/literature/`, both have primary-source reads in this
+repo, and I found them by searching the web before searching the shelf.
+
+* **Navara & Pták 1983, "Two-valued measures on σ-classes"** — read by hand
+  2026-06-26, `navara_ptak_1983_byhand_read.md`. Verdict: **BORDERS the cell,
+  does NOT inhabit it.** It solves Gudder's integration problem
+  (∫(f+g)=∫f+∫g for two-valued measures on a σ-class), not the extension
+  question. It contains no Polish/standard-Borel statement, so it is **not** the
+  home of the DW claim. Nothing there rescues `DWPolishCut`.
+* **De Simone, Navara & Pták 2015** — primary source in hand 2026-08-23,
+  `oml_attack/DNP_2015_SOURCE_CHECK_2026-08-23.md`. Verdict: **DOES NOT
+  PROMOTE.** The abstract's "even two-valued states do not allow for extensions"
+  is *not* in the σ-complete setting; the σ-complete section (Construction 1 /
+  Thm 4) is extension-POSITIVE — a tameness result. Not witness-shaped.
+
+So the Prague-school two-valued literature was already swept, and swept properly.
+The reopened corner is emptier than the earlier text implied. My claim that
+§§3h–3q "never visited" the Pták school was also wrong: they visited it and
+recorded the visits.
+
+**One thing genuinely new, from re-reading the 1983 note against today's work.**
+Navara–Pták's Example builds a **non-Dirac σ-additive two-valued state** on a
+concrete σ-class over `Q = ℚ² ∩ (0,1)²` — verified in that note against their
+Def 3 as a genuine Ψ-sense σ-additive two-valued state. That carrier is
+therefore **not `DiracOnly`**. §3h had excluded exactly this base (ℚ²) as
+"DW-killed".
+
+If a countable base like ℚ² counts as Polish-representable in the intended
+sense — which is a question about the intended reading of an opaque predicate,
+not a theorem — then the hypothesis `hPD : PolishRepresentable → DiracOnly` of
+`Conjectures.polishCut_iff_polishKernel` is **false**, and the Polish regime does
+not even reduce to clause (i): clause (ii) has live content there, because
+Navara–Pták exhibit the non-Dirac states it quantifies over. That would make the
+Polish cut *more* open, not less. The reduction was stated with `hPD` as an
+explicit hypothesis rather than assumed, which is the only reason this does not
+invalidate it.
+

@@ -1,12 +1,23 @@
 # The frontier map (2026-07-08)
 
-> **2026-08-25 — PARTIALLY SUPERSEDED on formalization status.** The framing
-> below stands; the per-result statuses do not. Since 2026-08-04: the
-> Andersen–Jessen refutation is kernel-checked, `slab0_not_mem` is proved,
-> `prop:adm` is at 5 of 6 conjuncts, and the blueprint is 104 declarations with
-> zero repo-local axioms. **Φ is unmoved** — none of it bears on the theory
-> front either way. Read `program_overview.md` §"STATE AS OF 2026-08-25" first;
-> where this file disagrees with it, that section wins.
+> **2026-08-31 — PARTIALLY SUPERSEDED on formalization status.** The framing
+> below stands; the per-result statuses do not. Read `program_overview.md`
+> §"STATE AS OF 2026-08-31" first; where this file disagrees with it, that
+> section wins. The blueprint is **206 declarations, 198 closed / 8 cited / 0
+> uncited, 14 library axioms all cited** — not the "104 with zero repo-local
+> axioms" an earlier version of this banner claimed; that stopped being true
+> when the Navara ladder was blueprinted.
+>
+> Since 2026-08-04, in brief: Andersen–Jessen kernel-checked; `slab0_not_mem`
+> proved; MO₂ realized concretely on four points and four points proved
+> necessary; the descent witness built rather than cited; **both admissibility
+> axioms retired**, so `L₁_admissible` and `targetA_sharp_ZFC` are theorems; the
+> Kochen–Specker axiom found FALSE as stated and restated; the Derr–Williamson
+> citation checked and found not to support its axiom, which is now the open
+> conjecture `DWPolishCut` — and that cut is Wall A on a subclass, so it is not
+> the lever it looked like.
+>
+> **Φ is unmoved.** None of it bears on the theory front either way.
 
 
 > **2026-07-10:** which veins get dug, and in what order, is now fixed —

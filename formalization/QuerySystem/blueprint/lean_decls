@@ -60,7 +60,6 @@ delayObservableAlgebra
 observableAlgebra_eq_comap
 density_bridge
 reconstruction_iff_lpMeas
-delay_reconstruction_iff
 orbitStream
 delayEval_orbitStream
 delayQueryAlgebra_eq_delayObservableAlgebra
@@ -134,6 +133,12 @@ SigmaEssential.Ulam.corePattern_witness
 SigmaEssential.OpenCore.DWPolishCut
 SigmaEssential.OpenCore.witness_not_polish
 SigmaEssential.Ulam.carrier_not_polish
+SigmaEssential.Conjectures.PolishKernel
+SigmaEssential.Conjectures.polishCut_iff_polishKernel
+SigmaEssential.Blocks.isSigmaOn_of_finite
+SigmaEssential.Blocks.no_witness_of_finite
+SigmaEssential.Blocks.witness_carrier_infinite
+SigmaEssential.Admissibility.mo2Class_finite_slice_beyond_boolean
 SigmaEssential.Ulam.witness_carrier_not_lattice
 SigmaEssential.Blocks.meetsExist_of_orderIso
 SigmaEssential.Ulam.carrier_not_orderIso_measurableSpace
@@ -152,7 +157,10 @@ SigmaEssential.Admissibility.TargetA_sharp
 SigmaEssential.Admissibility.L₁_essentiallyIrreducible
 SigmaEssential.Admissibility.L₁_admissible
 SigmaEssential.Admissibility.targetA_sharp_ZFC
-SigmaEssential.Admissibility.L₁_six_conjuncts
+SigmaEssential.Admissibility.Irreducible
+SigmaEssential.Admissibility.descentBlock_central
+SigmaEssential.Admissibility.descentClass_not_irreducible
+SigmaEssential.Admissibility.descentClass_essentiallyIrreducible_vacuously
 SigmaEssential.Ulam.PsiOML
 SigmaEssential.Blocks.CountablyCompactClass
 SigmaEssential.Blocks.ApproximatesOn

@@ -83,10 +83,9 @@ query $\bigvee_n Q_n$ is itself a query.
 \lean{QuerySystem.EvalSurjective}
 \leanok
 \uses{def:omega}
-Every evaluation $\mathrm{eval}_i : \Omega \to \mathrm{Outcome}_i$ is
+  Every evaluation $\mathrm{eval}_i : \Omega \to \mathrm{Outcome}_i$ is
 surjective: each local outcome extends to a coherent global realization. It
-gives $\mathrm{Cyl}_k E_1 = \mathrm{Cyl}_k E_2 \Rightarrow E_1 = E_2$, which
-the well-definedness and additivity of the cylinder content require.
+gives $\mathrm{Cyl}_k E_1 = \mathrm{Cyl}_k E_2 \Rightarrow E_1 = E_2$.
 \end{definition}
 
 \section{Main Results}
@@ -359,9 +358,8 @@ cover of a clopen has a finite subcover); apply Carath\'eodory.
 \lean{QuerySystem.EscapingTower}
 \leanok
 \uses{def:cylinder, def:ncc}
-A decreasing sequence of cylinder events, each of full charge, with empty
-intersection. In Andersen--Jessen these are the diagonal cylinders over a
-decreasing sequence of thick sets.
+  A decreasing sequence of cylinder events, each of full charge, with empty
+intersection.
 \end{definition}
 
 \begin{theorem}[No extension over an escaping tower]
@@ -455,8 +453,8 @@ of $A$ follows by monotonicity.
 \lean{AndersenJessen.V_unique}
 \leanok
 \uses{def:aj-A}
-$V$, a set of coset representatives for $\mathbb{R}/A$, has the only property the
-argument uses: two representatives congruent mod $A$ are equal.
+  $V$, a set of coset representatives for $\mathbb{R}/A$: two representatives
+congruent mod $A$ are equal.
 \end{lemma}
 
 \begin{proof}
@@ -510,12 +508,10 @@ eventually falls out of every tail.
 \label{def:thick-for}
 \lean{ThickTrace.ThickFor}
 \leanok
-$X$ is \emph{thick for} $\mu$ when every measurable set disjoint from $X$ is
-$\mu$-null. The base is arbitrary rather than Lebesgue so that the total mass is
-finite: the marginals need mass $1$ and $\lambda(\mathbb{R}) = \infty$, while
-$X_k \cap [0,1]$ is not thick in $\mathbb{R}$. Restricting the \emph{ambient}
-measure to $\mathrm{Icc}\,0\,1$ leaves the levels exactly as
-\ref{thm:aj-tower} builds them.
+  $X$ is \emph{thick for} $\mu$ when every measurable set disjoint from $X$ is
+$\mu$-null. The base is arbitrary rather than Lebesgue because the marginals
+need mass $1$ and $\lambda(\mathbb{R}) = \infty$, while $X_k \cap [0,1]$ is not
+thick in $\mathbb{R}$.
 \end{definition}
 
 \begin{theorem}[The trace measure on a thick set]
@@ -640,9 +636,8 @@ bound $i \leq n$ at $n = i$.
 \lean{Diagonal.pi_inter_diag_eq_empty}
 \leanok
 \uses{lem:diag-inter}
-If $\bigcap_k Y_k = \emptyset$ then $\Pi'(Y) \cap \bigcap_n D_n = \emptyset$,
-generically in $Y$. Applied to the thick tower $Y_k = X_k$ of
-\ref{thm:aj-tower}.
+  If $\bigcap_k Y_k = \emptyset$ then $\Pi'(Y) \cap \bigcap_n D_n = \emptyset$,
+generically in $Y$.
 \end{theorem}
 
 \begin{proof}
@@ -891,19 +886,6 @@ generate the same $\sigma$-algebra.
   \ref{thm:density-bridge} supplying density.
 \end{proof}
 
-\begin{theorem}[Reconstruction for the delay algebra]
-  \label{thm:delay-reconstruction}
-  \uses{thm:reconstruction, def:observable-algebra}
-  \lean{delay_reconstruction_iff}
-  \leanok
-  \ref{thm:reconstruction} instantiated at the delay observable algebra.
-\end{theorem}
-
-\begin{proof}
-  \leanok
-  \uses{thm:reconstruction}
-  Direct instantiation.
-\end{proof}
 \subsection{The join}
 
 \begin{definition}[The observation stream of a state]
@@ -1335,9 +1317,6 @@ $a_n = a|_{C_n}$. None of the eleven mentions $(\star)$.
   \leanok
   For Navara's witness $p$ and every $n$ in the countable orthogonal family,
   \[ p \sqcap a_n = \bot \quad\text{and}\quad p \not\le a_n^{\perp}. \]
-  So $L_2$ is a concrete, $\sigma$-orthocomplete, non-Boolean orthomodular
-  lattice in which one element is meet-zero against an infinite orthogonal
-  family while orthogonal to no member of it.
 \end{theorem}
 
 \begin{proof}
@@ -1380,13 +1359,8 @@ $a_n = a|_{C_n}$. None of the eleven mentions $(\star)$.
   \leanok
   Put $p = \{q : q_2 \in B\}$ and $a_n = \{n\} \times A$. Then $\{a_n\}$ is an
   infinite pairwise-orthogonal family in the carrier, the greatest carrier
-  element below both $p$ and $a_n$ is $\emptyset$, and
-  $p \not\subseteq a_n^{c}$. The carrier is not intersection-closed.
-
-  So a concrete, $\sigma$-complete, non-Boolean orthomodular carrier realizes
-  $(\star)$ against an infinite orthogonal family --- the conclusion
-  \ref{thm:star-infinite} draws from the eleven cited axioms of
-  \ref{def:navara-l2}, here with none.
+  element below both $p$ and $a_n$ is $\emptyset$, and $p \not\subseteq a_n^{c}$.
+  The carrier is not intersection-closed.
 \end{theorem}
 
 \begin{proof}
@@ -1809,17 +1783,9 @@ Coherence gives the positive clause, rigidity the negative one.
       SigmaEssential.OpenCore.witness_not_polish,
       SigmaEssential.Ulam.carrier_not_polish}
 \leanok
-\emph{Conditional on the Polish cut.} Write $\mathrm{DWPolishCut}$ for the
-statement that a Polish-representable carrier admits no $\sigma$-essential
-witness. Granting it, $L_1$ is not Polish-representable.
-
-The cut is an open conjecture, not a citable theorem. Derr--Williamson (2023)
-Thm D.6 is a necessary-and-sufficient criterion for $\sigma$-extendability of a
-\emph{countably additive} probability on a Dynkin system inside the Borel
-$\sigma$-algebra of a Polish space, assuming $\sigma(D) = F$ and inner
-regularity on each block. It is not the implication used here, and a witness
-pattern is only finitely coherent, so it does not even meet D.6's hypothesis.
-The hypothesis is therefore carried explicitly in the Lean.
+  Write $\mathrm{DWPolishCut}$ for the statement that a Polish-representable
+carrier admits no $\sigma$-essential witness. Granting it, $L_1$ is not
+Polish-representable. The hypothesis is carried explicitly.
 \end{lemma}
 
 \begin{proof}
@@ -1828,6 +1794,69 @@ The hypothesis is therefore carried explicitly in the Lean.
 $L_1$ carries a witness (\ref{thm:psi-zfc}), and the cut forbids a witness on a
 Polish-representable carrier.
 \end{proof}
+\begin{theorem}[The Polish cut is clause (i), not extra leverage]
+  \label{thm:polish-cut-reduced}
+  \uses{lem:carrier-not-polish, thm:localization, def:sigma-essential}
+  \lean{SigmaEssential.Conjectures.PolishKernel,
+        SigmaEssential.Conjectures.polishCut_iff_polishKernel}
+  \leanok
+  Granting that Polish-representability forces every $\sigma$-additive two-valued
+  state to be a point evaluation, the cut of \ref{lem:carrier-not-polish} is
+  equivalent to clause (i) restricted to Polish carriers: every finitely coherent
+  pattern there has a nonempty kernel.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:localization}
+  \ref{thm:localization} splits a witness into (0) coherence, (i) empty kernel
+  and (ii) no non-Dirac $\sigma$-state extending. If every $\sigma$-additive
+  two-valued state is a point evaluation then clause (ii) holds vacuously, so
+  being a witness is exactly (0) $\wedge$ (i), and "no witness" is exactly
+  "coherent $\Rightarrow$ kernel nonempty".
+\end{proof}
+\subsection{The finite gate, made explicit}
+
+\begin{lemma}[Finite additivity is $\sigma$-additivity on a finite carrier]
+  \label{lem:finite-sigma}
+  \uses{def:finadd-state, def:sigma-class}
+  \lean{SigmaEssential.Blocks.isSigmaOn_of_finite}
+  \leanok
+  On a finite $\Omega$ every finitely additive state satisfies the
+  $\sigma$-condition on the whole carrier.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{def:finadd-state}
+  A pairwise disjoint family in a finite space has only finitely many nonempty
+  members --- choosing a point from each is injective --- so the countable union
+  is the finite sup over that index set, and finite additivity applies to it.
+\end{proof}
+
+\begin{theorem}[$\Phi$ on finite carriers]
+  \label{thm:phi-finite}
+  \uses{lem:finite-sigma, def:sigma-essential, def:interclosed}
+  \lean{SigmaEssential.Blocks.no_witness_of_finite,
+        SigmaEssential.Blocks.witness_carrier_infinite,
+        SigmaEssential.Admissibility.mo2Class_finite_slice_beyond_boolean}
+  \leanok
+  No finite $\sigma$-class admits a $\sigma$-essential witness; equivalently, a
+  witness carrier is infinite. The finite and Boolean gates are independent: the
+  four-point carrier of \ref{def:concrete-mo2} is finite and not
+  intersection-closed.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{lem:finite-sigma}
+  Coherence supplies a finitely additive state extending the pattern;
+  \ref{lem:finite-sigma} makes it $\sigma$-additive, so it is a global
+  $\sigma$-additive two-valued state extending the pattern and the pattern is
+  not $\sigma$-essential.
+\end{proof}
+
+
 
 \begin{lemma}[The witness carrier is not a lattice]
 \label{lem:witness-not-lattice}
@@ -1856,10 +1885,6 @@ $0111$, and \texttt{EvenCode} excludes both.
   \leanok
   There is no order isomorphism between the carrier of $L_1$ and the measurable
   sets of a $\sigma$-algebra, on any space.
-
-  \ref{lem:carrier-not-boolean} says the carrier as presented is not closed
-  under intersection; a change of presentation could in principle repair that.
-  This says none can.
 \end{corollary}
 
 \begin{proof}
@@ -1907,7 +1932,7 @@ weight forces the fourth. Equal traces force equal codes, since
 $\kappa_a \neq \kappa_b$ would make $\xi \approx \xi^{c}$ and $M$ countable.
 \end{proof}
 
-\begin{theorem}[$\xi$-triviality, the paper's $[E] \in \{0,1\}$]
+\begin{theorem}[$\xi$-triviality, the paper's ${[E]} \in \{0,1\}$]
 \label{thm:xi-trivial}
 \uses{thm:central-traces, def:central, thm:normal-form}
 \lean{SigmaEssential.Ulam.central_xi_trivial}
@@ -1979,8 +2004,7 @@ and co-countable traces a co-countable one.
   \leanok
   $E$ is \emph{central} when it lies in the carrier and $E \cap A$ does too for
   every carrier element $A$. The carrier is \emph{essentially irreducible} when
-  every central element is countable or co-countable --- trivial modulo the
-  countable ideal, which is the sense in which \ref{thm:psi-zfc} is stated.
+  every central element is countable or co-countable.
 \end{definition}
 
 \begin{definition}[The admissible carrier class]
@@ -1990,11 +2014,6 @@ and co-countable traces a co-countable one.
         SigmaEssential.Admissibility.TargetA_sharp}
   \leanok
   Essentially irreducible and non-segregated.
-
-  The paper's boundary map lists six conjuncts. Four of them do not constrain:
-  concreteness and $\sigma$-completeness hold of every $\sigma$-class, and
-  non-intersection-closure and non-Polish-representability are \emph{forced} by
-  the witness they are conjoined to. These two are what remain.
 \end{definition}
 
 \begin{theorem}[The witness carrier is admissible]
@@ -2017,26 +2036,37 @@ and co-countable traces a co-countable one.
   applied to the witness of \ref{thm:psi-zfc}.
 \end{proof}
 
-\begin{theorem}[All six conjuncts, with the conditional one visible]
-  \label{thm:l1-six-conjuncts}
-  \uses{thm:l1-admissible, lem:carrier-not-boolean, lem:carrier-not-polish}
-  \lean{SigmaEssential.Admissibility.L₁_six_conjuncts}
+\begin{definition}[Irreducibility proper]
+  \label{def:irreducible}
+  \uses{def:essentially-irreducible}
+  \lean{SigmaEssential.Admissibility.Irreducible}
   \leanok
-  Trimming the bundle could flatter \ref{thm:l1-admissible}, so the original six
-  are recorded for $L_1$ with the one clause that is not unconditional carried as
-  a hypothesis: concreteness, $\sigma$-completeness, essential irreducibility,
-  non-segregation and non-intersection-closure hold outright;
-  non-Polish-representability holds granting the cut of
-  \ref{lem:carrier-not-polish}.
+  The centre is trivial: every central element is $\emptyset$ or $\Omega$.
+  Strictly stronger than \ref{def:essentially-irreducible}.
+\end{definition}
+
+\begin{theorem}[The concrete descent carrier is reducible]
+  \label{thm:descent-not-irreducible}
+  \uses{def:irreducible, def:concrete-descent}
+  \lean{SigmaEssential.Admissibility.descentBlock_central,
+        SigmaEssential.Admissibility.descentClass_not_irreducible,
+        SigmaEssential.Admissibility.descentClass_essentiallyIrreducible_vacuously}
+  \leanok
+  Every block of \ref{def:concrete-descent} is central, so the centre has one
+  element per subset of $\mathbb{N}$ and the carrier is not irreducible. It
+  satisfies \ref{def:essentially-irreducible} vacuously, the carrier being
+  countable; $L_1$'s carrier is uncountable, so there the dichotomy is real.
 \end{theorem}
 
 \begin{proof}
   \leanok
-  \uses{thm:l1-admissible}
-  The first two are automatic, the next two are \ref{thm:l1-admissible}, the
-  fifth is \ref{lem:carrier-not-boolean}, and the sixth is
-  \ref{lem:carrier-not-polish}.
+  \uses{def:concrete-descent}
+  Meeting a carrier element with a whole block leaves each fibre either that
+  fibre or empty, both in the four-point carrier, so blocks are central. Block
+  $0$ is neither empty nor everything. Vacuity of the essential form is
+  countability of $\mathbb{N} \times \{0,1\}^{2}$.
 \end{proof}
+
 
 
 \begin{definition}[$\Psi_{\mathrm{OML}}$ --- the lattice form]

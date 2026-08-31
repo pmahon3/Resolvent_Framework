@@ -91,6 +91,16 @@ Broader lens, not broader standard. Each type has a concrete bar.
 - **Sharpen honestly.** Refining an open question is not a way to keep
   a dead one alive. Both guardrail conditions must hold (see lifecycle).
 - **Verify LLM proofs independently.** Lean or manual check only.
+- **Search the shelf before the web.** `notes/literature_review/literature/`
+  holds the PDF library, and the read-trail lives in `*_byhand_read.md`,
+  `*_SOURCE_CHECK_*.md` and `czech_school_prior_art_*.md`. Grep those FIRST for
+  any author or result before a web search, and before calling anything a new
+  lead. On 2026-08-31 two papers were announced as unread leads that were both
+  already in the library with primary-source verdicts recorded.
+- **Check prior art before calling a result a contribution.** A statement can be
+  correct, machine-checked, and still be a gate the programme already applies
+  informally. `czech_school_prior_art_sigma_essential.md` and the bounds hub
+  record which regimes are already known-excluded.
 
 ## Skill: `/audit` (`.claude/skills/audit/`)
 

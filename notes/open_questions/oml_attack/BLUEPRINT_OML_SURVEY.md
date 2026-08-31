@@ -108,3 +108,32 @@ component unless a genuine dependency is written.
   SPINE, not an index.
 - Adding modules moves `coverage_baseline.txt` off 28; regenerate deliberately
   (`coverage.py --update`) in the same commit.
+
+---
+
+## AMENDMENT 2026-08-31 — three names in this file no longer exist
+
+This survey is otherwise still a good map. But it lists as available:
+
+* `dw_polish_no_witness` (line ~32) — **deleted.** The Derr–Williamson citation
+  was checked against arXiv:2302.03522 and Thm D.6 does not support it: D.6 is an
+  iff-criterion for σ-extendability of a *countably additive* probability, with
+  σ(D)=F and block inner regularity, about real-valued probabilities. A witness
+  pattern is only finitely coherent, so it does not meet the hypothesis. The
+  claim is now the open conjecture `OpenCore.DWPolishCut`, carried as an explicit
+  hypothesis by `witness_not_polish` and `carrier_not_polish`.
+* `IsIrreducible`, `IsNonSegregated` (lines ~41, ~45) — **retired**, not deleted.
+  They are definitions with content in `QuerySystem.Admissibility`
+  (`EssentiallyIrreducible`, `NonSegregated`), and `L₁_admissible` proves the
+  witness carrier satisfies both. `IsConcrete` and `IsSigmaComplete` were
+  likewise discharged as proved defs on 2026-08-30.
+
+So the ⚠ fidelity consequence this file flags — that `IsIrreducible` being an
+unconnected stub keeps `Psi` weaker than the paper's Ψ — **is closed.**
+`targetA_sharp_ZFC` proves the sharp Exit-A target is inhabited in ZFC by the
+ω₁ witness.
+
+The OML side is also no longer "almost entirely outside" the blueprint: it now
+carries MO₂ concretely, the four-points-necessary minimality result, the
+concrete descent witness, the admissibility bundle, and the Polish-cut
+reduction.

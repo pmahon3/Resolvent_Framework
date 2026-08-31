@@ -11,7 +11,6 @@ ODBCRegimes.lean
 ODBCSections.lean
 SigmaEssentialBareForm.lean
 SigmaEssentialConjectures.lean
-SigmaEssentialOpenCore.lean
 UlamWitnessReceipts.lean
 UltrafilterCharge.lean
 WindingDichotomy.lean

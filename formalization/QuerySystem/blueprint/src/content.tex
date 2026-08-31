@@ -1805,16 +1805,28 @@ Coherence gives the positive clause, rigidity the negative one.
 \begin{lemma}[The carrier is not Polish-representable]
 \label{lem:carrier-not-polish}
 \uses{thm:psi-zfc, lem:carrier-not-boolean}
-\lean{SigmaEssential.Ulam.carrier_not_polish}
+\lean{SigmaEssential.OpenCore.DWPolishCut,
+      SigmaEssential.OpenCore.witness_not_polish,
+      SigmaEssential.Ulam.carrier_not_polish}
 \leanok
-$L_1$ lies outside the Derr--Williamson boundary.
+\emph{Conditional on the Polish cut.} Write $\mathrm{DWPolishCut}$ for the
+statement that a Polish-representable carrier admits no $\sigma$-essential
+witness. Granting it, $L_1$ is not Polish-representable.
+
+The cut is an open conjecture, not a citable theorem. Derr--Williamson (2023)
+Thm D.6 is a necessary-and-sufficient criterion for $\sigma$-extendability of a
+\emph{countably additive} probability on a Dynkin system inside the Borel
+$\sigma$-algebra of a Polish space, assuming $\sigma(D) = F$ and inner
+regularity on each block. It is not the implication used here, and a witness
+pattern is only finitely coherent, so it does not even meet D.6's hypothesis.
+The hypothesis is therefore carried explicitly in the Lean.
 \end{lemma}
 
 \begin{proof}
 \leanok
 \uses{thm:psi-zfc}
-A Polish-representable carrier admits no witness (DW Thm D.6, cited), and $L_1$
-carries one.
+$L_1$ carries a witness (\ref{thm:psi-zfc}), and the cut forbids a witness on a
+Polish-representable carrier.
 \end{proof}
 
 \begin{lemma}[The witness carrier is not a lattice]
@@ -1929,6 +1941,103 @@ A central set is countable or co-countable.
 \ref{thm:xi-trivial} makes $\xi$ trivial; countable traces force a countable set
 and co-countable traces a co-countable one.
 \end{proof}
+\subsection{Admissibility, with the axioms retired}
+
+\begin{definition}[Segregated carrier, and non-segregation]
+  \label{def:segregated}
+  \uses{def:sigma-class, def:finadd-state}
+  \lean{SigmaEssential.Blocks.SegregatedStructural,
+        SigmaEssential.Admissibility.NonSegregated}
+  \leanok
+  A carrier is \emph{segregated} when every finitely additive state is blockwise
+  pointed --- each maximal block supplies a kernel point. \emph{Non-segregated}
+  is the negation.
+\end{definition}
+
+\begin{lemma}[Non-segregation is forced by the witness]
+  \label{lem:witness-nonsegregated}
+  \uses{def:segregated, def:sigma-essential}
+  \lean{SigmaEssential.Blocks.no_witness_of_segregated,
+        SigmaEssential.Admissibility.witness_nonSegregated}
+  \leanok
+  A witness carrier is non-segregated.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{def:segregated}
+  On a segregated carrier blockwise $\sigma$-additivity globalises, so every
+  finitely additive state is $\sigma$-additive; a finitely coherent pattern then
+  has a $\sigma$-additive realization and is not $\sigma$-essential.
+\end{proof}
+
+\begin{definition}[The centre, and essential irreducibility]
+  \label{def:essentially-irreducible}
+  \uses{def:central, def:sigma-class}
+  \lean{SigmaEssential.Admissibility.Centre,
+        SigmaEssential.Admissibility.EssentiallyIrreducible}
+  \leanok
+  $E$ is \emph{central} when it lies in the carrier and $E \cap A$ does too for
+  every carrier element $A$. The carrier is \emph{essentially irreducible} when
+  every central element is countable or co-countable --- trivial modulo the
+  countable ideal, which is the sense in which \ref{thm:psi-zfc} is stated.
+\end{definition}
+
+\begin{definition}[The admissible carrier class]
+  \label{def:admissible}
+  \uses{def:essentially-irreducible, def:segregated}
+  \lean{SigmaEssential.Admissibility.Admissible,
+        SigmaEssential.Admissibility.TargetA_sharp}
+  \leanok
+  Essentially irreducible and non-segregated.
+
+  The paper's boundary map lists six conjuncts. Four of them do not constrain:
+  concreteness and $\sigma$-completeness hold of every $\sigma$-class, and
+  non-intersection-closure and non-Polish-representability are \emph{forced} by
+  the witness they are conjoined to. These two are what remain.
+\end{definition}
+
+\begin{theorem}[The witness carrier is admissible]
+  \label{thm:l1-admissible}
+  \uses{def:admissible, cor:centre, lem:witness-nonsegregated, thm:psi-zfc}
+  \lean{SigmaEssential.Admissibility.L₁_essentiallyIrreducible,
+        SigmaEssential.Admissibility.L₁_admissible,
+        SigmaEssential.Admissibility.targetA_sharp_ZFC}
+  \leanok
+  $L_1$ is essentially irreducible and non-segregated. So the sharp Exit-A
+  target --- a witness on an admissible carrier --- is inhabited in ZFC by the
+  $\omega_1$ product-Ulam witness.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{cor:centre, lem:witness-nonsegregated}
+  Essential irreducibility is \ref{cor:centre}: every central element of $L_1$ is
+  countable or co-countable. Non-segregation is \ref{lem:witness-nonsegregated}
+  applied to the witness of \ref{thm:psi-zfc}.
+\end{proof}
+
+\begin{theorem}[All six conjuncts, with the conditional one visible]
+  \label{thm:l1-six-conjuncts}
+  \uses{thm:l1-admissible, lem:carrier-not-boolean, lem:carrier-not-polish}
+  \lean{SigmaEssential.Admissibility.L₁_six_conjuncts}
+  \leanok
+  Trimming the bundle could flatter \ref{thm:l1-admissible}, so the original six
+  are recorded for $L_1$ with the one clause that is not unconditional carried as
+  a hypothesis: concreteness, $\sigma$-completeness, essential irreducibility,
+  non-segregation and non-intersection-closure hold outright;
+  non-Polish-representability holds granting the cut of
+  \ref{lem:carrier-not-polish}.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:l1-admissible}
+  The first two are automatic, the next two are \ref{thm:l1-admissible}, the
+  fifth is \ref{lem:carrier-not-boolean}, and the sixth is
+  \ref{lem:carrier-not-polish}.
+\end{proof}
+
 
 \begin{definition}[$\Psi_{\mathrm{OML}}$ --- the lattice form]
 \label{def:psi-oml}

@@ -50,19 +50,31 @@ QuerySystem.blockVal_pWitness	Navara, PAMS 115 (1992) p. 428 -- block-values of 
 QuerySystem.aWitness	Navara, PAMS 115 (1992) p. 428 -- the orthogonal family a_n = a|C_n
 QuerySystem.blockVal_aWitness	Navara, PAMS 115 (1992) p. 428 -- block-values of a_n
 
-# --- The Derr-Williamson Polish cut ------------------------------------------
-# D. Derr and R. Williamson (2023), Thm D.6, via Maharam: on a
-# Polish-representable carrier every finitely-coherent pattern globalises, so no
-# sigma-essential witness lives there. `PolishRepresentable` is the abstract
-# carrier predicate the theorem is stated over; it is deliberately not unfolded.
+# --- Polish-representability --------------------------------------------------
+# An opaque carrier predicate (kind (b)), standing for the paper-level notion of
+# being representable on a Polish space. Never unfolded, never given a truth
+# value.
 #
-# ENTERED 2026-08-26 because `carrier_not_polish` is the first BLUEPRINT node to
-# depend on this axiom -- it has been in the library since the open core was
-# written, but nothing blueprinted consumed it, so the gate never saw it. The
-# citation is the repo's own (SigmaEssentialOpenCore.lean, section 5); it has NOT
-# been re-checked against the primary source in this session.
-SigmaEssential.OpenCore.PolishRepresentable	Derr-Williamson 2023 Thm D.6 -- abstract carrier predicate, not unfolded
-SigmaEssential.OpenCore.dw_polish_no_witness	Derr-Williamson 2023 Thm D.6 (via Maharam) -- Polish-representable implies no witness
+# It used to have a companion, `dw_polish_no_witness`, asserting
+# "Polish-representable implies no sigma-essential witness" on the strength of
+# Derr-Williamson (2023) Thm D.6 via Maharam. CHECKED AGAINST THE SOURCE
+# 2026-08-31 (arXiv:2302.03522, "Systems of Precision"), that theorem does not
+# say it. D.6 reads: for a Polish Omega, a Dynkin system D contained in the Borel
+# sigma-algebra with sigma(D) = F, and a COUNTABLY ADDITIVE probability mu on D
+# whose block restrictions are inner regular, mu is sigma-extendable IF AND ONLY
+# IF a gamble inequality holds. Maharam checks out (the proof runs through
+# Maharam 1972 Thm 8.1); the shape does not. It is a criterion, not an
+# implication; its input is countably additive where a witness pattern is only
+# finitely coherent, so the hypothesis is not met by the object; it assumes
+# sigma(D) = F and block inner regularity, both dropped; and it is about
+# real-valued probabilities, not two-valued states.
+#
+# So the axiom was removed rather than re-cited. The cut is now
+# `OpenCore.DWPolishCut`, a `def ... : Prop` passed as an explicit hypothesis --
+# the same discipline `LowerBound`, `UpperBound` and `TargetA_sharp` already
+# follow -- and `witness_not_polish` / `carrier_not_polish` take it. Nothing is
+# assumed; what is owed is visible in the statements.
+SigmaEssential.OpenCore.PolishRepresentable	opaque carrier predicate for Polish-representability, not unfolded; the CUT it was paired with is now the open conjecture OpenCore.DWPolishCut, not an axiom
 
 # --- Kochen-Specker ----------------------------------------------------------
 # S. Kochen and E. P. Specker, "The problem of hidden variables in quantum
@@ -74,19 +86,30 @@ SigmaEssential.OpenCore.dw_polish_no_witness	Derr-Williamson 2023 Thm D.6 (via M
 # stand-in "since Mathlib has no orthomodular lattice class", and in that form it
 # was FALSE -- `vdr_boolean` in the same file refutes it, and `False` was
 # derivable. It is now stated over `QuerySystem.OrthomodularLattice`, which this
-# repo defines. The RESTATEMENT was checked; the primary source was NOT re-read
-# in that session, and the statement is taken from standard textbook accounts.
+# repo defines.
+#
+# CHECKED 2026-08-31 against standard references (nLab, "Kochen-Specker theorem",
+# and the bibliographic record): the citation data is right -- J. Math. Mech.
+# 17(1), 59-87, 1967 -- and the theorem is standardly stated as "there is no
+# two-valued measure (equivalently, no dispersion-free state) on the lattice of
+# closed subspaces of a Hilbert space of dimension >= 3", with states themselves
+# supplied by Gleason. That is the shape asserted below. The 1967 paper itself
+# was not obtained, so this is a secondary-source check, not a primary one.
 KochenSpecker_witness	Kochen-Specker 1967, J. Math. Mech. 17, 59-87 -- an OML with states but no dispersion-free state
 
 # --- Opaque paper-level predicates (kind (b)) --------------------------------
-# These name constraints the paper states and the Lean development does not yet
-# prove. They are never unfolded and never given a truth value; they exist so a
-# conditional can be stated with its hypotheses visible. The two carrier
-# predicates that ARE proved -- concreteness and sigma-completeness -- were
-# discharged on 2026-08-30 and are now defs (`IsConcreteCarrier`,
-# `IsSigmaCompleteCarrier`), not axioms.
-SigmaEssential.OpenCore.IsIrreducible	sigma_essential paper, admissibility: essential irreducibility -- opaque predicate, not unfolded, open as a forcing lemma
-SigmaEssential.OpenCore.IsNonSegregated	sigma_essential paper, admissibility: non-segregation -- opaque predicate, not unfolded; the forcing lemma is Blocks.witness_not_segregated
+# RETIRED 2026-08-31, both of them. `IsIrreducible` and `IsNonSegregated` stood
+# here as opaque stand-ins for admissibility constraints the Lean could not yet
+# prove. ADMISSIBILITY_SCOPE.md's instruction was "each should be RETIRED by a
+# theorem about the witness, not DEFINED into existence", and both forcing
+# lemmas turned out to exist already and to be sitting unused:
+#   Blocks.witness_not_segregated            a witness carrier is not segregated
+#   Ulam.central_countable_or_cocountable    cor:centre, the centre of L_1
+# They are now definitions with content in QuerySystem.Admissibility, and
+# `Admissibility.L_1_admissible` proves the witness carrier satisfies both, on
+# the standard axioms alone. Concreteness and sigma-completeness were discharged
+# on 2026-08-30 the same way. Nothing from the admissibility bundle is an axiom
+# any more.
 
 # --- The measurable-cardinal hypothesis --------------------------------------
 # An opaque Prop standing for "a measurable cardinal exists". Mathlib v4.29 has

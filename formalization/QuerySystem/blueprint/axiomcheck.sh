@@ -92,6 +92,14 @@ set -e
 
 "$PY" - "$HERE/axiomcheck.log" "$ALLOW" <<'PY'
 import io, re, sys
+# The Windows console defaults to cp1252; a citation is free text and a
+# single non-ascii byte in one would otherwise kill the gate with a
+# UnicodeEncodeError, which reads as a failure but is not one.
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except Exception:
+    pass
 log = io.open(sys.argv[1], encoding="utf-8", errors="replace").read()
 STD = {'propext', 'Classical.choice', 'Quot.sound'}
 

@@ -1024,3 +1024,54 @@ the actual language goal. (3) The wall is now located with MAXIMAL precision: ex
 ABSTRACT σ-orthostructure" (free, ultrapower) and "L has a CONCRETE one" (= Wall A); the ultrapower is the
 fingerprint of that gap. PDF filed `notes/literature_review/literature/feldman_wilce_1993.pdf`. ⟦HAND/primary —
 hinge NO; foothold real for expression, bottoms at the Floor for inhabitation.⟧
+
+---
+
+## AMENDMENT 2026-08-31 — §3g's elimination has lost a leg; the Polish regime is NOT excluded
+
+§3g locates the frontier by **elimination**, and its second leg is
+
+> Polish-representable → DW D.6, no witness. Closed.
+
+**That leg is unsupported.** Derr–Williamson Thm D.6 was read against the primary
+source (arXiv:2302.03522, *Systems of Precision*) on 2026-08-31 and does not say
+it. D.6 is a necessary-and-sufficient criterion for σ-extendability of a
+**countably additive** probability on a Dynkin system inside the Borel σ-algebra
+of a Polish space, assuming σ(D)=F and inner regularity on each σ-block, about
+**real-valued** probabilities. A witness pattern is only *finitely* coherent, so
+it does not meet D.6's hypothesis at all. The axiom asserting the two-valued
+form has been deleted; the claim is now the open conjecture
+`OpenCore.DWPolishCut`.
+
+**Consequences for this file, which are not small:**
+
+1. **§3g's conclusion does not follow.** "A witness MUST live in the
+   non-Polish-representable regime" was inferred by eliminating the Polish one.
+   It is not eliminated. The located cell is wider than recorded, and the second
+   "independent direction" cited in §3g (the DW boundary) is not independent
+   evidence of anything.
+2. **§3h item (4) was excluded on these grounds and is live again.**
+   Analytic-not-Borel ideals / σ-classes (Solecki; the Pták school) were swept
+   with "right object type but base is countable/Polish = DW-killed". That
+   exclusion is void. It is the one corner of the DST sweep whose *only*
+   disqualifier was the DW boundary, and it was flagged as the right object type.
+3. Line ~340's "countable gluing stay Polish-representable ⟹ DW D.6 kills them"
+   goes the same way.
+
+**What did NOT change.** The other four legs stand: Boolean → FIP → clause (i)
+fails; forcing is strength-preserving (Lévy–Solovay); U-as-state is a rescuer;
+U-as-carrier gives size not strength. And the strength question stays UNKNOWN
+per §3f.
+
+**What replaces the Polish leg.** `Conjectures.polishCut_iff_polishKernel`:
+granting that Polish-representability forces Dirac-onlyness, the cut is
+*equivalent* to clause (i) restricted to Polish carriers. So the Polish regime is
+not closed — it is exactly as open as clause (i) is there. Worse for the old
+reading, `diracOnly_gives_wallA` makes clause (ii) vacuous on such carriers,
+which pushes **toward** a witness. That is the §3f non-sequitur again.
+
+**Net:** this does not hand anyone a tool, and §3g's STOP-condition ("needs
+genuinely new abstract input") still stands for the non-Polish cell. But the
+search space is larger than this file says, and the one previously-swept corner
+with the right object type is open. That is a better position than "located with
+no entering tool", because the Polish regime is where tools actually exist.

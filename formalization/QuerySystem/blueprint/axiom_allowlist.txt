@@ -98,14 +98,18 @@ SigmaEssential.OpenCore.PolishRepresentable	opaque carrier predicate for Polish-
 KochenSpecker_witness	Kochen-Specker 1967, J. Math. Mech. 17, 59-87 -- an OML with states but no dispersion-free state
 
 # --- Opaque paper-level predicates (kind (b)) --------------------------------
-# These name constraints the paper states and the Lean development does not yet
-# prove. They are never unfolded and never given a truth value; they exist so a
-# conditional can be stated with its hypotheses visible. The two carrier
-# predicates that ARE proved -- concreteness and sigma-completeness -- were
-# discharged on 2026-08-30 and are now defs (`IsConcreteCarrier`,
-# `IsSigmaCompleteCarrier`), not axioms.
-SigmaEssential.OpenCore.IsIrreducible	sigma_essential paper, admissibility: essential irreducibility -- opaque predicate, not unfolded, open as a forcing lemma
-SigmaEssential.OpenCore.IsNonSegregated	sigma_essential paper, admissibility: non-segregation -- opaque predicate, not unfolded; the forcing lemma is Blocks.witness_not_segregated
+# RETIRED 2026-08-31, both of them. `IsIrreducible` and `IsNonSegregated` stood
+# here as opaque stand-ins for admissibility constraints the Lean could not yet
+# prove. ADMISSIBILITY_SCOPE.md's instruction was "each should be RETIRED by a
+# theorem about the witness, not DEFINED into existence", and both forcing
+# lemmas turned out to exist already and to be sitting unused:
+#   Blocks.witness_not_segregated            a witness carrier is not segregated
+#   Ulam.central_countable_or_cocountable    cor:centre, the centre of L_1
+# They are now definitions with content in QuerySystem.Admissibility, and
+# `Admissibility.L_1_admissible` proves the witness carrier satisfies both, on
+# the standard axioms alone. Concreteness and sigma-completeness were discharged
+# on 2026-08-30 the same way. Nothing from the admissibility bundle is an axiom
+# any more.
 
 # --- The measurable-cardinal hypothesis --------------------------------------
 # An opaque Prop standing for "a measurable cardinal exists". Mathlib v4.29 has

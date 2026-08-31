@@ -29,6 +29,7 @@ submodules -- building this index builds the library.
 -/
 
 import QuerySystem.AJNoExtension
+import QuerySystem.Admissibility
 import QuerySystem.AndersenJessen
 import QuerySystem.BandClosure
 import QuerySystem.BoundaryDescent

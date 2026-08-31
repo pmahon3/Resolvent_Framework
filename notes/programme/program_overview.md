@@ -22,9 +22,9 @@ bash   formalization/QuerySystem/blueprint/axiomcheck.sh
 
 ### The blueprint is the current map
 
-**186 declarations across 7 chapters. 183 closed on the standard axioms
-alone** (`propext`, `Classical.choice`, `Quot.sound`), **3 resting on cited
-axioms**, 0 uncited. Zero sorries. Coverage baseline 17.
+**200 declarations across 7 chapters. 194 closed on the standard axioms
+alone** (`propext`, `Classical.choice`, `Quot.sound`), **6 resting on cited
+axioms**, 0 uncited. Zero sorries. Coverage baseline 16.
 Published: https://pmahon3.github.io/Resolvent_Framework/
 
 ⚠ **Correction to the 2026-08-25 text this replaces**, which said the blueprint
@@ -93,7 +93,7 @@ deleted outright.
 
 ### The DAG is still two components
 
-**87 and 69 nodes**, splitting cleanly between chapter 4 and chapter 5, no
+**87 and 75 nodes**, splitting cleanly between chapter 4 and chapter 5, no
 chapter straddling the boundary. Component 1 is query systems → extension
 theorem → Andersen–Jessen → delay → pruning; component 2 is Boolean→orthomodular
 → the σ-essential witness. This is the split `HANDOFF_split_2026-08-26.md`
@@ -186,11 +186,38 @@ an explicit hypothesis — the discipline `LowerBound`, `UpperBound` and
 statements instead of hidden in a citation. Library axioms 17 → 16.
 
 **The Polish conjunct of admissibility is therefore conditional, not
-established.** `prop:adm` is at 4 of 6 unconditionally (concrete, σ-complete,
-¬InterClosed, non-segregated), with Polish conditional on `DWPolishCut` and
-`IsIrreducible` still an opaque axiom. Discharging the cut — proving it, or
-finding a real source for the two-valued form — is mathematics, and is now the
-most concrete owed item on the σ-essential side.
+established.** Discharging the cut — proving it, or finding a real source for
+the two-valued form — is mathematics, and is the most concrete owed item on the
+σ-essential side.
+
+### Admissibility: both opaque axioms retired
+
+`ADMISSIBILITY_SCOPE.md` said each admissibility axiom "should be RETIRED by a
+theorem about the witness, not DEFINED into existence", and listed the forcing
+lemmas needed. **Both had since been proved and were sitting unused** —
+`Blocks.witness_not_segregated` and `Ulam.central_countable_or_cocountable`
+(`cor:centre`). The open core sits below the modules they live in, which is why
+the bundle was stuck as axioms.
+
+The bundle now lives in `QuerySystem.Admissibility`, above both, with content:
+
+* `EssentiallyIrreducible d` — every central element is countable or
+  co-countable, the sense `psi_ZFC` is stated in;
+* `NonSegregated d` — the negation of `Blocks.SegregatedStructural`;
+* `Admissible d` — those two. Four of the original six conjuncts do not
+  constrain: concreteness and σ-completeness hold of every σ-class, and
+  ¬InterClosed and ¬Polish are *forced* by the witness they are conjoined to.
+
+**`L₁_admissible` — the witness carrier is admissible, both conjuncts proved,
+standard axioms only. And `targetA_sharp_ZFC`: the sharp Exit-A target is
+inhabited in ZFC by the ω₁ witness**, where before it was a named conjecture.
+That closes the Ψ-fidelity gap the note describes — `Psi` now provably holds on
+a carrier that provably has essential irreducibility.
+
+`L₁_six_conjuncts` records all six for `L₁` with the conditional one visible, so
+the trim cannot flatter the result: five hold outright, Polish needs the cut.
+
+Library axioms 16 → 14. Nothing from the admissibility bundle is an axiom.
 
 This is the standing hazard once more, in its fourth costume: not a false
 statement, not a vacuous one, but a *faithfully-formalized statement of

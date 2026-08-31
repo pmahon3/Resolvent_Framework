@@ -271,33 +271,12 @@ def IsSigmaCompleteCarrier {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
   ∀ {f : ℕ → Set Ω}, Pairwise (Function.onFun Disjoint f) →
     (∀ i, d.Has (f i)) → d.Has (⋃ i, f i)
 
-/-- Abstract carrier predicates for the two admissibility constraints that are
-genuinely not yet Lean-proved. Opaque Props — we do NOT unfold them and do NOT
-give them truth values; they stand for the paper-level forcing lemmas. The other
-two constraints, concreteness and σ-completeness, are the defs above and hold of
-every carrier. -/
-axiom IsIrreducible {Ω : Type*} (d : DynkinSystem Ω) : Prop
-axiom IsNonSegregated {Ω : Type*} (d : DynkinSystem Ω) : Prop
-
-/-- **The admissible carrier class 𝒜 (definition).** All six boundary-map constraints.
-Two conjuncts (`¬InterClosed`, `¬PolishRepresentable`) are forced by proved
-theorems on any witness; the other four are the opaque paper-level predicates above. -/
-def Admissible {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
-  IsConcreteCarrier d ∧ IsSigmaCompleteCarrier d ∧ IsIrreducible d ∧
-    IsNonSegregated d ∧ ¬ InterClosed d ∧ ¬ PolishRepresentable d
-
-/-- **The sharp Exit-A target (named conjecture).** A witness on an ADMISSIBLE carrier.
-This is the precise object Exit A must construct. Open; never assumed. -/
-def TargetA_sharp : Prop :=
-  ∃ (Ω : Type) (d : DynkinSystem Ω) (B : Block d) (s₀ : LocalState d B),
-    Admissible d ∧ IsSigmaEssential s₀
-
-/-- **Sharp ⟹ Exit A (proved).** The sharp target entails `TargetA`: dropping the
-admissibility data leaves a witness. (The CONVERSE — every witness is admissible — needs
-the four paper-level forcing lemmas and is NOT proved here; that is the visible gap.) -/
-theorem targetA_sharp_gives_targetA (h : TargetA_sharp) : TargetA := by
-  obtain ⟨Ω, d, B, s₀, _, hw⟩ := h
-  exact ⟨Ω, d, B, s₀, hw⟩
+/-! The admissible carrier class lived here as six conjuncts, two of them
+opaque axioms. Both have since been retired against forcing lemmas that now
+exist -- `Blocks.witness_not_segregated` and `Ulam.central_countable_or_cocountable`
+-- and the bundle moved to `QuerySystem.Admissibility`, which sits above the
+modules those lemmas live in. This module could not see them: it is imported
+by both. -/
 
 /-! ## §8. The σ-orthocompletion gap: abstract is free, concrete is Wall A (bounds §3s)
 
@@ -442,40 +421,6 @@ theorem isConcreteCarrier {Ω : Type*} (d : DynkinSystem Ω) : IsConcreteCarrier
 theorem isSigmaCompleteCarrier {Ω : Type*} (d : DynkinSystem Ω) :
     IsSigmaCompleteCarrier d :=
   fun hdisj hf => d.has_iUnion_nat hdisj hf
-
-/-! ### How much of `Admissible` is a constraint?
-
-Six conjuncts, and on a carrier that already carries a witness only two of them
-say anything. Concreteness and σ-completeness hold of every `DynkinSystem`
-(`isConcreteCarrier`, `isSigmaCompleteCarrier`); non-intersection-closure is
-*forced* by the witness (`witness_not_intersection_closed`); and
-non-Polish-representability is forced too, granting the cut. So four of the six
-are automatic or implied, and what `Admissible` actually adds to
-`IsSigmaEssential` is `IsIrreducible ∧ IsNonSegregated` — two opaque predicates
-with no definition and no truth value. -/
-theorem admissible_iff_of_witness {Ω : Type u} {d : DynkinSystem Ω} {B : Block d}
-    (s₀ : LocalState d B) (hw : IsSigmaEssential s₀) (hcut : DWPolishCut.{u}) :
-    Admissible d ↔ (IsIrreducible d ∧ IsNonSegregated d) := by
-  constructor
-  · rintro ⟨-, -, h3, h4, -, -⟩
-    exact ⟨h3, h4⟩
-  · rintro ⟨h3, h4⟩
-    exact ⟨isConcreteCarrier d, isSigmaCompleteCarrier d, h3, h4,
-      witness_not_intersection_closed s₀ hw, witness_not_polish hcut s₀ hw⟩
-
-/-- **So the sharp target collapses.** Granting the cut, `TargetA_sharp` says no
-more than "a witness on a carrier satisfying two undefined predicates". The
-admissibility bundle is not currently cutting the search space down; it is
-naming it. -/
-theorem targetA_sharp_iff (hcut : DWPolishCut.{0}) :
-    TargetA_sharp ↔ ∃ (Ω : Type) (d : DynkinSystem Ω) (B : Block d)
-      (s₀ : LocalState d B), (IsIrreducible d ∧ IsNonSegregated d) ∧
-        IsSigmaEssential s₀ := by
-  constructor
-  · rintro ⟨Ω, d, B, s₀, hadm, hw⟩
-    exact ⟨Ω, d, B, s₀, (admissible_iff_of_witness s₀ hw hcut).mp hadm, hw⟩
-  · rintro ⟨Ω, d, B, s₀, hpair, hw⟩
-    exact ⟨Ω, d, B, s₀, (admissible_iff_of_witness s₀ hw hcut).mpr hpair, hw⟩
 
 #print axioms isConcreteCarrier
 #print axioms isSigmaCompleteCarrier

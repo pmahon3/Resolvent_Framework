@@ -158,7 +158,6 @@ SigmaEssential.Admissibility.TargetA_sharp
 SigmaEssential.Admissibility.L₁_essentiallyIrreducible
 SigmaEssential.Admissibility.L₁_admissible
 SigmaEssential.Admissibility.targetA_sharp_ZFC
-SigmaEssential.Admissibility.L₁_six_conjuncts
 SigmaEssential.Admissibility.Irreducible
 SigmaEssential.Admissibility.descentBlock_central
 SigmaEssential.Admissibility.descentClass_not_irreducible

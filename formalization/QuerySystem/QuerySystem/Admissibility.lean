@@ -119,13 +119,16 @@ theorem targetA_sharp_ZFC : TargetA_sharp :=
   ⟨Ulam.M₁ × Fin 4, Ulam.L₁, Ulam.coreBlock Ulam.U₁, Ulam.s₀,
     L₁_admissible, Ulam.product_ulam_witness_ZFC⟩
 
-/-! ## §4. The full six conjuncts, with nothing hidden by the trim
+/-! ## §4. The full six conjuncts — a receipt, not a result
 
-`Admissible` above keeps only the two conjuncts that constrain. That is a
-redefinition, and a redefinition can flatter a result, so the original six are
-recorded here for `L₁` with the one clause that is *not* unconditional carried
-as a hypothesis. Five hold outright; non-Polish-representability needs the cut,
-which is open (`OpenCore.DWPolishCut`). -/
+`Admissible` above keeps only the two conjuncts that constrain, and a
+redefinition can flatter a result, so the original six are recorded for `L₁`
+below with the one non-unconditional clause carried as a hypothesis. This is
+deliberately NOT in the blueprint: every conjunct is separately established
+there, so as a node it would be a conjunction of existing results — an index
+entry rather than a theorem. It earns its place here instead, where its
+`#print axioms` receipt is the thing worth having: it shows the
+`PolishRepresentable` dependency that the trimmed `Admissible` does not carry. -/
 
 /-- **All six original admissibility conjuncts for `L₁`.** Concreteness and
 σ-completeness are automatic, essential irreducibility is `cor:centre`,

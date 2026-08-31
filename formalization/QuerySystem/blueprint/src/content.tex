@@ -1855,6 +1855,65 @@ Polish-representable carrier.
   $\sigma$-additive two-valued state extending the pattern and the pattern is
   not $\sigma$-essential.
 \end{proof}
+\begin{theorem}[One block iff Boolean]
+  \label{thm:one-block-iff-boolean}
+  \uses{def:interclosed, def:sigma-class, lem:boolean-no-witness}
+  \lean{SigmaEssential.Blocks.interClosed_iff_maxBlock_unique,
+        SigmaEssential.Blocks.no_witness_of_maxBlock_unique}
+  \leanok
+  A carrier has a unique maximal block if and only if it is intersection-closed.
+  Hence $\Phi$ holds on one-block carriers.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:interclosed}
+  If every pair is compatible the whole carrier is a compatible family, and
+  maximality forces each maximal block to be all of it. Conversely each
+  singleton $\{A\}$ extends to a maximal block, uniqueness puts $A$ and $B$ in
+  the same one, and members of a block are compatible. The $\Phi$ half is then
+  \ref{lem:boolean-no-witness}.
+\end{proof}
+\begin{lemma}[Concentration on a countable partition]
+  \label{lem:concentration-partition}
+  \uses{def:two-valued-state, def:sigma-class}
+  \lean{SigmaEssential.Blocks.existsUnique_part_of_countable_partition}
+  \leanok
+  If the carrier contains a countable partition of $\Omega$, every
+  $\sigma$-additive two-valued state is true on exactly one part.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  Existence is $\sigma$-additivity applied to the partition, whose union is
+  $\Omega$; uniqueness is two-valuedness on a disjoint pair.
+\end{proof}
+
+\begin{theorem}[Countable carriers with singletons are point-determined]
+  \label{thm:countable-point-determined}
+  \uses{lem:concentration-partition, thm:localization}
+  \lean{SigmaEssential.Blocks.isDiracOn_of_countable_singletons,
+        SigmaEssential.Blocks.witness_iff_kernel_of_countable_singletons}
+  \leanok
+  If $\Omega$ is countable and every singleton lies in the carrier, then every
+  $\sigma$-additive two-valued state agrees on the carrier with a point
+  evaluation. Consequently a pattern there is a witness exactly when it is
+  finitely coherent with empty kernel: clause (ii) of \ref{thm:localization} is
+  vacuous, and the whole question is clause (i).
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:localization}
+  The singletons partition $\Omega$ into a countable pairwise disjoint family
+  inside the carrier, so $\sigma$-additivity places the state's mass on one of
+  them, at $\omega$ say; monotonicity and complement-additivity then give
+  $s(A) = 1 \iff \omega \in A$ for every carrier set. For the consequence: any
+  $\sigma$-additive state extending the pattern agrees with $\delta_\omega$ on
+  the block, so $\delta_\omega$ extends it too and $\omega$ lies in the kernel.
+\end{proof}
+
+
 
 
 

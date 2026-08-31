@@ -1828,6 +1828,38 @@ The hypothesis is therefore carried explicitly in the Lean.
 $L_1$ carries a witness (\ref{thm:psi-zfc}), and the cut forbids a witness on a
 Polish-representable carrier.
 \end{proof}
+\begin{theorem}[The Polish cut is clause (i), not extra leverage]
+  \label{thm:polish-cut-reduced}
+  \uses{lem:carrier-not-polish, thm:localization, def:sigma-essential}
+  \lean{SigmaEssential.Conjectures.PolishKernel,
+        SigmaEssential.Conjectures.polishCut_iff_polishKernel}
+  \leanok
+  Granting that Polish-representability forces every $\sigma$-additive
+  two-valued state to be a point evaluation, the cut of
+  \ref{lem:carrier-not-polish} is \emph{equivalent} to clause (i) restricted to
+  Polish carriers: every finitely coherent pattern there has a nonempty kernel.
+
+  So the cut is not an independent constraint. It is Wall A on a subclass, and
+  discharging it is as hard as the open core it was being used to constrain.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:localization}
+  \ref{thm:localization} splits a witness into (0) coherence, (i) empty kernel
+  and (ii) no non-Dirac $\sigma$-state extending. If every $\sigma$-additive
+  two-valued state is a point evaluation then clause (ii) holds vacuously, so
+  being a witness is exactly (0) $\wedge$ (i), and "no witness" is exactly
+  "coherent $\Rightarrow$ kernel nonempty".
+
+  The vacuity is the point, and it runs against the cut rather than for it: a
+  clause satisfied by the absence of the objects it would obstruct makes a
+  witness easier to have, not harder. This is the same non-sequitur already
+  certified for the lower bound, where "no measurable $\Rightarrow$ Dirac-only
+  $\Rightarrow \neg\Psi$" was refuted for exactly this reason. The mechanism one
+  reaches for to prove the cut therefore cannot prove it.
+\end{proof}
+
 
 \begin{lemma}[The witness carrier is not a lattice]
 \label{lem:witness-not-lattice}

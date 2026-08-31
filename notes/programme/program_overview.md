@@ -226,10 +226,16 @@ demands a citation; it cannot check that the citation supports the claim.
 
 ### Owed
 
-* Discharge `OpenCore.DWPolishCut` — prove it, or find a real source for the
-  two-valued form. The axiom that overstated DW Thm D.6 is gone; the cut it
-  asserted is now an open conjecture, and `carrier_not_polish` is conditional on
-  it. This is the last conditional clause in `L₁_six_conjuncts`.
+* `OpenCore.DWPolishCut` — **located, not discharged, and it turns out not to be
+  worth much.** `Conjectures.polishCut_iff_polishKernel`: granting that
+  Polish-representability forces Dirac-onlyness, the cut is *equivalent* to
+  clause (i) on Polish carriers. So it is Wall A on a subclass, not an
+  independent constraint, and discharging it is as hard as the open core it was
+  helping to constrain. Worse for the obvious route: `diracOnly_gives_wallA`
+  makes clause (ii) vacuous, which pushes TOWARD a witness — the same
+  non-sequitur already refuted for the lower bound on 2026-06-26. The mechanism
+  one reaches for cannot prove the cut. `carrier_not_polish` stays conditional,
+  and the Polish conjunct is no longer a promising target.
 * `frontier_map.md`, `shovel_plan.md`, `taxonomies_index.json` remain stale
   from 2026-08-04.
 ## The Central Question

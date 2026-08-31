@@ -289,4 +289,54 @@ theorem costume_discriminator :
     (IsSigmaEssential s₀ → ¬ InterClosed d) :=
   ⟨fun hc => costume_kills_witness hc s₀, witness_not_intersection_closed s₀⟩
 
+/-! ## The Polish cut, located
+
+`OpenCore.DWPolishCut` cannot be proved as stated -- `PolishRepresentable` is an
+opaque predicate, so nothing is derivable about it. It can be *located*, and
+locating it is the useful outcome.
+
+The mechanism one reaches for is: a Polish carrier's Borel structure is countably
+generated and separates points, so every σ-additive two-valued state is a point
+evaluation -- `DiracOnly`. **That mechanism does not give the cut; it pushes the
+other way.** `diracOnly_gives_wallA` certifies that `DiracOnly` makes clause (ii)
+hold VACUOUSLY, and a clause satisfied by the absence of the objects it would
+obstruct makes a witness EASIER to have, not harder.
+
+This is the same non-sequitur already certified for the lower bound. The LB
+mechanism "no measurable ⟹ Dirac-only ⟹ ¬Ψ" was refuted on 2026-06-26 for
+exactly this reason (`OpenCore` §3). The Polish route repeats it.
+
+What survives is a reduction, and it is sharp: granting the mechanism's premise,
+the cut is EQUIVALENT to clause (i) on Polish carriers -- every finitely coherent
+pattern there has a point. That is Wall A restricted, not a separate fact. So the
+cut is not extra leverage over the open core; it is the open core, and
+`carrier_not_polish` is conditional on something as hard as what it was helping
+to establish. -/
+
+universe u
+
+/-- **Clause (i), restricted to Polish-representable carriers.** -/
+def PolishKernel : Prop :=
+  ∀ {Ω : Type u} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B),
+    OpenCore.PolishRepresentable d → FinitelyCoherent s₀ → kernel s₀ ≠ ∅
+
+/-- **The Polish cut IS clause (i) on Polish carriers**, granting the mechanism's
+premise that Polish-representability forces Dirac-onlyness. The hypothesis is
+passed explicitly: it is the step the Derr--Williamson citation was doing duty
+for, and it is not proved here either. -/
+theorem polishCut_iff_polishKernel
+    (hPD : ∀ {Ω : Type u} {d : DynkinSystem Ω},
+      OpenCore.PolishRepresentable d → DiracOnly d) :
+    OpenCore.DWPolishCut.{u} ↔ PolishKernel.{u} := by
+  constructor
+  · intro hcut Ω d B s₀ hp hcoh he
+    exact hcut s₀ hp
+      ((treeIncidence_witness_is_degenerate (hPD hp) s₀).mpr ⟨hcoh, he⟩)
+  · intro hk Ω d B s₀ hp hw
+    obtain ⟨hcoh, he⟩ := (treeIncidence_witness_is_degenerate (hPD hp) s₀).mp hw
+    exact hk s₀ hp hcoh he
+
+#print axioms polishCut_iff_polishKernel
+
+
 end SigmaEssential.Conjectures

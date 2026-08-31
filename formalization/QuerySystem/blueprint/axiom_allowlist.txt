@@ -50,19 +50,52 @@ QuerySystem.blockVal_pWitness	Navara, PAMS 115 (1992) p. 428 -- block-values of 
 QuerySystem.aWitness	Navara, PAMS 115 (1992) p. 428 -- the orthogonal family a_n = a|C_n
 QuerySystem.blockVal_aWitness	Navara, PAMS 115 (1992) p. 428 -- block-values of a_n
 
-# --- The Derr-Williamson Polish cut ------------------------------------------
-# D. Derr and R. Williamson (2023), Thm D.6, via Maharam: on a
-# Polish-representable carrier every finitely-coherent pattern globalises, so no
-# sigma-essential witness lives there. `PolishRepresentable` is the abstract
-# carrier predicate the theorem is stated over; it is deliberately not unfolded.
+# --- The Derr-Williamson Polish cut -- DISPUTED, see below --------------------
+# The axiom `dw_polish_no_witness` claims: on a Polish-representable carrier
+# every finitely-coherent pattern globalises, so no sigma-essential witness lives
+# there, citing Derr-Williamson (2023) Thm D.6 via Maharam. `PolishRepresentable`
+# is the abstract carrier predicate it is stated over, deliberately not unfolded.
+# That claim is recorded here as the repo's, NOT as the source's.
 #
 # ENTERED 2026-08-26 because `carrier_not_polish` is the first BLUEPRINT node to
 # depend on this axiom -- it has been in the library since the open core was
-# written, but nothing blueprinted consumed it, so the gate never saw it. The
-# citation is the repo's own (SigmaEssentialOpenCore.lean, section 5); it has NOT
-# been re-checked against the primary source in this session.
-SigmaEssential.OpenCore.PolishRepresentable	Derr-Williamson 2023 Thm D.6 -- abstract carrier predicate, not unfolded
-SigmaEssential.OpenCore.dw_polish_no_witness	Derr-Williamson 2023 Thm D.6 (via Maharam) -- Polish-representable implies no witness
+# written, but nothing blueprinted consumed it, so the gate never saw it.
+#
+# ⚠ CHECKED AGAINST THE PRIMARY SOURCE 2026-08-31, AND IT DOES NOT SAY THIS.
+# The paper is Derr and Williamson, "Systems of Precision: Coherent Probabilities
+# on Pre-Dynkin-Systems and Coherent Previsions on Linear Subspaces",
+# arXiv:2302.03522 (2023). Theorem D.6 reads:
+#
+#   Let F be the Borel sigma-algebra on a Polish space Omega and D a
+#   Dynkin-system contained in this sigma-algebra such that sigma(D) = F. Let mu
+#   be a countably additive probability on D. For each sigma-block A_i of D we
+#   assume that mu_i := mu|A_i is inner regular. The probability mu is
+#   sigma-extendable IF AND ONLY IF [a gamble inequality] for all finite families
+#   of measurable simple gambles.
+#
+# Maharam checks out -- the proof runs through Thm 8.1 of Maharam (1972). What
+# does not check out is the shape. Four gaps between D.6 and the axiom below:
+#
+#   1. D.6 is a NECESSARY AND SUFFICIENT CRITERION, not an unconditional
+#      implication. "Polish-representable implies extendable" is nowhere in the
+#      paper; the gamble condition is not shown to hold automatically.
+#   2. D.6 takes a COUNTABLY ADDITIVE probability on D as input. A
+#      sigma-essential witness is only FINITELY coherent, so it does not satisfy
+#      D.6's hypothesis in the first place.
+#   3. D.6 assumes sigma(D) = F and inner regularity of every block restriction.
+#      The axiom drops both.
+#   4. D.6 is about real-valued probabilities; the witness question is about
+#      two-valued states.
+#
+# The axiom is therefore STRONGER than the result it cites, and this entry is not
+# an assertion that it states that result faithfully. It is left in place, and
+# labelled, rather than deleted: `witness_not_polish` and `carrier_not_polish`
+# rest on it, and whether the gap can be closed -- by weakening the axiom to D.6's
+# actual hypotheses, or by finding the real source for the two-valued claim -- is
+# a mathematical question, not a bookkeeping one. Do not treat `carrier_not_polish`
+# as established until it is resolved.
+SigmaEssential.OpenCore.PolishRepresentable	Derr-Williamson 2023 (arXiv:2302.03522) Thm D.6 -- abstract carrier predicate, not unfolded
+SigmaEssential.OpenCore.dw_polish_no_witness	(!) OVERSTATES ITS SOURCE -- DW 2023 Thm D.6 is an iff-criterion for countably additive probabilities, not "Polish implies no witness"; see the note above
 
 # --- Kochen-Specker ----------------------------------------------------------
 # S. Kochen and E. P. Specker, "The problem of hidden variables in quantum
@@ -74,8 +107,15 @@ SigmaEssential.OpenCore.dw_polish_no_witness	Derr-Williamson 2023 Thm D.6 (via M
 # stand-in "since Mathlib has no orthomodular lattice class", and in that form it
 # was FALSE -- `vdr_boolean` in the same file refutes it, and `False` was
 # derivable. It is now stated over `QuerySystem.OrthomodularLattice`, which this
-# repo defines. The RESTATEMENT was checked; the primary source was NOT re-read
-# in that session, and the statement is taken from standard textbook accounts.
+# repo defines.
+#
+# CHECKED 2026-08-31 against standard references (nLab, "Kochen-Specker theorem",
+# and the bibliographic record): the citation data is right -- J. Math. Mech.
+# 17(1), 59-87, 1967 -- and the theorem is standardly stated as "there is no
+# two-valued measure (equivalently, no dispersion-free state) on the lattice of
+# closed subspaces of a Hilbert space of dimension >= 3", with states themselves
+# supplied by Gleason. That is the shape asserted below. The 1967 paper itself
+# was not obtained, so this is a secondary-source check, not a primary one.
 KochenSpecker_witness	Kochen-Specker 1967, J. Math. Mech. 17, 59-87 -- an OML with states but no dispersion-free state
 
 # --- Opaque paper-level predicates (kind (b)) --------------------------------

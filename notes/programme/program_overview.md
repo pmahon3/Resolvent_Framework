@@ -1,6 +1,6 @@
 # Structure from Observation — Programme Overview
 
-## STATE AS OF 2026-08-25 (read this first)
+## STATE AS OF 2026-08-31 (read this first)
 
 This document below the fold was last revised **2026-08-04** and much of it is
 now out of date on the formalization side. The sections on the central
@@ -9,63 +9,99 @@ question, the three papers, and the frontier structure remain accurate as
 section, this section wins. `frontier_map.md`, `shovel_plan.md` and
 `taxonomies_index.json` are stale from the same date.
 
-**Ground truth for what is proved is now the Lean development plus its four CI
+**Ground truth for what is proved is the Lean development plus its five CI
 gates**, not this file. Run them; they cannot be argued with:
 
 ```
 python formalization/tools/prover/sorries.py --max 0
 bash   formalization/QuerySystem/blueprint/checkdecls.sh
 python formalization/QuerySystem/blueprint/coverage.py
+python formalization/QuerySystem/blueprint/structure.py
 bash   formalization/QuerySystem/blueprint/axiomcheck.sh
 ```
 
 ### The blueprint is the current map
 
-104 declarations across 7 chapters, **all resting on standard axioms only**
-(`propext`, `Classical.choice`, `Quot.sound`) — no repo-local axiom anywhere in
-it. Zero sorries. Published: https://pmahon3.github.io/Resolvent_Framework/
+**186 declarations across 7 chapters. 183 closed on the standard axioms
+alone** (`propext`, `Classical.choice`, `Quot.sound`), **3 resting on cited
+axioms**, 0 uncited. Zero sorries. Coverage baseline 17.
+Published: https://pmahon3.github.io/Resolvent_Framework/
 
-`axiomcheck.sh` is new (2026-08-24) and closes a real hole: the other three
-gates cannot see an `axiom`. A node could sit under a `\leanok` proof block,
-pass everything, and rest on an unproved stub — `slab0_not_mem` did exactly
-that until it turned out to be provable from machinery already present.
+⚠ **Correction to the 2026-08-25 text this replaces**, which said the blueprint
+rested on standard axioms only with no repo-local axiom anywhere in it. That
+stopped being true when the Navara ladder was blueprinted. The three cited
+nodes are `def:navara-l2` and `thm:star-infinite` (Navara's eleven axioms) and
+`lem:carrier-not-polish` (Derr–Williamson's two).
 
-### What changed since 2026-08-04
+The gate count went 4 → 5 on 2026-08-30/31, and the two new checks exist
+because things had already got past the old four:
 
-**Andersen–Jessen is kernel-checked** (`ASM.AJ_no_extension_unconditional`).
-The claim that the `UpperDirected` form of `stone_observational_extension` is
-FALSE no longer rests on a hand check against the 1948 source. Both halves are
-closed: H1 machine-checked the hypothesis match (`EvalSurjective`), and the
-trace-measure / projective-system layer — the thing `rmk:aj-remaining` had
-flagged as missing since the chapter was written — is built. Mathlib could not
-supply the trace measure (`Measure.comap` returns junk on a thick set with
-thick complement), so it is constructed directly.
+* `axiomcheck.sh` now also **censuses the environment**: every `axiom` declared
+  in a `QuerySystem.*` module must be on the citation-keyed allowlist, reached
+  from a blueprint node or not. It previously followed axioms only *outward
+  from* nodes, and `KochenSpecker_witness` sat in `Commensurability.lean` — a
+  module with no blueprint nodes — for months. It was **FALSE**: `False` was
+  derivable from it in ten lines. 17 library axioms, all now cited.
+* `structure.py` reads the blueprint **as a document**, which nothing did.
+  Claim nodes with no proof block, `\uses`/`\ref` naming labels that do not
+  exist, duplicate labels, macros that lost their backslash. All five checks at
+  zero; each was verified by injecting the defect and watching the gate fail.
 
-**Delay embeddings land on the wrong side of the hypothesis.** The delay query
-system is upper-directed and **not** sequentially upper-directed
-(`not_seqUpperDirected`). So the gap the AJ counterexample opens is reached by
-an ordinary object, not only by a construction built to break things, and the
-extension theorem's honest scope is the bounded fixed-lag subsystem. Recorded
-alongside it: Paper 1 states its extension theorem at a scope its own
-hypothesis does not reach (its Def. 3.3 is the finite-subfamily property, which
-is plain upper-directedness).
+### What changed since 2026-08-25
 
-**σ-essential.** `slab0_not_mem` proved — §3 Normal Form was already
-formalized, so the paper's Cor 4.1 runs in the kernel and
-`witness_carrier_not_lattice` is no longer proved-modulo-a-citation.
-`prop:adm` is at **5 of 6** conjuncts: `witness_not_intersection_closed`,
-`witness_not_polish`, `witness_not_segregated` (new), plus concrete and
-σ-complete discharged as structural-by-definition. `IsIrreducible` remains an
-axiom.
+**MO₂ is concrete.** `mo2Class` realizes MO₂ as a `DynkinSystem` on four
+points — the horizontal sum of two Boolean blocks — with an order/orthocomplement
+isomorphism to the abstract `MO2`. Before this the MO₂/Navara chapter was a
+disconnected 16-node island joined to the rest only by prose. Components went
+3 → 2.
 
-**The one open item with a proof idea.** `cor:centre` is half done: the code
-analysis is in the kernel (`central_all_traces` — all four traces of a central
-set are countably equal to a single ξ). What remains is ξ-triviality (ξ ≈ ∅ or
-ξ ≈ M), which does NOT follow from the invariant. `row_conull` is the lever:
-with countable initial segments each row covers M up to a countable set, so one
-row's cells partition a conull set. Closing this closes the Ψ-fidelity gap —
-`Psi` still does not carry essential irreducibility as a hypothesis, so
-it is strictly weaker than the paper's Ψ.
+**Four points are necessary, not just sufficient.** A σ-class failing
+intersection-closure has all four Venn cells of the offending pair inhabited,
+each forced by a different Dynkin closure property, so every σ-class on ≤ 3
+points is a σ-algebra (`interClosed_of_card_le_three`). `mo2Class` is therefore
+minimal, not merely an example.
+
+**The descent witness is built, not cited.** `ConcreteDescent.descentClass` —
+countably many disjoint copies of the four-point space — is a concrete,
+σ-complete, non-Boolean carrier realizing `(⋆)` against an infinite orthogonal
+family, on the standard axioms. This does **not** discharge the Navara axioms:
+it is a direct sum of blocks and so is surely not essentially irreducible,
+which is very likely why the (β)-construction exists. `thm:star-infinite`
+claims no irreducibility, so for the statement *as written* the citation is now
+optional; whether the eleven axioms should go is a question about what `L₂` is
+for, and it has not been answered.
+
+**`L₁`'s non-Booleanness is intrinsic.** `carrier_not_orderIso_measurableSpace`:
+no order isomorphism exists between `L₁`'s carrier and the measurable sets of
+any σ-algebra, on any space. `carrier_not_interClosed` says the carrier *as
+presented* is not intersection-closed, which a change of presentation could in
+principle repair; this says none can. The hypothesis is non-latticehood, not
+non-intersection-closure.
+
+**Admissibility.** Concreteness and σ-completeness were opaque `axiom`s beside
+proved defs of the same content; they are now the proved defs
+(`IsConcreteCarrier`, `IsSigmaCompleteCarrier`) and `Admissible` uses those.
+`IsIrreducible` and `IsNonSegregated` remain opaque axioms — genuinely open as
+forcing lemmas.
+
+**Minimization.** Seven axioms removed, so **24 → 17** by the census, which is
+the authoritative count; the source-regex scan used before the census existed
+undercounted by one throughout (it never saw `QuerySystem.L2.instOML`).
+Definitions 260 → 257, with zero dead definitions and zero alias bodies
+remaining. Node prose 70.5K → 50.1K characters, five pure-commentary nodes
+deleted outright.
+
+### The DAG is still two components
+
+**87 and 69 nodes**, splitting cleanly between chapter 4 and chapter 5, no
+chapter straddling the boundary. Component 1 is query systems → extension
+theorem → Andersen–Jessen → delay → pruning; component 2 is Boolean→orthomodular
+→ the σ-essential witness. This is the split `HANDOFF_split_2026-08-26.md`
+targets. One attempt to close it was written and withdrawn as an arbitrary
+bolt-on (`blueprint_dag_connectivity.md` amendment 4(b)); the bar that note
+sets — *a theorem in which the two lanes constrain each other, not one whose
+statement merely mentions both* — is still unmet, and nothing added since
+clears it. Everything built in this period landed inside component 2.
 
 ### Where the accurate detail lives
 
@@ -78,29 +114,85 @@ The per-thread notes are current; this file's lower sections are not.
 | AJ trace-measure layer | `notes/open_questions/aj_tower/SCOPE_trace_projective_layer.md` |
 | delay chapter + predictive gaps | `notes/open_questions/delay_embedding/PLAN_delay_chapter.md` |
 | blueprint DAG connectivity | `notes/programme/blueprint_dag_connectivity.md` |
+| the two-component split | `HANDOFF_split_2026-08-26.md` |
 | owed human checks | `notes/programme/human_worklist_2026-08-23.md` |
 
 ### The frontier, restated
 
-The theory front is unchanged and still **Φ**: does every concrete,
-σ-complete, non-Boolean, essentially irreducible OML have each finite trace of
-each finitely additive two-valued state reproduced by a σ-additive one?
-Conjectured yes, which would mean no lattice witness. Nothing proved since
-2026-08-04 bears on it either way — the work has been closing the gap between
-what the papers claim and what the kernel certifies, not advancing Φ.
+Unchanged and still **Φ**: does every concrete, σ-complete, non-Boolean,
+essentially irreducible OML have each finite trace of each finitely additive
+two-valued state reproduced by a σ-additive one? Conjectured yes, which would
+mean no lattice witness.
+
+**Nothing proved since 2026-08-04 bears on it either way.** The work has been
+closing the gap between what the papers claim and what the kernel certifies.
+Against `shovel_plan.md`'s four theorems: #1 (pruning + Theorem B) is done, with
+one recorded non-load-bearing gap; #2 *is* Φ and is untouched; #3
+(positive-selection to a consistency bound) and #4 (a first exact slice of the
+Φ-characterization) are untouched. The corpus is now considerably tidier than
+it is advanced.
 
 ### The standing hazard
 
-Four times this week a statement compiled cleanly and proved nothing, each
-caught by reading a source rather than by a gate: a vacuous existentially-bound
-lemma; a "concreteness" predicate true of every `DynkinSystem` that would have
-turned a conjunct of a named conjecture into `True`; a `full` field needing an
-undischargeable measurability hypothesis; and a predictive-sufficiency gloss
-that is not the source's definition. **A clean axiom receipt does not tell you
-the statement is the intended one.**
+Statements that compile cleanly and prove nothing, each caught by reading
+rather than by a gate. The 2026-08-25 list had four. Three more since:
 
----
+* `KochenSpecker_witness` — **false**, and `False` derivable from it. Stated
+  over `BooleanAlgebra` as a stand-in "since Mathlib has no orthomodular
+  lattice class", while `vdr_boolean` thirty lines above refutes it. Restated
+  over the repo's own `OrthomodularLattice`, which did not exist when the file
+  was written.
+* `flow_decomposition` — **vacuous**. Its conclusion
+  `∃ ι, ∃ Fintype ι, ∃ (f : ι → SimpleCycleFlow), True` is proved by
+  `⟨Empty, inferInstance, Empty.elim, trivial⟩`; nothing said the circulation
+  *equals* the sum. It advertised Ahuja–Magnanti–Orlin Thm 3.5 and encoded no
+  part of it.
+* `AbstractSigmaOrtho` — a predicate whose companion axiom asserted it held of
+  every carrier, i.e. constantly `True`, spending two axioms to say nothing.
 
+**A clean axiom receipt does not tell you the statement is the intended one**,
+and the new gates do not change that. The census catches an *uncited* axiom and
+`structure.py` catches blueprint defects, but **vacuity is not mechanically
+detectable** — had `flow_decomposition` been cited, it would pass all five
+gates today. Treat "does this statement have content?" as a required review
+step for every new `axiom` and every node whose conclusion is existential.
+
+### ⚠ `dw_polish_no_witness` overstates its source
+
+Both cited axioms were checked on 2026-08-31. Kochen–Specker is fine (secondary
+sources; the 1967 paper itself was not obtained). Derr–Williamson is not.
+
+The source is Derr and Williamson, *Systems of Precision: Coherent Probabilities
+on Pre-Dynkin-Systems and Coherent Previsions on Linear Subspaces*,
+arXiv:2302.03522. **Theorem D.6 is a necessary-and-sufficient criterion, not the
+unconditional implication the axiom asserts**: for a Polish Ω, a Dynkin system
+`D` with σ(D) = F, and a *countably additive* μ on `D` whose block restrictions
+are inner regular, μ is σ-extendable **iff** a gamble inequality holds. Maharam
+checks out (the proof runs through Maharam 1972, Thm 8.1). Four gaps:
+
+1. it is an iff-criterion; "Polish ⟹ extendable" is nowhere in the paper;
+2. its input is a *countably additive* probability, while a witness pattern is
+   only *finitely* coherent, so D.6's hypothesis is not met by the object;
+3. σ(D) = F and block inner regularity are dropped by the axiom;
+4. D.6 concerns real-valued probabilities, the witness question two-valued
+   states.
+
+`witness_not_polish` and `carrier_not_polish` rest on this, so **do not treat
+the Polish conjunct of admissibility as established.** The allowlist entry is
+labelled accordingly. Resolving it — weaken the axiom to D.6's actual
+hypotheses, or find the real source for the two-valued claim — is mathematics,
+not bookkeeping, and is now the most concrete owed item on the σ-essential side.
+
+This is the standing hazard once more, in its fourth costume: not a false
+statement, not a vacuous one, but a *faithfully-formalized statement of
+something the cited theorem does not say*. No gate can see it. The allowlist
+demands a citation; it cannot check that the citation supports the claim.
+
+### Owed
+
+* Resolve `dw_polish_no_witness` (above).
+* `frontier_map.md`, `shovel_plan.md`, `taxonomies_index.json` remain stale
+  from 2026-08-04.
 ## The Central Question
 
 When an observer makes structured observations of a system — querying it at

@@ -60,7 +60,6 @@ delayObservableAlgebra
 observableAlgebra_eq_comap
 density_bridge
 reconstruction_iff_lpMeas
-delay_reconstruction_iff
 orbitStream
 delayEval_orbitStream
 delayQueryAlgebra_eq_delayObservableAlgebra

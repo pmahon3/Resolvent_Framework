@@ -83,10 +83,9 @@ query $\bigvee_n Q_n$ is itself a query.
 \lean{QuerySystem.EvalSurjective}
 \leanok
 \uses{def:omega}
-Every evaluation $\mathrm{eval}_i : \Omega \to \mathrm{Outcome}_i$ is
+  Every evaluation $\mathrm{eval}_i : \Omega \to \mathrm{Outcome}_i$ is
 surjective: each local outcome extends to a coherent global realization. It
-gives $\mathrm{Cyl}_k E_1 = \mathrm{Cyl}_k E_2 \Rightarrow E_1 = E_2$, which
-the well-definedness and additivity of the cylinder content require.
+gives $\mathrm{Cyl}_k E_1 = \mathrm{Cyl}_k E_2 \Rightarrow E_1 = E_2$.
 \end{definition}
 
 \section{Main Results}
@@ -359,9 +358,8 @@ cover of a clopen has a finite subcover); apply Carath\'eodory.
 \lean{QuerySystem.EscapingTower}
 \leanok
 \uses{def:cylinder, def:ncc}
-A decreasing sequence of cylinder events, each of full charge, with empty
-intersection. In Andersen--Jessen these are the diagonal cylinders over a
-decreasing sequence of thick sets.
+  A decreasing sequence of cylinder events, each of full charge, with empty
+intersection.
 \end{definition}
 
 \begin{theorem}[No extension over an escaping tower]
@@ -455,8 +453,8 @@ of $A$ follows by monotonicity.
 \lean{AndersenJessen.V_unique}
 \leanok
 \uses{def:aj-A}
-$V$, a set of coset representatives for $\mathbb{R}/A$, has the only property the
-argument uses: two representatives congruent mod $A$ are equal.
+  $V$, a set of coset representatives for $\mathbb{R}/A$: two representatives
+congruent mod $A$ are equal.
 \end{lemma}
 
 \begin{proof}
@@ -510,12 +508,10 @@ eventually falls out of every tail.
 \label{def:thick-for}
 \lean{ThickTrace.ThickFor}
 \leanok
-$X$ is \emph{thick for} $\mu$ when every measurable set disjoint from $X$ is
-$\mu$-null. The base is arbitrary rather than Lebesgue so that the total mass is
-finite: the marginals need mass $1$ and $\lambda(\mathbb{R}) = \infty$, while
-$X_k \cap [0,1]$ is not thick in $\mathbb{R}$. Restricting the \emph{ambient}
-measure to $\mathrm{Icc}\,0\,1$ leaves the levels exactly as
-\ref{thm:aj-tower} builds them.
+  $X$ is \emph{thick for} $\mu$ when every measurable set disjoint from $X$ is
+$\mu$-null. The base is arbitrary rather than Lebesgue because the marginals
+need mass $1$ and $\lambda(\mathbb{R}) = \infty$, while $X_k \cap [0,1]$ is not
+thick in $\mathbb{R}$.
 \end{definition}
 
 \begin{theorem}[The trace measure on a thick set]
@@ -640,9 +636,8 @@ bound $i \leq n$ at $n = i$.
 \lean{Diagonal.pi_inter_diag_eq_empty}
 \leanok
 \uses{lem:diag-inter}
-If $\bigcap_k Y_k = \emptyset$ then $\Pi'(Y) \cap \bigcap_n D_n = \emptyset$,
-generically in $Y$. Applied to the thick tower $Y_k = X_k$ of
-\ref{thm:aj-tower}.
+  If $\bigcap_k Y_k = \emptyset$ then $\Pi'(Y) \cap \bigcap_n D_n = \emptyset$,
+generically in $Y$.
 \end{theorem}
 
 \begin{proof}
@@ -891,19 +886,6 @@ generate the same $\sigma$-algebra.
   \ref{thm:density-bridge} supplying density.
 \end{proof}
 
-\begin{theorem}[Reconstruction for the delay algebra]
-  \label{thm:delay-reconstruction}
-  \uses{thm:reconstruction, def:observable-algebra}
-  \lean{delay_reconstruction_iff}
-  \leanok
-  \ref{thm:reconstruction} instantiated at the delay observable algebra.
-\end{theorem}
-
-\begin{proof}
-  \leanok
-  \uses{thm:reconstruction}
-  Direct instantiation.
-\end{proof}
 \subsection{The join}
 
 \begin{definition}[The observation stream of a state]
@@ -1335,9 +1317,6 @@ $a_n = a|_{C_n}$. None of the eleven mentions $(\star)$.
   \leanok
   For Navara's witness $p$ and every $n$ in the countable orthogonal family,
   \[ p \sqcap a_n = \bot \quad\text{and}\quad p \not\le a_n^{\perp}. \]
-  So $L_2$ is a concrete, $\sigma$-orthocomplete, non-Boolean orthomodular
-  lattice in which one element is meet-zero against an infinite orthogonal
-  family while orthogonal to no member of it.
 \end{theorem}
 
 \begin{proof}
@@ -1953,7 +1932,7 @@ weight forces the fourth. Equal traces force equal codes, since
 $\kappa_a \neq \kappa_b$ would make $\xi \approx \xi^{c}$ and $M$ countable.
 \end{proof}
 
-\begin{theorem}[$\xi$-triviality, the paper's $[E] \in \{0,1\}$]
+\begin{theorem}[$\xi$-triviality, the paper's ${[E]} \in \{0,1\}$]
 \label{thm:xi-trivial}
 \uses{thm:central-traces, def:central, thm:normal-form}
 \lean{SigmaEssential.Ulam.central_xi_trivial}

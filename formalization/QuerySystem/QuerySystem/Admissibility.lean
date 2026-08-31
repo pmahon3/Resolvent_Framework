@@ -6,6 +6,7 @@ Authors: Patrick S. Mahon
 import QuerySystem.SigmaEssentialOpenCore
 import QuerySystem.ConcreteOMLPatterns
 import QuerySystem.UlamWitnessLatticeGap
+import QuerySystem.ConcreteDescent
 
 /-!
 # Admissibility, with the axioms retired
@@ -140,6 +141,86 @@ theorem L₁_six_conjuncts (hcut : OpenCore.DWPolishCut.{0}) :
     Ulam.carrier_not_interClosed,
     Ulam.carrier_not_polish hcut⟩
 
+
+/-! ## §5. Irreducibility proper, and why the descent carrier fails it
+
+`EssentiallyIrreducible` is triviality of the centre *modulo the countable
+ideal*. On an uncountable carrier that is a real condition — it is what
+`cor:centre` establishes for `L₁`. On a COUNTABLE carrier it is vacuous, because
+every subset is countable, and a predicate satisfied for that reason is
+satisfied for no reason at all. So the plain notion is recorded alongside it,
+and the two are kept apart. -/
+
+/-- **Irreducibility proper.** The centre is trivial. Strictly stronger than
+`EssentiallyIrreducible`, and not satisfied by `L₁` — every countable set is
+central there, which is exactly why the programme works modulo the countable
+ideal. -/
+def Irreducible (d : DynkinSystem Ω) : Prop :=
+  ∀ E, Centre d E → E = ∅ ∨ E = Set.univ
+
+/-- Block `n` of the concrete descent carrier. -/
+def descentBlock (n : ℕ) : Set QuerySystem.ConcreteDescent.Blk := {q | q.1 = n}
+
+theorem descentBlock_mem (n : ℕ) :
+    QuerySystem.ConcreteDescent.descentClass.Has (descentBlock n) := by
+  intro m
+  by_cases h : m = n
+  · subst h
+    have : QuerySystem.ConcreteDescent.fibre (descentBlock m) m = Set.univ := by
+      ext x; simp [QuerySystem.ConcreteDescent.fibre, descentBlock]
+    rw [this]; exact QuerySystem.ConcreteMO2.fam_univ
+  · have : QuerySystem.ConcreteDescent.fibre (descentBlock n) m = ∅ := by
+      ext x; simp [QuerySystem.ConcreteDescent.fibre, descentBlock, h]
+    rw [this]; exact QuerySystem.ConcreteMO2.fam_empty
+
+/-- **Every block is central.** Meeting a carrier element with a whole block
+keeps every fibre inside `mo2Class` — it is that fibre, or empty. -/
+theorem descentBlock_central (n : ℕ) :
+    Centre QuerySystem.ConcreteDescent.descentClass (descentBlock n) := by
+  refine ⟨descentBlock_mem n, fun A hA m => ?_⟩
+  by_cases h : m = n
+  · subst h
+    have : QuerySystem.ConcreteDescent.fibre (descentBlock m ∩ A) m
+        = QuerySystem.ConcreteDescent.fibre A m := by
+      ext x; simp [QuerySystem.ConcreteDescent.fibre, descentBlock]
+    rw [this]; exact hA m
+  · have : QuerySystem.ConcreteDescent.fibre (descentBlock n ∩ A) m = ∅ := by
+      ext x; simp [QuerySystem.ConcreteDescent.fibre, descentBlock, h]
+    rw [this]; exact QuerySystem.ConcreteMO2.fam_empty
+
+/-- **So the concrete descent carrier is NOT irreducible.** Block `0` is central
+and is neither empty nor everything: the carrier is a direct sum of blocks, and
+its centre is one element per subset of `ℕ`. -/
+theorem descentClass_not_irreducible :
+    ¬ Irreducible QuerySystem.ConcreteDescent.descentClass := by
+  intro h
+  rcases h _ (descentBlock_central 0) with he | hu
+  · have : ((0, (true, true)) : QuerySystem.ConcreteDescent.Blk) ∈ descentBlock 0 := rfl
+    rw [he] at this; exact this
+  · have : ((1, (true, true)) : QuerySystem.ConcreteDescent.Blk) ∈ descentBlock 0 := by
+      rw [hu]; trivial
+    exact absurd this (by simp [descentBlock])
+
+/-- **And `EssentiallyIrreducible` does not see that**, because the carrier is
+countable and every subset of a countable type is countable. The predicate holds
+VACUOUSLY here and is evidence of nothing. -/
+theorem descentClass_essentiallyIrreducible_vacuously :
+    EssentiallyIrreducible QuerySystem.ConcreteDescent.descentClass :=
+  fun E _ => Or.inl (Set.to_countable E)
+
+
+/-- **The vacuity does not reach `L₁`.** Its carrier is uncountable, so
+"countable or co-countable" is a real dichotomy there and
+`L₁_essentiallyIrreducible` has content. This is the guard on
+`L₁_admissible`: the same predicate is satisfied by `descentClass` for no
+reason at all. -/
+theorem L₁_carrier_uncountable :
+    ¬ (Set.univ : Set (Ulam.M₁ × Fin 4)).Countable := by
+  intro h
+  refine Ulam.M₁_uncountable ?_
+  have himg := h.image Prod.fst
+  rwa [Set.image_univ_of_surjective (fun m => ⟨(m, 0), rfl⟩)] at himg
+
 /-! ## Receipts -/
 
 #print axioms L₁_essentiallyIrreducible
@@ -147,6 +228,9 @@ theorem L₁_six_conjuncts (hcut : OpenCore.DWPolishCut.{0}) :
 #print axioms L₁_admissible
 #print axioms targetA_sharp_ZFC
 #print axioms L₁_six_conjuncts
+#print axioms L₁_carrier_uncountable
+#print axioms descentClass_not_irreducible
+#print axioms descentClass_essentiallyIrreducible_vacuously
 
 end Admissibility
 end SigmaEssential

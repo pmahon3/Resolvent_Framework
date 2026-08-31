@@ -2037,6 +2037,43 @@ and co-countable traces a co-countable one.
   fifth is \ref{lem:carrier-not-boolean}, and the sixth is
   \ref{lem:carrier-not-polish}.
 \end{proof}
+\begin{definition}[Irreducibility proper]
+  \label{def:irreducible}
+  \uses{def:essentially-irreducible}
+  \lean{SigmaEssential.Admissibility.Irreducible}
+  \leanok
+  The centre is trivial: every central element is $\emptyset$ or $\Omega$.
+  Strictly stronger than \ref{def:essentially-irreducible}, and \emph{not}
+  satisfied by $L_1$ --- every countable set is central there, which is why the
+  programme works modulo the countable ideal.
+\end{definition}
+
+\begin{theorem}[The concrete descent carrier is reducible]
+  \label{thm:descent-not-irreducible}
+  \uses{def:irreducible, def:concrete-descent}
+  \lean{SigmaEssential.Admissibility.descentBlock_central,
+        SigmaEssential.Admissibility.descentClass_not_irreducible,
+        SigmaEssential.Admissibility.descentClass_essentiallyIrreducible_vacuously}
+  \leanok
+  Every block of \ref{def:concrete-descent} is central, so the centre has one
+  element per subset of $\mathbb{N}$ and the carrier is not irreducible.
+
+  It nonetheless satisfies \ref{def:essentially-irreducible}, and for no reason:
+  the carrier is countable, so every subset is countable and the dichotomy is
+  vacuous. On $L_1$ it is not
+  (\texttt{L\_1\_carrier\_uncountable}), which is what gives
+  \ref{thm:l1-admissible} its content.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:concrete-descent}
+  Meeting a carrier element with a whole block leaves each fibre either that
+  fibre or empty, both in the four-point carrier, so blocks are central. Block
+  $0$ is neither empty nor everything. Vacuity of the essential form is
+  countability of $\mathbb{N} \times \{0,1\}^{2}$.
+\end{proof}
+
 
 
 \begin{definition}[$\Psi_{\mathrm{OML}}$ --- the lattice form]

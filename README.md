@@ -1,4 +1,4 @@
-# Structure from Observation
+# Structure and Observation
 
 ## Status (2026-07-10)
 

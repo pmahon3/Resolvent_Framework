@@ -1874,6 +1874,30 @@ Polish-representable carrier.
   the same one, and members of a block are compatible. The $\Phi$ half is then
   \ref{lem:boolean-no-witness}.
 \end{proof}
+\begin{theorem}[Countable carriers with singletons are point-determined]
+  \label{thm:countable-point-determined}
+  \uses{def:two-valued-state, def:sigma-class, thm:localization}
+  \lean{SigmaEssential.Blocks.isDiracOn_of_countable_singletons,
+        SigmaEssential.Blocks.witness_iff_kernel_of_countable_singletons}
+  \leanok
+  If $\Omega$ is countable and every singleton lies in the carrier, then every
+  $\sigma$-additive two-valued state agrees on the carrier with a point
+  evaluation. Consequently a pattern there is a witness exactly when it is
+  finitely coherent with empty kernel: clause (ii) of \ref{thm:localization} is
+  vacuous, and the whole question is clause (i).
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:localization}
+  The singletons partition $\Omega$ into a countable pairwise disjoint family
+  inside the carrier, so $\sigma$-additivity places the state's mass on one of
+  them, at $\omega$ say; monotonicity and complement-additivity then give
+  $s(A) = 1 \iff \omega \in A$ for every carrier set. For the consequence: any
+  $\sigma$-additive state extending the pattern agrees with $\delta_\omega$ on
+  the block, so $\delta_\omega$ extends it too and $\omega$ lies in the kernel.
+\end{proof}
+
 
 
 

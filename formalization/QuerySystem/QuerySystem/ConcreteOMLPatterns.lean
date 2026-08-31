@@ -744,6 +744,108 @@ theorem no_witness_of_maxBlock_unique {B : Block d} (s₀ : LocalState d B)
 #print axioms interClosed_iff_maxBlock_unique
 #print axioms no_witness_of_maxBlock_unique
 
+/-! ## Countable carriers with singletons: clause (ii) is vacuous
 
+`witness_carrier_infinite` says a witness carrier is infinite. This sharpens the
+next case. If the carrier contains every singleton and `Ω` is countable, then
+`Ω` is partitioned by singletons into a countable disjoint family inside the
+carrier, and σ-additivity puts the state's mass on one of them. So every
+σ-additive two-valued state agrees with a point evaluation *on the carrier*, and
+a witness there can only come from clause (i). -/
+
+/-- **Point-determination.** On a countable carrier containing every singleton,
+every σ-additive two-valued state agrees on the carrier with some point
+evaluation. This is `IsDiracOn`, not `IsDirac`: agreement off the carrier is not
+claimed and is not available. -/
+theorem isDiracOn_of_countable_singletons [Countable Ω]
+    (hsing : ∀ ω : Ω, d.Has ({ω} : Set Ω)) (s : TwoValuedState d) :
+    ∃ ω : Ω, ∀ A : Set Ω, d.Has A → (s.Val A ↔ ω ∈ A) := by
+  classical
+  obtain ⟨e, he⟩ := Countable.exists_injective_nat Ω
+  set f : ℕ → Set Ω := fun n => e ⁻¹' {n} with hfdef
+  have hdisj : Pairwise (Disjoint on f) := by
+    intro i j hij
+    rw [Function.onFun, Set.disjoint_left]
+    intro x hx hx'
+    exact hij (((Set.mem_preimage.mp hx).symm).trans (Set.mem_preimage.mp hx'))
+  have hmem : ∀ n, d.Has (f n) := by
+    intro n
+    by_cases h : ∃ ω : Ω, e ω = n
+    · obtain ⟨ω, hω⟩ := h
+      have : f n = ({ω} : Set Ω) := by
+        ext y
+        simp only [hfdef, Set.mem_preimage, Set.mem_singleton_iff]
+        exact ⟨fun hy => he (hy.trans hω.symm), fun hy => by rw [hy]; exact hω⟩
+      rw [this]; exact hsing ω
+    · have : f n = (∅ : Set Ω) := by
+        ext y
+        simp only [hfdef, Set.mem_preimage, Set.mem_singleton_iff,
+          Set.mem_empty_iff_false, iff_false]
+        exact fun hy => h ⟨y, hy⟩
+      rw [this]; exact d.has_empty
+  have huniv : (⋃ n, f n) = (Set.univ : Set Ω) := by
+    ext x
+    simp only [Set.mem_iUnion, Set.mem_univ, iff_true]
+    exact ⟨e x, rfl⟩
+  have hiU := s.val_iUnion hdisj hmem
+  rw [huniv] at hiU
+  obtain ⟨n, hn⟩ := hiU.mp s.val_univ
+  obtain ⟨ω, hω⟩ : (f n).Nonempty := by
+    rcases Set.eq_empty_or_nonempty (f n) with h0 | h
+    · rw [h0] at hn; exact absurd hn s.not_val_empty
+    · exact h
+  have hfω : f n = ({ω} : Set Ω) := by
+    ext y
+    simp only [hfdef, Set.mem_preimage, Set.mem_singleton_iff]
+    exact ⟨fun hy => he (hy.trans (Set.mem_preimage.mp hω).symm),
+      fun hy => by rw [hy]; exact hω⟩
+  rw [hfω] at hn
+  refine ⟨ω, fun A hA => ⟨fun hval => ?_, fun hmemA => ?_⟩⟩
+  · by_contra hnot
+    have hsub : ({ω} : Set Ω) ⊆ Aᶜ := by
+      intro y hy; rw [Set.mem_singleton_iff] at hy; rw [hy]; exact hnot
+    exact ((s.val_compl hA).mp (s.val_mono (hsing ω) (d.has_compl hA) hsub hn)) hval
+  · exact s.val_mono (hsing ω) hA (by
+      intro y hy; rw [Set.mem_singleton_iff] at hy; rw [hy]; exact hmemA) hn
+
+
+
+
+
+/-- **So clause (ii) is vacuous there.** On a countable carrier containing every
+singleton, a pattern is a witness exactly when it is finitely coherent with empty
+kernel: the whole question is clause (i), because any σ-additive state extending
+it agrees on the block with a point evaluation, which would then populate the
+kernel. -/
+theorem witness_iff_kernel_of_countable_singletons [Countable Ω]
+    (hsing : ∀ ω : Ω, d.Has ({ω} : Set Ω)) {B : Block d} (s₀ : LocalState d B) :
+    IsSigmaEssential s₀ ↔ (FinitelyCoherent s₀ ∧ kernel s₀ = ∅) := by
+  constructor
+  · intro hw
+    exact ⟨hw.1, (no_dirac_extends_iff_kernel_empty s₀).mp
+      (fun ⟨ω, hω⟩ => hw.2 ⟨dirac ω, hω⟩)⟩
+  · rintro ⟨hcoh, hker⟩
+    refine ⟨hcoh, ?_⟩
+    rintro ⟨s, hs⟩
+    obtain ⟨ω, hω⟩ := isDiracOn_of_countable_singletons hsing s
+    refine (no_dirac_extends_iff_kernel_empty s₀).mpr hker ⟨ω, ?_⟩
+    intro A hA
+    exact ((hω A (B.mem_has A hA)).symm.trans (hs A hA))
+
+/-- **The witness carrier is uncountable, or has a missing singleton.** Contrapositive
+of the above together with `witness_carrier_infinite`: a genuine witness whose
+clause (ii) does any work cannot live on a countable carrier that contains all its
+points. `L₁` contains every singleton, so its carrier must be uncountable --- which
+is what `ω₁` supplies. -/
+theorem witness_uncountable_or_missing_singleton [Countable Ω] {B : Block d}
+    {s₀ : LocalState d B} (hw : IsSigmaEssential s₀) :
+    (∃ ω : Ω, ¬ d.Has ({ω} : Set Ω)) ∨ kernel s₀ = ∅ := by
+  by_cases h : ∃ ω : Ω, ¬ d.Has ({ω} : Set Ω)
+  · exact Or.inl h
+  · push_neg at h
+    exact Or.inr ((witness_iff_kernel_of_countable_singletons h s₀).mp hw).2
+
+#print axioms isDiracOn_of_countable_singletons
+#print axioms witness_iff_kernel_of_countable_singletons
 
 end SigmaEssential.Blocks

@@ -25,11 +25,20 @@ on:
   workflow_dispatch:
 
 # The rendered blueprint is published to GitHub Pages from `main` (see the
-# `deploy` job). Pages allows one concurrent deployment; queue rather than
-# cancel, so a run that already passed the gates still publishes.
-concurrency:
-  group: pages
-  cancel-in-progress: false
+# `deploy` job). Pages allows one concurrent deployment, so deploys must
+# serialize -- but the constraint belongs on THAT job, not on the workflow.
+#
+# It was workflow-level until 2026-08-30, with the constant group `pages`. That
+# is one slot shared by every run of this workflow: push, pull_request and
+# workflow_dispatch, on every branch. With cancel-in-progress false GitHub keeps
+# a single PENDING run per group and cancels the older one when another queues,
+# so a merge to main whose deploy queued next to a branch or PR run lost the
+# slot and was cancelled before it ran. That is what happened to f7aeafd: the
+# PR run landed at 23:30:31, the main push run at 23:30:38, and the push run --
+# the one carrying the deploy -- was cancelled 27 seconds later. The blueprint
+# went stale until someone re-ran it by hand.
+#
+# Scoped to the deploy job, build runs never contend and only deploys queue.
 
 jobs:
   build:
@@ -163,6 +172,9 @@ jobs:
     if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write

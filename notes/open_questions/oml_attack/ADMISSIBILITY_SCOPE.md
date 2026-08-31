@@ -256,3 +256,48 @@ countable partition of a conull set — which is the kind of statement a
 NOT yet the ξ-triviality lemma. What remains is to run the argument: relate
 `ξ ∩ C α n` across `n` and conclude `ξ ≈ ∅` or `ξ ≈ M`. The lever exists; the
 argument is not written.
+
+---
+
+## AMENDMENT 2026-08-31 — the recommended order is complete; this file is history
+
+Everything below the fold is answered. Recorded here rather than rewritten,
+because the reasoning trail is the useful part.
+
+**All three items of "Recommended order" are done**, and two of them had been
+done for some time without the axioms being retired against them:
+
+| item | status |
+|---|---|
+| 1. Non-segregated | `Blocks.witness_not_segregated` — was already proved |
+| 2. `cor:centre` | `Ulam.central_countable_or_cocountable` — was already proved |
+| 3. Concrete / σ-complete | discharged 2026-08-30 as proved defs |
+
+**The instruction this file gives was the right one and was followed.** "Each
+should be RETIRED by a theorem about the witness, not DEFINED into existence" —
+and the retirement is what happened: `QuerySystem.Admissibility` defines
+`EssentiallyIrreducible` (centre trivial mod the countable ideal) and
+`NonSegregated` (¬`SegregatedStructural`), and proves the witness carrier
+satisfies both. No admissibility axiom remains.
+
+**What this file got wrong, and it is worth naming.** §"The fidelity gap, stated
+correctly" says defining `IsIrreducible` "would not" close the gap, only proving
+`cor:centre` would. Both were needed: `cor:centre` is the mathematics, but with
+`IsIrreducible` left opaque there was nothing for `cor:centre` to discharge, and
+the bundle sat unconnected for a week after the mathematics was finished. The
+definition is not a substitute for the forcing lemma; it is what lets the
+forcing lemma land.
+
+**Why it stayed stuck:** the open core imports neither `ConcreteOMLPatterns` nor
+`UlamWitnessLatticeGap` — it sits below both — so it could not see either
+forcing lemma. That is an import-order fact, not a mathematical one, and it is
+why the bundle moved to a new module rather than being fixed in place.
+
+**Result beyond the retirement:** `targetA_sharp_ZFC`. The sharp Exit-A target,
+described here as "the precise object Exit A must construct", is inhabited in
+ZFC by the ω₁ witness.
+
+**Still open from this file's list:** nothing. The remaining conditional clause
+is non-Polish-representability, which is not one of the four predicates — it
+depends on `OpenCore.DWPolishCut`, an open conjecture since the Derr–Williamson
+citation was checked and found not to support it (2026-08-31).

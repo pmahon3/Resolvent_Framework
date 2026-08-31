@@ -81,8 +81,8 @@ non-intersection-closure.
 **Admissibility.** Concreteness and σ-completeness were opaque `axiom`s beside
 proved defs of the same content; they are now the proved defs
 (`IsConcreteCarrier`, `IsSigmaCompleteCarrier`) and `Admissible` uses those.
-`IsIrreducible` and `IsNonSegregated` remain opaque axioms — genuinely open as
-forcing lemmas.
+`IsIrreducible` and `IsNonSegregated` were opaque axioms until 2026-08-31 and
+are now retired — see the admissibility section below.
 
 **Minimization.** Seven axioms removed, so **24 → 17** by the census, which is
 the authoritative count; the source-regex scan used before the census existed
@@ -226,7 +226,10 @@ demands a citation; it cannot check that the citation supports the claim.
 
 ### Owed
 
-* Resolve `dw_polish_no_witness` (above).
+* Discharge `OpenCore.DWPolishCut` — prove it, or find a real source for the
+  two-valued form. The axiom that overstated DW Thm D.6 is gone; the cut it
+  asserted is now an open conjecture, and `carrier_not_polish` is conditional on
+  it. This is the last conditional clause in `L₁_six_conjuncts`.
 * `frontier_map.md`, `shovel_plan.md`, `taxonomies_index.json` remain stale
   from 2026-08-04.
 ## The Central Question

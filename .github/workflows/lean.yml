@@ -106,6 +106,20 @@ jobs:
       - name: blueprint coverage ratchet
         run: python formalization/QuerySystem/blueprint/coverage.py
 
+      # Every gate so far reads the LaTeX only to look OUTWARD from it --
+      # checkdecls resolves its \lean names, axiomcheck asks what those rest on,
+      # coverage asks which modules go unmentioned. None reads it as a document,
+      # so a defect confined to content.tex passes all of them. Three did:
+      # cor:concrete-mo2-not-interclosed had \leanok and no proof block at all
+      # (the graph showed it unproved, and only a human looking at the graph
+      # noticed); thm:mo2-gap's proof carried `ef{...}`, a \ref whose backslash
+      # was eaten by a non-raw Python string, rendering as literal text; and a
+      # \uses naming a label that does not exist drops a DAG edge in silence,
+      # which is worse than never writing it, because the picture still looks
+      # complete. Absolute, not ratcheted: all five checks pass at zero.
+      - name: blueprint source is internally consistent
+        run: python formalization/QuerySystem/blueprint/structure.py
+
       # The three gates above cannot see an `axiom`. `lake build` accepts one,
       # sorries.py counts no `sorry` in one, and checkdecls only asserts the
       # NAME resolves -- so a node can sit under a `\leanok` proof block, pass

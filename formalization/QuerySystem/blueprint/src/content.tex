@@ -1197,6 +1197,14 @@ which the pivot fails.
   $L$ is not intersection-closed.
 \end{corollary}
 
+\begin{proof}
+  \leanok
+  \uses{thm:concrete-mo2-poor, thm:concrete-mo2-iso}
+  $A$ and $B$ lie in $L$ (\ref{thm:concrete-mo2-iso}), so intersection-closure
+  would put $A \cap B$ in $L$ as well. By \ref{thm:concrete-mo2-poor} the only
+  member of $L$ inside $A \cap B$ is $\emptyset$, and $A \cap B$ is inhabited.
+\end{proof}
+
 \begin{theorem}[Four points are necessary, and $L$ attains the bound]
   \label{thm:interclosed-needs-four}
   \uses{def:interclosed, def:sigma-class, cor:concrete-mo2-not-interclosed}

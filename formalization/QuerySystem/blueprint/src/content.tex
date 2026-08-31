@@ -1855,6 +1855,26 @@ Polish-representable carrier.
   $\sigma$-additive two-valued state extending the pattern and the pattern is
   not $\sigma$-essential.
 \end{proof}
+\begin{theorem}[One block iff Boolean]
+  \label{thm:one-block-iff-boolean}
+  \uses{def:interclosed, def:sigma-class, lem:boolean-no-witness}
+  \lean{SigmaEssential.Blocks.interClosed_iff_maxBlock_unique,
+        SigmaEssential.Blocks.no_witness_of_maxBlock_unique}
+  \leanok
+  A carrier has a unique maximal block if and only if it is intersection-closed.
+  Hence $\Phi$ holds on one-block carriers.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:interclosed}
+  If every pair is compatible the whole carrier is a compatible family, and
+  maximality forces each maximal block to be all of it. Conversely each
+  singleton $\{A\}$ extends to a maximal block, uniqueness puts $A$ and $B$ in
+  the same one, and members of a block are compatible. The $\Phi$ half is then
+  \ref{lem:boolean-no-witness}.
+\end{proof}
+
 
 
 

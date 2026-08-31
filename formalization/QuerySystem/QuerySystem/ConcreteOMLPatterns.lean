@@ -703,5 +703,47 @@ theorem witness_carrier_infinite {B : Block d} {s₀ : LocalState d B}
 #print axioms no_witness_of_finite
 #print axioms witness_carrier_infinite
 
+/-! ## The bottom rung of the block-count axis
+
+`shovel_plan.md` #4 names "σ-classes with countably many blocks" as a candidate
+subclass. The bottom of that axis is exact and settles cleanly: having a single
+maximal block is not a weak form of Booleanness, it *is* Booleanness. -/
+
+/-- **One block iff Boolean.** A carrier has a unique maximal block exactly when
+it is intersection-closed. Forward: if every pair is compatible then the whole
+carrier is a compatible family, and maximality forces every maximal block to be
+all of it. Backward: each singleton `{A}` extends to a maximal block, uniqueness
+puts every `A` and `B` in the same one, and members of a block are compatible. -/
+theorem interClosed_iff_maxBlock_unique :
+    InterClosed d ↔ ∀ M M', IsMaxBlock d M → IsMaxBlock d M' → M = M' := by
+  constructor
+  · intro hIC M M' hM hM'
+    have hfam : IsCompatFamily d (Carrier d) :=
+      ⟨fun A hA => hA, fun A hA B hB _ => hIC hA hB⟩
+    have hMall : M = Carrier d :=
+      Set.Subset.antisymm (fun A hA => hM.has hA) (hM.2 hfam (fun A hA => hM.has hA))
+    have hM'all : M' = Carrier d :=
+      Set.Subset.antisymm (fun A hA => hM'.has hA) (hM'.2 hfam (fun A hA => hM'.has hA))
+    rw [hMall, hM'all]
+  · intro huniq A B hA hB
+    obtain ⟨MA, hAMA, hMA⟩ := exists_isMaxBlock_superset
+      (F := ({A} : Set (Set Ω))) ⟨fun _ hx => hx ▸ hA, by simp⟩
+    obtain ⟨MB, hBMB, hMB⟩ := exists_isMaxBlock_superset
+      (F := ({B} : Set (Set Ω))) ⟨fun _ hx => hx ▸ hB, by simp⟩
+    have : MA = MB := huniq MA MB hMA hMB
+    exact hMA.compat_mem (hAMA rfl) (this ▸ hBMB rfl)
+
+/-- **So Φ holds on one-block carriers**, by the Boolean baseline. The Φ
+consequence is not new -- it is `boolean_no_witness` reached by a different
+description -- but the characterization above is. -/
+theorem no_witness_of_maxBlock_unique {B : Block d} (s₀ : LocalState d B)
+    (huniq : ∀ M M', IsMaxBlock d M → IsMaxBlock d M' → M = M') :
+    ¬ IsSigmaEssential s₀ :=
+  boolean_no_witness (interClosed_iff_maxBlock_unique.mpr huniq) s₀
+
+#print axioms interClosed_iff_maxBlock_unique
+#print axioms no_witness_of_maxBlock_unique
+
+
 
 end SigmaEssential.Blocks

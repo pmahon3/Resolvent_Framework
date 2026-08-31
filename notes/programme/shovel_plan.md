@@ -417,3 +417,25 @@ it yields one small genuine observation (the finite gate and the Boolean gate
 are independent — `mo2Class` is finite and not intersection-closed). But #4 asks
 for a *nontrivial* subclass, and names its candidates: σ-classes with countably
 many blocks, quotient carriers. Neither has been attempted.
+
+**Correction 2026-08-31.** I claimed twice that `ConcreteDescent.descentClass`
+is a concrete inhabitant of #4's "σ-classes with countably many blocks"
+candidate. **It is not.** Two elements of `descentClass` are compatible iff at
+every fibre their fibres lie in a common block of `mo2Class`, and `mo2Class` has
+two blocks chosen independently per fibre — so a maximal block is one choice per
+fibre and there are `2^ℕ` of them. `descentClass` has continuum-many blocks,
+which is what "direct sum" means here, and is consistent with
+`descentClass_not_irreducible`.
+
+**What the block-count axis does give, at the bottom:**
+`Blocks.interClosed_iff_maxBlock_unique` — a carrier has a unique maximal block
+**iff** it is intersection-closed. So the one-block case is not a weak form of
+Booleanness, it *is* Booleanness, and Φ there is `boolean_no_witness` reached by
+another description. The characterization is new; its Φ consequence is not.
+
+**Still unattempted, and still the candidates:** countably many blocks (no
+inhabitant identified — `mo2Class` has 2, finite carriers finitely many, and the
+first infinite example anyone reaches for has continuum-many), and quotient
+carriers. The named criterion, `compact_transport`, already gives *sufficiency*
+for Φ — a countably compact class approximating on every block forces the
+σ-condition — so an exact slice would need the converse on some subclass.

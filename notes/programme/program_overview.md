@@ -22,9 +22,10 @@ bash   formalization/QuerySystem/blueprint/axiomcheck.sh
 
 ### The blueprint is the current map
 
-**200 declarations across 7 chapters. 194 closed on the standard axioms
-alone** (`propext`, `Classical.choice`, `Quot.sound`), **6 resting on cited
-axioms**, 0 uncited. Zero sorries. Coverage baseline 16.
+**213 declarations across 7 chapters. 206 closed on the standard axioms
+alone** (`propext`, `Classical.choice`, `Quot.sound`), **7 resting on cited
+axioms**, 0 uncited. Zero sorries. Coverage baseline 16. 106 claims, every
+one with a proof; 170 labels; 389 \`uses` edges.
 Published: https://pmahon3.github.io/Resolvent_Framework/
 
 ⚠ **Correction to the 2026-08-25 text this replaces**, which said the blueprint
@@ -93,7 +94,7 @@ deleted outright.
 
 ### The DAG is still two components
 
-**87 and 75 nodes**, splitting cleanly between chapter 4 and chapter 5, no
+**86 and 82 nodes**, splitting cleanly between chapter 4 and chapter 5, no
 chapter straddling the boundary. Component 1 is query systems → extension
 theorem → Andersen–Jessen → delay → pruning; component 2 is Boolean→orthomodular
 → the σ-essential witness. This is the split `HANDOFF_split_2026-08-26.md`
@@ -128,8 +129,9 @@ mean no lattice witness.
 closing the gap between what the papers claim and what the kernel certifies.
 Against `shovel_plan.md`'s four theorems: #1 (pruning + Theorem B) is done, with
 one recorded non-load-bearing gap; #2 *is* Φ and is untouched; #3
-(positive-selection to a consistency bound) and #4 (a first exact slice of the
-Φ-characterization) are untouched. The corpus is now considerably tidier than
+(positive-selection to a consistency bound) is untouched; #4 has its bottom rungs
+(finite, countable) but not its named candidates — countably-many-blocks has no
+identified inhabitant, and quotient carriers are untouched. The corpus is now considerably tidier than
 it is advanced.
 
 ### The standing hazard
@@ -223,6 +225,55 @@ This is the standing hazard once more, in its fourth costume: not a false
 statement, not a vacuous one, but a *faithfully-formalized statement of
 something the cited theorem does not say*. No gate can see it. The allowlist
 demands a citation; it cannot check that the citation supports the claim.
+
+### The size axis: why the witness needs ω₁
+
+The one place the mathematics moved rather than being tidied. Four rungs, all
+proved on the standard axioms:
+
+| carrier | what happens |
+|---|---|
+| finite | no witness at all — finite additivity **is** σ-additivity (`no_witness_of_finite`) |
+| countable, carrier contains a partition | every σ-state is true on exactly one part (`existsUnique_part_of_countable_partition`) |
+| countable **+ all singletons** | every σ-state is carrier-Dirac, so clause (ii) is **vacuous** (`isDiracOn_of_countable_singletons`) |
+| ω₁ | clause (ii) has content |
+
+The finite rung is not new — it is a gate the programme already applied, now
+machine-checked. The concentration rung is the general form of Navara–Pták's
+Thm 1 criterion. The third rung is new.
+
+**The inversion worth recording.** `thm:rigidity` spends an Ulam matrix and
+uncountability to conclude `IsDiracOn`. On countable carriers that conclusion is
+**free**. So ω₁ is not buying rigidity; rigidity is cheap when Ω is countable.
+What ω₁ buys is the other half — the ability to have coherence with empty kernel
+at all. The two halves of the construction trade off, and that had not been
+written down.
+
+**The escape route between rows 3 and 4 is withholding singletons**, which is
+exactly non-intersection-closure. Cross-checked against Navara–Pták's published
+Example: their carrier is countable and carries a *non-Dirac* σ-state, so by the
+third rung it must omit a singleton — and it does, because a singleton there is
+an intersection of two generators that the class does not contain.
+
+**Also on the block axis:** `interClosed_iff_maxBlock_unique` — a carrier has a
+unique maximal block **iff** it is intersection-closed. The bottom of that axis
+is Booleanness under another name. Its Φ consequence is `boolean_no_witness`
+reached by a different description; the characterization is what is new.
+
+### THE OPEN QUESTION THIS PRODUCED (hand this to the next session)
+
+`witness_iff_kernel_of_countable_singletons`: on a countable carrier containing
+all its singletons, **witness ⇔ finitely coherent with empty kernel**. So:
+
+> Is there a countable σ-class containing all its singletons, carrying a
+> finitely coherent pattern with empty kernel?
+
+* **Yes** ⇒ Ψ holds on a *countable* carrier, and the whole Ulam/ω₁ apparatus
+  was unnecessary.
+* **No** ⇒ shovel #4 gets a genuine exact slice: **Φ holds on every countable
+  carrier containing its singletons.**
+
+Phase 4 work. Well-posed, and cheaper to attack than anything else on the board.
 
 ### Owed
 

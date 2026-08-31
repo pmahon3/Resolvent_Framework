@@ -443,6 +443,40 @@ theorem isSigmaCompleteCarrier {Ω : Type*} (d : DynkinSystem Ω) :
     IsSigmaCompleteCarrier d :=
   fun hdisj hf => d.has_iUnion_nat hdisj hf
 
+/-! ### How much of `Admissible` is a constraint?
+
+Six conjuncts, and on a carrier that already carries a witness only two of them
+say anything. Concreteness and σ-completeness hold of every `DynkinSystem`
+(`isConcreteCarrier`, `isSigmaCompleteCarrier`); non-intersection-closure is
+*forced* by the witness (`witness_not_intersection_closed`); and
+non-Polish-representability is forced too, granting the cut. So four of the six
+are automatic or implied, and what `Admissible` actually adds to
+`IsSigmaEssential` is `IsIrreducible ∧ IsNonSegregated` — two opaque predicates
+with no definition and no truth value. -/
+theorem admissible_iff_of_witness {Ω : Type u} {d : DynkinSystem Ω} {B : Block d}
+    (s₀ : LocalState d B) (hw : IsSigmaEssential s₀) (hcut : DWPolishCut.{u}) :
+    Admissible d ↔ (IsIrreducible d ∧ IsNonSegregated d) := by
+  constructor
+  · rintro ⟨-, -, h3, h4, -, -⟩
+    exact ⟨h3, h4⟩
+  · rintro ⟨h3, h4⟩
+    exact ⟨isConcreteCarrier d, isSigmaCompleteCarrier d, h3, h4,
+      witness_not_intersection_closed s₀ hw, witness_not_polish hcut s₀ hw⟩
+
+/-- **So the sharp target collapses.** Granting the cut, `TargetA_sharp` says no
+more than "a witness on a carrier satisfying two undefined predicates". The
+admissibility bundle is not currently cutting the search space down; it is
+naming it. -/
+theorem targetA_sharp_iff (hcut : DWPolishCut.{0}) :
+    TargetA_sharp ↔ ∃ (Ω : Type) (d : DynkinSystem Ω) (B : Block d)
+      (s₀ : LocalState d B), (IsIrreducible d ∧ IsNonSegregated d) ∧
+        IsSigmaEssential s₀ := by
+  constructor
+  · rintro ⟨Ω, d, B, s₀, hadm, hw⟩
+    exact ⟨Ω, d, B, s₀, (admissible_iff_of_witness s₀ hw hcut).mp hadm, hw⟩
+  · rintro ⟨Ω, d, B, s₀, hpair, hw⟩
+    exact ⟨Ω, d, B, s₀, (admissible_iff_of_witness s₀ hw hcut).mpr hpair, hw⟩
+
 #print axioms isConcreteCarrier
 #print axioms isSigmaCompleteCarrier
 

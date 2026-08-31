@@ -176,6 +176,16 @@ theorem witness_carrier_not_lattice : ¬ MeetsExist L₁ := by
   intro hMeets
   exact meetsExist_fails_at_cores U₁ M₁_uncountable (hMeets (has_coreA U₁) (has_coreB U₁))
 
+/-- **`L₁` is not order-isomorphic to any σ-algebra.** Stronger than
+`carrier_not_interClosed`, and on a different hypothesis: that says the carrier
+as presented is not closed under intersection, which a change of presentation
+could in principle repair. This says no presentation can, because σ-algebras are
+lattices and `L₁` has no meet at the cores. Non-Booleanness is intrinsic to the
+witness carrier, not an artefact of how it is written down. -/
+theorem carrier_not_orderIso_measurableSpace {Ω' : Type*} {msp : MeasurableSpace Ω'}
+    (e : {S // L₁.Has S} ≃o {T : Set Ω' // @MeasurableSet Ω' msp T}) : False :=
+  witness_carrier_not_lattice (meetsExist_of_orderIso e)
+
 /-! ## The open boundary, named (never assumed) -/
 
 /-- **PsiOML — the OML form of the σ-essential question (OPEN).** Does a

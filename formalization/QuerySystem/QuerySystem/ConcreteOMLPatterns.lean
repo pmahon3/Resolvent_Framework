@@ -753,6 +753,22 @@ carrier, and σ-additivity puts the state's mass on one of them. So every
 σ-additive two-valued state agrees with a point evaluation *on the carrier*, and
 a witness there can only come from clause (i). -/
 
+/-- **Concentration on a countable partition.** If the carrier contains a
+countable partition of `Ω`, every σ-additive two-valued state is true on exactly
+one part. Existence is σ-additivity; uniqueness is two-valuedness on a disjoint
+pair. This is the mechanism behind the singleton case below, and the one
+Navara--Pt\'ak's concentration criterion uses. -/
+theorem existsUnique_part_of_countable_partition {f : ℕ → Set Ω}
+    (hdisj : Pairwise (Disjoint on f)) (hmem : ∀ n, d.Has (f n))
+    (hcov : (⋃ n, f n) = (Set.univ : Set Ω)) (s : TwoValuedState d) :
+    ∃! n, s.Val (f n) := by
+  have hiU := s.val_iUnion hdisj hmem
+  rw [hcov] at hiU
+  obtain ⟨n, hn⟩ := hiU.mp s.val_univ
+  refine ⟨n, hn, fun m hm => ?_⟩
+  by_contra hne
+  exact s.val_at_most_one (hmem m) (hmem n) (hdisj hne) hm hn
+
 /-- **Point-determination.** On a countable carrier containing every singleton,
 every σ-additive two-valued state agrees on the carrier with some point
 evaluation. This is `IsDiracOn`, not `IsDirac`: agreement off the carrier is not
@@ -787,9 +803,7 @@ theorem isDiracOn_of_countable_singletons [Countable Ω]
     ext x
     simp only [Set.mem_iUnion, Set.mem_univ, iff_true]
     exact ⟨e x, rfl⟩
-  have hiU := s.val_iUnion hdisj hmem
-  rw [huniv] at hiU
-  obtain ⟨n, hn⟩ := hiU.mp s.val_univ
+  obtain ⟨n, hn, -⟩ := existsUnique_part_of_countable_partition hdisj hmem huniv s
   obtain ⟨ω, hω⟩ : (f n).Nonempty := by
     rcases Set.eq_empty_or_nonempty (f n) with h0 | h
     · rw [h0] at hn; exact absurd hn s.not_val_empty

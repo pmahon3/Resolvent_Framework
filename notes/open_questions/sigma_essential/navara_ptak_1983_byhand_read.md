@@ -52,3 +52,29 @@ artifact. The `B∩C∩D=∅` device defeats DIRACS, but N–P then construct a 
 rescuer.** This is why clause (i) of the localization never suffices alone, and why all
 weight falls on clause (ii). (Navara is co-author ⟹ the concrete-σ-class machinery is
 exactly the Navara/Pták Prague school, already in the swept names — no hidden prior art.)
+
+---
+
+## Cross-check 2026-08-31 — a prediction of `isDiracOn_of_countable_singletons`
+
+`Blocks.isDiracOn_of_countable_singletons` proves: on a **countable** carrier
+containing **every singleton**, every σ-additive two-valued state agrees on the
+carrier with a point evaluation. `Blocks.existsUnique_part_of_countable_partition`
+is the mechanism, and it is this file's §"GIFT — Thm 1 concentration criterion"
+in general form: σ-additivity concentrates the state on exactly one part of any
+countable carrier partition.
+
+That yields a falsifiable prediction about the Example recorded above.
+N–P's carrier is `Q = ℚ² ∩ (0,1)²` — **countable** — and they construct on it a
+**non-Dirac** σ-additive two-valued state. By the theorem, their σ-class
+`A = ⟨A_f ∪ A_g⟩_σ` must therefore **fail to contain some singleton**.
+
+It does, and for the reason the whole programme turns on: a singleton
+`{(p,q)} = f⁻¹\{p\} ∩ g⁻¹\{q\}` is an *intersection* of two generators, and the
+σ-class is not intersection-closed. So the singletons are exactly what
+non-Booleanness withholds, and withholding them is what leaves room for the
+non-Dirac state.
+
+Consistent, and informative in both directions: the theorem explains why the
+published example had to be built on a non-intersection-closed class over a
+countable base, and the example shows the singleton hypothesis is not removable.

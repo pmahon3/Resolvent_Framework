@@ -1874,9 +1874,24 @@ Polish-representable carrier.
   the same one, and members of a block are compatible. The $\Phi$ half is then
   \ref{lem:boolean-no-witness}.
 \end{proof}
+\begin{lemma}[Concentration on a countable partition]
+  \label{lem:concentration-partition}
+  \uses{def:two-valued-state, def:sigma-class}
+  \lean{SigmaEssential.Blocks.existsUnique_part_of_countable_partition}
+  \leanok
+  If the carrier contains a countable partition of $\Omega$, every
+  $\sigma$-additive two-valued state is true on exactly one part.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  Existence is $\sigma$-additivity applied to the partition, whose union is
+  $\Omega$; uniqueness is two-valuedness on a disjoint pair.
+\end{proof}
+
 \begin{theorem}[Countable carriers with singletons are point-determined]
   \label{thm:countable-point-determined}
-  \uses{def:two-valued-state, def:sigma-class, thm:localization}
+  \uses{lem:concentration-partition, thm:localization}
   \lean{SigmaEssential.Blocks.isDiracOn_of_countable_singletons,
         SigmaEssential.Blocks.witness_iff_kernel_of_countable_singletons}
   \leanok

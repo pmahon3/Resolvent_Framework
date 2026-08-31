@@ -1076,37 +1076,46 @@ search space is larger than this file says, and the one previously-swept corner
 with the right object type is open. That is a better position than "located with
 no entering tool", because the Polish regime is where tools actually exist.
 
-### Follow-up 2026-08-31 — two named candidate sources for the two-valued form
+### Follow-up 2026-08-31 — CORRECTED: both "leads" were already read, and neither helps
 
-The reopened corner was searched, cheaply, for what DW D.6 was standing in for.
-Two papers are the right object class. **Neither was obtained; bibliographic data
-is confirmed from multiple secondary sources, contents are NOT read.** Treat both
-as leads, not as results, and do not cite either until someone reads it.
+An earlier version of this section, written the same day, named Navara–Pták 1983
+and De Simone–Navara–Pták 2015 as unread leads and said of the first: "This, not
+Derr–Williamson, is the plausible home of the claim `dw_polish_no_witness` was
+making." **Both statements were wrong.** Both papers are in
+`notes/literature_review/literature/`, both have primary-source reads in this
+repo, and I found them by searching the web before searching the shelf.
 
-1. **M. Navara and P. Pták, "Two-valued measures on σ-classes", Časopis pro
-   pěstování matematiky 108 (1983) 225–229.** Indexed in DML-CZ (open access;
-   the direct handle was not located in this pass). This is *exactly* the
-   object — two-valued measures on σ-classes, which is the repo's setting
-   verbatim — by the same Navara whose (β)-construction is already cited, and
-   the "Navara–Pták intersection device" is already used in `thm:localization`.
-   If a Polish/standard-Borel two-valued extendability statement exists
-   anywhere, this is the first place to look. **This, not Derr–Williamson, is
-   the plausible home of the claim `dw_polish_no_witness` was making.**
+* **Navara & Pták 1983, "Two-valued measures on σ-classes"** — read by hand
+  2026-06-26, `navara_ptak_1983_byhand_read.md`. Verdict: **BORDERS the cell,
+  does NOT inhabit it.** It solves Gudder's integration problem
+  (∫(f+g)=∫f+∫g for two-valued measures on a σ-class), not the extension
+  question. It contains no Polish/standard-Borel statement, so it is **not** the
+  home of the DW claim. Nothing there rescues `DWPolishCut`.
+* **De Simone, Navara & Pták 2015** — primary source in hand 2026-08-23,
+  `oml_attack/DNP_2015_SOURCE_CHECK_2026-08-23.md`. Verdict: **DOES NOT
+  PROMOTE.** The abstract's "even two-valued states do not allow for extensions"
+  is *not* in the σ-complete setting; the σ-complete section (Construction 1 /
+  Thm 4) is extension-POSITIVE — a tameness result. Not witness-shaped.
 
-2. **A. De Simone, M. Navara, P. Pták, "States on systems of sets that are closed
-   under symmetric difference", Math. Nachr. (2015).** Secondary sources report
-   it constructs a difference-closed system on which **even two-valued states do
-   not extend**. That is witness-shaped. Whether it is σ-essential in this
-   repo's sense — finitely coherent, with *σ-additive* extension failing — is
-   exactly what reading it would settle, and it could bear on Ψ directly rather
-   than only on the Polish cut.
+So the Prague-school two-valued literature was already swept, and swept properly.
+The reopened corner is emptier than the earlier text implied. My claim that
+§§3h–3q "never visited" the Pták school was also wrong: they visited it and
+recorded the visits.
 
-Also noted, lower priority: P. Pták, "Extending states on finite concrete
-logics" (arXiv math-ph/0311012). Finite carriers are now settled here anyway —
-`Blocks.no_witness_of_finite` — so this is context, not a lead.
+**One thing genuinely new, from re-reading the 1983 note against today's work.**
+Navara–Pták's Example builds a **non-Dirac σ-additive two-valued state** on a
+concrete σ-class over `Q = ℚ² ∩ (0,1)²` — verified in that note against their
+Def 3 as a genuine Ψ-sense σ-additive two-valued state. That carrier is
+therefore **not `DiracOnly`**. §3h had excluded exactly this base (ℚ²) as
+"DW-killed".
 
-**Why this matters beyond the cut.** The DW misattribution was not just a wrong
-citation; it pointed the whole search at the wrong literature. The Pták school
-has been working on two-valued extension on concrete logics since 1983, and the
-bounds hunt above (§§3h–3q) swept descriptive set theory, operator algebras and
-forcing without going there.
+If a countable base like ℚ² counts as Polish-representable in the intended
+sense — which is a question about the intended reading of an opaque predicate,
+not a theorem — then the hypothesis `hPD : PolishRepresentable → DiracOnly` of
+`Conjectures.polishCut_iff_polishKernel` is **false**, and the Polish regime does
+not even reduce to clause (i): clause (ii) has live content there, because
+Navara–Pták exhibit the non-Dirac states it quantifies over. That would make the
+Polish cut *more* open, not less. The reduction was stated with `hPD` as an
+explicit hypothesis rather than assumed, which is the only reason this does not
+invalidate it.
+

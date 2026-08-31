@@ -177,11 +177,20 @@ checks out (the proof runs through Maharam 1972, Thm 8.1). Four gaps:
 4. D.6 concerns real-valued probabilities, the witness question two-valued
    states.
 
-`witness_not_polish` and `carrier_not_polish` rest on this, so **do not treat
-the Polish conjunct of admissibility as established.** The allowlist entry is
-labelled accordingly. Resolving it — weaken the axiom to D.6's actual
-hypotheses, or find the real source for the two-valued claim — is mathematics,
-not bookkeeping, and is now the most concrete owed item on the σ-essential side.
+**Fixed the same day, by demoting the claim rather than re-citing it.** The
+axiom is gone. The cut is now `OpenCore.DWPolishCut`, a `def … : Prop` passed as
+an explicit hypothesis — the discipline `LowerBound`, `UpperBound` and
+`TargetA_sharp` already follow, and the one this file's own §6 states as
+"nothing is assumed: the hypotheses are `→`". `witness_not_polish` and
+`carrier_not_polish` now take it, so what is owed is visible in their
+statements instead of hidden in a citation. Library axioms 17 → 16.
+
+**The Polish conjunct of admissibility is therefore conditional, not
+established.** `prop:adm` is at 4 of 6 unconditionally (concrete, σ-complete,
+¬InterClosed, non-segregated), with Polish conditional on `DWPolishCut` and
+`IsIrreducible` still an opaque axiom. Discharging the cut — proving it, or
+finding a real source for the two-valued form — is mathematics, and is now the
+most concrete owed item on the σ-essential side.
 
 This is the standing hazard once more, in its fourth costume: not a false
 statement, not a vacuous one, but a *faithfully-formalized statement of

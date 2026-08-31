@@ -36,14 +36,14 @@ theorem carrier_not_interClosed : ¬ InterClosed L₁ :=
 #print axioms psi_ZFC
 #print axioms carrier_not_interClosed
 
-/-- **The carrier lies outside the Derr–Williamson boundary.** A witness carrier
-cannot be Polish-representable (`witness_not_polish`, from DW Thm D.6), and `L₁`
-carries one. Derived from the witness rather than exhibited, exactly as
-`carrier_not_interClosed` is: the construction certifies its own position
-relative to the boundary. -/
-theorem carrier_not_polish :
+/-- **The carrier lies outside the Polish boundary --- CONDITIONAL.** A witness
+carrier cannot be Polish-representable, and `L₁` carries one. The cut is an open
+conjecture (`DWPolishCut`), not a citable theorem: DW Thm D.6 is an iff-criterion
+for countably additive probabilities and does not give it. The hypothesis is
+therefore passed explicitly, and this result is owed until it is discharged. -/
+theorem carrier_not_polish (hcut : SigmaEssential.OpenCore.DWPolishCut.{0}) :
     ¬ SigmaEssential.OpenCore.PolishRepresentable L₁ :=
-  SigmaEssential.OpenCore.witness_not_polish s₀ product_ulam_witness_ZFC
+  SigmaEssential.OpenCore.witness_not_polish hcut s₀ product_ulam_witness_ZFC
 
 #print axioms carrier_not_polish
 

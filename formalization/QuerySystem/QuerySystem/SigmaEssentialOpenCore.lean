@@ -152,27 +152,46 @@ theorem witness_not_intersection_closed
     ¬ InterClosed d :=
   fun hclosed => costume_kills_witness hclosed s₀ hw
 
-/-! ## §5. The Polish boundary (cited result) -/
+/-! ## §5. The Polish boundary (a named conjecture, never assumed)
 
-/-- **Derr–Williamson Polish cut (cited).** On a Polish-representable carrier every
-finitely-coherent pattern globalises — no σ-essential witness. We axiomatize the
-relationship (a cited published theorem, DW 2023 Thm D.6 via Maharam): being
-Polish-representable rules out being a witness. `PolishRepresentable` is an abstract
-predicate on carriers we do not unfold. -/
+⚠ This section used to axiomatize "Polish-representable ⟹ no witness" as a CITED
+result, on Derr–Williamson (2023) Thm D.6 via Maharam. Checked against the source
+2026-08-31 (arXiv:2302.03522), D.6 does not say that. It says: for a Polish `Ω`,
+a Dynkin system `D ⊆ Borel` with `σ(D) = F`, and a COUNTABLY ADDITIVE `μ` on `D`
+whose block restrictions are inner regular, `μ` is σ-extendable IFF a gamble
+inequality holds. That is a criterion, not an implication; its input is countably
+additive where a witness pattern is only finitely coherent; it carries two
+hypotheses the axiom dropped; and it concerns real-valued probabilities, not
+two-valued states.
+
+So the cut is not a theorem we may cite. It is stated here the way every other
+open thing in this file is stated — a `Prop`, passed explicitly, never assumed —
+and the two results below take it as a hypothesis. If it is later proved, or a
+real source for the two-valued form is found, discharge `DWPolishCut` and the
+`→` disappears. -/
+
+universe u
+
+/-- **Polish-representability.** An abstract predicate on carriers we do not
+unfold; it stands for the paper-level notion the cut is stated over. -/
 axiom PolishRepresentable {Ω : Type*} (d : DynkinSystem Ω) : Prop
 
-/-- Derr–Williamson 2023 (Thm D.6): Polish-representable ⟹ no witness. CITED. -/
-axiom dw_polish_no_witness {Ω : Type*} {d : DynkinSystem Ω} {B : Block d}
-    (s₀ : LocalState d B) :
+/-- **The Polish cut (OPEN conjecture).** On a Polish-representable carrier every
+finitely-coherent pattern globalises, so no σ-essential witness lives there. NOT
+proved, NOT assumed, and NOT supported by DW Thm D.6 as that theorem is stated —
+a named `Prop`, exactly like `LowerBound` and `UpperBound` above. -/
+def DWPolishCut : Prop :=
+  ∀ {Ω : Type u} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B),
     PolishRepresentable d → ¬ IsSigmaEssential s₀
 
-/-- **Upper-boundary edge (proved from the cited axiom).** A witness must live on a
-NON-Polish-representable carrier. -/
-theorem witness_not_polish
-    {Ω : Type*} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
+/-- **Upper-boundary edge (conditional).** Given the cut, a witness must live on a
+NON-Polish-representable carrier. The hypothesis is passed, so the machine shows
+precisely what is owed. -/
+theorem witness_not_polish (hcut : DWPolishCut.{u})
+    {Ω : Type u} {d : DynkinSystem Ω} {B : Block d} (s₀ : LocalState d B)
     (hw : IsSigmaEssential s₀) :
     ¬ PolishRepresentable d :=
-  fun hp => dw_polish_no_witness s₀ hp hw
+  fun hp => hcut s₀ hp hw
 
 /-! ## §6. The hybrid analysis (strength axis factors out; center route fails)
 

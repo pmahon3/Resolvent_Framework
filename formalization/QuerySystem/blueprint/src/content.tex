@@ -1805,16 +1805,28 @@ Coherence gives the positive clause, rigidity the negative one.
 \begin{lemma}[The carrier is not Polish-representable]
 \label{lem:carrier-not-polish}
 \uses{thm:psi-zfc, lem:carrier-not-boolean}
-\lean{SigmaEssential.Ulam.carrier_not_polish}
+\lean{SigmaEssential.OpenCore.DWPolishCut,
+      SigmaEssential.OpenCore.witness_not_polish,
+      SigmaEssential.Ulam.carrier_not_polish}
 \leanok
-$L_1$ lies outside the Derr--Williamson boundary.
+\emph{Conditional on the Polish cut.} Write $\mathrm{DWPolishCut}$ for the
+statement that a Polish-representable carrier admits no $\sigma$-essential
+witness. Granting it, $L_1$ is not Polish-representable.
+
+The cut is an open conjecture, not a citable theorem. Derr--Williamson (2023)
+Thm D.6 is a necessary-and-sufficient criterion for $\sigma$-extendability of a
+\emph{countably additive} probability on a Dynkin system inside the Borel
+$\sigma$-algebra of a Polish space, assuming $\sigma(D) = F$ and inner
+regularity on each block. It is not the implication used here, and a witness
+pattern is only finitely coherent, so it does not even meet D.6's hypothesis.
+The hypothesis is therefore carried explicitly in the Lean.
 \end{lemma}
 
 \begin{proof}
 \leanok
 \uses{thm:psi-zfc}
-A Polish-representable carrier admits no witness (DW Thm D.6, cited), and $L_1$
-carries one.
+$L_1$ carries a witness (\ref{thm:psi-zfc}), and the cut forbids a witness on a
+Polish-representable carrier.
 \end{proof}
 
 \begin{lemma}[The witness carrier is not a lattice]

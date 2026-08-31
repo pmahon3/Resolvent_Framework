@@ -1,12 +1,23 @@
 # The shovel plan (adopted 2026-07-10)
 
-> **2026-08-25 — PARTIALLY SUPERSEDED on formalization status.** The framing
-> below stands; the per-result statuses do not. Since 2026-08-04: the
-> Andersen–Jessen refutation is kernel-checked, `slab0_not_mem` is proved,
-> `prop:adm` is at 5 of 6 conjuncts, and the blueprint is 104 declarations with
-> zero repo-local axioms. **Φ is unmoved** — none of it bears on the theory
-> front either way. Read `program_overview.md` §"STATE AS OF 2026-08-25" first;
-> where this file disagrees with it, that section wins.
+> **2026-08-31 — PARTIALLY SUPERSEDED on formalization status.** The framing
+> below stands; the per-result statuses do not. Read `program_overview.md`
+> §"STATE AS OF 2026-08-31" first; where this file disagrees with it, that
+> section wins. The blueprint is **206 declarations, 198 closed / 8 cited / 0
+> uncited, 14 library axioms all cited** — not the "104 with zero repo-local
+> axioms" an earlier version of this banner claimed; that stopped being true
+> when the Navara ladder was blueprinted.
+>
+> Since 2026-08-04, in brief: Andersen–Jessen kernel-checked; `slab0_not_mem`
+> proved; MO₂ realized concretely on four points and four points proved
+> necessary; the descent witness built rather than cited; **both admissibility
+> axioms retired**, so `L₁_admissible` and `targetA_sharp_ZFC` are theorems; the
+> Kochen–Specker axiom found FALSE as stated and restated; the Derr–Williamson
+> citation checked and found not to support its axiom, which is now the open
+> conjecture `DWPolishCut` — and that cut is Wall A on a subclass, so it is not
+> the lever it looked like.
+>
+> **Φ is unmoved.** None of it bears on the theory front either way.
 
 
 **The filter:** "complete the seed" ≠ "everything open." A neighbourhood needs
@@ -368,3 +379,29 @@ as planned.)
   (`HANDOFF_2026-07-10_session5.md`); "no safe-on-odds" is certified and the
   census law is a theorem. The rest of the fork (bar-D aperiodic half of L-B
   + the winding-2→full bridge) parks as the open lot, basement finished.
+
+---
+
+## AMENDMENT 2026-08-31 — status of the four
+
+| # | | status |
+|---|---|---|
+| 1 | Pruning, phase-parametrized + Theorem B | **DONE** — `thm:pruning`, `thm:B`, both closed. One recorded non-load-bearing gap: pairwise vertex-disjointness of the *d* orbit cycles. |
+| 2 | The OML case at the regularity transition | **OPEN** — this is Φ, untouched. |
+| 3 | Positive-selection to a consistency bound | **UNTOUCHED.** `LowerBound`/`UpperBound` are still Props nobody has proved; `MeasurableExists` is still opaque because Mathlib has no measurable-cardinal notion (checked 2026-08-30). |
+| 4 | A first exact slice of the Φ-characterization | **UNTOUCHED.** |
+
+One of four. The three remaining carry the stakes, and #2 *is* the frontier.
+
+**A fence to add to #2's entry.** `EssentiallyIrreducible` is now a definition,
+and the temptation is to test candidate carriers against it directly. Do not:
+it is **vacuous on any countable carrier** (every subset is countable, so the
+"countable or co-countable" dichotomy is free). `descentClass` satisfies it for
+exactly that reason while having one central element per subset of ℕ. Compute
+the centre; do not evaluate the predicate.
+
+**A fence to add to the Polish conjunct.** It is no longer a promising target.
+`polishCut_iff_polishKernel` shows the cut is clause (i) restricted to Polish
+carriers — Wall A on a subclass — and the mechanism one reaches for (Polish ⟹
+Dirac-only) makes clause (ii) vacuous, which pushes *toward* a witness. That is
+the same non-sequitur refuted for the lower bound on 2026-06-26.

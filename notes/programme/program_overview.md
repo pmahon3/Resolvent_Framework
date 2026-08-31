@@ -97,7 +97,7 @@ deleted outright.
 **86 and 82 nodes**, splitting cleanly between chapter 4 and chapter 5, no
 chapter straddling the boundary. Component 1 is query systems → extension
 theorem → Andersen–Jessen → delay → pruning; component 2 is Boolean→orthomodular
-→ the σ-essential witness. This is the split `HANDOFF_split_2026-08-26.md`
+→ the σ-essential witness. This is the split `HANDOFF_2026-08-31.md`
 targets. One attempt to close it was written and withdrawn as an arbitrary
 bolt-on (`blueprint_dag_connectivity.md` amendment 4(b)); the bar that note
 sets — *a theorem in which the two lanes constrain each other, not one whose
@@ -115,7 +115,7 @@ The per-thread notes are current; this file's lower sections are not.
 | AJ trace-measure layer | `notes/open_questions/aj_tower/SCOPE_trace_projective_layer.md` |
 | delay chapter + predictive gaps | `notes/open_questions/delay_embedding/PLAN_delay_chapter.md` |
 | blueprint DAG connectivity | `notes/programme/blueprint_dag_connectivity.md` |
-| the two-component split | `HANDOFF_split_2026-08-26.md` |
+| the two-component split | `HANDOFF_2026-08-31.md` |
 | owed human checks | `notes/programme/human_worklist_2026-08-23.md` |
 
 ### The frontier, restated

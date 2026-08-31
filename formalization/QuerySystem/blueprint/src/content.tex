@@ -1859,7 +1859,7 @@ Polish-representable carrier.
   $\Rightarrow \neg\Psi$" was refuted for exactly this reason. The mechanism one
   reaches for to prove the cut therefore cannot prove it.
 \end{proof}
-\subsection{An exact slice: $\Phi$ holds on every finite carrier}
+\subsection{The finite gate, made explicit}
 
 \begin{lemma}[Finite additivity is $\sigma$-additivity on a finite carrier]
   \label{lem:finite-sigma}
@@ -1888,12 +1888,19 @@ Polish-representable carrier.
   No finite $\sigma$-class admits a $\sigma$-essential witness; equivalently, a
   witness carrier is infinite.
 
-  This is not \ref{lem:boolean-no-witness} in disguise. The four-point carrier of
-  \ref{def:concrete-mo2} is finite and \emph{not} intersection-closed
-  (\ref{cor:concrete-mo2-not-interclosed}), so the Boolean baseline does not
-  reach it while this does. It also says structurally why the witness
-  construction needs $\omega_1$: the carrier must be infinite before a countable
-  disjoint family can escape finite additivity.
+  \emph{Not a new result.} That finite carriers are excluded is a gate this
+  programme already applies informally, and the Czech-school prior-art survey
+  records it against candidate after candidate --- ``finite $\Rightarrow$
+  automatic fail'', the generic case the cell is designed to exclude. What is new
+  is only that the gate is machine-checked rather than applied by eye, together
+  with one observation: the four-point carrier of \ref{def:concrete-mo2} is
+  finite and \emph{not} intersection-closed
+  (\ref{cor:concrete-mo2-not-interclosed}), so the finite gate and the Boolean
+  gate are independent --- neither subsumes the other.
+
+  It also says structurally why the witness construction needs $\omega_1$: the
+  carrier must be infinite before a countable disjoint family can escape finite
+  additivity.
 \end{theorem}
 
 \begin{proof}

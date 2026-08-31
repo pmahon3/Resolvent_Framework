@@ -389,7 +389,7 @@ as planned.)
 | 1 | Pruning, phase-parametrized + Theorem B | **DONE** — `thm:pruning`, `thm:B`, both closed. One recorded non-load-bearing gap: pairwise vertex-disjointness of the *d* orbit cycles. |
 | 2 | The OML case at the regularity transition | **OPEN** — this is Φ, untouched. |
 | 3 | Positive-selection to a consistency bound | **UNTOUCHED.** `LowerBound`/`UpperBound` are still Props nobody has proved; `MeasurableExists` is still opaque because Mathlib has no measurable-cardinal notion (checked 2026-08-30). |
-| 4 | A first exact slice of the Φ-characterization | **UNTOUCHED.** |
+| 4 | A first exact slice of the Φ-characterization | **UNTOUCHED.** See below — the finite gate is not it. |
 
 One of four. The three remaining carry the stakes, and #2 *is* the frontier.
 
@@ -405,3 +405,15 @@ the centre; do not evaluate the predicate.
 carriers — Wall A on a subclass — and the mechanism one reaches for (Polish ⟹
 Dirac-only) makes clause (ii) vacuous, which pushes *toward* a witness. That is
 the same non-sequitur refuted for the lower bound on 2026-06-26.
+
+**On the finite carriers result (2026-08-31).** `Blocks.no_witness_of_finite`
+proves Φ holds on every finite carrier, and it was briefly framed as #4's first
+slice. **It is not.** That finite carriers are excluded is a gate this programme
+already applies — `czech_school_prior_art_sigma_essential.md` records "finite
+⇒ automatic fail" against candidate after candidate, and calls it the generic
+case the cell is designed to exclude; the bounds verdict lists it as axis (3).
+The theorem is correct and worth having as machine-checked infrastructure, and
+it yields one small genuine observation (the finite gate and the Boolean gate
+are independent — `mo2Class` is finite and not intersection-closed). But #4 asks
+for a *nontrivial* subclass, and names its candidates: σ-classes with countably
+many blocks, quotient carriers. Neither has been attempted.

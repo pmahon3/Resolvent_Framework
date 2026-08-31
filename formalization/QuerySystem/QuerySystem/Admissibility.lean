@@ -221,6 +221,25 @@ theorem L₁_carrier_uncountable :
   have himg := h.image Prod.fst
   rwa [Set.image_univ_of_surjective (fun m => ⟨(m, 0), rfl⟩)] at himg
 
+
+/-! ## §6. The finite slice is not the Boolean baseline
+
+`Blocks.no_witness_of_finite` gives Φ on every finite carrier. It is worth
+checking that this is not `boolean_no_witness` wearing a hat, and the four-point
+carrier settles it: `mo2Class` is finite and **not** intersection-closed, so the
+Boolean baseline does not reach it, while the finite slice does. -/
+
+/-- **The finite slice strictly extends the Boolean baseline.** `mo2Class` admits
+no σ-essential witness, and it is not intersection-closed --- so it lies in the
+finite slice and outside the reach of `boolean_no_witness`. -/
+theorem mo2Class_finite_slice_beyond_boolean :
+    (∀ (B : Block QuerySystem.ConcreteMO2.mo2Class)
+        (s₀ : LocalState QuerySystem.ConcreteMO2.mo2Class B),
+      ¬ IsSigmaEssential s₀) ∧
+    ¬ InterClosed QuerySystem.ConcreteMO2.mo2Class :=
+  ⟨fun _ s₀ => Blocks.no_witness_of_finite s₀,
+    QuerySystem.ConcreteMO2.mo2Class_not_interClosed⟩
+
 /-! ## Receipts -/
 
 #print axioms L₁_essentiallyIrreducible
@@ -231,6 +250,7 @@ theorem L₁_carrier_uncountable :
 #print axioms L₁_carrier_uncountable
 #print axioms descentClass_not_irreducible
 #print axioms descentClass_essentiallyIrreducible_vacuously
+#print axioms mo2Class_finite_slice_beyond_boolean
 
 end Admissibility
 end SigmaEssential

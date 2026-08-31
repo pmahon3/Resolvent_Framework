@@ -1859,6 +1859,52 @@ Polish-representable carrier.
   $\Rightarrow \neg\Psi$" was refuted for exactly this reason. The mechanism one
   reaches for to prove the cut therefore cannot prove it.
 \end{proof}
+\subsection{An exact slice: $\Phi$ holds on every finite carrier}
+
+\begin{lemma}[Finite additivity is $\sigma$-additivity on a finite carrier]
+  \label{lem:finite-sigma}
+  \uses{def:finadd-state, def:sigma-class}
+  \lean{SigmaEssential.Blocks.isSigmaOn_of_finite}
+  \leanok
+  On a finite $\Omega$ every finitely additive state satisfies the
+  $\sigma$-condition on the whole carrier.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{def:finadd-state}
+  A pairwise disjoint family in a finite space has only finitely many nonempty
+  members --- choosing a point from each is injective --- so the countable union
+  is the finite sup over that index set, and finite additivity applies to it.
+\end{proof}
+
+\begin{theorem}[$\Phi$ on finite carriers]
+  \label{thm:phi-finite}
+  \uses{lem:finite-sigma, def:sigma-essential, def:interclosed}
+  \lean{SigmaEssential.Blocks.no_witness_of_finite,
+        SigmaEssential.Blocks.witness_carrier_infinite,
+        SigmaEssential.Admissibility.mo2Class_finite_slice_beyond_boolean}
+  \leanok
+  No finite $\sigma$-class admits a $\sigma$-essential witness; equivalently, a
+  witness carrier is infinite.
+
+  This is not \ref{lem:boolean-no-witness} in disguise. The four-point carrier of
+  \ref{def:concrete-mo2} is finite and \emph{not} intersection-closed
+  (\ref{cor:concrete-mo2-not-interclosed}), so the Boolean baseline does not
+  reach it while this does. It also says structurally why the witness
+  construction needs $\omega_1$: the carrier must be infinite before a countable
+  disjoint family can escape finite additivity.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{lem:finite-sigma}
+  Coherence supplies a finitely additive state extending the pattern;
+  \ref{lem:finite-sigma} makes it $\sigma$-additive, so it is a global
+  $\sigma$-additive two-valued state extending the pattern and the pattern is
+  not $\sigma$-essential.
+\end{proof}
+
 
 
 \begin{lemma}[The witness carrier is not a lattice]

@@ -633,4 +633,75 @@ theorem witness_not_segregated {B : Block d} {s₀ : LocalState d B}
 
 #print axioms witness_not_segregated
 
+/-! ## Finite carriers: an exact slice of Φ
+
+On a finite carrier there is nothing for σ-additivity to add. A pairwise
+disjoint family in a finite space has only finitely many nonempty members, so a
+countable disjoint union is a finite one and a finitely additive state is
+already σ-additive. Coherence then hands over the global state directly.
+
+This is `shovel_plan.md` #4 at its smallest: an exactly-characterized subclass on
+which Φ holds. It is not the Boolean baseline in disguise — `mo2Class` is finite
+and *not* intersection-closed, so `boolean_no_witness` does not reach it — and it
+says structurally why the Ulam construction needs `ω₁`: the carrier has to be
+infinite before a countable disjoint family can escape finite additivity. -/
+
+/-- **On a finite carrier every finitely additive state is σ-additive.** Only
+finitely many members of a pairwise disjoint family are nonempty, so the union is
+a finite sup. -/
+theorem isSigmaOn_of_finite [Finite Ω] (μ : FinAddState d) :
+    IsSigmaOn μ (Carrier d) := by
+  classical
+  intro f hdisj hf
+  constructor
+  · intro hU
+    by_contra hno
+    push_neg at hno
+    haveI : Finite ↑{n : ℕ | (f n).Nonempty} := by
+      refine Finite.of_injective
+        (fun p : ↑{n : ℕ | (f n).Nonempty} => p.2.choose) ?_
+      rintro ⟨n, hn⟩ ⟨m, hm⟩ h
+      by_contra hne
+      have hnm : n ≠ m := fun e => hne (Subtype.ext e)
+      have hd := hdisj hnm
+      have h1 : hn.choose ∈ f n := hn.choose_spec
+      have h2 : hm.choose ∈ f m := hm.choose_spec
+      have h' : hn.choose = hm.choose := h
+      rw [← h'] at h2
+      exact (Set.disjoint_left.mp hd h1) h2
+    have hfin : {n : ℕ | (f n).Nonempty}.Finite := Set.toFinite _
+    have hEq : (⋃ n, f n) = hfin.toFinset.sup f := by
+      rw [Finset.sup_set_eq_biUnion]
+      ext x
+      simp only [Set.mem_iUnion, Set.Finite.mem_toFinset,
+        Set.mem_setOf_eq, exists_prop]
+      exact ⟨fun ⟨n, hn⟩ => ⟨n, ⟨x, hn⟩, hn⟩, fun ⟨n, _, hn⟩ => ⟨n, hn⟩⟩
+    rw [hEq] at hU
+    exact μ.not_val_finsetSup hdisj hf hfin.toFinset (fun i _ => hno i) hU
+  · rintro ⟨n, hn⟩
+    exact μ.val_mono (hf n) (d.has_iUnion_nat hdisj hf) (Set.subset_iUnion f n) hn
+
+/-- **Φ holds on every finite carrier: no finite σ-class admits a σ-essential
+witness.** Coherence supplies a finitely additive state, and on a finite carrier
+that state is already σ-additive, so it extends the pattern globally. -/
+theorem no_witness_of_finite [Finite Ω] {B : Block d} (s₀ : LocalState d B) :
+    ¬ IsSigmaEssential s₀ := by
+  rintro ⟨hcoh, hno⟩
+  obtain ⟨μ, hμ⟩ := hcoh
+  exact hno ⟨μ.toTwoValued (isSigmaOn_of_finite μ), by
+    intro A hA; exact (hμ A hA)⟩
+
+/-- **So a witness carrier is infinite.** The contrapositive, in the shape the
+other forcing lemmas take. -/
+theorem witness_carrier_infinite {B : Block d} {s₀ : LocalState d B}
+    (hw : IsSigmaEssential s₀) : Infinite Ω := by
+  rcases finite_or_infinite Ω with hfin | hinf
+  · exact absurd hw (no_witness_of_finite s₀)
+  · exact hinf
+
+#print axioms isSigmaOn_of_finite
+#print axioms no_witness_of_finite
+#print axioms witness_carrier_infinite
+
+
 end SigmaEssential.Blocks

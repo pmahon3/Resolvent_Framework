@@ -1828,6 +1828,31 @@ representation must give coordinate $0$ a code differing from the other three
 rest are countable), so the code is the odd-weight $1000$ or its complement
 $0111$, and \texttt{EvenCode} excludes both.
 \end{proof}
+\begin{corollary}[$L_1$ is not order-isomorphic to any $\sigma$-algebra]
+  \label{cor:carrier-not-orderiso}
+  \uses{lem:witness-not-lattice, def:sigma-class, def:interclosed}
+  \lean{SigmaEssential.Blocks.meetsExist_of_orderIso,
+        SigmaEssential.Ulam.carrier_not_orderIso_measurableSpace}
+  \leanok
+  There is no order isomorphism between the carrier of $L_1$ and the measurable
+  sets of a $\sigma$-algebra, on any space.
+
+  \ref{lem:carrier-not-boolean} says the carrier as presented is not closed
+  under intersection; a change of presentation could in principle repair that.
+  This says none can.
+\end{corollary}
+
+\begin{proof}
+  \leanok
+  \uses{lem:witness-not-lattice}
+  \texttt{MeetsExist} is a property of the carrier poset, so an order
+  isomorphism transports it. The measurable sets of a $\sigma$-algebra are
+  closed under intersection, so any two have a greatest measurable set below
+  both; carrying that back along the isomorphism gives a greatest carrier
+  element below any two carrier elements. \ref{lem:witness-not-lattice} says
+  there is none below the two cores.
+\end{proof}
+
 
 \subsection{The centre of the carrier}
 

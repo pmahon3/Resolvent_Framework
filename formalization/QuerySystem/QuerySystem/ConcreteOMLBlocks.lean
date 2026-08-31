@@ -322,6 +322,33 @@ def MeetsExist (d : DynkinSystem Ω) : Prop :=
   ∀ ⦃A B : Set Ω⦄, d.Has A → d.Has B →
     ∃ m, IsGreatest {C | d.Has C ∧ C ⊆ A ∧ C ⊆ B} m
 
+/-- **Meets transfer along an order isomorphism of carriers.** The measurable
+sets of a σ-algebra are closed under intersection, so their poset has all binary
+meets; an order isomorphism carries that back. `MeetsExist` is a property of the
+carrier *poset*, so it cannot distinguish a carrier from anything
+order-isomorphic to it. -/
+theorem meetsExist_of_orderIso {Ω' : Type*} {msp : MeasurableSpace Ω'}
+    (e : {S : Set Ω // d.Has S} ≃o {T : Set Ω' // @MeasurableSet Ω' msp T}) :
+    MeetsExist d := by
+  intro A B hA hB
+  set x : {S : Set Ω // d.Has S} := ⟨A, hA⟩ with hxdef
+  set y : {S : Set Ω // d.Has S} := ⟨B, hB⟩ with hydef
+  set z' : {T : Set Ω' // @MeasurableSet Ω' msp T} :=
+    ⟨(e x).1 ∩ (e y).1, (e x).2.inter (e y).2⟩ with hz'def
+  set z : {S : Set Ω // d.Has S} := e.symm z' with hzdef
+  have hez : e z = z' := e.apply_symm_apply z'
+  have hzx : z ≤ x := e.map_rel_iff.mp (by rw [hez]; exact Set.inter_subset_left)
+  have hzy : z ≤ y := e.map_rel_iff.mp (by rw [hez]; exact Set.inter_subset_right)
+  refine ⟨z.1, ⟨z.2, hzx, hzy⟩, ?_⟩
+  rintro C ⟨hC, hCA, hCB⟩
+  have hwx : (⟨C, hC⟩ : {S : Set Ω // d.Has S}) ≤ x := hCA
+  have hwy : (⟨C, hC⟩ : {S : Set Ω // d.Has S}) ≤ y := hCB
+  have hw : (⟨C, hC⟩ : {S : Set Ω // d.Has S}) ≤ z := by
+    refine e.map_rel_iff.mp ?_
+    rw [hez]
+    exact Set.subset_inter (e.map_rel_iff.mpr hwx) (e.map_rel_iff.mpr hwy)
+  exact hw
+
 /-- **The meet squeeze (= T1, sharpened form).** If every point of `X ∩ S`
 lies in some carrier member inside `X ∩ S`, then the meet of `X` and `S` is
 squeezed into equality with `X ∩ S`, so `X ↔ S` concretely. No exhaustion

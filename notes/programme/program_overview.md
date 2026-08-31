@@ -25,7 +25,7 @@ bash   formalization/QuerySystem/blueprint/axiomcheck.sh
 **213 declarations across 7 chapters. 206 closed on the standard axioms
 alone** (`propext`, `Classical.choice`, `Quot.sound`), **7 resting on cited
 axioms**, 0 uncited. Zero sorries. Coverage baseline 16. 106 claims, every
-one with a proof; 170 labels; 389 \`uses` edges.
+one with a proof; 170 labels; 389 `\uses` edges.
 Published: https://pmahon3.github.io/Resolvent_Framework/
 
 ⚠ **Correction to the 2026-08-25 text this replaces**, which said the blueprint

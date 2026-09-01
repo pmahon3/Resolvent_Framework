@@ -43,8 +43,8 @@ L = {∅, Aᶜ, A, univ} ∪ {∅, Bᶜ, B, univ}
   Dynkin system on three or fewer points is a σ-algebra, and `mo2Class_minimal`
   records that this carrier attains the bound.
 
-So the pivot `TwoValuedState.val_inter` turns on is visible at four points and
-at no fewer: its hypothesis `InterClosed` fails, and it fails because the meet
+So the intersection-closure hypothesis that `TwoValuedState.val_inter` turns on
+is visible at four points and at no fewer: `InterClosed` fails, and it fails because the meet
 is not the intersection.
 -/
 
@@ -328,7 +328,7 @@ theorem meet_AB_ne_inter :
 whose intersection escapes the carrier has all four of its Venn cells inhabited,
 and each cell is forced by a *different* Dynkin closure property. So every
 Dynkin system on three or fewer points is a σ-algebra, and `mo2Class` is the
-smallest carrier on which the pivot can fail. -/
+smallest carrier on which intersection-closure can fail. -/
 
 /-- **The four cells.** If `S ∩ T` escapes a Dynkin system containing `S` and
 `T`, then `S ∩ T`, `S \ T`, `T \ S` and `(S ∪ T)ᶜ` are all inhabited: emptiness
@@ -375,7 +375,7 @@ theorem exists_four_distinct {Ω : Type*} {d : DynkinSystem Ω} {S T : Set Ω}
     fun h => hw.1 (h ▸ hq.1),
     fun h => hw.2 (h ▸ hr.1)⟩
 
-/-- **A carrier that fails the pivot has at least four points.** -/
+/-- **A carrier that is not intersection-closed has at least four points.** -/
 theorem four_le_card_of_not_has_inter {Ω : Type*} [Fintype Ω]
     {d : DynkinSystem Ω} {S T : Set Ω}
     (hS : d.Has S) (hT : d.Has T) (hST : ¬ d.Has (S ∩ T)) : 4 ≤ Fintype.card Ω := by
@@ -399,7 +399,7 @@ theorem interClosed_of_card_le_three {Ω : Type*} [Fintype Ω]
 /-- `mo2Class` attains the bound: its carrier has exactly four points. -/
 theorem card_P : Fintype.card P = 4 := rfl
 
-/-- **The pivot fails at four points and no fewer.** `mo2Class` is a Dynkin
+/-- **Intersection-closure fails at four points and no fewer.** `mo2Class` is a Dynkin
 system that is not intersection-closed, on a carrier of exactly four points, and
 by `interClosed_of_card_le_three` no smaller carrier admits one. -/
 theorem mo2Class_minimal :

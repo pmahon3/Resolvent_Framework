@@ -373,3 +373,110 @@ Ranked by edges-per-effort:
 
 None of these bridges the 43/27 split — that one needs mathematics, not
 annotation, and is the honest shape of the corpus.
+
+---
+
+## AMENDMENT 5 — 2026-08-31: the narrative audited against the measured DAG
+
+Prompted by a request to strip internal jargon ("the pivot") from the
+blueprint, which turned into the broader question of whether the document's
+narrative matches what the graph actually contains. Three findings, all
+measured, all now fixed in `content.tex`.
+
+### The measurement
+
+Every `\uses`/`\ref` in chapters 4--7 whose target resolves to a label defined
+before the ch4 boundary:
+
+| edges | from | to |
+|---|---|---|
+| 9 | ch7 pruning | ch3/4 delay (`def:delay-query`, `def:orbit-stream`, `thm:lag-algebra`) |
+| 1 | ch4 delay (l.944) | ch7 `def:lisc` |
+| **0** | **the Boolean→orthomodular and σ-essential chapters** | **anything above them** |
+
+Component recount by chapter: **87 / 82 / 1** — matching the recorded 86/82
+(the singleton is an isolated delay node). Component 1 = ch1+2+3+4+7;
+component 2 = ch5+6 exactly. This confirms `program_overview.md` over ch7's
+own prose: **pruning is in component 1**, attached through delay. Ch7 calling
+itself "a separate line of work… sharing no definitions and no dependencies"
+is true only relative to the σ-essential chapters, and reads as more isolated
+than the graph says.
+
+### Finding 1 — the one false seam (FIXED)
+
+Ch5 opened "Everything above is the distributive case… This chapter isolates
+the single predicate separating that regime from the orthomodular one." Two
+claims, and they do not fail together:
+
+* *intersection-closure separates Boolean from orthomodular* — expository,
+  true, needs no edge. `def:interclosed` feeds six nodes across ch6
+  (`thm:boolean-baseline`, `lem:boolean-no-witness`, `thm:phi-finite`,
+  `thm:one-block-iff-boolean`, `cor:carrier-not-orderiso`). **Earned.**
+* *"Everything above is the distributive case"* — asserts inheritance from
+  ch1--4. **Zero edges underneath it.** Unearned.
+
+What made this a defect rather than a convention: **the blueprint already
+narrates seams honestly everywhere else.** Ch7 declares its independence, ch6
+declares its open question. Ch5 was the sole outlier. Replaced by an explicit
+statement of independence in ch7's idiom, plus what the chapter actually does,
+with `\ref`s to the three results that do it. Prose `\ref` adds no `\uses`
+edge: the count stayed 389.
+
+### Finding 2 — Φ was absent from the front, and overloaded (FIXED)
+
+The blueprint opened on "preordered families of measurable spaces with
+compatible refinement maps." Φ — the question the σ-essential line exists to
+reach — appeared first at `rmk:phi-open`, line 2148 of 2757. A reader could
+not learn from the document what question it was for.
+
+Compounding it: `\Phi` names two unrelated things. `\Phi_h` is the delay map
+in ch4; unsubscripted `\Phi` is the frontier conjecture in ch6. Same glyph, no
+disambiguation. Same defect class as "pivot" — a symbol carrying private
+meaning — and the more expensive of the two.
+
+Fixed by an unnumbered front-matter chapter stating: the two lines and that
+they are independent, `psi_ZFC` as the theorem and Φ as the open question with
+forward refs, an explicit notation warning on Φ, and the status conventions
+(206 closed / 7 cited, and that conditional claims carry their hypotheses
+explicitly rather than by citation).
+
+### Finding 3 — "the pivot" removed
+
+Eight occurrences (4 in `content.tex`, 4 in `ConcreteMO2.lean` docstrings)
+replaced by the predicate's own name, intersection-closure. No new coinage; no
+`\label`/`\uses`/`\lean` touched. Neighbouring coinages left standing and
+flagged instead: `PoorPair` (a Lean identifier, so renaming costs a refactor)
+and "rung"/"descent ladder" (a live metaphor doing navigational work).
+
+### Found on the way in: a red gate, and five stale oleans
+
+**`checkdecls.sh` was failing on `main`,** and not from any edit here. A bare
+`import QuerySystem` errored: `environment already contains
+'SigmaEssential.TwoValuedState.toFinAdd' from QuerySystem.SigmaEssentialWitness`.
+
+Cause: `.lake/build/lib/lean/QuerySystem/SigmaEssentialAmended.olean`, dated
+**2026-07-06**, whose source was renamed to `SigmaEssentialWitness.lean` in
+`fc17d58`. The stale olean was never swept and `lakefile.toml`'s `QuerySystem.+`
+glob picks up orphan oleans. Four more orphans alongside it: `AxCheck`,
+`CapTest`, `EncodingDefectCheck`, `SelectorUpperCore` — none referenced by any
+source file or blueprint node. Note `EncodingDefectCheck`: the index records its
+certificates as **vacuous**, so a stale olean of it in the build tree is the
+standing hazard sitting in the artifact layer rather than the source.
+
+Swept and rebuilt; all five gates now green (0 sorries · 213 decls · structure
+OK · coverage OK · 206 closed / 7 cited / 0 uncited).
+
+**This is the docstring of `QuerySystem.lean` coming true a second time.** It
+already records that two modules defining the same name is "not merely untidy:
+importing both is a hard error… which is how this was found." The same failure
+recurred through the *build directory* rather than through sources, where no
+gate looks. A `lake clean`-and-rebuild, or an orphan-olean check, would catch
+the class.
+
+### Not attempted
+
+The bridge (task A). The bar in amendment 4(b) — *a theorem in which the two
+lanes constrain each other, not one whose statement merely mentions both* —
+is unmet and nothing here bears on it. Everything above is prose brought into
+line with measured structure, which is subtraction, not new mathematics. The
+two-component shape is unchanged and is still the honest shape of the corpus.

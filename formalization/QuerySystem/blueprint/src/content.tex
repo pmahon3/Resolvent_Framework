@@ -1,3 +1,39 @@
+\chapter*{What this blueprint is}
+\addcontentsline{toc}{chapter}{What this blueprint is}
+
+Two independent lines of work, formalized in one Lean library and mapped here.
+They are reported together because they ask the same question of different
+objects --- what structure survives when you only ever see observations --- but
+they are not derived from one another, and the dependency graph shows that: it
+has two components, splitting between Chapters 4 and 5, with no
+\texttt{\char92 uses} edge crossing except between the delay and pruning
+chapters.
+
+\textbf{Chapters 1--4 and 7 (the distributive line).} Query systems, the
+observational extension theorem and its obstruction, the Andersen--Jessen
+tower that refutes it under plain upper-directedness, delay embeddings, and the
+pruning certificate layer. Everything here is Boolean.
+
+\textbf{Chapters 5--6 (the orthomodular line).} What happens when the carrier
+is a $\sigma$-class that is \emph{not} closed under intersection. The
+theorem is \texttt{psi\_ZFC} (\ref{thm:psi-zfc}): a concrete $\sigma$-complete
+orthomodular \emph{poset} carrying a finitely coherent two-valued pattern with
+no global $\sigma$-additive extension. The open question is
+$\Phi$ (\ref{rmk:phi-open}): whether the same holds with latticehood adjoined.
+$\Phi$ is the frontier this line exists to reach; it is stated in full at
+\ref{rmk:phi-open} and is not settled here.
+
+\emph{Notation warning.} $\Phi$ names two unrelated things below. In
+Chapter~4, $\Phi_h$ is the delay map $x \mapsto (h(T^n x))_n$
+(\ref{def:delay-map}). In Chapters 5--6, unsubscripted $\Phi$ is the open
+conjecture above. They have nothing to do with each other.
+
+\paragraph{Status conventions.} A green node is proved on the standard axioms
+alone. Seven nodes rest on cited axioms; where a claim is conditional, the
+hypothesis is carried explicitly in the statement rather than assumed --- see
+\ref{lem:carrier-not-polish}, whose Polish cut is an explicit hypothesis and
+not a citation.
+
 \chapter{Query Systems and Observational Foundations}
 
 This formalization develops query systems: preordered families of measurable spaces with compatible refinement maps.
@@ -996,13 +1032,21 @@ sensor alphabet, so $\varphi_{d,\tau}$ is definable only on a subclass.
 Takens' theorem needs generic-embedding machinery that Mathlib does not have.
 \chapter{From Boolean to orthomodular: where distributivity is spent}
 
-Everything above is the distributive case. A query system's outcome
-$\sigma$-algebras are Boolean, and the extension questions there are settled by
-$\sigma$-additivity together with an index-layer condition. This chapter
-isolates the single predicate separating that regime from the orthomodular one,
-and closes the distributive side of the separation.
+This chapter and the next form a line of work independent of the chapters
+above: they share no definitions and no dependencies with them, and no
+\texttt{\char92 uses} edge crosses the boundary in either direction. What
+connects them is subject matter, not derivation.
 
-\section{The pivot}
+The subject is the predicate separating the Boolean regime from the
+orthomodular one. A $\sigma$-algebra is a $\sigma$-class that is closed under
+intersection; withhold that closure and the carrier can fail to be a lattice at
+all. This chapter isolates intersection-closure, shows where distributivity is
+spent on it (\ref{lem:val-inter}), exhibits the minimal carrier on which it
+fails (\ref{thm:interclosed-needs-four}), and closes the distributive side:
+on an intersection-closed carrier there is no witness
+(\ref{lem:boolean-no-witness}).
+
+\section{Intersection-closure}
 
 \begin{definition}[Block]
   \label{def:se-block}
@@ -1012,7 +1056,7 @@ and closes the distributive side of the separation.
   A finite $\bot$-closed family of carrier sets.
 \end{definition}
 
-\begin{definition}[Intersection-closure: the pivot]
+\begin{definition}[Intersection-closure]
   \label{def:interclosed}
   \uses{def:sigma-class}
   \lean{SigmaEssential.InterClosed}
@@ -1093,7 +1137,7 @@ and closes the distributive side of the separation.
 
 MO$_2$ is a lattice; \ref{def:interclosed} is a condition on a $\sigma$-class of
 sets. On four points there is a $\sigma$-class whose carrier is MO$_2$ and on
-which the pivot fails.
+which intersection-closure fails.
 
 \begin{definition}[The four-point carrier]
   \label{def:concrete-mo2}
@@ -1171,7 +1215,7 @@ which the pivot fails.
   subsingleton is empty.
 \end{proof}
 
-\begin{corollary}[The pivot fails]
+\begin{corollary}[$L$ is not intersection-closed]
   \label{cor:concrete-mo2-not-interclosed}
   \uses{thm:concrete-mo2-poor, thm:concrete-mo2-iso, def:interclosed}
   \lean{QuerySystem.ConcreteMO2.mo2Class_not_interClosed}
@@ -2310,8 +2354,10 @@ opposite directions, and a counterexample that fixes the gap between them.
 
 The certificate layer of the reconstruction/commensurability lane
 (\texttt{papers/reconstruction/}) --- a separate line of work from the
-$\sigma$-essential chapters above, sharing no definitions and no dependencies
-with them. Formalizes \texttt{papers/reconstruction/notes/pruning\_theorem\_and\_B.md}
+$\sigma$-essential chapters, sharing no definitions and no dependencies with
+them. It is not free-floating, though: it joins the delay chapter, which
+supplies its relational-delay objects (\S\ref{sec:relational-delay}), and it
+sits in the same dependency component as Chapters 1--4. Formalizes \texttt{papers/reconstruction/notes/pruning\_theorem\_and\_B.md}
 \S\S2--3. Throughout, $\rho \subseteq A \times A$ is an arbitrary relation on an
 arbitrary alphabet; finiteness of $A$ is assumed only where stated, and no
 strong-connectivity hypothesis is used anywhere.
@@ -2604,6 +2650,7 @@ So a rotation witness at a non-generator certifies winding $k/d = 2$, not
 winding $k$.
 \end{proof}
 \section{Relational delay systems: the pruning objects as delay data}
+\label{sec:relational-delay}
 
 The delay chapter observes a \emph{function}; the pruning chapter studies a
 \emph{relation}. A relation has no orbit map, but it has a \emph{trajectory

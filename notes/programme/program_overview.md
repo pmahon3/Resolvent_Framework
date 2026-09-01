@@ -9,7 +9,7 @@ question, the three papers, and the frontier structure remain accurate as
 section, this section wins. `frontier_map.md`, `shovel_plan.md` and
 `taxonomies_index.json` are stale from the same date.
 
-**Ground truth for what is proved is the Lean development plus its five CI
+**Ground truth for what is proved is the Lean development plus its six CI
 gates**, not this file. Run them; they cannot be argued with:
 
 ```
@@ -18,6 +18,7 @@ bash   formalization/QuerySystem/blueprint/checkdecls.sh
 python formalization/QuerySystem/blueprint/coverage.py
 python formalization/QuerySystem/blueprint/structure.py
 bash   formalization/QuerySystem/blueprint/axiomcheck.sh
+bash   formalization/QuerySystem/blueprint/buildtree.sh
 ```
 
 ### The blueprint is the current map
@@ -34,8 +35,8 @@ stopped being true when the Navara ladder was blueprinted. The three cited
 nodes are `def:navara-l2` and `thm:star-infinite` (Navara's eleven axioms) and
 `lem:carrier-not-polish` (Derr–Williamson's two).
 
-The gate count went 4 → 5 on 2026-08-30/31, and the two new checks exist
-because things had already got past the old four:
+The gate count went 4 → 5 on 2026-08-30/31 and 5 → 6 on 2026-09-01, and each
+new check exists because something had already got past the ones before it:
 
 * `axiomcheck.sh` now also **censuses the environment**: every `axiom` declared
   in a `QuerySystem.*` module must be on the citation-keyed allowlist, reached
@@ -47,6 +48,19 @@ because things had already got past the old four:
   Claim nodes with no proof block, `\uses`/`\ref` naming labels that do not
   exist, duplicate labels, macros that lost their backslash. All five checks at
   zero; each was verified by injecting the defect and watching the gate fail.
+* `buildtree.sh` (2026-09-01) is the first gate to look at `.lake/build`
+  rather than at the Lean environment. Every other gate reads whatever
+  `import QuerySystem` reaches, so an **olean with no source file** is outside
+  all of them. Three were found in the working tree the day after the sweep
+  that was supposed to have cleared them, and one — `ZZTestKS.olean` — declared
+  `ks_inconsistent : False`, resting on `KochenSpecker_witness`, the false
+  axiom already deleted from the sources. A live, importable proof of `False`
+  sat in the build tree behind five green gates, and the axiom census is
+  structurally unable to see it: the census enumerates what the root import
+  reaches, and nothing imports an orphan. The gate checks both directions —
+  an olean with no source, and a source with no olean (the shape of the
+  pre-2026-08-21 `globs` bug). All four failure branches, including the two
+  did-not-run branches, were verified by injection.
 
 ### What changed since 2026-08-25
 

@@ -480,3 +480,70 @@ lanes constrain each other, not one whose statement merely mentions both* —
 is unmet and nothing here bears on it. Everything above is prose brought into
 line with measured structure, which is subtraction, not new mathematics. The
 two-component shape is unchanged and is still the honest shape of the corpus.
+
+---
+
+## AMENDMENT 6 — 2026-09-01: the orphan sweep was incomplete, and is now a gate
+
+Amendment 5 closed with "a `lake clean`-and-rebuild, or an orphan-olean check,
+would catch the class." The check now exists. Writing it turned up that the
+sweep amendment 5 records had **missed three**, which is the part worth keeping.
+
+### What was still in the build tree
+
+| olean | state |
+|---|---|
+| `Quarantine.olean` | inert — transitively needs the swept `SigmaEssentialAmended`, so importing it errors |
+| `ZZTestVacuity.olean` | imports cleanly, declares nothing |
+| `ZZTestKS.olean` | imports cleanly and declares `ZZTestKS.ks_inconsistent : False` |
+
+None had a source file; none had ever been committed — they were untracked
+scratch from the sessions that found `KochenSpecker_witness` false and
+`flow_decomposition` vacuous. `#print axioms ZZTestKS.ks_inconsistent` returns
+`[KochenSpecker_witness, propext, Classical.choice, Quot.sound]`.
+
+So a live, importable proof of `False`, resting on an axiom already deleted from
+the sources and no longer on the allowlist, sat in the build tree while all five
+gates reported green.
+
+**Nothing was compromised.** No source file references it, the root index
+imports only real modules, and all 213 blueprint declarations resolve through
+those. It was a trap, not a leak. But `Quarantine.olean` is the sharper detail
+for this document specifically: the module amendment 4(b) removed *on purpose*,
+for being an arbitrary bolt-on, was still sitting in the artifact layer four
+days later.
+
+### Why no gate could have caught it
+
+`checkdecls.sh` and `axiomcheck.sh` both resolve against the **Lean
+environment**, and the environment is whatever `import QuerySystem` reaches.
+An orphan olean is by definition unreached. The census added on 2026-08-30
+exists precisely because `KochenSpecker_witness` hid in a module no blueprint
+node reached — and it is structurally unable to see the artifact that still
+proves `False` from that same axiom. The scope was widened from "reachable from
+a node" to "reachable from the root import"; orphans are outside both.
+
+### The gate
+
+`blueprint/buildtree.sh`, the first gate that reads `.lake/build` rather than
+the environment. Bidirectional, because the two directions catch different
+things in different places:
+
+* **olean with no source** — the hazard above. A property of incremental local
+  trees, so near-vacuous in CI, where the checkout is fresh.
+* **source with no olean** — `globs` no longer covering a file. This is the
+  pre-2026-08-21 bug in `lean.yml`'s own header, where 46 of 47 files went
+  unchecked behind a green build. Not vacuous in CI, which is why the gate is
+  wired there rather than left local-only.
+
+A missing build tree is a FAIL, not a pass, per `checkdecls.sh`'s rule that a
+check reporting OK when it did not run is worse than no check. All four failure
+branches — orphan, unbuilt, no build tree, no source tree — were verified by
+injecting the defect and watching the gate fail, then removing it and watching
+it pass.
+
+Gate count 5 → 6. The build tree is clean: 52 oleans against 52 sources.
+
+### Not attempted
+
+The bridge (task A), again. Nothing here is mathematics.

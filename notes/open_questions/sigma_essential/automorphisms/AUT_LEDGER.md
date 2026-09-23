@@ -2,6 +2,9 @@
 Date: 2026-09-16. Carrier: Def 5.2, papers/sigma_essential/sigma_essential_body.tex.
 Status: paper proofs, HAND. Nothing formalized in Lean (see LEAN STATUS).
 Label->number map verified against sigma_essential.aux.
+**Erratum 2026-09-22 (D-lr / error 10):** the repo facts behind D-lr are wrong. It is written `(LR_*)` in
+docs/s11_quarantine_generality.md, "three-cell star" also appears in docs/psi_lat_attack_surface_ledger.md, and
+oml_attack IS the Psi_lat thread. See ../section5_audit/LEDGER.md (D-lr-fact, D-lr-thread, N-*). No Aut content changed.
 
 ## 1. Ledger
 

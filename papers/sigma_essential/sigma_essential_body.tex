@@ -123,16 +123,17 @@ The construction of \S\ref{sec:witness} was developed jointly with a large
 language model (see Acknowledgements), hand-checked by two independent
 adversarial passes, and subsequently \emph{formalized in Lean~4 in full}: the
 main theorem is machine-checked end-to-end in the author's repository
-(\texttt{formalization/QuerySystem/}, modules \texttt{SigmaEssentialAmended}
-and \texttt{UlamWitness*}; final statement \texttt{psiAmended\_ZFC}), with zero
-\texttt{sorry}s and axioms exactly \texttt{propext},
+(\texttt{formalization/QuerySystem/}, modules \texttt{SigmaEssentialWitness},
+\texttt{UlamWitness*} and \texttt{Admissibility}; final statement
+\texttt{targetA\_sharp\_ZFC}), with zero \texttt{sorry}s and axioms exactly
+\texttt{propext},
 \texttt{Classical.choice}, \texttt{Quot.sound} --- i.e.\ ZFC, no additional
 axioms and no large cardinals. The formalization covers the Ulam matrix
 (Lemma~\ref{lem:ulam}), the normal form and the full disjointness table
 (Theorem~\ref{thm:normal-form}, Lemma~\ref{lem:table} including case (IV)),
 rigidity (Theorem~\ref{thm:rigidity}), the vote state and its additivity
-(Theorem~\ref{thm:state}), and the assembly at $\omega_1$
-(Theorem~\ref{thm:main}); the $\Omega_7$ example of
+(Theorem~\ref{thm:state}), the centre (Corollary~\ref{cor:centre}), and the
+assembly at $\omega_1$ (Theorem~\ref{thm:main}); the $\Omega_7$ example of
 Remark~\ref{rem:amendment} is also machine-checked, so the necessity of the
 coherence clause is itself certified. The remaining trust surface is
 definitional fidelity (that the formal definitions transcribe
@@ -1021,6 +1022,5 @@ The author thanks the anonymous referees (forthcoming). The construction of
 (Anthropic Claude) in interactive sessions, which also assisted with literature
 search, verification of cited statements against primary sources, and
 exposition; OpenAI ChatGPT assisted with earlier literature work. All
-mathematical claims are being independently verified by the author, including a
-Lean~4 formalization in progress; see the Verification status paragraph in
-\S1.
+mathematical claims are being independently verified by the author; for the
+Lean~4 formalization see the Verification status paragraph in \S1.

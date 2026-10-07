@@ -2,10 +2,13 @@
 
 \emph{Contextuality} is typified by the absence of a single underlying state
 realizing a consistent assignment of truth values to a finite family of events
-across overlapping measurement contexts. In finite scenarios one need not
+across overlapping measurement contexts. Traditionally one need not
 distinguish whether it is $\sigma$-additive or finitely additive states that are
-precluded: a finite carrier has no countable orthogonal families beyond the
-finite ones, so every finitely additive state is already $\sigma$-additive.
+precluded. For finite scenarios the classes coincide: a finite carrier has no
+countable orthogonal families beyond the finite ones, so every finitely additive
+state is already $\sigma$-additive. On the projection lattice of $B(H)$ with
+$\dim H\geq 3$ the classes differ, but the finitely additive class is already
+empty~\cite{KochenSpecker1967}, so the $\sigma$-additive absence comes free.
 Demanding countable additivity sharpens the question: can a \emph{finitely}
 coherent pattern extend to no global $\sigma$-additive state, the failure
 visible only at the $\sigma$-level?
@@ -95,8 +98,8 @@ $\sigma$-complete orthomodular poset $\Lo\subseteq\PO(\Omega)$, a finite
 $\perp$-closed $B\subseteq\Lo$, and a two-valued state $s_0$ on $B$ such that
 $s_0$ extends to a finitely additive two-valued state on $\Lo$ but to no
 $\sigma$-additive one. Moreover every $\sigma$-additive two-valued state on
-$\Lo$ is Dirac, and $\Lo$ is non-Boolean, essentially irreducible,
-non-segregated, and not Polish-representable.
+$\Lo$ is Dirac, and $\Lo$ is non-Boolean, essentially irreducible, and
+non-segregated.
 \end{theorem}
 
 \begin{remark}[Irreducibility: not vacuous, and modulo the countable ideal]\label{rem:offcenter}
@@ -331,22 +334,14 @@ Theorem~\ref{thm:main} settles that conjunction affirmatively.
 
 \section{The boundary map}\label{sec:boundary}
 
-We locate the core between an upper boundary where it is empty and lower routes
-that fail to settle it. Each boundary is a constraint the witness of
-\S\ref{sec:witness} is forced to obey.
+We locate the core against routes from below that fail to settle it; each
+failure is a constraint the witness of \S\ref{sec:witness} is forced to obey.
 
-The upper boundary is the Polish-representable case. Derr and
-Williamson~\cite{DerrWilliamson2023} prove a $\sigma$-extension criterion for
-coherent probabilities on pre-Dynkin systems: when the carrier is
-Polish-representable (that is, $\Omega$ Polish, the generated $\sigma$-class
-equal to the Borel $\sigma$-algebra, with inner-regular blocks), finite coherence
-implies $\sigma$-extendability (their Theorem D.6, via
-Maharam~\cite{Maharam1972}). Specialised to two-valued states, this says that on
-a Polish-representable carrier every finitely coherent $s_0$ globalises: no
-$\sigma$-essential contextual state exists. A witness must therefore live on a
-carrier that is not Polish-representable --- as the one below, with
-$|\Omega|=\aleph_1$ and rigidity incompatible with inner regularity, does
-(Proposition~\ref{prop:adm}).
+Each route below consumes an object that only distributive structure supplies
+--- a point of a meet-closed algebra, a $\sigma$-complete ultrafilter on a masa,
+a faithful tribe of sets, the Riesz decomposition property --- and in each case
+it is lattice meet failing to be set intersection that withholds it: one
+obstruction, met in four forms.
 
 A Hilbert-space analogue exists, but does not transfer down to the concrete case.
 On the projection lattice of $B(\ell^2(\kappa))$, Blecher--Weaver~\cite{BlecherWeaver2017}
@@ -471,7 +466,8 @@ well-order of type $\omega_1$), $F=\{1,2,3,4\}$ is a four-element \emph{fibre}
 set, and $\Omega = M\times F$. For $E\subseteq\Omega$ and $f\in F$ the
 \emph{fibre trace} is $E_f = \{x\in M : (x,f)\in E\}$. For $X,Y\subseteq M$ write
 $X\approx Y$ when $X\,\Delta\,Y$ is countable, and $X^{(0)}=X$,
-$X^{(1)}=M\setminus X$. Let
+$X^{(1)}=M\setminus X$; for $\xi\subseteq M$ we also write $\xi\orth := M\setminus\xi$,
+the complement taken in $M$ rather than in $\Omega$ as for $E\orth$, $E\in\Lo$. Let
 \[
   E_4 \;=\; \{0000,\,1111\}\cup\{\text{the six weight-2 vectors}\}
   \;\subseteq\;\mathbb F_2^4
@@ -900,12 +896,10 @@ The carrier $\Lo$ is concrete and $\sigma$-complete (by construction);
 non-Boolean, with the incompatibility of $A_1,A_2$ robust under countable
 perturbation (Corollaries~\ref{cor:meet-region}, \ref{cor:incompat});
 essentially irreducible, with centre exactly the countable/co-countable sets
-(Corollary~\ref{cor:centre}), which $m$ annihilates; non-segregated in the sense
+(Corollary~\ref{cor:centre}), which $m$ annihilates; and non-segregated in the sense
 of Remark~\ref{rem:segregated}, as a corollary of the witness property
 (segregated carriers satisfy $\Phi$, Lemma~\ref{lem:horizontal} and
-Remark~\ref{rem:segregated}; Theorem~\ref{thm:main}); and
-not Polish-representable, as a corollary of the witness property via
-Derr--Williamson (\S\ref{sec:boundary}). It is not a lattice
+Remark~\ref{rem:segregated}; Theorem~\ref{thm:main}). It is not a lattice
 (Corollary~\ref{cor:incompat}).
 \end{proposition}
 
@@ -918,9 +912,8 @@ $\mathrm{St}_\sigma(\Lo)$ for the global $\sigma$-additive two-valued states on
 $\Lo$, $\mathrm{St}_{fa}(\Lo)$ for the global finitely additive ones,
 $\mathrm{Fin}_\perp(\Lo)$ for the finite $\perp$-closed sub-orthoposets, and
 $\mathrm{Adm}$ for the admissible carriers: concrete, $\sigma$-complete,
-non-Boolean, essentially irreducible, non-segregated, non-Polish-representable
-(the last two being consequences of witnesshood, by Lemma~\ref{lem:horizontal}
-and Derr--Williamson, not extra demands). The \emph{$\sigma$-additive lifting}
+non-Boolean, essentially irreducible, non-segregated (the last a consequence
+of witnesshood, by Lemma~\ref{lem:horizontal}, not an extra demand). The \emph{$\sigma$-additive lifting}
 property and its negation are
 \begin{align*}
   \Phi(\Lo)
@@ -934,10 +927,8 @@ property and its negation are
 \end{align*}
 Theorem~\ref{thm:main} proves $\Psi$ in ZFC. Proposition~\ref{prop:boolean} is
 the statement that Boolean carriers satisfy $\Phi$; Lemma~\ref{lem:horizontal}
-that horizontal $\sigma$-sums do; Derr--Williamson that Polish-representable
-carriers do. The witness therefore inhabits precisely the cell the boundary map
-of \S\ref{sec:boundary} isolated, and each constraint of that map is visible in
-its anatomy.
+that horizontal $\sigma$-sums do. Each constraint of the boundary map of
+\S\ref{sec:boundary} is visible in the witness's anatomy.
 
 \begin{remark}[consistency strength, resolved]\label{rem:strength}
 Two routes would assign $\Psi$ large-cardinal strength, and both fail
@@ -1012,8 +1003,13 @@ a different rigidity mechanism)? Is there a ZFC lower bound beyond
 \end{question}
 
 \begin{question}[characterising $\Phi$]\label{q:phi}
-Boolean carriers, Polish-representable carriers, and horizontal $\sigma$-sums
-satisfy $\Phi$; the product Ulam carrier does not. Is there a structural
+Boolean carriers and horizontal $\sigma$-sums satisfy $\Phi$; the product Ulam
+carrier does not. Whether Polish-representable carriers satisfy $\Phi$ is open:
+the $\sigma$-extension criterion of Derr and
+Williamson~\cite[Thm.~D.6]{DerrWilliamson2023} takes as input a $\sigma$-additive
+state on the whole carrier, which is what $\Phi$ asks to produce, and so does not
+decide the case (the formalization carries it as an explicit hypothesis,
+\texttt{DWPolishCut}). More generally, is there a structural
 characterisation of $\Phi$ for concrete $\sigma$-orthoposets --- a
 gluing-theoretic or exhaustion-theoretic condition separating the two classes,
 with Theorem~\ref{thm:main} as the canonical failure?

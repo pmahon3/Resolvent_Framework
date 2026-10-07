@@ -45,7 +45,7 @@ form stays open (§9), conjectured to FAIL (latticehood forces σ-liftability).
    (a) finite coherence read GLOBALLY (Def: `s₀` extends to a finitely-additive state) —
    Rem 1.5/`rem:amendment` argues this is FORCED (the literal reading makes [M Prop 2.1]
    false); (b) carrier is an OMP not a lattice (`A∧B` doesn't exist, Cor 4.4);
-   (c) irreducibility mod the countable ideal (Prop 7.2/`rem:irreducibility-amended`
+   (c) irreducibility mod the countable ideal (Prop 7.2/`rem:offcenter`
    argues literal irreducibility is unavailable to ANY singleton-containing carrier, so
    forced by the method). Each must be judged: forced, or convenient-weakening?
 2. **Is `Dirac-only + K(s₀)=∅` a GENUINE witness or the DEGENERATE case?** This is the

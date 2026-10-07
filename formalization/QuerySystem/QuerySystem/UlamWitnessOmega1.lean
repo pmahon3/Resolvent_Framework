@@ -10,6 +10,7 @@ extension, and the witness question for this carrier IS the coherence question.
 -/
 import QuerySystem.UlamWitnessCore
 import Mathlib.SetTheory.Cardinal.Aleph
+import Mathlib.SetTheory.Cardinal.Arithmetic
 
 namespace SigmaEssential.Ulam
 
@@ -24,13 +25,22 @@ noncomputable instance : LinearOrder M₁ :=
 instance : WellFoundedLT M₁ :=
   inferInstanceAs (WellFoundedLT (ω₁ : Ordinal).ToType)
 
+/-- `M₁` has cardinality `ℵ₁` (the paper's `|Ω| = ℵ₁`, since `Ω = M₁ × Fin 4`). -/
+theorem M₁_card : #M₁ = ℵ₁ := by
+  have : #M₁ = (ω₁ : Ordinal).card := Cardinal.mk_toType _
+  rw [this]
+  exact Ordinal.card_omega 1
+
+/-- The carrier's base set `Ω = M₁ × Fin 4` has cardinality `ℵ₁` (Theorem 1.4). -/
+theorem Ω₁_card : #(M₁ × Fin 4) = ℵ₁ := by
+  rw [Cardinal.mk_prod, Cardinal.lift_id, Cardinal.lift_id, M₁_card, Cardinal.mk_fin]
+  exact Cardinal.mul_eq_left (Cardinal.aleph0_le_aleph 1)
+    ((Cardinal.nat_lt_aleph0 4).le.trans (Cardinal.aleph0_le_aleph 1)) (Nat.cast_ne_zero.mpr (by decide))
+
 /-- `M₁` is uncountable. -/
 theorem M₁_uncountable : ¬ (Set.univ : Set M₁).Countable := by
   intro h
-  have hcard : #M₁ = ℵ₁ := by
-    have : #M₁ = (ω₁ : Ordinal).card := Cardinal.mk_toType _
-    rw [this]
-    exact Ordinal.card_omega 1
+  have hcard : #M₁ = ℵ₁ := M₁_card
   have hle : #M₁ ≤ ℵ₀ := by
     have : Countable M₁ := Set.countable_univ_iff.mp h
     exact Cardinal.mk_le_aleph0

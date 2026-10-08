@@ -14,6 +14,21 @@ is visible from outside the turn-to-turn.*
 > as premature). This historical narrative is left as-was; current state is in
 > `program_overview.md` and the `papers/*/PAPER_*_AUDIT_VERDICT.md` files.
 
+> **⚑ Post-dating update (2026-10-08): a pre-repo root.** The user
+> traces the current line of research to an earlier Overleaf draft,
+> *Embedding Univariate Time Series with Minimal Distortion* (project
+> `mcmc_lag_geometry`; date not recorded here). It asked when a set of observation
+> functions plus delays gives an embedding that is injective and quantitatively
+> well-conditioned. The draft's mathematics was ill-posed: its D := −I can't
+> approach 0, and mutual information is infinite for an injective continuous map.
+> The question survived. Its injectivity half became the delay/Paper III lane and
+> then reconstruction/commensurability ("statistical Takens", measure plus
+> shift). Its conditioning half died with the bridge theorem (2026-05-14) and is
+> now the dormant open question
+> `notes/open_questions/delay_embedding/collision_vs_generation.md`. The
+> flagship's standing checks from this root are in
+> `papers/reconstruction/notes/STATUS.md`.
+
 This document exists because the programme spent two months contracting
 (three papers + four active leads in early May → one open question by 2026-06-06,
 since closed: see the thread-map footnote below) and

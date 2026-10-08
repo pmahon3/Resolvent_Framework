@@ -238,3 +238,14 @@ version above is phrased in terms of exactly that object.
 The remaining items (`def:markov-order`, `thm:sufficiency`) depend on the
 sufficiency definition and are parked with it. `prop:stationarity` does not and
 could be done independently if wanted.
+
+---
+
+## Note 2026-10-08: the information-theoretic form of sufficiency
+
+The equivalent F ⊥ Q' | Q is the vanishing of the conditional mutual
+information I(F; Q' | Q). This is the corrected form of the distortion
+criterion D := −I(x; Y) in the pre-repo Overleaf draft (see
+`notes/programme/genealogy.md`). That criterion was ill-posed. Settling the
+definition against the source still comes first. ⟦HAND — standard CMI fact; not
+yet checked against the source's measurability setting.⟧

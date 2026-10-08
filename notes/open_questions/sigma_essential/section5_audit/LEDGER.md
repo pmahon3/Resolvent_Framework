@@ -185,3 +185,10 @@ with the one proved structural fact.
   structurally, since `nrep_exists` uses only `U.C`, so a restated theorem would certify a
   signature change. H-seg — an open matrix-dependent question, not a formalisation task.
 - No `sorry` anywhere; no file under `formalization/` modified.
+
+**Cross-ref 2026-10-08 (Q6.6 / `DWPolishCut`).** Glued real-valued delay windows
+give a Lean-certified non-Boolean Dynkin carrier inside the Borel sets of ℝⁿ
+(`formalization/staging/WindowGluing.lean`). That is a natural Polish-built test
+family for Q6.6, from the reconstruction lane. This does not change the H-pol
+verdict. Detail: `notes/open_questions/delay_embedding/collision_vs_generation.md`
+§Bridge hypothesis.

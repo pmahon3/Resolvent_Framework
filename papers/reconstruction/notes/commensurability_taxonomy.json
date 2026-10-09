@@ -898,9 +898,9 @@
    "id": "open.geometry_return",
    "name": "Breadcrumb back to geometry: collision -> generation",
    "status": "dormant",
-   "one_line": "The well-conditioned half of the programme's root question (pre-repo Overleaf delay-embedding draft). What non-circular condition on Phi_L makes collision mass -> 0 imply sigma-algebraic defect delta_L -> 0? Hidden-factor skew product shows the converse fails (C_L->0, delta_L=1/4). Kill-check first: Rokhlin / KS generator theory. The way back to geometry.",
+   "one_line": "The well-conditioned half of the programme's root question (pre-repo Overleaf delay-embedding draft). What non-circular condition on Phi_L makes collision mass -> 0 imply sigma-algebraic defect delta_L -> 0? Hidden-factor skew product shows the converse fails (C_L->0, delta_L=1/4). Kill-check first: Rokhlin / KS generator theory. The way back to geometry. Window-gluing bridge sub-hypothesis (DAG connector) KILLED 2026-10-09 by its pre-registered falsifier (winding mismatch); the countable sigma-essential witness survives independently (Q6.6, prior art pending).",
    "detail": "../../../notes/open_questions/delay_embedding/collision_vs_generation.md; standing checks STATUS.md#standing-checks-from-the-embedding-root-2026-10-08; root notes/programme/genealogy.md (update 2026-10-08)",
-   "examined": "2026-10-08"
+   "examined": "2026-10-09"
   }
  ],
  "tooling": [

@@ -34,6 +34,10 @@ C_L → 0 imply sup_S δ_L(S) → 0?
 
 ## Bridge hypothesis (flagged 2026-10-08) and its first falsifier
 
+> **KILLED 2026-10-09** by the falsifier pre-registered at the end of this section
+> (winding mismatch). See "Flagship correspondence, 2026-10-09". The carrier results
+> and the countable witness below stand on their own.
+
 **Hypothesis ⟦HAND — direction, not result⟧.** The conditioning step is the only
 point where the two DAG components could constrain each other. Real-valued
 windows remove the finite-alphabet compactness (seed C1′) that keeps them apart.
@@ -254,13 +258,24 @@ Still open from the rule:
 - the converse ("mixed orientations are σ-realisable", trivial);
 - the triangle.
 
-## Flagship correspondence, 2026-10-09: room MATCHES, winding does NOT
+## Flagship correspondence, 2026-10-09: winding mismatch; carrier blind at L = 3 — BRIDGE KILLED
 
 Compared against `thm:winding` of `papers/reconstruction/reconstruction_skeleton.tex`
 ("L unsafe iff the layered ring carries a layer-injective simple cycle of winding
 ≥ 2"). Oracle: `notes/open_questions/verification/window_gluing_flagship_bridge.py`
 (binary rings, pair windows; exact rationals on vertices, float LP on the whole
 polytope).
+
+**Verdict: the bridge hypothesis (DAG connector) is KILLED by its own
+pre-registered falsifier.** The bridge-hypothesis section above says: "A
+mismatch, or always-amalgamating rings, would kill the bridge." The windings do
+not match (below). No candidate two-way statement is kept alive here.
+
+**What survives, independent of the bridge:**
+- the countable σ-essential witness (`WindowGluing.Ring`, Lean, every L ≥ 4),
+  which bears on Q6.6 and the countable-Ω question, with prior art pending;
+- the collision→δ open question at the top of this note, which this result does
+  not touch.
 
 **Dictionary.**
 
@@ -269,32 +284,9 @@ polytope).
 | window table (probability, finite A) | `LocalState` on a `Block` (two-valued) | different value types |
 | EA = pairwise marginal agreement | `FinitelyCoherent` = extends to a `FinAddState` on all of the glued D | glued coherence is stronger than EA (L=3 below) |
 | PR = global measure on configurations | extends to a σ-additive `TwoValuedState` | on finite Ω both collapse to Diracs / R |
-| contextual = C∖R | σ-essential = finitely coherent, no σ-extension | live in disjoint regimes (winding row) |
+| contextual = C∖R | σ-essential = finitely coherent, no σ-extension | live in disjoint regimes (winding below) |
 
-**Room: a genuine match ⟦machine, finite binary; L=3..6⟧.** "States on the glued
-carrier D" against the flagship's coherence polytope C:
-- **L = 3:** every odd-parity (PR-box-type) vertex of C fails to be a state on D
-  (it gets −1/2 on a set like {000,111}). Over C ∩ {states on D}, every odd-cycle
-  functional has maximum 2, its value on R, not 3. So glued coherence on the
-  triangle restores the cycle (Boole) inequalities, and C ∩ states-on-D = R
-  ⟦modulo the classical fact that these inequalities cut out R for the binary
-  3-cycle; not re-derived here⟧.
-- **L ≥ 4 (checked 4, 5, 6):** all 2^{L−1} contextual parity vertices are states on
-  D, and the LP confirms **all of C** lies inside states-on-D (min over C of every
-  extension value on D is 0).
-
-So the glued carrier is **EA-faithful iff L ≥ 4**. That is the same threshold, and
-the same mechanism, as the σ-essential witness: a separated coordinate pair
-(no shared window) supplies the rectangle identities. In the triangle every pair
-shares a window, and D picks up triple-difference sets that impose global
-consistency. ⟦HAND reading of the mechanism; the threshold itself is machine.⟧
-
-**Consequence for the triangle (evidence, not proof).** On the triangle, glued
-coherence already forces the real-valued data to be realisable. That points
-toward **no σ-essential witness at L = 3**: an impossibility proof should go through
-the triple-difference sets of D. ⟦conjecture⟧
-
-**Winding: a mismatch ⟦HAND, elementary⟧.** The two windings are different
+**Winding: mismatch ⟦HAND, elementary⟧.** The two windings are different
 quantities.
 - Flagship winding is the net site-advance of a closed walk in the layered graph
   of a *finite* language ρ. Its contextual certificates are winding-≥2 cycles.
@@ -306,27 +298,37 @@ quantities.
   certificate object at all.
 - The σ-essential witness lives in exactly that gap. C is empty at every finite
   truncation and impossible σ-additively (equal marginals with P(x₀<x₁)=1), but
-  finitely additive ultrafilter tables exist. Mass escapes to infinity: a
-  "cycle at infinity", not a winding-≥2 cycle.
+  finitely additive ultrafilter tables exist. Mass escapes to infinity.
 - Conversely, on a finite alphabet every two-valued finitely additive window state
   is a Dirac, so σ-essentiality is empty there. That is exactly where the
   flagship's winding-≥2 contextuality lives.
 
-**Verdict.** The two lanes are **layered, not matched**:
-- the flagship governs real-valued, finite-alphabet obstructions;
-- the σ-essential lane governs two-valued, infinite-alphabet obstructions;
-- they share one carrier-level fact: the room threshold L ≥ 4, at which the glued
-  Dynkin carrier faithfully carries every EA datum.
+**Carrier side: the glued D is EA-faithful iff L ≥ 4 ⟦machine; binary alphabet,
+pair windows, L = 3..6 only⟧.** This is a fact about the σ-lane carrier, tested on
+flagship data. It is **not** a comparison with the flagship's layer-injectivity,
+which was never matched.
+- **L = 3:** every odd-parity (PR-box-type) vertex of C fails to be a state on D
+  (it gets −1/2 on a set like {000,111}). Over C ∩ {states on D}, every odd-cycle
+  functional has maximum 2, its value on R, not 3. So glued coherence on the
+  triangle restores the cycle (Boole) inequalities: C ∩ states-on-D = R
+  ⟦modulo the classical fact that these inequalities cut out R for the binary
+  3-cycle; not re-derived here⟧.
+- **L = 4, 5, 6:** all 2^{L−1} contextual parity vertices are states on D, and the
+  LP confirms all of C lies inside states-on-D (min over C of every extension
+  value on D is 0).
 
-This is a one-way constraint: the carrier choice limits what the flagship can
-export into the σ lane. It is **not** amendment 4(b)'s two-way constraint, and
-**the DAG is not connected by this.** A candidate two-way statement would be a
-real-valued, infinite-alphabet regime where both a winding-≥2 cycle and escape
-to infinity occur. Nothing here builds it.
+**A second mismatch.** At L = 3 the glued carrier cannot carry the flagship's
+smallest unsafe instance, the golden-mean odd-triangle gap from the parity theorem.
+The flagship sees contextuality there; the carrier is blind to it.
 
-**Next:**
-- settle the triangle: an impossibility proof via the triple-difference sets (now
-  the favoured direction);
+**Not a shared threshold yet.** The σ-side L = 3 failure is a fact about *this* μ
+(see the ring-sweep caveat). The thresholds coincide only if the triangle has no
+σ-essential witness at all. The finite L = 3 collapse is evidence in that
+direction, and an impossibility proof would plausibly go through the
+triple-difference sets of D. ⟦conjecture⟧
+
+**Open, now internal to the σ lane (none of it serves the bridge):**
+- the triangle: is there any σ-essential witness at L = 3?
 - the converse (mixed orientations are σ-realisable), trivial, for Lean
   completeness;
-- (optional) a Lean proof of the finite room threshold for binary rings.
+- the prior-art gate on the countable witness.

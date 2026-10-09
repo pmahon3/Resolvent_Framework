@@ -1016,3 +1016,51 @@ source; on the shelf as
 
 Gao–Shao 2009 (double vertex digraphs, asynchronous) remains unread, but the
 abstract-level model is again asynchronous.
+
+### Second pass on the open case (2026-10-09): cocyclic pairs; primitivity is essential
+
+**Criterion (trivial, proved).** If two distinct vertices x and y lie on a common
+simple cycle C of ρ ("cocyclic"), then the pair (x,y) already starts a chase on
+C. That chase is a closed D-walk through (x,y). So **any SCC containing a cocyclic
+pair contains a simple-cycle chase**, and by the cycle lemma it is aperiodic. L-B
+therefore reduces to:
+
+> **(L-B′)** For primitive ρ, every crossed-carrying SCC of bar-D contains a
+> cocyclic pair.
+
+**Evidence: shortest crossed walks hit a cocyclic pair.** Take, for each pair, its
+shortest crossed walk (a,b) → (b,a) and its antipodal chase on W = π₁·π₂. The
+chase always passes through a cocyclic pair:
+- 0 failures in 828 walks (A=3, exhaustive), 303,972 (A=4, exhaustive), and
+  29,782 / 44,596 in samples at A=5 / 6;
+- oracle: `oracles/barD_cocyclic_shortest_crossed.py`;
+- this test is **not** implied by (U), so it discriminates;
+- the start pair alone does not always suffice, and neither does W being simple
+  (e.g. W = [1,1,0,2,0,1] with L = 3 succeeds only at t = 1).
+
+**Refuted: the purely combinatorial form.** The candidate was: "every
+antipodal-free closed walk W has a cocyclic antipodal pair in supp(W)". It
+**fails**. An exhaustive check over all such walks up to relabelling
+(`oracles/barD_walk_lemma_exhaustive.py`) finds:
+- 1,561,488 walks with L ≤ 6;
+- **36 counterexamples, all at L = 6**, all cacti of short cycles, e.g.
+  W = [0,0,1,2,3,3,2,4,5,5,4,1].
+
+Classified by their own language supp(W):
+- **28 are primitive.** For each, the SCC still contains a cocyclic pair and is
+  aperiodic. The shortest crossed walk there has L = 4 < 6, so these W are simply
+  not shortest.
+- **8 are imprimitive.** For each:
+  - bar-D has **2 cycle-carrying SCCs**;
+  - the crossed SCC has **no cocyclic pair** and is **periodic**: period 2 with
+    the forbidden mixed G = {(0,0),(0,1)}, or period 3 with G full;
+  - W is itself the shortest crossed walk.
+
+  So these are exactly the fork shapes L-B must exclude. Primitivity is what
+  excludes them, and (U) fails without it.
+
+**Consequence for the proof.** No argument that sees only the walk W can prove
+L-B′. Primitivity of the whole language must enter, presumably through
+excursions as in the cycle lemma: the imprimitive cacti have no excursion of
+nonzero defect available. **Status: L-B′ OPEN**, strongly validated, with
+sharp imprimitive near-misses. The paper is not edited.

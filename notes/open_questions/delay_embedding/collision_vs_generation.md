@@ -106,6 +106,32 @@ event is Borel):
 **Nothing propagates to the paper until a hostile prior-art check has been run.**
 The text below is the pre-proof record, kept for the trail.
 
+### Prior-art scout, 2026-10-08: FOLKLORE-ADJACENT, coverage partial
+
+Shelf first, then two web queries. **Not found as a stated result. No contradiction
+found.**
+- **Closest:** Navara–Pták 1983 (shelf PDF). It has a non-point *σ-additive*
+  two-valued measure on a small countable σ-class, which is the opposite polarity.
+- **Derr–Williamson Thm 4.5 / D.6:** the extension framework; neither states this.
+- **Navara 1992 / Dvurečenskij–Neubrunn–Pulmannová 1992:** FA-not-σ examples on
+  non-σ-complete logics.
+- **Vorob'ev / Kellerer:** the cycle obstruction is classical. No finitely
+  additive two-valued ultrafilter form was found.
+- **Referee risk:** "a routine Vorob'ev-cycle plus ultrafilter-amalgamation
+  variant". Rebuttal on the record: the non-routine step is two-valuedness on the
+  *Dynkin closure* (`mu_cases`). Window-level gluing is easy; additivity across
+  D's cross-window disjoint unions is what the eight identities settle.
+- **Horn–Tarski note:** μ does not extend to 2^Ω (its kernel is empty). That is
+  intended: `FinitelyCoherent` asks for an FA state on the carrier D, not on 2^Ω.
+- **Not yet searched:**
+  - ultrafilter model theory (p⊗p, 3-amalgamation)
+  - Pták–Pulmannová, *Orthomodular Structures*
+  - Dvurečenskij, *Gleason's Theorem*
+  - Navara–Rüttimann 1991; de Simone–Navara–Pták
+  - work citing Derr–Williamson
+
+  These need a second pass before any paper change.
+
 ### Pre-proof record
 
 ⚠ If this candidate holds, it would show `DWPolishCut` fails on an admissible,

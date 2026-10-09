@@ -281,6 +281,95 @@ theorem glued_nonSegregated {ι : Type*} {W : Set (Set ι)} {i : ι} (hi : ∃ w
   obtain ⟨n, hn⟩ := exists_nat_gt (x i)
   exact absurd (this n) (not_lt.mpr hn.le)
 
+/-! ## Essential irreducibility: the centre is trivial
+
+A central `E` meets every carrier element inside the carrier. Intersecting with the
+window event `{y | y i = a}` and applying the rectangle identity at a separated
+pair `(i, j)` shows `E` does not depend on coordinate `j`. On a ring of length
+≥ 4 every coordinate has such a partner, so `E` is `∅` or `univ`. -/
+
+section Centre
+
+open SigmaEssential.Admissibility
+
+variable [MeasurableSingletonClass α]
+
+/-- A central element does not depend on any coordinate `j` that has a separated
+partner `i`. -/
+lemma centre_indep {W : Set (Set ι)} {i j : ι} (hij : i ≠ j)
+    (hi : ∃ w ∈ W, i ∈ w) (hsep : ∀ w ∈ W, ¬ (i ∈ w ∧ j ∈ w))
+    (hα : ∀ a : α, ∃ b, b ≠ a) {E : Set (ι → α)} (hE : Centre (glued (α := α) W) E)
+    (x : ι → α) (c : α) : update x j c ∈ E ↔ x ∈ E := by
+  classical
+  obtain ⟨w, hw, hiw⟩ := hi
+  -- the step for a reset value different from `x i`
+  have step : ∀ (y : ι → α) (c' : α), c' ≠ y i → (update y j c' ∈ E ↔ y ∈ E) := by
+    intro y c' hc'
+    have hA : (glued (α := α) W).Has {z | z i = y i} :=
+      DynkinSystem.GenerateHas.basic _
+        ⟨w, hw, {v | v ⟨i, hiw⟩ = y i}, measurable_pi_apply _ (measurableSet_singleton _), rfl⟩
+    have hR := rect_of_glued (α := α) hij hsep c' (hE.2 _ hA) y
+    simp only [cnt, mem_inter_iff, mem_setOf_eq, update_self,
+      update_of_ne hij, and_true] at hR
+    split_ifs at hR with h1 h2 h2 <;> simp_all
+  by_cases hc : c = x i
+  · obtain ⟨c', hc'⟩ := hα (x i)
+    have h1 := step x c' hc'
+    have h2 := step (update x j c) c' (by rw [update_of_ne hij]; exact hc')
+    rw [update_idem] at h2
+    exact h2.symm.trans h1
+  · exact step x c hc
+
+/-- **The glued real 4-ring is essentially irreducible**: its centre is `{∅, univ}`. -/
+theorem ring4_real_essentiallyIrreducible :
+    EssentiallyIrreducible
+      (glued (ι := Fin 4) (α := ℝ) {{0, 1}, {1, 2}, {2, 3}, {3, 0}}) := by
+  classical
+  intro E hE
+  set W : Set (Set (Fin 4)) := {{0, 1}, {1, 2}, {2, 3}, {3, 0}}
+  have hα : ∀ a : ℝ, ∃ b, b ≠ a := fun a => ⟨a + 1, by linarith⟩
+  have sep : ∀ i j : Fin 4, (i = 0 ∧ j = 2 ∨ i = 2 ∧ j = 0 ∨ i = 1 ∧ j = 3 ∨ i = 3 ∧ j = 1) →
+      ∀ w ∈ W, ¬ (i ∈ w ∧ j ∈ w) := by
+    intro i j hij w hw
+    simp only [W, mem_insert_iff, mem_singleton_iff] at hw
+    rcases hij with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ <;>
+      rcases hw with rfl | rfl | rfl | rfl <;> decide
+  have inW : ∀ i : Fin 4, ∃ w ∈ W, i ∈ w := by
+    intro i; fin_cases i
+    · exact ⟨{0, 1}, by simp [W], by simp⟩
+    · exact ⟨{0, 1}, by simp [W], by simp⟩
+    · exact ⟨{1, 2}, by simp [W], by simp⟩
+    · exact ⟨{2, 3}, by simp [W], by simp⟩
+  -- every coordinate is invariant
+  have inv : ∀ (j : Fin 4) (x : Fin 4 → ℝ) (c : ℝ), update x j c ∈ E ↔ x ∈ E := by
+    intro j x c
+    fin_cases j
+    · exact centre_indep (i := 2) (by decide) (inW 2) (sep 2 0 (by simp)) hα hE x c
+    · exact centre_indep (i := 3) (by decide) (inW 3) (sep 3 1 (by simp)) hα hE x c
+    · exact centre_indep (i := 0) (by decide) (inW 0) (sep 0 2 (by simp)) hα hE x c
+    · exact centre_indep (i := 1) (by decide) (inW 1) (sep 1 3 (by simp)) hα hE x c
+  have all : ∀ x y : Fin 4 → ℝ, x ∈ E ↔ y ∈ E := by
+    intro x y
+    have hy : y = update (update (update (update x 0 (y 0)) 1 (y 1)) 2 (y 2)) 3 (y 3) := by
+      funext k; fin_cases k <;> simp [update]
+    rw [hy, inv, inv, inv, inv]
+  by_cases hne : E.Nonempty
+  · right
+    obtain ⟨x, hx⟩ := hne
+    have : Eᶜ = ∅ := Set.eq_empty_iff_forall_notMem.mpr fun y hy => hy ((all x y).mp hx)
+    simp [this]
+  · left
+    simp [Set.not_nonempty_iff_eq_empty.mp hne]
+
+/-- **The glued real 4-ring is an admissible carrier** (`Admissible`, both
+conjuncts). Together with `generateFrom_glued` it is a Borel, Polish-built test
+case for Q6.6 (`DWPolishCut`). -/
+theorem ring4_real_admissible :
+    Admissible (glued (ι := Fin 4) (α := ℝ) {{0, 1}, {1, 2}, {2, 3}, {3, 0}}) :=
+  ⟨ring4_real_essentiallyIrreducible, glued_nonSegregated (i := (0 : Fin 4)) ⟨{0, 1}, by simp, by simp⟩⟩
+
+end Centre
+
 end WindowGluing
 
 #print axioms WindowGluing.glued_not_interClosed
@@ -289,3 +378,5 @@ end WindowGluing
 #print axioms WindowGluing.generateFrom_glued
 #print axioms WindowGluing.glued_blocks_overlap
 #print axioms WindowGluing.glued_nonSegregated
+#print axioms WindowGluing.ring4_real_essentiallyIrreducible
+#print axioms WindowGluing.ring4_real_admissible

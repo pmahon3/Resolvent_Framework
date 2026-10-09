@@ -58,7 +58,7 @@ the one that separates. Grades are below; everything marked Lean is in
 | concrete, σ-complete | automatic for any `DynkinSystem` | Lean (existing) |
 | Borel, generating | `glued_le_borel` and `generateFrom_glued`: when the windows cover all coordinates, σ(D) is the product σ-algebra. This is the Derr–Williamson D.6 setting exactly | **Lean** |
 | `NonSegregated` (`Admissible` conjunct 2) | `glued_nonSegregated` for ℝ-valued windows: an ultrafilter escaping to +∞ in one coordinate has an empty block kernel. **Cheap, so it does not discriminate**: every Borel σ-algebra of ℝ is non-segregated too | **Lean** |
-| `EssentiallyIrreducible` (`Admissible` conjunct 1) | **open**: is every central element of D countable or co-countable? This is the admissibility test that actually matters | open |
+| `EssentiallyIrreducible` (`Admissible` conjunct 1) | `ring4_real_essentiallyIrreducible`: the centre is `{∅, univ}`. A central E meets `{x_i = a}` inside D, and the rectangle identity at a separated pair then makes E independent of x_j. In a ring every coordinate has a separated partner. **`ring4_real_admissible`: the glued real 4-ring is an `Admissible` carrier** | **Lean** |
 | `PolishRepresentable` | opaque `axiom` in `SigmaEssentialOpenCore`, so it can't be certified. The D.6-shaped facts above are what can be | not decidable in current formalization |
 | triangle (all pairs share a window) | non-Boolean in the finite binary oracle only. The Lean invariant does not reach it | machine, finite |
 
@@ -77,7 +77,7 @@ On the finite glued ring every two-valued state is a Dirac (window restrictions
 are Diracs; shared coordinates force a global point) ⟦HAND⟧. This agrees with
 standing check 3.
 
-**What is left: the real question, sharpened.** First, essential irreducibility of the glued carrier, the open `Admissible` conjunct. Then Φ itself. A σ-essential witness on a
+**What is left: the real question, sharpened.** The glued real 4-ring passes every certifiable admissibility test, so it is a concrete Q6.6 instance. What remains is Φ on it. A σ-essential witness on a
 window gluing needs finitely additive two-valued window states (Borel
 ultrafilters, not points) that agree on shared coordinates but do not glue
 around a cycle. Chains (trees) plausibly always amalgamate; rings are the

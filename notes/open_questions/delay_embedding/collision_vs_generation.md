@@ -132,6 +132,37 @@ found.**
 
   These need a second pass before any paper change.
 
+### Second-pass scout, 2026-10-08: FOLKLORE-ADJACENT (not found)
+
+**No source states the combination. No contradiction found.** Each ingredient is
+folklore:
+- the cyclic marginal obstruction (the three-coin cycle);
+- the non-commutativity of p⊗p (Goldberg JSL 2022, arXiv 2102.04677;
+  Hindman–Strauss);
+- "σ-additive 0-1 on a countable set is a Dirac".
+
+The last makes the no-σ-extension half trivial. **All novelty sits in the finitely
+additive existence step, `mu_cases`** (two-valuedness across D's cross-window
+disjoint unions). No source was found for it.
+
+**Closest new neighbour:** Cardona–Mejía–Uribe-Zapata, arXiv 2503.08910. It
+generalises Horn–Tarski to three FA measures, one an ultrafilter. Only the
+abstract was read: it concerns extension to Boolean algebras, with no cycles and
+no σ-additivity mentioned. Burešová–Pták(–Ševčík), arXiv 2401.13651 and
+2609.10770, cover Z₂-state extension and are finite or extension-theoretic.
+
+**Weak point: search depth, not contrary evidence.** Still unread:
+- the bodies of 2503.08910 and 2609.10770;
+- Bhaskara Rao, *Theory of Charges* (λ-system / 0-1 charge sections);
+- Pták–Pulmannová 1991 and Dvurečenskij 1993;
+- Navara–Pták 1983 full text;
+- Mushtari, Ovchinnikov, Müller, Godowski, Navara–Rüttimann;
+- 3-amalgamation for types (model theory);
+- MathOverflow.
+
+**Gate:** read the 2503.08910 body and the Pták–Pulmannová / Dvurečenskij
+state chapters by hand before any paper change.
+
 ### Pre-proof record
 
 ⚠ If this candidate holds, it would show `DWPolishCut` fails on an admissible,

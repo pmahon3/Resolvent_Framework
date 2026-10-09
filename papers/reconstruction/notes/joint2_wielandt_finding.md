@@ -996,7 +996,23 @@ and which contains no simple-cycle chase.
   in any data we have. A discriminating test needs |A| ≥ 5 languages with two or
   more cycle-carrying SCCs, and none has been found.
 
-**Prior art owed (unchanged from July).** "Multi-agent pathfinding on strongly
-connected digraphs" (2025, paywalled) is not on the shelf. Check whether its
-model forbids waiting; if it does, its two-agent reachability results may
-contain (U).
+**Prior art (discharged 2026-10-09): Ardizzoni–Consolini–Locatelli–Nebel–Saccani,
+"Multi-agent pathfinding on strongly connected digraphs: feasibility and solution
+algorithms", *Artificial Intelligence* 347 (2025) 104372.** Read from the primary
+source; on the shelf as
+`notes/literature_review/literature/ardizzoni_consolini_locatelli_nebel_saccani_2025_mapf_strongly_connected.pdf`.
+
+**Verdict: does NOT contain (U) or the cycle lemma. The model is different.**
+- Their model is pebble motion: "a move corresponds to a movement action for a
+  single agent, while all other agents execute a waiting action … agents cannot
+  move simultaneously" (§2, the definition of move).
+- Ours is synchronous: both tokens move every step, and waiting is possible only
+  at a loop.
+- Their engine is reversibility of single moves on strongly connected digraphs
+  (Prop. 5.1, Thm 5.2). It reduces feasibility to the underlying undirected graph,
+  which is a tree-of-biconnected-components test.
+- That engine has no analogue for us: forced synchronous motion is exactly what
+  makes the period and parity of bar-D matter.
+
+Gao–Shao 2009 (double vertex digraphs, asynchronous) remains unread, but the
+abstract-level model is again asynchronous.

@@ -19,7 +19,7 @@ the current section inventory; the ladder and quarantine conjectures were
 subsequently replaced by proved results.
 
 - REFERENCE-ONLY (never absorbs the three papers).
-- §1 observer-first moral (the corpus's stated-once thesis).
+- §1 observer-first moral (the corpus's stated-once question: whether, and what, coherence forces; reopened as a question 2026-10-09).
 - §2 the filtration + the map table (each paper = one transition; boundary
   coordinate + separating witness per row). The filtration and its three
   transition-names are Paper II's own (verified in its abstract); the spine's

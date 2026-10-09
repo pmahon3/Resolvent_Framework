@@ -45,19 +45,25 @@ witness. Bar: amendment 4(b) of `notes/programme/blueprint_dag_connectivity.md`.
 Each lane must constrain the other; an instantiation does not count.
 
 **Falsifier.** Does the gluing collapse to a Boolean carrier, or to a class already
-settled (Boolean, or horizontal σ-sum, `lem:horizontal`)? **It did not fire.**
+settled (Boolean, horizontal σ-sum, segregated)? **It did not fire.** The non-Boolean
+leg alone would not show that: two *disjoint* windows σ(x₀) ∪ σ(x₁) are also
+non-Boolean, and that carrier is MO₂-shaped and settled. The block-overlap leg is
+the one that separates. Grades are below; everything marked Lean is in
+`formalization/staging/WindowGluing.lean`, axioms `[propext, Classical.choice, Quot.sound]`.
 
 | leg | result | grade |
 |---|---|---|
-| non-Boolean | Two coordinates that each lie in some window but share none make the glued Dynkin carrier fail intersection-closure. Covers chains of length ≥ 2 and rings of length ≥ 4. The real 4-ring is an instance. `formalization/staging/WindowGluing.lean`: `glued_not_interClosed`, `ring4_real_not_interClosed` | **Lean**, axioms `[propext, Classical.choice, Quot.sound]` |
-| concrete, σ-complete | automatic for any `DynkinSystem` (`isConcreteCarrier`, `isSigmaCompleteCarrier`) | Lean (existing) |
-| Borel on a Polish space | `glued_le_borel`: the carrier lies inside the product σ-algebra. This is the Derr–Williamson D.6 setting; whether σ(D) is the full σ-algebra is not proved here | **Lean** (containment only) |
-| `PolishRepresentable` | cannot be certified: it is an opaque `axiom` in `SigmaEssentialOpenCore` | **not decidable in the current formalization** |
-| not a horizontal σ-sum | `{x₀∈U}` and `{x₁∈U}` share the Boolean window σ(x₀,x₁), and `{x₁∈U}` and `{x₂∈U}` share σ(x₁,x₂). In a horizontal sum each nontrivial element lies in exactly one block, and every Boolean sub-σ-algebra lies in a block (Zorn). So all three would share one Boolean block, and `{x₀∈U}∩{x₂∈U}` would be in D. Lean refutes that | ⟦HAND⟧ on top of the Lean refutation |
-| triangle (all pairs share a window) | non-Boolean in the finite binary oracle only. The Lean invariant does not reach it; a triple-difference version would | machine, finite |
+| non-Boolean | `glued_not_interClosed`: coordinates `i, j` that each lie in a window but share none make the carrier fail intersection-closure. Covers chains of length ≥ 2 and rings of length ≥ 4. `ring4_real_not_interClosed` is the real 4-ring | **Lean** |
+| not a horizontal σ-sum | `glued_blocks_overlap`: two **distinct** maximal blocks (the repo's `IsMaxBlock`) share the nontrivial element `{x_m ∈ U}`, when `m` shares a window with `i` and another with `j`. Uses `exists_isMaxBlock_superset`, so there is no Zorn gap | **Lean** |
+| concrete, σ-complete | automatic for any `DynkinSystem` | Lean (existing) |
+| Borel, generating | `glued_le_borel` and `generateFrom_glued`: when the windows cover all coordinates, σ(D) is the product σ-algebra. This is the Derr–Williamson D.6 setting exactly | **Lean** |
+| `NonSegregated` (`Admissible` conjunct 2) | `glued_nonSegregated` for ℝ-valued windows: an ultrafilter escaping to +∞ in one coordinate has an empty block kernel. **Cheap, so it does not discriminate**: every Borel σ-algebra of ℝ is non-segregated too | **Lean** |
+| `EssentiallyIrreducible` (`Admissible` conjunct 1) | **open**: is every central element of D countable or co-countable? This is the admissibility test that actually matters | open |
+| `PolishRepresentable` | opaque `axiom` in `SigmaEssentialOpenCore`, so it can't be certified. The D.6-shaped facts above are what can be | not decidable in current formalization |
+| triangle (all pairs share a window) | non-Boolean in the finite binary oracle only. The Lean invariant does not reach it | machine, finite |
 
 **Contextual statistics live on the carrier, but that does not make a witness.**
-In the finite binary oracle (`notes/open_questions/verification/window_gluing_states.py`):
+In the finite binary oracle (`notes/open_questions/verification/window_gluing_states.py`, exact rational arithmetic):
 - The odd-parity 4-ring statistics (PR-box-like, not realisable) define a genuine
   state on the glued carrier, with range [0,1].
 - The contextual triangle statistics do **not**: the carrier contains
@@ -71,7 +77,7 @@ On the finite glued ring every two-valued state is a Dirac (window restrictions
 are Diracs; shared coordinates force a global point) ⟦HAND⟧. This agrees with
 standing check 3.
 
-**What is left: the real question, sharpened.** A σ-essential witness on a
+**What is left: the real question, sharpened.** First, essential irreducibility of the glued carrier, the open `Admissible` conjunct. Then Φ itself. A σ-essential witness on a
 window gluing needs finitely additive two-valued window states (Borel
 ultrafilters, not points) that agree on shared coordinates but do not glue
 around a cycle. Chains (trees) plausibly always amalgamate; rings are the

@@ -237,9 +237,24 @@ plus layer-injectivity. A correspondence is not yet shown.
 **Caveat.** L=3 failing is a fact about *this* μ, not a no-witness theorem for the
 triangle.
 
+**Update 2026-10-09: the witness half is proved for every L ≥ 4 (Lean).**
+`WindowGluing.Ring.sL_sigmaEssential` (std axioms) transports the 4-ring witness
+along the degree-one cycle map k ↦ ⌊4k/L⌋ : ℤ_L → ℤ₄. With ψ(y)_k =
+(L+1)·y_{⌊4k/L⌋} + k:
+- ψ⁻¹ sends L-window events to 4-window events, so the L-ring carrier pulls back
+  into D₄ (`pullback`);
+- μ∘ψ⁻¹ is a two-valued finitely additive state (`muL`);
+- ascents inside a block pull back to Ω, and block-crossing ascents contain C_k
+  (`muL_CL`).
+
+The σ side is a max-element argument. **The mechanism is winding:** the witness
+is functorial along winding-one maps of cycles.
+
+Still open from the rule:
+- the converse ("mixed orientations are σ-realisable", trivial);
+- the triangle.
+
 **Next:**
-- prove the rule for all L ≥ 4 (the eight-identity argument should generalise
-  along the ring);
 - state the precise correspondence with the flagship's layered-graph winding, or
   record a mismatch;
 - settle the triangle by another state or by an impossibility proof.

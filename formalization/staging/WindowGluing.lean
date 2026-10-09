@@ -872,3 +872,226 @@ end WindowGluing.Cyclic
 #print axioms WindowGluing.Cyclic.targetA_sharp_countable
 #print axioms WindowGluing.Cyclic.targetA_sharp'
 #print axioms WindowGluing.Cyclic.dwPolishCut_excludes
+
+
+/-! # Every ring of length `L ≥ 4` carries the cyclic witness
+
+Transport along the degree-one cycle map `k ↦ ⌊4k/L⌋ : ℤ_L → ℤ_4`. The coordinate map
+`ψ y k = (L+1)·y ⌊4k/L⌋ + k` pulls each `L`-window event back to a 4-window event, so
+`μ ∘ ψ⁻¹` is a finitely additive two-valued state on the `L`-ring carrier making every
+ascent `x_k < x_{k+1}` true; no σ-additive state does, by cyclic order. -/
+
+namespace WindowGluing.Ring
+
+open WindowGluing WindowGluing.Cyclic SigmaEssential SigmaEssential.Blocks Filter
+
+variable {L : ℕ} [NeZero L]
+
+def WL (L : ℕ) [NeZero L] : Set (Set (Fin L)) := Set.range fun k : Fin L => {k, k + 1}
+abbrev DL (L : ℕ) [NeZero L] : DynkinSystem (Fin L → ℕ) := glued (ι := Fin L) (α := ℕ) (WL L)
+
+lemma hasL_of_window {k : Fin L} {E : Set (Fin L → ℕ)}
+    (hdep : ∀ x y : Fin L → ℕ, (∀ j ∈ ({k, k + 1} : Set (Fin L)), x j = y j) → (x ∈ E ↔ y ∈ E)) :
+    (DL L).Has E := by
+  classical
+  refine DynkinSystem.GenerateHas.basic _ ⟨{k, k + 1}, ⟨k, rfl⟩, ?_⟩
+  refine ⟨(fun x (j : ({k, k + 1} : Set (Fin L))) => x j) '' E,
+    (Set.to_countable _).measurableSet, ?_⟩
+  ext x
+  constructor
+  · rintro ⟨y, hy, hxy⟩
+    exact (hdep y x fun j hj => congrFun hxy ⟨j, hj⟩).mp hy
+  · intro hx; exact ⟨x, hx, rfl⟩
+
+lemma hasL_pair (k : Fin L) (R : ℕ → ℕ → Prop) :
+    (DL L).Has {x : Fin L → ℕ | R (x k) (x (k + 1))} :=
+  hasL_of_window (k := k) fun x y h => by
+    simp only [Set.mem_setOf_eq, h k (by simp), h (k + 1) (by simp)]
+
+lemma hasL_coord (k : Fin L) (a : ℕ) : (DL L).Has {x : Fin L → ℕ | x k = a} := by
+  simpa using hasL_pair k (fun u _ => u = a)
+
+/-- The degree-one cycle map `ℤ_L → ℤ_4`. -/
+def cmap (hL : 4 ≤ L) (k : Fin L) : Fin 4 :=
+  ⟨4 * k.val / L, (Nat.div_lt_iff_lt_mul (by omega)).2 (by have := k.isLt; omega)⟩
+
+lemma fin_succ_val (k : Fin L) (hL : 4 ≤ L) :
+    (k + 1).val = if k.val + 1 < L then k.val + 1 else 0 := by
+  rw [Fin.val_add, Fin.val_one', Nat.add_mod_mod]
+  split_ifs with h
+  · exact Nat.mod_eq_of_lt h
+  · have : k.val + 1 = L := by have := k.isLt; omega
+    rw [this, Nat.mod_self]
+
+/-- Each step of `cmap` stays put (without wrapping) or advances by one. -/
+lemma step_cases (hL : 4 ≤ L) (k : Fin L) :
+    ((k + 1).val = k.val + 1 ∧ cmap hL (k + 1) = cmap hL k) ∨ cmap hL (k + 1) = cmap hL k + 1 := by
+  have hk := k.isLt
+  have hLpos : 0 < L := by omega
+  rw [fin_succ_val k hL]
+  split_ifs with h
+  · -- no wrap
+    have lo : 4 * k.val / L ≤ 4 * (k.val + 1) / L := Nat.div_le_div_right (by omega)
+    have hi : 4 * (k.val + 1) / L ≤ 4 * k.val / L + 1 := by
+      calc 4 * (k.val + 1) / L ≤ (4 * k.val + L) / L := Nat.div_le_div_right (by omega)
+        _ = 4 * k.val / L + 1 := Nat.add_div_right _ hLpos
+    have hlt : 4 * (k.val + 1) / L < 4 :=
+      (Nat.div_lt_iff_lt_mul hLpos).2 (by omega)
+    rcases Nat.eq_or_lt_of_le lo with heq | hlt'
+    · left
+      refine ⟨rfl, Fin.ext ?_⟩
+      show 4 * (k + 1).val / L = 4 * k.val / L
+      rw [fin_succ_val k hL, if_pos h]; exact heq.symm
+    · right
+      apply Fin.ext
+      show 4 * (k + 1).val / L = (cmap hL k + 1).val
+      rw [fin_succ_val k hL, if_pos h, Fin.val_add, Fin.val_one]
+      simp only [cmap]
+      rw [Nat.mod_eq_of_lt (by omega)]
+      omega
+  · -- wrap: k = L - 1, cmap k = 3, cmap 0 = 0
+    right
+    have hkL : k.val = L - 1 := by omega
+    have h3 : 4 * k.val / L = 3 := by
+      rw [hkL]
+      apply le_antisymm
+      · exact Nat.lt_succ_iff.mp ((Nat.div_lt_iff_lt_mul hLpos).2 (by omega))
+      · exact (Nat.le_div_iff_mul_le hLpos).2 (by omega)
+    apply Fin.ext
+    show 4 * (k + 1).val / L = (cmap hL k + 1).val
+    rw [fin_succ_val k hL, if_neg h, Fin.val_add, Fin.val_one]
+    simp only [cmap, h3]
+    simp
+
+/-- The coordinate map `ℕ⁴ → ℕ^L`. -/
+def ψ (hL : 4 ≤ L) (y : Fin 4 → ℕ) : Fin L → ℕ := fun k => (L + 1) * y (cmap hL k) + k.val
+
+/-- Pullback sends the `L`-ring carrier into the 4-ring carrier. -/
+lemma pullback (hL : 4 ≤ L) {E : Set (Fin L → ℕ)} (hE : (DL L).Has E) :
+    D₄.Has (ψ hL ⁻¹' E) := by
+  induction hE with
+  | basic t ht =>
+    obtain ⟨w, ⟨k, rfl⟩, hw⟩ := ht
+    refine has_of_window (window_mem (cmap hL k)) fun y y' h => ?_
+    have hagree : ∀ j ∈ ({k, k + 1} : Set (Fin L)), ψ hL y j = ψ hL y' j := by
+      intro j hj
+      have hc : cmap hL j ∈ ({cmap hL k, cmap hL k + 1} : Set (Fin 4)) := by
+        rcases hj with rfl | hj
+        · simp
+        · rw [Set.mem_singleton_iff.mp hj]
+          rcases step_cases hL k with ⟨-, he⟩ | he <;> simp [he]
+      simp only [ψ, h _ hc]
+    exact window_event_local hw hagree
+  | empty => exact D₄.has_empty
+  | compl _ ih => rw [Set.preimage_compl]; exact D₄.has_compl ih
+  | iUnion hd _ ih =>
+    rw [Set.preimage_iUnion]
+    exact D₄.has_iUnion (fun i j hij => (hd hij).preimage _) ih
+
+/-- The transported finitely additive two-valued state. -/
+noncomputable def muL (hL : 4 ≤ L) : FinAddState (DL L) where
+  Val E := muState.Val (ψ hL ⁻¹' E)
+  decVal := Classical.decPred _
+  val_univ := by rw [Set.preimage_univ]; exact muState.val_univ
+  not_val_empty := by rw [Set.preimage_empty]; exact muState.not_val_empty
+  val_compl := fun hA => by rw [Set.preimage_compl]; exact muState.val_compl (pullback hL hA)
+  val_union := fun hA hA' hd => by
+    rw [Set.preimage_union]
+    exact muState.val_union (pullback hL hA) (pullback hL hA') (hd.preimage _)
+
+lemma muState_mono {A B : Set Ω₄} (hA : D₄.Has A) (hB : D₄.Has B) (hAB : A ⊆ B)
+    (h : muState.Val A) : muState.Val B := by
+  have hdiff : D₄.Has (B \ A) := D₄.has_diff hB hA hAB
+  have := (muState.val_union hA hdiff disjoint_sdiff_right).mpr (Or.inl h)
+  rwa [Set.union_diff_cancel hAB] at this
+
+def CL (L : ℕ) [NeZero L] (k : Fin L) : Set (Fin L → ℕ) := {x | x k < x (k + 1)}
+
+lemma CL_has (k : Fin L) : (DL L).Has (CL L k) := hasL_pair k (· < ·)
+
+lemma muL_CL (hL : 4 ≤ L) (k : Fin L) : (muL hL).Val (CL L k) := by
+  show muState.Val (ψ hL ⁻¹' CL L k)
+  rcases step_cases hL k with ⟨hv, hc⟩ | hc
+  · have : ψ hL ⁻¹' CL L k = Set.univ := by
+      ext y; simp only [Set.mem_preimage, CL, Set.mem_setOf_eq, ψ, hc, hv, Set.mem_univ,
+        iff_true]; omega
+    rw [this]; exact muState.val_univ
+  · refine muState_mono (C_has (cmap hL k)) (pullback hL (CL_has k)) ?_ (mu_C _)
+    intro y hy
+    simp only [C, Set.mem_setOf_eq] at hy
+    simp only [Set.mem_preimage, CL, Set.mem_setOf_eq, ψ, hc]
+    have h1 : (L + 1) * (y (cmap hL k) + 1) ≤ (L + 1) * y (cmap hL k + 1) :=
+      Nat.mul_le_mul_left _ hy
+    have h2 := k.isLt
+    nlinarith
+
+open Classical in
+noncomputable def BL (hL : 4 ≤ L) : Block (DL L) where
+  sets := Finset.univ.image (CL L) ∪ Finset.univ.image (fun k => (CL L k)ᶜ)
+  mem_has := by
+    intro A hA
+    simp only [Finset.mem_union, Finset.mem_image, Finset.mem_univ, true_and] at hA
+    rcases hA with ⟨k, rfl⟩ | ⟨k, rfl⟩
+    · exact CL_has k
+    · exact (DL L).has_compl (CL_has k)
+  compl_closed := by
+    intro A hA
+    simp only [Finset.mem_union, Finset.mem_image, Finset.mem_univ, true_and] at hA ⊢
+    rcases hA with ⟨k, rfl⟩ | ⟨k, rfl⟩
+    · exact Or.inr ⟨k, rfl⟩
+    · exact Or.inl ⟨k, (compl_compl _).symm⟩
+
+noncomputable def sL (hL : 4 ≤ L) : LocalState (DL L) (BL hL) where
+  Val := (muL hL).Val
+  decVal := Classical.decPred _
+  val_compl := fun hA => (muL hL).val_compl ((BL hL).mem_has _ hA)
+
+lemma window_pointL (s : TwoValuedState (DL L)) (k : Fin L) :
+    ∃ a b, s.Val {x : Fin L → ℕ | x k = a ∧ x (k + 1) = b} := by
+  classical
+  set f : ℕ → Set (Fin L → ℕ) :=
+    fun n => {x | x k = (Nat.unpair n).1 ∧ x (k + 1) = (Nat.unpair n).2}
+  have hd : Pairwise (Function.onFun Disjoint f) := by
+    intro n m hnm
+    refine Set.disjoint_left.mpr fun x hx hy => hnm ?_
+    simp only [f, Set.mem_setOf_eq] at hx hy
+    rw [← Nat.pair_unpair n, ← Nat.pair_unpair m, ← hx.1, ← hx.2, hy.1, hy.2]
+  have hf : ∀ n, (DL L).Has (f n) := fun n =>
+    hasL_pair k (fun u v => u = (Nat.unpair n).1 ∧ v = (Nat.unpair n).2)
+  have hU : (⋃ n, f n) = Set.univ := by
+    ext x; simp only [Set.mem_iUnion, Set.mem_univ, iff_true]
+    exact ⟨Nat.pair (x k) (x (k + 1)), by simp [f]⟩
+  obtain ⟨n, hn⟩ := (s.val_iUnion hd hf).mp (hU ▸ s.val_univ)
+  exact ⟨_, _, hn⟩
+
+theorem sL_sigmaEssential (hL : 4 ≤ L) : IsSigmaEssential (sL hL) := by
+  refine ⟨⟨muL hL, fun _ _ => Iff.rfl⟩, ?_⟩
+  rintro ⟨s, hs⟩
+  have hC : ∀ k, s.Val (CL L k) := fun k =>
+    (hs (CL L k) (by simp [BL])).mpr (muL_CL hL k)
+  have step : ∀ k : Fin L, ∃ a b, a < b ∧ s.Val {x : Fin L → ℕ | x k = a} ∧
+      s.Val {x : Fin L → ℕ | x (k + 1) = b} := by
+    intro k
+    obtain ⟨a, b, h⟩ := window_pointL s k
+    have hG := hasL_pair k (fun u v => u = a ∧ v = b)
+    refine ⟨a, b, ?_, s.val_mono hG (hasL_coord k a) (fun x hx => hx.1) h,
+      s.val_mono hG (hasL_coord (k + 1) b) (fun x hx => hx.2) h⟩
+    by_contra hab
+    have hsub : {x : Fin L → ℕ | x k = a ∧ x (k + 1) = b} ⊆ (CL L k)ᶜ := by
+      rintro x ⟨h1, h2⟩ hx; exact hab (by simpa [CL, h1, h2] using hx)
+    exact ((s.val_compl (CL_has k)).mp
+      (s.val_mono hG ((DL L).has_compl (CL_has k)) hsub h)) (hC k)
+  choose a b hab ha hb using step
+  have hinc : ∀ k, a k < a (k + 1) := fun k => by
+    have := hab k
+    have huniq : b k = a (k + 1) := by
+      by_contra hne
+      refine s.val_at_most_one (hasL_coord (k + 1) (b k)) (hasL_coord (k + 1) (a (k + 1)))
+        (Set.disjoint_left.mpr fun x hx hy => hne (hx.symm.trans hy)) (hb k) (ha (k + 1))
+    omega
+  obtain ⟨k0, -, hmax⟩ := Finset.exists_max_image Finset.univ a Finset.univ_nonempty
+  exact absurd (hmax (k0 + 1) (Finset.mem_univ _)) (not_le.mpr (hinc k0))
+
+end WindowGluing.Ring
+
+#print axioms WindowGluing.Ring.sL_sigmaEssential

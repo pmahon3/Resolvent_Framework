@@ -213,3 +213,33 @@ trivial); ordered product ultrafilters escape that argument.
 2. Prove or refute μ ∈ {0,1} on D. A refutation would be a set E ∈ D with
    μ(E) ∉ {0,1}, which would kill the candidate.
 3. Only then, Lean.
+
+## Ring sweep, 2026-10-08 — where the cyclic witness lives ⟦machine, tower relaxation; not Lean except L=4⟧
+
+Oracle: `notes/open_questions/verification/window_gluing_ring_sweep.py`. It ranges
+over ring lengths L=3,4,5 and every orientation ε ∈ {±}^L (ascent/descent per
+window, ε₀=+ by symmetry).
+
+| L | σ-essential (this μ) | non-witnesses |
+|---|---|---|
+| 3 | **none**. +++ is unrealisable, but μ is NOT two-valued: in the triangle every pair shares a window, so only the triple-difference identity holds | all mixed: two-valued but σ-realisable |
+| 4 | **exactly ++++** | all 7 mixed: σ-realisable |
+| 5 | **exactly +++++** | all 15 mixed: σ-realisable |
+
+**Emerging rule ⟦conjecture⟧.** A witness of this type appears iff
+(i) **winding**: the orientation cocycle has nonzero net winding (no height
+function integrates it, so it is σ-unrealisable), and
+(ii) **room**: L ≥ 4 (a non-adjacent pair supplies the separating rectangle
+identities that make μ two-valued).
+This is the same two-part shape as the flagship's winding criterion: winding ≥ 2,
+plus layer-injectivity. A correspondence is not yet shown.
+
+**Caveat.** L=3 failing is a fact about *this* μ, not a no-witness theorem for the
+triangle.
+
+**Next:**
+- prove the rule for all L ≥ 4 (the eight-identity argument should generalise
+  along the ring);
+- state the precise correspondence with the flagship's layered-graph winding, or
+  record a mismatch;
+- settle the triangle by another state or by an impossibility proof.

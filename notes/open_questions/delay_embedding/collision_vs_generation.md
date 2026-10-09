@@ -85,3 +85,54 @@ candidate ⟦HAND — speculative⟧. Next check: can Borel-ultrafilter patterns
 ring windows fail to amalgamate, and does that cycle condition match the
 flagship's winding/parity obstruction? A match would be the two-way constraint
 the bar asks for. A mismatch, or always-amalgamating rings, would kill the bridge.
+
+## Candidate witness on the glued real 4-ring (2026-10-08) ⟦HAND — CANDIDATE, UNVERIFIED⟧
+
+⚠ If this candidate holds, it would show `DWPolishCut` fails on an admissible,
+Borel-generating carrier. The σ-essential verdict has already oscillated four
+times (memory: "do NOT swing again"). **Nothing here is a claim.** Run a hostile
+cross-field prior-art check before any further investment.
+
+**Reduction ⟦HAND⟧.** A σ-additive two-valued state on the glued real ring
+restricts, on each window, to a σ-additive 0–1 state on Borel(ℝ²), which is a
+Dirac at a point. Shared coordinates make those points agree, and the
+Dynkin-uniqueness argument extends agreement from the generators to all of D, so
+the state is a global Dirac. Clause (ii) of `localization` is then automatic, and:
+a witness exists ⟺ some finitely additive two-valued state on D has a true family
+without the finite intersection property.
+
+**The pattern.** Let `C_k = {x_k < x_{k+1}}` (indices mod 4), each a window
+event, and `B = {C_k, C_kᶜ}` with all `C_k` true. The kernel `⋂ C_k` is empty
+(cyclic order), so no Dirac extends. On each window the pattern comes from the
+ordered ultrafilter p⊗p (p non-principal on ℕ ⊂ ℝ). All four single-coordinate
+marginals are p, so the window ultrafilters agree on shared coordinates, yet they
+do not glue: a σ-additive analogue (P(x₀<x₁)=1 with equal marginals) is impossible.
+It is the ultrafilter form of a cyclic (Vorob'ev-type) marginal obstruction:
+contextuality that only finite additivity permits.
+
+**The crux, open.** Is the pattern *finitely coherent*, i.e. does some finitely
+additive two-valued state on all of D extend it? Graph-type window ultrafilters
+can't do this (Katětov: f(p)=p forces f = id on a p-set, so the monodromy is
+trivial); ordered product ultrafilters escape that argument.
+- Natural candidate: μ(E) := Σ_w lim_{u_w} f_w, where 1_E = Σ_w f_w is the
+  anchored window decomposition. It is linear, well-defined (kernel = gauge
+  terms, which telescope), and finitely additive. What is needed is that it is
+  **{0,1}-valued on D**.
+- Hand progress: a {0,1}-valued f ∈ V has, at each (x₁,x₃), an (x₀,x₂)-section
+  depending on one coordinate only. A nonstandard tower h₁≪…≪h₅ gives μ ∈ {0,1}
+  whenever the relevant section type is x₀-independent. The remaining case
+  needs all four break positions to fail simultaneously, and that is unresolved.
+- **Evidence:** `notes/open_questions/verification/window_gluing_cyclic_order.py`
+  propagates the pattern through the Dynkin closure of order+threshold window
+  atoms (a faithful finite model of that sub-carrier). It is **consistent and
+  two-valued** at T=1 (|D'|=466) and T=2 (|D'|=40,418). No contradiction was
+  found. This covers sub-carriers only, not all Borel window events or countable
+  operations.
+
+**Next, in order:**
+1. Hostile prior-art check: the finitely additive cyclic marginal problem,
+   ultrafilter amalgamation over cycles (model-theoretic 3-amalgamation), and
+   two-valued states on Polish concrete logics.
+2. Prove or refute μ ∈ {0,1} on D. A refutation would be a set E ∈ D with
+   μ(E) ∉ {0,1}, which would kill the candidate.
+3. Only then, Lean.

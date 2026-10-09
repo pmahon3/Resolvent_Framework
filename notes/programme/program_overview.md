@@ -309,9 +309,10 @@ When an observer makes structured observations of a system — querying it at
 increasing levels of refinement, recording outcomes, building a picture of the world
 through measurement — what does coherence require of them?
 
-The programme shows that coherence, pursued to its conclusion, requires probability,
-dynamics, and reconstruction. Not as additional assumptions, but as what the
-structure of observation already contains.
+The programme asks whether coherence, followed to its end, forces probability,
+dynamics, and reconstruction rather than assuming them, and, where it does, what
+exactly it forces. This is an open question, not a thesis (reopened 2026-10-09).
+Each lane's results count as evidence in either direction.
 
 ---
 

@@ -86,7 +86,27 @@ ring windows fail to amalgamate, and does that cycle condition match the
 flagship's winding/parity obstruction? A match would be the two-way constraint
 the bar asks for. A mismatch, or always-amalgamating rings, would kill the bridge.
 
-## Candidate witness on the glued real 4-ring (2026-10-08) ⟦HAND — CANDIDATE, UNVERIFIED⟧
+## Candidate witness on the glued 4-ring (2026-10-08) — now LEAN-CHECKED, prior art PENDING
+
+**Update (same day): proved.** In `formalization/staging/WindowGluing.lean` §`WindowGluing.Cyclic`
+(standard axioms `[propext, Classical.choice, Quot.sound]`), on the glued 4-ring of
+**ℕ-valued** windows (Ω = ℕ⁴, countable; window events are arbitrary sets, so every
+event is Borel):
+- `mu_cases`: μ = v₀ − Σ s_k + Σ P_w (iterated limits along a non-principal
+  ultrafilter) is {0,1}-valued on the carrier. The proof combines eight rectangle
+  identities (reset 0) found as a minimal SAT core: Φ = v(3412)+v(0231)−v(0321) =
+  v(2341)+v(0123)−v(0231).
+- `s₀_sigmaEssential`: the pattern C_k = {x_k < x_{k+1}}, all true, is σ-essential
+  in the repo's own `IsSigmaEssential`.
+- `admissible`, `targetA_sharp_countable`, `targetA_sharp'`, `dwPolishCut_excludes`:
+  admissible carrier, countable Ω, generating σ-algebra 𝒫(ℕ⁴); given `DWPolishCut`,
+  the carrier is not `PolishRepresentable`.
+
+⚠ This bears on paper Q6.6 (Polish case) and on the paper's countable-Ω question.
+**Nothing propagates to the paper until a hostile prior-art check has been run.**
+The text below is the pre-proof record, kept for the trail.
+
+### Pre-proof record
 
 ⚠ If this candidate holds, it would show `DWPolishCut` fails on an admissible,
 Borel-generating carrier. The σ-essential verdict has already oscillated four

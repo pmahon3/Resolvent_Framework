@@ -321,13 +321,12 @@ lemma centre_indep {W : Set (Set ι)} {i j : ι} (hij : i ≠ j)
   · exact step x c hc
 
 /-- **The glued real 4-ring is essentially irreducible**: its centre is `{∅, univ}`. -/
-theorem ring4_real_essentiallyIrreducible :
+theorem ring4_essentiallyIrreducible (hα : ∀ a : α, ∃ b, b ≠ a) :
     EssentiallyIrreducible
-      (glued (ι := Fin 4) (α := ℝ) {{0, 1}, {1, 2}, {2, 3}, {3, 0}}) := by
+      (glued (ι := Fin 4) (α := α) {{0, 1}, {1, 2}, {2, 3}, {3, 0}}) := by
   classical
   intro E hE
   set W : Set (Set (Fin 4)) := {{0, 1}, {1, 2}, {2, 3}, {3, 0}}
-  have hα : ∀ a : ℝ, ∃ b, b ≠ a := fun a => ⟨a + 1, by linarith⟩
   have sep : ∀ i j : Fin 4, (i = 0 ∧ j = 2 ∨ i = 2 ∧ j = 0 ∨ i = 1 ∧ j = 3 ∨ i = 3 ∧ j = 1) →
       ∀ w ∈ W, ¬ (i ∈ w ∧ j ∈ w) := by
     intro i j hij w hw
@@ -341,14 +340,14 @@ theorem ring4_real_essentiallyIrreducible :
     · exact ⟨{1, 2}, by simp [W], by simp⟩
     · exact ⟨{2, 3}, by simp [W], by simp⟩
   -- every coordinate is invariant
-  have inv : ∀ (j : Fin 4) (x : Fin 4 → ℝ) (c : ℝ), update x j c ∈ E ↔ x ∈ E := by
+  have inv : ∀ (j : Fin 4) (x : Fin 4 → α) (c : α), update x j c ∈ E ↔ x ∈ E := by
     intro j x c
     fin_cases j
     · exact centre_indep (i := 2) (by decide) (inW 2) (sep 2 0 (by simp)) hα hE x c
     · exact centre_indep (i := 3) (by decide) (inW 3) (sep 3 1 (by simp)) hα hE x c
     · exact centre_indep (i := 0) (by decide) (inW 0) (sep 0 2 (by simp)) hα hE x c
     · exact centre_indep (i := 1) (by decide) (inW 1) (sep 1 3 (by simp)) hα hE x c
-  have all : ∀ x y : Fin 4 → ℝ, x ∈ E ↔ y ∈ E := by
+  have all : ∀ x y : Fin 4 → α, x ∈ E ↔ y ∈ E := by
     intro x y
     have hy : y = update (update (update (update x 0 (y 0)) 1 (y 1)) 2 (y 2)) 3 (y 3) := by
       funext k; fin_cases k <;> simp [update]
@@ -360,6 +359,12 @@ theorem ring4_real_essentiallyIrreducible :
     simp [this]
   · left
     simp [Set.not_nonempty_iff_eq_empty.mp hne]
+
+/-- The real instance. -/
+theorem ring4_real_essentiallyIrreducible :
+    EssentiallyIrreducible
+      (glued (ι := Fin 4) (α := ℝ) {{0, 1}, {1, 2}, {2, 3}, {3, 0}}) :=
+  ring4_essentiallyIrreducible fun a => ⟨a + 1, by linarith⟩
 
 /-- **The glued real 4-ring is an admissible carrier** (`Admissible`, both
 conjuncts). Together with `generateFrom_glued` it is a Borel, Polish-built test
@@ -380,3 +385,490 @@ end WindowGluing
 #print axioms WindowGluing.glued_nonSegregated
 #print axioms WindowGluing.ring4_real_essentiallyIrreducible
 #print axioms WindowGluing.ring4_real_admissible
+
+
+/-! # A σ-essential pattern on the glued 4-ring of ℕ-valued windows
+
+The carrier is `D₄ = glued W₄` on `Ω₄ = Fin 4 → ℕ` (countable; every window event is
+Borel, i.e. arbitrary, since `ℕ` is discrete). The pattern makes every
+`C k = {x | x k < x (k+1)}` true. It is finitely coherent, via the state
+`μ = v₀ − Σ sₖ + Σ P_w` built from iterated limits along a non-principal ultrafilter,
+and no σ-additive two-valued state extends it, by cyclic order.
+
+`μ` is two-valued on the carrier because of eight instances of the rectangle identity
+(`rect_of_glued`, reset value 0) at points drawn from an ultrafilter tower. -/
+
+namespace WindowGluing.Cyclic
+
+open WindowGluing SigmaEssential SigmaEssential.Blocks SigmaEssential.Admissibility Filter
+
+abbrev Ω₄ := Fin 4 → ℕ
+def W₄ : Set (Set (Fin 4)) := {{0, 1}, {1, 2}, {2, 3}, {3, 0}}
+abbrev D₄ : DynkinSystem Ω₄ := glued (ι := Fin 4) (α := ℕ) W₄
+
+noncomputable def pU : Ultrafilter ℕ := hyperfilter ℕ
+
+/-- Iterated "for `pU`-most `a`, then `b`, then `c`, then `d`". -/
+def N4 (P : ℕ → ℕ → ℕ → ℕ → Prop) : Prop :=
+  ∀ᶠ a in (pU : Filter ℕ), ∀ᶠ b in (pU : Filter ℕ), ∀ᶠ c in (pU : Filter ℕ),
+    ∀ᶠ d in (pU : Filter ℕ), P a b c d
+
+lemma N4_mono {P Q : ℕ → ℕ → ℕ → ℕ → Prop} (h : ∀ a b c d, P a b c d → Q a b c d)
+    (hP : N4 P) : N4 Q :=
+  hP.mono fun a ha => ha.mono fun b hb => hb.mono fun c hc => hc.mono fun d hd => h a b c d hd
+
+lemma N4_and {P Q : ℕ → ℕ → ℕ → ℕ → Prop} (hP : N4 P) (hQ : N4 Q) :
+    N4 (fun a b c d => P a b c d ∧ Q a b c d) :=
+  (hP.and hQ).mono fun _ h => (h.1.and h.2).mono fun _ h =>
+    (h.1.and h.2).mono fun _ h => h.1.and h.2
+
+lemma N4_exists {P : ℕ → ℕ → ℕ → ℕ → Prop} (h : N4 P) : ∃ a b c d, P a b c d := by
+  obtain ⟨a, ha⟩ := h.exists
+  obtain ⟨b, hb⟩ := ha.exists
+  obtain ⟨c, hc⟩ := hb.exists
+  obtain ⟨d, hd⟩ := hc.exists
+  exact ⟨a, b, c, d, hd⟩
+
+lemma N4_not {P : ℕ → ℕ → ℕ → ℕ → Prop} : ¬ N4 P ↔ N4 (fun a b c d => ¬ P a b c d) := by
+  simp only [N4, Ultrafilter.eventually_not]
+
+lemma N4_or {P Q : ℕ → ℕ → ℕ → ℕ → Prop} :
+    N4 (fun a b c d => P a b c d ∨ Q a b c d) ↔ N4 P ∨ N4 Q := by
+  simp only [N4, Ultrafilter.eventually_or]
+
+lemma ev_gt (m : ℕ) : ∀ᶠ n in (pU : Filter ℕ), m < n :=
+  hyperfilter_le_cofinite (Filter.eventually_cofinite.2 ((Set.finite_le_nat m).subset
+    fun n hn => by simpa using hn))
+
+lemma N4_order : N4 (fun a b _ _ => 0 < a ∧ a < b) :=
+  (ev_gt 0).mono fun a ha => (ev_gt a).mono fun b hb =>
+    Filter.Eventually.of_forall fun _ => Filter.Eventually.of_forall fun _ => ⟨ha, hb⟩
+
+/-- The `{0,1}` iterated limit of membership. -/
+noncomputable def val (E : Set Ω₄) (g : ℕ → ℕ → ℕ → ℕ → Ω₄) : ℤ := by
+  classical exact if N4 (fun a b c d => g a b c d ∈ E) then 1 else 0
+
+lemma val_cases (E : Set Ω₄) (g : ℕ → ℕ → ℕ → ℕ → Ω₄) : val E g = 0 ∨ val E g = 1 := by
+  unfold val; split_ifs <;> simp
+
+lemma val_congr {E : Set Ω₄} {g g' : ℕ → ℕ → ℕ → ℕ → Ω₄}
+    (h : N4 (fun a b c d => g a b c d ∈ E) ↔ N4 (fun a b c d => g' a b c d ∈ E)) :
+    val E g = val E g' := by
+  classical
+  unfold val
+  by_cases h1 : N4 (fun a b c d => g a b c d ∈ E)
+  · rw [if_pos h1, if_pos (h.mp h1)]
+  · rw [if_neg h1, if_neg (fun h2 => h1 (h.mpr h2))]
+
+lemma val_eq_one_of {E : Set Ω₄} {g : ℕ → ℕ → ℕ → ℕ → Ω₄}
+    (h : ∀ a b c d, 0 < a → a < b → g a b c d ∈ E) : val E g = 1 := by
+  unfold val
+  rw [if_pos (N4_mono (fun a b c d hab => h a b c d hab.1 hab.2) N4_order)]
+
+lemma val_eq_zero_of {E : Set Ω₄} {g : ℕ → ℕ → ℕ → ℕ → Ω₄}
+    (h : ∀ a b c d, 0 < a → a < b → g a b c d ∉ E) : val E g = 0 := by
+  unfold val
+  rw [if_neg]
+  intro hE
+  obtain ⟨a, b, c, d, ⟨h1, h2⟩, h3⟩ := N4_exists (N4_and N4_order hE)
+  exact h a b c d h1 h2 h3
+
+/-- Pointwise identities among membership counts pass to the iterated limits. -/
+lemma val_lift {E : Set Ω₄} {g₁ g₂ g₃ g₄ : ℕ → ℕ → ℕ → ℕ → Ω₄}
+    (h : ∀ a b c d, cnt E (g₁ a b c d) + cnt E (g₂ a b c d) =
+      cnt E (g₃ a b c d) + cnt E (g₄ a b c d)) :
+    val E g₁ + val E g₂ = val E g₃ + val E g₄ := by
+  classical
+  have key : ∀ g : ℕ → ℕ → ℕ → ℕ → Ω₄,
+      N4 (fun a b c d => ((cnt E (g a b c d) : ℕ) : ℤ) = val E g) := by
+    intro g
+    by_cases hg : N4 (fun a b c d => g a b c d ∈ E)
+    · exact N4_mono (fun a b c d hm => by simp [cnt, val, hg, hm]) hg
+    · exact N4_mono (fun a b c d hm => by simp [cnt, val, hg, hm]) (N4_not.mp hg)
+  obtain ⟨a, b, c, d, ⟨⟨h1, h2⟩, h3⟩, h4⟩ :=
+    N4_exists (N4_and (N4_and (N4_and (key g₁) (key g₂)) (key g₃)) (key g₄))
+  rw [← h1, ← h2, ← h3, ← h4]
+  exact_mod_cast h a b c d
+
+/-! ## The points -/
+
+def k0 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun _ _ _ _ => ![0, 0, 0, 0]
+def s0 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a _ _ _ => ![a, 0, 0, 0]
+def s1 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a _ _ _ => ![0, a, 0, 0]
+def s2 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a _ _ _ => ![0, 0, a, 0]
+def s3 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a _ _ _ => ![0, 0, 0, a]
+def p01 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b _ _ => ![a, b, 0, 0]
+def p12 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b _ _ => ![0, a, b, 0]
+def p23 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b _ _ => ![0, 0, a, b]
+def p30 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b _ _ => ![b, 0, 0, a]
+def q0201 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b _ _ => ![0, b, 0, a]
+def q0312 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b c _ => ![0, c, a, b]
+def q0210 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b _ _ => ![0, b, a, 0]
+def q0123 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b c _ => ![0, a, b, c]
+def q0321 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b c _ => ![0, c, b, a]
+def q0021 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b _ _ => ![0, 0, b, a]
+def q0231 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b c _ => ![0, b, c, a]
+def q2341 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b c d => ![b, c, d, a]
+def q2301 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b c _ => ![b, c, 0, a]
+def q3412 : ℕ → ℕ → ℕ → ℕ → Ω₄ := fun a b c d => ![c, d, a, b]
+
+/-- The candidate finitely additive state. -/
+noncomputable def mu (E : Set Ω₄) : ℤ :=
+  val E k0 - (val E s0 + val E s1 + val E s2 + val E s3) +
+    (val E p01 + val E p12 + val E p23 + val E p30)
+
+/-- Shifting tower variables monotonically does not change an iterated limit. -/
+macro "shift" : tactic => `(tactic| (apply val_congr; simp only [N4, Filter.eventually_const, k0, s0, s1, s2, s3,
+  p01, p12, p23, p30, q0201, q0312, q0210, q0123, q0321, q0021, q0231, q2341, q2301, q3412]))
+
+lemma upd4 (x₀ x₁ x₂ x₃ : ℕ) :
+    (update ![x₀, x₁, x₂, x₃] (0 : Fin 4) 0 = ![0, x₁, x₂, x₃]) ∧
+    (update ![x₀, x₁, x₂, x₃] (1 : Fin 4) 0 = ![x₀, 0, x₂, x₃]) ∧
+    (update ![x₀, x₁, x₂, x₃] (2 : Fin 4) 0 = ![x₀, x₁, 0, x₃]) ∧
+    (update ![x₀, x₁, x₂, x₃] (3 : Fin 4) 0 = ![x₀, x₁, x₂, 0]) := by
+  refine ⟨?_, ?_, ?_, ?_⟩ <;> (funext i; fin_cases i <;> rfl)
+
+lemma sep_ring : ∀ (i j : Fin 4), (i = 0 ∧ j = 2 ∨ i = 1 ∧ j = 3) →
+    ∀ w ∈ W₄, ¬ (i ∈ w ∧ j ∈ w) := by
+  intro i j hij w hw
+  simp only [W₄, Set.mem_insert_iff, Set.mem_singleton_iff] at hw
+  rcases hij with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ <;> rcases hw with rfl | rfl | rfl | rfl <;> decide
+
+set_option maxHeartbeats 2000000 in
+/-- **`μ` is two-valued on the carrier.** -/
+theorem mu_cases {E : Set Ω₄} (hE : D₄.Has E) : mu E = 0 ∨ mu E = 1 := by
+  have R02 := rect_of_glued (α := ℕ) (i := (0 : Fin 4)) (j := 2) (by decide)
+    (sep_ring 0 2 (by simp)) 0 hE
+  have R13 := rect_of_glued (α := ℕ) (i := (1 : Fin 4)) (j := 3) (by decide)
+    (sep_ring 1 3 (by simp)) 0 hE
+  -- the eight identities (actual Rect points, then monotone shifts to canonical form)
+  have I1 : val E q0201 + val E k0 = val E s3 + val E (fun _ b _ _ => ![0, b, 0, 0]) :=
+    val_lift fun a b c d => by
+      have := R13 ![0, b, 0, a]; simp only [(upd4 _ _ _ _).2.1, (upd4 _ _ _ _).2.2.2] at this
+      exact this
+  have I2 : val E q0312 + val E s2 = val E p23 + val E (fun a _ c _ => ![0, c, a, 0]) :=
+    val_lift fun a b c d => by
+      have := R13 ![0, c, a, b]; simp only [(upd4 _ _ _ _).2.1, (upd4 _ _ _ _).2.2.2] at this
+      exact this
+  have I3 : val E q0123 + val E (fun _ b _ _ => ![0, 0, b, 0]) =
+      val E (fun _ b c _ => ![0, 0, b, c]) + val E p12 :=
+    val_lift fun a b c d => by
+      have := R13 ![0, a, b, c]; simp only [(upd4 _ _ _ _).2.1, (upd4 _ _ _ _).2.2.2] at this
+      exact this
+  have I4 : val E q0321 + val E (fun _ b _ _ => ![0, 0, b, 0]) =
+      val E q0021 + val E (fun _ b c _ => ![0, c, b, 0]) :=
+    val_lift fun a b c d => by
+      have := R13 ![0, c, b, a]; simp only [(upd4 _ _ _ _).2.1, (upd4 _ _ _ _).2.2.2] at this
+      exact this
+  have I5 : val E q0231 + val E (fun _ _ c _ => ![0, 0, c, 0]) =
+      val E (fun a _ c _ => ![0, 0, c, a]) + val E (fun _ b c _ => ![0, b, c, 0]) :=
+    val_lift fun a b c d => by
+      have := R13 ![0, b, c, a]; simp only [(upd4 _ _ _ _).2.1, (upd4 _ _ _ _).2.2.2] at this
+      exact this
+  have I6 : val E q2341 + val E (fun a _ c _ => ![0, c, 0, a]) =
+      val E (fun a _ c d => ![0, c, d, a]) + val E q2301 :=
+    val_lift fun a b c d => by
+      have := R02 ![b, c, d, a]; simp only [(upd4 _ _ _ _).1, (upd4 _ _ _ _).2.2.1] at this
+      exact this
+  have I7 : val E q3412 + val E (fun _ b _ d => ![0, d, 0, b]) =
+      val E (fun a b _ d => ![0, d, a, b]) + val E (fun _ b c d => ![c, d, 0, b]) :=
+    val_lift fun a b c d => by
+      have := R02 ![c, d, a, b]; simp only [(upd4 _ _ _ _).1, (upd4 _ _ _ _).2.2.1] at this
+      exact this
+  have I8 : val E q2301 + val E (fun _ b _ _ => ![b, 0, 0, 0]) =
+      val E p30 + val E (fun _ b c _ => ![b, c, 0, 0]) :=
+    val_lift fun a b c d => by
+      have := R13 ![b, c, 0, a]; simp only [(upd4 _ _ _ _).2.1, (upd4 _ _ _ _).2.2.2] at this
+      exact this
+  -- monotone shifts
+  have e1 : val E (fun _ b _ _ => ![0, b, 0, 0]) = val E s1 := by shift
+  have e2 : val E (fun a _ c _ => ![0, c, a, 0]) = val E q0210 := by shift
+  have e3 : val E (fun _ b _ _ => ![0, 0, b, 0]) = val E s2 := by shift
+  have e4 : val E (fun _ b c _ => ![0, 0, b, c]) = val E p23 := by shift
+  have e5 : val E (fun _ b c _ => ![0, c, b, 0]) = val E q0210 := by shift
+  have e6 : val E (fun _ _ c _ => ![0, 0, c, 0]) = val E s2 := by shift
+  have e7 : val E (fun a _ c _ => ![0, 0, c, a]) = val E q0021 := by shift
+  have e8 : val E (fun _ b c _ => ![0, b, c, 0]) = val E p12 := by shift
+  have e9 : val E (fun a _ c _ => ![0, c, 0, a]) = val E q0201 := by shift
+  have e10 : val E (fun a _ c d => ![0, c, d, a]) = val E q0231 := by shift
+  have e11 : val E (fun _ b _ d => ![0, d, 0, b]) = val E q0201 := by shift
+  have e12 : val E (fun a b _ d => ![0, d, a, b]) = val E q0312 := by shift
+  have e13 : val E (fun _ b c d => ![c, d, 0, b]) = val E q2301 := by shift
+  have e14 : val E (fun _ b _ _ => ![b, 0, 0, 0]) = val E s0 := by shift
+  have e15 : val E (fun _ b c _ => ![b, c, 0, 0]) = val E p01 := by shift
+  rw [e1] at I1; rw [e2] at I2; rw [e3, e4] at I3; rw [e3, e5] at I4
+  rw [e6, e7, e8] at I5; rw [e9, e10] at I6; rw [e11, e12, e13] at I7; rw [e14, e15] at I8
+  have b1 := val_cases E q3412; have b2 := val_cases E q0231; have b3 := val_cases E q0321
+  have b4 := val_cases E q2341; have b5 := val_cases E q0123
+  unfold mu
+  omega
+
+/-! ## The finitely additive state -/
+
+lemma val_univ (g : ℕ → ℕ → ℕ → ℕ → Ω₄) : val Set.univ g = 1 :=
+  val_eq_one_of fun _ _ _ _ _ _ => Set.mem_univ _
+
+lemma val_empty (g : ℕ → ℕ → ℕ → ℕ → Ω₄) : val ∅ g = 0 :=
+  val_eq_zero_of fun _ _ _ _ _ _ => Set.notMem_empty _
+
+lemma val_compl (E : Set Ω₄) (g : ℕ → ℕ → ℕ → ℕ → Ω₄) : val Eᶜ g = 1 - val E g := by
+  classical
+  unfold val
+  by_cases h : N4 (fun a b c d => g a b c d ∈ E)
+  · have : ¬ N4 (fun a b c d => g a b c d ∉ E) := by
+      intro h'; obtain ⟨a, b, c, d, h1, h2⟩ := N4_exists (N4_and h h'); exact h2 h1
+    simp [h, this]
+  · have : N4 (fun a b c d => g a b c d ∉ E) := N4_not.mp h
+    simp [h, this]
+
+lemma val_union {A B : Set Ω₄} (hd : Disjoint A B) (g : ℕ → ℕ → ℕ → ℕ → Ω₄) :
+    val (A ∪ B) g = val A g + val B g := by
+  classical
+  have hor : N4 (fun a b c d => g a b c d ∈ A ∪ B) ↔
+      N4 (fun a b c d => g a b c d ∈ A) ∨ N4 (fun a b c d => g a b c d ∈ B) := by
+    rw [← N4_or]; rfl
+  have hnb : ¬ (N4 (fun a b c d => g a b c d ∈ A) ∧ N4 (fun a b c d => g a b c d ∈ B)) := by
+    rintro ⟨hA, hB⟩
+    obtain ⟨a, b, c, d, h1, h2⟩ := N4_exists (N4_and hA hB)
+    exact Set.disjoint_left.mp hd h1 h2
+  unfold val
+  by_cases hA : N4 (fun a b c d => g a b c d ∈ A) <;>
+    by_cases hB : N4 (fun a b c d => g a b c d ∈ B) <;> simp_all
+
+lemma mu_univ : mu Set.univ = 1 := by simp [mu, val_univ]
+lemma mu_empty : mu ∅ = 0 := by simp [mu, val_empty]
+lemma mu_compl (E : Set Ω₄) : mu Eᶜ = 1 - mu E := by simp only [mu, val_compl]; ring
+lemma mu_union {A B : Set Ω₄} (hd : Disjoint A B) : mu (A ∪ B) = mu A + mu B := by
+  simp only [mu, val_union hd]; ring
+
+/-- **`μ` as a finitely additive two-valued state on the carrier.** -/
+noncomputable def muState : FinAddState D₄ where
+  Val E := mu E = 1
+  decVal := Classical.decPred _
+  val_univ := mu_univ
+  not_val_empty := by simp [mu_empty]
+  val_compl := fun {A} hA => by
+    rw [mu_compl]; rcases mu_cases hA with h | h <;> simp [h]
+  val_union := fun {A A'} hA hA' hd => by
+    rw [mu_union hd]
+    rcases mu_cases hA with h | h <;> rcases mu_cases hA' with h' | h' <;> simp [h, h']
+    have := mu_cases (D₄.has_union hA hA' hd); rw [mu_union hd, h, h'] at this; omega
+
+/-! ## The pattern -/
+
+def C (k : Fin 4) : Set Ω₄ := {x | x k < x (k + 1)}
+
+/-- Any set depending only on the coordinates of a window is in the carrier. -/
+lemma has_of_window {w : Set (Fin 4)} (hw : w ∈ W₄) {E : Set Ω₄}
+    (hdep : ∀ x y : Ω₄, (∀ k ∈ w, x k = y k) → (x ∈ E ↔ y ∈ E)) : D₄.Has E := by
+  classical
+  refine DynkinSystem.GenerateHas.basic _ ⟨w, hw, ?_⟩
+  refine ⟨(fun x (k : w) => x k) '' E, (Set.to_countable _).measurableSet, ?_⟩
+  ext x
+  constructor
+  · rintro ⟨y, hy, hxy⟩
+    exact (hdep y x fun k hk => congrFun hxy ⟨k, hk⟩).mp hy
+  · intro hx; exact ⟨x, hx, rfl⟩
+
+lemma window_mem (k : Fin 4) : ({k, k + 1} : Set (Fin 4)) ∈ W₄ := by
+  fin_cases k <;> simp [W₄] <;> decide
+
+lemma has_pair (k : Fin 4) (R : ℕ → ℕ → Prop) : D₄.Has {x : Ω₄ | R (x k) (x (k + 1))} :=
+  has_of_window (window_mem k) fun x y h => by
+    simp only [Set.mem_setOf_eq, h k (by simp), h (k + 1) (by simp)]
+
+lemma has_coord (k : Fin 4) (a : ℕ) : D₄.Has {x : Ω₄ | x k = a} := by
+  simpa using has_pair k (fun u _ => u = a)
+
+lemma C_has (k : Fin 4) : D₄.Has (C k) := has_pair k (· < ·)
+
+lemma mu_C0 : mu (C 0) = 1 := by
+  have h0_k0 : val (C 0) k0 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, k0] <;> omega
+  have h0_s0 : val (C 0) s0 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s0] <;> omega
+  have h0_s1 : val (C 0) s1 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, s1] <;> omega
+  have h0_s2 : val (C 0) s2 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s2] <;> omega
+  have h0_s3 : val (C 0) s3 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s3] <;> omega
+  have h0_p01 : val (C 0) p01 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, p01] <;> omega
+  have h0_p12 : val (C 0) p12 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, p12] <;> omega
+  have h0_p23 : val (C 0) p23 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, p23] <;> omega
+  have h0_p30 : val (C 0) p30 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, p30] <;> omega
+  rw [mu, h0_k0, h0_s0, h0_s1, h0_s2, h0_s3, h0_p01, h0_p12, h0_p23, h0_p30]
+  norm_num
+
+lemma mu_C1 : mu (C 1) = 1 := by
+  have h1_k0 : val (C 1) k0 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, k0] <;> omega
+  have h1_s0 : val (C 1) s0 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s0] <;> omega
+  have h1_s1 : val (C 1) s1 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s1] <;> omega
+  have h1_s2 : val (C 1) s2 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, s2] <;> omega
+  have h1_s3 : val (C 1) s3 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s3] <;> omega
+  have h1_p01 : val (C 1) p01 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, p01] <;> omega
+  have h1_p12 : val (C 1) p12 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, p12] <;> omega
+  have h1_p23 : val (C 1) p23 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, p23] <;> omega
+  have h1_p30 : val (C 1) p30 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, p30] <;> omega
+  rw [mu, h1_k0, h1_s0, h1_s1, h1_s2, h1_s3, h1_p01, h1_p12, h1_p23, h1_p30]
+  norm_num
+
+lemma mu_C2 : mu (C 2) = 1 := by
+  have h2_k0 : val (C 2) k0 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, k0] <;> omega
+  have h2_s0 : val (C 2) s0 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s0] <;> omega
+  have h2_s1 : val (C 2) s1 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s1] <;> omega
+  have h2_s2 : val (C 2) s2 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s2] <;> omega
+  have h2_s3 : val (C 2) s3 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, s3] <;> omega
+  have h2_p01 : val (C 2) p01 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, p01] <;> omega
+  have h2_p12 : val (C 2) p12 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, p12] <;> omega
+  have h2_p23 : val (C 2) p23 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, p23] <;> omega
+  have h2_p30 : val (C 2) p30 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, p30] <;> omega
+  rw [mu, h2_k0, h2_s0, h2_s1, h2_s2, h2_s3, h2_p01, h2_p12, h2_p23, h2_p30]
+  norm_num
+
+lemma mu_C3 : mu (C 3) = 1 := by
+  have h3_k0 : val (C 3) k0 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, k0] <;> omega
+  have h3_s0 : val (C 3) s0 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, s0] <;> omega
+  have h3_s1 : val (C 3) s1 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s1] <;> omega
+  have h3_s2 : val (C 3) s2 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s2] <;> omega
+  have h3_s3 : val (C 3) s3 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, s3] <;> omega
+  have h3_p01 : val (C 3) p01 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, p01] <;> omega
+  have h3_p12 : val (C 3) p12 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, p12] <;> omega
+  have h3_p23 : val (C 3) p23 = 0 := val_eq_zero_of fun a b c d h1 h2 => by simp [C, p23] <;> omega
+  have h3_p30 : val (C 3) p30 = 1 := val_eq_one_of fun a b c d h1 h2 => by simp [C, p30] <;> omega
+  rw [mu, h3_k0, h3_s0, h3_s1, h3_s2, h3_s3, h3_p01, h3_p12, h3_p23, h3_p30]
+  norm_num
+
+lemma mu_C (k : Fin 4) : mu (C k) = 1 := by
+  fin_cases k
+  exacts [mu_C0, mu_C1, mu_C2, mu_C3]
+
+open Classical in
+/-- The finite ⊥-closed block `{C k, (C k)ᶜ}`. -/
+noncomputable def BC : Block D₄ where
+  sets := {C 0, C 1, C 2, C 3, (C 0)ᶜ, (C 1)ᶜ, (C 2)ᶜ, (C 3)ᶜ}
+  mem_has := by
+    intro A hA
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hA
+    rcases hA with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
+      first | exact C_has _ | exact D₄.has_compl (C_has _)
+  compl_closed := by
+    intro A hA
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hA ⊢
+    rcases hA with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;> simp
+
+/-- The pattern: the restriction of `μ` to the block (all four `C k` true). -/
+noncomputable def s₀ : LocalState D₄ BC where
+  Val := muState.Val
+  decVal := Classical.decPred _
+  val_compl := fun hA => muState.val_compl (BC.mem_has _ hA)
+
+theorem s₀_coherent : FinitelyCoherent s₀ := ⟨muState, fun _ _ => Iff.rfl⟩
+
+/-! ## No σ-additive two-valued state extends the pattern -/
+
+lemma window_point (s : TwoValuedState D₄) (k : Fin 4) :
+    ∃ a b, s.Val {x : Ω₄ | x k = a ∧ x (k + 1) = b} := by
+  classical
+  set f : ℕ → Set Ω₄ := fun n => {x | x k = (Nat.unpair n).1 ∧ x (k + 1) = (Nat.unpair n).2}
+  have hd : Pairwise (Function.onFun Disjoint f) := by
+    intro n m hnm
+    refine Set.disjoint_left.mpr fun x hx hy => hnm ?_
+    simp only [f, Set.mem_setOf_eq] at hx hy
+    rw [← Nat.pair_unpair n, ← Nat.pair_unpair m, ← hx.1, ← hx.2, hy.1, hy.2]
+  have hf : ∀ n, D₄.Has (f n) := fun n =>
+    has_pair k (fun u v => u = (Nat.unpair n).1 ∧ v = (Nat.unpair n).2)
+  have hU : (⋃ n, f n) = Set.univ := by
+    ext x; simp only [Set.mem_iUnion, Set.mem_univ, iff_true]
+    exact ⟨Nat.pair (x k) (x (k + 1)), by simp [f]⟩
+  have := (s.val_iUnion hd hf).mp (hU ▸ s.val_univ)
+  obtain ⟨n, hn⟩ := this
+  exact ⟨_, _, hn⟩
+
+lemma coord_unique (s : TwoValuedState D₄) {j : Fin 4} {a b : ℕ}
+    (ha : s.Val {x : Ω₄ | x j = a}) (hb : s.Val {x : Ω₄ | x j = b}) : a = b := by
+  by_contra h
+  refine s.val_at_most_one (has_coord j a) (has_coord j b) ?_ ha hb
+  exact Set.disjoint_left.mpr fun x hx hy => h (hx.symm.trans hy)
+
+theorem no_sigma_extension : ¬ ∃ s : TwoValuedState D₄, ExtendsS s s₀ := by
+  rintro ⟨s, hs⟩
+  have hC : ∀ k, s.Val (C k) := fun k => (hs (C k) (by fin_cases k <;> simp [BC])).mpr (mu_C k)
+  -- each window carries a true point, ordered by C k
+  have step : ∀ k : Fin 4, ∃ a b, a < b ∧ s.Val {x : Ω₄ | x k = a} ∧
+      s.Val {x : Ω₄ | x (k + 1) = b} := by
+    intro k
+    obtain ⟨a, b, h⟩ := window_point s k
+    have hG := has_pair k (fun u v => u = a ∧ v = b)
+    refine ⟨a, b, ?_, s.val_mono hG (has_coord k a) (fun x hx => hx.1) h,
+      s.val_mono hG (has_coord (k + 1) b) (fun x hx => hx.2) h⟩
+    by_contra hab
+    have hsub : {x : Ω₄ | x k = a ∧ x (k + 1) = b} ⊆ (C k)ᶜ := by
+      rintro x ⟨h1, h2⟩ hx; exact hab (by simpa [C, h1, h2] using hx)
+    exact ((s.val_compl (C_has k)).mp (s.val_mono hG (D₄.has_compl (C_has k)) hsub h)) (hC k)
+  obtain ⟨a0, b0, h0, A0, B0⟩ := step 0
+  obtain ⟨a1, b1, h1, A1, B1⟩ := step 1
+  obtain ⟨a2, b2, h2, A2, B2⟩ := step 2
+  obtain ⟨a3, b3, h3, A3, B3⟩ := step 3
+  have e1 := coord_unique s B0 A1
+  have e2 := coord_unique s B1 A2
+  have e3 := coord_unique s B2 A3
+  have e0 := coord_unique s B3 A0
+  omega
+
+/-- **The pattern is σ-essential.** -/
+theorem s₀_sigmaEssential : IsSigmaEssential s₀ := ⟨s₀_coherent, no_sigma_extension⟩
+
+/-! ## Admissibility of the ℕ-valued carrier, and the consequences -/
+
+theorem nonSegregated : NonSegregated D₄ := by
+  classical
+  intro hseg
+  let S : ℕ → Set Ω₄ := fun n => {x | n < x 0}
+  have hSD : ∀ n, D₄.Has (S n) := fun n =>
+    has_of_window (window_mem 0) fun x y h => by simp only [S, Set.mem_setOf_eq, h 0 (by simp)]
+  let F : Filter Ω₄ := Filter.comap (fun x => x 0) Filter.atTop
+  haveI : F.NeBot := Filter.comap_neBot fun t ht => by
+    obtain ⟨a, ha⟩ := Filter.mem_atTop_sets.mp ht
+    exact ⟨fun _ => a, ha a le_rfl⟩
+  let 𝒰 : Ultrafilter Ω₄ := Ultrafilter.of F
+  have hSU : ∀ n, S n ∈ 𝒰 := fun n => Ultrafilter.of_le F
+    (Filter.preimage_mem_comap (Filter.Ioi_mem_atTop n))
+  let μ : FinAddState D₄ :=
+    { Val := fun A => A ∈ 𝒰
+      decVal := Classical.decPred _
+      val_univ := Filter.univ_mem
+      not_val_empty := Ultrafilter.empty_notMem
+      val_compl := fun _ => Ultrafilter.compl_mem_iff_notMem
+      val_union := fun _ _ _ => Ultrafilter.union_mem_iff }
+  have hfam : IsCompatFamily D₄ (Set.range S) := by
+    refine ⟨by rintro _ ⟨n, rfl⟩; exact hSD n, ?_⟩
+    rintro _ ⟨n, rfl⟩ _ ⟨k, rfl⟩ _
+    exact has_of_window (window_mem 0) fun x y h => by
+      simp only [S, Set.mem_inter_iff, Set.mem_setOf_eq, h 0 (by simp)]
+  obtain ⟨M, hSM, hM⟩ := exists_isMaxBlock_superset hfam
+  obtain ⟨x, hx⟩ := hseg μ M hM
+  have := hx _ ⟨hSM ⟨x 0, rfl⟩, hSU (x 0)⟩
+  exact lt_irrefl (x 0) this
+
+theorem admissible : Admissible D₄ :=
+  ⟨ring4_essentiallyIrreducible (α := ℕ) fun a => ⟨a + 1, by omega⟩, nonSegregated⟩
+
+/-- **A σ-essential witness on a countable carrier.** `TargetA_sharp` with `Ω₄`
+countable and the carrier generating the full σ-algebra `𝒫(ℕ⁴)` of a Polish space. -/
+theorem targetA_sharp_countable :
+    Countable Ω₄ ∧ MeasurableSpace.generateFrom {E | D₄.Has E} = MeasurableSpace.pi ∧
+      Admissible D₄ ∧ IsSigmaEssential s₀ :=
+  ⟨inferInstance, generateFrom_glued fun i => ⟨{i, i + 1}, window_mem i, by simp⟩,
+    admissible, s₀_sigmaEssential⟩
+
+theorem targetA_sharp' : Admissibility.TargetA_sharp :=
+  ⟨Ω₄, D₄, BC, s₀, admissible, s₀_sigmaEssential⟩
+
+/-- **The Polish cut fails here or the carrier is not "Polish-representable".**
+`PolishRepresentable` is an opaque predicate, so this is the most the kernel can say. -/
+theorem dwPolishCut_excludes : OpenCore.DWPolishCut.{0} → ¬ OpenCore.PolishRepresentable D₄ :=
+  fun hcut => OpenCore.witness_not_polish hcut s₀ s₀_sigmaEssential
+
+end WindowGluing.Cyclic
+
+#print axioms WindowGluing.Cyclic.mu_cases
+#print axioms WindowGluing.Cyclic.s₀_sigmaEssential
+#print axioms WindowGluing.Cyclic.targetA_sharp_countable
+#print axioms WindowGluing.Cyclic.targetA_sharp'
+#print axioms WindowGluing.Cyclic.dwPolishCut_excludes

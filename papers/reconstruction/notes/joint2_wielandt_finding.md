@@ -854,3 +854,78 @@ this — verdicts + citations):**
 stepwise⟧, zero-sorry-equivalent at the oracle level, NOT Lean-formalized.
 SCOPE fence unchanged: winding-2; the full-safety bridge remains
 spot-checked, not proved. The bar-D aperiodic half of L-B remains OPEN.
+
+### BAR-D APERIODIC HALF — reduced to one connectivity statement (2026-10-09)
+
+⟦HAND + machine-checked walks⟧. Oracle: `oracles/barD_aperiodic_census.py`.
+Not Lean.
+
+**PROPOSITION (aperiodicity on the cyclic core).** Let ρ be primitive on |A| ≥ 2.
+Then the closed walks built below all lie in the cycle-carrying strongly
+connected components (SCCs) of bar-D, and their lengths have gcd 1. Hence, **if
+bar-D has exactly one cycle-carrying SCC, that SCC is aperiodic.** That excludes
+the mixed G = {(0,0),(0,1)}, which is the open half of L-B.
+
+**Proof.** Tokens are two synchronous ρ-walks that never occupy the same vertex.
+Each construction returns to the same unordered pair, so it is a closed walk in
+bar-D.
+- *Chase walk.* On a simple cycle C = (x₀,…,x_{c−1}) with c ≥ 2, place the tokens
+  at x₀ and x_j (1 ≤ j ≤ c−1) and let both follow C. Their offset j stays
+  constant, so they never collide. This gives a closed walk of length c.
+- *Swap (c = 2).* On a 2-cycle x₀ ↔ x₁ the tokens exchange in one step. This gives
+  a closed walk of length 1.
+- *Delay walk.* Take a loop at v and a simple cycle C through v = x₀ with c ≥ 3,
+  and put the tokens at x₀ and x_j with 1 ≤ j ≤ c−2.
+  - Token 1 waits once at v, then goes round C.
+  - Token 2 goes round C and waits once when it reaches v.
+  - The offset only takes the values j and j+1 (mod c), and neither is 0, so the
+    tokens never collide.
+  - Both tokens take c+1 steps, which gives a closed walk of length c+1.
+
+Primitivity gives gcd 1 over the simple-cycle lengths of ρ.
+- **Case 1: some non-loop simple cycle has odd length, or the non-loop lengths
+  already have gcd 1.** The chase walks give gcd 1.
+- **Case 2: otherwise** (the gcd g of the non-loop cycle lengths is > 1):
+  - primitivity then forces a loop at some v;
+  - strong connectivity with |A| ≥ 2 gives a simple cycle through v of length
+    c ≥ 2;
+  - c = 2 gives the length-1 swap;
+  - c ≥ 3 gives the lengths c (chase) and c+1 (delay), whose gcd is 1. ∎
+
+Earlier "padding" proofs in this note had closure bugs (above). This time the
+oracle builds every chase, swap and delay walk for every primitive ρ and asserts
+that each is a legal ρ-step pair at every step, never touches the diagonal, and
+closes in bar-D.
+
+**Census (exhaustive A = 2, 3, 4; 4,000 random primitives at A = 5).**
+
+| A | primitive | bar-D s.c. | cycle-carrying SCCs | argument walks: gcd 1 in that SCC | G diagonal / full / mixed | periodic SCC with a crossed walk |
+|---|---|---|---|---|---|---|
+| 3 | 139 | 136 | exactly 1 in all 139 | 139 / 139 | 9 / 130 / 0 | 0 |
+| 4 | 25,575 | 24,311 | exactly 1 in all 25,575 | 25,575 / 25,575 | 64 / 25,511 / 0 | 0 |
+| 5 (sample) | 4,000 | — | exactly 1 in all 4,000 | 4,000 / 4,000 | — | 0 |
+
+Calibration: the A=3 counts reproduce July's record exactly (139 primitives,
+3 with bar-D not s.c., G = 9 diagonal + 130 full). The 3 (A=3) and 1,264 (A=4)
+"disconnected" cases are all **transient vertices only**: in every case there is
+exactly one SCC carrying cycles.
+
+**What remains of L-B: one connectivity statement, OPEN.**
+
+> **(U)** If ρ is primitive, bar-D has exactly one cycle-carrying SCC.
+
+The data support (U) (exhaustive to A = 4, sampled at A = 5). Proving it is the
+remaining content of the aperiodic half. (U) says the diagonal never separates
+two recurrent two-token configurations. It is a collision-avoidance statement of
+the same family as the lock-avoidance lemma, which suggests that is the place to
+look for a proof.
+- With (U): the aperiodic half follows from the proposition, and L-B is closed
+  (the crossed half was proved in session 5).
+- Without (U): the proposition still covers every primitive ρ with |A| ≤ 4. A
+  periodic SCC would have to be a second recurrent class, unreachable through
+  the off-diagonal from the core.
+
+**Scope.** Unchanged: winding-2. The winding-2-to-full bridge is now proved
+(pruning theorem, 2026-08-21), so the skeleton's statement is unaffected. The
+paper is NOT edited. The skeleton's "[OPEN; VALIDATED, not proved]" stays until
+(U) is proved.

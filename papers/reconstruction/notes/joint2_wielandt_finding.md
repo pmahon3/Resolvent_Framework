@@ -910,7 +910,14 @@ Calibration: the A=3 counts reproduce July's record exactly (139 primitives,
 "disconnected" cases are all **transient vertices only**: in every case there is
 exactly one SCC carrying cycles.
 
-**What remains of L-B: one connectivity statement, OPEN.**
+**Correction (same day): L-B does not need (U).** The forcing lemma needs every
+SCC of bar-D that carries a crossed walk to be **aperiodic**. An odd closed walk
+is not enough: a crossed SCC of odd period 3 would put the unsafe lengths inside
+3ℤ, an infinite safe set that is not the evens. (U) is a sufficient condition and
+stays recorded as validated, but it is not on the critical path. The target is
+restated at the end of this section.
+
+**What (U) would give: one connectivity statement, OPEN.**
 
 > **(U)** If ρ is primitive, bar-D has exactly one cycle-carrying SCC.
 
@@ -929,3 +936,67 @@ look for a proof.
 (pruning theorem, 2026-08-21), so the skeleton's statement is unaffected. The
 paper is NOT edited. The skeleton's "[OPEN; VALIDATED, not proved]" stays until
 (U) is proved.
+
+**CYCLE LEMMA (proved 2026-10-09) ⟦HAND + every move machine-built and asserted⟧.**
+Let ρ be primitive and C = (x₀,…,x_{c−1}) a simple cycle with c ≥ 2. Then all
+chase configurations on C (both tokens on C at offset j ≠ 0) lie in **one** SCC
+of bar-D, and that SCC is **aperiodic**.
+
+*Proof.*
+- *c = 2.* The chase is the swap (x₀,x₁) → (x₁,x₀), a bar-D loop of length 1.
+- *Excursions and defects.* An excursion is a walk x_i → x_{i'} whose interior
+  avoids C. Loops and chords count; C's own arcs do not. Its defect is
+  Δ = len − ((i'−i) mod c).
+- *The defects generate ℤ_c.* Every closed walk at x₀ splits into C-arcs and
+  excursions, so its length is ≡ ΣΔ (mod c). By primitivity these lengths have
+  gcd 1, hence they generate ℤ_c.
+- *Excursion moves.* Keep one token on C while the other takes an excursion. The
+  excursion's interior avoids C, so the only possible collision is at the
+  landing vertex.
+  - The offset changes by +Δ (token 1 moves) or −Δ (token 2 moves).
+  - The move is legal exactly when the new offset is not 0.
+  - So the offset graph is the Cayley graph Cay(ℤ_c, ±defects) minus the vertex 0.
+- *The offsets are connected.* The Cayley graph is connected, and for c ≥ 3 it has
+  degree ≥ 2. Connected vertex-transitive graphs of degree ≥ 2 are 2-connected
+  (Watkins 1970: κ ≥ 2(d+1)/3), so removing the vertex 0 leaves it connected.
+  Every move is a D-walk, so all offsets lie in one SCC.
+- *Aperiodicity.*
+  - The chase itself is a closed walk of length c.
+  - For each defect Δ, start from an offset j ∉ {0, −Δ}; such a j exists since
+    c ≥ 3. Let token 1 take the excursion, then token 2 take the same one when
+    it arrives. This is a closed walk whose length is ≡ Δ (mod c).
+  - The defects generate ℤ_c, so the gcd of these lengths is 1. ∎
+
+Machine check (`oracles/barD_aperiodic_census.py --cycle-lemma`):
+- covers every primitive ρ with |A| ≤ 4 and every simple cycle (131,428 pairs at
+  A=4), with excursions up to length 2|A|;
+- the defects generate ℤ_c in every case;
+- the offset graph is built only from constructed moves; each move is asserted
+  legal and collision-free, and it is connected in every case.
+
+**Consequence.** Any crossed-carrying SCC that contains a chase on some simple
+cycle is aperiodic. In particular this holds whenever some crossed walk
+(a,b) → (b,a) closes, with its return path, into a **simple** even cycle W: the
+crossed walk is then the antipodal chase on W.
+
+**L-B, restated (the remaining content, OPEN).** Every crossed-carrying SCC of
+bar-D is aperiodic. By the cycle lemma it suffices that **every crossed-carrying
+SCC contains a chase on some simple cycle.**
+
+The uncovered case is an SCC in which every crossed walk closes only into a
+non-simple W, for example the two-odd-cycle glueings of the lock-avoidance lemma,
+and which contains no simple-cycle chase.
+- An SCC always contains the antipodal chase on W, since the two tokens are half a
+  period apart and never collide.
+- Getting from that chase to a simple-cycle chase and back is the open step. The
+  difficulty is that a non-simple W does not make every offset valid.
+- (U) would close this immediately, and (U) holds exhaustively for |A| ≤ 4 and on
+  every sample to |A| = 9 (2,864 cycle-plus-chord languages up to n = 8, 2,400
+  sparse random languages at |A| = 6–9). So the uncovered case has no instance
+  in any data we have. A discriminating test needs |A| ≥ 5 languages with two or
+  more cycle-carrying SCCs, and none has been found.
+
+**Prior art owed (unchanged from July).** "Multi-agent pathfinding on strongly
+connected digraphs" (2025, paywalled) is not on the shelf. Check whether its
+model forbids waiting; if it does, its two-agent reachability results may
+contain (U).

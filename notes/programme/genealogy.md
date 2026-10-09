@@ -29,6 +29,18 @@ is visible from outside the turn-to-turn.*
 > flagship's standing checks from this root are in
 > `papers/reconstruction/notes/STATUS.md`.
 
+> **⚑ Post-dating update (2026-10-09): the central question is reopened.**
+> `program_overview.md` now asks *whether* coherence, followed to its end, forces
+> probability, dynamics and reconstruction rather than assuming them, and, where
+> it does, *what exactly* it forces. It no longer asserts that it does. Read every
+> "delivered" below in that light:
+> - CE / Paper I is the Boolean case, and Paper I is PARKED (σ-Loomis–Sikorski
+>   realization gap, 2026-06-23).
+> - The machine-checked σ-essential witnesses show that finite coherence does
+>   **not** force σ-additivity in general.
+>
+> This narrative is otherwise left as-was.
+
 This document exists because the programme spent two months contracting
 (three papers + four active leads in early May → one open question by 2026-06-06,
 since closed: see the thread-map footnote below) and

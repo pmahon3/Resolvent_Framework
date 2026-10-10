@@ -390,3 +390,50 @@ H(P | T⁻¹ℬ)). Not audited here.
   delay-coordinate maps (Eftekhari–Yap–Wakin–Rozell is a candidate, **unverified**).
 - It is offered to the user as a possible new seed, prior art first. It is not
   carried forward here.
+
+## Metric conditioning: prior-art scout 2026-10-09 — PARTIALLY OCCUPIED
+
+This is a candidate new question, not a sharpening of collision → δ. Scout: one
+sonnet agent, about 15 searches. It read theorem statements via ar5iv/WebFetch
+summaries and some abstracts only; nothing below is shelf-verified.
+
+**Occupied:**
+- **Random observables, general systems.** Eftekhari–Yap–Wakin–Rozell, "Stabilizing
+  Embedology", *Phys. Rev. E* 97, 022222 (2018), arXiv:1609.06347.
+  - Thm 3.1 gives two-sided distortion bounds for delay maps, with high
+    probability over a *random* linear-combination observable.
+  - The L-dependence enters through geometric sums in σ_min, σ_max of DT.
+  - The paper itself states that large Lyapunov exponents worsen the bounds
+    ("stably embedding chaotic systems is often difficult"), and that the stable
+    rank plateaus with irrelevance/redundance.
+- **Linear systems.** Yap–Rozell, arXiv:1010.5938: the conditioning provably
+  **saturates** at a floor δ₀ as L → ∞.
+- **Hölder or pointwise inverse regularity:**
+  - Hunt–Kaloshin 1999 (linear maps);
+  - Robinson 2011 (delay injectivity with thickness);
+  - Śpiewak 2025 (pointwise Lipschitz inverse a.e.).
+- **Noise amplification.** Casdagli–Eubank–Farmer–Gibson 1991, asymptotic: an
+  "explosion" at large dimension and large Lyapunov exponents. Uzal et al. 2011
+  is heuristic.
+
+**Not found:**
+- a deterministic bi-Lipschitz bound for a *fixed* generic h;
+- explicit-constant Hölder-inverse delay theorems;
+- lower bounds or obstructions in terms of Lyapunov exponents.
+
+**The "lower bound" gap is probably elementary ⟦HAND sketch, unverified⟧.**
+- For a forward delay map on a hyperbolic set, a separation along the unstable
+  direction is stretched by ~λ_u^k at lag k, so the upper Lipschitz constant of
+  Φ_L grows like e^{λ₁L}.
+- Along the stable direction the lag terms decay, so the lower constant stays
+  O(1) (generic ∇h).
+- Hence cond(Φ_L) ≳ e^{λ₁L}: conditioning *must* degrade exponentially in L for
+  chaotic T, while injectivity needs L > 2d. That is a trade-off with an optimal
+  window, the rigorous face of "irrelevance".
+- It is consistent with Thm 3.1's formula and with the Casdagli et al. explosion.
+  It is likely folklore, so it is **not** a candidate contribution without a
+  primary-source read.
+
+**What looks open** is the fixed-h, deterministic, explicit-constant
+(prevalence-quantitative) bi-Lipschitz Takens theorem. It is heavy technical
+analysis, and it does not touch "what coherence forces".

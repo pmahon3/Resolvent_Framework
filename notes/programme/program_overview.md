@@ -305,6 +305,9 @@ Phase 4 work. Well-posed, and cheaper to attack than anything else on the board.
   from 2026-08-04.
 ## The Central Question
 
+*Navigation: `hierarchy_and_open_space.md` maps this question's layers, where the
+open space is, and how the thread got lost (2026-10-09).*
+
 When an observer makes structured observations of a system — querying it at
 increasing levels of refinement, recording outcomes, building a picture of the world
 through measurement — what does coherence require of them?

@@ -1083,3 +1083,61 @@ A proof will have to combine the **minimality** of the crossed walk with
 walks in languages that have shorter crossed walks. Next idea, untried: show
 that a shortest crossed walk with no cocyclic antipodal pair admits, by
 primitivity, a strictly shorter crossed walk. Pass stopped per the time box.
+
+### Fourth pass (2026-10-09): one chase class K*, a reversal reduction, and the Reach Lemma
+
+**LEMMA K\* (proved ⟦HAND; the transit move is asserted in code⟧).** For primitive ρ,
+every chase configuration on every simple cycle of length ≥ 2 lies in **one** SCC
+K\* of bar-D. By the cycle lemma, K\* is aperiodic.
+
+*Proof.*
+- *Transit.* Let C and C′ be simple cycles of length ≥ 2 sharing a vertex v.
+  Start from the chase on C with token 1 at v and token 2 at v's predecessor on C.
+  In one step, token 1 moves to v's successor on C′ (which is ≠ v since |C′| ≥ 2)
+  while token 2 moves onto v. The result is a chase on C′ at offset −1. So K(C)
+  reaches K(C′), and by symmetry K(C′) reaches K(C).
+- *Chaining.* Simple cycles of a strongly connected digraph are chain-connected by
+  shared vertices (session 5). A loop at v in such a chain can be skipped, because
+  its neighbours in the chain both contain v.
+- So, with the cycle lemma, all K(C) form one SCC. ∎
+
+Note: cocyclic pairs are exactly the chase configurations, so K\* contains every
+cocyclic pair.
+
+**REVERSAL REDUCTION (proved).** ρᵀ is primitive, D(ρᵀ) is D(ρ) reversed, and the
+two have the same recurrent pairs and the same cocyclic pairs. Suppose every
+recurrent P reaches some cocyclic pair Q *forward* in D(ρ). Applying this in
+D(ρᵀ) also gives some cocyclic Q′ that reaches P in D(ρ). Then
+Q′ ⇝ P ⇝ Q with Q, Q′ ∈ K\*, hence P ∈ K\*. Every recurrent pair is then in K\*,
+which proves **(U)**. With the cycle lemma this gives **L-B**, and hence the
+forcing lemma.
+
+> **REACH LEMMA (the remaining content, OPEN).** For primitive ρ, every recurrent
+> pair can reach a cocyclic pair (forward only).
+
+**Strategy, validated** (`oracles/barD_reach_lemma_strategy.py`):
+- One token (either role) circles a simple cycle C through its own position.
+- The other token walks freely, never colliding, until it stands on C.
+- This is a BFS over (vertex, time mod |C|).
+- It **never fails** on recurrent pairs: 828 (A=3), 303,972 (A=4, exhaustive),
+  and samples of 29,576 / 44,416 / 62,270 at A=5 / 6 / 7.
+
+**What a proof must use** (`oracles/barD_reach_lemma_variants.py`):
+- **Both roles.** With token 1 fixed as the mover, the strategy fails on 1,968
+  recurrent pairs at A=4.
+- **Recurrence.** On non-recurrent pairs both roles can fail: 1,584 at A=4. The
+  simplest is a star with hub 0 and the pair (1,2), whose only moves collide at 0.
+- **Primitivity.** It is needed for K\* (the cycle lemma).
+
+**Proof lead ⟦HAND, not a proof⟧.**
+- *Phase grading.* Suppose the mover circles C. If every way the other token can
+  first enter C collides, then the region it can reach off C carries a ℤ_c phase
+  grading ψ, with ψ(w′) = ψ(w) + 1 along arcs and fixed entry phases into C.
+  Every cycle inside that region then has length ≡ 0 (mod c).
+- *Contradiction.* The intended contradiction is that this grading must fail for
+  at least one role, using recurrence (the pair's own closed walk) together with
+  primitivity (excursion defects generate ℤ_c).
+- *Status.* Not yet closed.
+
+**Status:** L-B ⟸ (U) ⟸ Reach Lemma, with K\* and the reversal reduction proved.
+The paper is not edited. This is pass 1 of the 2 allowed before fencing.

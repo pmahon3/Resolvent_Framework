@@ -1064,3 +1064,22 @@ L-B′. Primitivity of the whole language must enter, presumably through
 excursions as in the cycle lemma: the imprimitive cacti have no excursion of
 nonzero defect available. **Status: L-B′ OPEN**, strongly validated, with
 sharp imprimitive near-misses. The paper is not edited.
+
+**Third pass (2026-10-09, time-boxed): the switch device is insufficient. L-B′
+stays OPEN.**
+
+The device: one token leaves the antipodal chase on W to circle a simple cycle C
+while the other keeps following W. If that joint motion never collides, it is a
+closed walk in the SCC. A landing of the W-token on C is then a cocyclic pair.
+(Oracle: `oracles/barD_switch_construction.py`.)
+- It fails on 39,896 of 303,972 shortest crossed walks at A=4 (372 / 828 at A=3).
+  In those cases the antipodal pair is typically already cocyclic, so no switch
+  is needed. As a proof device, though, it does not cover the lemma.
+- It fails on every imprimitive cactus, which is consistent with those being
+  genuine non-examples.
+
+A proof will have to combine the **minimality** of the crossed walk with
+**primitivity**. The 28 primitive walk-lemma counterexamples are non-shortest
+walks in languages that have shorter crossed walks. Next idea, untried: show
+that a shortest crossed walk with no cocyclic antipodal pair admits, by
+primitivity, a strictly shorter crossed walk. Pass stopped per the time box.

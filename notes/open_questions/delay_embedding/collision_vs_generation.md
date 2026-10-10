@@ -15,6 +15,12 @@ Delay factor O_L = σ(Φ_L), fibre weights p_z, conditional laws μ_z.
 What condition on Φ_L, not equivalent to the conclusion O_∞ = ℬ mod μ, makes
 C_L → 0 imply sup_S δ_L(S) → 0?
 
+> **⚑ RE-AUDIT 2026-10-09: the σ-algebraic form is KILLED by its own exit criterion
+> (classical generator theory), scoped to invertible T. The sup form is
+> ill-posed. Endomorphisms are unchecked.** See "Re-audit 2026-10-09" at the end.
+> The kill is recorded in place because this hub also carries the live countable
+> σ-essential witness. Moving it to `covered_leads/` is the user's call.
+
 ## What is already settled (`notes/covered_leads/fibre_mixing.md`)
 
 - δ → 0 ⟹ C → 0. The converse is false.
@@ -332,3 +338,55 @@ triple-difference sets of D. ⟦conjecture⟧
 - the converse (mixed orientations are σ-realisable), trivial, for Lean
   completeness;
 - the prior-art gate on the countable witness.
+
+## Re-audit 2026-10-09: the collision → δ question against generator theory ⟦HAND; textbook citations, not shelf-verified⟧
+
+New input: the programme hierarchy put this question at the top layer (F,
+identification), and its exit criterion names a generator-theory check that had
+never been run. Setting: finite-valued h, partition P = h⁻¹, O_L = ∨_{n=0}^{L} T⁻ⁿP.
+
+**(a) The sup form is ill-posed.** O_L is a finite partition. If μ is non-atomic,
+each fibre law μ_z is non-atomic, so a set S can split every fibre in half. Then
+sup_S δ_L(S) = Σ p_z · ¼ = ¼ at every L. This is a defect in how the question was
+stated, not a result.
+
+**(b) The per-S form is classical, for invertible T.**
+- *Equivalence.* By martingale convergence, δ_L(S) → 0 for every S ⟺ O_∞ = ℬ mod μ.
+  Also C_L = Σ p_z² → 0 ⟺ max_z p_z → 0, i.e. the partitions' atoms shrink.
+- *Positive entropy.*
+  - A one-sided generator of an invertible system forces h(T) = 0, by the
+    Rokhlin/Kolmogorov–Sinai formula h(T,P) = H(P | ∨_{n≥1} T⁻ⁿP) (Walters,
+    *An Introduction to Ergodic Theory*, Ch. 4).
+  - So for h(T,P) > 0 the forward delays never generate.
+  - Meanwhile C_L → 0 by Shannon–McMillan–Breiman, since the atoms decay like
+    e^{−hL}.
+  - Hence C → 0 ⇏ δ → 0, generically. The hub's hidden-factor skew product is one
+    instance.
+- *Zero entropy.*
+  - If h(T,P) = 0 then P ⊆ ∨_{n≥1} T⁻ⁿP, so O_∞ = T⁻¹O_∞ is a genuine factor.
+  - Then "C → 0 ⇒ δ → 0 for every finite-valued observable" holds iff the system
+    has no proper non-atomic factor. That is a property of the **system** (prime
+    systems; minimal self-joinings: Rudolph 1979; Chacón: del Junco–Rahe–Swanson
+    1980), not a condition on Φ_L.
+  - For a single observable the condition is generation itself, which is the
+    circularity the Statement already forbids.
+  - Zero-entropy witness: two independent irrational rotations on 𝕋², observed
+    through an arc of the first coordinate. O_∞ is the first-coordinate factor, so
+    C_L → 0, while δ_L(S) = μ(S)μ(Sᶜ) for an arc S in the second coordinate.
+- *Verdict:* **KILLED** for invertible T, by the exit criterion's own named route.
+
+**(c) Unchecked: endomorphisms.** For non-invertible T the Rokhlin obstruction
+fails. The one-sided Bernoulli shift's time-zero partition generates at positive
+entropy. The classical home is Rokhlin's endomorphism theory (exactness,
+H(P | T⁻¹ℬ)). Not audited here.
+
+**(d) What this does to the breadcrumb.**
+- In the real-valued Takens setting a generic delay map is injective for large L,
+  so σ-algebraic generation is trivial there.
+- What remains of "well-conditioned" is **metric** distortion of the delay map
+  (bi-Lipschitz constants). That is a *different* question, not a sharpening of
+  this one: no check flipped and no witness exists.
+- It plausibly has an occupied literature on stable or geometry-preserving
+  delay-coordinate maps (Eftekhari–Yap–Wakin–Rozell is a candidate, **unverified**).
+- It is offered to the user as a possible new seed, prior art first. It is not
+  carried forward here.

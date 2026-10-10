@@ -25,7 +25,9 @@ is visible from outside the turn-to-turn.*
 > then reconstruction/commensurability ("statistical Takens", measure plus
 > shift). Its conditioning half died with the bridge theorem (2026-05-14) and is
 > now the dormant open question
-> `notes/open_questions/delay_embedding/collision_vs_generation.md`. The
+> `notes/open_questions/delay_embedding/collision_vs_generation.md`
+> (CLOSED as accounted for 2026-10-09: classical generator theory plus the
+> stable-embedding literature). The
 > flagship's standing checks from this root are in
 > `papers/reconstruction/notes/STATUS.md`.
 

@@ -282,4 +282,4 @@ an embedding that is injective and well-conditioned (pre-repo Overleaf draft;
    (`notes/open_questions/delay_embedding/PLAN_delay_chapter.md`, 2026-08-25
    update).
 
-Open well-conditioning half: `notes/open_questions/delay_embedding/collision_vs_generation.md`.
+Well-conditioning half: ACCOUNTED FOR 2026-10-09 (σ-algebraic form classical, killed for invertible T; metric form partially occupied by the stable-embedding literature). `notes/open_questions/delay_embedding/collision_vs_generation.md`.

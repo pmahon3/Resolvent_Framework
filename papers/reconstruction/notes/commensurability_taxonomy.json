@@ -897,8 +897,8 @@
   {
    "id": "open.geometry_return",
    "name": "Breadcrumb back to geometry: collision -> generation",
-   "status": "killed-in-place",
-   "one_line": "Collision->delta (well-conditioned half of the root). RE-AUDIT 2026-10-09: sigma-algebraic form KILLED for invertible T by its own exit criterion (Rokhlin/KS: one-sided generator => h=0; SMB gives C_L->0 at positive entropy; zero entropy => O_inf is a factor, condition = 'no proper non-atomic factor' = system property / circular). Sup form ill-posed (=1/4). Endomorphisms unchecked. Metric (bi-Lipschitz) conditioning = a DIFFERENT question, candidate new seed, prior art first. Kill recorded in place (hub carries the live countable witness); move to covered_leads = user's call. Window-gluing bridge sub-hypothesis KILLED 2026-10-09 (winding mismatch).",
+   "status": "accounted-for",
+   "one_line": "CLOSED 2026-10-09 as ACCOUNTED FOR (user decision): injectivity = Takens/SYC; sigma-algebraic generation = Rokhlin/KS (killed for invertible T; sup form ill-posed); metric conditioning = stable-embedding literature (Eftekhari-Yap-Wakin-Rozell 2018, Yap-Rozell), partially occupied, lower bound looks elementary. Residues not pursued: endomorphisms; fixed-h explicit-constant bi-Lipschitz Takens. Countable sigma-essential witness in the same hub is independent and live. Window-gluing bridge KILLED 2026-10-09.",
    "detail": "../../../notes/open_questions/delay_embedding/collision_vs_generation.md; standing checks STATUS.md#standing-checks-from-the-embedding-root-2026-10-08; root notes/programme/genealogy.md (update 2026-10-08)",
    "examined": "2026-10-09"
   }

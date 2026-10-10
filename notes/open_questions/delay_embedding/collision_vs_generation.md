@@ -15,6 +15,19 @@ Delay factor O_L = σ(Φ_L), fibre weights p_z, conditional laws μ_z.
 What condition on Φ_L, not equivalent to the conclusion O_∞ = ℬ mod μ, makes
 C_L → 0 imply sup_S δ_L(S) → 0?
 
+> **⚑ CLOSED 2026-10-09 (user decision): the breadcrumb back to geometry is
+> ACCOUNTED FOR.** The root's two halves are covered:
+> - injectivity: Takens / Sauer–Yorke–Casdagli;
+> - σ-algebraic generation: Rokhlin / Kolmogorov–Sinai, killed below for
+>   invertible T;
+> - metric conditioning: the stable-embedding literature (Eftekhari–Yap–Wakin–
+>   Rozell 2018; Yap–Rozell), partially occupied. Its qualitative lower bound
+>   (exponential degradation in L) looks elementary.
+>
+> Residues, not pursued: endomorphisms; a fixed-h explicit-constant bi-Lipschitz
+> Takens theorem (technical, off-mission). The countable σ-essential witness
+> recorded in this hub is independent and still live.
+>
 > **⚑ RE-AUDIT 2026-10-09: the σ-algebraic form is KILLED by its own exit criterion
 > (classical generator theory), scoped to invertible T. The sup form is
 > ill-posed. Endomorphisms are unchecked.** See "Re-audit 2026-10-09" at the end.

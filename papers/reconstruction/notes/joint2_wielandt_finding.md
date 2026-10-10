@@ -1141,3 +1141,56 @@ forcing lemma.
 
 **Status:** L-B ⟸ (U) ⟸ Reach Lemma, with K\* and the reversal reduction proved.
 The paper is not edited. This is pass 1 of the 2 allowed before fencing.
+
+### Fifth pass (2026-10-09, last before fencing): the phase mechanism; the funnel case is open
+
+Notation: the mover circles a simple cycle C (|C| = c ≥ 2) through its own position
+at phase p₀, i.e. it is at C_{p₀+t} at time t. R is the set of vertices the other
+token can reach from its start y without touching C. ⟦HAND⟧ throughout.
+
+**(1) Failure means a grading (proved).** If every first entry of the other token
+into C collides, then:
+- walk lengths from y to any w ∈ R are constant mod c (call the value λ(w));
+- arcs inside R raise λ by 1;
+- every entry arc w → C_k has k ≡ p₀ + λ(w) + 1, so it is "aimed" at the mover;
+- R's out-arcs go only to R or C.
+
+**(2) Out-of-phase tokens never collide in R (proved).** Say one token is at w at
+times ≡ λ(w) and the other at times ≡ λ(w) + e with e ≢ 0 (mod c). Then they are
+never at the same vertex at the same time.
+
+**(3) Excursions shift phase (proved).**
+- Take an excursion E from C_i whose interior is in Q ∪ R, where Q is everything
+  else. Its defect is Δ = (arrival time at its first R-vertex w) − λ(w), counted
+  for a mover starting at phase p₀.
+- So a nonzero-defect excursion leaves the mover out of phase in R (by e = Δ), and
+  returns it to C at phase p₀ − Δ.
+- Excursions with nonzero defect exist (primitivity: the defects generate ℤ_c).
+
+**(4) LOITER LEMMA (proved).** If R contains a cycle reachable from y, the pair
+reaches a cocyclic pair.
+- The other token loiters in R, in phase, never touching C.
+- The mover performs a nonzero-defect excursion. It cannot collide: R's out-arcs
+  avoid Q, and in R the mover is out of phase by (2).
+- The mover returns to C at phase p₀ − Δ.
+- The other token then walks to C. Its entry is aimed at phase p₀, so it lands on
+  a C-vertex distinct from the mover's: a cocyclic pair. ∎
+
+**(5) The FUNNEL case remains OPEN.** This is the case where, for every role and
+every simple cycle C through the mover, the other token's off-C region R is
+acyclic, so it is forced onto C within |R| steps, always aimed.
+- *Partial facts:*
+  - in this case every cycle through x meets every cycle through y;
+  - if the mover's own recurrent walk α circles C during the other token's forced
+    entry, the recurrent motion itself would collide;
+  - so α must leave C first.
+- *Intended closure:* time a nonzero-defect excursion so that the other token's
+  forced, aimed entry happens while the mover is off C. The mover then returns at
+  phase p₀ − Δ, distinct from the other token: success.
+- *What is unproved:* that the timing can always be met, i.e. that an excursion
+  window (τ, τ + |E|) covers a forced entry time. In particular, entry can be
+  forced at time 1.
+
+**Fenced.** The Reach Lemma, and with it (U), L-B and the forcing lemma, is
+stated as the paper's open lemma. It is reduced to the funnel case of the
+phase mechanism above.

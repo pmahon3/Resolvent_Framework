@@ -184,14 +184,34 @@ the even lengths), the only alternative being a finite safe set.
 ``the tamings are the only sources of residue-safety in a primitive language.''
 Its two halves are: a \emph{re-characterisation} (residue-safety $=$ balance of a
 signed pair-graph) \textbf{[PROVED, structural]}; and the \emph{forcing} proper
-(primitivity excludes the mixed cases) \textbf{[OPEN]}, framed as two
-Perron--Frobenius exclusions and checked without counterexample across several
-thousand primitive languages. Discharging it closes
+(primitivity excludes the mixed cases), framed as two Perron--Frobenius
+exclusions. The crossed-cycle exclusion is \textbf{[PROVED by hand, machine-checked
+stepwise]}. The aperiodicity exclusion is reduced as follows. In the pair graph
+(two tokens moving synchronously, never on the same state), the chase
+configurations on all simple cycles form a single aperiodic class
+\textbf{[PROVED by hand]}. Reversing arcs, membership in that class follows from
+forward reachability. So the forcing lemma follows from one statement.
+
+\begin{namedlemma}[reach lemma --- the open core]\label{lem:reach}
+On a primitive language, from every recurrent pair of distinct states the two
+tokens can reach, without colliding, a pair lying on a common simple cycle.
+\end{namedlemma}
+
+\noindent\textbf{[OPEN; VALIDATED, not proved].}
+- Primitivity is essential: imprimitive languages give periodic counterexamples
+  to the forcing lemma's conclusion.
+- An explicit strategy reaches such a pair from every recurrent pair, with no
+  failures exhaustively up to four states and on samples up to seven. In the
+  strategy, one token circles a cycle and the other lands on it out of phase.
+- Its proof is complete except for one case: every off-cycle region drains
+  into the cycle.
+
+Discharging it closes
 Conjecture~\ref{conj:universal}: the other half, the winding-2-to-full bridge, is
 no longer outstanding --- the pruning theorem is proved at general $k$ and
 Lean-verified, and with the $k$-cap gives
 $\mathrm{Unsafe}(\rho)=\bigcup_{k=2}^{|A|}\mathrm{TR}_k^{(1)}$, so every winding
-is accounted for. \textbf{The forcing lemma is now the single remaining result
+is accounted for. \textbf{The reach lemma is now the single remaining result
 the paper is aiming to prove or to state as its open problem.}
 
 
@@ -230,7 +250,7 @@ $C\setminus R$; sampling is only screening. The layer-injectivity discriminant a
 the flow-decomposition kernel are machine-checked in Lean~4.
 
 \textbf{What is owed to fill this skeleton to a complete paper.} (i) The forcing
-lemma (Lemma~\ref{lem:forcing}): prove it, or state it as the paper's open problem.
+lemma (Lemma~\ref{lem:forcing}), now reduced to the reach lemma (Lemma~\ref{lem:reach}): prove it, or state it as the paper's open problem.
 (ii) The winding-2-to-full-safety bridge: prove it applies, or scope every
 boundary claim to winding-2. (iii) Fold the archived proved body
 (parity, PR-box, the ten tamings, Circuit Localization, the three winding

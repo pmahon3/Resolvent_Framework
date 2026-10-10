@@ -11,7 +11,8 @@ structure theory (successor programme to the σ-essential witness).
   winding characterisation + **Lean-certified layer-injectivity discriminant**
   (§5).
 - **Fenced as conjecture (NOT claimed proved):** universal impossibility
-  conjecture (§6) — specifically the *forcing lemma*, its one open step.
+  conjecture (§6) — specifically the *forcing lemma*, its one open step, reduced
+  2026-10-09 to the *reach lemma* (`lem:reach`; `notes/joint2_wielandt_finding.md`, last five sections).
 - **✎2026-08-21 — no longer fenced:** the **pruning lemma** is proved at general
   `k` and Lean-verified (`QuerySystem/PruningTheorem.lean`, receipts
   `[propext, Quot.sound]`), and **theorem-let B** with it

@@ -2,7 +2,6 @@
 BandClosure.lean
 BoundaryDescent.lean
 Commensurability.lean
-ConcreteOMLPatterns.lean
 FibreProductReflection.lean
 FiniteAtomFoldKernel.lean
 FullCycleAssemblyKernel.lean
@@ -10,7 +9,6 @@ KernelClosureCalculus.lean
 ODBCRegimes.lean
 ODBCSections.lean
 SigmaEssentialBareForm.lean
-SigmaEssentialConjectures.lean
 UlamWitnessReceipts.lean
 UltrafilterCharge.lean
 WindingDichotomy.lean

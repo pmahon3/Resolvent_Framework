@@ -124,6 +124,8 @@ SigmaEssential.Omega7.omega7_not_witness
 SigmaEssential.Ulam.UlamMatrix
 SigmaEssential.Ulam.carrier
 SigmaEssential.Ulam.M₁
+SigmaEssential.Ulam.M₁_card
+SigmaEssential.Ulam.Ω₁_card
 SigmaEssential.Ulam.rigidity
 SigmaEssential.Ulam.carrier_not_interClosed
 SigmaEssential.Ulam.psi_ZFC

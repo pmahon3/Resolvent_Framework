@@ -109,7 +109,7 @@ ring windows fail to amalgamate, and does that cycle condition match the
 flagship's winding/parity obstruction? A match would be the two-way constraint
 the bar asks for. A mismatch, or always-amalgamating rings, would kill the bridge.
 
-## Candidate witness on the glued 4-ring (2026-10-08) — now LEAN-CHECKED, prior art PENDING
+## Candidate witness on the glued 4-ring (2026-10-08) — LEAN-CHECKED; prior-art gate PASSED 2026-10-15 (not found)
 
 **Update (same day): proved.** In `formalization/staging/WindowGluing.lean` §`WindowGluing.Cyclic`
 (standard axioms `[propext, Classical.choice, Quot.sound]`), on the glued 4-ring of
@@ -128,6 +128,56 @@ event is Borel):
 ⚠ This bears on paper Q6.6 (Polish case) and on the paper's countable-Ω question.
 **Nothing propagates to the paper until a hostile prior-art check has been run.**
 The text below is the pre-proof record, kept for the trail.
+
+### Third-pass prior-art gate, 2026-10-15: NOT FOUND (gate passed, residual risk named)
+
+One sonnet scout read full texts:
+- shelf: Navara–Pták 1983, Navara 1984, Navara 1992, Dvurečenskij–Neubrunn–Pulmannová 1992,
+  Müller–Pták–Tkadlec 1992, Pták–Pulmannová 1994, Abramsky–Barbosa 2025 talk;
+- web: Cardona–Mejía–Uribe-Zapata 2503.08910, Burešová–Pták 2401.13651,
+  Burešová–Pták–Ševčík 2609.10770, Barbosa et al. 1905.08267 (continuous-variable
+  contextuality).
+
+**No source states the result or implies it in a few lines. None makes `mu_cases` routine.**
+
+What the sources do contain:
+- **Finite shadow.** Navara–Pták 1983 has a 6-point σ-class with cyclically
+  overlapping M₁…M₄ and the non-point two-valued state m ≡ 0. A referee can call
+  the countable version "the same phenomenon with ultrafilters". Rebuttal: on a
+  finite carrier, finite additivity and σ-additivity coincide, so there is no
+  split to exhibit.
+- **Navara 1984 claims "measures on σ-classes extend uniquely from the
+  generators".** That is σ-additive only, and μ shows it fails for finite
+  additivity. Say so in any write-up.
+- **Boolean tools cannot reach μ.** Any {0,1} charge on the *algebra* generated
+  by the windows would give μ(∩C_k) = 1 with ∩C_k = ∅. So μ is not the
+  restriction of an ultrafilter, and Cardona et al. and Horn–Tarski do not apply.
+- **Barbosa et al. presuppose σ-additivity.** Their framework (§5.3, compact
+  Hausdorff outcomes) leaves the finitely additive gap outside its scope.
+
+**Unread:**
+- Bhaskara Rao, *Theory of Charges*;
+- Goldberg / Hindman–Strauss bodies (cyclic ℕⁿ amalgamation);
+- Okay-school bodies on infinite outcomes;
+- MathOverflow, searched only shallowly.
+
+**Costume found and fixed in the same pass.** `Admissible` includes
+`EssentiallyIrreducible`, i.e. every central E is countable or co-countable. On a
+countable Ω that conjunct is **vacuous**. The proof of
+`ring4_essentiallyIrreducible` actually showed the centre is literally {∅, univ},
+but the exported statement threw that away.
+- Now exported as `ring4_centre_trivial`.
+- New receipt `targetA_sharp_countable_literal`: countable Ω₄, centre literally
+  {∅, univ}, `NonSegregated`, `IsSigmaEssential`. Standard axioms, 0 sorry.
+- Literal irreducibility is proved for L = 4 only, not yet for D_L at L > 4.
+
+**What this answers.** σ-essential paper Q `q:cardinality` asks: "can a countable
+Ω carry one … Is there a ZFC lower bound beyond 'uncountable'?"
+- In the sharp form (`TargetA_sharp`, scoped exactly like `psi_ZFC`), the answer
+  is **yes**: Ω = ℕ⁴, with a literally irreducible carrier.
+- The lower-bound half is then moot.
+- **Not propagated to the paper. That is the user's call.** Memory: paper claims
+  have run ahead of Lean four times before.
 
 ### Prior-art scout, 2026-10-08: FOLKLORE-ADJACENT, coverage partial
 

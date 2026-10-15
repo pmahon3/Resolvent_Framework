@@ -320,12 +320,13 @@ lemma centre_indep {W : Set (Set ι)} {i j : ι} (hij : i ≠ j)
     exact h2.symm.trans h1
   · exact step x c hc
 
-/-- **The glued real 4-ring is essentially irreducible**: its centre is `{∅, univ}`. -/
-theorem ring4_essentiallyIrreducible (hα : ∀ a : α, ∃ b, b ≠ a) :
-    EssentiallyIrreducible
-      (glued (ι := Fin 4) (α := α) {{0, 1}, {1, 2}, {2, 3}, {3, 0}}) := by
+/-- **The glued 4-ring is literally irreducible**: its centre is `{∅, univ}`.
+This is the statement that carries content on a countable `Ω`, where
+`EssentiallyIrreducible` (trivial modulo the countable ideal) is vacuous. -/
+theorem ring4_centre_trivial (hα : ∀ a : α, ∃ b, b ≠ a) {E : Set (Fin 4 → α)}
+    (hE : Centre (glued (ι := Fin 4) (α := α) {{0, 1}, {1, 2}, {2, 3}, {3, 0}}) E) :
+    E = ∅ ∨ E = univ := by
   classical
-  intro E hE
   set W : Set (Set (Fin 4)) := {{0, 1}, {1, 2}, {2, 3}, {3, 0}}
   have sep : ∀ i j : Fin 4, (i = 0 ∧ j = 2 ∨ i = 2 ∧ j = 0 ∨ i = 1 ∧ j = 3 ∨ i = 3 ∧ j = 1) →
       ∀ w ∈ W, ¬ (i ∈ w ∧ j ∈ w) := by
@@ -355,10 +356,18 @@ theorem ring4_essentiallyIrreducible (hα : ∀ a : α, ∃ b, b ≠ a) :
   by_cases hne : E.Nonempty
   · right
     obtain ⟨x, hx⟩ := hne
-    have : Eᶜ = ∅ := Set.eq_empty_iff_forall_notMem.mpr fun y hy => hy ((all x y).mp hx)
-    simp [this]
+    exact Set.eq_univ_of_forall fun y => (all x y).mp hx
   · left
-    simp [Set.not_nonempty_iff_eq_empty.mp hne]
+    exact Set.not_nonempty_iff_eq_empty.mp hne
+
+/-- **The glued 4-ring is essentially irreducible**, from `ring4_centre_trivial`. -/
+theorem ring4_essentiallyIrreducible (hα : ∀ a : α, ∃ b, b ≠ a) :
+    EssentiallyIrreducible
+      (glued (ι := Fin 4) (α := α) {{0, 1}, {1, 2}, {2, 3}, {3, 0}}) := by
+  intro E hE
+  rcases ring4_centre_trivial hα hE with rfl | rfl
+  · exact Or.inl Set.countable_empty
+  · right; simp
 
 /-- The real instance. -/
 theorem ring4_real_essentiallyIrreducible :
@@ -857,6 +866,15 @@ theorem targetA_sharp_countable :
   ⟨inferInstance, generateFrom_glued fun i => ⟨{i, i + 1}, window_mem i, by simp⟩,
     admissible, s₀_sigmaEssential⟩
 
+/-- **The countable witness on a literally irreducible carrier.** On countable `Ω₄`
+the `EssentiallyIrreducible` conjunct of `Admissible` is vacuous, so this states
+the rigidity that does carry content: the carrier's centre is `{∅, univ}`. -/
+theorem targetA_sharp_countable_literal :
+    Countable Ω₄ ∧ (∀ E, Centre D₄ E → E = ∅ ∨ E = univ) ∧ NonSegregated D₄ ∧
+      IsSigmaEssential s₀ :=
+  ⟨inferInstance, fun _ hE => ring4_centre_trivial (α := ℕ) (fun a => ⟨a + 1, by omega⟩) hE,
+    nonSegregated, s₀_sigmaEssential⟩
+
 theorem targetA_sharp' : Admissibility.TargetA_sharp :=
   ⟨Ω₄, D₄, BC, s₀, admissible, s₀_sigmaEssential⟩
 
@@ -870,6 +888,7 @@ end WindowGluing.Cyclic
 #print axioms WindowGluing.Cyclic.mu_cases
 #print axioms WindowGluing.Cyclic.s₀_sigmaEssential
 #print axioms WindowGluing.Cyclic.targetA_sharp_countable
+#print axioms WindowGluing.Cyclic.targetA_sharp_countable_literal
 #print axioms WindowGluing.Cyclic.targetA_sharp'
 #print axioms WindowGluing.Cyclic.dwPolishCut_excludes
 

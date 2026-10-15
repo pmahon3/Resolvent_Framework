@@ -283,3 +283,34 @@ Nothing here is claimed novel. "Survives the check" is not a novelty claim.
 2. Add ABKLM and Pivato rows to `PRIOR_ART_VERDICT.md` (done with this note).
 3. §5 boundary class: KIO §5 (gluing cycle scenarios) and its bundle/homotopy
    machinery are the crowded room. Read it before pursuing.
+
+## 7. Reach-lemma prior-art scout (2026-10-15, one sonnet scout)
+
+**Verdict: apparently OPEN.** Nothing found owns, implies or refutes it. Coverage
+is weak.
+
+**Nearest neighbours:**
+- **The no-meet matroid** (Ben-Ameur et al., DAM 354, 2024): infinite never-meeting
+  synchronous walks. Its rank is the maximum number of vertex-disjoint cycles. It
+  says nothing about swaps, period or returns that are uniform in L.
+- **Ben-Ameur–Maddaloni, meeting time** (Networks 2024).
+- **Kharoof–Ipek–Okay, §5** (gluing): fixed n only.
+- **Tensor-product period results:** Petrić 1996; Wu–Xu–Zhu, EJC 24, P47. Neither
+  says anything about the off-diagonal part.
+
+**Equivalent form (scout):** a swap of length L is a periodic point of period 2L
+with x_i ≠ x_{i+L} for every i. Nothing was found on this "everywhere-disagreeing
+half-period" form.
+
+**Scout's own check:** 1,587 random primitive digraphs on 3–8 vertices, with no
+swap-carrying SCC periodic. This is consistent with the oracles.
+
+**Unchecked:**
+- Higman / orbital digraphs of transformation monoids;
+- Culik–Karhumäki–Kari;
+- Brualdi–Ryser;
+- Boyle / Lind–Marcus / Kitchens on product-SFT periods;
+- the Russian local-primitivity literature.
+
+The scout read most sources through summaries or abstracts only. "Open" means not
+found.

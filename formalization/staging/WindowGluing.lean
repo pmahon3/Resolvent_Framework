@@ -870,10 +870,21 @@ theorem targetA_sharp_countable :
 the `EssentiallyIrreducible` conjunct of `Admissible` is vacuous, so this states
 the rigidity that does carry content: the carrier's centre is `{∅, univ}`. -/
 theorem targetA_sharp_countable_literal :
-    Countable Ω₄ ∧ (∀ E, Centre D₄ E → E = ∅ ∨ E = univ) ∧ NonSegregated D₄ ∧
-      IsSigmaEssential s₀ :=
+    Countable Ω₄ ∧ Irreducible D₄ ∧ NonSegregated D₄ ∧ IsSigmaEssential s₀ :=
   ⟨inferInstance, fun _ hE => ring4_centre_trivial (α := ℕ) (fun a => ⟨a + 1, by omega⟩) hE,
     nonSegregated, s₀_sigmaEssential⟩
+
+/-- **The six original conjuncts on `D₄`**, mirroring `L₁_six_conjuncts`, with
+`EssentiallyIrreducible` (vacuous here) replaced by `Irreducible`. The Polish
+clause is conditional on the cut, exactly as for `L₁`. -/
+theorem D₄_six_conjuncts (hcut : OpenCore.DWPolishCut.{0}) :
+    OpenCore.IsConcreteCarrier D₄ ∧ OpenCore.IsSigmaCompleteCarrier D₄ ∧
+      Irreducible D₄ ∧ NonSegregated D₄ ∧ ¬ InterClosed D₄ ∧
+      ¬ OpenCore.PolishRepresentable D₄ :=
+  ⟨OpenCore.isConcreteCarrier _, OpenCore.isSigmaCompleteCarrier _,
+    targetA_sharp_countable_literal.2.1, nonSegregated,
+    fun h => boolean_no_witness h s₀ s₀_sigmaEssential,
+    OpenCore.witness_not_polish hcut s₀ s₀_sigmaEssential⟩
 
 theorem targetA_sharp' : Admissibility.TargetA_sharp :=
   ⟨Ω₄, D₄, BC, s₀, admissible, s₀_sigmaEssential⟩
@@ -889,6 +900,7 @@ end WindowGluing.Cyclic
 #print axioms WindowGluing.Cyclic.s₀_sigmaEssential
 #print axioms WindowGluing.Cyclic.targetA_sharp_countable
 #print axioms WindowGluing.Cyclic.targetA_sharp_countable_literal
+#print axioms WindowGluing.Cyclic.D₄_six_conjuncts
 #print axioms WindowGluing.Cyclic.targetA_sharp'
 #print axioms WindowGluing.Cyclic.dwPolishCut_excludes
 

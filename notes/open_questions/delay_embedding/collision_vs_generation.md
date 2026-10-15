@@ -129,7 +129,7 @@ event is Borel):
 **Nothing propagates to the paper until a hostile prior-art check has been run.**
 The text below is the pre-proof record, kept for the trail.
 
-### Third-pass prior-art gate, 2026-10-15: NOT FOUND (gate passed, residual risk named)
+### Third-pass prior-art gate, 2026-10-15: NOT FOUND after three passes (residual risk named)
 
 One sonnet scout read full texts:
 - shelf: Navara–Pták 1983, Navara 1984, Navara 1992, Dvurečenskij–Neubrunn–Pulmannová 1992,
@@ -167,17 +167,35 @@ countable Ω that conjunct is **vacuous**. The proof of
 `ring4_essentiallyIrreducible` actually showed the centre is literally {∅, univ},
 but the exported statement threw that away.
 - Now exported as `ring4_centre_trivial`.
-- New receipt `targetA_sharp_countable_literal`: countable Ω₄, centre literally
-  {∅, univ}, `NonSegregated`, `IsSigmaEssential`. Standard axioms, 0 sorry.
+- New receipt `targetA_sharp_countable_literal`: countable Ω₄, `Irreducible D₄`
+  (centre literally {∅, univ}; the existing `Admissibility.Irreducible`),
+  `NonSegregated`, `IsSigmaEssential`. Standard axioms, 0 sorry.
+- New receipt `D₄_six_conjuncts`: the six original conjuncts on D₄, with
+  `Irreducible` in place of the vacuous conjunct. Its axiom profile is identical
+  to `L₁_six_conjuncts`, i.e. the Polish clause is conditional on `DWPolishCut`.
+- D₄ cannot contain every singleton. If it did, countable disjoint unions would
+  give D₄ = 𝒫(Ω₄), which is Boolean, and a Boolean carrier has no witness
+  (`boolean_no_witness`). So the paper's "necessarily without all singletons"
+  holds automatically.
 - Literal irreducibility is proved for L = 4 only, not yet for D_L at L > 4.
 
 **What this answers.** σ-essential paper Q `q:cardinality` asks: "can a countable
 Ω carry one … Is there a ZFC lower bound beyond 'uncountable'?"
-- In the sharp form (`TargetA_sharp`, scoped exactly like `psi_ZFC`), the answer
-  is **yes**: Ω = ℕ⁴, with a literally irreducible carrier.
+- **Candidate answer, yes**, in the sharp form scoped exactly like `psi_ZFC`:
+  Ω = ℕ⁴, a literally irreducible carrier, all six conjuncts.
+- It stays a candidate until the Phase-2 audit (promote-to-seed).
 - The lower-bound half is then moot.
 - **Not propagated to the paper. That is the user's call.** Memory: paper claims
-  have run ahead of Lean four times before.
+  have run ahead of Lean four times before. The `FIDELITY_CHECKLIST` standing
+  re-read finds no drift, because the paper cites no `WindowGluing` name.
+- **Q6.6 / `DWPolishCut`: not assessed.** D₄ lives on discrete ℕ⁴, where
+  𝒫(ℕ⁴) is Polish-Borel. Whether `dwPolishCut_excludes` says anything about
+  the cut depends on the paper's definition of Polish-representable and on the
+  s13 coarse-riding escape: the window restrictions are non-principal (p⊗p).
+  Do not read it as refuting the cut.
+- **Scope:** σ-essential on every ring L ≥ 4. Literal irreducibility has a
+  receipt for L = 4 only. For L > 4 the irreducibility conjunct is still the
+  vacuous one.
 
 ### Prior-art scout, 2026-10-08: FOLKLORE-ADJACENT, coverage partial
 

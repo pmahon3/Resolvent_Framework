@@ -29,6 +29,10 @@ side branch, off the path to dynamics:
   window, then C to pass to the limit.
 - **C is free for finite alphabets** (compactness). So for finite alphabets, E is
   exactly the flagship's capstone.
+- **On ℤ the single-window problem is trivial** (Markov extension; Pivato 2001
+  §1.1). E's content lives in the periodic (ring) quotient and in protocol
+  families: this is the cyclic marginal problem
+  (`notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md`).
 - **C′ is a side branch.** σ-essential patterns are pasting failures by
   construction (empty kernel on a finite block). Two-valued means a single
   trajectory, not deterministic dynamics, and a stationary two-valued state is a

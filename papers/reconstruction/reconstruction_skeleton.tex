@@ -32,12 +32,12 @@ where coherence stops forcing a global process --- is exactly decidable.
 \noindent\emph{Status of the target.} The guarantee is established
 \textbf{unconditionally} on three tame families (\S\ref{sec:boundary}), and
 \textbf{conditionally} --- on a single open conjecture (\S\ref{sec:capstone}) ---
-for all total symbolic languages. The decidability of the boundary is
-\textbf{[PROVED]} for a fixed observation length via the winding criterion
-(\S\ref{sec:boundary}); the lift from winding-2 to full safety is
-\textbf{[PROVED at general $k$ and Lean-verified, 2026-08-21]} via the pruning
-theorem, which with the $k$-cap also makes $\mathrm{Safe}(\rho)$ eventually
-periodic and effectively computable.
+for all total symbolic languages. At a fixed observation length the boundary is
+\textbf{[CLASSICAL]}: it is the classification of contextual vertices of cycle
+scenarios (\S\ref{sec:boundary}). The lift to all lengths of one language
+--- $\mathrm{Safe}(\rho)$ eventually periodic and effectively computable --- is
+\textbf{[PROVED, Lean-verified]} but elementary given that classification. The
+paper's own open content is the capstone of \S\ref{sec:capstone}.
 
 The rest of the paper is the dependency chain beneath
 Goal~\ref{goal:recon}: the geometric reduction that makes ``coherence forces a
@@ -116,19 +116,31 @@ universality. Everything below characterises such families.
 
 \section{The boundary: the winding criterion}\label{sec:boundary}
 
-This is the spine. Read a cyclic protocol as recurrence: observe $\rho$ around a
+\emph{[Repositioned 2026-10-15.]} At fixed $L$ this section is classical, and is
+cited rather than claimed. The contextual vertices of the $n$-cycle scenario with
+outcomes $\bbZ_d$ are exactly the $k$-order cycle distributions, $k\ge2$
+\cite[Thm.~4.4]{KharoofIpekOkay2024}; the cases $n=4$ \cite{BarrettEtAl2005} and
+binary outcomes \cite[Thm.~2]{AraujoQuintinoBudroniTerraCunhaCabello2013} came
+first, and in any scenario the vertices split into deterministic and minimal-support
+strongly contextual models \cite[Prop.~6.3]{ABKLM2016}. A $k$-order cycle
+distribution is exactly a layer-injective simple cycle of winding $k$ below.
+
+Read a cyclic protocol as recurrence: observe $\rho$ around a
 ring of length $L$. Lift the ring to its \emph{layered graph} --- vertices $(i,a)$
 for site $i\in\bbZ_L$ and state $a\in A$, arcs $(i,a)\to(i{+}1,b)$ for legal pairs
 $(a,b)$. The \emph{winding} of a closed walk is its net site-advance divided by
 $L$. Call a length $L$ \emph{unsafe} for $\rho$ if the length-$L$ ring carries
 contextual data.
 
-\begin{theorem}[winding criterion --- the decidable boundary]\label{thm:winding}
+\begin{theorem}[winding criterion; a corollary of {\cite[Thm.~4.4]{KharoofIpekOkay2024}}]\label{thm:winding}
 A length $L$ is unsafe for $\rho$ iff the layered ring carries a layer-injective
 simple cycle of winding $\ge 2$.
 \end{theorem}
 
-\noindent\textbf{[PROVED for fixed $L$]}, via three obligations, each discharged in
+\noindent\textbf{[CLASSICAL at fixed $L$]}: restrict \cite[Thm.~4.4]{KharoofIpekOkay2024}
+to the face of data supported on $\rho$, whose vertices are vertices of the whole
+polytope. An independent proof, reached before the citation was found, uses three
+obligations, each discharged in
 the archive: a \emph{gate identification} ($C$ is the layered graph's circulation
 polytope) \textbf{[PROVED; the genericity gate is vacuous for the ring used]}; a
 \emph{flow decomposition} (a polytope vertex is a single simple cycle)

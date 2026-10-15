@@ -12,8 +12,10 @@ the ρ face is ⟦HAND⟧. Theorems P and B (pruning; Safe(ρ) eventually period
 elementary given that. Theorem P reduces to k lockstep tokens plus a rotation, and
 Theorem B is the pigeonhole k-cap plus eventual periodicity of a Boolean-matrix
 monoid. **The only non-trivial remainder is the OPEN forcing / reach lemma.**
-Skeleton/abstract still present `thm:winding` as "the spine". Repositioning it is
-the USER'S CALL. Detail: `notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md` §4a′.
+Skeleton and abstract REPOSITIONED 2026-10-15 at the user's request: `thm:winding`
+is now cited as [CLASSICAL at fixed L] (KIO 2024 Thm 4.4, Barrett 2005, Araújo 2013,
+ABKLM 2016), and the reach lemma is the only claimed open contribution. PDF rebuilt
+(5pp). Detail: `notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md` §4a′.
 
 ## Scope (skeleton + proved core drafted)
 - **Proved core, drafted at LaTeX quality:** framework + C=R geometry (§1);

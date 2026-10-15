@@ -43,7 +43,7 @@ side branch, off the path to dynamics:
 | layer | answer so far | status |
 |---|---|---|
 | C, Boolean regularity | forced iff the finitely additive part vanishes; free for finite alphabets | classical |
-| B, pasting | forced on the tame classes; the boundary is decidable per length (winding criterion) | proved |
+| B, pasting | forced on the tame classes; the boundary is decidable per length (winding criterion; at fixed L this is **owned**: Kharoof–Ipek–Okay 2024 Thm 4.4, see `cyclic_marginal_scoping.md` §4a′) | proved / cited |
 | E, process | forced for finite alphabets exactly where no catalogued obstruction exists, **if L-B′ holds** | one open lemma |
 | F, identification from a given system (Takens root) | injectivity: Takens / SYC. Generation: Rokhlin / KS (killed for invertible T). Conditioning: the stable-embedding literature | **accounted for** |
 | F, realization without a given system | — | **unscouted** |
@@ -70,7 +70,7 @@ side branch, off the path to dynamics:
 |---|---|---|
 | Takens / Rokhlin / stable embedding | a given system | whether coherent data forces any system (the descent) |
 | Carathéodory / Kolmogorov extension | Boolean, compact | σ-essential witnesses on non-Boolean carriers |
-| Vorob'ev / marginal polytopes | acyclic or fixed model | winding criterion, forcing lemma (protocol families on rings) |
+| Vorob'ev / marginal polytopes | acyclic or fixed model | ~~winding criterion~~ (owned at fixed L by the simplicial-distribution school, 2026-10-15); forcing lemma / reach lemma (all lengths, one language) still open |
 | realization theory (HMM / OOM / PSR) | a declared model class | what coherence forces on *any* generating system (unscouted) |
 
 ## The test for open space

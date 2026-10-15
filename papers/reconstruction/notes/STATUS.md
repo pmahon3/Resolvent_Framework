@@ -3,6 +3,18 @@
 Created 2026-07-08. The formal write-up of the reconstruction / commensurability
 structure theory (successor programme to the σ-essential witness).
 
+## ⚠ VERDICT CHANGE 2026-10-15 — fixed-L winding criterion is PRIOR ART
+Kharoof–Ipek–Okay 2024 (arXiv:2406.19961) Thm 4.4: the contextual vertices of the
+n-cycle with outcomes Z_d are exactly the k-order cycle distributions, i.e. the
+layer-injective winding-k cycles. Antecedents: Barrett et al. 2005 (n=4) and
+Araújo 2013 (binary). So `thm:winding` at fixed L is a corollary; restricting to
+the ρ face is ⟦HAND⟧. Theorems P and B (pruning; Safe(ρ) eventually periodic) are
+elementary given that. Theorem P reduces to k lockstep tokens plus a rotation, and
+Theorem B is the pigeonhole k-cap plus eventual periodicity of a Boolean-matrix
+monoid. **The only non-trivial remainder is the OPEN forcing / reach lemma.**
+Skeleton/abstract still present `thm:winding` as "the spine". Repositioning it is
+the USER'S CALL. Detail: `notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md` §4a′.
+
 ## Scope (skeleton + proved core drafted)
 - **Proved core, drafted at LaTeX quality:** framework + C=R geometry (§1);
   trichotomy (§2, free/acyclic + product + De Loera–Onn universality);

@@ -192,7 +192,12 @@ arbitrary outcomes* (arXiv:2406.19961; v1 June 2024, v2 Jan 2026; on the shelf).
 **This revises `PRIOR_ART_VERDICT.md`'s "winding criterion survives NOVEL".**
 - The fixed-L criterion is owned by the simplicial-distribution / sheaf lineage
   (Okay school).
-- What remains the flagship's own is item 3 of §4a, the all-lengths layer:
+- **Correction (same day; checked against `pruning_theorem_and_B.md`).** The
+  proved all-lengths items are elementary given KIO. Theorem P is k lockstep
+  tokens in the tensor power, plus a rotation. Theorem B is the pigeonhole k-cap
+  plus eventual periodicity of a Boolean-matrix monoid. They are not a novelty
+  residue. The only non-trivial remainder is the **open** forcing / reach lemma.
+- What was listed as the flagship's own, the all-lengths layer:
   - Safe(ρ) is eventually periodic and computable (pruning theorem);
   - the forcing lemma and reach lemma;
   - the shift-of-finite-type framing (rings as periodic orbits of one language).

@@ -91,7 +91,7 @@ families**. `hierarchy_and_open_space.md` is amended to say so.
 
 ## 4. Points of tension with the sheaf-theoretic approach
 
-### 4a. The main finding: much of the winding criterion's logical form is already general sheaf theory ⟦HAND — reading of ABKLM, not yet checked against the archive proof⟧
+### 4a. The main finding: the winding criterion's logical form is already general sheaf theory ⟦HAND reading of ABKLM; scope checked against the archive proof 2026-10-15⟧
 
 The source is Abramsky–Barbosa–Kishida–Lal–Mansfield 2016, *Possibilities
 determine the combinatorial structure of probability polytopes* (J. Math. Psych.,
@@ -121,10 +121,25 @@ That is general and owned by ABKLM. The winding criterion, read through it:
     no global section, so it is strongly contextual. The PR box is the Möbius
     double cover.
 
+**Checked against the archive proof (`reconstruction_body_PROVED_ARCHIVE.tex`, §`sub:winding`).**
+- **Layer-injectivity adds no hypothesis.** `lem:injectivity` (Lean) says a closed
+  walk on the layered ring is simple iff it is layer-injective. So the hypothesis
+  is a certificate of simplicity, and the cover reading is consistent with the
+  theorem.
+- **ABKLM applies.** The contexts are adjacent pairs (i, i+1) under the genericity
+  gate, so they form a genuine scenario. Its sites are variables and ρ restricts
+  the supports. That restriction is a face of N(Σ), and a face's vertices are
+  vertices of N(Σ), so Prop 6.3 applies on it.
+- **R is the right class.** It is conv(global configurations), the all-measures
+  class, and that is the class ABKLM's LD refers to.
+- **Flow decomposition is classical** (Ahuja–Magnanti–Orlin, a cited axiom). So,
+  on rings, `thm:winding` is ABKLM Prop 6.3 plus classical flow decomposition plus
+  the Lean simple ⟺ layer-injective lemma.
+
 **What survives as the flagship's own:**
-1. the flow-decomposition proof that every vertex of C on a ring *is* one simple
-   cycle (circulation polytope), which forces "minimal support = single connected
-   cover";
+1. the *assembly*: the gate lemma (C = circulation polytope) composed with
+   classical flow decomposition. Together they make "minimal strongly contextual
+   support = single connected cover" explicit on rings;
 2. the layer-injectivity discriminant (Lean);
 3. the all-lengths layer: Safe(ρ) eventually periodic and computable, and the
    forcing lemma / reach lemma.
@@ -177,8 +192,10 @@ are **unverified here** and are not used.
 - Prusa–Werner 2013/15: every polytope is a local marginal polytope.
 - De Loera–Onn: the same for 3-way transportation polytopes.
 
-So no winding-type explicit criterion can hold for all scenarios. ABKLM gives the
-universal *form* (MSC supports). The explicit content is scenario-class specific.
+So no explicit vertex or facet description holds for all scenarios. That does
+not rule out every explicit unsafe-test: Vorob'ev is an explicit iff for
+unconstrained scenarios. ABKLM gives the universal *form* (MSC supports). Explicit
+MSC descriptions are scenario-class specific.
 
 **Why the ring works:**
 - The overlap structure is a cycle, with π₁ = ℤ.
@@ -196,7 +213,8 @@ universal *form* (MSC supports). The explicit content is scenario-class specific
    - Is MSC there exactly the set of connected covers with non-trivial monodromy?
 2. **The other side of the gap.** Sherali–Adams reaches exactness at level
    treewidth + 1. Rings have treewidth 2. So on rings the whole content is the
-   level-1-to-level-3 gap, and the winding criterion describes it. Does the
+   level-1-to-level-3 gap, and the winding criterion describes it. (Treewidth 2
+   holds for pair windows only; wider windows raise it.) Does the
    cover picture describe level-1 vs exact on the boundary class from (1)?
 3. **Finitely additive version.** On which classes does the ultrafilter cyclic
    obstruction (§1) exist? Is "degree ≥ 2 connected cover" still the

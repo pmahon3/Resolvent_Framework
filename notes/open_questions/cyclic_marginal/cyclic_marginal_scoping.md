@@ -157,6 +157,53 @@ are fixed, with no length family and no shift structure.
   *Contextuality, cohomology and paradox*, on Liar cycles.
 - Add ABKLM to `PRIOR_ART_VERDICT.md` as **must-cite** for `thm:winding`.
 
+### 4a′. The explicit ring identification is also owned: Kharoof–Ipek–Okay 2024 (checked 2026-10-15, primary source)
+
+**Araújo et al. 2013, Thm 2** (binary n-cycle).
+- The no-disturbance polytope has 2ⁿ + 2ⁿ⁻¹ vertices.
+- The 2ⁿ⁻¹ contextual vertices are ⟨XᵢXᵢ₊₁⟩ = ±1 with an odd number of −1s.
+- These are exactly the winding-2 covers.
+
+**Kharoof–Ipek–Okay**, *Extremal simplicial distributions on cycle scenarios with
+arbitrary outcomes* (arXiv:2406.19961; v1 June 2024, v2 Jan 2026; on the shelf).
+- **Def 4.1.** A k-order cycle distribution is k rows (a₁⁽ʲ⁾ … aₙ⁽ʲ⁾) of
+  outcomes, with aᵢ⁽ʲ⁾ ≠ aᵢ⁽ˢ⁾ for j ≠ s. That is **layer-injective**. The closing
+  edge takes row j to row j+1 and row k to row 1. That is a **simple cycle of
+  winding k** in the layered graph. Each edge has mass 1/k.
+- **Thm 4.4.** On the n-cycle with outcomes ℤ_d, the contextual vertices are
+  exactly the k-order cycle distributions with k ≥ 2.
+- **Cor 4.7.** The same holds on bundle scenarios with per-site outcome sets.
+- **Cor 4.5.** It counts the vertices.
+- **Earlier pieces:**
+  - Barrett–Linden–Massar–Pironio–Popescu–Roberts 2005, Thm 1 (the 4-cycle);
+  - Kharoof–Ipek–Okay, *Entropy* 25 (2023) (n-cycle, binary and beyond);
+  - Barbosa–Kharoof–Okay 2023, arXiv:2308.06336 (the bundle perspective).
+- Their scenario C(n) is the flagship's ring under the genericity gate: a
+  1-dimensional measurement space whose edges are adjacent pairs.
+
+**Consequence ⟦HAND step: restriction to ρ⟧.**
+- The ρ-supported data form a face of their polytope, and a face's vertices are
+  vertices of the whole polytope.
+- So L is unsafe for ρ iff some k-order cycle distribution with k ≥ 2 has
+  support in ρ's layered graph.
+- **That is `thm:winding` at fixed L. It is a corollary of KIO Thm 4.4.**
+- KIO predates the flagship's proof (July 2026) by two years.
+
+**This revises `PRIOR_ART_VERDICT.md`'s "winding criterion survives NOVEL".**
+- The fixed-L criterion is owned by the simplicial-distribution / sheaf lineage
+  (Okay school).
+- What remains the flagship's own is item 3 of §4a, the all-lengths layer:
+  - Safe(ρ) is eventually periodic and computable (pruning theorem);
+  - the forcing lemma and reach lemma;
+  - the shift-of-finite-type framing (rings as periodic orbits of one language).
+- None of that appears in ABKLM, Araújo or KIO. KIO's §5 glues cycle scenarios,
+  but not across lengths.
+- The Lean certification of simple ⟺ layer-injective remains, as a certificate
+  for a known fact.
+- The sheaf-side lineage for the cover picture is now concrete: KIO's
+  "homotopical vertices" (null-homotopy of φ : C(n) → NZ_d, their Prop 2.11) is
+  the winding-1 / global-section test.
+
 ### 4b. Finite vs finitely additive
 
 The sheaf framework's measure-theoretic extension uses σ-additive measures. That
@@ -225,8 +272,9 @@ Nothing here is claimed novel. "Survives the check" is not a novelty claim.
 
 ## 6. Next, in order
 
-1. Do the §4a checks: Araújo 2013 n-cycle vertices; bundle and cover descriptions
-   in the AB lineage. These decide how much of `thm:winding` is owned.
+1. ~~§4a checks~~ DONE 2026-10-15 (§4a′): fixed-L `thm:winding` is owned (KIO
+   2024). Paper owed: re-position `thm:winding` as cited, and the novelty claim
+   onto the all-lengths layer.
 2. Add ABKLM and Pivato rows to `PRIOR_ART_VERDICT.md` (done with this note).
-3. Pursue the §5 boundary-class question only if (1) leaves the flow-decomposition
-   identification standing.
+3. §5 boundary class: KIO §5 (gluing cycle scenarios) and its bundle/homotopy
+   machinery are the crowded room. Read it before pursuing.

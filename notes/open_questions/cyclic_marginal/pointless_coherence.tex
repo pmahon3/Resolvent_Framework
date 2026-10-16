@@ -55,6 +55,114 @@ Prior art for \S\S5--6 is unchecked.}
 
 \tableofcontents
 
+\section{The puzzle}\label{sec:puzzle}
+
+Everything in this note is one game, played on different boards. Each paragraph
+ends with the result it encodes. The dictionary at the end of the section pins
+every puzzle word to its exact object, so the picture can be checked against the
+mathematics.
+
+\paragraph{The game.} There are hidden numbers $x_0,x_1,x_2,\dots$. You never
+see them all.
+\begin{itemize}[nosep]
+  \item \emph{Windows.} You are shown \emph{windows}: a couple of the numbers at
+    a time. Through a window you may ask any question about the numbers it
+    shows: ``is $x_0<x_1$?'', ``is $(x_0,x_1)=(3,7)$?''.
+  \item \emph{Compound questions.} You may also build questions from those, with
+    ``not'' and with ``exactly one of these mutually exclusive options''. That
+    allows even infinitely many options, such as ``which value is $x_0$?''.
+  \item \emph{The referee.} A \emph{referee} answers every such question yes or
+    no. The referee must be consistent: when a question is split into two
+    exclusive parts, exactly the right number of them get a ``yes''.
+  \item \emph{The question.} Is there a hidden reality, an actual assignment of
+    numbers, that the referee's answers describe?
+\end{itemize}
+
+\paragraph{The path: always fine.} Windows $\{x_0,x_1\},\{x_1,x_2\},\{x_2,x_3\}$,
+each saying ``the right number is bigger''. You can comply: $1,2,3,4$. Even with
+strange referees, the views always chain together into one whole, at worst an
+\emph{ideal} one (see below). \emph{(Theorem~\ref{thm:path}.)}
+
+\paragraph{Six outcomes: no single answer, but harmless.} A die with six faces
+and four yes/no questions: ``is it in $\{1,2,3\}$, in $\{3,4,5\}$, in
+$\{5,6,1\}$, in $\{2,4,6\}$?''. The first three overlap in a loop. Answering
+``no'' to all four is perfectly consistent, yet no face gives those answers.
+Nothing infinite is involved, so nothing more can go wrong. \emph{(The
+Navara--Pt\'ak example, \S\ref{sec:cheap}.)}
+
+\paragraph{The ring: the staircase.} Four or more windows in a loop,
+$\{x_0,x_1\},\{x_1,x_2\},\dots,\{x_{L-1},x_0\}$, each saying ``up''. With actual
+numbers this is impossible: $x_0<x_1<\dots<x_0$, a Penrose staircase.
+\begin{itemize}[nosep]
+  \item \emph{The ideal number.} Let each window's ``up'' mean that the second
+    number is \emph{drawn later, from further out}. This is an ultrafilter, an
+    ideal ``number at infinity''.
+  \item \emph{Everything checks locally.} Every window genuinely believes
+    ``up''. Neighbouring windows agree about every shared number.
+  \item \emph{There is a referee.} A consistent referee exists for \emph{every}
+    question built from the windows.
+  \item \emph{But no reality.} No hidden reality fits, not even an ideal one.
+\end{itemize}
+The whole is coherent and has no point. \emph{(Theorem~\ref{thm:witness}, Lean,
+every $L\ge4$; Proposition~\ref{prop:stair}.)}
+
+\paragraph{Demanding a real answer kills it.} Ask the staircase referee ``which
+value is $x_0$?'', split into $x_0=0$, $x_0=1$, and so on. The referee says ``no''
+to each option, but ``yes'' to ``$x_0$ is some number''. That is allowed when only
+\emph{finitely} many options need to add up. Now demand that the answers add up
+across \emph{infinitely} many options ($\sigma$-additivity).
+\begin{itemize}[nosep]
+  \item Each window is then forced to name actual numbers.
+  \item The staircase becomes impossible again.
+\end{itemize}
+Insisting on a completed reality forbids the coherent picture.
+\emph{(Proposition~\ref{prop:dirac}.)}
+
+\paragraph{The triangle: the open puzzle.} Three windows,
+$\{x_0,x_1\},\{x_1,x_2\},\{x_2,x_0\}$, each touching both others.
+\begin{itemize}[nosep]
+  \item \emph{Loop-only questions.} There are now questions that cannot be
+    broken into separate questions to individual windows. (On a ring of four or
+    more, every question breaks into questions to at most two neighbouring
+    windows.)
+  \item \emph{With two values,} ``are all three equal?'' is one. It is the
+    ``not'' of a question that \emph{does} break up, but it does not break up
+    itself.
+  \item \emph{With three values,} ``all equal'' is not even askable. There are
+    2{,}088 questions such that neither they nor their ``not'' break up. The
+    simplest is a nine-point cyclic pattern.
+  \item \emph{Still open.} Can the staircase $x_0<x_1<x_2<x_0$ still have a
+    consistent referee and no reality? Evidence says yes: on a faithful finite
+    part of the board, a consistent referee exists. Nobody here has built one.
+\end{itemize}
+\emph{(\S\ref{sec:status}; machine evidence only.)}
+
+\paragraph{The moral.} A loop is what lets every local view be right while the
+whole is nothing. Infinity is what lets that survive. Demanding a completed
+whole is what forbids it.
+
+\paragraph{Dictionary (puzzle $\to$ mathematics).}\leavevmode
+\begin{center}\small
+\begin{tabular}{p{4.6cm}p{9.6cm}}
+hidden numbers & a point $x\in\Omega=\bbN^V$\\
+window & a pair $\{i,j\}\subseteq V$\\
+question through a window & a window event $\{x:(x_i,x_j)\in A\}$, $A\subseteq\bbN^2$ arbitrary\\
+all buildable questions & the glued carrier $\cD$ (closure under complement and countable disjoint union)\\
+consistent referee & a two-valued \emph{finitely} additive state on $\cD$\\
+answers add up over infinitely many options & $\sigma$-additivity\\
+a hidden reality & a point $\delta_\omega$\\
+an ideal reality & an ultrafilter $W$ on $\Omega$\\
+``drawn later, from further out'' & the ordered product $p\otimes p$, $p$ non-principal\\
+neighbouring windows agree & equal marginals on the shared coordinate\\
+breaks into window questions & $E\in\cG$: a disjoint union of window events (\S\ref{sec:shape})\\
+loop-only question & $E\in\cD\setminus\cG$. Two values: complements of $\cG$-sets only. Three values: 2{,}088 sets with $E,E^c\notin\cG$\\
+\end{tabular}
+\end{center}
+\noindent\emph{Scope of the puzzle.} The six-outcome paragraph uses a different
+board: arbitrary questions on a die, not windows. The triangle counts (2{,}088,
+nine points) are for a three-valued alphabet. Over $\bbN$ the loop-only questions
+are of the same kind, but they have not been enumerated.
+
 \section{The question, philosophically}\label{sec:philo}
 
 \bp{\textbf{The one question.} Is the whole \emph{given}, or \emph{set as a task}?
@@ -253,7 +361,7 @@ $u_k$ on $\bbN^2$, and adjacent ones agree on their shared coordinate. Whether
 these window ultrafilters come from one ultrafilter on $\Omega$ is the
 question.
 
-\section{Pointlessness alone is cheap}
+\section{Pointlessness alone is cheap}\label{sec:cheap}
 
 \begin{example}[Navara--Pt\'ak 1983]\st{cited; checked by hand}
 Take $\Omega=\{1,\dots,6\}$, $M_1=\{1,2,3\}$, $M_2=\{3,4,5\}$, $M_3=\{5,6,1\}$ and
@@ -356,7 +464,7 @@ literally irreducible: its centre is $\{\emptyset,\Omega\}$ (Lean). It satisfies
 all six original admissibility conjuncts, with the Polish clause conditional on
 \texttt{DWPolishCut} exactly as for the $\omega_1$ witness.
 
-\section{The shape of the carrier}
+\section{The shape of the carrier}\label{sec:shape}
 
 \begin{lemma}[two adjacent windows suffice]\label{lem:shape}\st{hand; checked on
 finite alphabets}
@@ -454,7 +562,7 @@ Lemma~\ref{lem:shape} could call that step bookkeeping. This is a simplification
 not a kill, and no source has been found for the witness after three prior-art
 passes.
 
-\section{Status and open questions}
+\section{Status and open questions}\label{sec:status}
 
 \begin{itemize}
   \item \textbf{Settled:}

@@ -14,6 +14,9 @@ The programme builds **new mathematical theory**: definitions, invariants and
 structure theorems. **Problems are probes placed at seams between existing
 theories.** They locate where theory is missing, and solving them is a means, not
 the end. This theory-first orientation replaces the earlier problem-first one.
+**Proof is raw data for theory building** (user, 2026-10-16). A proof's value lies
+in what it reveals about structure: which objects matter, which invariant is
+working, where a theory is missing. Proofs are not the product.
 Publication is not a goal. Papers may be shared eventually.
 
 ## Current state of the programme

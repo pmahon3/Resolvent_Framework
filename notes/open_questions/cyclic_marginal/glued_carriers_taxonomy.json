@@ -15,15 +15,15 @@
       "owned_regions": "the seam map: which existing theory covers which region (owned_by)"
     },
     "headline": {
-      "objects": 5,
-      "theorems": 11,
-      "conjectures": 6,
+      "objects": 6,
+      "theorems": 12,
+      "conjectures": 7,
       "probes": 1,
       "examples": 3,
       "owned_regions": 8,
       "overall": "OPEN - two data points proved, one decisive probe pending"
     },
-    "puzzle": "notes/open_questions/cyclic_marginal/pointless_coherence.tex section 'The puzzle' (windows, referee, staircase, triangle) with puzzle->math dictionary",
+    "puzzle": "notes/open_questions/cyclic_marginal/pointless_coherence.tex section 'The puzzle'; domain map in section 'Domain and scope'",
     "cross_collections": "[[sigma_essential_taxonomy]] (the witness is a sigma-essential object); [[commensurability_taxonomy]] (cycle side; fixed-L winding owned); [[ce_taxonomy]] (concept.oml_center cell inhabited)"
   },
   "objects": [
@@ -61,6 +61,13 @@
       "status": "defined",
       "one_line": "Vertices = coordinates, edges = windows. Path, ring (L), triangle (L=3) are the instances studied; the theory's invariant should be a property of this graph.",
       "detail": "pointless_coherence.tex (Setting; Status and open questions)"
+    },
+    {
+      "id": "obj.window_family_flatness",
+      "name": "window family; flat / non-flat (tentative)",
+      "status": "defined (tentative)",
+      "one_line": "A referee's window family = its ultrafilters u_k on the windows (compatible on shared coordinates). Flat = amalgamates to an ultrafilter on Omega; non-flat otherwise. Working definition, the candidate central notion.",
+      "detail": "pointless_coherence.tex (Definition flat, section 'What the proofs say')"
     }
   ],
   "theorems": [
@@ -74,15 +81,15 @@
     {
       "id": "thm.sigma_forces_points",
       "name": "sigma forces points (ring)",
-      "status": "proved-lean",
-      "one_line": "A sigma-additive referee on the glued ring is a point (window Diracs agree on shared coordinates; Dynkin uniqueness); so no sigma-additive referee has all C_k={x_k<x_{k+1}} true.",
+      "status": "proved-lean (ring); proved-hand (general)",
+      "one_line": "Over a countable alphabet every sigma-additive referee on a glued pair-window carrier is a point (window Diracs agree; Dynkin uniqueness). Lean for the ring; hand for general window graphs. Finite alphabets: same with finite additivity.",
       "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
       "lean": {
         "file": "formalization/staging/WindowGluing.lean",
         "name": "no_sigma_extension",
         "status": "proved-edge"
       },
-      "scope": "countable alphabet, ring"
+      "scope": "countable alphabet, any pair-window graph (Lean: ring only); fails for uncountable alphabets"
     },
     {
       "id": "thm.staircase_no_ideal",
@@ -194,6 +201,19 @@
       "status": "proved-hand",
       "one_line": "With a finite alphabet each window is a full power set, so referees are points on windows and, by Dynkin uniqueness, everywhere. Pointlessness needs infinite alphabets; finite tests of the full carrier are uninformative.",
       "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, 2026-10-15)"
+    },
+    {
+      "id": "thm.flat_iff_ideal",
+      "name": "ideal point iff flat window family",
+      "status": "proved-hand",
+      "one_line": "On window graphs satisfying the shape lemma, a referee is an ideal point iff its window family is flat; so pointless referees = non-flat families passing the extension test.",
+      "detail": "pointless_coherence.tex (section 'What the proofs say')",
+      "uses": [
+        "thm.shape_lemma",
+        "thm.amalgamation",
+        "obj.window_family_flatness"
+      ],
+      "scope": "no three windows pairwise adjacent"
     }
   ],
   "conjectures": [
@@ -226,7 +246,7 @@
       "id": "conj.cohomological_classification",
       "name": "target structure theorem",
       "status": "target",
-      "one_line": "Pointless referees on a window graph correspond to first-cohomology-like data of the graph with coefficients in ultrafilter orders (winding). Conjecture-shaped target, not a claim.",
+      "one_line": "Pointless referees correspond to non-flat compatible window families passing the extension test, with non-flatness measured by a first-cohomology-like invariant of the window graph, coefficients in ultrafilter orders (winding). Target, not a claim.",
       "detail": "self-contained; recorded 2026-10-16 from session discussion"
     },
     {
@@ -242,6 +262,13 @@
       "status": "unchecked lens",
       "one_line": "Deligne (SGA4): coherent toposes have enough points (= completeness for coherent logic, Makkai-Reyes). Is pointless coherence a failure of a Deligne-type theorem for probabilistic coherence? Raised 2026-10-16, no source read.",
       "detail": "self-contained; unchecked, from session discussion 2026-10-16"
+    },
+    {
+      "id": "conj.extension_test",
+      "name": "which non-flat families extend",
+      "status": "open",
+      "one_line": "Which non-flat compatible window families extend to a referee on the whole carrier? The staircase does (Lean). Does every non-flat family on a ring L>=4?",
+      "detail": "pointless_coherence.tex (Conjectures, item 4)"
     }
   ],
   "probes": [

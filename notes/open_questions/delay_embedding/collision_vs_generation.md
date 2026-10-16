@@ -153,8 +153,7 @@ windows, slicing at the shared coordinate shows complements stay in that form.
   has the same shape as Greechie's Loop Lemma, where order-3 loops are special
   (Kalmbach 1983 §4 L9, shelf). Prior art for the lemma itself is unchecked.
 
-Details: `notes/open_questions/kits/pointless_coherence_kit.tex` (Problems
-path/ring). Script: `notes/open_questions/verification/pointless_path_dynkin.py`.
+Details: `notes/open_questions/cyclic_marginal/pointless_coherence.tex` (§§4.4, 4.7; the problem-set kit was retired 2026-10-16). Script: `notes/open_questions/verification/pointless_path_dynkin.py`.
 
 ### Third-pass prior-art gate, 2026-10-15: NOT FOUND after three passes (residual risk named)
 

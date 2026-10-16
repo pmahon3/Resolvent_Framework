@@ -129,6 +129,33 @@ event is Borel):
 **Nothing propagates to the paper until a hostile prior-art check has been run.**
 The text below is the pre-proof record, kept for the trail.
 
+### Structural simplification of `mu_cases`, 2026-10-15 ⟦HAND; finite-alphabet machine check⟧ — qualifies the novelty rebuttal
+
+**Lemma.** Suppose the window structure has pair windows, and no three windows
+pairwise share a coordinate. This holds for paths and for rings with L ≥ 4. Then
+the Dynkin closure D equals the set of E_{k-1} ⊔ E_k with adjacent window events.
+
+**Why.** Non-adjacent non-empty window events always intersect. On two adjacent
+windows, slicing at the shared coordinate shows complements stay in that form.
+
+**Consequences:**
+- On the ring, any finitely additive state on D is *forced*:
+  s(E) = u_{k-1}(E_{k-1}) + u_k(E_k), from the window ultrafilters.
+- So `mu_cases` reduces to checking that this explicit formula is well defined
+  across two-window decompositions and is {0,1}-valued. A referee holding the
+  lemma could call that bookkeeping.
+- **The rebuttal recorded below ("all novelty sits in `mu_cases`") is therefore
+  weaker than stated.** This is a simplification, not a kill. No source was
+  found for the lemma or the witness.
+- **On paths** the same lemma plus window amalgamation proves that every
+  two-valued state is an ideal point: no pointless coherence without a cycle.
+- **The triangle (L = 3)** breaks the lemma: D ≠ G (70 vs 66 sets, binary). This
+  has the same shape as Greechie's Loop Lemma, where order-3 loops are special
+  (Kalmbach 1983 §4 L9, shelf). Prior art for the lemma itself is unchecked.
+
+Details: `notes/open_questions/kits/pointless_coherence_kit.tex` (Problems
+path/ring). Script: `notes/open_questions/verification/pointless_path_dynkin.py`.
+
 ### Third-pass prior-art gate, 2026-10-15: NOT FOUND after three passes (residual risk named)
 
 One sonnet scout read full texts:

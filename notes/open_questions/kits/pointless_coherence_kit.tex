@@ -283,11 +283,19 @@ $u_k=p\otimes p$, read on coordinates $(x_k,x_{k+1})$.
   \item Show that $p\otimes p\neq$ its transpose. Where does the proof of~(a) use
     the order of the draws?
 \end{enumerate}
-\textbf{Quoted, not to rebuild:} the window states extend to a two-valued
+\textbf{Quoted, but rebuildable:} the window states extend to a two-valued
 finitely additive state on the whole carrier $\cD_L$, for every $L\ge4$ (Lean,
 \texttt{mu\_cases} and \texttt{sL\_sigmaEssential}). The extension is therefore
 coherent, it is not an ideal point (by~(c)), and by Problem~\ref{p:dirac} it has
 no $\sigma$-additive version.
+
+\emph{How to rebuild it} (after Problem~\ref{p:path}). Steps (a)--(c) of
+Problem~\ref{p:path} use only that no three windows pairwise share a coordinate,
+which holds on every ring with $L\ge4$. So every $E\in\cD_L$ is
+$E_{k-1}\sqcup E_k$, and any finitely additive extension is \emph{forced} to be
+$s(E)=u_{k-1}(E_{k-1})+u_k(E_k)$. The whole content of \texttt{mu\_cases} is
+that this formula is well defined across different two-window decompositions of
+the same $E$, and that it is two-valued. Try it.
 \end{problem}
 \src{Hub \texttt{collision\_vs\_generation.md}, ``The pattern''; Lean
 \texttt{targetA\_sharp\_countable\_literal}.}
@@ -334,16 +342,23 @@ $0\le k<n$, and $\cD$ the Dynkin closure of the window events.
     $s$ on $\cD$ is an ideal point.
 \end{enumerate}
 \end{problem}
-\src{New, 2026-10-15 \textsf{[HAND, unchecked]}. Machine check of~(c) on finite
+\src{2026-10-15 \textsf{[HAND, unchecked; prior art unchecked]}. Nearest owner
+found: Greechie's Loop Lemma (Kalmbach, \emph{Orthomodular Lattices}, 1983,
+\S4 Lemma~9, on the shelf). A pasting of Boolean blocks is an orthomodular poset
+iff it has no loop of order~3, and an orthomodular lattice iff it has none of
+order~3 or~4. The triangle exception below has the same shape. Here, though,
+windows share coordinate subalgebras, not single atoms. Machine check of~(c) on finite
 alphabets: $\cD=\mathcal G$ for binary paths of 2--4 windows and the ternary path
 of 2 windows. Script: \texttt{notes/open\_questions/verification/pointless\_path\_dynkin.py}.}
 \begin{why}
 This is the full-carrier ``Vorob'ev theorem for ideal points'' on paths. Coherent
 two-valued states on an acyclic glued carrier are always ideal points, and on the
-4-ring they need not be (Problem~\ref{p:ring}). The cycle, and nothing else, is
-what makes pointless coherence possible.
+4-ring they need not be (Problem~\ref{p:ring}). For pair windows on paths and
+on rings of length $\ge4$, the cycle is exactly what makes pointless coherence
+possible. Other graphs are open (Problem~\ref{p:open}).
 
-The same check gives $\cD=\mathcal G$ on the 4-ring as well. So on the ring the
+Steps (a)--(c) never use acyclicity, so $\cD=\mathcal G$ is \emph{proved} on
+every ring with $L\ge4$ (and the check agrees on the binary 4-ring). So on the ring the
 carrier has the same shape as on a path, and the failure is purely one of
 amalgamation. On the \emph{triangle} $\cD\neq\mathcal G$ (70 vs 66 sets): all
 three windows are pairwise adjacent and rigidity is lost.
@@ -353,7 +368,9 @@ three windows are pairwise adjacent and rigidity is lost.
 \begin{enumerate}[label=(\alph*)]
   \item \emph{Exact boundary for pair windows.} For a general graph of pair
     windows, does pointless coherence exist iff the graph has a cycle of length
-    $\ge4$? Forests: never (Problem~\ref{p:path}, extended along trees). 4-cycles
+    $\ge4$? Paths: never (Problem~\ref{p:path}). Forests: never, by a sketch only. Slice
+at a star's centre: at most one non-empty cylinder per slice, then amalgamate
+along the tree. 4-cycles
     and longer rings: yes (Lean, $L\ge4$). The triangle and graphs whose only
     cycles are triangles are unknown, and there rigidity fails.
   \item \emph{Wider windows.} With windows of three or more coordinates,

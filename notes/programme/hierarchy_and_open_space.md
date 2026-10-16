@@ -73,6 +73,16 @@ side branch, off the path to dynamics:
 | Vorob'ev / marginal polytopes | acyclic or fixed model | ~~winding criterion~~ (owned at fixed L by the simplicial-distribution school, 2026-10-15); forcing lemma / reach lemma (all lengths, one language) still open |
 | realization theory (HMM / OOM / PSR) | a declared model class | what coherence forces on *any* generating system (unscouted) |
 
+## Update 2026-10-16: the open space, located
+
+The seam this note was feeling for is **cycle × infinity**: finitely additive
+referees on glued non-Boolean carriers. A theory is now under construction there.
+- Index: `notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json`.
+- Note: `notes/open_questions/cyclic_marginal/pointless_coherence.pdf`.
+
+The programme's aim is now theory building, with problems as probes (see
+`CLAUDE.md`).
+
 ## The test for open space
 
 1. **Name the crowded theorem nearby**, with its exact hypotheses.

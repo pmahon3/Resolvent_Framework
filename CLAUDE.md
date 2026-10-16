@@ -8,63 +8,103 @@ embeddings, OML theory. Philosophy undergrad + three years math
 undergrad. Working outside academia. No advisor — uses LLM to
 partially fill that gap.
 
+## The aim: build new mathematical theory (adopted 2026-10-16)
+
+The programme builds **new mathematical theory**: definitions, invariants and
+structure theorems. **Problems are probes placed at seams between existing
+theories.** They locate where theory is missing, and solving them is a means, not
+the end. This theory-first orientation replaces the earlier problem-first one.
+Publication is not a goal. Papers may be shared eventually.
+
 ## Current state of the programme
 
-**Authoritative state doc: `notes/programme/program_overview.md`.**
-Frontier structure: `notes/programme/frontier_map.md`. Work plan:
-`notes/programme/shovel_plan.md` (adopted 2026-07-10 — four theorems
-to prove + vacant lots shipped as invitations).
+**Authoritative state doc: `notes/programme/program_overview.md`.** Its
+2026-10-16 addendum wins over anything older. `frontier_map.md` and
+`shovel_plan.md` are stale (August 2026).
 
-Active flagship: **reconstruction/commensurability**
-(`papers/reconstruction/` — paper skeleton + notes/ hubs + oracles/).
-σ-essential: machine-checked ZFC theorem; paper
-dissemination-ready (`papers/sigma_essential/`); OML/lattice +
-positive-selection + Φ-slice forms open (shovel plan). Paper I parked;
-Paper II is the survivor (Type-6); `papers/spine/` reads the corpus
-as one classification.
+**Theory in construction: pointless coherence on glued carriers.** It concerns
+finitely additive two-valued "referees" on carriers glued from window events, and
+which window-graph shape lets them be pointless.
+- Load `notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json` (the
+  first theory-shaped collection).
+- Read `notes/open_questions/cyclic_marginal/pointless_coherence.pdf`, which
+  opens with the window puzzle.
+- The seam: cycle × infinity.
 
-Publication is not a goal of this repo — the work is
-research-oriented. Papers may be shared eventually but the
-driver is understanding, not shipping.
+**Cycle side (former flagship, `papers/reconstruction/`).**
+- The fixed-length winding criterion is prior art (Kharoof–Ipek–Okay 2024), so it
+  is cited, not claimed.
+- The open core is the reach lemma.
+- Detail: `notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md`.
+
+**Infinity side (σ-essential, `papers/sigma_essential/`).**
+- The ZFC witness is machine-checked.
+- A countable witness on every ring L ≥ 4 is Lean-checked; no owner found after
+  three prior-art passes; not in the paper.
+- The OML/lattice and Φ forms are open.
+
+**Other papers.** Paper I is parked. Paper II is the survivor (Type-6).
+`papers/spine/` is reference-only.
 
 Zoom-out navigation: `notes/taxonomies_index.json` (load FIRST).
 
-## The research workflow (FOLLOW THIS)
+## The research workflow: theory first (FOLLOW THIS)
 
-### The 8-phase pipeline:
+**The unit of work is a theory-shaped collection**, a taxonomy with objects,
+theorems, conjectures, probes, examples and owned regions. See
+`notes/TAXONOMY_SCHEMA.md` § Theory-shaped collections.
 
-1. **Seed note** (md, 30 min) → `notes/unsorted/`
-   Declare claimed contribution type(s) and per-type bars.
-   Format: `**Claimed type(s):** Type N (name). **Bar:** [what
-   this seed must demonstrate to clear that type's bar].`
-   Pre-existing seeds without declarations are grandfathered;
-   declarations are added when next audited.
-2. **Skeptical audit** → GATE: evaluate against each claimed type's bar.
-   Default: `/audit full` for Phase 2. Use `pure`/`applied` for
-   targeted re-audits only.
-3. **Problem statement** (md) → the lane's home
-   (`papers/<lane>/notes/` for paper-bound work, else
-   `notes/open_questions/`)
-4. **Mathematical work** (user does this, not LLM)
-5. **Formalization** (Lean, novel results ONLY)
-6. **Draft** (LaTeX, editorial principles)
-7. **Second audit** (before declaring complete)
-8. **Complete or park**
+1. **Locate the seam.** Find where existing theories each own part of a region
+   and none covers the joint.
+   - Map what is owned first: hostile, cross-field prior art.
+   - Record it as `owned_regions` with `owned_by`.
+   - A framing that turns out to be owned is useful: it says where the seam is
+     *not*.
+2. **Sketch the theory.** State the objects, the candidate invariants, and the
+   target structure theorem, all as conjectures in the collection.
+3. **Choose probes.** Pick small, sharp cases that *discriminate* between
+   conjectures. Pre-register each as a gate (outcomes → affected conjecture ids)
+   before running it.
+4. **Run probes.** Use oracles and computation, and hand proofs (flagged
+   ⟦HAND⟧).
+   - Check every puzzle or example claim against the instantiated mathematics,
+     and record `scope`.
+5. **Bank theory items.**
+   - Theorems: Lean or ⟦hand⟧, with `uses` and `scope`.
+   - Fire gates, dated, and update the conjectures.
+   - Never auto-propagate a fired gate.
+6. **Prior-art gate before *claiming* any item.** Run it hostile and
+   cross-field, and never exclude a field as "already known".
+7. **Formalize** novel items in Lean (ground truth).
+8. **Write** a note once the theory has a shape: puzzle first, then mathematics.
+   Papers are optional.
 
-### The open-question lifecycle (sibling to the seed pipeline):
+**Evaluation.**
+- Theory items are measured against **Type 3** (method transfer) and **Type 4**
+  (three new statements + one non-trivial result).
+- Probes need no type.
+- The full 7-type audit applies when a piece of work is written up for others.
+- See `notes/programme/contribution_evaluation.md`.
 
-Open questions in `notes/open_questions/` are a *different unit* than
-seeds — no claimed type, not headed for a draft, dormant until **new
-input** (an adjacent question, source, or probe) triggers a re-audit.
-On re-audit they exit to one of three outcomes: **promote-to-seed**
-(enter Phase 1), **sharpen-in-place** (refine, stay), or **kill** (to
-`covered_leads/`).
+### Subordinate: isolated problems (the former default pipeline)
 
-**Sharpen guardrail.** "Sharpen" is legitimate ONLY when BOTH: (a) a
-standing check actually flipped OR a new hypothesis excludes the old
-(now-false) instance — name the check that changed; (b) a concrete
-witness keeps it live. Else it's a kill. Don't relabel a death as a
-refinement.
+A question not yet attached to any theory goes through the seed pipeline:
+1. seed note in `notes/unsorted/` declaring its claimed contribution type(s) and
+   bar;
+2. `/audit full` (Phase 2 gate);
+3. problem statement;
+4. mathematical work;
+5. Lean (novel results only);
+6. draft;
+7. second audit;
+8. complete or park.
+
+**Open questions** in `notes/open_questions/` stay dormant until new input, then
+exit by promote / sharpen / kill.
+- **Sharpen guardrail:** only when a standing check actually flipped and a
+  concrete witness keeps the question live. Otherwise it is a kill.
+- A seed or open question that turns out to probe a seam **moves into the
+  theory's collection** as a probe or conjecture (re-parent by `id`).
 
 ### Contribution types (see `notes/programme/contribution_evaluation.md`):
 
@@ -81,9 +121,13 @@ Broader lens, not broader standard. Each type has a concrete bar.
 
 ### Key rules:
 
+- **Theory first.** Ask what a result says about the theory and which seam it
+  probes before asking whether it is novel. Problems are probes.
+
 - **Audit before you draft.** Never draft LaTeX for unaudited claims.
 - **Declare types before you audit.** Seeds must commit to claimed
-  contribution types; the audit evaluates each type's bar.
+  contribution types; the audit evaluates each type's bar. (Applies to seeds and
+  to write-ups for others; theory items use Types 3/4.)
 - **Don't formalize known results.** Use `axiom` with citation.
 - **Name things last.** Don't name until you've checked the literature.
 - **Park honestly.** If no type's bar is cleared, stop. Don't rescue
@@ -174,6 +218,9 @@ line each session — paid on every startup, forever.
 ## Communication preferences
 
 - Direct, concise. No preamble, no trailing summaries.
+- **Explain puzzle first.** Lead with a concrete brain-teaser (windows, referee,
+  staircase, triangle), then the formal statement. Check every puzzle claim
+  against the instantiated mathematics and state its scope.
 - **Concision is prioritized:** Be extremely brief. Sacrifice conversational formatting for the sake of brevity.
 - **Direct Output:** Do not open responses with compliments, pleasantries, or validations of the idea.
 - Stop and reassess at natural checkpoints.

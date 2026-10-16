@@ -372,6 +372,20 @@ Still open from the rule:
 - the converse ("mixed orientations are σ-realisable", trivial);
 - the triangle.
 
+**Triangle probe, 2026-10-15** ⟦machine; sub-carrier only⟧. Ran the order+threshold
+propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
+- The +++ staircase (p⊗p on every window) extends **consistently and
+  two-valued**: 430 sets at T=1 and 74,738 at T=2.
+- So nothing rules out a triangle witness. The failure recorded above is a fact
+  about the specific inclusion–exclusion μ, not about the triangle.
+- On the triangle the carrier is not determined by adjacent window pairs: D ≠ G,
+  see `notes/open_questions/cyclic_marginal/pointless_coherence.tex` §5. So any
+  triangle witness must use a different formula.
+- Evidence now leans toward "any cycle permits pointless coherence" rather than
+  "length ≥ 4". Not proved.
+- A finite-alphabet test of the full carrier would be uninformative: there,
+  every two-valued state is a point.
+
 ## Flagship correspondence, 2026-10-09: winding mismatch; carrier blind at L = 3 — BRIDGE KILLED
 
 Compared against `thm:winding` of `papers/reconstruction/reconstruction_skeleton.tex`

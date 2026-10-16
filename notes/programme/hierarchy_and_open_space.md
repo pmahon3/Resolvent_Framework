@@ -76,7 +76,7 @@ side branch, off the path to dynamics:
 ## Update 2026-10-16: the open space, located
 
 The seam this note was feeling for is **cycle × infinity**: finitely additive
-referees on glued non-Boolean carriers. A theory is now under construction there.
+two-valued states on glued non-Boolean carriers. A theory is now under construction there.
 - Index: `notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json`.
 - Note: `notes/open_questions/cyclic_marginal/pointless_coherence.pdf`.
 

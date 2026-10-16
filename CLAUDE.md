@@ -49,7 +49,7 @@ Publication is not a goal. Papers may be shared eventually.
 `shovel_plan.md` are stale (August 2026).
 
 **Theory in construction: pointless coherence on glued carriers.** It concerns
-finitely additive two-valued "referees" on carriers glued from window events, and
+finitely additive two-valued states on carriers glued from window events, and
 which window-graph shape lets them be pointless.
 - Load `notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json` (the
   first theory-shaped collection).
@@ -244,7 +244,7 @@ line each session — paid on every startup, forever.
 ## Communication preferences
 
 - Direct, concise. No preamble, no trailing summaries.
-- **Explain puzzle first.** Lead with a concrete brain-teaser (windows, referee,
+- **Explain puzzle first.** Lead with a concrete brain-teaser (windows, answer pattern,
   staircase, triangle), then the formal statement. Check every puzzle claim
   against the instantiated mathematics and state its scope.
 - **Concision is prioritized:** Be extremely brief. Sacrifice conversational formatting for the sake of brevity.

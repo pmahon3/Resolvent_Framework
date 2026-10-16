@@ -3,9 +3,9 @@
     "title": "Pointless coherence on glued carriers",
     "purpose": "Zoom-out index of a THEORY in construction (theory-shaped collection, TAXONOMY_SCHEMA.md 2026-10-16). Load first; follow detail pointers. Problems here are probes at a seam, not ends.",
     "updated": "2026-10-16",
-    "what_is_it": "Which finitely additive two-valued states ('referees') on Dynkin carriers glued from window events are points, ideal points (ultrafilters on Omega), or pointless - and which shape of window graph decides it.",
+    "what_is_it": "Which finitely additive two-valued states (states) on Dynkin carriers glued from window events are points, ideal points (ultrafilters on Omega), or pointless - and which shape of window graph decides it.",
     "status": "OPEN",
-    "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive referees on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle').",
+    "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive states on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle').",
     "categories": {
       "objects": "definitions the theory is about",
       "theorems": "proved results (lean or hand), with uses/scope",
@@ -35,8 +35,8 @@
       "detail": "pointless_coherence.tex (Setting, Definition 'glued windows')"
     },
     {
-      "id": "obj.referee",
-      "name": "referee (finitely additive two-valued state)",
+      "id": "obj.state",
+      "name": "state (finitely additive two-valued)",
       "status": "defined",
       "one_line": "s: D -> {0,1}, s(Omega)=1, additive on disjoint pairs. Restricted to one window it is an ultrafilter u_k on X^2; adjacent u_k share marginals.",
       "detail": "pointless_coherence.tex (Setting)"
@@ -45,7 +45,7 @@
       "id": "obj.trichotomy",
       "name": "point / ideal point / pointless",
       "status": "defined",
-      "one_line": "A referee is a point (delta_omega), an ideal point (s(E)=[E in W] for an ultrafilter W on Omega), or pointless (neither).",
+      "one_line": "A state is a point (delta_omega), an ideal point (s(E)=[E in W] for an ultrafilter W on Omega), or pointless (neither).",
       "detail": "pointless_coherence.tex (Setting, Definition 'points and ideal points')"
     },
     {
@@ -66,7 +66,7 @@
       "id": "obj.window_family_flatness",
       "name": "window family; flat / non-flat (tentative)",
       "status": "defined (tentative)",
-      "one_line": "A referee's window family = its ultrafilters u_k on the windows (compatible on shared coordinates). Flat = amalgamates to an ultrafilter on Omega; non-flat otherwise. Working definition, the candidate central notion.",
+      "one_line": "A state's window family = its ultrafilters u_k on the windows (compatible on shared coordinates). Flat = amalgamates to an ultrafilter on Omega; non-flat otherwise. Working definition, the candidate central notion.",
       "detail": "pointless_coherence.tex (Definition flat, section 'What the proofs say')"
     }
   ],
@@ -82,7 +82,7 @@
       "id": "thm.sigma_forces_points",
       "name": "sigma forces points (ring)",
       "status": "proved-lean (ring); proved-hand (general)",
-      "one_line": "Over a countable alphabet every sigma-additive referee on a glued pair-window carrier is a point (window Diracs agree; Dynkin uniqueness). Lean for the ring; hand for general window graphs. Finite alphabets: same with finite additivity.",
+      "one_line": "Over a countable alphabet every sigma-additive state on a glued pair-window carrier is a point (window Diracs agree; Dynkin uniqueness). Lean for the ring; hand for general window graphs. Finite alphabets: same with finite additivity.",
       "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
       "lean": {
         "file": "formalization/staging/WindowGluing.lean",
@@ -105,7 +105,7 @@
       "id": "thm.countable_witness",
       "name": "countable pointless witness, every L>=4",
       "status": "proved-lean",
-      "one_line": "The staircase window ultrafilters extend to a two-valued finitely additive referee on the whole glued carrier D_L over N^L; it is pointless and has no sigma-additive version. No owner found after 3 prior-art passes.",
+      "one_line": "The staircase window ultrafilters extend to a two-valued finitely additive state on the whole glued carrier D_L over N^L; it is pointless and has no sigma-additive version. No owner found after 3 prior-art passes.",
       "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
       "lean": {
         "file": "formalization/staging/WindowGluing.lean",
@@ -165,7 +165,7 @@
       "id": "thm.path",
       "name": "no cycle, no pointless coherence (paths)",
       "status": "proved-hand",
-      "one_line": "On a glued path every two-valued finitely additive referee is an ideal point.",
+      "one_line": "On a glued path every two-valued finitely additive state is an ideal point.",
       "detail": "pointless_coherence.tex (Theorem path)",
       "uses": [
         "thm.shape_lemma",
@@ -175,9 +175,9 @@
     },
     {
       "id": "obs.ring_forced_formula",
-      "name": "ring referee is forced; s<=1 by hand",
+      "name": "ring state is forced; s<=1 by hand",
       "status": "proved-hand",
-      "one_line": "On rings L>=4 any referee equals u_{k-1}(E_{k-1})+u_k(E_k); it never exceeds 1 (local 3-coordinate amalgamation). Remaining Lean content of mu_cases = global well-definedness + additivity. Weakens the hub's 'all novelty in mu_cases' rebuttal.",
+      "one_line": "On rings L>=4 any state equals u_{k-1}(E_{k-1})+u_k(E_k); it never exceeds 1 (local 3-coordinate amalgamation). Remaining Lean content of mu_cases = global well-definedness + additivity. Weakens the hub's 'all novelty in mu_cases' rebuttal.",
       "detail": "../delay_embedding/collision_vs_generation.md (Structural simplification of mu_cases)",
       "uses": [
         "thm.shape_lemma",
@@ -197,16 +197,16 @@
     },
     {
       "id": "fact.finite_alphabet_points",
-      "name": "finite alphabet: every referee is a point",
+      "name": "finite alphabet: every state is a point",
       "status": "proved-hand",
-      "one_line": "With a finite alphabet each window is a full power set, so referees are points on windows and, by Dynkin uniqueness, everywhere. Pointlessness needs infinite alphabets; finite tests of the full carrier are uninformative.",
+      "one_line": "With a finite alphabet each window is a full power set, so states are points on windows and, by Dynkin uniqueness, everywhere. Pointlessness needs infinite alphabets; finite tests of the full carrier are uninformative.",
       "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, 2026-10-15)"
     },
     {
       "id": "thm.flat_iff_ideal",
       "name": "ideal point iff flat window family",
       "status": "proved-hand",
-      "one_line": "On window graphs satisfying the shape lemma, a referee is an ideal point iff its window family is flat; so pointless referees = non-flat families passing the extension test.",
+      "one_line": "On window graphs satisfying the shape lemma, a state is an ideal point iff its window family is flat; so pointless states = non-flat families passing the extension test.",
       "detail": "pointless_coherence.tex (section 'What the proofs say')",
       "uses": [
         "thm.shape_lemma",
@@ -221,14 +221,14 @@
       "id": "conj.invariant_any_cycle",
       "name": "invariant = has a cycle",
       "status": "open (evidence-leaning)",
-      "one_line": "Pointless referees exist on a pair-window graph iff it contains a cycle (triangle included).",
+      "one_line": "Pointless states exist on a pair-window graph iff it contains a cycle (triangle included).",
       "detail": "pointless_coherence.tex (Status and open questions)"
     },
     {
       "id": "conj.invariant_cycle_ge4",
       "name": "invariant = cycle of length >= 4 ('room')",
       "status": "open",
-      "one_line": "Pointless referees need a cycle with non-adjacent windows; the triangle has none.",
+      "one_line": "Pointless states need a cycle with non-adjacent windows; the triangle has none.",
       "detail": "pointless_coherence.tex (Status and open questions)"
     },
     {
@@ -246,7 +246,7 @@
       "id": "conj.cohomological_classification",
       "name": "target structure theorem",
       "status": "target",
-      "one_line": "Pointless referees correspond to non-flat compatible window families passing the extension test, with non-flatness measured by a first-cohomology-like invariant of the window graph, coefficients in ultrafilter orders (winding). Target, not a claim.",
+      "one_line": "Pointless states correspond to non-flat compatible window families passing the extension test, with non-flatness measured by a first-cohomology-like invariant of the window graph, coefficients in ultrafilter orders (winding). Target, not a claim.",
       "detail": "self-contained; recorded 2026-10-16 from session discussion"
     },
     {
@@ -267,7 +267,7 @@
       "id": "conj.extension_test",
       "name": "which non-flat families extend",
       "status": "open",
-      "one_line": "Which non-flat compatible window families extend to a referee on the whole carrier? The staircase does (Lean). Does every non-flat family on a ring L>=4?",
+      "one_line": "Which non-flat compatible window families extend to a state on the whole carrier? The staircase does (Lean). Does every non-flat family on a ring L>=4?",
       "detail": "pointless_coherence.tex (Conjectures, item 4)"
     }
   ],
@@ -275,7 +275,7 @@
     {
       "id": "gate.triangle",
       "category": "gate",
-      "investigation": "Does the glued triangle (L=3, alphabet N) carry a pointless referee extending the staircase u_k = p(x)p?",
+      "investigation": "Does the glued triangle (L=3, alphabet N) carry a pointless state extending the staircase u_k = p(x)p?",
       "outcomes": [
         {
           "branch": "(a) yes",

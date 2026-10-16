@@ -17,21 +17,22 @@
     "headline": {
       "objects": 6,
       "theorems": 12,
-      "conjectures": 7,
+      "conjectures": 8,
       "probes": 1,
       "examples": 3,
       "owned_regions": 8,
       "overall": "OPEN - two data points proved, one decisive probe pending"
     },
     "puzzle": "notes/open_questions/cyclic_marginal/pointless_coherence.tex section 'The puzzle'; domain map in section 'Domain and scope'",
-    "cross_collections": "[[sigma_essential_taxonomy]] (the witness is a sigma-essential object); [[commensurability_taxonomy]] (cycle side; fixed-L winding owned); [[ce_taxonomy]] (concept.oml_center cell inhabited)"
+    "cross_collections": "[[sigma_essential_taxonomy]] (the witness is a sigma-essential object); [[commensurability_taxonomy]] (cycle side; fixed-L winding owned); [[ce_taxonomy]] (concept.oml_center cell inhabited)",
+    "stance": "ANSWERS FIRST (adopted 2026-10-16). Primitive: questions + a state (consistent answer pattern); no answerer/substrate assumed. Derived: point / ideal point (reconstruction succeeds or fails). Pointless states = a region of the domain, not edge cases. Assumed: only the possibility space Omega (questions are sets of possibilities) - possibility assumed, actuality earned; Omega is scaffold, not ontology. Lean matches: FinAddState / LocalState are Val : Set Omega -> Prop with additivity, nothing more (SigmaEssentialWitness.lean). Gap: trichotomy (ideal point / flat / pointless) not yet a Lean predicate."
   },
   "objects": [
     {
       "id": "obj.glued_carrier",
       "name": "glued carrier",
       "status": "defined",
-      "one_line": "Omega = X^V with a family of two-element windows; window event = {x:(x_i,x_j) in A}, A arbitrary; carrier D = Dynkin closure (complement + countable disjoint union) of all window events.",
+      "one_line": "Possibility space Omega = X^V (assumed: what could be the case) with a family of two-element windows; window event = {x:(x_i,x_j) in A}, A arbitrary; carrier D = Dynkin closure of all window events.",
       "detail": "pointless_coherence.tex (Setting, Definition 'glued windows')"
     },
     {
@@ -269,6 +270,19 @@
       "status": "open",
       "one_line": "Which non-flat compatible window families extend to a state on the whole carrier? The staircase does (Lean). Does every non-flat family on a ring L>=4?",
       "detail": "pointless_coherence.tex (Conjectures, item 4)"
+    },
+    {
+      "id": "conj.abstract_carriers",
+      "name": "abstract carriers (answers first all the way down)",
+      "status": "open",
+      "one_line": "Drop Omega: carriers as abstract question structures (orthoposets / test spaces); a state is representable if some concrete set representation makes it a point or ideal point. Does pointlessness survive with no background space? Stance owned (Foulis-Randall); classification would be new.",
+      "detail": "pointless_coherence.tex (Conjectures, abstract carriers)",
+      "owned_by": {
+        "cite": "Foulis-Randall test spaces (operational stance)",
+        "region": "answers-first stance itself",
+        "verified": "sec",
+        "detail": "../../covered_leads/probability_before_realism_owned.md"
+      }
     }
   ],
   "probes": [

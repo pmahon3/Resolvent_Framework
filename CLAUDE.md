@@ -56,6 +56,10 @@ which window-graph shape lets them be pointless.
 - Read `notes/open_questions/cyclic_marginal/pointless_coherence.pdf`, which
   opens with the window puzzle.
 - The seam: cycle × infinity.
+- **Stance: answers first.** Questions and states (consistent answer patterns) are
+  primitive. Points and ideal points are derived, earned or not. Only the
+  possibility space Ω is assumed, as scaffold, not ontology. Keep every
+  construction, puzzle and Lean definition consistent with this.
 
 **Cycle side (former flagship, `papers/reconstruction/`).**
 - The fixed-length winding criterion is prior art (Kharoof–Ipek–Okay 2024), so it

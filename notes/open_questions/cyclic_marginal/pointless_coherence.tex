@@ -6,6 +6,14 @@
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{mdframed}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,decorations.pathreplacing,calc}
+\tikzset{
+  var/.style={circle,draw,thick,fill=white,inner sep=1.5pt,minimum size=7mm,font=\small},
+  win/.style={line width=9pt,line cap=round,draw=blue!12},
+  up/.style={-{Stealth[length=2.2mm]},thick,blue!60!black},
+  bad/.style={-{Stealth[length=2.2mm]},thick,red!70!black},
+}
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}
@@ -82,6 +90,15 @@ see them all.
 each saying ``the right number is bigger''. You can comply: $1,2,3,4$. Even with
 strange referees, the views always chain together into one whole, at worst an
 \emph{ideal} one (see below). \emph{(Theorem~\ref{thm:path}.)}
+\begin{center}
+\begin{tikzpicture}[x=1.7cm]
+\foreach \i in {0,1,2} \draw[win] (\i,0)--(\i+1,0);
+\foreach \i in {0,...,3} \node[var] (n\i) at (\i,0) {$x_\i$};
+\foreach \i/\j in {0/1,1/2,2/3} \draw[up] (n\i) -- node[above=3pt,font=\scriptsize]{up} (n\j);
+\node[font=\scriptsize,right=4mm] at (n3) {e.g.\ $1,2,3,4$ \ \checkmark};
+\end{tikzpicture}\\[-2pt]
+{\scriptsize Shaded bands are windows; an arrow means ``the number it points to is bigger''.}
+\end{center}
 
 \paragraph{Six outcomes: no single answer, but harmless.} A die with six faces
 and four yes/no questions: ``is it in $\{1,2,3\}$, in $\{3,4,5\}$, in
@@ -89,6 +106,18 @@ $\{5,6,1\}$, in $\{2,4,6\}$?''. The first three overlap in a loop. Answering
 ``no'' to all four is perfectly consistent, yet no face gives those answers.
 Nothing infinite is involved, so nothing more can go wrong. \emph{(The
 Navara--Pt\'ak example, \S\ref{sec:cheap}.)}
+\begin{center}
+\begin{tikzpicture}
+\foreach \k in {1,...,6} \coordinate (d\k) at ({90-60*(\k-1)}:1.25);
+\draw[line width=6pt,orange!35,line cap=round] (d1)--(d2)--(d3);
+\draw[line width=6pt,green!35,line cap=round] (d3)--(d4)--(d5);
+\draw[line width=6pt,violet!30,line cap=round] (d5)--(d6)--(d1);
+\foreach \k in {1,...,6} \node[var,minimum size=6mm] at (d\k) {\k};
+\foreach \k in {2,4,6} \draw[thick,densely dashed,gray] (d\k) circle (4.3mm);
+\node[font=\scriptsize,align=left,anchor=west] at (2.0,0)
+ {bands: $\{1,2,3\},\{3,4,5\},\{5,6,1\}$\\ dashed: $\{2,4,6\}$\\ answer ``no'' to all four:\\ consistent, but no face fits};
+\end{tikzpicture}
+\end{center}
 
 \paragraph{The ring: the staircase.} Four or more windows in a loop,
 $\{x_0,x_1\},\{x_1,x_2\},\dots,\{x_{L-1},x_0\}$, each saying ``up''. With actual
@@ -105,6 +134,17 @@ numbers this is impossible: $x_0<x_1<\dots<x_0$, a Penrose staircase.
 \end{itemize}
 The whole is coherent and has no point. \emph{(Theorem~\ref{thm:witness}, Lean,
 every $L\ge4$; Proposition~\ref{prop:stair}.)}
+\begin{center}
+\begin{tikzpicture}
+\foreach \k/\a in {0/135,1/45,2/-45,3/-135} \coordinate (r\k) at (\a:1.2);
+\draw[win] (r0)--(r1); \draw[win] (r1)--(r2); \draw[win] (r2)--(r3); \draw[win] (r3)--(r0);
+\foreach \k in {0,...,3} \node[var] (q\k) at (r\k) {$x_\k$};
+\draw[up] (q0)--(q1); \draw[up] (q1)--(q2); \draw[up] (q2)--(q3); \draw[up] (q3)--(q0);
+\node[font=\scriptsize,align=left,anchor=west] at (2.0,0.35) {every window: ``up'' \ \checkmark};
+\node[font=\scriptsize,align=left,anchor=west] at (2.0,-0.1) {neighbours agree \ \checkmark};
+\node[font=\scriptsize,align=left,anchor=west,red!70!black] at (2.0,-0.55) {around the loop: no reality,\\ not even an ideal one};
+\end{tikzpicture}
+\end{center}
 
 \paragraph{Demanding a real answer kills it.} Ask the staircase referee ``which
 value is $x_0$?'', split into $x_0=0$, $x_0=1$, and so on. The referee says ``no''
@@ -117,6 +157,17 @@ across \emph{infinitely} many options ($\sigma$-additivity).
 \end{itemize}
 Insisting on a completed reality forbids the coherent picture.
 \emph{(Proposition~\ref{prop:dirac}.)}
+\begin{center}
+\begin{tikzpicture}[x=0.9cm]
+\draw[thick,-{Stealth}] (-0.3,0)--(8.6,0) node[right,font=\scriptsize]{$\infty$};
+\foreach \n in {0,...,7} {\draw (\n,0.08)--(\n,-0.08); \node[below,font=\scriptsize] at (\n,-0.08) {\n};
+  \node[above,font=\scriptsize,red!70!black] at (\n,0.08) {no};}
+\draw[decorate,decoration={brace,amplitude=4pt},thick] (0,0.55)--(8.4,0.55)
+  node[midway,above=4pt,font=\scriptsize,blue!60!black]{``$x_0$ is some number'': yes};
+\end{tikzpicture}\\[-2pt]
+{\scriptsize The referee's $x_0$ lives ``at infinity'': no to every value, yes to the whole line.
+Demanding that the ``no''s add up to the ``yes'' ($\sigma$) is impossible.}
+\end{center}
 
 \paragraph{The triangle: the open puzzle.} Three windows,
 $\{x_0,x_1\},\{x_1,x_2\},\{x_2,x_0\}$, each touching both others.
@@ -136,6 +187,17 @@ $\{x_0,x_1\},\{x_1,x_2\},\{x_2,x_0\}$, each touching both others.
     part of the board, a consistent referee exists. Nobody here has built one.
 \end{itemize}
 \emph{(\S\ref{sec:status}; machine evidence only.)}
+\begin{center}
+\begin{tikzpicture}
+\foreach \k/\a in {0/90,1/-30,2/210} \coordinate (t\k) at (\a:1.1);
+\draw[win] (t0)--(t1); \draw[win] (t1)--(t2); \draw[win] (t2)--(t0);
+\foreach \k in {0,1,2} \node[var] (u\k) at (t\k) {$x_\k$};
+\draw[up] (u0)--(u1); \draw[up] (u1)--(u2); \draw[up] (u2)--(u0);
+\node[font=\scriptsize,align=left,anchor=west] at (1.9,0.3) {every window touches both others};
+\node[font=\scriptsize,align=left,anchor=west] at (1.9,-0.15) {Specker's three boxes; Penrose's tribar};
+\node[font=\scriptsize,align=left,anchor=west,orange!80!black] at (1.9,-0.6) {referee with no reality? \ open};
+\end{tikzpicture}
+\end{center}
 
 \paragraph{The moral.} A loop is what lets every local view be right while the
 whole is nothing. Infinity is what lets that survive. Demanding a completed

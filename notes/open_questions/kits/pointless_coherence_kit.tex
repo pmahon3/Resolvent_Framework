@@ -41,7 +41,10 @@ the cycle and the completed infinite each contribute.
     \emph{forces} a point.
   \item Problem~\ref{p:ring}: coherence alone does not. Coherent ideal points
     sit on every window, with no ideal point for the whole.
-  \item Problem~\ref{p:amalg}: cut the cycle and ideal points always glue.
+  \item Problem~\ref{p:amalg}: cut the cycle and ideal points always glue on the
+    windows.
+  \item Problem~\ref{p:path}: on a path, the same holds on the whole carrier.
+    There is no pointless coherence without a cycle.
   \item Problem~\ref{p:open}: what is still open.
 \end{itemize}
 
@@ -51,9 +54,11 @@ the cycle and the completed infinite each contribute.
     are mine and have not been independently checked.
   \item Problem~\ref{p:amalg} is very likely folklore (amalgamation of
     ultrafilters, or of types, over trees).
-  \item The step from window level to the whole carrier is a Lean-checked fact,
-    quoted and not rebuilt here. Rebuilding it is the hard part.
-  \item Problem~\ref{p:open} is a conjecture.
+  \item Problem~\ref{p:path} is new here: a hand proof, machine-checked on finite
+    alphabets only. Its prior art is unchecked.
+  \item The extension on the \emph{ring} is a Lean-checked fact, quoted and not
+    rebuilt here.
+  \item Problem~\ref{p:open} is open.
 \end{itemize}}
 
 \tableofcontents
@@ -312,23 +317,54 @@ acyclic overlap structure, coherent ideal points always glue. The cycle is what
 breaks them, and Problem~\ref{p:ring} shows it can.
 \end{why}
 
-\begin{problem}[open: the whole carrier]\label{p:open}
-On an acyclic glued carrier (a path of windows, the Dynkin closure of its window
-events), is every two-valued finitely additive state an ideal point?
-
-Problem~\ref{p:amalg} gives an ultrafilter $W$ that agrees with $s$ on window
-events. It does \emph{not} show that $W$ agrees with $s$ on all of $\cD$. A
-finitely additive state is not determined by its values on generators, because
-countable disjoint unions in $\cD$ are not controlled. That gap is exactly where
-the Lean proof \texttt{mu\_cases} does its work on the ring.
+\begin{problem}[the whole carrier on a path: no pointless coherence]\label{p:path}
+Take the path carrier: $\Omega=\bbN^{n+1}$, windows $W_k=\{k,k{+}1\}$ for
+$0\le k<n$, and $\cD$ the Dynkin closure of the window events.
+\begin{enumerate}[label=(\alph*)]
+  \item (\emph{Rigidity.}) If $E_j,E_k$ are non-empty window events at windows
+    with $|j-k|\ge2$, show $E_j\cap E_k\neq\emptyset$.
+  \item (\emph{Two adjacent windows.}) Let $E=E_{k-1}\sqcup E_k$ with $E_{k-1}$ a
+    window event at $W_{k-1}$ and $E_k$ one at $W_k$. Show that $\Omega\setminus
+    E$ again has this form.
+  \item (\emph{The carrier.}) Let $\mathcal G$ be the family of sets
+    $\bigsqcup_k E_k$, with $E_k$ a window event at $W_k$ and the $E_k$ pairwise
+    disjoint. Show $\mathcal G$ is a carrier. Deduce $\cD=\mathcal G$, and that
+    every $E\in\cD$ is $E_{k-1}\sqcup E_k$ for some $k$.
+  \item (\emph{The theorem.}) Show that every two-valued finitely additive state
+    $s$ on $\cD$ is an ideal point.
+\end{enumerate}
 \end{problem}
+\src{New, 2026-10-15 \textsf{[HAND, unchecked]}. Machine check of~(c) on finite
+alphabets: $\cD=\mathcal G$ for binary paths of 2--4 windows and the ternary path
+of 2 windows. Script: \texttt{notes/open\_questions/verification/pointless\_path\_dynkin.py}.}
 \begin{why}
-A yes answer would give the full statement: \emph{acyclic implies coherent
-two-valued states are ideal points; a cycle permits pointless coherence.} That
-would be one theorem uniting the cyclic marginal problem and the $\sigma$ gap.
-Prior art to check first: ultrafilter and type amalgamation (Goldberg,
-arXiv:2102.04677), and Bhaskara Rao, \emph{Theory of Charges}.
+This is the full-carrier ``Vorob'ev theorem for ideal points'' on paths. Coherent
+two-valued states on an acyclic glued carrier are always ideal points, and on the
+4-ring they need not be (Problem~\ref{p:ring}). The cycle, and nothing else, is
+what makes pointless coherence possible.
+
+The same check gives $\cD=\mathcal G$ on the 4-ring as well. So on the ring the
+carrier has the same shape as on a path, and the failure is purely one of
+amalgamation. On the \emph{triangle} $\cD\neq\mathcal G$ (70 vs 66 sets): all
+three windows are pairwise adjacent and rigidity is lost.
 \end{why}
+
+\begin{problem}[open]\label{p:open}
+\begin{enumerate}[label=(\alph*)]
+  \item \emph{Exact boundary for pair windows.} For a general graph of pair
+    windows, does pointless coherence exist iff the graph has a cycle of length
+    $\ge4$? Forests: never (Problem~\ref{p:path}, extended along trees). 4-cycles
+    and longer rings: yes (Lean, $L\ge4$). The triangle and graphs whose only
+    cycles are triangles are unknown, and there rigidity fails.
+  \item \emph{Wider windows.} With windows of three or more coordinates,
+    non-adjacent windows may still overlap, and the rigidity of
+    Problem~\ref{p:path}(a) weakens. What replaces ``acyclic'': Vorob'ev's
+    regularity ($\alpha$-acyclicity)?
+\end{enumerate}
+Prior art to check first: ultrafilter and type amalgamation (Goldberg,
+arXiv:2102.04677), Bhaskara Rao, \emph{Theory of Charges}, and horizontal sums of
+Boolean algebras in quantum logic.
+\end{problem}
 
 \section*{Things to sit with (not exercises)}
 \begin{itemize}
@@ -360,6 +396,13 @@ arXiv:2102.04677), and Bhaskara Rao, \emph{Theory of Charges}.
     ultrafilter, or a two-valued charge on an algebra, is closed under finite
     intersections. What is $\bigcap_k C_k$? (d) Apply~(a) to the transposed set
     $\{(m,n):m>n\}$.
+  \item[\ref{p:path}.] (a) Different coordinates. (b) Slice at $x_k=c$: the
+    slices of $E_{k-1}$ and $E_k$ are cylinders in $x_{k-1}$ and $x_{k+1}$, and
+    disjoint cylinders in independent coordinates force one of them to be empty.
+    (c) Regroup a countable disjoint union window by window; use~(a) to see that
+    at most two adjacent pieces are non-empty, then~(b). (d) Decompose $E$, use
+    finite additivity, and compare with the amalgam from
+    Problem~\ref{p:amalg}.
   \item[\ref{p:amalg}.] (a) Show that $\{A\times Z: A\in U\}\cup\{X\times B:B\in V\}$
     has the finite intersection property, using $\pi_Y(A)\in q$. Extend it to an
     ultrafilter, and use maximality for the projections. (b) Induct along the
@@ -449,6 +492,41 @@ arXiv:2102.04677), and Bhaskara Rao, \emph{Theory of Charges}.
     ask $x_{L-1}<x_0$.
 \end{enumerate}
 
-\paragraph{Problem~\ref{p:open}.} Open. See the statement.
+\paragraph{Problem~\ref{p:path}.}
+\begin{enumerate}[label=(\alph*)]
+  \item $E_j$ constrains only $(x_j,x_{j+1})$ and $E_k$ only $(x_k,x_{k+1})$.
+    These coordinate sets are disjoint when $|j-k|\ge2$. Pick a point of each and
+    merge the coordinates.
+  \item Fix $x_k=c$. The slice of $E_{k-1}$ is $\{x_{k-1}\in A_c\}$ and that of
+    $E_k$ is $\{x_{k+1}\in B_c\}$, other coordinates free. They are disjoint, so
+    $A_c=\emptyset$ or $B_c=\emptyset$, and the slice of $E$ is a cylinder in one
+    coordinate. Its complement in the slice is a cylinder of the same kind. Let
+    $S=\{c:B_c=\emptyset\}$. Then
+    $\Omega\setminus E=\bigsqcup_{c\in S}\{x_k=c,\ x_{k-1}\notin A_c\}\ \sqcup\
+    \bigsqcup_{c\notin S}\{x_k=c,\ x_{k+1}\notin B_c\}$. The first part is a
+    window event at $W_{k-1}$, the second one at $W_k$, and they are disjoint.
+  \item By~(a), a member of $\mathcal G$ has at most two non-empty pieces, at
+    adjacent windows. So complements stay in $\mathcal G$ by~(b). For a countable
+    disjoint union of members of $\mathcal G$, collect the pieces at each window.
+    Window events at a fixed window are closed under countable unions, and the
+    collected pieces are still pairwise disjoint. So the union is in
+    $\mathcal G$, and $\mathcal G$ is a carrier containing the window events,
+    giving $\cD\subseteq\mathcal G$. Conversely, every member of $\mathcal G$ is a
+    finite disjoint union of members of $\cD$, so $\mathcal G\subseteq\cD$.
+  \item The restriction of $s$ to the window events at $W_k$ is a two-valued
+    finitely additive state on a copy of $\mathcal P(\bbN^2)$, so it is an
+    ultrafilter $u_k$. Adjacent ones agree on the shared coordinate, since
+    $\{x_{k+1}\in C\}$ is a window event of both. Problem~\ref{p:amalg}(b) gives
+    an ultrafilter $W$ on $\Omega$ projecting to every $u_k$. For $E\in\cD$ write
+    $E=E_{k-1}\sqcup E_k$ by~(c). Then $s(E)=u_{k-1}(E_{k-1})+u_k(E_k)
+    =W(E_{k-1})+W(E_k)=W(E)$. \qed
+\end{enumerate}
+\emph{The same argument on the 4-ring.} (c) still holds there: windows $0$ and
+$2$, and windows $1$ and $3$, are non-adjacent. So
+$s(E)=u_{k-1}(E_{k-1})+u_k(E_k)$ still defines $s$. What fails is only
+step~(d): the $u_k$ have no amalgam (Problem~\ref{p:ring}(c)). The hard part of
+the Lean proof is that this formula is still well defined and two-valued.
+
+\paragraph{Problem~\ref{p:open}.} Open.
 
 \end{document}

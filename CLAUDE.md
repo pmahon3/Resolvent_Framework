@@ -17,6 +17,29 @@ the end. This theory-first orientation replaces the earlier problem-first one.
 **Proof is raw data for theory building** (user, 2026-10-16). A proof's value lies
 in what it reveals about structure: which objects matter, which invariant is
 working, where a theory is missing. Proofs are not the product.
+
+The refined source the user points to is 3Blue1Brown, "There's never been a better
+time to go into math" (2026-10-16). Its frame:
+- The research stack is: proving theorems → choosing what is worth asking
+  (conjectures, taste) → **theory building** (Descartes' coordinates, Galois'
+  groups, Grothendieck's rising sea). Then come applications and *motivated*
+  exposition.
+- "Good mathematicians prove theorems, great ones make conjectures, the greatest
+  write definitions."
+- Proof was long the proxy for understanding. It is now losing that role and
+  becoming raw data, "like numerical calculation" or more digits of π.
+
+**Operational consequences:**
+- Treat LLM and Lean proofs as data. Read them for the *elements of simplicity*
+  that recur, and weave those into definitions and theory.
+- At each step ask: **is the bottleneck one more proof, or my understanding of
+  the proofs I already have?** Often the right move is to close the laptop and
+  rebuild the understanding by hand.
+- Use proof machines like the answer key at the back of a textbook: available,
+  but do the problem yourself first.
+- Credit ideas that machine output reuses. This is the prior-art discipline.
+- Explanation is part of the work: a theory is not a list of definitions but a
+  motivated case for why these are the right structures.
 Publication is not a goal. Papers may be shared eventually.
 
 ## Current state of the programme

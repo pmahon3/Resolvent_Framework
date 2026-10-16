@@ -1,0 +1,409 @@
+{
+  "$meta": {
+    "title": "Pointless coherence on glued carriers",
+    "purpose": "Zoom-out index of a THEORY in construction (theory-shaped collection, TAXONOMY_SCHEMA.md 2026-10-16). Load first; follow detail pointers. Problems here are probes at a seam, not ends.",
+    "updated": "2026-10-16",
+    "what_is_it": "Which finitely additive two-valued states ('referees') on Dynkin carriers glued from window events are points, ideal points (ultrafilters on Omega), or pointless - and which shape of window graph decides it.",
+    "status": "OPEN",
+    "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive referees on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle').",
+    "categories": {
+      "objects": "definitions the theory is about",
+      "theorems": "proved results (lean or hand), with uses/scope",
+      "conjectures": "candidate statements incl. the target structure theorem and unchecked lenses",
+      "probes": "pre-registered gates whose affects point at conjecture ids",
+      "examples": "small concrete instances (the puzzles), with scope",
+      "owned_regions": "the seam map: which existing theory covers which region (owned_by)"
+    },
+    "headline": {
+      "objects": 5,
+      "theorems": 11,
+      "conjectures": 6,
+      "probes": 1,
+      "examples": 3,
+      "owned_regions": 8,
+      "overall": "OPEN - two data points proved, one decisive probe pending"
+    },
+    "puzzle": "notes/open_questions/cyclic_marginal/pointless_coherence.tex section 'The puzzle' (windows, referee, staircase, triangle) with puzzle->math dictionary",
+    "cross_collections": "[[sigma_essential_taxonomy]] (the witness is a sigma-essential object); [[commensurability_taxonomy]] (cycle side; fixed-L winding owned); [[ce_taxonomy]] (concept.oml_center cell inhabited)"
+  },
+  "objects": [
+    {
+      "id": "obj.glued_carrier",
+      "name": "glued carrier",
+      "status": "defined",
+      "one_line": "Omega = X^V with a family of two-element windows; window event = {x:(x_i,x_j) in A}, A arbitrary; carrier D = Dynkin closure (complement + countable disjoint union) of all window events.",
+      "detail": "pointless_coherence.tex (Setting, Definition 'glued windows')"
+    },
+    {
+      "id": "obj.referee",
+      "name": "referee (finitely additive two-valued state)",
+      "status": "defined",
+      "one_line": "s: D -> {0,1}, s(Omega)=1, additive on disjoint pairs. Restricted to one window it is an ultrafilter u_k on X^2; adjacent u_k share marginals.",
+      "detail": "pointless_coherence.tex (Setting)"
+    },
+    {
+      "id": "obj.trichotomy",
+      "name": "point / ideal point / pointless",
+      "status": "defined",
+      "one_line": "A referee is a point (delta_omega), an ideal point (s(E)=[E in W] for an ultrafilter W on Omega), or pointless (neither).",
+      "detail": "pointless_coherence.tex (Setting, Definition 'points and ideal points')"
+    },
+    {
+      "id": "obj.ordered_product",
+      "name": "ordered product p(x)p",
+      "status": "defined",
+      "one_line": "A in p(x)q iff {m:{n:(m,n) in A} in q} in p - 'draw m, then n later'. With p non-principal: {m<n} in p(x)p, marginals p, not symmetric.",
+      "detail": "pointless_coherence.tex (The staircase, Lemma pp)"
+    },
+    {
+      "id": "obj.window_graph",
+      "name": "window graph",
+      "status": "defined",
+      "one_line": "Vertices = coordinates, edges = windows. Path, ring (L), triangle (L=3) are the instances studied; the theory's invariant should be a property of this graph.",
+      "detail": "pointless_coherence.tex (Setting; Status and open questions)"
+    }
+  ],
+  "theorems": [
+    {
+      "id": "thm.basic",
+      "name": "basic lemma",
+      "status": "proved-hand (standard)",
+      "one_line": "Proper differences stay in D; s monotone; s(A cap B)=1 when A,B,A cap B in D are true; s is an ideal point iff its true sets have the FIP. So pointlessness needs intersections D lacks.",
+      "detail": "pointless_coherence.tex (Lemma basic)"
+    },
+    {
+      "id": "thm.sigma_forces_points",
+      "name": "sigma forces points (ring)",
+      "status": "proved-lean",
+      "one_line": "A sigma-additive referee on the glued ring is a point (window Diracs agree on shared coordinates; Dynkin uniqueness); so no sigma-additive referee has all C_k={x_k<x_{k+1}} true.",
+      "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
+      "lean": {
+        "file": "formalization/staging/WindowGluing.lean",
+        "name": "no_sigma_extension",
+        "status": "proved-edge"
+      },
+      "scope": "countable alphabet, ring"
+    },
+    {
+      "id": "thm.staircase_no_ideal",
+      "name": "staircase has no ideal point",
+      "status": "proved-hand",
+      "one_line": "u_k = p(x)p on every ring window: coherent on shared coordinates, every C_k true, but no ultrafilter on Omega (nor two-valued charge on the window-generated algebra) agrees, since the C_k have empty intersection.",
+      "detail": "pointless_coherence.tex (Proposition stair)",
+      "uses": [
+        "thm.basic"
+      ]
+    },
+    {
+      "id": "thm.countable_witness",
+      "name": "countable pointless witness, every L>=4",
+      "status": "proved-lean",
+      "one_line": "The staircase window ultrafilters extend to a two-valued finitely additive referee on the whole glued carrier D_L over N^L; it is pointless and has no sigma-additive version. No owner found after 3 prior-art passes.",
+      "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
+      "lean": {
+        "file": "formalization/staging/WindowGluing.lean",
+        "name": "sL_sigmaEssential",
+        "status": "proved-edge"
+      },
+      "scope": "L>=4, alphabet N",
+      "uses": [
+        "thm.staircase_no_ideal",
+        "thm.sigma_forces_points"
+      ],
+      "lean_also": [
+        "mu_cases",
+        "s₀_sigmaEssential"
+      ]
+    },
+    {
+      "id": "thm.literal_irreducible_L4",
+      "name": "literal irreducibility + six conjuncts (L=4)",
+      "status": "proved-lean",
+      "one_line": "The countable carrier D_4 has centre literally {empty, Omega} (the 'modulo countable' irreducibility is vacuous on countable Omega) and satisfies all six original admissibility conjuncts, Polish clause conditional on DWPolishCut as for the omega_1 witness.",
+      "detail": "../delay_embedding/collision_vs_generation.md (Third-pass prior-art gate, costume found and fixed)",
+      "lean": {
+        "file": "formalization/staging/WindowGluing.lean",
+        "name": "targetA_sharp_countable_literal",
+        "status": "proved-edge"
+      },
+      "lean_also": [
+        "D₄_six_conjuncts",
+        "ring4_centre_trivial"
+      ],
+      "scope": "L=4 only"
+    },
+    {
+      "id": "thm.shape_lemma",
+      "name": "shape lemma (two adjacent windows suffice)",
+      "status": "proved-hand; finite-alphabet machine check",
+      "one_line": "If no three windows pairwise share a coordinate (paths; rings L>=4), every E in D is E_{k-1} disjoint-union E_k with adjacent window events (rigidity + slicing). Fails on the triangle (binary |D|=70 vs |G|=66).",
+      "detail": "pointless_coherence.tex (Lemma shape)",
+      "scope": "pair windows, no three pairwise adjacent",
+      "check": "../verification/pointless_path_dynkin.py"
+    },
+    {
+      "id": "thm.amalgamation",
+      "name": "ultrafilter amalgamation",
+      "status": "proved-hand",
+      "one_line": "Ultrafilters on XxY and YxZ with the same Y-marginal are the projections of one ultrafilter on XxYxZ (FIP argument).",
+      "detail": "pointless_coherence.tex (Lemma amalg)",
+      "owned_by": {
+        "cite": "folklore (ultrafilter / type amalgamation over trees); not located",
+        "region": "window-level gluing along acyclic structures",
+        "verified": "sec",
+        "detail": "pointless_coherence.tex (Lemma amalg, 'very likely folklore')"
+      }
+    },
+    {
+      "id": "thm.path",
+      "name": "no cycle, no pointless coherence (paths)",
+      "status": "proved-hand",
+      "one_line": "On a glued path every two-valued finitely additive referee is an ideal point.",
+      "detail": "pointless_coherence.tex (Theorem path)",
+      "uses": [
+        "thm.shape_lemma",
+        "thm.amalgamation"
+      ],
+      "scope": "pair windows on a path; prior art unchecked"
+    },
+    {
+      "id": "obs.ring_forced_formula",
+      "name": "ring referee is forced; s<=1 by hand",
+      "status": "proved-hand",
+      "one_line": "On rings L>=4 any referee equals u_{k-1}(E_{k-1})+u_k(E_k); it never exceeds 1 (local 3-coordinate amalgamation). Remaining Lean content of mu_cases = global well-definedness + additivity. Weakens the hub's 'all novelty in mu_cases' rebuttal.",
+      "detail": "../delay_embedding/collision_vs_generation.md (Structural simplification of mu_cases)",
+      "uses": [
+        "thm.shape_lemma",
+        "thm.amalgamation"
+      ]
+    },
+    {
+      "id": "obs.c0c1_not_in_D",
+      "name": "C_0 cap C_1 not in the ring carrier",
+      "status": "proved-hand",
+      "one_line": "{x_0<x_1<x_2} is not in D_L (its slice at x_1=c is not a cylinder): the missing intersection that thm.basic says pointlessness needs.",
+      "detail": "pointless_coherence.tex (The shape of the carrier, consequence)",
+      "uses": [
+        "thm.shape_lemma",
+        "thm.basic"
+      ]
+    },
+    {
+      "id": "fact.finite_alphabet_points",
+      "name": "finite alphabet: every referee is a point",
+      "status": "proved-hand",
+      "one_line": "With a finite alphabet each window is a full power set, so referees are points on windows and, by Dynkin uniqueness, everywhere. Pointlessness needs infinite alphabets; finite tests of the full carrier are uninformative.",
+      "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, 2026-10-15)"
+    }
+  ],
+  "conjectures": [
+    {
+      "id": "conj.invariant_any_cycle",
+      "name": "invariant = has a cycle",
+      "status": "open (evidence-leaning)",
+      "one_line": "Pointless referees exist on a pair-window graph iff it contains a cycle (triangle included).",
+      "detail": "pointless_coherence.tex (Status and open questions)"
+    },
+    {
+      "id": "conj.invariant_cycle_ge4",
+      "name": "invariant = cycle of length >= 4 ('room')",
+      "status": "open",
+      "one_line": "Pointless referees need a cycle with non-adjacent windows; the triangle has none.",
+      "detail": "pointless_coherence.tex (Status and open questions)"
+    },
+    {
+      "id": "conj.forests",
+      "name": "forests: never pointless",
+      "status": "sketch",
+      "one_line": "Slice at a star centre: at most one non-empty cylinder per slice; amalgamate along the tree. Written as a sketch only.",
+      "detail": "pointless_coherence.tex (Status and open questions)",
+      "uses": [
+        "thm.shape_lemma",
+        "thm.amalgamation"
+      ]
+    },
+    {
+      "id": "conj.cohomological_classification",
+      "name": "target structure theorem",
+      "status": "target",
+      "one_line": "Pointless referees on a window graph correspond to first-cohomology-like data of the graph with coefficients in ultrafilter orders (winding). Conjecture-shaped target, not a claim.",
+      "detail": "self-contained; recorded 2026-10-16 from session discussion"
+    },
+    {
+      "id": "conj.wide_windows",
+      "name": "windows of 3+ coordinates",
+      "status": "open",
+      "one_line": "Rigidity weakens when non-adjacent windows overlap; what replaces 'acyclic' (Vorob'ev regularity?).",
+      "detail": "pointless_coherence.tex (Status and open questions)"
+    },
+    {
+      "id": "conj.deligne_lens",
+      "name": "Deligne-type completeness as the lens",
+      "status": "unchecked lens",
+      "one_line": "Deligne (SGA4): coherent toposes have enough points (= completeness for coherent logic, Makkai-Reyes). Is pointless coherence a failure of a Deligne-type theorem for probabilistic coherence? Raised 2026-10-16, no source read.",
+      "detail": "self-contained; unchecked, from session discussion 2026-10-16"
+    }
+  ],
+  "probes": [
+    {
+      "id": "gate.triangle",
+      "category": "gate",
+      "investigation": "Does the glued triangle (L=3, alphabet N) carry a pointless referee extending the staircase u_k = p(x)p?",
+      "outcomes": [
+        {
+          "branch": "(a) yes",
+          "then": "supports conj.invariant_any_cycle; the cycle itself, not room, permits pointless coherence"
+        },
+        {
+          "branch": "(b) no",
+          "then": "supports conj.invariant_cycle_ge4; Greechie-type order-3 exception bites"
+        }
+      ],
+      "fired": "pending",
+      "evidence": "Sub-carrier oracle: staircase extends consistently and two-valued at T=1 (430 sets) and T=2 (74,738 sets). The specific L>=4 inclusion-exclusion mu is NOT two-valued at L=3 (ring sweep). Evidence, not proof.",
+      "affects": {
+        "id": "conj.invariant_any_cycle",
+        "effect": "decides between the two invariant conjectures"
+      },
+      "detail": "../delay_embedding/collision_vs_generation.md (Ring sweep; Triangle probe 2026-10-15)",
+      "check": "../verification/window_gluing_cyclic_order_triangle.py"
+    }
+  ],
+  "examples": [
+    {
+      "id": "ex.navara_ptak_six",
+      "name": "six points, pointless but harmless",
+      "status": "settled",
+      "one_line": "Omega={1..6}, M1={1,2,3}, M2={3,4,5}, M3={5,6,1}, M4={2,4,6}: carrier {0,Omega,M_i,M_i^c}; s(M_i)=0 is a non-point state, automatically sigma-additive (finite).",
+      "detail": "pointless_coherence.tex (Pointlessness alone is cheap)",
+      "owned_by": {
+        "cite": "Navara-Ptak, Cas. pest. mat. 108 (1983)",
+        "region": "finite pointless states on sigma-classes",
+        "verified": "read",
+        "detail": "../delay_embedding/collision_vs_generation.md (Third-pass prior-art gate)"
+      }
+    },
+    {
+      "id": "ex.binary_triangle_loop_sets",
+      "name": "binary triangle: 'are all three equal?'",
+      "status": "settled",
+      "one_line": "Binary triangle carrier has 70 sets; the 4 beyond adjacent-pair unions are {000,111},{011,100},{001,110},{010,101} - each the complement of a union of window events, not one itself.",
+      "detail": "../verification/triangle_loop_questions.py",
+      "scope": "alphabet=2"
+    },
+    {
+      "id": "ex.ternary_loop_sets_2088",
+      "name": "ternary triangle: genuinely loop-only questions",
+      "status": "settled",
+      "one_line": "Ternary triangle carrier: 15,914 sets; 'all equal' is NOT in it; 2,088 sets with neither E nor its complement a union of window events; simplest is a 9-point cyclic step pattern mod 3.",
+      "detail": "../verification/triangle_loop_questions.py",
+      "scope": "alphabet=3"
+    }
+  ],
+  "owned_regions": [
+    {
+      "id": "own.cycle_vertices_fixed_L",
+      "name": "contextual vertices of cycle scenarios",
+      "status": "owned",
+      "one_line": "At fixed L the contextual vertices of the n-cycle are exactly k-order cycle distributions (= layer-injective winding-k cycles); the flagship's fixed-L winding criterion is a corollary.",
+      "detail": "cyclic_marginal_scoping.md (4a')",
+      "owned_by": {
+        "cite": "Kharoof-Ipek-Okay arXiv:2406.19961 Thm 4.4; Barrett et al. PRA 71 (2005); Araujo et al. PRA 88 (2013) Thm 2",
+        "region": "cycle obstruction, sigma-additive/finite, fixed length",
+        "verified": "read",
+        "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md"
+      }
+    },
+    {
+      "id": "own.abklm_vertex_form",
+      "name": "vertices = deterministic + min-support strongly contextual",
+      "status": "owned",
+      "one_line": "In any scenario the no-signalling polytope's vertices split into local deterministic and minimal-support strongly contextual models.",
+      "detail": "cyclic_marginal_scoping.md (4a)",
+      "owned_by": {
+        "cite": "Abramsky-Barbosa-Kishida-Lal-Mansfield, J. Math. Psych. (2016), Prop 6.3",
+        "region": "logical form of 'unsafe iff a strongly contextual support exists'",
+        "verified": "read",
+        "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md"
+      }
+    },
+    {
+      "id": "own.vorobev_acyclic",
+      "name": "acyclic structures always extend",
+      "status": "owned",
+      "one_line": "Every consistent family on a regular (alpha-acyclic) complex extends; cycles are the only obstruction.",
+      "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md",
+      "owned_by": {
+        "cite": "Vorob'ev 1962; Beeri-Fagin-Maier-Yannakakis 1983",
+        "region": "acyclic, sigma-additive",
+        "verified": "sec",
+        "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md"
+      }
+    },
+    {
+      "id": "own.howson_compactness",
+      "name": "coherence has compactness; sigma-additivity lacks it",
+      "status": "owned",
+      "one_line": "De Finetti coherence has a completeness/compactness theorem; sigma-additivity does not ('missing completeness theorem').",
+      "detail": "../../unsorted/foundations/ce_nonderivability/ce_taxonomy.json (concept.howson)",
+      "owned_by": {
+        "cite": "Howson, BJPS (2008)",
+        "region": "infinity obstruction on Boolean algebras",
+        "verified": "sec",
+        "detail": "../../unsorted/foundations/ce_nonderivability/ce_taxonomy.json"
+      }
+    },
+    {
+      "id": "own.definetti",
+      "name": "finite additivity as the coherent level",
+      "status": "owned",
+      "one_line": "Coherence forces finite additivity only; sigma-additivity is a further idealization.",
+      "detail": "../../covered_leads/probability_before_realism_owned.md",
+      "owned_by": {
+        "cite": "de Finetti 1937/1974; Dubins-Savage; Bhaskara Rao & Bhaskara Rao 1983",
+        "region": "Boolean finitely additive states",
+        "verified": "sec",
+        "detail": "../../covered_leads/probability_before_realism_owned.md"
+      }
+    },
+    {
+      "id": "own.greechie_loop",
+      "name": "order-3 loops are special",
+      "status": "neighbour",
+      "one_line": "Pasting of Boolean blocks is an OMP iff no loop of order 3, an OML iff none of order 3 or 4. Same shape as the triangle exception to the shape lemma; there blocks share atoms, here coordinate subalgebras.",
+      "detail": "../delay_embedding/collision_vs_generation.md (Structural simplification of mu_cases)",
+      "owned_by": {
+        "cite": "Greechie 1971 Loop Lemma, via Kalmbach, Orthomodular Lattices (1983) Sec 4 Lemma 9",
+        "region": "pasting shape of carriers (not states)",
+        "verified": "read",
+        "detail": "../../literature_review/literature/kalmbach_1983_orthomodular_lattices.pdf"
+      }
+    },
+    {
+      "id": "own.cv_sheaves_sigma",
+      "name": "continuous-variable sheaf contextuality",
+      "status": "neighbour",
+      "one_line": "Measurable-outcome sheaf framework presupposes sigma-additive measures; the finitely additive gap is outside its scope.",
+      "detail": "../delay_embedding/collision_vs_generation.md (Third-pass prior-art gate)",
+      "owned_by": {
+        "cite": "Barbosa-Douce-Emeriau-Kashefi-Mansfield arXiv:1905.08267",
+        "region": "cycle obstruction with infinite outcomes, sigma-additive",
+        "verified": "read",
+        "detail": "../delay_embedding/collision_vs_generation.md"
+      }
+    },
+    {
+      "id": "own.pivato_shift_invariant",
+      "name": "shift-invariant extension from window marginals",
+      "status": "neighbour",
+      "one_line": "On Z the single-window problem is trivial (Markov); periodic extension only open-ball sufficiency. No contextuality layer.",
+      "detail": "cyclic_marginal_scoping.md (3)",
+      "owned_by": {
+        "cite": "Pivato, Canad. J. Math. 53 (2001)",
+        "region": "shift-invariant, sigma-additive, single window",
+        "verified": "read",
+        "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md"
+      }
+    }
+  ]
+}

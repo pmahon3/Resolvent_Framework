@@ -2,6 +2,35 @@
 
 ## STATE AS OF 2026-08-31 (read this first)
 
+### 2026-10-16 addendum (read before the 2026-08-31 text below)
+
+**The aim, restated by the user.** Build **new mathematical theory**. Problems are
+probes placed at seams between existing theories, used to locate where theory is
+missing; solving them is a means, not the end.
+
+**Flagship (cycle side): proved core is now cited.**
+- The fixed-L winding criterion is prior art: Kharoof–Ipek–Okay 2024 Thm 4.4, with
+  Barrett 2005, Araújo 2013 and the ABKLM 2016 form.
+- Safe(ρ) eventual periodicity is elementary given it.
+- The skeleton is repositioned (5pp). The **reach lemma** is the sole open core
+  (prior-art scout: apparently open).
+- Detail: `notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md`.
+
+**σ lane (infinity side).** The countable σ-essential witness on every ring L ≥ 4
+(Lean) has no owner after three prior-art passes. Literal irreducibility and all
+six conjuncts are checked at L = 4 (`D₄_six_conjuncts`). It is not in the paper.
+
+**Emerging theory: pointless coherence on glued carriers.** This is the seam
+between the two sides. Data points:
+- paths are never pointless (hand);
+- rings L ≥ 4 are pointless and σ-forbidden (Lean);
+- the triangle is the pending probe.
+
+Load `notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json` (the
+first theory-shaped collection; schema in `notes/TAXONOMY_SCHEMA.md`). Read
+`notes/open_questions/cyclic_marginal/pointless_coherence.pdf`, which opens with
+the window puzzle.
+
 This document below the fold was last revised **2026-08-04** and much of it is
 now out of date on the formalization side. The sections on the central
 question, the three papers, and the frontier structure remain accurate as

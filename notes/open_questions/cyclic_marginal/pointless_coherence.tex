@@ -390,11 +390,16 @@ settled, or is made of triangles.
 Either answer matches a classical pattern. Trees are where pairwise probability
 tables always fit together (Wainwright--Jordan). Chordal graphs are where junction
 trees and Vorob'ev's theorem live.
-A computer check on a finite part of the board finds consistent answers. That
-proves less than it seems. The finite part sees the slots only coarsely
-(``bigger than 1?'', ``which is larger?''), so like the sandwich shop it can be pointless
-for finite reasons alone. Whether the \emph{ideal}, infinite kind of
-pointlessness happens on the triangle is genuinely open.
+What do we know? Any consistent answers extending the three waiters' reports
+are \emph{forced} on every question built in finitely many steps. Each such
+question is a sum of one function per waiter, and its answer must be the sum of
+the waiters' limits (\S\ref{app:defs}, the forced functional). So the test is
+whether those forced answers are always 0 or 1. A computer check of every
+finitely built question using comparisons and small thresholds (430 questions,
+then 74{,}738) finds no failure. That is a necessary condition, and it holds
+everywhere we have looked. What is untested are questions built with
+\emph{infinitely} many steps, where the answer is not forced. Whether the
+triangle carries pointless answers is still open.
 
 \paragraph{What the theory must settle.}
 \begin{enumerate}[nosep]
@@ -602,6 +607,17 @@ Lean.
 \begin{proposition}[flatness]\label{prop:flat}\st{hand}
 On a triangle-free window graph, a state is an ideal point iff its
 window ultrafilters glue to one ultrafilter on $\Omega$ (a flat family).
+\end{proposition}
+
+\begin{proposition}[the forced functional]\label{prop:forced}\st{hand}
+On the triangle (and on rings), every buildable question built in finitely many
+steps has indicator $f_0(x_0,x_1)+f_1(x_1,x_2)+f_2(x_2,x_0)$. Any state extending
+a compatible family $(u_k)$ takes the value
+$\Lambda=\sum_k\lim_{u_k}f_k$ there. $\Lambda$ is well defined: if
+$f_0+f_1+f_2=0$, each $f_k$ is $\varphi_i(x_i)-\varphi_j(x_j)$ plus a constant,
+the constants summing to $0$, and these terms cancel because the marginals
+agree. So a family can extend only if $\Lambda\in\{0,1\}$ on every finitely
+built question.
 \end{proposition}
 
 \begin{theorem}[the staircase]\label{thm:witness}\st{Lean: \texttt{mu\_cases},

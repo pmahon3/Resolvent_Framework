@@ -16,7 +16,7 @@
     },
     "headline": {
       "objects": 6,
-      "theorems": 13,
+      "theorems": 14,
       "conjectures": 10,
       "probes": 1,
       "examples": 3,
@@ -228,6 +228,14 @@
       ],
       "scope": "pair windows, countable alphabet; any graph with an induced cycle of length >= 4 (non-chordal)",
       "lean_note": "analogous cycle-map transport is Lean (pullback, sL_sigmaEssential); graph form not yet in Lean"
+    },
+    {
+      "id": "obs.forced_functional",
+      "name": "extensions are forced on finitely built questions",
+      "status": "proved-hand",
+      "one_line": "Every buildable question has indicator f0+f1+f2 (window functions). On a triangle (and cycles) zero-sum triples are coboundaries + constants, so Lambda(f)=sum_k lim_{u_k} f_k is well defined for any compatible family; any extending state equals Lambda on finitely built questions. A family extends only if Lambda is {0,1}-valued there.",
+      "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, correction)",
+      "scope": "triangle and cycles; finitely built questions only"
     }
   ],
   "conjectures": [
@@ -328,7 +336,7 @@
         }
       ],
       "fired": "pending",
-      "evidence": "INCONCLUSIVE (downgraded 2026-10-16). Sub-carrier oracle finds a consistent two-valued state at T=1/T=2, but the sub-carrier is not point-Helly (coarse cells: chosen generic cells pairwise meet, jointly empty), so the finding is a die-type finite Helly failure and does not test ideal-level pointlessness. Nerve of the triangle staircase's 'up' questions = S^1 (pairs meet, triple empty), same twist as rings (S^{L-2}); the open question is extension, not twist.",
+      "evidence": "NECESSARY CONDITION HOLDS (2026-10-16). Any extension must equal the forced functional Lambda(f)=sum_k lim_{u_k} f_k on finitely built questions (well defined: zero-sum window triples are coboundaries + constants). Lambda is {0,1}-valued on all definable finitely built triangle questions: T=0 430 sets, T=1 74,738 sets, 0 bad (verification/triangle_forced_functional.py). The ring-sweep's L=3 failure is on a non-buildable 0/1 function. Untested: countably built questions (value not forced by finite additivity). The earlier 'not point-Helly' downgrade was over-corrected: the oracle tested forced values, not an arbitrary finite state.",
       "affects": {
         "id": "conj.invariant_any_cycle",
         "effect": "decides between the two invariant conjectures"

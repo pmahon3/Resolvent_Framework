@@ -390,6 +390,25 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
 - The same caveat applies to the 4-ring sub-carrier runs; there the Lean
   witness settles the matter independently.
 - **Triangle: inconclusive.** "Leans any cycle" is withdrawn.
+- **Correction to the downgrade (2026-10-16, later the same day).** The
+  sub-carrier oracle did not test an arbitrary finite state; it propagated the
+  **forced** values.
+  - Any state extending the staircase must equal
+    Λ(f) = Σ_k lim_{u_k} f_k on every *finitely built* question. Λ is well
+    defined: zero-sum triples f₀+f₁+f₂ = 0 are coboundaries plus constants, and
+    the marginals agree.
+  - So "consistent" there is a genuine **necessary-condition** check. It can
+    refute, and cannot confirm.
+  - **Results** (`verification/triangle_forced_functional.py`): Λ is
+    two-valued on all definable finitely built triangle questions.
+    - T=0: 26 atoms, 430 sets, 0 bad.
+    - T=1: 51 atoms, 74,738 sets, 0 bad.
+  - **The old ring-sweep failure** ("μ not two-valued at L=3") lives on the same
+    26 atoms, so its failing 0/1 function is **not buildable**. It does not
+    obstruct the triangle.
+  - **Untested:** countably built questions, where finite additivity does not
+    force the value.
+  - Status: open, with the necessary condition holding at every level tested.
 - A finite-alphabet test of the full carrier would be uninformative: there,
   every two-valued state is a point.
 

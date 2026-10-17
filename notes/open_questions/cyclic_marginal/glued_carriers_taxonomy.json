@@ -17,10 +17,10 @@
     "headline": {
       "objects": 6,
       "theorems": 12,
-      "conjectures": 8,
+      "conjectures": 10,
       "probes": 1,
       "examples": 3,
-      "owned_regions": 8,
+      "owned_regions": 10,
       "overall": "OPEN - two data points proved, one decisive probe pending"
     },
     "puzzle": "notes/open_questions/cyclic_marginal/pointless_coherence.tex section 'The puzzle'; domain map in section 'Domain and scope'",
@@ -283,6 +283,20 @@
         "verified": "sec",
         "detail": "../../covered_leads/probability_before_realism_owned.md"
       }
+    },
+    {
+      "id": "conj.helly_transfer_bfmy",
+      "name": "Helly lens via Berge duality + BFMY",
+      "status": "open (transfer route)",
+      "one_line": "If the dual of the hypergraph of true questions is alpha-acyclic (conformal + chordal), pairwise intersection upgrades to the FIP, so the state is an ideal point. Would import BFMY/Vorob'ev machinery; candidate route to the forest case and beyond.",
+      "detail": "self-contained; from scout 2026-10-16"
+    },
+    {
+      "id": "conj.nerve_invariant",
+      "name": "nerve of true questions as the twist invariant",
+      "status": "open (evidence on examples)",
+      "one_line": "Nerve of the true window questions: die = K4 graph (Helly fails at 3), staircase L = boundary of a simplex S^{L-2} (fails at L), triangle = S^1. Reads twist consistently but does NOT decide extension. Transfer candidates: topological Helly (Kalai-Meshulam Leray numbers; Colin de Verdiere-Ginot-Goaoc). Compare with the Abramsky-Mansfield-Barbosa Cech obstruction before claiming.",
+      "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, downgrade note)"
     }
   ],
   "probes": [
@@ -444,6 +458,32 @@
         "region": "shift-invariant, sigma-additive, single window",
         "verified": "read",
         "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md"
+      }
+    },
+    {
+      "id": "own.helly_hypergraphs",
+      "name": "Helly property / Berge duality / acyclicity",
+      "status": "owned (framing)",
+      "one_line": "The Helly property of a set family, Berge duality (Helly iff dual conformal; DS17 Thm 4.1, 6.8) and BFMY (acyclic iff conformal+chordal iff pairwise-consistent => globally consistent). The 'Helly lens' on true questions is a re-description in these terms.",
+      "detail": "self-contained; scout 2026-10-16 (session report)",
+      "owned_by": {
+        "cite": "Berge 1989; Dourado-Protti-Szwarcfiter, Electron. J. Combin. DS17; Beeri-Fagin-Maier-Yannakakis 1983",
+        "region": "Helly/conformal combinatorics of set families; pairwise-to-global consistency",
+        "verified": "read",
+        "detail": "self-contained (DS17 text read by scout)"
+      }
+    },
+    {
+      "id": "own.jauch_piron_covering",
+      "name": "Jauch-Piron states; covering properties of concrete logics",
+      "status": "neighbour",
+      "one_line": "Jauch-Piron state: s(a)=s(b)=1 => some c<=a,b with s(c)=1 (pairwise lower bound). Tkadlec's n-/finite covering properties (A cap B a union of <=n elements) as Boolean-ness criteria. Closest concrete-logic neighbour of point-Helly; relation untested.",
+      "detail": "self-contained; scout 2026-10-16",
+      "owned_by": {
+        "cite": "Tkadlec, Math. Bohemica 123 (1998) 213-218; Navara-Ptak (Jauch-Piron question)",
+        "region": "pairwise-to-joint upgrades for states on concrete logics",
+        "verified": "sec",
+        "detail": "self-contained (Tkadlec 1998 read by scout; others via snippets)"
       }
     }
   ]

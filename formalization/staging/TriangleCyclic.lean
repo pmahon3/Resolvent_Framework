@@ -32,6 +32,7 @@ import Mathlib.MeasureTheory.PiSystem
 import Mathlib.MeasureTheory.MeasurableSpace.Pi
 import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
 import Mathlib.Tactic.FinCases
+import Mathlib.Data.Nat.Nth
 
 open Set MeasurableSpace Function
 open scoped ENNReal
@@ -428,7 +429,291 @@ lemma estar_inF : InF Estar := by
 /-- **The cyclic set E\* is not in the triangle carrier over ℕ.** -/
 theorem estar_not_mem : ¬ D₃.Has Estar := fun h => not_inF_of_mem h estar_inF
 
+
+/-! ## The homogeneous-set family
+
+A set is caught as soon as it agrees with the cyclic (or anticyclic) set on the
+distinct-coordinate points of P³ for SOME infinite P. This is the form reached by any set
+with a bad ultrafilter profile (layer 2). The lift lemma runs inside a thinned copy Q ⊆ P in
+which a P-element lies strictly between any two Q-elements. -/
+
+def OnP (P : Set ℕ) (x : Ω) : Prop := x 0 ∈ P ∧ x 1 ∈ P ∧ x 2 ∈ P
+
+def Dist (x : Ω) : Prop := x 0 ≠ x 1 ∧ x 1 ≠ x 2 ∧ x 0 ≠ x 2
+
+lemma dist_cyc_or_acy {x : Ω} (h : Dist x) : Cyc x ∨ Acy x := by
+  unfold Dist Cyc Acy at *; omega
+
+lemma cyc_dist {x : Ω} (h : Cyc x) : Dist x := by unfold Dist Cyc at *; omega
+
+lemma acy_dist {x : Ω} (h : Acy x) : Dist x := by unfold Dist Acy at *; omega
+
+/-- The homogeneous-set family. -/
+def InP (Z : Set Ω) : Prop :=
+  ∃ P : Set ℕ, P.Infinite ∧ ((∀ x, OnP P x → Dist x → (x ∈ Z ↔ Cyc x)) ∨
+    (∀ x, OnP P x → Dist x → (x ∈ Z ↔ Acy x)))
+
+section LiftP
+
+variable {G : Set Ω} {P Q : Set ℕ} (hB : Box G) (hA : ∀ x, OnP P x → Acy x → x ∉ G)
+  (hQP : Q ⊆ P) (hbet : ∀ u ∈ Q, ∀ v ∈ Q, u < v → ∃ w ∈ P, u < w ∧ w < v)
+include hB hA hQP hbet
+
+omit hB hQP hbet in
+lemma cnt_zeroP {x : Ω} (hx : OnP P x) (ha : Acy x) : cnt G x = 0 := by
+  simp [cnt, hA x hx ha]
+
+lemma liftP0 {a b c a' : ℕ} (ha : a ∈ Q) (hb : b ∈ Q) (hc : c ∈ Q) (ha' : a' ∈ Q)
+    (hab : a < b) (hbc : b < c) (hca : c < a') : cnt G ![a, b, c] = cnt G ![a', b, c] := by
+  obtain ⟨γ, hγ, h1, h2⟩ := hbet a ha b hb hab
+  obtain ⟨β, hβ, h3, h4⟩ := hbet c hc a' ha' hca
+  have pa := hQP ha; have pb := hQP hb; have pc := hQP hc; have pa' := hQP ha'
+  have h := hB a a' b β c γ
+  have z1 : cnt G ![a', β, c] = 0 :=
+    cnt_zeroP hA ⟨pa', hβ, pc⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z2 : cnt G ![a', b, γ] = 0 :=
+    cnt_zeroP hA ⟨pa', pb, hγ⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z3 : cnt G ![a, β, γ] = 0 :=
+    cnt_zeroP hA ⟨pa, hβ, hγ⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z4 : cnt G ![a, β, c] = 0 :=
+    cnt_zeroP hA ⟨pa, hβ, pc⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z5 : cnt G ![a, b, γ] = 0 :=
+    cnt_zeroP hA ⟨pa, pb, hγ⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z6 : cnt G ![a', β, γ] = 0 :=
+    cnt_zeroP hA ⟨pa', hβ, hγ⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  omega
+
+lemma liftP1 {a b c a' : ℕ} (ha : a ∈ Q) (hb : b ∈ Q) (hc : c ∈ Q) (ha' : a' ∈ Q)
+    (hab : a < b) (hbc : b < c) (hca : c < a') : cnt G ![c, a, b] = cnt G ![c, a', b] := by
+  obtain ⟨γ, hγ, h1, h2⟩ := hbet a ha b hb hab
+  obtain ⟨β, hβ, h3, h4⟩ := hbet c hc a' ha' hca
+  have pa := hQP ha; have pb := hQP hb; have pc := hQP hc; have pa' := hQP ha'
+  have h := hB c γ a a' b β
+  have z1 : cnt G ![γ, a', b] = 0 :=
+    cnt_zeroP hA ⟨hγ, pa', pb⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z2 : cnt G ![γ, a, β] = 0 :=
+    cnt_zeroP hA ⟨hγ, pa, hβ⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z3 : cnt G ![c, a', β] = 0 :=
+    cnt_zeroP hA ⟨pc, pa', hβ⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z4 : cnt G ![γ, a, b] = 0 :=
+    cnt_zeroP hA ⟨hγ, pa, pb⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z5 : cnt G ![c, a, β] = 0 :=
+    cnt_zeroP hA ⟨pc, pa, hβ⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z6 : cnt G ![γ, a', β] = 0 :=
+    cnt_zeroP hA ⟨hγ, pa', hβ⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  omega
+
+lemma liftP2 {a b c a' : ℕ} (ha : a ∈ Q) (hb : b ∈ Q) (hc : c ∈ Q) (ha' : a' ∈ Q)
+    (hab : a < b) (hbc : b < c) (hca : c < a') : cnt G ![b, c, a] = cnt G ![b, c, a'] := by
+  obtain ⟨γ, hγ, h1, h2⟩ := hbet a ha b hb hab
+  obtain ⟨β, hβ, h3, h4⟩ := hbet c hc a' ha' hca
+  have pa := hQP ha; have pb := hQP hb; have pc := hQP hc; have pa' := hQP ha'
+  have h := hB b β c γ a a'
+  have z1 : cnt G ![β, γ, a] = 0 :=
+    cnt_zeroP hA ⟨hβ, hγ, pa⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z2 : cnt G ![β, c, a'] = 0 :=
+    cnt_zeroP hA ⟨hβ, pc, pa'⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z3 : cnt G ![b, γ, a'] = 0 :=
+    cnt_zeroP hA ⟨pb, hγ, pa'⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z4 : cnt G ![β, c, a] = 0 :=
+    cnt_zeroP hA ⟨hβ, pc, pa⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z5 : cnt G ![b, γ, a] = 0 :=
+    cnt_zeroP hA ⟨pb, hγ, pa⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  have z6 : cnt G ![β, γ, a'] = 0 :=
+    cnt_zeroP hA ⟨hβ, hγ, pa'⟩ (by simp only [Acy, v0, v1, v2]; omega)
+  omega
+
+lemma reachP012 {a b c L₁ L₂ L₃ : ℕ} (ha : a ∈ Q) (hb : b ∈ Q) (hc : c ∈ Q)
+    (h₁ : L₁ ∈ Q) (h₂ : L₂ ∈ Q) (h₃ : L₃ ∈ Q) (hab : a < b) (hbc : b < c)
+    (hc₁ : c < L₁) (h₁₂ : L₁ < L₂) (h₂₃ : L₂ < L₃) :
+    cnt G ![a, b, c] = cnt G ![L₁, L₂, L₃] := by
+  rw [liftP0 hB hA hQP hbet ha hb hc h₁ hab hbc hc₁,
+    liftP1 hB hA hQP hbet hb hc h₁ h₂ hbc hc₁ h₁₂,
+    liftP2 hB hA hQP hbet hc h₁ h₂ h₃ hc₁ h₁₂ h₂₃]
+
+lemma reachP (hunb : ∀ m, ∃ v ∈ Q, m < v) {p : Ω} (hp : OnP Q p) (hC : Cyc p) :
+    ∃ m, ∀ L₁ L₂ L₃, L₁ ∈ Q → L₂ ∈ Q → L₃ ∈ Q → m < L₁ → L₁ < L₂ → L₂ < L₃ →
+      cnt G p = cnt G ![L₁, L₂, L₃] := by
+  obtain ⟨h0, h1, h2⟩ := hp
+  rw [eta p]
+  unfold Cyc at hC
+  rcases hC with ⟨c1, c2⟩ | ⟨c1, c2⟩ | ⟨c1, c2⟩
+  · exact ⟨p 2, fun L₁ L₂ L₃ m₁ m₂ m₃ k₁ k₂ k₃ =>
+      reachP012 hB hA hQP hbet h0 h1 h2 m₁ m₂ m₃ c1 c2 k₁ k₂ k₃⟩
+  · -- 120-point: lift x₁, then x₂, to reach a 012-point
+    obtain ⟨a', ha', ha'lt⟩ := hunb (p 0)
+    obtain ⟨b', hb', hb'lt⟩ := hunb a'
+    refine ⟨b', fun L₁ L₂ L₃ m₁ m₂ m₃ k₁ k₂ k₃ => ?_⟩
+    rw [liftP1 hB hA hQP hbet h1 h2 h0 ha' c1 c2 ha'lt,
+      liftP2 hB hA hQP hbet h2 h0 ha' hb' c2 ha'lt hb'lt]
+    exact reachP012 hB hA hQP hbet h0 ha' hb' m₁ m₂ m₃ ha'lt hb'lt k₁ k₂ k₃
+  · -- 201-point: lift x₂ to reach a 012-point
+    obtain ⟨a', ha', ha'lt⟩ := hunb (p 1)
+    refine ⟨a', fun L₁ L₂ L₃ m₁ m₂ m₃ k₁ k₂ k₃ => ?_⟩
+    rw [liftP2 hB hA hQP hbet h2 h0 h1 ha' c1 c2 ha'lt]
+    exact reachP012 hB hA hQP hbet h0 h1 ha' m₁ m₂ m₃ c2 ha'lt k₁ k₂ k₃
+
+/-- **Constancy on the cyclic points of Q³.** -/
+theorem constP_cyc (hunb : ∀ m, ∃ v ∈ Q, m < v) {p q : Ω} (hp : OnP Q p) (hpc : Cyc p)
+    (hq : OnP Q q) (hqc : Cyc q) : cnt G p = cnt G q := by
+  obtain ⟨m₁, e₁⟩ := reachP hB hA hQP hbet hunb hp hpc
+  obtain ⟨m₂, e₂⟩ := reachP hB hA hQP hbet hunb hq hqc
+  obtain ⟨L₁, l₁, k₁⟩ := hunb (m₁ + m₂)
+  obtain ⟨L₂, l₂, k₂⟩ := hunb L₁
+  obtain ⟨L₃, l₃, k₃⟩ := hunb L₂
+  rw [e₁ L₁ L₂ L₃ l₁ l₂ l₃ (by omega) k₂ k₃, e₂ L₁ L₂ L₃ l₁ l₂ l₃ (by omega) k₂ k₃]
+
+end LiftP
+
+theorem constP_acy {G : Set Ω} {P Q : Set ℕ} (hB : Box G)
+    (hC : ∀ x, OnP P x → Cyc x → x ∉ G) (hQP : Q ⊆ P)
+    (hbet : ∀ u ∈ Q, ∀ v ∈ Q, u < v → ∃ w ∈ P, u < w ∧ w < v)
+    (hunb : ∀ m, ∃ v ∈ Q, m < v) {p q : Ω} (hp : OnP Q p) (hpa : Acy p)
+    (hq : OnP Q q) (hqa : Acy q) : cnt G p = cnt G q := by
+  have hA' : ∀ x, OnP P x → Acy x → x ∉ {x | ρ x ∈ G} := by
+    intro x hx ha
+    exact hC (ρ x) ⟨hx.1, hx.2.2, hx.2.1⟩
+      (by unfold Acy at ha; unfold Cyc ρ; simp only [v0, v1, v2]; omega)
+  have key := constP_cyc (box_refl hB) hA' hQP hbet hunb (p := ρ p) (q := ρ q)
+    ⟨hp.1, hp.2.2, hp.2.1⟩
+    (by unfold Acy at hpa; unfold Cyc ρ; simp only [v0, v1, v2]; omega)
+    ⟨hq.1, hq.2.2, hq.2.1⟩
+    (by unfold Acy at hqa; unfold Cyc ρ; simp only [v0, v1, v2]; omega)
+  rwa [cnt_pre, cnt_pre, ρρ, ρρ] at key
+
+/-- Thinning: every infinite P contains an unbounded Q with a P-element between any two
+Q-elements (Q = the even-indexed elements of P). -/
+lemma thin (P : Set ℕ) (hP : P.Infinite) : ∃ Q ⊆ P, (∀ m, ∃ v ∈ Q, m < v) ∧
+    (∀ u ∈ Q, ∀ v ∈ Q, u < v → ∃ w ∈ P, u < w ∧ w < v) := by
+  have hf : (setOf (· ∈ P)).Infinite := hP
+  have hmono := Nat.nth_strictMono hf
+  refine ⟨Set.range (fun k => Nat.nth (· ∈ P) (2 * k)), ?_, ?_, ?_⟩
+  · rintro _ ⟨k, rfl⟩; exact Nat.nth_mem_of_infinite hf _
+  · intro m
+    refine ⟨_, ⟨m + 1, rfl⟩, ?_⟩
+    have := hmono.id_le (2 * (m + 1)); simp only [id] at this ⊢; omega
+  · rintro _ ⟨i, rfl⟩ _ ⟨j, rfl⟩ hij
+    have hij' : 2 * i < 2 * j := hmono.lt_iff_lt.mp hij
+    exact ⟨Nat.nth (· ∈ P) (2 * i + 1), Nat.nth_mem_of_infinite hf _,
+      hmono (by omega), hmono (by omega)⟩
+
+lemma infinite_of_unb {Q : Set ℕ} (hunb : ∀ m, ∃ v ∈ Q, m < v) : Q.Infinite := by
+  refine Set.infinite_of_not_bddAbove ?_
+  rintro ⟨m, hm⟩
+  obtain ⟨v, hv, hlt⟩ := hunb m
+  exact absurd (hm hv) (not_le.mpr hlt)
+
+/-- Four increasing elements of an infinite set. -/
+lemma four (P : Set ℕ) (hP : P.Infinite) :
+    ∃ e₀ e₁ e₂ e₃, e₀ ∈ P ∧ e₁ ∈ P ∧ e₂ ∈ P ∧ e₃ ∈ P ∧ e₀ < e₁ ∧ e₁ < e₂ ∧ e₂ < e₃ := by
+  have hf : (setOf (· ∈ P)).Infinite := hP
+  have hmono := Nat.nth_strictMono hf
+  exact ⟨_, _, _, _, Nat.nth_mem_of_infinite hf 0, Nat.nth_mem_of_infinite hf 1,
+    Nat.nth_mem_of_infinite hf 2, Nat.nth_mem_of_infinite hf 3,
+    hmono (by norm_num), hmono (by norm_num), hmono (by norm_num)⟩
+
+lemma not_inP_empty : ¬ InP (∅ : Set Ω) := by
+  rintro ⟨P, hP, h | h⟩ <;> obtain ⟨e₀, e₁, e₂, -, h₀, h₁, h₂, -, l₀, l₁, -⟩ := four P hP
+  · exact (h ![e₀, e₁, e₂] ⟨h₀, h₁, h₂⟩ (by simp only [Dist, v0, v1, v2]; omega)).mpr
+      (by simp only [Cyc, v0, v1, v2]; omega)
+  · exact (h ![e₀, e₂, e₁] ⟨h₀, h₂, h₁⟩ (by simp only [Dist, v0, v1, v2]; omega)).mpr
+      (by simp only [Acy, v0, v1, v2]; omega)
+
+lemma inP_of_inP_compl {E : Set Ω} (h : InP Eᶜ) : InP E := by
+  obtain ⟨P, hP, h | h⟩ := h
+  · refine ⟨P, hP, Or.inr fun x hx hd => ?_⟩
+    have := h x hx hd; have hca := dist_cyc_or_acy hd; have hn := not_cyc_and_acy x
+    simp only [mem_compl_iff] at this
+    constructor
+    · intro hxE; rcases hca with hc | ha
+      · exact absurd hxE (this.mpr hc)
+      · exact ha
+    · intro ha; by_contra hxE; exact hn ⟨this.mp hxE, ha⟩
+  · refine ⟨P, hP, Or.inl fun x hx hd => ?_⟩
+    have := h x hx hd; have hca := dist_cyc_or_acy hd; have hn := not_cyc_and_acy x
+    simp only [mem_compl_iff] at this
+    constructor
+    · intro hxE; rcases hca with hc | ha
+      · exact hc
+      · exact absurd hxE (this.mpr ha)
+    · intro hc; by_contra hxE; exact hn ⟨hc, this.mp hxE⟩
+
+lemma not_inP_gens {E : Set Ω} (hE : E ∈ gens) : ¬ InP E := by
+  obtain ⟨w, hw, hE⟩ := hE
+  rintro ⟨P, hP, h⟩
+  obtain ⟨e₀, e₁, e₂, e₃, h₀, h₁, h₂, h₃, l₀, l₁, l₂⟩ := four P hP
+  have key : ∀ X Y : Ω, (X ∈ E ↔ Y ∈ E) → OnP P X → OnP P Y → Acy X → Cyc Y → False := by
+    intro X Y hXY hX hY hXa hYc
+    rcases h with h | h
+    · have := (h X hX (acy_dist hXa)).mp (hXY.mpr ((h Y hY (cyc_dist hYc)).mpr hYc))
+      exact not_cyc_and_acy X ⟨this, hXa⟩
+    · have := (h Y hY (cyc_dist hYc)).mp (hXY.mp ((h X hX (acy_dist hXa)).mpr hXa))
+      exact not_cyc_and_acy Y ⟨hYc, this⟩
+  have loc : ∀ y z : Ω, (∀ k ∈ w, y k = z k) → (y ∈ E ↔ z ∈ E) :=
+    fun y z hyz => window_event_local hE hyz
+  rcases hw with rfl | rfl | rfl
+  · refine key ![e₀, e₂, e₁] ![e₀, e₂, e₃] (loc _ _ ?_) ⟨h₀, h₂, h₁⟩ ⟨h₀, h₂, h₃⟩ ?_ ?_
+    · intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+      rcases hk with rfl | rfl <;> rfl
+    all_goals simp only [Cyc, Acy, v0, v1, v2]; omega
+  · refine key ![e₂, e₁, e₃] ![e₀, e₁, e₃] (loc _ _ ?_) ⟨h₂, h₁, h₃⟩ ⟨h₀, h₁, h₃⟩ ?_ ?_
+    · intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+      rcases hk with rfl | rfl <;> rfl
+    all_goals simp only [Cyc, Acy, v0, v1, v2]; omega
+  · refine key ![e₀, e₃, e₂] ![e₀, e₁, e₂] (loc _ _ ?_) ⟨h₀, h₃, h₂⟩ ⟨h₀, h₁, h₂⟩ ?_ ?_
+    · intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+      rcases hk with rfl | rfl <;> rfl
+    all_goals simp only [Cyc, Acy, v0, v1, v2]; omega
+
+/-- **No member of the homogeneous-set family is in the triangle carrier.** -/
+theorem not_inP_of_mem {E : Set Ω} (hE : D₃.Has E) : ¬ InP E := by
+  induction hE with
+  | basic t ht => exact not_inP_gens ht
+  | empty => exact not_inP_empty
+  | compl _ ih => exact fun h => ih (inP_of_inP_compl h)
+  | @iUnion f hd hf ih =>
+    rintro ⟨P, hP, hZ | hZ⟩
+    · have hA : ∀ i x, OnP P x → Acy x → x ∉ f i := fun i x hx ha hxi =>
+        not_cyc_and_acy x ⟨(hZ x hx (acy_dist ha)).mp (mem_iUnion.mpr ⟨i, hxi⟩), ha⟩
+      obtain ⟨Q, hQP, hunb, hbet⟩ := thin P hP
+      obtain ⟨u₀, hu₀, -⟩ := hunb 0
+      obtain ⟨u₁, hu₁, k₁⟩ := hunb u₀
+      obtain ⟨u₂, hu₂, k₂⟩ := hunb u₁
+      set p₀ : Ω := ![u₀, u₁, u₂]
+      have hp₀Q : OnP Q p₀ := ⟨hu₀, hu₁, hu₂⟩
+      have hp₀C : Cyc p₀ := by simp only [p₀, Cyc, v0, v1, v2]; omega
+      obtain ⟨k, hk⟩ := mem_iUnion.mp ((hZ p₀ ⟨hQP hu₀, hQP hu₁, hQP hu₂⟩
+        (cyc_dist hp₀C)).mpr hp₀C)
+      apply ih k
+      refine ⟨Q, infinite_of_unb hunb, Or.inl fun x hx hd => ⟨fun hxk => ?_, fun hxc => ?_⟩⟩
+      · rcases dist_cyc_or_acy hd with hc | ha
+        · exact hc
+        · exact absurd hxk (hA k x ⟨hQP hx.1, hQP hx.2.1, hQP hx.2.2⟩ ha)
+      · have := constP_cyc (box_of_mem (hf k)) (hA k) hQP hbet hunb hx hxc hp₀Q hp₀C
+        simp only [cnt, hk] at this
+        by_contra hn; simp [hn] at this
+    · have hC : ∀ i x, OnP P x → Cyc x → x ∉ f i := fun i x hx hc hxi =>
+        not_cyc_and_acy x ⟨hc, (hZ x hx (cyc_dist hc)).mp (mem_iUnion.mpr ⟨i, hxi⟩)⟩
+      obtain ⟨Q, hQP, hunb, hbet⟩ := thin P hP
+      obtain ⟨u₀, hu₀, -⟩ := hunb 0
+      obtain ⟨u₁, hu₁, k₁⟩ := hunb u₀
+      obtain ⟨u₂, hu₂, k₂⟩ := hunb u₁
+      set p₀ : Ω := ![u₀, u₂, u₁]
+      have hp₀Q : OnP Q p₀ := ⟨hu₀, hu₂, hu₁⟩
+      have hp₀A : Acy p₀ := by simp only [p₀, Acy, v0, v1, v2]; omega
+      obtain ⟨k, hk⟩ := mem_iUnion.mp ((hZ p₀ ⟨hQP hu₀, hQP hu₂, hQP hu₁⟩
+        (acy_dist hp₀A)).mpr hp₀A)
+      apply ih k
+      refine ⟨Q, infinite_of_unb hunb, Or.inr fun x hx hd => ⟨fun hxk => ?_, fun hxa => ?_⟩⟩
+      · rcases dist_cyc_or_acy hd with hc | ha
+        · exact absurd hxk (hC k x ⟨hQP hx.1, hQP hx.2.1, hQP hx.2.2⟩ hc)
+        · exact ha
+      · have := constP_acy (box_of_mem (hf k)) (hC k) hQP hbet hunb hx hxa hp₀Q hp₀A
+        simp only [cnt, hk] at this
+        by_contra hn; simp [hn] at this
+
 end TriangleCyclic
 
 #print axioms TriangleCyclic.estar_not_mem
 #print axioms TriangleCyclic.not_inF_of_mem
+#print axioms TriangleCyclic.not_inP_of_mem

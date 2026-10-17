@@ -585,8 +585,56 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
         Classical.choice, Quot.sound.
       - The carrier is `DynkinSystem.generate` of the three pair windows,
         the same construction as `WindowGluing.glued`.
-    - **Prior art: unchecked.** Run the hostile λ-system / sums-of-σ-algebras
-      pass before calling this new.
+    - **Prior art (scout, 2026-10-17): NOT FOUND; coverage partial.**
+      - Closest work:
+        - Navara–Pták 1983 / Navara 1984: the finite cyclic shadow and the
+          two-of-three sets, with no infinite exclusion.
+        - Fishburn–Lagarias–Reeds–Shepp 1990 and Kemperman 1990–91: additive
+          sets, with no λ-closure question.
+        - Keleti–Preiss 2000: the same invariant-plus-induction template on a
+          different object, so only the method is folklore-adjacent.
+      - Not covered:
+        - Pták 1987 is a scan and was unreadable.
+        - Kellerer 1964 was a stub.
+        - The full texts of FLRS and Kemperman were not opened.
+        - Ridge functions, Kolmogorov superposition, Sternfeld,
+          Marshall–O'Farrell, Hindman–Strauss and MathOverflow were not
+          searched.
+  - **`gate.triangle_lambda2_agreement` FIRED (b), 2026-10-17 ⟦HAND + check⟧.**
+    - Witness: F_S = E\* + [x₀∈S]([x₁<x₀] − [x₂<x₀]).
+      - It is a sum of window functions, and 0/1-valued: 40³ points checked,
+        0 failures.
+      - On slices with x₀ ∈ S it is {x₁<x₂}; elsewhere it is E\*.
+      - For S p-small, Λ(F_S) = 2, yet it differs from E\* on the unbounded
+        non-band region {x₀ ∈ S}. Script: `triangle_lambda2_counterexample_check.py`.
+    - The slice computation behind it: on slice x₀=a, E\* is [s<t] on the
+      blocks L×L and H×H (L=[0,a), H=[a,∞)), 0 on L×H and 1 on H×L. The
+      additive change [s<a] − [t<a] swaps the off-diagonal blocks.
+  - **Stronger route: Λ is two-valued on the triangle carrier ⟦HAND, unverified⟧.**
+    - (i) **Representation.** Λ = W₀₁₂ + W₁₂₀ − W₁₀₂ on all of V. Each
+      W_π(f_k) is u_k or its reverse, according to whether π puts i before j.
+      Rotating the representation gives two more.
+      - So Λ = 2 forces the full cyclic profile, and Λ = −1 the full
+        anticyclic profile.
+    - (ii) **Finding a homogeneous set.** Suppose a 0/1 set F has a bad
+      profile. The six order-cell conditions intersect to a set
+      Y ∈ p^{⊗3}. The ultrafilter proof of Ramsey's theorem works for every
+      non-principal p and gives an infinite P with [P]³ ⊆ Y. On that P, F
+      agrees with C (or with A) at every distinct-coordinate point of P³.
+    - (iii) **The exclusion family.** Let
+      𝔉_∞ = {Z : ∃ infinite P, Z agrees with C, or with A, on the
+      distinct points of P³}.
+      - Thin P to the even-indexed elements P′, so that a P-element lies
+        between any two P′-elements.
+      - The lift lemma then runs inside P′ (corner values chosen in P).
+      - The least-stage induction goes through as before.
+      - No window event, and not ∅, is in 𝔉_∞.
+    - **Consequence: no 0/1 set in D has Λ ∉ {0,1}, for any non-principal p.**
+      So s\* = Λ is a pointless state on the triangle carrier, which would
+      fire gate (a): pointless ⟺ not a forest.
+    - **This needs fresh-context verification and Lean before it is
+      claimed.**
+
   - Keleti–Preiss (shelf): their method is a σ-ideal normal form. On discrete ℕ
     any σ-ideal containing the bounded slabs is trivial, so it does not
     transfer directly; it would need a continuum model.

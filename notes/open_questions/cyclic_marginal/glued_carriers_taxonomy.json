@@ -75,7 +75,7 @@
     {
       "id": "thm.triangle_estar_not_built",
       "name": "the cyclic set is not in the triangle carrier over N",
-      "status": "proved, LEAN-CHECKED 2026-10-17 (formalization/staging/TriangleCyclic.lean: estar_not_mem, not_inF_of_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound); PRIOR ART UNCHECKED (lambda-systems / sums of sigma-algebras)",
+      "status": "proved, LEAN-CHECKED 2026-10-17 (formalization/staging/TriangleCyclic.lean: estar_not_mem, not_inF_of_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound); PRIOR ART: scout 2026-10-17 NOT FOUND (partial coverage; method folklore-adjacent via Keleti-Preiss)",
       "lean": "formalization/staging/TriangleCyclic.lean: TriangleCyclic.estar_not_mem, TriangleCyclic.not_inF_of_mem (D3 = DynkinSystem.generate of the three pair-window sigma-algebras on Fin 3 -> N, same construction as WindowGluing.glued)",
       "one_line": "Let B_n = {min pairwise gap <= n} and F = {Z: Z delta E* or Z delta E*^c lies in some B_n}. No member of F is in the Dynkin closure D over N; in particular E* is not in D. Lift lemma: if Z delta E* is in B_n and f has zero box interaction with f = 0 off Z, then f is constant on strict-cyclic points with gaps >= 2n+2 (box lifting the minimum far above the maximum; the other six corners are generic anticyclic). Least-stage argument: a complement stays in F; in a countable disjoint union exactly one piece takes the generic part and is an earlier member of F.",
       "scope": "E* family only (finite-band perturbations). Does NOT fire gate.triangle: sets with cyclic ultrafilter profile that differ from E* on a non-band p-small region are not covered.",
@@ -393,6 +393,7 @@
         {"branch": "(b) no", "then": "the counterexample is the next membership candidate; test it against the lift lemma or construct it in D (s* fails)"}
       ],
       "pre_registered": "2026-10-17, before running",
+      "fired": {"branch": "(b)", "date": "2026-10-17", "result": "Witness F_S = E* + [x0 in S]([x1<x0]-[x2<x0]) (0/1, sum of window functions; {x1<x2} on slices x0 in S): Lambda = 2 for p-small S, deviates on the unbounded non-band region. Route changed: the homogeneous-set family F_inf (infinite P, agree with C or A on distinct points of P^3) catches every bad-profile set via the ultrafilter proof of Ramsey (any non-principal p); HAND, unverified - see hub."},
       "affects": {"id": "gate.triangle", "effect": "decides the triangle"},
       "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, Theorem E* is not in the carrier, Scope)"
     },

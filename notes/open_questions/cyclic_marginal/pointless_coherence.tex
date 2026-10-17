@@ -474,7 +474,7 @@ balance-rule boxes pin its pattern there. So the forced answers are always 0 or
 (Theorem~\ref{thm:travel}): \emph{a board carries pointless answers exactly when
 its window graph is not a tree} (not a forest). This is for two-slot windows
 and infinitely many values. With finitely many values every consistent pattern
-is actual (Lemma~\ref{lem:finite}), and a window that sees all three landings at once makes the triangle
+is actual (Proposition~\ref{prop:sigma}), and a window that sees all three landings at once makes the triangle
 an ordinary board.
 
 \paragraph{What the theory must settle.}
@@ -642,18 +642,6 @@ verification folder):
     pendant $98$ vs $94$; 4-cycle with chord $148$ vs $132$.
 \end{itemize}
 Compare Greechie's loop lemma (Kalmbach 1983, \S4 L9).
-\end{proof}
-
-\begin{lemma}[finite alphabets]\label{lem:finite}\st{hand; all states enumerated at two values}
-If the alphabet is finite, every state on a glued carrier is a point.
-\end{lemma}
-\begin{proof}
-On each window the state is an ultrafilter on a finite set, so it sits at one
-value pair. Neighbouring windows agree on their shared slot, so the pairs fit
-together into one point $\omega$. The sets on which the state and $\delta_\omega$
-agree contain the window questions and are closed under ``not'' and under
-disjoint unions, which over a finite $\Omega$ are finite. So they make up the
-whole carrier.
 \end{proof}
 
 \begin{lemma}[gluing]\label{lem:amalg}\st{hand; very likely folklore}

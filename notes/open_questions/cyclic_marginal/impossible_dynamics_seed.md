@@ -176,3 +176,61 @@ work on P1 or P2.
 **Reading for the theory.** The owned pieces split the problem in two: the cohomology and coboundary
 side, and the means side, where means are probability-valued. The candidate seam is the two-valued,
 non-Boolean, invariant combination.
+
+## Session 2026-10-17: probes run ⟦HAND — unverified⟧
+
+**L∞ (locality survives infinitely many slots).** The proof of `thm:star` never uses finiteness:
+- *Rigidity:* window questions on windows that share no coordinate meet.
+- *Pairwise-meeting edges:* in a triangle-free graph they share a vertex, for any number of edges.
+- *Slicing* and *regrouping* (a window σ-algebra is all subsets of X²).
+
+So on any triangle-free window graph, D = disjoint unions of window questions on a star. When
+degrees are finite (the line, the circle-rotation graph), every state is the finite sum of its
+window values. Window values therefore determine the state, and invariance of the window family
+gives invariance of the state.
+
+**gate.dynamics_frieze_periodic fired (a).**
+- With the staircase windows (p⊗p, flights up) the state on the ℤ-line is unique. It equals the
+  ring pullback for every L for which the ring state exists.
+- General invariant states on the line correspond to constant consistent window families u (equal
+  marginals). On a forest, every such family extends (by compactness, gluing finite paths).
+- Such a state factors through ring L iff u extends on ring L. That is the theory's open
+  "extension on triangle-free graphs" question, not a new one.
+
+**Degeneracy lemma (this is what changes the picture).**
+- Let a group act on the slots, with an invariant window family u on the orbit windows {x, gx}.
+  An *invariant* ideal point fits the state iff u(diagonal) = 1, that is, iff u lives on equal
+  heights.
+- Proof:
+  - An invariant ultrafilter cannot contain the invariant set of non-fixed points, on which the
+    action has no fixed point (Katětov's partition). So it lives on the fixed points, the
+    orbit-constant height functions, which forces u(diagonal) = 1.
+  - Conversely, if u = (a ↦ (a,a))₊q, then the constants, distributed by q, give an invariant
+    ultrafilter. Locality makes it fit the whole state.
+- **Consequence:** "invariant state with no invariant ideal point" holds for *every* non-diagonal
+  family. That includes *possible* figures: u = (a ↦ (a, a+1))₊q, where the real building
+  h_n = n exists. Invariance only detects *motion*, i.e. symmetry breaking, not impossibility.
+
+**gate.dynamics_circle fired (a), with its "then" defeated.**
+- On the irrational rotation the window graph is a union of ℤ-lines. So a rotation-invariant state
+  exists, and is unique given the windows. By the degeneracy lemma it has no invariant ideal point.
+- That is outcome (a) as stated. But the branch's reading, "a genuinely ergodic impossible
+  figure", does not follow, since the same holds for possible figures.
+
+**What the session says about the theory.**
+- *The twist belongs to a loop in the window graph, not to a group acting on it.* A free cover
+  (line over ring, circle orbits) is a forest. On a forest every consistent family extends, so
+  the cover forgets the loop. The loop's twist shows up only downstairs (rings, triangle).
+- What dynamics adds beyond motion is **regularity**: H4 (no *measurable* height on the irrational
+  rotation). That is the coboundary question, owned by Anosov 1973, Gottschalk–Hedlund and
+  Schmidt.
+- The seam guess "invariant two-valued states on glued carriers" is real but degenerate. Its
+  criterion is u(diagonal) ≠ 1.
+
+**Recommendation (user's call).** PARK `conj.impossible_dynamics`.
+- Bank: L∞, the degeneracy lemma, and the slogan "the twist lives in the loop, not the action".
+- The guardrail is honoured: no standing check flipped toward a live question, and the
+  regularity version is owned.
+- Re-open only with a probe in which regularity is *finitely additive*, for example invariant
+  charges on the glued carrier with a Borel or measurable condition. That is not owned as far as
+  the scout saw. Bhaskara Rao's invariant charges are unread.

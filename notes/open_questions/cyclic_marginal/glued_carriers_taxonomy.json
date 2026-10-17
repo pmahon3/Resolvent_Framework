@@ -16,8 +16,8 @@
     },
     "headline": {
       "objects": 6,
-      "theorems": 14,
-      "conjectures": 10,
+      "theorems": 15,
+      "conjectures": 11,
       "probes": 1,
       "examples": 3,
       "owned_regions": 10,
@@ -236,6 +236,18 @@
       "one_line": "Every buildable question has indicator f0+f1+f2 (window functions). On a triangle (and cycles) zero-sum triples are coboundaries + constants, so Lambda(f)=sum_k lim_{u_k} f_k is well defined for any compatible family; any extending state equals Lambda on finitely built questions. A family extends only if Lambda is {0,1}-valued there.",
       "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, correction)",
       "scope": "triangle and cycles; finitely built questions only"
+    },
+    {
+      "id": "obs.cut_the_loop",
+      "name": "cut-the-loop decomposition: Lambda = ideal building + one-window twist",
+      "status": "proved-hand",
+      "one_line": "For any window k: Lambda(E) = W^(k)(E) + delta_k(E), W^(k) the ultrafilter gluing the other windows (cycle cut at k), delta_k(E) = commutator of iterated p-limits of E's window-k part (gauge-invariant, linear). So Lambda is 0/1 on any E twist-free on some window; failure needs same-sign twist on all windows. Twist = non-commutativity of p(x)p, made precise; W^(j)-W^(k) = delta_k - delta_j (cocycle).",
+      "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, cut-the-loop)",
+      "uses": [
+        "obs.forced_functional",
+        "thm.amalgamation"
+      ],
+      "scope": "triangle and rings; finitely built questions"
     }
   ],
   "conjectures": [
@@ -268,7 +280,7 @@
       "id": "conj.cohomological_classification",
       "name": "target structure theorem",
       "status": "target",
-      "one_line": "Pointless states correspond to non-flat compatible window families passing the extension test, with non-flatness measured by a first-cohomology-like invariant of the window graph, coefficients in ultrafilter orders (winding). Target, not a claim.",
+      "one_line": "Pointless states correspond to non-flat compatible window families passing the extension test, with non-flatness measured by a first-cohomology-like invariant of the window graph, coefficients in ultrafilter orders (winding). Target, not a claim. FIRST CONCRETE FORM 2026-10-16: twist delta_k = commutator of iterated ultrafilter limits on window k; moving the cut changes W by delta differences (cocycle) - see obs.cut_the_loop.",
       "detail": "self-contained; recorded 2026-10-16 from session discussion"
     },
     {
@@ -318,6 +330,16 @@
       "status": "open (evidence on examples)",
       "one_line": "Nerve of the true window questions: die = K4 graph (Helly fails at 3), staircase L = boundary of a simplex S^{L-2} (fails at L), triangle = S^1. Reads twist consistently but does NOT decide extension. Transfer candidates: topological Helly (Kalai-Meshulam Leray numbers; Colin de Verdiere-Ginot-Goaoc). Compare with the Abramsky-Mansfield-Barbosa Cech obstruction before claiming.",
       "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, downgrade note)"
+    },
+    {
+      "id": "conj.triangle_twist_lemma",
+      "name": "triangle twist lemma",
+      "status": "open (hunt evidence: none at T<=4)",
+      "one_line": "No finitely built triangle question is twisted with the same sign on all three windows. Implies Lambda two-valued on finitely built questions (the necessary condition for a pointless triangle state).",
+      "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, cut-the-loop)",
+      "uses": [
+        "obs.cut_the_loop"
+      ]
     }
   ],
   "probes": [

@@ -413,6 +413,27 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
     T=3 (496,150 / 246,608) or T=4 (493,038 / 244,116). It searches for two
     disjoint true questions, which is exactly a failure of Λ.
   - Status: open, with the necessary condition holding at every level tested.
+- **Cut-the-loop decomposition (2026-10-16) ⟦HAND⟧.** For window k, let
+  W⁽ᵏ⁾ be the ultrafilter gluing the other windows along the path left after
+  cutting k (iterated p⊗p). On window k it equals u_kᵀ. Then for every finitely
+  built E with indicator f₀+f₁+f₂:
+  - **Λ(E) = W⁽ᵏ⁾(E) + δ_k(E)**, where
+    δ_k(E) = lim_a lim_b f_k − lim_b lim_a f_k, the commutator of iterated
+    p-limits on window k;
+  - δ_k is gauge-invariant (single-coordinate terms have order-independent
+    limits) and linear.
+- **Consequences:**
+  - Λ(E) ∈ {0,1} whenever E is twist-free (δ_k = 0) on some window.
+  - A failure needs E twisted with the same sign on all three windows at once.
+  - Example: C₀ = {x₀<x₁} has δ₀ = 1 and δ₁ = δ₂ = 0.
+- **Remaining lemma:** no finitely built triangle question is twisted
+  same-sign on all three windows.
+- **Cocycle reading:** W⁽ʲ⁾ − W⁽ᵏ⁾ = δ_k − δ_j. This is the first concrete
+  form of the "cohomological classification" target.
+- **On rings with L ≥ 4:** every question lives on two adjacent windows, so
+  cutting at an untouched window gives δ = 0 and Λ = W⁽ᵏ⁾ ∈ {0,1} question by
+  question. This is a candidate conceptual proof of the Lean `mu_cases`
+  two-valuedness, still unchecked against the Lean proof.
 - A finite-alphabet test of the full carrier would be uninformative: there,
   every two-valued state is a point.
 

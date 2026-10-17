@@ -42,8 +42,8 @@
 the contradiction hides in a question nobody can ask.}
 
 \medskip
-\noindent This note follows that sentence through two stories, a sandwich shop
-and a dinner with numbered coat-check tickets, and out the other side into a theory. The puzzles come first, because the theory is
+\noindent This note follows that sentence through a sandwich shop and
+Penrose's impossible staircase, and out the other side into a theory. The puzzles come first, because the theory is
 only a careful account of what they show. Precise statements sit in short
 \emph{Precisely} asides and in the appendix, where proofs and status labels
 live (\st{Lean} machine-checked, \st{hand} my proof, \st{cited}
@@ -115,182 +115,176 @@ Pt\'ak, \emph{\v{C}as.\ p\v{e}st.\ mat.}\ 108 (1983): six possibilities and four
 yes/no questions, each possibility answering ``yes'' to exactly two.}
 
 %======================================================================
-\section{The coat check}\label{sec:windows}
+\section{The impossible staircase}\label{sec:windows}
 
-Now a story with infinitely many possibilities. Guests arrive at a dinner, and
-each is handed a numbered coat-check ticket, numbered in order of arrival:
-$1,2,3,\dots$, with no upper limit. Nobody announces the numbers. Instead,
-\emph{each pair of neighbours compares tickets} and fills in one card about their
-two tickets, and the cards are all anyone sees. A card answers yes-or-no
-questions about its two tickets: ``did the second person arrive later?'', ``are
-the tickets 30 and 70?''. It also answers the opposite of any question, and
-questions that lump possibilities together, even endlessly many of them: ``is
-Ann's number even?'' lumps together 2, 4, 6, and so on forever. The \emph{host},
-who never sees a ticket, checks only that the cards hang together:
-\begin{itemize}[nosep]
-  \item when a question is split into a few non-overlapping parts, a ``yes'' to
-    the whole means a ``yes'' to exactly one part, and a ``no'' means no to all
-    of them;
-  \item two cards that mention the same guest say the same things about that
-    guest's ticket.
-\end{itemize}
-
-Start with guests standing in a queue at the door, Ann, Ben, Cat and Dan, each
-neighbouring pair filling a card: Ann--Ben, Ben--Cat, Cat--Dan. Every card says:
-\emph{the one further back arrived later.}
-\begin{center}
-\begin{tikzpicture}[x=1.7cm]
-\foreach \i in {0,1,2} \draw[win] (\i,0)--(\i+1,0);
-\foreach \i/\n in {0/Ann,1/Ben,2/Cat,3/Dan} \node[var,minimum size=9mm,font=\scriptsize] (n\i) at (\i,0) {\n};
-\foreach \i/\j in {0/1,1/2,2/3} \draw[up] (n\i) -- node[above=3pt,font=\scriptsize]{later} (n\j);
-\end{tikzpicture}
-\end{center}
-\noindent The plain way to fill in the cards is from real tickets, say
-$10,20,30,40$, reading every answer off them. Those cards are fitted by an
-actual record of who arrived when.
-
-\bp{\textbf{Here the story leaves reality, on purpose.} Everything so far could
-happen at a real dinner. What follows cannot: it is a thought experiment about
-how far answers alone can go. No real ticket behaves like the one described next.
-The mathematics needs exactly this step, so the story takes it openly instead of
-hiding it.}
-
-There is a stranger way, which matters for everything that follows. A card can
-describe a ticket as coming from \emph{endlessly far down the roll}. ``Is it
-number 5?'' No. ``Number 500?'' No. No to every particular number. ``Further along
-than any number you name?'' Yes. ``Is the number even?'' A definite yes or no,
-fixed once and for all. That is a complete, consistent way of answering every
-question about one ticket. Call it an \emph{ideal ticket}.
-
-\precisely{an ideal ticket is a non-principal ultrafilter $p$ on $\bbN$. Its
-existence needs a little of the axiom of choice.}
-
-A card can describe its \emph{pair} this way too: imagine the two guests arriving
-in turn from endlessly far down the roll, the second one \emph{later}. ``Did the
-second guest arrive later?'' Yes, since whatever the first number is, almost
-every later number beats it. Along a queue this always fits together. One
-idealised record of the whole queue, ``Ann arrives, then Ben later, then Cat,
-then Dan'', answers every question about all four tickets at once, and each card
-is just what it says about two of them. Call such a record of everyone together
-an \emph{ideal record}. A real record is an ideal record too, the trivial one.
-
-\precisely{``arrive in turn, the second later'' is the ordered product
-$p\otimes p$: a question $A$ about $(x_0,x_1)$ gets ``yes'' when $p$ says yes to
-the set of $x_0$ for which $p$ says yes to $\{x_1:(x_0,x_1)\in A\}$. Here $x_k$
-is guest $k$'s ticket. An ideal record is an ultrafilter on the whole space of
-possibilities, an \emph{ideal point}; a real record is a \emph{point}.}
-
-In a queue, then, consistent cards always come from some record of who arrived
-when, real or at worst ideal. That turns out to be a theorem, not an accident
-(\S\ref{sec:why}).
-
-%======================================================================
-\section{Guests around a table: the staircase}\label{sec:stair}
-
-Now seat the four guests around a table, so that Dan and Ann are neighbours too
-and fill in a fourth card. Every card says: \emph{the person on the right arrived
-later.}
+Penrose's staircase is a drawing of four flights of stairs joined in a loop. Each
+flight climbs to the next landing, and after four flights you are back where you
+started.
 \begin{center}
 \begin{tikzpicture}
 \foreach \k/\a in {0/90,1/0,2/-90,3/180} \coordinate (r\k) at (\a:1.25);
 \draw[win] (r0)--(r1); \draw[win] (r1)--(r2); \draw[win] (r2)--(r3); \draw[win] (r3)--(r0);
-\foreach \k/\n in {0/Ann,1/Ben,2/Cat,3/Dan} \node[var,minimum size=9mm,font=\scriptsize] (q\k) at (r\k) {\n};
-\draw[up] (q0)--(q1); \draw[up] (q1)--(q2); \draw[up] (q2)--(q3); \draw[up] (q3)--(q0);
+\foreach \k in {0,...,3} \node[var] (q\k) at (r\k) {$x_\k$};
+\draw[up] (q0)--node[above right=-1pt,font=\scriptsize]{up}(q1); \draw[up] (q1)--node[below right=-1pt,font=\scriptsize]{up}(q2);
+\draw[up] (q2)--node[below left=-1pt,font=\scriptsize]{up}(q3); \draw[up] (q3)--node[above left=-1pt,font=\scriptsize]{up}(q0);
 \end{tikzpicture}
 \end{center}
-\noindent No real tickets can do this. Try a few against the cards:
+\noindent The drawing has everything the theory is about:
+\begin{itemize}[nosep]
+  \item \emph{every local view is coherent:} any one flight, looked at alone, is
+    a perfectly good picture of real stairs;
+  \item \emph{neighbouring views agree:} where two flights meet, they show the
+    same landing;
+  \item \emph{there is no whole:} no building is what the drawing depicts;
+  \item \emph{the contradiction is only in the whole:} no single flight shows
+    it. You see it only by following the entire loop.
+\end{itemize}
+
+To make this mathematics, give the landings heights $x_0,x_1,x_2,x_3$, each a
+whole number. A \emph{view} is one flight. It shows two neighbouring landings,
+and it answers any yes-or-no question about their two heights: ``is the next
+landing higher?'', ``are the heights 30 and 70?''. It also answers the opposite
+of any question, and questions that lump possibilities together, even endlessly
+many: ``is $x_0$ even?''. Answers are \emph{consistent} if they hang together:
+\begin{itemize}[nosep]
+  \item when a question is split into a few non-overlapping parts, a ``yes'' to
+    the whole means a ``yes'' to exactly one part, and a ``no'' means no to all
+    of them;
+  \item two flights that share a landing say the same things about it.
+\end{itemize}
+Every flight in Penrose's drawing says \emph{the next landing is higher}.
+
+\paragraph{A straight staircase is always buildable.} Unbend the loop into a
+straight run of three flights, $x_0$ to $x_1$ to $x_2$ to $x_3$, each going
+up. Real heights $10,20,30,40$ satisfy every view: a real building.
+
+\paragraph{The loop is not.} Try real heights against the four views:
 \begin{center}\small
 \begin{tabular}{l | c c c c | l}
-tickets (A, B, C, D) & B after A? & C after B? & D after C? & A after D? & fits?\\\hline
-\textbf{the cards} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \\\hline
+heights $(x_0,x_1,x_2,x_3)$ & $x_1$ higher? & $x_2$ higher? & $x_3$ higher? & $x_0$ higher? & fits?\\\hline
+\textbf{the drawing} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \\\hline
 $10,20,30,40$ & yes & yes & yes & no & $\times$\\
 $50,90,20,70$ & yes & no & yes & no & $\times$\\
 $30,30,30,30$ & no & no & no & no & $\times$\\
 \end{tabular}
 \end{center}
-Somebody at the table arrived first, so every real record gets at least one
-``no''. It is a Penrose staircase, every step up and back to the start.
+Going round, the heights must come back down somewhere. With real heights the
+views cannot even agree with each other: fixing actual heights on each flight
+forces one global set of heights, and that set fails. So with real numbers the
+drawing is not merely unbuildable; its views are inconsistent.
 
-Now let every card use ideal tickets, imagining its two guests arriving in turn,
-the one on the right later. Every card genuinely says ``later''. On the Dan--Ann
-card it is Ann who arrives later. The two cards that mention Ann agree about her:
-both describe her ticket by the same ideal rule, so ``is Ann's number even?'' gets
-the same answer on either card.
+%======================================================================
+\section{Heights beyond every number}\label{sec:stair}
 
-The host now checks \emph{everything}: every question that can be built from the
-cards, including combined questions spanning neighbouring cards. Every check
-passes \st{Lean}. And the question that would expose the staircase, ``did Ann
-arrive before Ben, who arrived before Cat?'', is not among them. No card covers
-three guests, so it cannot be built from them, just as the sandwich form had no
-line for combinations.
+The drawing becomes a genuinely consistent set of views once the heights are
+allowed to be \emph{ideal}. This step has no everyday counterpart: an ideal
+height is not a height anything has. It is a complete, consistent rule for
+answering every question about one number as if that number lay beyond every
+number you could name.
+\begin{itemize}[nosep]
+  \item ``Is $x_0=5$?'' No. ``Is $x_0=500$?'' No. No to every particular number.
+  \item ``Is $x_0$ bigger than any number you name?'' Yes.
+  \item ``Is $x_0$ even?'' A definite yes or no, fixed once and for all.
+\end{itemize}
+
+\precisely{an ideal height is a non-principal ultrafilter $p$ on $\bbN$. Its
+existence needs a little of the axiom of choice.}
+
+A flight answers questions about its two landings by taking both from beyond
+every number, the upper one \emph{further out} than the lower. ``Is the next
+landing higher?'' Yes: whatever the lower height is, almost every further-out
+choice beats it.
+
+\precisely{``the upper one further out'' is the ordered product $p\otimes p$: a
+question $A$ about $(x_0,x_1)$ gets ``yes'' when $p$ says yes to the set of $x_0$
+for which $p$ says yes to $\{x_1:(x_0,x_1)\in A\}$. Its two marginals are both
+$p$, and it is not symmetric.}
+
+\paragraph{On a straight staircase this always fits together.} One ideal
+description of the whole run, ``$x_0$ beyond every number, $x_1$ further out,
+then $x_2$, then $x_3$'', answers every question about all four landings at
+once. Each flight's answers are just its answers about two of them. Call a
+description of all the landings together an \emph{ideal building}. A real
+building is an ideal building too, the trivial one.
+
+\precisely{an ideal building is an ultrafilter on the whole space of
+possibilities, an \emph{ideal point}; a real building is a \emph{point}.}
+
+\paragraph{On the loop, every check passes and still nothing is built.} Let
+every flight of Penrose's loop use ideal heights, upper landing further out.
+Every flight genuinely says ``up''. Two flights that share a landing agree about
+it, since both describe it by the same ideal rule $p$. The checks:
 \begin{center}\small
 \begin{tabular}{l | l | c}
-check & what the cards say & passes?\\\hline
-each card, alone & ``right arrived later'': yes; ``ticket $n$'': no for every $n$ & \checkmark\\
-Ann, on the Dan--Ann and Ann--Ben cards & the same answers (both by $p$) & \checkmark\\
-every buildable question and its opposite & exactly one yes \st{Lean} & \checkmark\\
-some real record fits & no: see the table above & $\times$\\
-some ideal record fits & no: it would answer the forbidden question & $\times$\\
+check & what the views say & passes?\\\hline
+each flight, alone & ``next landing higher'': yes; ``height $n$'': no for every $n$ & \checkmark\\
+landing $x_0$, seen from both of its flights & the same answers (both by $p$) & \checkmark\\
+every question built from the views, and its opposite & exactly one yes \st{Lean} & \checkmark\\
+some real building fits & no: see the table in \S\ref{sec:windows} & $\times$\\
+some ideal building fits & no: see below & $\times$\\
 \end{tabular}
 \end{center}
+The third row is the theorem, checked in Lean: \emph{every} question that can be
+built from the views, including combined questions spanning neighbouring
+flights, gets consistent answers. And the question that would expose the loop,
+``is $x_0$ below $x_1$ below $x_2$?'', is not among them. No view shows three
+landings, just as no patch of the drawing shows the whole loop.
 
-Why can there be no ideal record? An ideal record answers every question about
-all four tickets, the forbidden one included. It would have to say Ann before Ben
-before Cat before Dan before Ann.
+There can be no ideal building. An ideal building answers every question about
+all four landings, the forbidden one included. It would have to say
+$x_0<x_1<x_2<x_3<x_0$.
 
-So the cards are consistent and nothing fits them: no real record, and not even
-an ideal one. Call such answers \textbf{pointless}. Each card's two tickets are
-ideal; the table as a whole has no record at all. Each card has its own sense of
-``later'', and the table closes those directions on themselves.
+So the views are consistent and nothing fits them: no real building, and not
+even an ideal one. Call such answers \textbf{pointless}. Each flight's landings
+are ideal; the loop as a whole is no building at all.
 
 The sandwich order was pointless too, but trivially so, because the menu was
-finite. The table is pointless and infinite, and that is what makes it sharp.
+finite. The staircase is pointless and infinite, and that is what makes it sharp.
 
 %======================================================================
 \section{What infinity demands}\label{sec:sigma}
 
-Then the \emph{auditor} arrives, the voice of the real dinner: real tickets have
-real numbers. ``What is Ann's ticket number?'' The auditor reads out the whole
-roll, $1,2,3,\dots$, and asks for a yes beside the right number. The cards say
-``no'' to every number on the list, and ``yes'' to ``Ann holds a ticket''.
+Ask the staircase ``what is the height of $x_0$?'', and split the question into
+its endlessly many options: $0,1,2,\dots$. Every option gets ``no''. The whole
+question, ``$x_0$ has some height'', gets ``yes''.
 \begin{center}
 \begin{tikzpicture}[x=0.85cm]
-\draw[thick,-{Stealth}] (0.7,0)--(9.6,0) node[right,font=\scriptsize]{$\infty$};
-\foreach \n in {1,...,8} {\draw (\n,0.08)--(\n,-0.08); \node[below,font=\scriptsize] at (\n,-0.08) {\n};
+\draw[thick,-{Stealth}] (-0.3,0)--(8.6,0) node[right,font=\scriptsize]{$\infty$};
+\foreach \n in {0,...,7} {\draw (\n,0.08)--(\n,-0.08); \node[below,font=\scriptsize] at (\n,-0.08) {\n};
   \node[above,font=\scriptsize,red!70!black] at (\n,0.08) {no};}
-\draw[decorate,decoration={brace,amplitude=4pt},thick] (1,0.55)--(9.4,0.55)
-  node[midway,above=4pt,font=\scriptsize,blue!60!black]{``Ann holds a ticket'': yes};
+\draw[decorate,decoration={brace,amplitude=4pt},thick] (0,0.55)--(8.4,0.55)
+  node[midway,above=4pt,font=\scriptsize,blue!60!black]{``$x_0$ has some height'': yes};
 \end{tikzpicture}
 \end{center}
-\noindent The host's rule only covers splits into a few parts, and those are
-fine: ``ticket at most 100?'' no, ``above 100?'' yes. The auditor's rule is
-stronger: the ``yes''es must add up across \emph{endlessly} many options too.
-This is $\sigma$-additivity, the usual rule of probability theory. Under it some
-single number must get the yes. Every guest is pinned to a real ticket, and then
-somebody at the table arrived first.
+\noindent Consistency only covers splits into a few parts, and those are fine:
+``at most 100?'' no, ``above 100?'' yes. Now demand more: the ``yes''es must add
+up across \emph{endlessly} many options too. This is $\sigma$-additivity, the
+usual rule of probability theory. Under it some single height must get the yes.
+Every landing is pinned to a real height, and real heights cannot climb around a
+loop.
 
 On these boards, demanding that answers add up over infinitely many options is
-the same as demanding that they come from a real record
-(Proposition~\ref{prop:sigma}). The auditor's demand for a completed answer is
-exactly what makes the table's cards impossible.
+the same as demanding that they come from a real building
+(Proposition~\ref{prop:sigma}). The demand for a completed answer is exactly
+what makes the staircase impossible.
 
 
 %======================================================================
 \section{Why loops: the first ideas of the theory}\label{sec:why}
 
-The two stories show the whole mechanism. Separating its parts gives the
+The sandwich shop and the staircase show the whole mechanism. Separating its parts gives the
 theory's first ideas.
-From here on the story's words give way to general ones:
+From here on the staircase's words give way to general ones:
 
 \begin{center}\small
 \begin{tabular}{l l}
-\textbf{story} & \textbf{general word}\\\hline
-a guest's ticket & a \emph{slot}\\
-a pair of neighbours (their card) & a \emph{window}\\
-a card's way of answering & a \emph{recipe}\\
-a real record of who arrived when & a \emph{point}\\
-an ideal record & an \emph{ideal point}\\
-who sits next to whom & the \emph{window graph}\\
+\textbf{staircase} & \textbf{general word}\\\hline
+a landing's height & a \emph{slot}\\
+a flight (one view) & a \emph{window}\\
+a flight's way of answering & a \emph{recipe}\\
+a real building & a \emph{point}\\
+an ideal building & an \emph{ideal point}\\
+which flights join which landings & the \emph{window graph}\\
 \end{tabular}
 \end{center}
 
@@ -362,10 +356,10 @@ and only finite adding.
 %======================================================================
 \section{The open edge: the triangle}\label{sec:triangle}
 
-Now seat only \emph{three} guests at the table, so there are three cards:
-windows $\{x_0,x_1\}$, $\{x_1,x_2\}$, $\{x_2,x_0\}$. Every card again says the
-person on the right arrived later. This is Specker's seer with three boxes: any
-two cards are fine, all three together are impossible for real tickets.
+Now use only \emph{three} flights: windows $\{x_0,x_1\}$, $\{x_1,x_2\}$,
+$\{x_2,x_0\}$, every one going up. This is Penrose's impossible \emph{triangle},
+the tribar, and Specker's seer with three boxes: any two flights are fine, all
+three together are impossible for real heights.
 \begin{center}
 \begin{tikzpicture}
 \foreach \k/\a in {0/90,1/-30,2/210} \coordinate (t\k) at (\a:1.1);
@@ -374,8 +368,8 @@ two cards are fine, all three together are impossible for real tickets.
 \draw[up] (u0)--(u1); \draw[up] (u1)--(u2); \draw[up] (u2)--(u0);
 \end{tikzpicture}
 \end{center}
-\noindent Now every two cards share a guest, but no guest is on all three
-cards: in window terms every two windows share a slot, but no slot is
+\noindent Now every two flights share a landing, but no landing is on all three
+flights: in window terms every two windows share a slot, but no slot is
 shared by all three:
 the window graph is a triangle, the one shape the locality argument cannot
 handle.
@@ -400,10 +394,10 @@ settled, or is made of triangles.
 Either answer matches a classical pattern. Trees are where pairwise probability
 tables always fit together (Wainwright--Jordan). Chordal graphs are where junction
 trees and Vorob'ev's theorem live.
-What do we know? Any consistent answers extending the three cards
+What do we know? Any consistent answers extending the three flights' views
 are \emph{forced} on every question built in finitely many steps. Each such
-question is a sum of one function per card, and its answer must be the sum of
-the cards' limits (\S\ref{app:defs}, the forced functional). So the test is
+question is a sum of one function per flight, and its answer must be the sum of
+the flights' limits (\S\ref{app:defs}, the forced functional). So the test is
 whether those forced answers are always 0 or 1. A computer check of every
 finitely built question using comparisons and small thresholds (430 questions,
 then 74{,}738) finds no failure. That is a necessary condition, and it holds

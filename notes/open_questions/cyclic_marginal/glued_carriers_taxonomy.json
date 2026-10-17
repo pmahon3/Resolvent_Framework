@@ -253,7 +253,7 @@
       "id": "thm.ring_conceptual",
       "name": "rings: conceptual proof of the witness",
       "status": "proved-hand (agrees with Lean; not cross-checked line by line)",
-      "one_line": "For L>=4, Lambda is a two-valued finitely additive state on the whole ring carrier: locality puts every question on two adjacent windows; cut at an untouched window m, so Lambda(E)=W^(m)(E) in {0,1}; Lambda linear. Replaces the mu_cases case analysis.",
+      "one_line": "For L>=4, Lambda is a two-valued finitely additive state on the whole ring carrier: locality puts every question on two adjacent windows; cut at an untouched window m, so Lambda(E)=W^(m)(E) in {0,1}; Lambda linear. Explains (does not replace) the mu_cases case analysis; Lean remains the certificate; inherits the hand locality theorem.",
       "detail": "pointless_coherence.tex (Theorem rings, conceptual proof)",
       "uses": [
         "thm.shape_lemma",
@@ -370,7 +370,7 @@
         }
       ],
       "fired": "pending",
-      "evidence": "NECESSARY CONDITION HOLDS (2026-10-16). Any extension must equal the forced functional Lambda(f)=sum_k lim_{u_k} f_k on finitely built questions (well defined: zero-sum window triples are coboundaries + constants). Lambda is {0,1}-valued on all definable finitely built triangle questions: T=0 430 sets, T=1 74,738 sets, 0 bad (verification/triangle_forced_functional.py). The ring-sweep's L=3 failure is on a non-buildable 0/1 function. Untested: countably built questions (value not forced by finite additivity). The earlier 'not point-Helly' downgrade was over-corrected: the oracle tested forced values, not an arbitrary finite state. Refutation hunt 2026-10-16 (triangle_lambda_hunt.py, 20 min/level): none at T=2,3,4 (~0.5M buildable questions each, ~250k true). UPDATE: the finitely-built necessary condition is now PROVED (six-orders argument); the gate turns entirely on countably built questions.",
+      "evidence": "NECESSARY CONDITION HOLDS (2026-10-16). Any extension must equal the forced functional Lambda(f)=sum_k lim_{u_k} f_k on finitely built questions (well defined: zero-sum window triples are coboundaries + constants). Lambda is {0,1}-valued on all definable finitely built triangle questions: T=0 430 sets, T=1 74,738 sets, 0 bad (verification/triangle_forced_functional.py). The ring-sweep's L=3 failure is on a non-buildable 0/1 function. Untested: countably built questions (value not forced by finite additivity). The earlier 'not point-Helly' downgrade was over-corrected: the oracle tested forced values, not an arbitrary finite state. Refutation hunt 2026-10-16 (triangle_lambda_hunt.py, 20 min/level): none at T=2,3,4 (~0.5M buildable questions each, ~250k true). UPDATE: the finitely-built necessary condition is now PROVED (six-orders argument); the gate turns entirely on countably built questions. Verified on carriers: profiles constant/half and the three-building identity hold on all T=0 (430) and T=1 (74,738) sets. DICHOTOMY: s*=W^(k)+W^(j)-W^(jk) is a pointless triangle state iff every full-carrier set has constant/half profile. Slice probe at A=3: only 14/512 slices {x0=a}xS are buildable, so the 'carrier = P(N^3)' route to (b) is closed there.",
       "affects": {
         "id": "conj.invariant_any_cycle",
         "effect": "decides between the two invariant conjectures"

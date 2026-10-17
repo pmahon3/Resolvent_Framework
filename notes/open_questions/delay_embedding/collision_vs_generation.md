@@ -340,6 +340,8 @@ window, ε₀=+ by symmetry).
 | L | σ-essential (this μ) | non-witnesses |
 |---|---|---|
 | 3 | **none**. +++ is unrealisable, but μ is NOT two-valued: in the triangle every pair shares a window, so only the triple-difference identity holds | all mixed: two-valued but σ-realisable |
+
+> **Note 2026-10-16:** the L=3 "not two-valued" failure is on a non-buildable 0/1 function, off the carrier. It does **not** obstruct the triangle. On finitely built triangle questions Λ is two-valued (six-orders argument, below).
 | 4 | **exactly ++++** | all 7 mixed: σ-realisable |
 | 5 | **exactly +++++** | all 15 mixed: σ-realisable |
 
@@ -437,13 +439,24 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
     "exactly the 3 rotations of 012", which is not a half.
   - **Hence Λ ∈ {0,1} on every finitely built triangle question**, definable or
     not.
-  - The ring sweep's bad function is [x₀<x₁]+[x₁<x₂]+[x₂<x₀]−1, the cyclic-order
-    indicator: in the span, not buildable.
+  - The ring sweep searched every 0/1 function in the span of window functions
+    on a finite tower. Its L=3 failure is on such a function with the cyclic
+    profile, and that function is not buildable.
+  - **Verified 2026-10-16** (`verification/triangle_profile_check.py`): on
+    every set at T=0 (430) and T=1 (74,738), the profile is constant or a half,
+    and Λ = W⁽ᵏ⁾+W⁽ʲ⁾−W⁽ʲᵏ⁾ holds, with 0 failures in both checks.
+  - **Dichotomy.** s\* = W⁽ᵏ⁾+W⁽ʲ⁾−W⁽ʲᵏ⁾ is finitely additive on all of
+    𝒫(ℕ³) and extends the staircase. It is a pointless triangle state iff every
+    full-carrier set has a constant-or-half profile.
+  - **Slice probe:** are slices {x₀=n}×S in the carrier? At A=3, only 14/512
+    are, so the "carrier is everything" route to (b) is closed there.
+  - s\* failing would not alone fire (b).
   - **Still open: countably built questions.**
 - **Conceptual ring proof (L ≥ 4) ⟦HAND⟧.** Locality gives E = E_{k−1}⊔E_k.
   Cut at a window m that E does not touch, so Λ(E) = W⁽ᵐ⁾(E) ∈ {0,1}; Λ is
-  linear, hence a state. This replaces the `mu_cases` case analysis; not yet
-  checked line by line against Lean. Note Theorem `ringconcept`.
+  linear, hence a state. This *explains* the `mu_cases` case analysis; Lean
+  remains the certificate. It inherits the locality theorem (hand + finite
+  checks). Note Theorem `ringconcept`.
 - **Cocycle reading:** W⁽ʲ⁾ − W⁽ᵏ⁾ = δ_k − δ_j. This is the first concrete
   form of the "cohomological classification" target.
 - **On rings with L ≥ 4:** every question lives on two adjacent windows, so

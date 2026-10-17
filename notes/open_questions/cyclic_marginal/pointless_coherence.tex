@@ -222,7 +222,7 @@ every flight of Penrose's loop use ideal heights, upper landing further out.
 Every flight genuinely says ``up''. Two flights that share a landing agree about
 it, since both describe it by the same ideal rule $p$. The checks:
 \begin{center}\small
-\begin{tabular}{l | l | c}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.6cm} | >{\raggedright\arraybackslash}p{6.2cm} | c}
 check & what the views say & passes?\\\hline
 each flight, alone & ``next landing higher'': yes; ``height $n$'': no for every $n$ & \checkmark\\
 landing $x_0$, seen from both of its flights & the same answers (both by $p$) & \checkmark\\
@@ -556,7 +556,8 @@ ultrafilters.
     per window. It is closed under complement (by slicing) and under countable
     disjoint union (regroup window by window). So $\cG=\cD$.
 \end{itemize}
-Machine check of $\cD=\cG$ (\texttt{notes/open\_questions/verification/glued\_helly\_check.py}):
+Machine check of $\cD=\cG$ (script \texttt{glued\_helly\_check.py} in the
+verification folder):
 \begin{itemize}[nosep]
   \item holds on the star $K_{1,3}$ (binary and ternary), a branching tree, the
     4- and 5-cycles, and $K_{2,3}$;
@@ -616,9 +617,9 @@ carries a pointless state, so does every graph containing a triangle.
   \item \emph{The triangle clause:} the same argument, since a triangle is
     always induced.
 \end{itemize}
-The Lean development already proves the analogous transport along cycle maps
-(\texttt{pullback}, \texttt{sL\_sigmaEssential}); this graph form is not yet in
-Lean.
+The Lean development already proves the analogous transport along cycle
+maps, in the lemmas \texttt{pullback} and \texttt{sL\_sigmaEssential}. This
+graph form is not yet in Lean.
 \end{proof}
 
 \begin{proposition}[flatness]\label{prop:flat}\st{hand}
@@ -670,8 +671,9 @@ carrier extending the staircase.
   \item Linearity gives finite additivity, and $\Lambda(\Omega)=1$.
 \end{itemize}
 In words: cut the staircase where the question is not looking, and read off a
-genuine ideal building. This replaces the case analysis behind
-\texttt{mu\_cases}. It is not yet checked line by line against the Lean proof.
+genuine ideal building. This explains the case analysis behind
+\texttt{mu\_cases}; Lean remains the certificate. The argument inherits the
+locality theorem, which is a hand proof checked on finite alphabets.
 \end{proof}
 
 \begin{proposition}[the triangle, finitely built questions]\label{prop:sixorders}\st{hand}
@@ -705,9 +707,31 @@ disjoint unions.
     staircase's cyclic orientation at infinity, which is not a half.
 \end{itemize}
 \end{proof}
-\noindent The old ring sweep's failing function at $L=3$ is the cyclic-order
-indicator $[x_0<x_1]+[x_1<x_2]+[x_2<x_0]-1$. It lies in the span of window
-functions but is not buildable.
+\noindent The old ring sweep searched every 0/1 function of the right algebraic
+shape (a sum of window functions) on a finite tower. Its failure at $L=3$ lies
+on such a function with the cyclic profile, which is not buildable. It never
+obstructed the triangle.
+
+\paragraph{What remains, as a dichotomy.} The candidate
+$s^{*}=W^{(k)}+W^{(j)}-W^{(jk)}$ is defined on \emph{every} subset of the
+possibilities, is finitely additive, and agrees with the staircase. It is a
+pointless state on the triangle exactly when every set in the full carrier has a
+constant or half profile. A failure would need countably many disjoint carrier
+sets, each invisible to all six buildings, whose union has the cyclic profile.
+\begin{itemize}[nosep]
+  \item \emph{The sharpest probe} is whether slices $\{x_0=n\}\times S$, with
+    $S$ arbitrary, lie in the carrier. If they all did, every set would be a
+    countable union of them; the carrier would then be all subsets, and no
+    pointless state could exist.
+  \item \emph{At three values only 14 of 512 slices are buildable}, so that
+    route is closed there. This points toward a pointless triangle, but it is
+    not the case over $\bbN$.
+  \item \emph{$s^{*}$ failing would not by itself settle it:} other extensions
+    might exist.
+\end{itemize}
+The six-orders argument sits near known work on products of ultrafilters and the
+commutation of iterated limits (Blass; Hindman--Strauss, unread). It is offered
+as theory content, not as a novelty claim.
 
 \begin{theorem}[the staircase]\label{thm:witness}\st{Lean: \texttt{mu\_cases},
 \texttt{sL\_sigmaEssential}}
@@ -751,8 +775,8 @@ prior-art owner was found in three passes.
 \paragraph{Files.}
 \begin{itemize}[nosep]
   \item Index: \texttt{glued\_carriers\_taxonomy.json}.
-  \item Witness and prior art:
-    \texttt{notes/open\_questions/delay\_embedding/collision\_vs\_generation.md}.
+  \item Witness and prior art: \texttt{collision\_vs\_generation.md}, in the
+    \texttt{delay\_embedding} open questions.
   \item Lean: \texttt{formalization/staging/WindowGluing.lean}.
   \item Relation to the cycle side:
     \texttt{cyclic\_marginal\_scoping.md}.

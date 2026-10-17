@@ -117,6 +117,16 @@ pattern.
   slots. First check which results survive infinitely many slots: locality, and the forests
   theorem by compactness.
 
+**Pre-check on P1 ⟦HAND — not a fired gate⟧.**
+- Locality (`thm:star`) says every buildable question lives on one star.
+- Questions at two distant stars of the line constrain disjoint coordinates. So they intersect
+  whenever both are nonempty, and countable disjoint unions cannot spread across stars.
+- If that proof survives infinitely many slots, window values determine every state on the line.
+  The invariant state is then unique (the ring pullback, for every L), and P1 fires (a)
+  trivially.
+- All content then sits in H2 (no invariant ideal point) and in P2. Verify locality on infinite
+  triangle-free graphs before firing.
+
 **First step.** Run a hostile owned-region scout on the four seam pieces above and on "invariant
 two-valued states / equivariant contextuality / periodic contextuality". Do this before any hand
 work on P1 or P2.

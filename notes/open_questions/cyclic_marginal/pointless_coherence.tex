@@ -121,14 +121,15 @@ Now a story with infinitely many possibilities. A deli counter has a
 take-a-number dispenser whose roll goes on forever: $1,2,3,\dots$. Some friends
 have each drawn a ticket. Their tickets are hidden. Instead there are
 \emph{waiters}, each serving two friends and able to see only those two
-tickets. A waiter answers any question about its two tickets, ``who drew
-later?'', ``are they exactly 30 and 70?'', and nothing else. As in the sandwich
-shop, new questions can be built from these with ``not'' and with ``exactly one
-of these options'', even infinitely many options, as in ``what number is the
-ticket?''. A \emph{manager} who knows nothing about tickets checks only that the
-answers are \emph{consistent}: whenever a question is split into exclusive
-options, the ``yes''es add up correctly, and two waiters who serve the same
-friend say the same things about that friend's ticket.
+tickets. A waiter answers any yes-or-no question about its two tickets: ``did
+the second friend draw later?'', ``are the tickets 30 and 70?''. You may also ask
+the opposite of any question, and you may lump possibilities together into one
+question, even endlessly many of them: ``is Ann's number even?'' lumps together
+2, 4, 6, and so on forever. A \emph{manager} who knows nothing about tickets checks
+only that the answers hang together: when a question is split into a few
+non-overlapping parts, a ``yes'' to the whole means a ``yes'' to exactly one
+part, and a ``no'' means no to all of them; and two waiters who
+serve the same friend say the same things about that friend's ticket.
 
 Start with friends in a queue, Ann, Ben, Cat and Dan, with one waiter for each
 neighbouring pair: Ann--Ben, Ben--Cat, Cat--Dan. Every waiter reports: \emph{the

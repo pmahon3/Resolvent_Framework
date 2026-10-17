@@ -95,7 +95,7 @@
       "taxonomy": "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
       "status": "OPEN - theory in construction (2026-10-16); paths never pointless (hand), rings L>=4 pointless + sigma-forbidden (Lean), triangle probe pending",
       "one_line": "Which finitely additive two-valued states on carriers glued from window events are points, ideal points, or pointless - and which window-graph invariant decides it. The seam: cycle x infinity, where neither sheaf contextuality (sigma-additive) nor charge theory (Boolean) reaches. Note: notes/open_questions/cyclic_marginal/pointless_coherence.tex.",
-      "entries": 52
+      "entries": 54
     }
   ],
   "not_yet_taxonomized": {

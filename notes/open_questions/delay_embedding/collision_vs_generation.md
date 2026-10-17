@@ -521,9 +521,55 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
         the tie set, with ties free.
       - Then a least-rank argument over the family "cyclic or anticyclic mod
         ties" shows that no member is in D, so E\* ∉ D.
-    - **Lemma check unrun.** The attempt crashed the machine (dense SVD; see
-      CLAUDE.md, compute constraints). Redo it with sparse rank on boxes ≤ 6³.
-    - **Scope:** this excludes the E\* family, not every cyclic-profile set.
+    - **The off-tie lemma failed** (finite boxes, ties free). It freed too much.
+    - **Thin-set gate (pre-registered).** Here L = the window cells inside Y,
+      checked by hand: {x₁=x₂}, {x₀=x₂}, {x₀=x₁+1} (nothing lies between b and
+      b+1). E\* contains no window cell.
+      - Check A (Y∖L atomic) passes at M=3.
+      - Check B fails, and its failure is exactly the window cells that lie
+        inside E\*∪L (rank 9 = 9). This is Navara's chain at the level of
+        interactions: each layer exposes the next.
+      - Gate fired (b), and the family was enlarged to finite bands.
+  - **Theorem (E\* is not in the carrier) ⟦HAND; corner conditions machine-checked⟧.**
+    - Notation: gap(x) = min |xᵢ−xⱼ|; B_n = {gap ≤ n}; C and A are the strict
+      cyclic and strict anticyclic sets.
+    - Family 𝔉 = {Z : Z Δ E\* ⊆ B_n or Z Δ E\*ᶜ ⊆ B_n, for some n}.
+      - It is closed under complement.
+      - It contains no window event: a window-(0,1) cell (a,b) with b−a large
+        meets both generic C and generic A.
+    - **Lift lemma.** Suppose Z Δ E\* ⊆ B_n, f has zero box interaction, and
+      f = 0 off Z. Then f is constant on C ∖ B_{2n+1}.
+      - Proof: f = 0 on A∖B_n. At a 012-point (a,b,c) with gaps ≥ 2n+2, use the
+        box with x₀∈{a,a'}, x₁∈{b,c+n+1} and x₂∈{c,a+n+1}, where a' ≥ c+2n+2.
+        Its other six corners are generic anticyclic points, so
+        f(a,b,c) = f(a',b,c). That is, the minimum is lifted far above the
+        maximum.
+      - Rotations give the same lift for the other orders. Three lifts take any
+        two generic C-points to a common point.
+      - The E\*ᶜ side follows by the reflection (x₀,x₂,x₁), which preserves the
+        windows and swaps C and A.
+    - **Main argument.** Take the least stage of the λ-hierarchy at which a
+      member Z of 𝔉 appears.
+      - Not as a complement: the complement is in 𝔉 and would already be there.
+      - Not as a countable disjoint union ⊔Gᵢ: each 1_{Gᵢ} has zero interaction
+        (pointwise sums), so by the lift lemma it is constant on Z∖B_{2n+1}.
+        Exactly one piece takes all of it, and that piece is in 𝔉 at an earlier
+        stage.
+      - So **no member of 𝔉 is in D. In particular E\* ∉ D**, and countable
+        unions cannot build the cyclic set.
+    - **Finite checks.**
+      - `triangle_offtie_atomicity.py` (checks A and B).
+      - `triangle_lift_lemma_check.py`: 18,000 lift boxes, 0 failures.
+      - Band rank checks pass at n=0 (gap>1) and at n=1 (gap>3, both sides),
+        and fail at n=1 with gap>2, so the threshold 2n+1 is sharp there.
+      - At n=2 the check fails at a 16³ box. That is a top-of-box artifact: the
+        lifts need room above the point.
+    - **Scope.** This excludes E\* and every finite-band perturbation of it or
+      of its complement. **It is not gate (a).** A set can have the cyclic
+      ultrafilter profile while differing from E\* on a non-band region that
+      is p-small. Next: does every zero-interaction 0/1 function have
+      "generic behaviour" that is half or constant on p-large sets (a pointwise
+      form of the profile)?
   - Keleti–Preiss (shelf): their method is a σ-ideal normal form. On discrete ℕ
     any σ-ideal containing the bounded slabs is trivial, so it does not
     transfer directly; it would need a continuum model.

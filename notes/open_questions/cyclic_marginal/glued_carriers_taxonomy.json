@@ -20,7 +20,7 @@
       "conjectures": 13,
       "probes": 4,
       "examples": 3,
-      "owned_regions": 12,
+      "owned_regions": 16,
       "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
     },
     "puzzle": "notes/open_questions/cyclic_marginal/pointless_coherence.tex section 'The puzzle'; domain map in section 'Domain and scope'",
@@ -75,7 +75,7 @@
     {
       "id": "thm.triangle_pointless",
       "name": "the triangle carries a pointless state",
-      "status": "LEAN-CHECKED 2026-10-17 (formalization/staging/TriangleCyclic.lean; 0 sorry; axioms propext, Classical.choice, Quot.sound), including fidelity sstar_window01/12/20 (s* = the staircase p(x)p limit on every window event). Prior-art: two budgeted sonnet scouts 2026-10-17 NOT FOUND, shallow coverage (snippet-level; Navara-Ptak-era, Gudder, Bhaskara Rao, Hindman-Strauss text, Blass unread; residual risk = folklore ultrafilter-product non-extendability, or a Navara-style set-representable logic with a non-point two-valued state). Scouting only - NOT the claim gate (workflow step 6 / /audit pure owed).",
+      "status": "LEAN-CHECKED 2026-10-17 (formalization/staging/TriangleCyclic.lean; 0 sorry; axioms propext, Classical.choice, Quot.sound), including fidelity sstar_window01/12/20 (s* = the staircase p(x)p limit on every window event). AUDIT /audit pure 2026-10-17 (opus, hostile): NOT FOUND (UNCLEAR at the margin); ingredients owned (own.dravecky_sipos_flight_subcarrier, own.navara_two_of_three, own.coherence_extension, own.ultrafilter_products); scoped claim = a finitely additive two-valued NON-COHERENT state on the full lambda-closure of the three pair windows over N, plus non-membership of the cyclic family. Type 3 FAIL for now (no second domain; flip = decide Navara's two-sided-unbounded regime); Type 4 FAIL as vocabulary (use standard names), statements PASS-pending. Do not upgrade to NOVEL until coverage gaps close (Bhaskara Rao body, Gudder SIAM Rev 1984 Ex 3.1, Hindman-Strauss, Blass, Ptak-Pulmannova book, Ovchinnikov PAMS 1999). Earlier: two budgeted sonnet scouts NOT FOUND, shallow coverage (snippet-level; Navara-Ptak-era, Gudder, Bhaskara Rao, Hindman-Strauss text, Blass unread; residual risk = folklore ultrafilter-product non-extendability, or a Navara-style set-representable logic with a non-point two-valued state). Scouting only - NOT the claim gate (workflow step 6 / /audit pure owed).",
       "lean": "TriangleCyclic.triangle_pointless_state, triangle_state_no_ultrafilter, triangle_state_no_point, triangle_has_pointless_state, sstar_window01, sstar_window12, sstar_window20",
       "one_line": "For every non-principal ultrafilter p on N, s* = W012 + W120 - W102 (signed combination of three iterated p-limit ultrafilters on N^3) is finitely additive, s*(Omega)=1, {0,1}-valued on the triangle carrier D3, and 1 on the staircase steps {x0<x1},{x1<x2},{x2<x0} (empty intersection), so no ultrafilter on Omega - in particular no point - reproduces it. Two-valuedness: if s*(E) is 2 or -1, ultrafilter Ramsey for triples gives an infinite P on which E follows its six-order profile; two box identities force the cyclic/anticyclic pattern; the homogeneous-set family is excluded from D3 by the lift lemma + Dynkin induction.",
       "scope": "Triangle over N, any non-principal p. That s* coincides with the forced functional Lambda on finitely built questions is hand (prop:forced). With thm.loops_travel (hand) and the forests theorem (hand): a window graph has a pointless state iff it is not a forest - that assembly is hand, not Lean. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
@@ -504,6 +504,38 @@
     }
   ],
   "owned_regions": [
+    {
+      "id": "own.dravecky_sipos_flight_subcarrier",
+      "name": "sigma-additive pointless two-valued states on a union sigma-class of pairwise-meeting observables",
+      "status": "owned",
+      "one_line": "If all nonempty preimages of f, g, f+g pairwise meet, A_f u A_g u A_{f+g} is already a sigma-class, carrying sigma-additive non-point two-valued states. Applies to the flight functions d0, d1 (d0+d1 = -d2) on N^3: a sub-carrier of the triangle carrier. These states do NOT extend to D3 (sigma-additive two-valued states on D3 are Dirac on each window and glue to a point; generator uniqueness). The triangle theorem's content is extension of a pointless state to the full lambda-closure, necessarily finitely additive.",
+      "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, audit 2026-10-17)",
+      "owned_by": {"cite": "Dravecky-Sipos, Math. Slovaca 30 (1980) 299-303, Example 6", "region": "pointless sigma-additive states on the flight sub-carrier", "verified": "full text read (audit 2026-10-17)"}
+    },
+    {
+      "id": "own.navara_two_of_three",
+      "name": "explicit sigma-class C_{f,g} with a one-sided-bounded generator",
+      "status": "owned",
+      "one_line": "Navara's Lemma 1-3 chains describe C_{f,g} (e.g. on Z x N0: A_f u A_g u A_{f+g} u K u K* u L u L*) and concentration of two-valued sigma-additive states, when one generator is bounded on one side. The triangle sits exactly in the regime with no base case (two-sided unbounded differences).",
+      "detail": "../delay_embedding/collision_vs_generation.md (Navara connection)",
+      "owned_by": {"cite": "Navara, Math. Slovaca 34 (1984), Theorem and Lemmas 1-3", "region": "C_{f,g} membership with a bounded generator", "verified": "full text read (shelf)"}
+    },
+    {
+      "id": "own.coherence_extension",
+      "name": "extendability of finitely additive states on Dynkin systems",
+      "status": "owned",
+      "one_line": "A finitely additive state on a Dynkin system extends to the power set iff it is coherent. For two-valued states: ideal point = coherent/extendable; pointless = non-coherent. Standard names to use: point = concentrated (Dirac) state; ideal point = coherent state; pointless = non-coherent two-valued state; glued carrier = sigma-class generated by coordinate sub-sigma-algebras; window graph = marginal scheme / measurement cover.",
+      "detail": "audit 2026-10-17",
+      "owned_by": {"cite": "Bhaskara Rao & Bhaskara Rao, Theory of Charges (1983) Thm 3.2.10; via Derr-Williamson arXiv:2302.03522", "region": "extension of finitely additive states on Dynkin systems", "verified": "secondary (book body not opened)"}
+    },
+    {
+      "id": "own.ultrafilter_products",
+      "name": "ultrafilter product non-commutativity and ultrafilter Ramsey",
+      "status": "owned",
+      "one_line": "p(x)p is non-commutative (the finitely additive X<Y vs Y<X paradox; Dubins, Schervish-Seidenfeld-Kadane); ultrafilter Ramsey for triples is textbook. Ingredients of the triangle proof, not its result.",
+      "detail": "audit 2026-10-17",
+      "owned_by": {"cite": "Goldberg, JSL 2022 (arXiv:2102.04677); Hindman-Strauss, Algebra in the Stone-Cech Compactification", "region": "p(x)p non-commutativity; ultrafilter Ramsey", "verified": "secondary"}
+    },
     {
       "id": "own.cycle_vertices_fixed_L",
       "name": "contextual vertices of cycle scenarios",

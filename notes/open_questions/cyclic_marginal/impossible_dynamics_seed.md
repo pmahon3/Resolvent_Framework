@@ -130,3 +130,49 @@ pattern.
 **First step.** Run a hostile owned-region scout on the four seam pieces above and on "invariant
 two-valued states / equivariant contextuality / periodic contextuality". Do this before any hand
 work on P1 or P2.
+
+## Owned-region scout (2026-10-17, sonnet, about 9 searches, snippets only): PARTLY OWNED, core NOT FOUND
+
+**Owned:**
+- **Penrose 1991.** Structural Topology 17, 11–16; reprinted in Leonardo 1992. Region: impossible
+  figures as Čech H¹ with coefficients in R₊ (Z₂ for the heptagonal staircase). Read only through
+  snippets and the AMS Feature Column 2014.
+- **Katětov 1967.** CMUC 8, 431–433. Region: the three-set partition for maps without fixed points.
+  The corollary "no invariant ultrafilter" is folklore with no reference found; the n-Category
+  Café post (2022) found none either. This covers H2.
+  `cyclic_marginal_scoping.md` §5 already used "the Katětov argument for graph-type
+  ultrafilters".
+- **Gottschalk–Hedlund 1955.** Region: continuous coboundaries over minimal systems, which are
+  exactly the cocycles with bounded sums.
+- **Anosov 1973.** Region: the measurable homological equation over an irrational rotation. This
+  is close to H4. Only the title was seen.
+- **K. Schmidt 1977.** Region: essential values. The attribution is UNCONFIRMED.
+- **Okay–Roberts–Bartlett–Raussendorf 2017 and Raussendorf 2016.** Region: group-cohomology
+  witnesses of contextuality.
+- **Abramsky–Mansfield–Barbosa 2011 and ABKLM 2015.** Region: sheaf H¹ obstructions in finite
+  scenarios. Carù (arXiv:1701.00656) finds H¹ incomplete; author and title only weakly confirmed.
+- **Invariant means and Tarski.** Region: amenability. A {0,1}-valued invariant mean is an
+  invariant ultrafilter (Steprāns, Bonn 2011 notes). That is known territory on the Boolean P(ℕ),
+  not on a glued carrier.
+
+**Close to the seam:**
+- Yang–Zeng–Navascués–Wang et al. (arXiv:2112.11646): translation-invariant contextuality on
+  infinite chains. Finite outcomes, quantum or non-signalling; no notion of ideal point.
+- Navara–Tkadlec 1991: automorphisms of concrete logics.
+- arXiv:1705.03045: invariant probability measures on orthomodular lattices.
+
+**Not found:**
+- Invariant two-valued finitely additive states on a glued non-Boolean carrier that no invariant
+  ultrafilter reproduces (H1 + H2).
+- Any citation for H3 (a standard argument).
+
+**Coverage gaps, to close before claiming:**
+- Hindman–Strauss on invariant and idempotent ultrafilters in βG.
+- Bhaskara Rao on invariant charges.
+- Dubins–Savage on finitely additive stationary processes.
+- Carù's follow-ups.
+- Full texts of Penrose and Anosov.
+
+**Reading for the theory.** The owned pieces split the problem in two: the cohomology and coboundary
+side, and the means side, where means are probability-valued. The candidate seam is the two-valued,
+non-Boolean, invariant combination.

@@ -65,10 +65,10 @@
     },
     {
       "id": "obj.window_family_flatness",
-      "name": "window family; flat / non-flat (tentative)",
+      "name": "window family; flat / twisted (tentative)",
       "status": "defined (tentative)",
-      "one_line": "A state's window family = its ultrafilters u_k on the windows (compatible on shared coordinates). Flat = amalgamates to an ultrafilter on Omega; non-flat otherwise. Working definition, the candidate central notion.",
-      "detail": "pointless_coherence.tex (Definition flat, section 'What the proofs say')"
+      "one_line": "A state's window family = its ultrafilters u_k on the windows (compatible on shared coordinates). Flat = amalgamates to an ultrafilter on Omega; twisted (non-flat) otherwise. Working definition, the candidate central notion.",
+      "detail": "pointless_coherence.tex (section 'Why loops'; Proposition flat)"
     }
   ],
   "theorems": [

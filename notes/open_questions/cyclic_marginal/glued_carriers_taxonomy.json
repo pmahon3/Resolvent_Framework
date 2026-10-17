@@ -16,7 +16,7 @@
     },
     "headline": {
       "objects": 6,
-      "theorems": 15,
+      "theorems": 16,
       "conjectures": 11,
       "probes": 1,
       "examples": 3,
@@ -248,6 +248,18 @@
         "thm.amalgamation"
       ],
       "scope": "triangle and rings; finitely built questions"
+    },
+    {
+      "id": "thm.ring_conceptual",
+      "name": "rings: conceptual proof of the witness",
+      "status": "proved-hand (agrees with Lean; not cross-checked line by line)",
+      "one_line": "For L>=4, Lambda is a two-valued finitely additive state on the whole ring carrier: locality puts every question on two adjacent windows; cut at an untouched window m, so Lambda(E)=W^(m)(E) in {0,1}; Lambda linear. Replaces the mu_cases case analysis.",
+      "detail": "pointless_coherence.tex (Theorem rings, conceptual proof)",
+      "uses": [
+        "thm.shape_lemma",
+        "obs.cut_the_loop"
+      ],
+      "scope": "rings L>=4, staircase family"
     }
   ],
   "conjectures": [
@@ -334,8 +346,8 @@
     {
       "id": "conj.triangle_twist_lemma",
       "name": "triangle twist lemma",
-      "status": "open (hunt evidence: none at T<=4)",
-      "one_line": "No finitely built triangle question is twisted with the same sign on all three windows. Implies Lambda two-valued on finitely built questions (the necessary condition for a pointless triangle state).",
+      "status": "PROVED-hand 2026-10-16 (six-orders profile argument)",
+      "one_line": "PROVED: Lambda in {0,1} on every finitely built triangle question. Profiles over the 6 drawing-order ultrafilters W_pi are constant or 'pair i before j' (closed under complement and disjoint union); Lambda = W^(k)+W^(j)-W^(jk) is 2 only on the 'staircase cyclic orientation' profile, which is not a pair condition. Open: countably built questions.",
       "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, cut-the-loop)",
       "uses": [
         "obs.cut_the_loop"
@@ -358,7 +370,7 @@
         }
       ],
       "fired": "pending",
-      "evidence": "NECESSARY CONDITION HOLDS (2026-10-16). Any extension must equal the forced functional Lambda(f)=sum_k lim_{u_k} f_k on finitely built questions (well defined: zero-sum window triples are coboundaries + constants). Lambda is {0,1}-valued on all definable finitely built triangle questions: T=0 430 sets, T=1 74,738 sets, 0 bad (verification/triangle_forced_functional.py). The ring-sweep's L=3 failure is on a non-buildable 0/1 function. Untested: countably built questions (value not forced by finite additivity). The earlier 'not point-Helly' downgrade was over-corrected: the oracle tested forced values, not an arbitrary finite state. Refutation hunt 2026-10-16 (triangle_lambda_hunt.py, 20 min/level): none at T=2,3,4 (~0.5M buildable questions each, ~250k true).",
+      "evidence": "NECESSARY CONDITION HOLDS (2026-10-16). Any extension must equal the forced functional Lambda(f)=sum_k lim_{u_k} f_k on finitely built questions (well defined: zero-sum window triples are coboundaries + constants). Lambda is {0,1}-valued on all definable finitely built triangle questions: T=0 430 sets, T=1 74,738 sets, 0 bad (verification/triangle_forced_functional.py). The ring-sweep's L=3 failure is on a non-buildable 0/1 function. Untested: countably built questions (value not forced by finite additivity). The earlier 'not point-Helly' downgrade was over-corrected: the oracle tested forced values, not an arbitrary finite state. Refutation hunt 2026-10-16 (triangle_lambda_hunt.py, 20 min/level): none at T=2,3,4 (~0.5M buildable questions each, ~250k true). UPDATE: the finitely-built necessary condition is now PROVED (six-orders argument); the gate turns entirely on countably built questions.",
       "affects": {
         "id": "conj.invariant_any_cycle",
         "effect": "decides between the two invariant conjectures"

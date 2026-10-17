@@ -145,13 +145,20 @@ whole number. A \emph{view} is one flight. It shows two neighbouring landings,
 and it answers any yes-or-no question about their two heights: ``is the next
 landing higher?'', ``are the heights 30 and 70?''. It also answers the opposite
 of any question, and questions that lump possibilities together, even endlessly
-many: ``is $x_0$ even?''. Answers are \emph{consistent} if they hang together:
-\begin{itemize}[nosep]
-  \item when a question is split into a few non-overlapping parts, a ``yes'' to
-    the whole means a ``yes'' to exactly one part, and a ``no'' means no to all
-    of them;
-  \item two flights that share a landing say the same things about it.
-\end{itemize}
+many: ``is $x_0$ even?''. Answers are \emph{consistent} if they hang together
+in two ways. First, split ``is $x_0$ at most 10?'' into ``at most 5?'' and ``6 to
+10?''. The three answers must fit one of these rows:
+\begin{center}\small
+\begin{tabular}{c | c c}
+at most 10? & at most 5? & 6 to 10?\\\hline
+yes & yes & no\\
+yes & no & yes\\
+no & no & no\\
+\end{tabular}
+\end{center}
+Never two yeses, and a yes to the whole needs a yes to one of its parts. The
+same goes for any split into a few non-overlapping parts. Second, two flights
+that share a landing say the same things about it.
 Every flight in Penrose's drawing says \emph{the next landing is higher}.
 
 \paragraph{A straight staircase is always buildable.} Unbend the loop into a
@@ -395,15 +402,21 @@ Either answer matches a classical pattern. Trees are where pairwise probability
 tables always fit together (Wainwright--Jordan). Chordal graphs are where junction
 trees and Vorob'ev's theorem live.
 What do we know? Any consistent answers extending the three flights' views
-are \emph{forced} on every question built in finitely many steps. Each such
-question is a sum of one function per flight, and its answer must be the sum of
-the flights' limits (\S\ref{app:defs}, the forced functional). So the test is
-whether those forced answers are always 0 or 1. A computer check of every
-finitely built question using comparisons and small thresholds (430 questions,
-then 74{,}738) finds no failure. That is a necessary condition, and it holds
-everywhere we have looked. What is untested are questions built with
-\emph{infinitely} many steps, where the answer is not forced. Whether the
-triangle carries pointless answers is still open.
+are \emph{forced} on every question built in finitely many steps: the answer must
+be the sum of the flights' limits (Proposition~\ref{prop:forced}). And those
+forced answers are always 0 or 1 (Proposition~\ref{prop:sixorders}).
+
+The reason is a picture. Three landings taken from beyond every number can be
+drawn in six orders, and each order gives a genuine ideal building. A question
+built in finitely many steps can only ever see the order of \emph{one pair} of
+landings. The single thing that would break the forced answers is a question
+that holds exactly in the three orders that go round the loop the staircase's
+way. That is the tribar's own
+twist, and no finitely built question can see it.
+
+What remains open are questions built with \emph{infinitely} many steps, where
+the answer is not forced. Whether the triangle carries pointless answers now
+turns entirely on them.
 
 \paragraph{What the theory must settle.}
 \begin{enumerate}[nosep]
@@ -623,6 +636,78 @@ the constants summing to $0$, and these terms cancel because the marginals
 agree. So a family can extend only if $\Lambda\in\{0,1\}$ on every finitely
 built question.
 \end{proposition}
+
+\begin{proposition}[cut the loop]\label{prop:cut}\st{hand}
+On a triangle or ring with window ultrafilters $u_k=p\otimes p$ in a cyclic
+orientation, fix a window $k$ and let $W^{(k)}$ be the ultrafilter gluing the
+other windows along the path left after cutting $k$. For every $E$ whose
+indicator is a finite sum $\sum_jf_j$ of bounded window functions,
+\[ \Lambda(E)=W^{(k)}(E)+\delta_k(E),\qquad
+\delta_k(E)=\lim_a\lim_bf_k-\lim_b\lim_af_k, \]
+the commutator of the iterated $p$-limits on window $k$, in the two orders.
+$\delta_k$ is well defined, since single-coordinate terms have order-independent
+limits. So $\Lambda(E)\in\{0,1\}$ whenever $E$'s window-$k$ part is zero.
+\end{proposition}
+\begin{proof}
+$W^{(k)}$ projects to $u_j$ on every window $j\neq k$ and to $u_k^{T}$ on window
+$k$. Hence $W^{(k)}(E)=\sum_{j\ne k}\lim_{u_j}f_j+\lim_{u_k^T}f_k$; subtract from
+$\Lambda(E)$.
+\end{proof}
+
+\begin{theorem}[rings, conceptual proof]\label{thm:ringconcept}\st{hand; agrees with Lean}
+For $L\ge4$, $\Lambda$ is a two-valued finitely additive state on the whole ring
+carrier extending the staircase.
+\end{theorem}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item By Theorem~\ref{thm:star}, every $E\in\cD$ is $E_{k-1}\sqcup E_k$, so
+    $1_E$ is a sum of two window functions.
+  \item Zero-sum families of window functions on a cycle are differences of
+    single-coordinate functions plus constants, so $\Lambda$ is well defined and
+    linear.
+  \item Pick a window $m\notin\{k-1,k\}$. Then $E$'s window-$m$ part is zero, so
+    $\Lambda(E)=W^{(m)}(E)\in\{0,1\}$ (Proposition~\ref{prop:cut}).
+  \item Linearity gives finite additivity, and $\Lambda(\Omega)=1$.
+\end{itemize}
+In words: cut the staircase where the question is not looking, and read off a
+genuine ideal building. This replaces the case analysis behind
+\texttt{mu\_cases}. It is not yet checked line by line against the Lean proof.
+\end{proof}
+
+\begin{proposition}[the triangle, finitely built questions]\label{prop:sixorders}\st{hand}
+On the triangle with the staircase family, $\Lambda(E)\in\{0,1\}$ for every
+question $E$ built from window questions by finitely many complements and
+disjoint unions.
+\end{proposition}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item \emph{Six buildings.} For each of the six orders $\pi$ of
+    $(x_0,x_1,x_2)$, let $W_\pi$ be the ultrafilter ``draw in order $\pi$, each
+    further out'' (iterated $p\otimes p$). Its projection to window $\{i,j\}$
+    is $p\otimes p$ taken in the order $\pi$ gives $i,j$. The \emph{profile} of
+    $E$ is $\pi\mapsto W_\pi(E)$.
+  \item \emph{Profiles of finitely built questions.} A window question's profile
+    depends only on whether $\pi$ puts $i$ before $j$: it is constant or a
+    ``half'' $\{\pi: i\text{ before }j\}$ or its complement. Complements
+    complement the profile. Disjoint questions lie in no common ultrafilter, so
+    their profiles are disjoint and the union's profile is the union. Among
+    constants and halves, the only disjoint pairs are complementary halves or
+    involve $\emptyset$. So every finitely built $E$ has a constant or half
+    profile.
+  \item \emph{$\Lambda$ from profiles.} Applying the cut identity at two windows
+    $k\neq j$ gives
+    $\Lambda(E)=W^{(k)}(E)+W^{(j)}(E)-W^{(jk)}(E)$. Here $W^{(k)},W^{(j)}$ are
+    orders going round the loop the staircase's way (rotations of $0,1,2$), and
+    $W^{(jk)}$, which reverses windows $j$ and $k$, goes the other way (a
+    rotation of $2,1,0$). This holds termwise on each window.
+  \item \emph{Check.} On constants and halves this gives $0$ or $1$. It gives
+    $2$ only on the profile ``exactly the three rotations of $0,1,2$'', the
+    staircase's cyclic orientation at infinity, which is not a half.
+\end{itemize}
+\end{proof}
+\noindent The old ring sweep's failing function at $L=3$ is the cyclic-order
+indicator $[x_0<x_1]+[x_1<x_2]+[x_2<x_0]-1$. It lies in the span of window
+functions but is not buildable.
 
 \begin{theorem}[the staircase]\label{thm:witness}\st{Lean: \texttt{mu\_cases},
 \texttt{sL\_sigmaEssential}}

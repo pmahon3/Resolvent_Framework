@@ -428,6 +428,22 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
   - Example: C₀ = {x₀<x₁} has δ₀ = 1 and δ₁ = δ₂ = 0.
 - **Remaining lemma:** no finitely built triangle question is twisted
   same-sign on all three windows.
+- **PROVED ⟦HAND⟧, same day (six-orders argument).**
+  - Let W_π be the iterated-p⊗p ultrafilter for each of the 6 drawing orders π.
+    A window question's profile π ↦ W_π(E) depends only on the order of its
+    pair. Complement and disjoint union preserve "constant or half" profiles.
+  - Λ(E) = W⁽ᵏ⁾ + W⁽ʲ⁾ − W⁽ʲᵏ⁾, an identity that holds termwise on each window.
+    It gives Λ ∈ {0,1} on constants and halves, and Λ = 2 only on the profile
+    "exactly the 3 rotations of 012", which is not a half.
+  - **Hence Λ ∈ {0,1} on every finitely built triangle question**, definable or
+    not.
+  - The ring sweep's bad function is [x₀<x₁]+[x₁<x₂]+[x₂<x₀]−1, the cyclic-order
+    indicator: in the span, not buildable.
+  - **Still open: countably built questions.**
+- **Conceptual ring proof (L ≥ 4) ⟦HAND⟧.** Locality gives E = E_{k−1}⊔E_k.
+  Cut at a window m that E does not touch, so Λ(E) = W⁽ᵐ⁾(E) ∈ {0,1}; Λ is
+  linear, hence a state. This replaces the `mu_cases` case analysis; not yet
+  checked line by line against Lean. Note Theorem `ringconcept`.
 - **Cocycle reading:** W⁽ʲ⁾ − W⁽ᵏ⁾ = δ_k − δ_j. This is the first concrete
   form of the "cohomological classification" target.
 - **On rings with L ≥ 4:** every question lives on two adjacent windows, so

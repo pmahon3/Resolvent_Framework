@@ -18,7 +18,7 @@
       "objects": 6,
       "theorems": 18,
       "conjectures": 13,
-      "probes": 6,
+      "probes": 7,
       "examples": 3,
       "owned_regions": 16,
       "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
@@ -394,6 +394,19 @@
     }
   ],
   "probes": [
+    {
+      "id": "gate.trianglefree_extension_classification",
+      "category": "gate",
+      "investigation": "Triangle-free window graph of finite degree over N. (i) Does EVERY family of window ultrafilters with consistent slot marginals extend to a state (expected: yes, a corollary of thm:star; well-definedness across two star decompositions is the only issue)? (ii) For TENSOR-TYPE families (each window either p_i (x) p_j in one of its two orders, or the graph of a bijection, all slot ultrafilters non-principal): is the state pointless exactly when, after contracting the graph windows, the product windows' orders contain a directed cycle?",
+      "outcomes": [
+        {"branch": "(a) (i) yes and (ii) yes", "then": "extension is never the obstruction on triangle-free graphs; pointless <=> twisted <=> cyclic amalgamation of ultrafilters fails; for tensor types the invariant is 'directed cycle of product orders after contracting bijections' (an orientation invariant, not a winding number); the general case is the classification of 2-dimensional ultrafilters with given marginals"},
+        {"branch": "(b) (i) fails", "then": "extension is a real constraint; the failing double-star set names the invariant"},
+        {"branch": "(c) (i) yes, (ii) fails", "then": "the orientation invariant is wrong for tensor types; the counterexample names the missing datum (monodromy? Rudin-Keisler order?)"}
+      ],
+      "pre_registered": "2026-10-17, before running",
+      "affects": {"id": "conj.helly_transfer_bfmy", "effect": "classification on triangle-free graphs (note's open item: which twisted families extend)"},
+      "detail": "../delay_embedding/collision_vs_generation.md (to be added: Extension and classification)"
+    },
     {
       "id": "gate.dynamics_frieze_periodic",
       "category": "gate",

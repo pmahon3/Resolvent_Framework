@@ -5,7 +5,7 @@
     "updated": "2026-10-16",
     "what_is_it": "Which finitely additive two-valued states (states) on Dynkin carriers glued from window events are points, ideal points (ultrafilters on Omega), or pointless - and which shape of window graph decides it.",
     "status": "OPEN",
-    "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive states on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle').",
+    "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive states on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle'). UPDATE 2026-10-16: triangle-free => locality (stars); forests => no pointless states; any induced cycle of length >= 4 => pointless states (transport). Open = chordal non-forest graphs, decided by the triangle.",
     "categories": {
       "objects": "definitions the theory is about",
       "theorems": "proved results (lean or hand), with uses/scope",
@@ -16,7 +16,7 @@
     },
     "headline": {
       "objects": 6,
-      "theorems": 12,
+      "theorems": 13,
       "conjectures": 10,
       "probes": 1,
       "examples": 3,
@@ -215,21 +215,34 @@
         "obj.window_family_flatness"
       ],
       "scope": "triangle-free pair-window graphs"
+    },
+    {
+      "id": "thm.loops_travel",
+      "name": "loops travel: induced cycles carry pointless states",
+      "status": "proved-hand (from Lean ring witness)",
+      "one_line": "If the window graph has an induced (chordless) cycle of length L>=4, pull back the ring-L staircase along psi (copy cycle coords, others constant): a pointless state over N with no sigma-additive version. Same transport: if the triangle carries one, every graph with a triangle does.",
+      "detail": "pointless_coherence.tex (Theorem 'loops travel'; section 'Why loops', paragraph 'Loops travel')",
+      "uses": [
+        "thm.countable_witness",
+        "thm.sigma_forces_points"
+      ],
+      "scope": "pair windows, countable alphabet; any graph with an induced cycle of length >= 4 (non-chordal)",
+      "lean_note": "analogous cycle-map transport is Lean (pullback, sL_sigmaEssential); graph form not yet in Lean"
     }
   ],
   "conjectures": [
     {
       "id": "conj.invariant_any_cycle",
-      "name": "invariant = has a cycle",
+      "name": "dichotomy = forest vs not",
       "status": "open (evidence withdrawn 2026-10-16: sub-carrier not point-Helly)",
-      "one_line": "Pointless states exist on a pair-window graph iff it contains a cycle (triangle included).",
+      "one_line": "Pointless states exist iff the window graph is not a forest. Holds iff the triangle carries a pointless state (then every graph with a cycle does, by thm.loops_travel).",
       "detail": "pointless_coherence.tex (Status and open questions)"
     },
     {
       "id": "conj.invariant_cycle_ge4",
-      "name": "invariant = triangle-free loop",
+      "name": "dichotomy = chordal vs not",
       "status": "open",
-      "one_line": "Pointless states need a loop in a triangle-free window graph; the triangle (non-Helly windows) has none. (Earlier phrasing 'cycle of length >= 4' / 'room' refined 2026-10-16.)",
+      "one_line": "Pointless states exist iff the window graph is not chordal (has an induced cycle of length >= 4). The 'if' direction is proved (thm.loops_travel); the 'only if' needs chordal graphs with triangles to have none. Expected if the triangle has none.",
       "detail": "pointless_coherence.tex (Status and open questions)"
     },
     {
@@ -306,12 +319,12 @@
       "investigation": "Does the glued triangle (L=3, alphabet N) carry a pointless state extending the staircase u_k = p(x)p?",
       "outcomes": [
         {
-          "branch": "(a) yes",
-          "then": "supports conj.invariant_any_cycle; the cycle itself, not room, permits pointless coherence"
+          "branch": "(a) the triangle carries a pointless staircase state",
+          "then": "every non-forest graph carries one (loops travel); dichotomy = forest vs not (conj.invariant_any_cycle); matches pairwise-MRF tightness (Wainwright-Jordan)"
         },
         {
-          "branch": "(b) no",
-          "then": "supports conj.invariant_cycle_ge4; Greechie-type order-3 exception bites"
+          "branch": "(b) it does not",
+          "then": "supports chordal vs non-chordal (conj.invariant_cycle_ge4); still needs chordal graphs with triangles to have none; matches the junction-tree / Vorob'ev pattern"
         }
       ],
       "fired": "pending",
@@ -321,7 +334,8 @@
         "effect": "decides between the two invariant conjectures"
       },
       "detail": "../delay_embedding/collision_vs_generation.md (Ring sweep; Triangle probe 2026-10-15)",
-      "check": "../verification/window_gluing_cyclic_order_triangle.py"
+      "check": "../verification/window_gluing_cyclic_order_triangle.py",
+      "amended": "2026-10-16: outcomes re-stated after thm.loops_travel (pre-registration of the decision, not a result)"
     }
   ],
   "examples": [

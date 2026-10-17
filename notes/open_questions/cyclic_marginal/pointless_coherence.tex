@@ -252,6 +252,15 @@ otherwise. On triangle-free boards, a pattern is an ideal point exactly when its
 window family is flat (Proposition~\ref{prop:flat}). Pointless patterns are
 twisted families that still extend consistently to every buildable question.
 
+\paragraph{Loops travel.} Suppose a board contains a loop of four or more windows
+with no shortcut across it: no window joins two slots of the loop that are not
+neighbours on it. Fix every slot off the loop at some number. As far as the
+board's questions can tell, it is now the ring. A question to a window touching
+the loop becomes a question about one loop slot, and a question off the loop
+becomes trivially yes or no. So the staircase's answers carry over to the bigger
+board, and they are still pointless there (Theorem~\ref{thm:travel}). Any board
+with such a loop has pointless patterns, whatever else it contains.
+
 \paragraph{Infinity forbids the twist.} Under $\sigma$-additivity every window is
 pinned to actual numbers, and actual numbers carry no direction, so there is
 nothing to twist.
@@ -260,18 +269,20 @@ nothing to twist.
 \begin{center}\small
 \begin{tabular}{|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}p{3.2cm}|}
 \hline
-& \textbf{tree} & \textbf{loops, no triangle} & \textbf{a triangle}\\
+& \textbf{tree} & \textbf{a shortcut-free loop of 4 or more} & \textbf{every loop has a shortcut} (triangles)\\
 \hline
 finitely many values & actual & actual & actual\\
 \hline
 infinitely many values, answers add up over infinitely many options & actual & actual & actual\\
 \hline
-infinitely many values, finite adding only & ideal \st{hand} & \cellcolor{orange!20}\textbf{pointless exists} on rings \st{Lean}; other graphs: open & \cellcolor{yellow!25}\textbf{open}\\
+infinitely many values, finite adding only & ideal \st{hand} & \cellcolor{orange!20}\textbf{pointless exists} \st{Lean ring + hand transport} & \cellcolor{yellow!25}\textbf{open}: the triangle decides\\
 \hline
 \end{tabular}
 \end{center}
-\noindent The shaded cells are where the theory lives: a loop, infinitely many
-possibilities, and only finite adding.
+\noindent In graph language the columns are: forests; graphs with an induced cycle
+of length $\ge4$ (non-chordal); and chordal graphs that are not forests. The
+shaded cells are where the theory lives: a loop, infinitely many possibilities,
+and only finite adding.
 
 %======================================================================
 \section{The open edge: the triangle}\label{sec:triangle}
@@ -294,9 +305,21 @@ three possible values that question disappears, and 2{,}088 others take its
 place. The ring's method, reading every answer off neighbouring windows, no
 longer applies.
 
-So the triangle is the experiment that decides what the theory is about. If the
-staircase still has consistent answers here, then \emph{any} loop permits
-pointless coherence. If it does not, pointlessness needs a triangle-free loop.
+So the triangle is the experiment that decides what the theory is about. Every
+loop either has a shortcut-free stretch of four or more, which is already
+settled, or is made of triangles.
+\begin{itemize}[nosep]
+  \item \emph{If the triangle carries pointless answers,} then so does every board
+    with any loop. Triangles travel too, since a triangle never has a shortcut.
+    Pointless coherence then happens \emph{exactly} on boards that are not
+    trees.
+  \item \emph{If it does not,} the expected line is \emph{chordal} versus
+    \emph{non-chordal}: boards whose every long loop has a shortcut versus those
+    with a shortcut-free one.
+\end{itemize}
+Either answer matches a classical pattern. Trees are where pairwise probability
+tables always fit together (Wainwright--Jordan). Chordal graphs are where junction
+trees and Vorob'ev's theorem live.
 A computer check on a finite part of the board finds consistent answers. That
 proves less than it seems. The finite part sees the slots only coarsely
 (``bigger than 1?'', ``which is larger?''), so like the die it can be pointless
@@ -305,9 +328,7 @@ pointlessness happens on the triangle is genuinely open.
 
 \paragraph{What the theory must settle.}
 \begin{enumerate}[nosep]
-  \item \emph{The invariant.} Which property of the window graph decides whether
-    pointless patterns exist: a loop, or a triangle-free loop? The triangle
-    decides.
+  \item \emph{The invariant.} Not a tree, or not chordal? The triangle decides.
   \item \emph{Extension on triangle-free graphs.} There, a consistent pattern is
     the same as a family of window recipes that extends, and pointless means
     twisted (Theorem~\ref{thm:star}, Proposition~\ref{prop:flat}). Which twisted
@@ -474,6 +495,38 @@ If the window graph is a forest, every state is an ideal point.
   \item This gives $W$ projecting to every $u_w$.
   \item By Theorem~\ref{thm:star}, $s(E)=\sum_iu_{w_i}(E_i)=\sum_iW(E_i)=W(E)$.
 \end{itemize}
+\end{proof}
+
+\begin{theorem}[loops travel]\label{thm:travel}\st{hand, from the Lean ring witness}
+If the window graph contains an induced cycle of length $L\ge4$, there is a
+pointless state over $\bbN$ with no $\sigma$-additive version. If the triangle
+carries a pointless state, so does every graph containing a triangle.
+\end{theorem}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item Let $C$ be the induced cycle. Define $\psi:\bbN^C\to\bbN^V$ by copying the
+    cycle coordinates and setting every other coordinate to a constant.
+  \item Pull back each window question of the graph:
+    \begin{itemize}[nosep]
+      \item a window on the cycle gives a window question of the ring, since
+        the cycle is induced, so there is no chord;
+      \item a window from the cycle to outside gives a question about one ring
+        coordinate;
+      \item a window off the cycle gives $\emptyset$ or everything.
+    \end{itemize}
+  \item The sets whose preimage is in $\cD_C$ form a carrier, so
+    $\psi^{-1}(\cD_G)\subseteq\cD_C$. Hence $s=\mu\circ\psi^{-1}$ is a state, with
+    $\mu$ the ring witness (Theorem~\ref{thm:witness}).
+  \item \emph{Pointless.} An ultrafilter fitting $s$ would push forward, along
+    the projection to the cycle coordinates, to one fitting the staircase on the
+    ring.
+  \item \emph{No $\sigma$-additive version:} Proposition~\ref{prop:sigma}.
+  \item \emph{The triangle clause:} the same argument, since a triangle is
+    always induced.
+\end{itemize}
+The Lean development already proves the analogous transport along cycle maps
+(\texttt{pullback}, \texttt{sL\_sigmaEssential}); this graph form is not yet in
+Lean.
 \end{proof}
 
 \begin{proposition}[flatness]\label{prop:flat}\st{hand}

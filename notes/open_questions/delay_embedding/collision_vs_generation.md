@@ -928,3 +928,32 @@ banking (ii) is blocked on it.
 
 The triangle with diagonal, diagonal and p⊗p windows (WLOG via coordinatewise bijections). Does
 it extend to D₃?
+
+### `gate.triangle_graph_windows` FIRED (a) ⟦HAND + finite check⟧
+
+- **The family.** Diagonal, diagonal, and p⊗p with x₀ first. Its forced functional is
+  Λ = W[01|2] + W[0|12] − W[0|1|2], over ideal buildings indexed by ordered partitions with ties.
+  The identity was checked window by window.
+- **The patterns.**
+  - Box identities allow 32 of the 2¹³ tie-patterns.
+  - Exactly 2 of them have Λ ∉ {0,1}: on strict orders, one is anticyclic (Λ=2) and the other
+    cyclic (Λ=−1).
+  - Lean's `not_inP_of_mem` does not depend on the window family. Together with ultrafilter
+    Ramsey over the 13 cells it excludes both. So the family extends, and the state is pointless.
+  - Script: `triangle_tie_patterns.py`.
+- **Generalised to all 27 tensor-type families** (each window diagonal or a product in either
+  order, one slot ultrafilter p). Every pattern with Λ ∉ {0,1} is cyclic or anticyclic on strict
+  orders, so every such family extends (`triangle_tensor_families.py`).
+  - Twisted families have bad patterns: 2, 6 or 12 of them.
+  - Flat ones have none.
+- **Reading.** Even with a triangle, extension is not the obstruction for tensor types. The
+  carrier's one exclusion, the cyclic family, absorbs every twist.
+- **New conjecture.** `conj.triangle_extends_all`: every consistent family extends on the triangle.
+  - Open for products of distinct ultrafilters and for non-tensor 2-types.
+- **Model-theory pass (sonnet, abstracts only).**
+  - Forests: folklore.
+  - Oriented-cycle failure, the directed-cycle classification, graph-monodromy flatness: NOT FOUND.
+  - Model theory owns n-amalgamation over models in stable or simple theories.
+  - Gaps: the theorems of Goldberg 2102.04677, Blass's thesis, Puritz, Hindman–Strauss.
+- **Lean.** Layer 2 covers only the staircase family. Generalising it to the 13 buildings is
+  routine but not done.

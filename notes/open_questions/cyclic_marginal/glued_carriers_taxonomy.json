@@ -287,7 +287,7 @@
       "id": "conj.triangle_extends_all",
       "name": "the triangle carries every consistent window family",
       "status": "open; TRUE for all 27 tensor-type families with one slot ultrafilter (hand + finite check, 2026-10-17)",
-      "one_line": "Every family of window ultrafilters on the triangle with consistent marginals extends to a state on D3 (so on every window graph, extension is never the obstruction and pointless = non-amalgamable). Evidence: for tensor types the only bad span patterns are cyclic/anticyclic off ties, which the Lean exclusion theorem removes. Open: products of different ultrafilters p (x) q, non-tensor 2-dimensional ultrafilters.",
+      "one_line": "Every family of window ultrafilters on the triangle with consistent marginals extends to a state on D3 (so on every window graph, extension is never the obstruction and pointless = non-amalgamable). Evidence: for tensor types the only bad span patterns are cyclic/anticyclic off ties, which the Lean exclusion theorem removes. Twistedness checked mechanically: 15 twisted families (all have bad patterns, all cyclic/anticyclic), 12 flat (none). Status of the 27-family claim: HAND + finite check; Lean (generalise sstar_mem to 13 buildings, arity-1/2/3 Ramsey, per-class pat_arith with minimal boxes) PENDING before propagation to note/overview. PRECISE OPEN STEP for distinct slot ultrafilters p0,p1,p2: Ramsey yields one set per coordinate (P_i in p_i), but InP needs one common P - refactor layer 1 to coordinate-indexed Q_i subset P_i with lift betweenness witnesses drawn from the other coordinates sets, thinned jointly to interleave. Also open: non-tensor 2-dimensional ultrafilters.",
       "detail": "../delay_embedding/collision_vs_generation.md (Extension and classification)",
       "uses": ["thm.triangle_estar_not_built", "thm.triangle_pointless"]
     },
@@ -420,7 +420,7 @@
       ],
       "fired": {"branch": "(a)", "date": "2026-10-17", "result": "Extends (HAND + finite check). Forced functional = W[01|2] + W[0|12] - W[0|1|2] (ordered-partition buildings, checked per window). Of the 32 tie-patterns allowed by all box identities, exactly 2 have Lambda outside {0,1}, and they agree on strict orders with the anticyclic / cyclic set; Lean not_inP_of_mem (window-family independent) + ultrafilter Ramsey over the 13 cells exclude them. GENERALISED: all 27 tensor-type families on the triangle (each window diagonal or product in either order, one slot ultrafilter p) pass the same check (verification/triangle_tensor_families.py) - every tensor-type family extends; the twisted ones give pointless states."},
       "pre_registered": "2026-10-17, before running",
-      "affects": {"id": "conj.trianglefree_classification", "effect": "whether extension is a real constraint once triangles are present"},
+      "affects": {"id": "conj.triangle_extends_all", "effect": "whether extension is a real constraint once triangles are present"},
       "detail": "../delay_embedding/collision_vs_generation.md (Extension and classification)"
     },
     {

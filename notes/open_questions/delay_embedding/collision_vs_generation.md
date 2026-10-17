@@ -944,8 +944,9 @@ it extend to D₃?
 - **Generalised to all 27 tensor-type families** (each window diagonal or a product in either
   order, one slot ultrafilter p). Every pattern with Λ ∉ {0,1} is cyclic or anticyclic on strict
   orders, so every such family extends (`triangle_tensor_families.py`).
-  - Twisted families have bad patterns: 2, 6 or 12 of them.
-  - Flat ones have none.
+  - Twisted families have bad patterns: 2, 6 or 12 of them. Flat ones have none.
+  - This is checked mechanically: twisted means the order constraints are inconsistent, so 15
+    families are twisted and 12 are flat.
 - **Reading.** Even with a triangle, extension is not the obstruction for tensor types. The
   carrier's one exclusion, the cyclic family, absorbs every twist.
 - **New conjecture.** `conj.triangle_extends_all`: every consistent family extends on the triangle.

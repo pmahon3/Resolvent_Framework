@@ -43,5 +43,10 @@ for fam in itertools.product(['D','ij','ji'],repeat=3):
         if all(sb[k]==(1 if cyc(t) else 0) for k,t in enumerate(strict)): kinds.append('cyc')
         elif all(sb[k]==(0 if cyc(t) else 1) for k,t in enumerate(strict)): kinds.append('acy')
         else: kinds.append('OTHER'); allok=False
-    print(fam, "bad patterns:",len(bad), sorted(set(kinds)))
-print("ALL bad patterns cyclic/anticyclic on strict orders:",allok)
+    # twisted iff the order constraints (x_i = x_j for D, x_i < x_j for 'ij') are inconsistent:
+    # flat iff some ordered partition realises all three windows
+    flat=any(all(wtype(pi,i,j)==t for (i,j),t in zip(W,fam)) for pi in types)
+    twisted=not flat
+    if twisted != (len(bad)>0): allok=False
+    print(fam, "twisted" if twisted else "flat   ", "bad patterns:",len(bad), sorted(set(kinds)))
+print("ALL bad patterns cyclic/anticyclic AND twisted <=> has bad patterns:",allok)

@@ -351,17 +351,19 @@ finitely many values & actual & actual & actual\\
 \hline
 infinitely many values, answers add up over infinitely many options & actual & actual & actual\\
 \hline
-infinitely many values, finite adding only & ideal \st{hand} & \cellcolor{orange!20}\textbf{pointless exists} \st{Lean ring + hand transport} & \cellcolor{yellow!25}\textbf{open}: the triangle decides\\
+infinitely many values, finite adding only & ideal \st{hand} & \cellcolor{orange!20}\textbf{pointless exists} \st{Lean ring + hand transport} & \cellcolor{orange!20}\textbf{pointless exists} \st{Lean triangle + hand transport}\\
 \hline
 \end{tabular}
 \end{center}
 \noindent In graph language the columns are: forests; graphs with an induced cycle
 of length $\ge4$ (non-chordal); and chordal graphs that are not forests. The
 shaded cells are where the theory lives: a loop, infinitely many possibilities,
-and only finite adding.
+and only finite adding. The last column was the open edge until the triangle
+was settled (\S\ref{sec:triangle}); the line now falls between trees and
+everything else.
 
 %======================================================================
-\section{The open edge: the triangle}\label{sec:triangle}
+\section{The triangle}\label{sec:triangle}
 
 Now use only \emph{three} flights: windows $\{x_0,x_1\}$, $\{x_1,x_2\}$,
 $\{x_2,x_0\}$, every one going up. This is Penrose's impossible \emph{triangle},
@@ -386,48 +388,106 @@ three possible values that question disappears, and 2{,}088 others take its
 place. The ring's method, reading every answer off neighbouring windows, no
 longer applies.
 
-So the triangle is the experiment that decides what the theory is about. Every
+So the triangle was the experiment that decided what the theory is about. Every
 loop either has a shortcut-free stretch of four or more, which is already
 settled, or is made of triangles.
 \begin{itemize}[nosep]
-  \item \emph{If the triangle carries pointless answers,} then so does every board
+  \item \emph{If the triangle carried pointless answers,} then so would every board
     with any loop. Triangles travel too, since a triangle never has a shortcut.
-    Pointless coherence then happens \emph{exactly} on boards that are not
+    Pointless coherence would then happen \emph{exactly} on boards that are not
     trees.
-  \item \emph{If it does not,} the expected line is \emph{chordal} versus
+  \item \emph{If it did not,} the expected line was \emph{chordal} versus
     \emph{non-chordal}: boards whose every long loop has a shortcut versus those
     with a shortcut-free one.
 \end{itemize}
 Either answer matches a classical pattern. Trees are where pairwise probability
 tables always fit together (Wainwright--Jordan). Chordal graphs are where junction
 trees and Vorob'ev's theorem live.
-What do we know? Any consistent answers extending the three flights' views
-are \emph{forced} on every question built in finitely many steps: the answer must
-be the sum of the flights' limits (Proposition~\ref{prop:forced}). And those
-forced answers are always 0 or 1 (Proposition~\ref{prop:sixorders}).
+It carries them. The rest of this section is the puzzle that shows why.
 
-The reason is a picture. Three landings taken from beyond every number can be
-drawn in six orders, and each order gives a genuine ideal building. A question
-built in finitely many steps can only ever see the order of \emph{one pair} of
-landings. The single thing that would break the forced answers is a question
-that holds exactly in the three orders that go round the loop the staircase's
-way. That is the tribar's own
-twist, and no finitely built question can see it.
+\paragraph{Forced answers.} Any consistent answers extending the three flights'
+views are \emph{forced} on every question built in finitely many steps: the
+answer must be the sum of the flights' limits (Proposition~\ref{prop:forced}).
+Three landings taken from beyond every number can be drawn in six orders, and
+each order gives a genuine ideal building. Up to the sign of one building, the
+forced answer is the sum of what three of those buildings say. It fails to be 0
+or 1 only on a question that holds in exactly the three orders that go round the
+loop the staircase's way: the tribar's own twist. Call that the \emph{cyclic
+question}: ``do the three heights go round the staircase's way?''
+(Proposition~\ref{prop:sixorders}). So everything turns on one thing. Can the
+cyclic question, or anything that looks like it far out, be built?
 
-What remains open are questions built with \emph{infinitely} many steps, where
-the answer is not forced. Whether the triangle carries pointless answers now
-turns entirely on them.
+\paragraph{The balance rule.} Pick two candidate heights for each landing. That
+gives $2\times2\times2=8$ buildings, the corners of a box. Mark a corner
+$+$ or $-$ by whether it uses an even or odd number of second choices. A
+window question answers each corner by looking at two landings only. The
+corners pair up across the third landing, one $+$ and one $-$ in each pair, so
+\emph{every window question says yes equally often on the $+$ and $-$ corners.}
+``Not'' keeps the balance, since every box has four of each, and so does putting
+together questions that never both say yes. So every buildable question, built
+in any number of steps, \emph{balances on every box.}
+
+\paragraph{The lift.} Take heights $1,4,7$ for $x_0,x_1,x_2$: they go up round
+the loop, $x_0<x_1<x_2$, the staircase's way. Now lift the lowest landing above
+the highest: $x_0=10$. The heights $10,4,7$ still go round the staircase's way
+($x_1<x_2<x_0$). Put both into one box, with second choices $10$ for $x_0$, $8$
+for $x_1$ and $2$ for $x_2$:
+\begin{center}\small
+\begin{tabular}{c c l}
+\textbf{corner} $(x_0,x_1,x_2)$ & \textbf{sign} & \textbf{way round}\\\hline
+$(1,4,7)$ & $+$ & staircase's way\\
+$(10,8,7)$ & $+$ & the other way\\
+$(10,4,2)$ & $+$ & the other way\\
+$(1,8,2)$ & $+$ & the other way\\\hline
+$(10,4,7)$ & $-$ & staircase's way\\
+$(1,8,7)$ & $-$ & the other way\\
+$(1,4,2)$ & $-$ & the other way\\
+$(10,8,2)$ & $-$ & the other way\\
+\end{tabular}
+\end{center}
+Suppose a buildable question says no to every configuration that goes the other
+way. Then the balance rule leaves one corner on each side, so it answers
+$(1,4,7)$ and $(10,4,7)$ alike. Lifting the lowest landing never changes its
+answer. Enough lifts carry any spread-out configuration that goes the
+staircase's way to any other, so such a question says yes to all of them or to
+none.
+
+\paragraph{Why that settles it.} Try to build the cyclic question.
+\begin{itemize}[nosep]
+  \item ``Not'' turns it into the question that goes the other way, which the
+    reflection $x_1\leftrightarrow x_2$ turns back.
+  \item Putting together pieces that never both say yes: each piece says no to
+    the other way, so by the lift each piece takes all of the spread-out
+    staircase-way configurations or none of them. One piece takes them all.
+    It already looks like the cyclic question far out, and it was built
+    earlier.
+\end{itemize}
+So nothing that looks like the cyclic question far out is ever built, not even
+in infinitely many steps (Theorem~\ref{thm:estar}). Ramsey's theorem, run
+along the ultrafilter, finishes the job. Any question whose forced answer is 2
+looks like the cyclic question on some infinite set of heights, and two
+balance-rule boxes pin its pattern there. So the forced answers are always 0 or
+1, and \emph{the triangle carries pointless answers}
+(Theorem~\ref{thm:triangle}, machine-checked).
+
+\paragraph{The dividing line.} With the transport of loops
+(Theorem~\ref{thm:travel}): \emph{a board carries pointless answers exactly when
+its window graph is not a tree} (not a forest). This is for two-slot windows
+and infinitely many values. With finitely many values every consistent pattern
+is actual, and a window that sees all three landings at once makes the triangle
+an ordinary board.
 
 \paragraph{What the theory must settle.}
 \begin{enumerate}[nosep]
-  \item \emph{The invariant.} Not a tree, or not chordal? The triangle decides.
   \item \emph{Extension on triangle-free graphs.} There, a consistent pattern is
     the same as a family of window recipes that extends, and pointless means
     twisted (Theorem~\ref{thm:star}, Proposition~\ref{prop:flat}). Which twisted
-    families extend? The rings say some do. Is it all of them, on every loop?
+    families extend? The rings and the triangle say some do. Is it all of them,
+    on every loop?
   \item \emph{The classification.} Which twisted families extend to every
     buildable question? The hope is that twist is measured by something like a
-    winding number of the directions around each loop.
+    winding number of the directions around each loop. On the triangle the
+    balance rule and the lift are the first instruments.
   \item \emph{Wider windows.} Windows showing three or more slots at once.
   \item \emph{No background at all.} The boards assume a space of
     \emph{possibilities} (the slots and their possible values) and nothing
@@ -712,26 +772,62 @@ shape (a sum of window functions) on a finite tower. Its failure at $L=3$ lies
 on such a function with the cyclic profile, which is not buildable. It never
 obstructed the triangle.
 
-\paragraph{What remains, as a dichotomy.} The candidate
-$s^{*}=W^{(k)}+W^{(j)}-W^{(jk)}$ is defined on \emph{every} subset of the
-possibilities, is finitely additive, and agrees with the staircase. It is a
-pointless state on the triangle exactly when every set in the full carrier has a
-constant or half profile. A failure would need countably many disjoint carrier
-sets, each invisible to all six buildings, whose union has the cyclic profile.
+\begin{theorem}[the cyclic question is not buildable]\label{thm:estar}\st{Lean:
+\texttt{not\_inP\_of\_mem}, \texttt{estar\_not\_mem}}
+Let $C$ (resp.\ $A$) be the strict cyclic (resp.\ anticyclic) points of $\bbN^3$.
+No set that agrees with $C$, or with $A$, on the distinct-coordinate points of
+$P^3$ for some infinite $P\subseteq\bbN$ lies in the triangle carrier. In
+particular $E^*=\{[x_0\le x_1]+[x_1<x_2]+[x_2<x_0]=2\}$ is not buildable,
+although $1_{E^*}=[x_0\le x_1]+[x_1<x_2]+[x_2<x_0]-1$ is a sum of window
+functions.
+\end{theorem}
+\begin{proof}
 \begin{itemize}[nosep]
-  \item \emph{The sharpest probe} is whether slices $\{x_0=n\}\times S$, with
-    $S$ arbitrary, lie in the carrier. If they all did, every set would be a
-    countable union of them; the carrier would then be all subsets, and no
-    pointless state could exist.
-  \item \emph{At three values only 14 of 512 slices are buildable}, so that
-    route is closed there. This points toward a pointless triangle, but it is
-    not the case over $\bbN$.
-  \item \emph{$s^{*}$ failing would not by itself settle it:} other extensions
-    might exist.
+  \item \emph{Balance.} Every carrier set has vanishing triple interaction on
+    every $2\times2\times2$ box: window events do, and the identity survives
+    complements and countable disjoint unions (pointwise sums).
+  \item \emph{Lift.} Thin $P$ to $Q$ (every other element), so that a
+    $P$-element lies between any two $Q$-elements. Let $G$ balance and avoid
+    $A$ on $P^3$. For $a<b<c<a'$ in $Q$, choose $\gamma\in P$ between $a,b$ and
+    $\beta\in P$ between $c,a'$. The box
+    $\{a,a'\}\times\{b,\beta\}\times\{c,\gamma\}$ has its other six corners in
+    $A\cap P^3$, so $1_G(a,b,c)=1_G(a',b,c)$. Rotations give the other two
+    orders, and lifts connect any two points of $C\cap Q^3$.
+  \item \emph{Induction.} The family is closed under complement (and under
+    the reflection $(x_0,x_2,x_1)$ for the $A$ side) and contains no window
+    event. In a countable disjoint union, exactly one piece takes
+    $C\cap Q^3$, and it is a member of the family built earlier.\qedhere
 \end{itemize}
-The six-orders argument sits near known work on products of ultrafilters and the
-commutation of iterated limits (Blass; Hindman--Strauss, unread). It is offered
-as theory content, not as a novelty claim.
+\end{proof}
+
+\begin{theorem}[the triangle]\label{thm:triangle}\st{Lean:
+\texttt{triangle\_pointless\_state}, \texttt{sstar\_window01/12/20}}
+For every non-principal ultrafilter $p$, $s^{*}=W_{012}+W_{120}-W_{102}$ is
+finitely additive with $s^*(\Omega)=1$, is $\{0,1\}$-valued on the triangle
+carrier, and equals the staircase limit on every window question. No ultrafilter
+on $\bbN^3$ reproduces it, since $\{x_0<x_1\}\cap\{x_1<x_2\}\cap\{x_2<x_0\}=\emptyset$.
+So the triangle carries a pointless state.
+\end{theorem}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item $s^*$ is a signed sum of three ultrafilters, so it is finitely additive
+    on every set. On a window question two terms cancel or coincide, leaving
+    the oriented $p\otimes p$ limit.
+  \item Suppose $s^*(E)\in\{2,-1\}$ for a carrier set $E$. The six order
+    conditions intersect to a $p^{\otimes3}$-large set, and the ultrafilter
+    proof of Ramsey's theorem gives an infinite $P$ on which $E$ follows its
+    six-order profile.
+  \item Two balance boxes on six elements of $P$ cut the $64$ patterns to the
+    $10$ in the span of window functions. Of those, $s^*=2$ only on the cyclic
+    pattern and $s^*=-1$ only on the anticyclic one. Theorem~\ref{thm:estar}
+    excludes both.\qedhere
+\end{itemize}
+\end{proof}
+\noindent That $s^*$ is the forced functional $\Lambda$ on finitely built
+questions is Proposition~\ref{prop:forced} \st{hand}. The six-orders argument
+and the Ramsey step sit near known work on products of ultrafilters (Blass;
+Hindman--Strauss, unread). They are offered as theory content, not as a novelty
+claim.
 
 \begin{theorem}[the staircase]\label{thm:witness}\st{Lean: \texttt{mu\_cases},
 \texttt{sL\_sigmaEssential}}
@@ -749,10 +845,14 @@ prior-art owner was found in three passes.
 
 \paragraph{Status.}
 \begin{itemize}[nosep]
-  \item \st{Lean}: Theorem~\ref{thm:witness}; Proposition~\ref{prop:sigma} on the
-    ring.
-  \item \st{hand}: everything else in Appendix~\ref{app:defs}.
-  \item Open: \S\ref{sec:triangle}.
+  \item \st{Lean}: Theorems~\ref{thm:witness}, \ref{thm:estar} and
+    \ref{thm:triangle}; Proposition~\ref{prop:sigma} on the ring.
+  \item \st{hand}: everything else in Appendix~\ref{app:defs}, including the
+    assembly ``pointless $\iff$ not a forest''.
+  \item Open: the classification and extension questions at the end of
+    \S\ref{sec:triangle}.
+  \item Prior art for the triangle: two scouting passes and a hostile audit;
+    see the taxonomy file below.
   \item Prior-art risk for the staircase: Bhaskara Rao, \emph{Theory of
     Charges}; Goldberg on ultrafilter products.
 \end{itemize}
@@ -777,7 +877,11 @@ prior-art owner was found in three passes.
   \item Index: \texttt{glued\_carriers\_taxonomy.json}.
   \item Witness and prior art: \texttt{collision\_vs\_generation.md}, in the
     \texttt{delay\_embedding} open questions.
-  \item Lean: \texttt{formalization/staging/WindowGluing.lean}.
+  \item Lean (in the staging folder of the formalization):
+    \begin{itemize}[nosep]
+      \item rings: \texttt{WindowGluing.lean};
+      \item triangle: \texttt{TriangleCyclic.lean}.
+    \end{itemize}
   \item Relation to the cycle side:
     \texttt{cyclic\_marginal\_scoping.md}.
 \end{itemize}

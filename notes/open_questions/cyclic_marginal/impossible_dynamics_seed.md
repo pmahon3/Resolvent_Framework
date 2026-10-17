@@ -1,6 +1,6 @@
 # Dynamics on impossible figures (seed, 2026-10-17)
 
-reviewed: false. This is the user's idea (2026-10-16), seeded as `conj.impossible_dynamics` in
+reviewed: false. **PARKED 2026-10-17 (user approved)**; see the last section. This is the user's idea (2026-10-16), seeded as `conj.impossible_dynamics` in
 `glued_carriers_taxonomy.json`. It was taken up after the triangle settled.
 
 ## The puzzle: Escher's staircase as a frieze

@@ -5,7 +5,7 @@
     "updated": "2026-10-16",
     "what_is_it": "Which finitely additive two-valued states (states) on Dynkin carriers glued from window events are points, ideal points (ultrafilters on Omega), or pointless - and which shape of window graph decides it.",
     "status": "OPEN",
-    "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive states on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle'). UPDATE 2026-10-16: triangle-free => locality (stars); forests => no pointless states; any induced cycle of length >= 4 => pointless states (transport). Open = chordal non-forest graphs, decided by the triangle.",
+    "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive states on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle'). UPDATE 2026-10-16: triangle-free => locality (stars); forests => no pointless states; any induced cycle of length >= 4 => pointless states (transport). Open = chordal non-forest graphs, decided by the triangle. UPDATE 2026-10-17: TRIANGLE PROBE FIRED (a) - the triangle carries a pointless state (Lean, thm.triangle_pointless); with loops-travel + forests (hand): pointless <=> not a forest. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
     "categories": {
       "objects": "definitions the theory is about",
       "theorems": "proved results (lean or hand), with uses/scope",
@@ -21,7 +21,7 @@
       "probes": 4,
       "examples": 3,
       "owned_regions": 12,
-      "overall": "OPEN - two data points proved, one decisive probe pending"
+      "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
     },
     "puzzle": "notes/open_questions/cyclic_marginal/pointless_coherence.tex section 'The puzzle'; domain map in section 'Domain and scope'",
     "cross_collections": "[[sigma_essential_taxonomy]] (the witness is a sigma-essential object); [[commensurability_taxonomy]] (cycle side; fixed-L winding owned); [[ce_taxonomy]] (concept.oml_center cell inhabited)",
@@ -75,10 +75,10 @@
     {
       "id": "thm.triangle_pointless",
       "name": "the triangle carries a pointless state",
-      "status": "LEAN-CHECKED 2026-10-17 (formalization/staging/TriangleCyclic.lean; 0 sorry; axioms propext, Classical.choice, Quot.sound). Prior-art pass for THIS claim (ultrafilter amalgamation / infinite-outcome contextuality) not yet run.",
-      "lean": "TriangleCyclic.triangle_pointless_state, triangle_state_no_ultrafilter, triangle_state_no_point, triangle_has_pointless_state",
+      "status": "LEAN-CHECKED 2026-10-17 (formalization/staging/TriangleCyclic.lean; 0 sorry; axioms propext, Classical.choice, Quot.sound), including fidelity sstar_window01/12/20 (s* = the staircase p(x)p limit on every window event). Prior-art: two budgeted sonnet scouts 2026-10-17 NOT FOUND, shallow coverage (snippet-level; Navara-Ptak-era, Gudder, Bhaskara Rao, Hindman-Strauss text, Blass unread; residual risk = folklore ultrafilter-product non-extendability, or a Navara-style set-representable logic with a non-point two-valued state). Scouting only - NOT the claim gate (workflow step 6 / /audit pure owed).",
+      "lean": "TriangleCyclic.triangle_pointless_state, triangle_state_no_ultrafilter, triangle_state_no_point, triangle_has_pointless_state, sstar_window01, sstar_window12, sstar_window20",
       "one_line": "For every non-principal ultrafilter p on N, s* = W012 + W120 - W102 (signed combination of three iterated p-limit ultrafilters on N^3) is finitely additive, s*(Omega)=1, {0,1}-valued on the triangle carrier D3, and 1 on the staircase steps {x0<x1},{x1<x2},{x2<x0} (empty intersection), so no ultrafilter on Omega - in particular no point - reproduces it. Two-valuedness: if s*(E) is 2 or -1, ultrafilter Ramsey for triples gives an infinite P on which E follows its six-order profile; two box identities force the cyclic/anticyclic pattern; the homogeneous-set family is excluded from D3 by the lift lemma + Dynkin induction.",
-      "scope": "Triangle over N, any non-principal p. With thm.loops_travel (hand) and the forests theorem (hand): a window graph has a pointless state iff it is not a forest - that assembly is hand, not Lean.",
+      "scope": "Triangle over N, any non-principal p. That s* coincides with the forced functional Lambda on finitely built questions is hand (prop:forced). With thm.loops_travel (hand) and the forests theorem (hand): a window graph has a pointless state iff it is not a forest - that assembly is hand, not Lean. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
       "uses": ["thm.triangle_estar_not_built", "obs.forced_functional"],
       "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe)"
     },
@@ -403,7 +403,7 @@
         {"branch": "(b) no", "then": "the counterexample is the next membership candidate; test it against the lift lemma or construct it in D (s* fails)"}
       ],
       "pre_registered": "2026-10-17, before running",
-      "fired": {"branch": "(b)", "date": "2026-10-17", "result": "Witness F_S = E* + [x0 in S]([x1<x0]-[x2<x0]) (0/1, sum of window functions; {x1<x2} on slices x0 in S): Lambda = 2 for p-small S, deviates on the unbounded non-band region. Route changed: the homogeneous-set family F_inf (infinite P, agree with C or A on distinct points of P^3) catches every bad-profile set via the ultrafilter proof of Ramsey (any non-principal p); HAND, unverified - see hub."},
+      "fired": {"branch": "(b)", "date": "2026-10-17", "result": "Leg (ii) (definable-level computation) NOT RUN: at definable levels Lambda is fixed by the far strict atoms, so agreement with E* there is automatic - uninformative. Leg (i) by hand: witness F_S = E* + [x0 in S]([x1<x0]-[x2<x0]) (0/1, sum of window functions; {x1<x2} on slices x0 in S): Lambda = 2 for p-small S, deviates on the unbounded non-band region. Route changed: the homogeneous-set family F_inf (infinite P, agree with C or A on distinct points of P^3) catches every bad-profile set via the ultrafilter proof of Ramsey (any non-principal p); HAND, unverified - see hub."},
       "affects": {"id": "gate.triangle", "effect": "decides the triangle"},
       "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, Theorem E* is not in the carrier, Scope)"
     },
@@ -463,7 +463,7 @@
         "date": "2026-10-16",
         "result": "612 of 15,914 ternary carrier sets have the rotations-in/reversals-out footprint, including E* = {[x0<=x1]+[x1<x2]+[x2<x0]=2}. Moreover the A=3 carrier equals ALL 0/1 functions in the span of window functions (15,914 = 15,914), so finite boxes cannot decide the triangle at all: the gap between buildable and span-allowed exists only at infinity."
       },
-      "fired": {"branch": "(a)", "date": "2026-10-17", "result": "Triangle pointless: thm.triangle_pointless (Lean). Assembled with loops-travel and forests (hand): pointless <=> not a forest. Dependent conjectures NOT auto-updated (user review)."},
+      "fired": {"branch": "(a)", "date": "2026-10-17", "result": "Triangle pointless: thm.triangle_pointless (Lean). Assembled with loops-travel and forests (hand): pointless <=> not a forest. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean. AWAITING USER REVIEW (not auto-updated): conj.invariant_any_cycle (dichotomy = forest vs not) - the fired gate bears on it."},
       "pre_registered": "2026-10-16, before running",
       "affects": {
         "id": "gate.triangle",

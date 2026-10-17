@@ -2,6 +2,14 @@
 
 ## STATE AS OF 2026-08-31 (read this first)
 
+### 2026-10-17 addendum (one line)
+
+**The triangle is decided.** It carries a pointless state; this is Lean-checked
+(`formalization/staging/TriangleCyclic.lean`, 0 sorry). With loops-travel and
+forests (hand), a pair-window graph over ℕ has a pointless state ⟺ it is not a
+forest. Prior art: two scouts found nothing, and the claim gate is still owed.
+See `glued_carriers_taxonomy.json` (`thm.triangle_pointless`).
+
 ### 2026-10-16 addendum (read before the 2026-08-31 text below)
 
 **The aim, restated by the user.** Build **new mathematical theory**. Problems are

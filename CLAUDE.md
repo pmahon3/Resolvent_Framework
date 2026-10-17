@@ -280,6 +280,8 @@ allocated about 17 GB for the full SVD, while other hunts were also running.
   runs go to the tower, after asking the user.
 - **Grow box or threshold sizes one step at a time**, checking the time and memory
   of the previous step first. Stop at the smallest size that answers the question.
+- **Lean is the exception.** A Mathlib-importing Lean compile peaks at about 2.2 GB
+  (measured 2026-10-17). That is expected: run one compile at a time.
 - **Use `ulimit -v` or a timeout** on exploratory scripts, so that runaway jobs die
   instead of freezing the machine.
 

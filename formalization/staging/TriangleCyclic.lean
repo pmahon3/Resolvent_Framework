@@ -1056,6 +1056,69 @@ theorem sstar_mem {E : Set Ω} (hE : D₃.Has E) : sstar p E = 0 ∨ sstar p E =
 
 end State
 
+/-! ## Fidelity: s* extends the staircase on every window event
+
+The staircase assigns to a window event its p⊗p limit with the window's orientation
+x₀<x₁, x₁<x₂, x₂<x₀ (first-named coordinate drawn first). On each window the three terms of
+`sstar` reduce to that limit (for window {0,1} the W₁₂₀ and W₁₀₂ terms cancel; for {2,0} the
+W₀₁₂ and W₁₀₂ terms cancel). -/
+
+/-- Staircase value on the three windows. -/
+noncomputable def stair01 (p : Ultrafilter ℕ) (E : Set Ω) : ℤ := by
+  classical exact if ∀ᶠ u in (p : Filter ℕ), ∀ᶠ v in (p : Filter ℕ), ![u, v, 0] ∈ E then 1 else 0
+noncomputable def stair12 (p : Ultrafilter ℕ) (E : Set Ω) : ℤ := by
+  classical exact if ∀ᶠ u in (p : Filter ℕ), ∀ᶠ v in (p : Filter ℕ), ![0, u, v] ∈ E then 1 else 0
+noncomputable def stair20 (p : Ultrafilter ℕ) (E : Set Ω) : ℤ := by
+  classical exact if ∀ᶠ u in (p : Filter ℕ), ∀ᶠ v in (p : Filter ℕ), ![v, 0, u] ∈ E then 1 else 0
+
+lemma loc_of {w : Set (Fin 3)} {E : Set Ω} (hE : @MeasurableSet _ (windowSigma w) E)
+    {y z : Ω} (h : ∀ k ∈ w, y k = z k) : y ∈ E ↔ z ∈ E := window_event_local hE h
+
+theorem sstar_window01 (p : Ultrafilter ℕ) {E : Set Ω}
+    (hE : @MeasurableSet _ (windowSigma {0, 1}) E) : sstar p E = stair01 p E := by
+  obtain ⟨g, hl⟩ : ∃ g : ℕ → ℕ → Prop, ∀ a b c : ℕ, (![a, b, c] ∈ E ↔ g a b) :=
+    ⟨fun a b => ![a, b, 0] ∈ E, fun a b c => loc_of hE (by
+    intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+    rcases hk with rfl | rfl <;> rfl)⟩
+  have e1 : Wv p o012 E = stair01 p E := by
+    classical
+    unfold Wv stair01; exact if_congr (by simp only [Ev3, E3, o012, hl, Filter.eventually_const]) rfl rfl
+  have e2 : Wv p o120 E = Wv p o102 E := by
+    classical
+    unfold Wv; exact if_congr (by simp only [Ev3, E3, o120, o102, hl, Filter.eventually_const]) rfl rfl
+  simp only [sstar, e1, e2]; ring
+
+theorem sstar_window12 (p : Ultrafilter ℕ) {E : Set Ω}
+    (hE : @MeasurableSet _ (windowSigma {1, 2}) E) : sstar p E = stair12 p E := by
+  obtain ⟨g, hl⟩ : ∃ g : ℕ → ℕ → Prop, ∀ a b c : ℕ, (![c, a, b] ∈ E ↔ g a b) :=
+    ⟨fun a b => ![0, a, b] ∈ E, fun a b c => loc_of hE (by
+    intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+    rcases hk with rfl | rfl <;> rfl)⟩
+  have e1 : Wv p o012 E = stair12 p E := by
+    classical
+    unfold Wv stair12; exact if_congr (by simp only [Ev3, E3, o012, hl, Filter.eventually_const]) rfl rfl
+  have e2 : Wv p o120 E = stair12 p E := by
+    classical
+    unfold Wv stair12; exact if_congr (by simp only [Ev3, E3, o120, hl, Filter.eventually_const]) rfl rfl
+  have e3 : Wv p o102 E = stair12 p E := by
+    classical
+    unfold Wv stair12; exact if_congr (by simp only [Ev3, E3, o102, hl, Filter.eventually_const]) rfl rfl
+  simp only [sstar, e1, e2, e3]; ring
+
+theorem sstar_window20 (p : Ultrafilter ℕ) {E : Set Ω}
+    (hE : @MeasurableSet _ (windowSigma {2, 0}) E) : sstar p E = stair20 p E := by
+  obtain ⟨g, hl⟩ : ∃ g : ℕ → ℕ → Prop, ∀ a b c : ℕ, (![b, c, a] ∈ E ↔ g a b) :=
+    ⟨fun a b => ![b, 0, a] ∈ E, fun a b c => loc_of hE (by
+    intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+    rcases hk with rfl | rfl <;> rfl)⟩
+  have e1 : Wv p o012 E = Wv p o102 E := by
+    classical
+    unfold Wv; exact if_congr (by simp only [Ev3, E3, o012, o102, hl, Filter.eventually_const]) rfl rfl
+  have e2 : Wv p o120 E = stair20 p E := by
+    classical
+    unfold Wv stair20; exact if_congr (by simp only [Ev3, E3, o120, hl, Filter.eventually_const]) rfl rfl
+  simp only [sstar, e1, e2]; ring
+
 /-! ## The triangle carries a pointless state -/
 
 lemma window_mem {w : Set (Fin 3)} (hw : w ∈ W₃) (S : Set (w → ℕ)) :
@@ -1129,3 +1192,6 @@ end TriangleCyclic
 #print axioms TriangleCyclic.triangle_state_no_ultrafilter
 #print axioms TriangleCyclic.triangle_state_no_point
 #print axioms TriangleCyclic.triangle_has_pointless_state
+#print axioms TriangleCyclic.sstar_window01
+#print axioms TriangleCyclic.sstar_window12
+#print axioms TriangleCyclic.sstar_window20

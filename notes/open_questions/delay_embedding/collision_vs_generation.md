@@ -645,8 +645,26 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
       triangle inside any graph) and the forests theorem: a window graph has a
       pointless state ⟺ it is not a forest. The assembly is by hand; the
       triangle piece is Lean.
-    - Prior-art pass for this claim: still owed (Hindman–Strauss / Goldberg
-      amalgamation, Okay-school infinite outcomes, Specker's triangle).
+    - **Scope:** pair windows over ℕ. Over a finite alphabet every state is a
+      point, and a window covering the whole triangle makes the carrier Boolean.
+    - **Fidelity (Lean):** `sstar_window01/12/20` show that on every window
+      event s\* equals the staircase p⊗p limit in that window's orientation.
+      For window 01 the W₁₂₀ and W₁₀₂ terms cancel; for window 20 the W₀₁₂ and
+      W₁₀₂ terms cancel. That s\* is the forced functional Λ on finitely built
+      questions is hand (`prop:forced`).
+    - **Gate leg (ii) was not run:** at definable levels Λ is fixed by the far
+      strict atoms, so agreement there is automatic.
+    - **Prior art: two budgeted sonnet scouts (2026-10-17), NOT FOUND.**
+      - Both were shallow: snippets only.
+      - Unread: Navara–Pták-era papers, Gudder, Bhaskara Rao, the
+        Hindman–Strauss text, Blass.
+      - Residual risk:
+        - a folklore non-extendability argument from ultrafilter products
+          (non-commutativity of p⊗p);
+        - a Navara-style set-representable logic with a non-point two-valued
+          state.
+      - This was scouting, not the claim gate (workflow step 6). `/audit pure`
+        is still owed.
 
   - Keleti–Preiss (shelf): their method is a σ-ideal normal form. On discrete ℕ
     any σ-ideal containing the bounded slabs is trivial, so it does not

@@ -336,7 +336,7 @@
         }
       ],
       "fired": "pending",
-      "evidence": "NECESSARY CONDITION HOLDS (2026-10-16). Any extension must equal the forced functional Lambda(f)=sum_k lim_{u_k} f_k on finitely built questions (well defined: zero-sum window triples are coboundaries + constants). Lambda is {0,1}-valued on all definable finitely built triangle questions: T=0 430 sets, T=1 74,738 sets, 0 bad (verification/triangle_forced_functional.py). The ring-sweep's L=3 failure is on a non-buildable 0/1 function. Untested: countably built questions (value not forced by finite additivity). The earlier 'not point-Helly' downgrade was over-corrected: the oracle tested forced values, not an arbitrary finite state.",
+      "evidence": "NECESSARY CONDITION HOLDS (2026-10-16). Any extension must equal the forced functional Lambda(f)=sum_k lim_{u_k} f_k on finitely built questions (well defined: zero-sum window triples are coboundaries + constants). Lambda is {0,1}-valued on all definable finitely built triangle questions: T=0 430 sets, T=1 74,738 sets, 0 bad (verification/triangle_forced_functional.py). The ring-sweep's L=3 failure is on a non-buildable 0/1 function. Untested: countably built questions (value not forced by finite additivity). The earlier 'not point-Helly' downgrade was over-corrected: the oracle tested forced values, not an arbitrary finite state. Refutation hunt 2026-10-16 (triangle_lambda_hunt.py, 20 min/level): none at T=2,3,4 (~0.5M buildable questions each, ~250k true).",
       "affects": {
         "id": "conj.invariant_any_cycle",
         "effect": "decides between the two invariant conjectures"

@@ -408,6 +408,10 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
     obstruct the triangle.
   - **Untested:** countably built questions, where finite additivity does not
     force the value.
+  - **Refutation hunt, 20 min per level** (`verification/triangle_lambda_hunt.py`):
+    no refutation at T=2 (513,802 buildable questions explored, 256,624 true),
+    T=3 (496,150 / 246,608) or T=4 (493,038 / 244,116). It searches for two
+    disjoint true questions, which is exactly a failure of Λ.
   - Status: open, with the necessary condition holding at every level tested.
 - A finite-alphabet test of the full carrier would be uninformative: there,
   every two-valued state is a point.

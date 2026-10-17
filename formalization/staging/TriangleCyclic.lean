@@ -27,12 +27,25 @@ Method.
 * Induction over the Dynkin system: a countable disjoint union has exactly one piece that takes
   the far part, and that piece would already be a member of the family.
 Independent of any ultrafilter.
+
+Layer 1 (`not_inP_of_mem`): the same holds for the homogeneous-set family: sets agreeing with
+the cyclic (or anticyclic) set on the distinct points of P³ for some infinite P.
+
+Layer 2 (`triangle_pointless_state`, `triangle_has_pointless_state`): for a non-principal
+ultrafilter p, `sstar p = W₀₁₂ + W₁₂₀ − W₁₀₂` (iterated-limit ultrafilters along three placements)
+is finitely additive, normalised, {0,1}-valued on D₃, and equals 1 on the staircase steps
+C₀, C₁, C₂ with C₀ ∩ C₁ ∩ C₂ = ∅, so no ultrafilter on Ω reproduces it: the triangle carries a
+pointless state. Two-valuedness: a bad value forces (ultrafilter Ramsey for triples, `ramsey3`,
+plus two box identities, `pat_arith`) the cyclic or anticyclic pattern on an infinite P.
 -/
 import Mathlib.MeasureTheory.PiSystem
 import Mathlib.MeasureTheory.MeasurableSpace.Pi
 import Mathlib.Topology.Algebra.InfiniteSum.ENNReal
 import Mathlib.Tactic.FinCases
 import Mathlib.Data.Nat.Nth
+import Mathlib.Order.Filter.Ultrafilter.Basic
+import Mathlib.Order.Filter.Finite
+import Mathlib.Order.Filter.Cofinite
 
 open Set MeasurableSpace Function
 open scoped ENNReal
@@ -712,8 +725,407 @@ theorem not_inP_of_mem {E : Set Ω} (hE : D₃.Has E) : ¬ InP E := by
         simp only [cnt, hk] at this
         by_contra hn; simp [hn] at this
 
+
+/-! ## Layer 2: the staircase state on the triangle
+
+For a non-principal ultrafilter `p` on ℕ, `sstar p = W₀₁₂ + W₁₂₀ − W₁₀₂`, a signed combination of
+three iterated-limit ultrafilters on Ω. It is finitely additive on all sets, equals 1 on the
+three staircase steps C₀ = {x₀<x₁}, C₁ = {x₁<x₂}, C₂ = {x₂<x₀} (whose intersection is empty),
+and is {0,1}-valued on the carrier `D₃`: a set where it takes 2 or −1 has, on an infinite
+homogeneous P (ultrafilter Ramsey for triples), the cyclic or anticyclic pattern, so it lies in
+the homogeneous-set family, which `not_inP_of_mem` excludes. -/
+
+section Ramsey
+
+/-- Triple iterated `∀ᶠ` along `p`. -/
+def E3 (p : Ultrafilter ℕ) (φ : ℕ → ℕ → ℕ → Prop) : Prop :=
+  ∀ᶠ u in (p : Filter ℕ), ∀ᶠ v in (p : Filter ℕ), ∀ᶠ w in (p : Filter ℕ), φ u v w
+
+variable {p : Ultrafilter ℕ} (hp : ∀ m, ∀ᶠ n in (p : Filter ℕ), m < n) {T : ℕ → ℕ → ℕ → Prop}
+
+def G1 (p : Ultrafilter ℕ) (T : ℕ → ℕ → ℕ → Prop) (u : ℕ) : Prop :=
+  ∀ᶠ v in (p : Filter ℕ), ∀ᶠ w in (p : Filter ℕ), T u v w
+
+def G2 (p : Ultrafilter ℕ) (T : ℕ → ℕ → ℕ → Prop) (u v : ℕ) : Prop :=
+  ∀ᶠ w in (p : Filter ℕ), T u v w
+
+def RInv (p : Ultrafilter ℕ) (T : ℕ → ℕ → ℕ → Prop) (F : Finset ℕ) : Prop :=
+  (∀ y ∈ F, G1 p T y) ∧ (∀ y ∈ F, ∀ z ∈ F, y < z → G2 p T y z) ∧
+    (∀ y ∈ F, ∀ z ∈ F, ∀ t ∈ F, y < z → z < t → T y z t)
+
+def RNext (p : Ultrafilter ℕ) (T : ℕ → ℕ → ℕ → Prop) (n : ℕ) (F : Finset ℕ) (x : ℕ) : Prop :=
+  n < x ∧ (∀ y ∈ F, y < x) ∧ G1 p T x ∧ (∀ y ∈ F, G2 p T y x) ∧
+    (∀ y ∈ F, ∀ z ∈ F, y < z → T y z x)
+
+include hp in
+lemma rnext_eventually (hT : E3 p T) {F : Finset ℕ} (hF : RInv p T F) (n : ℕ) :
+    ∀ᶠ x in (p : Filter ℕ), RNext p T n F x := by
+  have h1 : ∀ᶠ x in (p : Filter ℕ), ∀ y ∈ F, y < x :=
+    (Filter.eventually_all_finset F).2 fun y _ => hp y
+  have h2 : ∀ᶠ x in (p : Filter ℕ), ∀ y ∈ F, G2 p T y x :=
+    (Filter.eventually_all_finset F).2 fun y hy => hF.1 y hy
+  have h3 : ∀ᶠ x in (p : Filter ℕ), ∀ y ∈ F, ∀ z ∈ F, y < z → T y z x :=
+    (Filter.eventually_all_finset F).2 fun y hy => (Filter.eventually_all_finset F).2
+      fun z hz => by
+        by_cases hyz : y < z
+        · exact (hF.2.1 y hy z hz hyz).mono fun x hx _ => hx
+        · exact Filter.Eventually.of_forall fun x h => absurd h hyz
+  have hT' : ∀ᶠ x in (p : Filter ℕ), G1 p T x := hT
+  filter_upwards [hp n, h1, hT', h2, h3] with x a b c d e
+  exact ⟨a, b, c, d, e⟩
+
+lemma rinv_insert {F : Finset ℕ} {n x : ℕ} (hF : RInv p T F) (hx : RNext p T n F x) :
+    RInv p T (insert x F) := by
+  obtain ⟨-, hlt, hG1, hG2, hT⟩ := hx
+  refine ⟨fun y hy => ?_, fun y hy z hz hyz => ?_, fun y hy z hz t ht hyz hzt => ?_⟩
+  · rcases Finset.mem_insert.mp hy with rfl | hy
+    · exact hG1
+    · exact hF.1 y hy
+  · rcases Finset.mem_insert.mp hy with hyx | hy' <;>
+      rcases Finset.mem_insert.mp hz with hzx | hz'
+    · omega
+    · have := hlt z hz'; omega
+    · subst hzx; exact hG2 y hy'
+    · exact hF.2.1 y hy' z hz' hyz
+  · rcases Finset.mem_insert.mp hy with hyx | hy' <;>
+      rcases Finset.mem_insert.mp hz with hzx | hz' <;>
+      rcases Finset.mem_insert.mp ht with htx | ht'
+    · omega
+    · omega
+    · omega
+    · have := hlt z hz'; omega
+    · omega
+    · have := hlt t ht'; omega
+    · subst htx; exact hT y hy' z hz' hyz
+    · exact hF.2.2 y hy' z hz' t ht' hyz hzt
+
+/-- The greedy sequence of finite sets. -/
+noncomputable def rseq (p : Ultrafilter ℕ) (T : ℕ → ℕ → ℕ → Prop) : ℕ → Finset ℕ
+  | 0 => ∅
+  | n + 1 => insert (Classical.epsilon (RNext p T n (rseq p T n))) (rseq p T n)
+
+include hp in
+lemma rseq_spec (hT : E3 p T) (n : ℕ) :
+    RInv p T (rseq p T n) ∧ RNext p T n (rseq p T n) (Classical.epsilon (RNext p T n (rseq p T n))) := by
+  induction n with
+  | zero =>
+    have h0 : RInv p T (rseq p T 0) := by simp [RInv, rseq]
+    exact ⟨h0, Classical.epsilon_spec (rnext_eventually hp hT h0 0).exists⟩
+  | succ n ih =>
+    have h1 : RInv p T (rseq p T (n + 1)) := rinv_insert ih.1 ih.2
+    exact ⟨h1, Classical.epsilon_spec (rnext_eventually hp hT h1 (n + 1)).exists⟩
+
+lemma rseq_mono : Monotone (rseq p T) :=
+  monotone_nat_of_le_succ fun n => Finset.subset_insert _ _
+
+include hp in
+/-- **Ultrafilter Ramsey for triples.** -/
+theorem ramsey3 (hT : E3 p T) :
+    ∃ P : Set ℕ, P.Infinite ∧ ∀ u ∈ P, ∀ v ∈ P, ∀ w ∈ P, u < v → v < w → T u v w := by
+  refine ⟨{x | ∃ n, x ∈ rseq p T n}, infinite_of_unb fun m => ?_, ?_⟩
+  · refine ⟨Classical.epsilon (RNext p T m (rseq p T m)), ⟨m + 1, Finset.mem_insert_self _ _⟩,
+      (rseq_spec hp hT m).2.1⟩
+  · rintro u ⟨i, hi⟩ v ⟨j, hj⟩ w ⟨k, hk⟩ huv hvw
+    have hs := (rseq_spec hp hT (i + j + k)).1
+    exact hs.2.2 u (rseq_mono (by omega) hi) v (rseq_mono (by omega) hj) w
+      (rseq_mono (by omega) hk) huv hvw
+
+end Ramsey
+
+section State
+
+variable (p : Ultrafilter ℕ)
+
+/-- The six placements of a sorted triple u<v<w (named by the coordinate order from smallest). -/
+def o012 (u v w : ℕ) : Ω := ![u, v, w]
+def o120 (u v w : ℕ) : Ω := ![w, u, v]
+def o201 (u v w : ℕ) : Ω := ![v, w, u]
+def o021 (u v w : ℕ) : Ω := ![u, w, v]
+def o210 (u v w : ℕ) : Ω := ![w, v, u]
+def o102 (u v w : ℕ) : Ω := ![v, u, w]
+
+def Ev3 (o : ℕ → ℕ → ℕ → Ω) (E : Set Ω) : Prop := E3 p fun u v w => o u v w ∈ E
+
+/-- The iterated-limit ultrafilter along placement `o`, as a {0,1} value. -/
+noncomputable def Wv (o : ℕ → ℕ → ℕ → Ω) (E : Set Ω) : ℤ := by
+  classical exact if Ev3 p o E then 1 else 0
+
+/-- **The staircase functional.** -/
+noncomputable def sstar (E : Set Ω) : ℤ := Wv p o012 E + Wv p o120 E - Wv p o102 E
+
+lemma ev3_compl (o : ℕ → ℕ → ℕ → Ω) (E : Set Ω) : Ev3 p o Eᶜ ↔ ¬ Ev3 p o E := by
+  simp only [Ev3, E3, Set.mem_compl_iff, Ultrafilter.eventually_not]
+
+lemma ev3_union (o : ℕ → ℕ → ℕ → Ω) (A B : Set Ω) :
+    Ev3 p o (A ∪ B) ↔ Ev3 p o A ∨ Ev3 p o B := by
+  simp only [Ev3, E3, Set.mem_union, Ultrafilter.eventually_or]
+
+lemma ev3_mono {o : ℕ → ℕ → ℕ → Ω} {A B : Set Ω} (h : A ⊆ B) (hA : Ev3 p o A) : Ev3 p o B :=
+  hA.mono fun _ hu => hu.mono fun _ hv => hv.mono fun _ hw => h hw
+
+lemma wv_cases (o : ℕ → ℕ → ℕ → Ω) (E : Set Ω) : Wv p o E = 0 ∨ Wv p o E = 1 := by
+  unfold Wv; split_ifs <;> simp
+
+lemma wv_one {o : ℕ → ℕ → ℕ → Ω} {E : Set Ω} : Wv p o E = 1 ↔ Ev3 p o E := by
+  unfold Wv; split_ifs with h <;> simp [h]
+
+lemma wv_union {o : ℕ → ℕ → ℕ → Ω} {A B : Set Ω} (hd : Disjoint A B) :
+    Wv p o (A ∪ B) = Wv p o A + Wv p o B := by
+  have hAB : Ev3 p o A → ¬ Ev3 p o B := fun hA =>
+    (ev3_compl p o B).mp (ev3_mono p (fun x hx => Set.disjoint_left.mp hd hx) hA)
+  unfold Wv
+  by_cases ha : Ev3 p o A <;> by_cases hb : Ev3 p o B
+  · exact absurd hb (hAB ha)
+  all_goals simp [ev3_union, ha, hb]
+
+theorem sstar_union {A B : Set Ω} (hd : Disjoint A B) :
+    sstar p (A ∪ B) = sstar p A + sstar p B := by
+  simp only [sstar, wv_union p hd]; ring
+
+theorem sstar_univ : sstar p univ = 1 := by
+  have h : ∀ o, Wv p o univ = 1 := fun o => (wv_one p).mpr
+    (Filter.Eventually.of_forall fun _ => Filter.Eventually.of_forall fun _ =>
+      Filter.Eventually.of_forall fun _ => mem_univ _)
+  simp [sstar, h]
+
+variable {p} (hp : ∀ m, ∀ᶠ n in (p : Filter ℕ), m < n)
+include hp
+
+lemma e3_order {φ : ℕ → ℕ → ℕ → Prop} (h : ∀ u v w, u < v → v < w → φ u v w) : E3 p φ :=
+  Filter.Eventually.of_forall fun u => (hp u).mono fun v huv => (hp v).mono fun w hvw =>
+    h u v w huv hvw
+
+lemma wv_of_order {o : ℕ → ℕ → ℕ → Ω} {E : Set Ω} (h : ∀ u v w, u < v → v < w → o u v w ∈ E) :
+    Wv p o E = 1 := (wv_one p).mpr (e3_order hp h)
+
+lemma wv_of_order' {o : ℕ → ℕ → ℕ → Ω} {E : Set Ω} (h : ∀ u v w, u < v → v < w → o u v w ∉ E) :
+    Wv p o E = 0 := by
+  have : ¬ Ev3 p o E := (ev3_compl p o E).mp (e3_order hp fun u v w h1 h2 => h u v w h1 h2)
+  unfold Wv; simp [this]
+
+/-- The staircase steps. -/
+def C₀ : Set Ω := {x | x 0 < x 1}
+def C₁ : Set Ω := {x | x 1 < x 2}
+def C₂ : Set Ω := {x | x 2 < x 0}
+
+theorem sstar_C₀ : sstar p C₀ = 1 := by
+  rw [sstar, wv_of_order hp (fun u v w h1 h2 => by simp [o012, C₀]; omega),
+    wv_of_order' hp (fun u v w h1 h2 => by simp [o120, C₀]; omega),
+    wv_of_order' hp (fun u v w h1 h2 => by simp [o102, C₀]; omega)]; norm_num
+
+theorem sstar_C₁ : sstar p C₁ = 1 := by
+  rw [sstar, wv_of_order hp (fun u v w h1 h2 => by simp [o012, C₁]; omega),
+    wv_of_order hp (fun u v w h1 h2 => by simp [o120, C₁]; omega),
+    wv_of_order hp (fun u v w h1 h2 => by simp [o102, C₁]; omega)]; norm_num
+
+theorem sstar_C₂ : sstar p C₂ = 1 := by
+  rw [sstar, wv_of_order' hp (fun u v w h1 h2 => by simp [o012, C₂]; omega),
+    wv_of_order hp (fun u v w h1 h2 => by simp [o120, C₂]; omega),
+    wv_of_order' hp (fun u v w h1 h2 => by simp [o102, C₂]; omega)]; norm_num
+
+omit hp in
+lemma e3_and {φ ψ : ℕ → ℕ → ℕ → Prop} (h1 : E3 p φ) (h2 : E3 p ψ) :
+    E3 p fun u v w => φ u v w ∧ ψ u v w :=
+  (h1.and h2).mono fun _ ⟨a, b⟩ => (a.and b).mono fun _ ⟨c, d⟩ => (c.and d).mono
+    fun _ ⟨e, f⟩ => ⟨e, f⟩
+
+omit hp in
+lemma e3_iff (o : ℕ → ℕ → ℕ → Ω) (E : Set Ω) : E3 p fun u v w => (o u v w ∈ E ↔ Ev3 p o E) := by
+  by_cases h : Ev3 p o E
+  · exact h.mono fun _ hu => hu.mono fun _ hv => hv.mono fun _ hw => ⟨fun _ => h, fun _ => hw⟩
+  · exact ((ev3_compl p o E).mpr h).mono fun _ hu => hu.mono fun _ hv => hv.mono
+      fun _ hw => ⟨fun h2 => absurd h2 hw, fun h2 => absurd h2 h⟩
+
+/-- An infinite set on which membership in `E` follows the six-order profile. -/
+lemma homog (E : Set Ω) : ∃ P : Set ℕ, P.Infinite ∧ ∀ u ∈ P, ∀ v ∈ P, ∀ w ∈ P, u < v → v < w →
+    (o012 u v w ∈ E ↔ Ev3 p o012 E) ∧ (o120 u v w ∈ E ↔ Ev3 p o120 E) ∧
+    (o201 u v w ∈ E ↔ Ev3 p o201 E) ∧ (o021 u v w ∈ E ↔ Ev3 p o021 E) ∧
+    (o210 u v w ∈ E ↔ Ev3 p o210 E) ∧ (o102 u v w ∈ E ↔ Ev3 p o102 E) :=
+  ramsey3 hp (e3_and (e3_iff o012 E) (e3_and (e3_iff o120 E) (e3_and (e3_iff o201 E)
+    (e3_and (e3_iff o021 E) (e3_and (e3_iff o210 E) (e3_iff o102 E))))))
+
+omit hp in
+lemma six (P : Set ℕ) (hP : P.Infinite) : ∃ e₀ e₁ e₂ e₃ e₄ e₅, e₀ ∈ P ∧ e₁ ∈ P ∧ e₂ ∈ P ∧
+    e₃ ∈ P ∧ e₄ ∈ P ∧ e₅ ∈ P ∧ e₀ < e₁ ∧ e₁ < e₂ ∧ e₂ < e₃ ∧ e₃ < e₄ ∧ e₄ < e₅ := by
+  have hf : (setOf (· ∈ P)).Infinite := hP
+  have hmono := Nat.nth_strictMono hf
+  exact ⟨_, _, _, _, _, _, Nat.nth_mem_of_infinite hf 0, Nat.nth_mem_of_infinite hf 1,
+    Nat.nth_mem_of_infinite hf 2, Nat.nth_mem_of_infinite hf 3, Nat.nth_mem_of_infinite hf 4,
+    Nat.nth_mem_of_infinite hf 5, hmono (by norm_num), hmono (by norm_num),
+    hmono (by norm_num), hmono (by norm_num), hmono (by norm_num)⟩
+
+omit hp in
+lemma cnt_wv {E : Set Ω} {x : Ω} {o : ℕ → ℕ → ℕ → Ω} (h : x ∈ E ↔ Ev3 p o E) :
+    (cnt E x : ℤ) = Wv p o E := by
+  unfold cnt Wv
+  by_cases hx : x ∈ E
+  · simp [hx, h.mp hx]
+  · simp [hx, (not_congr h).mp hx]
+
+omit hp in
+/-- The two box identities cut the six order bits to the span; on it, s* ∈ {2, −1} forces the
+cyclic or the anticyclic pattern. -/
+lemma pat_arith (A B C D F G : ℤ) (hA : A = 0 ∨ A = 1) (hB : B = 0 ∨ B = 1) (hC : C = 0 ∨ C = 1)
+    (hD : D = 0 ∨ D = 1) (hF : F = 0 ∨ F = 1) (hG : G = 0 ∨ G = 1)
+    (h1 : A + C + G + A = B + D + A + A) (h2 : D + C + G + A = F + D + A + A)
+    (hne : ¬(A + B - G = 0 ∨ A + B - G = 1)) :
+    (A = 1 ∧ B = 1 ∧ C = 1 ∧ D = 0 ∧ F = 0 ∧ G = 0) ∨
+      (A = 0 ∧ B = 0 ∧ C = 0 ∧ D = 1 ∧ F = 1 ∧ G = 1) := by
+  omega
+
+/-- **The staircase functional is {0,1}-valued on the triangle carrier.** -/
+theorem sstar_mem {E : Set Ω} (hE : D₃.Has E) : sstar p E = 0 ∨ sstar p E = 1 := by
+  by_contra hne
+  obtain ⟨P, hP, hH⟩ := homog hp E
+  obtain ⟨e₀, e₁, e₂, e₃, e₄, e₅, m₀, m₁, m₂, m₃, m₄, m₅, l₀, l₁, l₂, l₃, l₄⟩ := six P hP
+  have hB := box_of_mem hE
+  have b1 := hB e₀ e₃ e₁ e₄ e₂ e₅
+  have b2 := hB e₀ e₃ e₂ e₄ e₁ e₅
+  -- corners of the first box
+  have c1 := cnt_wv (x := ![e₀, e₁, e₂]) (hH e₀ m₀ e₁ m₁ e₂ m₂ l₀ l₁).1
+  have c2 := cnt_wv (x := ![e₃, e₄, e₂]) (hH e₂ m₂ e₃ m₃ e₄ m₄ l₂ l₃).2.2.1
+  have c3 := cnt_wv (x := ![e₃, e₁, e₅]) (hH e₁ m₁ e₃ m₃ e₅ m₅ (by omega) (by omega)).2.2.2.2.2
+  have c4 := cnt_wv (x := ![e₀, e₄, e₅]) (hH e₀ m₀ e₄ m₄ e₅ m₅ (by omega) l₄).1
+  have c5 := cnt_wv (x := ![e₃, e₁, e₂]) (hH e₁ m₁ e₂ m₂ e₃ m₃ l₁ l₂).2.1
+  have c6 := cnt_wv (x := ![e₀, e₄, e₂]) (hH e₀ m₀ e₂ m₂ e₄ m₄ (by omega) (by omega)).2.2.2.1
+  have c7 := cnt_wv (x := ![e₀, e₁, e₅]) (hH e₀ m₀ e₁ m₁ e₅ m₅ l₀ (by omega)).1
+  have c8 := cnt_wv (x := ![e₃, e₄, e₅]) (hH e₃ m₃ e₄ m₄ e₅ m₅ l₃ l₄).1
+  -- corners of the second box
+  have d1 := cnt_wv (x := ![e₀, e₂, e₁]) (hH e₀ m₀ e₁ m₁ e₂ m₂ l₀ l₁).2.2.2.1
+  have d2 := cnt_wv (x := ![e₃, e₄, e₁]) (hH e₁ m₁ e₃ m₃ e₄ m₄ (by omega) l₃).2.2.1
+  have d3 := cnt_wv (x := ![e₃, e₂, e₅]) (hH e₂ m₂ e₃ m₃ e₅ m₅ l₂ (by omega)).2.2.2.2.2
+  have d5 := cnt_wv (x := ![e₃, e₂, e₁]) (hH e₁ m₁ e₂ m₂ e₃ m₃ l₁ l₂).2.2.2.2.1
+  have d6 := cnt_wv (x := ![e₀, e₄, e₁]) (hH e₀ m₀ e₁ m₁ e₄ m₄ l₀ (by omega)).2.2.2.1
+  have d7 := cnt_wv (x := ![e₀, e₂, e₅]) (hH e₀ m₀ e₂ m₂ e₅ m₅ (by omega) (by omega)).1
+  have b1' : ((cnt E ![e₀, e₁, e₂] : ℕ) : ℤ) + cnt E ![e₃, e₄, e₂] + cnt E ![e₃, e₁, e₅] +
+      cnt E ![e₀, e₄, e₅] = cnt E ![e₃, e₁, e₂] + cnt E ![e₀, e₄, e₂] + cnt E ![e₀, e₁, e₅] +
+      cnt E ![e₃, e₄, e₅] := by exact_mod_cast b1
+  have b2' : ((cnt E ![e₀, e₂, e₁] : ℕ) : ℤ) + cnt E ![e₃, e₄, e₁] + cnt E ![e₃, e₂, e₅] +
+      cnt E ![e₀, e₄, e₅] = cnt E ![e₃, e₂, e₁] + cnt E ![e₀, e₄, e₁] + cnt E ![e₀, e₂, e₅] +
+      cnt E ![e₃, e₄, e₅] := by exact_mod_cast b2
+  rw [c1, c2, c3, c4, c5, c6, c7, c8] at b1'
+  rw [d1, d2, d3, c4, d5, d6, d7, c8] at b2'
+  have w1 := wv_cases p o012 E; have w2 := wv_cases p o120 E; have w3 := wv_cases p o201 E
+  have w4 := wv_cases p o021 E; have w5 := wv_cases p o210 E; have w6 := wv_cases p o102 E
+  simp only [sstar] at hne
+  have hpat := pat_arith (Wv p o012 E) (Wv p o120 E) (Wv p o201 E) (Wv p o021 E) (Wv p o210 E)
+    (Wv p o102 E) w1 w2 w3 w4 w5 w6 b1' b2' hne
+  apply not_inP_of_mem hE
+  have z : ∀ {o : ℕ → ℕ → ℕ → Ω}, Wv p o E = 0 → ¬ Ev3 p o E := fun h h' => by
+    rw [(wv_one p).mpr h'] at h; exact one_ne_zero h
+  refine ⟨P, hP, ?_⟩
+  rcases hpat with ⟨q1, q2, q3, q4, q5, q6⟩ | ⟨q1, q2, q3, q4, q5, q6⟩
+  · refine Or.inl fun x hx hd => ?_
+    obtain ⟨a, b, c, rfl⟩ : ∃ a b c, x = ![a, b, c] := ⟨_, _, _, eta x⟩
+    obtain ⟨ha, hb, hc⟩ := hx
+    simp only [Dist, v0, v1, v2] at hd ha hb hc
+    simp only [Cyc, v0, v1, v2]
+    rcases (show (a < b ∧ b < c) ∨ (b < c ∧ c < a) ∨ (c < a ∧ a < b) ∨ (a < c ∧ c < b) ∨
+        (c < b ∧ b < a) ∨ (b < a ∧ a < c) by omega) with h | h | h | h | h | h
+    · have e := (hH a ha b hb c hc h.1 h.2).1
+      exact e.trans ⟨fun _ => Or.inl h, fun _ => (wv_one p).mp q1⟩
+    · have e := (hH b hb c hc a ha h.1 h.2).2.1
+      exact e.trans ⟨fun _ => Or.inr (Or.inl h), fun _ => (wv_one p).mp q2⟩
+    · have e := (hH c hc a ha b hb h.1 h.2).2.2.1
+      exact e.trans ⟨fun _ => Or.inr (Or.inr h), fun _ => (wv_one p).mp q3⟩
+    · have e := (hH a ha c hc b hb h.1 h.2).2.2.2.1
+      exact e.trans ⟨fun h' => absurd h' (z q4), fun h' => by omega⟩
+    · have e := (hH c hc b hb a ha h.1 h.2).2.2.2.2.1
+      exact e.trans ⟨fun h' => absurd h' (z q5), fun h' => by omega⟩
+    · have e := (hH b hb a ha c hc h.1 h.2).2.2.2.2.2
+      exact e.trans ⟨fun h' => absurd h' (z q6), fun h' => by omega⟩
+  · refine Or.inr fun x hx hd => ?_
+    obtain ⟨a, b, c, rfl⟩ : ∃ a b c, x = ![a, b, c] := ⟨_, _, _, eta x⟩
+    obtain ⟨ha, hb, hc⟩ := hx
+    simp only [Dist, v0, v1, v2] at hd ha hb hc
+    simp only [Acy, v0, v1, v2]
+    rcases (show (a < b ∧ b < c) ∨ (b < c ∧ c < a) ∨ (c < a ∧ a < b) ∨ (a < c ∧ c < b) ∨
+        (c < b ∧ b < a) ∨ (b < a ∧ a < c) by omega) with h | h | h | h | h | h
+    · have e := (hH a ha b hb c hc h.1 h.2).1
+      exact e.trans ⟨fun h' => absurd h' (z q1), fun h' => by omega⟩
+    · have e := (hH b hb c hc a ha h.1 h.2).2.1
+      exact e.trans ⟨fun h' => absurd h' (z q2), fun h' => by omega⟩
+    · have e := (hH c hc a ha b hb h.1 h.2).2.2.1
+      exact e.trans ⟨fun h' => absurd h' (z q3), fun h' => by omega⟩
+    · have e := (hH a ha c hc b hb h.1 h.2).2.2.2.1
+      exact e.trans ⟨fun _ => Or.inl h, fun _ => (wv_one p).mp q4⟩
+    · have e := (hH c hc b hb a ha h.1 h.2).2.2.2.2.1
+      exact e.trans ⟨fun _ => Or.inr (Or.inl h), fun _ => (wv_one p).mp q5⟩
+    · have e := (hH b hb a ha c hc h.1 h.2).2.2.2.2.2
+      exact e.trans ⟨fun _ => Or.inr (Or.inr h), fun _ => (wv_one p).mp q6⟩
+
+end State
+
+/-! ## The triangle carries a pointless state -/
+
+lemma window_mem {w : Set (Fin 3)} (hw : w ∈ W₃) (S : Set (w → ℕ)) :
+    D₃.Has ((fun x (k : w) => x k) ⁻¹' S) :=
+  DynkinSystem.GenerateHas.basic _ ⟨w, hw, ⟨S, (Set.to_countable S).measurableSet, rfl⟩⟩
+
+lemma C₀_mem : D₃.Has C₀ :=
+  window_mem (w := {0, 1}) (by simp [W₃]) {y | y ⟨0, by simp⟩ < y ⟨1, by simp⟩}
+lemma C₁_mem : D₃.Has C₁ :=
+  window_mem (w := {1, 2}) (by simp [W₃]) {y | y ⟨1, by simp⟩ < y ⟨2, by simp⟩}
+lemma C₂_mem : D₃.Has C₂ :=
+  window_mem (w := {2, 0}) (by simp [W₃]) {y | y ⟨2, by simp⟩ < y ⟨0, by simp⟩}
+
+lemma C_inter : C₀ ∩ C₁ ∩ C₂ = ∅ := by
+  ext x; simp only [C₀, C₁, C₂, mem_inter_iff, mem_setOf_eq, mem_empty_iff_false, iff_false]
+  omega
+
+/-- **The triangle carries a pointless finitely additive two-valued state** (for every
+non-principal ultrafilter `p` on ℕ): `sstar p` is additive, normalised, {0,1}-valued on `D₃`, and
+equals 1 on the three staircase steps, whose intersection is empty. -/
+theorem triangle_pointless_state (p : Ultrafilter ℕ) (hp : ∀ m, ∀ᶠ n in (p : Filter ℕ), m < n) :
+    (∀ E, D₃.Has E → sstar p E = 0 ∨ sstar p E = 1) ∧
+    (∀ A B : Set Ω, Disjoint A B → sstar p (A ∪ B) = sstar p A + sstar p B) ∧
+    sstar p univ = 1 ∧
+    D₃.Has C₀ ∧ D₃.Has C₁ ∧ D₃.Has C₂ ∧
+    sstar p C₀ = 1 ∧ sstar p C₁ = 1 ∧ sstar p C₂ = 1 ∧ C₀ ∩ C₁ ∩ C₂ = ∅ :=
+  ⟨fun _ hE => sstar_mem hp hE, fun _ _ hd => sstar_union p hd, sstar_univ p,
+    C₀_mem, C₁_mem, C₂_mem, sstar_C₀ hp, sstar_C₁ hp, sstar_C₂ hp, C_inter⟩
+
+/-- Pointless: no ultrafilter on Ω (in particular no point) reproduces the state on `D₃`. -/
+theorem triangle_state_no_ultrafilter (p : Ultrafilter ℕ) (hp : ∀ m, ∀ᶠ n in (p : Filter ℕ), m < n) :
+    ¬ ∃ U : Ultrafilter Ω, ∀ E, D₃.Has E → (sstar p E = 1 ↔ E ∈ U) := by
+  rintro ⟨U, hU⟩
+  have h0 := (hU _ C₀_mem).mp (sstar_C₀ hp)
+  have h1 := (hU _ C₁_mem).mp (sstar_C₁ hp)
+  have h2 := (hU _ C₂_mem).mp (sstar_C₂ hp)
+  have := U.inter_mem (U.inter_mem h0 h1) h2
+  rw [C_inter] at this
+  exact U.empty_notMem this
+
+theorem triangle_state_no_point (p : Ultrafilter ℕ) (hp : ∀ m, ∀ᶠ n in (p : Filter ℕ), m < n) :
+    ¬ ∃ ω : Ω, ∀ E, D₃.Has E → (sstar p E = 1 ↔ ω ∈ E) := by
+  rintro ⟨ω, hω⟩
+  have h0 := (hω _ C₀_mem).mp (sstar_C₀ hp)
+  have h1 := (hω _ C₁_mem).mp (sstar_C₁ hp)
+  have h2 := (hω _ C₂_mem).mp (sstar_C₂ hp)
+  have : ω ∈ C₀ ∩ C₁ ∩ C₂ := ⟨⟨h0, h1⟩, h2⟩
+  rw [C_inter] at this; exact this
+
+/-- A non-principal ultrafilter exists (ZFC), so the triangle carries a pointless state. -/
+theorem hyperfilter_gt (m : ℕ) : ∀ᶠ n in ((Filter.hyperfilter ℕ : Ultrafilter ℕ) : Filter ℕ), m < n :=
+  Filter.hyperfilter_le_cofinite (Filter.eventually_cofinite.2 ((Set.finite_le_nat m).subset
+    fun n hn => by simpa using hn))
+
+/-- **Unconditional form.** The triangle carrier over ℕ carries a finitely additive two-valued
+state that no ultrafilter on Ω (in particular no point) reproduces. -/
+theorem triangle_has_pointless_state :
+    ∃ s : Set Ω → ℤ, (∀ E, D₃.Has E → s E = 0 ∨ s E = 1) ∧
+      (∀ A B : Set Ω, Disjoint A B → s (A ∪ B) = s A + s B) ∧ s univ = 1 ∧
+      ¬ ∃ U : Ultrafilter Ω, ∀ E, D₃.Has E → (s E = 1 ↔ E ∈ U) :=
+  ⟨sstar (Filter.hyperfilter ℕ), (triangle_pointless_state _ hyperfilter_gt).1,
+    (triangle_pointless_state _ hyperfilter_gt).2.1, (triangle_pointless_state _ hyperfilter_gt).2.2.1,
+    triangle_state_no_ultrafilter _ hyperfilter_gt⟩
+
 end TriangleCyclic
 
 #print axioms TriangleCyclic.estar_not_mem
 #print axioms TriangleCyclic.not_inF_of_mem
 #print axioms TriangleCyclic.not_inP_of_mem
+#print axioms TriangleCyclic.triangle_pointless_state
+#print axioms TriangleCyclic.triangle_state_no_ultrafilter
+#print axioms TriangleCyclic.triangle_state_no_point
+#print axioms TriangleCyclic.triangle_has_pointless_state

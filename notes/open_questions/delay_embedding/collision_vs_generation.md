@@ -632,8 +632,21 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
     - **Consequence: no 0/1 set in D has Λ ∉ {0,1}, for any non-principal p.**
       So s\* = Λ is a pointless state on the triangle carrier, which would
       fire gate (a): pointless ⟺ not a forest.
-    - **This needs fresh-context verification and Lean before it is
-      claimed.**
+    - **LEAN-CHECKED 2026-10-17:** `TriangleCyclic.triangle_pointless_state`,
+      `triangle_state_no_ultrafilter` and `triangle_has_pointless_state`.
+      - 0 sorry; standard axioms only.
+      - The proof includes an ultrafilter-Ramsey recursion for triples
+        (`ramsey3`), since Mathlib has none.
+      - Two box identities pin down the pattern (`pat_arith`); a brute force
+        found that two suffice.
+      - The packaging is simplified: s\* = W₀₁₂ + W₁₂₀ − W₁₀₂ is defined on all
+        sets, so no V-decomposition is needed.
+    - **gate.triangle fired (a).** With `thm:travel` (its transport ψ covers a
+      triangle inside any graph) and the forests theorem: a window graph has a
+      pointless state ⟺ it is not a forest. The assembly is by hand; the
+      triangle piece is Lean.
+    - Prior-art pass for this claim: still owed (Hindman–Strauss / Goldberg
+      amalgamation, Okay-school infinite outcomes, Specker's triangle).
 
   - Keleti–Preiss (shelf): their method is a σ-ideal normal form. On discrete ℕ
     any σ-ideal containing the bounded slabs is trivial, so it does not

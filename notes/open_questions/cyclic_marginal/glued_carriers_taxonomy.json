@@ -16,7 +16,7 @@
     },
     "headline": {
       "objects": 6,
-      "theorems": 17,
+      "theorems": 18,
       "conjectures": 13,
       "probes": 4,
       "examples": 3,
@@ -72,6 +72,16 @@
     }
   ],
   "theorems": [
+    {
+      "id": "thm.triangle_pointless",
+      "name": "the triangle carries a pointless state",
+      "status": "LEAN-CHECKED 2026-10-17 (formalization/staging/TriangleCyclic.lean; 0 sorry; axioms propext, Classical.choice, Quot.sound). Prior-art pass for THIS claim (ultrafilter amalgamation / infinite-outcome contextuality) not yet run.",
+      "lean": "TriangleCyclic.triangle_pointless_state, triangle_state_no_ultrafilter, triangle_state_no_point, triangle_has_pointless_state",
+      "one_line": "For every non-principal ultrafilter p on N, s* = W012 + W120 - W102 (signed combination of three iterated p-limit ultrafilters on N^3) is finitely additive, s*(Omega)=1, {0,1}-valued on the triangle carrier D3, and 1 on the staircase steps {x0<x1},{x1<x2},{x2<x0} (empty intersection), so no ultrafilter on Omega - in particular no point - reproduces it. Two-valuedness: if s*(E) is 2 or -1, ultrafilter Ramsey for triples gives an infinite P on which E follows its six-order profile; two box identities force the cyclic/anticyclic pattern; the homogeneous-set family is excluded from D3 by the lift lemma + Dynkin induction.",
+      "scope": "Triangle over N, any non-principal p. With thm.loops_travel (hand) and the forests theorem (hand): a window graph has a pointless state iff it is not a forest - that assembly is hand, not Lean.",
+      "uses": ["thm.triangle_estar_not_built", "obs.forced_functional"],
+      "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe)"
+    },
     {
       "id": "thm.triangle_estar_not_built",
       "name": "the cyclic set is not in the triangle carrier over N",
@@ -453,6 +463,7 @@
         "date": "2026-10-16",
         "result": "612 of 15,914 ternary carrier sets have the rotations-in/reversals-out footprint, including E* = {[x0<=x1]+[x1<x2]+[x2<x0]=2}. Moreover the A=3 carrier equals ALL 0/1 functions in the span of window functions (15,914 = 15,914), so finite boxes cannot decide the triangle at all: the gap between buildable and span-allowed exists only at infinity."
       },
+      "fired": {"branch": "(a)", "date": "2026-10-17", "result": "Triangle pointless: thm.triangle_pointless (Lean). Assembled with loops-travel and forests (hand): pointless <=> not a forest. Dependent conjectures NOT auto-updated (user review)."},
       "pre_registered": "2026-10-16, before running",
       "affects": {
         "id": "gate.triangle",

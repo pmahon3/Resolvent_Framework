@@ -32,15 +32,15 @@ def build(T):
         u, v = a[i], a[j]
         cu = u if u <= T else 'B'; cv = v if v <= T else 'B'
         return (cu, cv, ((u > v) - (u < v)) if (u > T and v > T) else 0)
-    wev = []  # (window index, mask)
+    wev = []  # (window index, mask): the single cells of each window (every window question is a
+              # disjoint union of these, so they generate the same carrier)
     for wi, (i, j) in enumerate(W):
         types = sorted({ptype(a, i, j) for a in atoms}, key=str)
-        for r in range(1, len(types)):
-            for ts in itertools.combinations(types, r):
-                m = 0
-                for a in atoms:
-                    if ptype(a, i, j) in ts: m |= 1 << aidx[a]
-                wev.append((wi, m))
+        for t in types:
+            m = 0
+            for a in atoms:
+                if ptype(a, i, j) == t: m |= 1 << aidx[a]
+            wev.append((wi, m))
     f1, f2 = T + 1, T + 2
     def pt(d): return key(tuple(d.get(k, 0) for k in range(3)))
     z = pt({}); e = [pt({k: f1}) for k in range(3)]; p = [pt({a: f1, b: f2}) for (a, b) in W]

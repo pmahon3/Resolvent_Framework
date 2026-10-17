@@ -18,7 +18,7 @@
       "objects": 6,
       "theorems": 17,
       "conjectures": 13,
-      "probes": 3,
+      "probes": 4,
       "examples": 3,
       "owned_regions": 12,
       "overall": "OPEN - two data points proved, one decisive probe pending"
@@ -75,7 +75,7 @@
     {
       "id": "thm.triangle_estar_not_built",
       "name": "the cyclic set is not in the triangle carrier over N",
-      "status": "proved (hand; lift-box corner conditions machine-checked, 18,000 boxes)",
+      "status": "proved (hand; lift-box corner conditions machine-checked, 18,000 boxes); PRIOR ART UNCHECKED (lambda-systems / sums of sigma-algebras); Lean target (Dynkin induction + box identity, p-independent)",
       "lean": null,
       "one_line": "Let B_n = {min pairwise gap <= n} and F = {Z: Z delta E* or Z delta E*^c lies in some B_n}. No member of F is in the Dynkin closure D over N; in particular E* is not in D. Lift lemma: if Z delta E* is in B_n and f has zero box interaction with f = 0 off Z, then f is constant on strict-cyclic points with gaps >= 2n+2 (box lifting the minimum far above the maximum; the other six corners are generic anticyclic). Least-stage argument: a complement stays in F; in a countable disjoint union exactly one piece takes the generic part and is an earlier member of F.",
       "scope": "E* family only (finite-band perturbations). Does NOT fire gate.triangle: sets with cyclic ultrafilter profile that differ from E* on a non-band p-small region are not covered.",
@@ -384,6 +384,18 @@
     }
   ],
   "probes": [
+    {
+      "id": "gate.triangle_lambda2_agreement",
+      "category": "gate",
+      "investigation": "Does every 0/1 function with zero box interaction and Lambda = 2 agree with E* off B_n u {min coordinate <= n} for some n? (Stated via Lambda, not the profile.) Probe two ways: (i) hand: on a slice x0 = a a zero-interaction deviation is v(x1)+w(x2); does the 0/1 constraint force it trivial for large x1, x2? (ii) compute: at definable levels T=0,1 enumerate 0/1 span elements with Lambda = 2 and compare them with E* on far atoms. Risk: deviations on p-small unbounded slices (e.g. x0 odd) escape both exceptional sets.",
+      "outcomes": [
+        {"branch": "(a) yes", "then": "with the strengthened lift lemma no Lambda=2 set is in D, so Lambda = s* is a pointless state on the triangle; by loops-travel pointless <=> not a forest; gate.triangle fires (a)"},
+        {"branch": "(b) no", "then": "the counterexample is the next membership candidate; test it against the lift lemma or construct it in D (s* fails)"}
+      ],
+      "pre_registered": "2026-10-17, before running",
+      "affects": {"id": "gate.triangle", "effect": "decides the triangle"},
+      "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, Theorem E* is not in the carrier, Scope)"
+    },
     {
       "id": "gate.triangle_thin_atomicity",
       "category": "gate",

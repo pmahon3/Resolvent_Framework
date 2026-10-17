@@ -507,7 +507,8 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
       base case.
     - **Remaining combinatorial question:** can the process be rearranged into a
       monotone or disjoint-union construction? If yes, E\* ∈ D and s\* fails.
-      If no, the triangle is pointless.
+    - **Answered 2026-10-17: no**, E\* ∉ D (see the theorem below). This does
+      **not** decide the triangle: other cyclic-profile sets remain.
   - **E\* cannot be split (2026-10-17) ⟦finite checks + HAND sketch⟧.**
     - Any zero-interaction subset of E\* is ∅ or E\*: kernel dimension 1 on
       every integer box up to 8³, and on definable carriers T=0,1. At T=0,1 the
@@ -544,12 +545,20 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
         Its other six corners are generic anticyclic points, so
         f(a,b,c) = f(a',b,c). That is, the minimum is lifted far above the
         maximum.
-      - Rotations give the same lift for the other orders. Three lifts take any
-        two generic C-points to a common point.
+      - Rotations give the same lift for the other orders. Each lift moves the
+        point to the next rotation class, and enough lifts reach any far point
+        of any class, so all generic C-points share one value.
+      - **Clean form, without Z:** if f has zero box interaction and vanishes
+        on A∖B_n, then f is constant on C∖B_{2n+1}.
+      - **Free strengthening:** every corner of a lift box has all
+        coordinates ≥ the point's minimum. So B_n can be enlarged to
+        B_n ∪ {min coordinate ≤ n}.
       - The E\*ᶜ side follows by the reflection (x₀,x₂,x₁), which preserves the
         windows and swaps C and A.
-    - **Main argument.** Take the least stage of the λ-hierarchy at which a
-      member Z of 𝔉 appears.
+    - **Main argument.** The class {G : 1_G has zero interaction, G ∉ 𝔉} is a
+      Dynkin system containing the generators. The lift lemma is exactly the
+      countable-disjoint-union step. Equivalently, take the least stage of the
+      λ-hierarchy at which a member Z of 𝔉 appears.
       - Not as a complement: the complement is in 𝔉 and would already be there.
       - Not as a countable disjoint union ⊔Gᵢ: each 1_{Gᵢ} has zero interaction
         (pointwise sums), so by the lift lemma it is constant on Z∖B_{2n+1}.
@@ -561,15 +570,19 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
       - `triangle_offtie_atomicity.py` (checks A and B).
       - `triangle_lift_lemma_check.py`: 18,000 lift boxes, 0 failures.
       - Band rank checks pass at n=0 (gap>1) and at n=1 (gap>3, both sides),
-        and fail at n=1 with gap>2, so the threshold 2n+1 is sharp there.
+        At n=1 with gap>2 the check fails at margins 2 and 4 (rank 19 both
+        times). That is finite-box evidence that 2n+1 is needed, not a proof.
       - At n=2 the check fails at a 16³ box. That is a top-of-box artifact: the
         lifts need room above the point.
     - **Scope.** This excludes E\* and every finite-band perturbation of it or
       of its complement. **It is not gate (a).** A set can have the cyclic
       ultrafilter profile while differing from E\* on a non-band region that
-      is p-small. Next: does every zero-interaction 0/1 function have
-      "generic behaviour" that is half or constant on p-large sets (a pointwise
-      form of the profile)?
+      is p-small, for example on slices {x₀ odd}. E\* itself shows that no
+      statement at the interaction level alone can exclude cyclic behaviour.
+      Next: `gate.triangle_lambda2_agreement`.
+    - **Prior art: unchecked.** Run the hostile λ-system / sums-of-σ-algebras
+      pass before calling this new. Lean target: Mathlib Dynkin induction plus
+      one box identity, independent of p.
   - Keleti–Preiss (shelf): their method is a σ-ideal normal form. On discrete ℕ
     any σ-ideal containing the bounded slabs is trivial, so it does not
     transfer directly; it would need a continuum model.

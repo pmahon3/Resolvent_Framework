@@ -42,8 +42,8 @@
 the contradiction hides in a question nobody can ask.}
 
 \medskip
-\noindent This note follows that sentence through three small puzzles and out
-the other side into a theory. The puzzles come first, because the theory is
+\noindent This note follows that sentence through two stories, a sandwich shop
+and a county survey, and out the other side into a theory. The puzzles come first, because the theory is
 only a careful account of what they show. Precise statements sit in short
 \emph{Precisely} asides and in the appendix, where proofs and status labels
 live (\st{Lean} machine-checked, \st{hand} my proof, \st{cited}
@@ -52,224 +52,236 @@ literature).
 \tableofcontents
 
 %======================================================================
-\section{An answer sheet no die could fill in}\label{sec:die}
+\section{The sandwich shop}\label{sec:die}
 
-Nothing is rolled here. You find an \emph{answer sheet} for a quiz about a die.
-The quiz has four questions about which face is up,
-\[
-\text{in } \{1,2,3\}? \qquad \text{in } \{3,4,5\}? \qquad \text{in } \{5,6,1\}? \qquad \text{in } \{2,4,6\}?
-\]
-together with their opposites (``in $\{4,5,6\}$?'', and so on), and nothing else.
-Every question is answered, and the sheet says \emph{no} to all four. You do not
-know whether a die was ever involved. Two checks can be made: is the sheet
-consistent, and could any face have filled it in?
-
-\begin{center}
-\begin{tikzpicture}
-\foreach \k in {1,...,6} \coordinate (d\k) at ({90-60*(\k-1)}:1.15);
-\draw[line width=6pt,orange!35,line cap=round] (d1)--(d2)--(d3);
-\draw[line width=6pt,green!35,line cap=round] (d3)--(d4)--(d5);
-\draw[line width=6pt,violet!30,line cap=round] (d5)--(d6)--(d1);
-\foreach \k in {1,...,6} \node[var,minimum size=6mm] at (d\k) {\k};
-\foreach \k in {2,4,6} \draw[thick,densely dashed,gray] (d\k) circle (4.2mm);
-\node[font=\scriptsize,align=left,anchor=west] at (1.9,0.2) {bands: $\{1,2,3\},\{3,4,5\},\{5,6,1\}$};
-\node[font=\scriptsize,align=left,anchor=west] at (1.9,-0.25) {dashed: $\{2,4,6\}$};
-\end{tikzpicture}
-\end{center}
-
-\noindent Is that a consistent set of answers? The only rule we can check is
-that a question and its opposite get one ``yes'' between them. Here is every
-question on the board with its opposite:
+A sandwich shop has six sandwiches on its menu. Each is made of exactly
+\emph{two} of four fillings, so every pair of fillings appears once:
 \begin{center}\small
-\begin{tabular}{l c | l c | c}
-question & answer & opposite & answer & yeses\\\hline
-in $\{1,2,3\}$? & no & in $\{4,5,6\}$? & yes & 1 \checkmark\\
-in $\{3,4,5\}$? & no & in $\{6,1,2\}$? & yes & 1 \checkmark\\
-in $\{5,6,1\}$? & no & in $\{2,3,4\}$? & yes & 1 \checkmark\\
-in $\{2,4,6\}$? & no & in $\{1,3,5\}$? & yes & 1 \checkmark\\
+\begin{tabular}{l | c c c c}
+sandwich & cheese & ham & egg & tomato\\\hline
+cheese \& ham & \checkmark & \checkmark & & \\
+cheese \& egg & \checkmark & & \checkmark & \\
+cheese \& tomato & \checkmark & & & \checkmark\\
+ham \& egg & & \checkmark & \checkmark & \\
+ham \& tomato & & \checkmark & & \checkmark\\
+egg \& tomato & & & \checkmark & \checkmark\\
 \end{tabular}
 \end{center}
-Every row has exactly one ``yes'', so the answers are \emph{consistent}.
+The online order form asks about one filling at a time: \emph{Cheese? yes/no.
+Ham? yes/no. Egg? yes/no. Tomato? yes/no.} The owners wrote the form's
+validation and know nothing about the menu. Their only rule: \textbf{every line
+must be answered, with exactly one of yes or no.}
 
-Could a face have filled it in? Say a face \emph{fits} the sheet if, were that
-face showing, every answer would be correct. Hold each face up against the
-sheet:
+A picky customer submits \emph{no, no, no, no}. Does it pass validation?
+\begin{center}\small
+\begin{tabular}{l | c c | c}
+line & yes & no & ticks\\\hline
+Cheese? & & \checkmark & 1 \checkmark\\
+Ham? & & \checkmark & 1 \checkmark\\
+Egg? & & \checkmark & 1 \checkmark\\
+Tomato? & & \checkmark & 1 \checkmark\\
+\end{tabular}
+\end{center}
+Every line has exactly one tick, so the order is \emph{consistent}: it passes
+the only check the owners know how to make.
+
+Can the kitchen make it? Say a sandwich \emph{fits} the order if every answer on
+the form is right for that sandwich. Hold each sandwich up against the order:
 \begin{center}\small
 \begin{tabular}{l | c c c c | l}
- & in $\{1,2,3\}$? & in $\{3,4,5\}$? & in $\{5,6,1\}$? & in $\{2,4,6\}$? & fits?\\\hline
-\textbf{the sheet} & \textbf{no} & \textbf{no} & \textbf{no} & \textbf{no} & \\\hline
-face 1 & yes & no & yes & no & $\times$\\
-face 2 & yes & no & no & yes & $\times$\\
-face 3 & yes & yes & no & no & $\times$\\
-face 4 & no & yes & no & yes & $\times$\\
-face 5 & no & yes & yes & no & $\times$\\
-face 6 & no & no & yes & yes & $\times$\\
+ & cheese? & ham? & egg? & tomato? & fits?\\\hline
+\textbf{the order} & \textbf{no} & \textbf{no} & \textbf{no} & \textbf{no} & \\\hline
+cheese \& ham & yes & yes & no & no & $\times$\\
+cheese \& egg & yes & no & yes & no & $\times$\\
+cheese \& tomato & yes & no & no & yes & $\times$\\
+ham \& egg & no & yes & yes & no & $\times$\\
+ham \& tomato & no & yes & no & yes & $\times$\\
+egg \& tomato & no & no & yes & yes & $\times$\\
 \end{tabular}
 \end{center}
-Every face says ``yes'' to exactly two questions, so no face's row matches the
-sheet. It is a consistent sheet that no face could have filled in.
+Every sandwich has two fillings, so nothing on the menu fits. A valid order the
+kitchen cannot make.
 
-Where did the contradiction go? A fitting face would have to lie in all four
-opposites at once, $\{4,5,6\}\cap\{6,1,2\}\cap\{2,3,4\}\cap\{1,3,5\}$, which is
-empty. But ``is it in $\{4,5,6\}$ \emph{and} in $\{6,1,2\}$?'' is not a question
-on this board. Nobody is allowed to ask it. The contradiction lives in a
-question that cannot be asked.
+Where did the contradiction go? Each line on its own was fine. Even ``no cheese,
+no ham'' is fine, since egg \& tomato fits. The trouble appears only when all the
+``no''s are combined, and the form has no line for combinations. ``No cheese
+\emph{and} no ham \emph{and} no egg?'' is not a question on this form. The
+contradiction lives in a question that is never asked.
 
-This is the whole phenomenon in miniature. Here it is harmless, because there
-are only finitely many questions. Nothing about it involves infinity, and
-nothing more can go wrong.\footnote{The example is from Navara and Pt\'ak, \emph{\v{C}as.\ p\v{e}st.\ mat.}\ 108 (1983).}
+This is the whole phenomenon in miniature. Here it is harmless: there are only
+six sandwiches, nothing is infinite, and the cure is simply to add combination
+lines to the form.\footnote{Mathematically this is an example of Navara and
+Pt\'ak, \emph{\v{C}as.\ p\v{e}st.\ mat.}\ 108 (1983): six possibilities and four
+yes/no questions, each possibility answering ``yes'' to exactly two.}
 
 %======================================================================
-\section{Numbers seen two at a time}\label{sec:windows}
+\section{The survey offices}\label{sec:windows}
 
-Now a board with infinitely many possibilities. There are slots
-$x_0,x_1,x_2,\dots$, each of which \emph{could} hold a natural number. Nothing
-says they do; we only have questions. Questions come through \emph{windows},
-two slots at a time. Through the window on $x_0,x_1$ you may ask anything about
-that pair: ``is $x_0<x_1$?'', ``is $(x_0,x_1)=(3,7)$?''. As on the die, you may
-build new questions from these with ``not'' and with ``exactly one of these
-exclusive options'', even infinitely many options, as in ``which value is
-$x_0$?''. A set of answers is \emph{consistent} if, whenever a question is split
-into exclusive options, the ``yes''es add up correctly.
+Now a county with infinitely many possibilities. Its villages each stand at some
+height, a whole number of metres, and nobody has a map. The survey is run by
+small offices, each covering \emph{two neighbouring villages}. An office answers
+any question about its two villages, ``is this one higher than that one?'', ``is
+the pair exactly $(30,70)$?'', and nothing else. As in the sandwich shop, new
+questions can be built from these with ``not'' and with ``exactly one of these
+options'', even infinitely many options, as in ``what is the height?''. A
+\emph{head office} knows nothing about geography. It checks only that the
+answers are \emph{consistent}: whenever a question is split into exclusive
+options, the ``yes''es add up correctly, and two offices that share a village
+say the same things about it.
 
-Put the windows in a line: $\{x_0,x_1\}$, $\{x_1,x_2\}$, $\{x_2,x_3\}$, and let
-each say ``the right number is bigger''.
+Start with villages in a line, West to East, with offices covering
+$\{x_0,x_1\}$, $\{x_1,x_2\}$, $\{x_2,x_3\}$. Here $x_k$ stands for the height
+of village $k$. Every office reports: \emph{the village to the east stands
+higher}.
 \begin{center}
 \begin{tikzpicture}[x=1.7cm]
 \foreach \i in {0,1,2} \draw[win] (\i,0)--(\i+1,0);
 \foreach \i in {0,...,3} \node[var] (n\i) at (\i,0) {$x_\i$};
-\foreach \i/\j in {0/1,1/2,2/3} \draw[up] (n\i) -- node[above=3pt,font=\scriptsize]{up} (n\j);
+\foreach \i/\j in {0/1,1/2,2/3} \draw[up] (n\i) -- node[above=3pt,font=\scriptsize]{higher} (n\j);
 \end{tikzpicture}
 \end{center}
-\noindent The plain way to answer is to pick numbers, say $1,2,3,4$, and read
-every answer off them. Those answers are fitted by an actual assignment.
+\noindent The plain way to answer is from real heights, say $10,20,30,40$, reading
+every answer off them. Those answers are fitted by an actual map.
 
-There is a stranger way, which matters for everything that follows. Answer
-every question about a single slot as if its number were \emph{infinitely far
-out}. ``Is $x_0=5$?'' No. ``Is $x_0=6$?'' No. No to every particular value. ``Is
-$x_0$ bigger than a million?'' Yes. ``Is $x_0$ even?'' Some fixed yes or no,
-decided once and for all. Such a consistent rule for answering every question
-about one number is an \emph{ideal number}.
+There is a stranger way, which matters for everything that follows. An office
+can describe a village as standing \emph{beyond every benchmark}. ``Is it 100
+m?'' No. ``1{,}000 m?'' No. No to every particular height. ``Higher than any
+figure you name?'' Yes. ``Is its height an even number?'' A definite yes or no,
+fixed once and for all. That is a complete, consistent rule for answering every
+question about one village. Call it an \emph{ideal height}.
 
-\precisely{an ideal number is a non-principal ultrafilter $p$ on $\bbN$. Its
+\precisely{an ideal height is a non-principal ultrafilter $p$ on $\bbN$. Its
 existence needs a little of the axiom of choice.}
 
-Now answer a window's questions by \emph{drawing} its two numbers from the same
-ideal rule, the right one \emph{later}: first $x_0$, then $x_1$ from even
-further out. ``Is $x_0<x_1$?'' Yes, since whatever $x_0$ is, almost every later
-draw beats it. Along a line this always fits together. One ideal recipe, ``draw
-$x_0$, then $x_1$ later, then $x_2$, then $x_3$'', answers every question about
-all four slots at once, and each window's answers are just its answers about
-two of them. Call such a recipe for all the slots together an \emph{ideal
-point}. An actual assignment is an ideal point too: the trivial recipe that
-always draws the same numbers.
+An office can describe its \emph{pair} this way too, by imagining the two
+heights \emph{drawn in turn} from the ideal rule, the eastern one \emph{later},
+from even further out. ``Is the eastern village higher?'' Yes, since whatever
+the western height is, almost every later draw beats it. Along a line this
+always fits together. One ideal description of the whole county, ``draw $x_0$,
+then $x_1$ later, then $x_2$, then $x_3$'', answers every question about all four
+villages at once, and each office's answers are just its answers about two of
+them. Call such a description of everything together an \emph{ideal map}. A real
+map is an ideal map too, the trivial one.
 
 \precisely{``draw $x_0$, then $x_1$ later'' is the ordered product $p\otimes p$:
 a question $A$ about $(x_0,x_1)$ gets ``yes'' when $p$ says yes to the set of
-$x_0$ for which $p$ says yes to $\{x_1:(x_0,x_1)\in A\}$. An ideal point is an
-ultrafilter on the whole space of possibilities.}
+$x_0$ for which $p$ says yes to $\{x_1:(x_0,x_1)\in A\}$. An ideal map is an
+ultrafilter on the whole space of possibilities, an \emph{ideal point}; a real
+map is a \emph{point}.}
 
-On a line, then, consistent answers always come from somewhere: an actual
-assignment or, at worst, an ideal one. That turns out to be a theorem, not an
-accident (\S\ref{sec:why}).
+On a line, then, consistent reports always come from some map, real or at worst
+ideal. That turns out to be a theorem, not an accident (\S\ref{sec:why}).
 
 %======================================================================
-\section{Closing the loop: the staircase}\label{sec:stair}
+\section{Villages in a ring: the staircase}\label{sec:stair}
 
-Bend the line into a ring: windows $\{x_0,x_1\}$, $\{x_1,x_2\}$, $\{x_2,x_3\}$,
-$\{x_3,x_0\}$. Again think of an answer sheet, now for questions about the slots,
-on which every window says ``up''.
+Now four villages in a ring, North, East, South and West, with offices covering
+North--East, East--South, South--West and West--North. Every office reports:
+\emph{the next village clockwise stands higher.}
 \begin{center}
 \begin{tikzpicture}
-\foreach \k/\a in {0/135,1/45,2/-45,3/-135} \coordinate (r\k) at (\a:1.2);
+\foreach \k/\a/\n in {0/90/N,1/0/E,2/-90/S,3/180/W} \coordinate (r\k) at (\a:1.2);
 \draw[win] (r0)--(r1); \draw[win] (r1)--(r2); \draw[win] (r2)--(r3); \draw[win] (r3)--(r0);
-\foreach \k in {0,...,3} \node[var] (q\k) at (r\k) {$x_\k$};
+\foreach \k/\n in {0/N,1/E,2/S,3/W} \node[var] (q\k) at (r\k) {\n};
 \draw[up] (q0)--(q1); \draw[up] (q1)--(q2); \draw[up] (q2)--(q3); \draw[up] (q3)--(q0);
 \end{tikzpicture}
 \end{center}
-\noindent With actual numbers this is impossible: $x_0<x_1<x_2<x_3<x_0$. Try a
-few assignments against the pattern:
+\noindent No real map can do this. Try a few against the reports:
 \begin{center}\small
 \begin{tabular}{l | c c c c | l}
- & $x_0<x_1$? & $x_1<x_2$? & $x_2<x_3$? & $x_3<x_0$? & fits?\\\hline
-\textbf{the pattern} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \\\hline
-$1,2,3,4$ & yes & yes & yes & no & $\times$\\
-$5,9,2,7$ & yes & no & yes & no & $\times$\\
-$3,3,3,3$ & no & no & no & no & $\times$\\
+heights (N, E, S, W) & E above N? & S above E? & W above S? & N above W? & fits?\\\hline
+\textbf{the reports} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \\\hline
+$10,20,30,40$ & yes & yes & yes & no & $\times$\\
+$50,90,20,70$ & yes & no & yes & no & $\times$\\
+$30,30,30,30$ & no & no & no & no & $\times$\\
 \end{tabular}
 \end{center}
-Going round the loop, the numbers must come back down somewhere, so every
-assignment has at least one ``no''. It is a Penrose staircase, every step up and
-back to the start.
+Going round the ring, the heights must come back down somewhere, so every real
+map gets at least one ``no''. It is a Penrose staircase, every step up and back
+to the start.
 
-With ideal numbers, look at what each window sees. Each draws its pair from the
-ideal rule, right number later. Every window genuinely says ``up''; in the window
-$\{x_3,x_0\}$ it is $x_0$ that is drawn later. Two windows that share a slot
-agree about it: in both, $x_0$ is the same ideal number, so ``is $x_0$ even?''
-gets the same answer from either side.
+Now let every office use ideal heights, each describing its pair as drawn in
+turn, clockwise one later. Every office genuinely reports ``higher''. In the
+West--North office it is North that is drawn later. Two offices that share a
+village agree about it: both describe North by the same ideal rule, so ``is
+North's height even?'' gets the same answer from either side.
 
-Can a consistent answer be given to \emph{every} question that can be built from
-these windows? Yes \st{Lean}. And the question that would expose the
-staircase, ``is $x_0<x_1<x_2$?'', is not among them. It cannot be built from
-windows, any more than the die's ``in this set \emph{and} that one?''. Once
-again the contradiction is in a question that cannot be asked.
-
-The same two checks, done for the staircase:
+Head office now checks \emph{everything}: every question that can be built from
+the offices' answers, including combined questions spanning neighbouring
+offices. Every check passes \st{Lean}. And the question that would expose the
+staircase, ``is North lower than East lower than South?'', is not among them. No
+office covers three villages, so it cannot be built from their answers, just as
+the sandwich form had no line for combinations.
 \begin{center}\small
 \begin{tabular}{l | l | c}
-check & what the pattern says & passes?\\\hline
-each window, alone & ``up'': yes; ``$x_k=n$'': no for every $n$ & \checkmark\\
-shared slot $x_0$, seen from $\{x_3,x_0\}$ and $\{x_0,x_1\}$ & same answers (both ideal by $p$) & \checkmark\\
+check & what the reports say & passes?\\\hline
+each office, alone & ``higher'': yes; ``exactly $n$ metres'': no for every $n$ & \checkmark\\
+North, seen by West--North and North--East & the same answers (both by $p$) & \checkmark\\
 every buildable question and its opposite & exactly one yes \st{Lean} & \checkmark\\
-some assignment fits & no: see the table above & $\times$\\
-some ideal recipe fits & no: it would answer the forbidden question & $\times$\\
+some real map fits & no: see the table above & $\times$\\
+some ideal map fits & no: it would answer the forbidden question & $\times$\\
 \end{tabular}
 \end{center}
 
-What \emph{cannot} exist is an ideal point: one recipe for all four slots.
-Such a recipe answers every question about the slots, including the forbidden
-one, and it would have to say yes to $x_0<x_1<x_2<x_3<x_0$.
+Why can there be no ideal map? An ideal map answers every question about all
+four villages, the forbidden one included. It would have to say yes to North
+below East below South below West below North.
 
-So the staircase has consistent answers that nothing fits: no assignment, and
-not even an ideal one. Call such answers \textbf{pointless}. Each window's
-numbers are ideal; the whole has no point at all. The ideal rule gives each
-window a direction, a local ``later'', and the loop closes those directions on
-themselves.
+So the reports are consistent and nothing fits them: no real map, and not even
+an ideal one. Call such answers \textbf{pointless}. Each office's villages have
+ideal heights; the county as a whole has no map at all. Each office has its own
+sense of ``later'', and the ring closes those directions on themselves.
 
-The die was pointless too, but trivially so, because it was finite. The
-staircase is pointless and infinite, and that is what makes it sharp.
+The sandwich order was pointless too, but trivially so, because the menu was
+finite. The survey is pointless and infinite, and that is what makes it sharp.
+
 
 %======================================================================
 \section{What infinity demands}\label{sec:sigma}
 
-Ask the staircase ``which value is $x_0$?'' and split the question into its
-infinitely many options: $x_0=0$, $x_0=1$, $x_0=2$, \dots. Each option gets
-``no''. The whole question, ``$x_0$ is some number'', gets ``yes''.
+Then the \emph{auditor} arrives. ``What is North's height?'' The auditor reads
+out the list of every possible height, $0,1,2,\dots$, and asks for a yes beside
+the right one. The offices say ``no'' to every height on the list, and ``yes'' to
+``North has some height''.
 \begin{center}
 \begin{tikzpicture}[x=0.85cm]
 \draw[thick,-{Stealth}] (-0.3,0)--(8.6,0) node[right,font=\scriptsize]{$\infty$};
 \foreach \n in {0,...,7} {\draw (\n,0.08)--(\n,-0.08); \node[below,font=\scriptsize] at (\n,-0.08) {\n};
   \node[above,font=\scriptsize,red!70!black] at (\n,0.08) {no};}
 \draw[decorate,decoration={brace,amplitude=4pt},thick] (0,0.55)--(8.4,0.55)
-  node[midway,above=4pt,font=\scriptsize,blue!60!black]{``$x_0$ is some number'': yes};
+  node[midway,above=4pt,font=\scriptsize,blue!60!black]{``North has some height'': yes};
 \end{tikzpicture}
 \end{center}
-\noindent Finite splits are fine: ``$x_0\le100$?'' no, ``$x_0>100$?'' yes. But
-suppose we demand that the answers add up across \emph{infinitely} many
-options too. This is $\sigma$-additivity, the usual rule of probability theory.
-Then some single ``$x_0=n$'' must get the yes. Every slot is pinned to an actual
-number, and actual numbers cannot climb around a loop.
+\noindent Head office's rule only covers finite splits, and those are fine:
+``at most 100 m?'' no, ``above 100 m?'' yes. The auditor's rule is stronger:
+the ``yes''es must add up across \emph{infinitely} many options too. This is
+$\sigma$-additivity, the usual rule of probability theory. Under it some single
+height must get the yes. Every village is pinned to a real height, and real
+heights cannot climb around a ring.
 
 On these boards, demanding that answers add up over infinitely many options is
-the same as demanding that they come from an actual assignment
-(Proposition~\ref{prop:sigma}). The demand for a completed reality is exactly
-what forbids the staircase.
+the same as demanding that they come from a real map
+(Proposition~\ref{prop:sigma}). The auditor's demand for a completed answer is
+exactly what makes the survey impossible.
 
 %======================================================================
 \section{Why loops: the first ideas of the theory}\label{sec:why}
 
-The three puzzles show the whole mechanism. Separating its parts gives the
+The two stories show the whole mechanism. Separating its parts gives the
 theory's first ideas.
+From here on the story's words give way to general ones:
+
+\begin{center}\small
+\begin{tabular}{l l}
+\textbf{story} & \textbf{general word}\\\hline
+a village & a \emph{slot}\\
+an office & a \emph{window}\\
+an office's way of answering & a \emph{recipe}\\
+a real map & a \emph{point}\\
+an ideal map & an \emph{ideal point}\\
+the offices and who covers what & the \emph{window graph}\\
+\end{tabular}
+\end{center}
 
 \paragraph{Contradictions need questions that cannot be asked.} Consistent
 answers respect every ``and'' that is actually on the board: if two questions
@@ -374,7 +386,7 @@ tables always fit together (Wainwright--Jordan). Chordal graphs are where juncti
 trees and Vorob'ev's theorem live.
 A computer check on a finite part of the board finds consistent answers. That
 proves less than it seems. The finite part sees the slots only coarsely
-(``bigger than 1?'', ``which is larger?''), so like the die it can be pointless
+(``bigger than 1?'', ``which is larger?''), so like the sandwich shop it can be pointless
 for finite reasons alone. Whether the \emph{ideal}, infinite kind of
 pointlessness happens on the triangle is genuinely open.
 

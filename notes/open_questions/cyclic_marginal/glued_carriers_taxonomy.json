@@ -18,7 +18,7 @@
       "objects": 6,
       "theorems": 18,
       "conjectures": 13,
-      "probes": 4,
+      "probes": 6,
       "examples": 3,
       "owned_regions": 16,
       "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
@@ -387,13 +387,37 @@
     {
       "id": "conj.impossible_dynamics",
       "name": "dynamics on impossible figures (SEED, parked until the triangle line settles)",
-      "status": "seed (2026-10-17, user idea); no prior-art pass yet",
+      "status": "seed ACTIVE 2026-10-17 (triangle settled): impossible_dynamics_seed.md; hand observations H1-H4 (invariant state on the Escher frieze via ring pullback; no invariant ultrafilter by Katetov; sigma-stationary impossible; circle eigenvalue) UNVERIFIED; owned-region scout running; probes gate.dynamics_frieze_periodic, gate.dynamics_circle",
       "one_line": "Replace the loop by an ergodic process: charts glued by a cocycle (height increment per step). Impossible = the cocycle is not a coboundary (no global height section; Penrose 1992 reads impossible figures as nonzero Cech H^1, cited from memory, not shelved). Expected trichotomy: point = coboundary / global section; sigma-additive invariant state obstructed (translation holonomy has no invariant probability); finitely additive invariant means exist iff no paradoxical decomposition (Tarski) = amenability, the analogue of the ultrafilter states. Seam guess: Penrose cohomology x amenability/cocycle ergodic theory. Hostile prior-art FIRST: Schmidt 1977 cocycles, Mackey range, essential values, Kesten.",
-      "detail": "none yet",
-      "uses": []
+      "detail": "impossible_dynamics_seed.md",
+      "uses": ["thm.loops_travel"]
     }
   ],
   "probes": [
+    {
+      "id": "gate.dynamics_frieze_periodic",
+      "category": "gate",
+      "investigation": "Z-line, windows {n,n+1}, window states p(x)p going up. Does every shift-invariant state on the carrier factor through a ring of some length L via the periodic embedding?",
+      "outcomes": [
+        {"branch": "(a) yes", "then": "CE1 supported: equivariant pointlessness = pointlessness of quotients; dynamics reduces to loops (look for an owner in covering-space terms)"},
+        {"branch": "(b) no", "then": "CE2: aperiodic invariant states exist; classify them (twist without a finite loop)"}
+      ],
+      "pre_registered": "2026-10-17, before running",
+      "affects": {"id": "conj.impossible_dynamics", "effect": "decides whether dynamics adds anything beyond loops"},
+      "detail": "impossible_dynamics_seed.md (P1)"
+    },
+    {
+      "id": "gate.dynamics_circle",
+      "category": "gate",
+      "investigation": "Slots = circle points, windows {x, x+alpha} (alpha irrational), steps up. Does a rotation-invariant state exist on the carrier, and is it equivariantly pointless? First check which theorems survive infinitely many slots (locality; forests via compactness).",
+      "outcomes": [
+        {"branch": "(a) yes", "then": "a genuinely ergodic impossible figure"},
+        {"branch": "(b) no", "then": "the obstruction is sigma-like even for finite additivity; the reason is the next object"}
+      ],
+      "pre_registered": "2026-10-17, before running",
+      "affects": {"id": "conj.impossible_dynamics", "effect": "ergodic version"},
+      "detail": "impossible_dynamics_seed.md (P2)"
+    },
     {
       "id": "gate.triangle_lambda2_agreement",
       "category": "gate",

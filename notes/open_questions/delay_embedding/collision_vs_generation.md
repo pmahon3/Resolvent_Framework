@@ -508,6 +508,22 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
     - **Remaining combinatorial question:** can the process be rearranged into a
       monotone or disjoint-union construction? If yes, E\* ∈ D and s\* fails.
       If no, the triangle is pointless.
+  - **E\* cannot be split (2026-10-17) ⟦finite checks + HAND sketch⟧.**
+    - Any zero-interaction subset of E\* is ∅ or E\*: kernel dimension 1 on
+      every integer box up to 8³, and on definable carriers T=0,1. At T=0,1 the
+      only finitely built subset of E\* is ∅.
+    - Consequence: E\* can enter the carrier only as a complement.
+    - The complement *can* be split: it contains the tie window events
+      {x₁=x₂=c} and {x₀=x₂=c}. Switching the tie convention swaps which side is
+      atomic.
+    - **Plan.**
+      - Off-tie lemma: strict-cyclic and strict-anticyclic are each atomic off
+        the tie set, with ties free.
+      - Then a least-rank argument over the family "cyclic or anticyclic mod
+        ties" shows that no member is in D, so E\* ∉ D.
+    - **Lemma check unrun.** The attempt crashed the machine (dense SVD; see
+      CLAUDE.md, compute constraints). Redo it with sparse rank on boxes ≤ 6³.
+    - **Scope:** this excludes the E\* family, not every cyclic-profile set.
   - Keleti–Preiss (shelf): their method is a σ-ideal normal form. On discrete ℕ
     any σ-ideal containing the bounded slabs is trivial, so it does not
     transfer directly; it would need a continuum model.

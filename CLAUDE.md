@@ -267,6 +267,22 @@ line each session — paid on every startup, forever.
 - Never skip the Lean step for novel results
 - Never trust an LLM proof without independent verification
 
+## Compute constraints (laptop; kernel panic 2026-10-17)
+
+The machine is a laptop with limited RAM and swap. On 2026-10-17 a memory blow-up
+caused a watchdog kernel panic: `scipy.linalg.null_space` on a 46,656-row matrix
+allocated about 17 GB for the full SVD, while other hunts were also running.
+- **Estimate memory before running.** Dense m×n float64 takes 8mn bytes. A full SVD
+  also allocates m×m. Cap any single job at about 2 GB.
+- **No full SVD or `null_space` on tall matrices.** Use sparse matrices
+  (`scipy.sparse`), exact rank over a prime field, or deduplicate the rows first.
+- **One heavy job at a time.** No parallel hunts locally. Long or many-process
+  runs go to the tower, after asking the user.
+- **Grow box or threshold sizes one step at a time**, checking the time and memory
+  of the previous step first. Stop at the smallest size that answers the question.
+- **Use `ulimit -v` or a timeout** on exploratory scripts, so that runaway jobs die
+  instead of freezing the machine.
+
 ## Lean as verification
 
 Zero-sorry Lean proofs are the ground truth for novel results.

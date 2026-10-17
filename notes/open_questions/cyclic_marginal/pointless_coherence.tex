@@ -75,12 +75,36 @@ That is all. Now suppose someone answers \emph{no} to all four.
 \end{center}
 
 \noindent Is that a consistent set of answers? The only rule we can check is
-that a question and its opposite get one ``yes'' between them, and they do.
-So the answers are \emph{consistent}.
+that a question and its opposite get one ``yes'' between them. Here is every
+question on the board with its opposite:
+\begin{center}\small
+\begin{tabular}{l c | l c | c}
+question & answer & opposite & answer & yeses\\\hline
+in $\{1,2,3\}$? & no & in $\{4,5,6\}$? & yes & 1 \checkmark\\
+in $\{3,4,5\}$? & no & in $\{6,1,2\}$? & yes & 1 \checkmark\\
+in $\{5,6,1\}$? & no & in $\{2,3,4\}$? & yes & 1 \checkmark\\
+in $\{2,4,6\}$? & no & in $\{1,3,5\}$? & yes & 1 \checkmark\\
+\end{tabular}
+\end{center}
+Every row has exactly one ``yes'', so the answers are \emph{consistent}.
 
 Is there a face that \emph{fits} them, a face that would give exactly these
-answers if it were the one showing? No. Every face lies in one of the first
-three sets (they cover the die), so every face would answer ``yes'' somewhere.
+answers if it were the one showing? Try every face and compare its row with the
+pattern's row:
+\begin{center}\small
+\begin{tabular}{l | c c c c | l}
+ & in $\{1,2,3\}$? & in $\{3,4,5\}$? & in $\{5,6,1\}$? & in $\{2,4,6\}$? & fits?\\\hline
+\textbf{the pattern} & \textbf{no} & \textbf{no} & \textbf{no} & \textbf{no} & \\\hline
+face 1 & yes & no & yes & no & $\times$\\
+face 2 & yes & no & no & yes & $\times$\\
+face 3 & yes & yes & no & no & $\times$\\
+face 4 & no & yes & no & yes & $\times$\\
+face 5 & no & yes & yes & no & $\times$\\
+face 6 & no & no & yes & yes & $\times$\\
+\end{tabular}
+\end{center}
+Every face says ``yes'' to exactly two questions, so no face's row matches the
+pattern's.
 
 Where did the contradiction go? A fitting face would have to lie in all four
 opposites at once, $\{4,5,6\}\cap\{6,1,2\}\cap\{2,3,4\}\cap\{1,3,5\}$, which is
@@ -159,8 +183,20 @@ $\{x_3,x_0\}$. Let every window say ``up''.
 \draw[up] (q0)--(q1); \draw[up] (q1)--(q2); \draw[up] (q2)--(q3); \draw[up] (q3)--(q0);
 \end{tikzpicture}
 \end{center}
-\noindent With actual numbers this is impossible: $x_0<x_1<x_2<x_3<x_0$. It is a
-Penrose staircase, every step up and back to the start.
+\noindent With actual numbers this is impossible: $x_0<x_1<x_2<x_3<x_0$. Try a
+few assignments against the pattern:
+\begin{center}\small
+\begin{tabular}{l | c c c c | l}
+ & $x_0<x_1$? & $x_1<x_2$? & $x_2<x_3$? & $x_3<x_0$? & fits?\\\hline
+\textbf{the pattern} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \\\hline
+$1,2,3,4$ & yes & yes & yes & no & $\times$\\
+$5,9,2,7$ & yes & no & yes & no & $\times$\\
+$3,3,3,3$ & no & no & no & no & $\times$\\
+\end{tabular}
+\end{center}
+Going round the loop, the numbers must come back down somewhere, so every
+assignment has at least one ``no''. It is a Penrose staircase, every step up and
+back to the start.
 
 With ideal numbers, look at what each window sees. Each draws its pair from the
 ideal rule, right number later. Every window genuinely says ``up''; in the window
@@ -173,6 +209,18 @@ these windows? Yes \st{Lean}. And the question that would expose the
 staircase, ``is $x_0<x_1<x_2$?'', is not among them. It cannot be built from
 windows, any more than the die's ``in this set \emph{and} that one?''. Once
 again the contradiction is in a question that cannot be asked.
+
+The same two checks, done for the staircase:
+\begin{center}\small
+\begin{tabular}{l | l | c}
+check & what the pattern says & passes?\\\hline
+each window, alone & ``up'': yes; ``$x_k=n$'': no for every $n$ & \checkmark\\
+shared slot $x_0$, seen from $\{x_3,x_0\}$ and $\{x_0,x_1\}$ & same answers (both ideal by $p$) & \checkmark\\
+every buildable question and its opposite & exactly one yes \st{Lean} & \checkmark\\
+some assignment fits & no: see the table above & $\times$\\
+some ideal recipe fits & no: it would answer the forbidden question & $\times$\\
+\end{tabular}
+\end{center}
 
 What \emph{cannot} exist is an ideal point: one recipe for all four slots.
 Such a recipe answers every question about the slots, including the forbidden

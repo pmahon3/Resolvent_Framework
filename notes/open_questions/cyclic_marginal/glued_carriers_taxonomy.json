@@ -142,12 +142,12 @@
     },
     {
       "id": "thm.shape_lemma",
-      "name": "shape lemma (two adjacent windows suffice)",
-      "status": "proved-hand; finite-alphabet machine check",
-      "one_line": "If no three windows pairwise share a coordinate (paths; rings L>=4), every E in D is E_{k-1} disjoint-union E_k with adjacent window events (rigidity + slicing). Fails on the triangle (binary |D|=70 vs |G|=66).",
+      "name": "locality: triangle-free (Helly windows) => star-sets",
+      "status": "proved-hand; machine-checked on finite alphabets (D=G iff triangle-free on 8 graphs)",
+      "one_line": "If the pair-window graph is triangle-free (windows a Helly family), every E in D is a disjoint union of window events on a star (windows sharing a common slot); states are determined by window ultrafilters, s(E)=sum u_w(E_w). Fails whenever there is a triangle.",
       "detail": "pointless_coherence.tex (Lemma shape)",
-      "scope": "pair windows, no three pairwise adjacent",
-      "check": "../verification/pointless_path_dynkin.py"
+      "scope": "pair windows, triangle-free graph (trees, rings L>=4, bipartite graphs, ...)",
+      "check": "../verification/glued_helly_check.py"
     },
     {
       "id": "thm.amalgamation",
@@ -164,15 +164,15 @@
     },
     {
       "id": "thm.path",
-      "name": "no cycle, no pointless coherence (paths)",
+      "name": "no cycle, no pointless coherence (forests)",
       "status": "proved-hand",
-      "one_line": "On a glued path every two-valued finitely additive state is an ideal point.",
+      "one_line": "If the window graph is a forest, every state is an ideal point (tree amalgamation + locality).",
       "detail": "pointless_coherence.tex (Theorem path)",
       "uses": [
         "thm.shape_lemma",
         "thm.amalgamation"
       ],
-      "scope": "pair windows on a path; prior art unchecked"
+      "scope": "pair windows on a forest"
     },
     {
       "id": "obs.ring_forced_formula",
@@ -214,7 +214,7 @@
         "thm.amalgamation",
         "obj.window_family_flatness"
       ],
-      "scope": "no three windows pairwise adjacent"
+      "scope": "triangle-free pair-window graphs"
     }
   ],
   "conjectures": [
@@ -227,16 +227,16 @@
     },
     {
       "id": "conj.invariant_cycle_ge4",
-      "name": "invariant = cycle of length >= 4 ('room')",
+      "name": "invariant = triangle-free loop",
       "status": "open",
-      "one_line": "Pointless states need a cycle with non-adjacent windows; the triangle has none.",
+      "one_line": "Pointless states need a loop in a triangle-free window graph; the triangle (non-Helly windows) has none. (Earlier phrasing 'cycle of length >= 4' / 'room' refined 2026-10-16.)",
       "detail": "pointless_coherence.tex (Status and open questions)"
     },
     {
       "id": "conj.forests",
       "name": "forests: never pointless",
-      "status": "sketch",
-      "one_line": "Slice at a star centre: at most one non-empty cylinder per slice; amalgamate along the tree. Written as a sketch only.",
+      "status": "PROVED-hand 2026-10-16 (see thm.path)",
+      "one_line": "Proved: forests never pointless, via triangle-free locality (stars) + tree amalgamation.",
       "detail": "pointless_coherence.tex (Status and open questions)",
       "uses": [
         "thm.shape_lemma",
@@ -287,8 +287,8 @@
     {
       "id": "conj.helly_transfer_bfmy",
       "name": "Helly lens via Berge duality + BFMY",
-      "status": "open (transfer route)",
-      "one_line": "If the dual of the hypergraph of true questions is alpha-acyclic (conformal + chordal), pairwise intersection upgrades to the FIP, so the state is an ideal point. Would import BFMY/Vorob'ev machinery; candidate route to the forest case and beyond.",
+      "status": "partly realised 2026-10-16",
+      "one_line": "If the dual of the hypergraph of true questions is alpha-acyclic (conformal + chordal), pairwise intersection upgrades to the FIP, so the state is an ideal point. Would import BFMY/Vorob'ev machinery; candidate route to the forest case and beyond. REALISED differently: the useful Helly property is of the WINDOWS (triangle-free = Helly for pair windows), giving locality (thm.shape_lemma) and the forests theorem.",
       "detail": "self-contained; from scout 2026-10-16"
     },
     {

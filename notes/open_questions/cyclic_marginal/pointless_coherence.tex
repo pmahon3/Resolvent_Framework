@@ -226,23 +226,29 @@ question (Lemma~\ref{lem:basic}). So a pattern can fail to be fitted only
 through joint questions the board lacks. That is the space pointlessness lives
 in.
 
-\paragraph{Room keeps things local.} On the ring of four, windows $\{x_0,x_1\}$
-and $\{x_2,x_3\}$ share no slot. That room has a strong consequence: every
-buildable question breaks into a question to one window plus a question to its
-neighbour (Lemma~\ref{lem:shape}). So consistent answers are completely
-determined by what each window says. The same holds for any line, and for any
-ring of length at least four.
+\paragraph{No triangle keeps things local.} Questions put to windows that share
+no slot always overlap, since they constrain different slots. So when a question
+is split among several windows, those windows must pairwise share a slot. If the
+window graph has no triangle, pairwise-touching windows always share one
+\emph{common} slot: they form a star around it. Slicing at that slot shows that
+the star's questions stay a star's questions under ``not''. The result is that
+every buildable question is a question to one star of windows
+(Theorem~\ref{thm:star}), so consistent answers are completely determined by what
+each window says. This covers trees, every ring of length at least four, and
+every other triangle-free graph. A triangle is the one shape where three windows
+touch pairwise with no common slot, and there locality fails.
+(In the language of hypergraphs: the windows have the \emph{Helly property}.)
 
-\paragraph{Lines always glue.} Two neighbouring windows' ideal recipes, agreeing
+\paragraph{Trees always glue.} Two neighbouring windows' ideal recipes, agreeing
 on their shared slot, always combine into one recipe for all three slots
-(Lemma~\ref{lem:amalg}). Along a line you can keep combining, so on a line every
-consistent pattern is an ideal point (Theorem~\ref{thm:path}). Nothing
-pointless can happen without a loop.
+(Lemma~\ref{lem:amalg}). On a tree you can keep combining, one window at a time,
+so on any tree, line or branching, every consistent pattern is an ideal point
+(Theorem~\ref{thm:path}). Nothing pointless can happen without a loop.
 
 \paragraph{Loops can carry a twist.} Around a loop the recipes may fail to
 combine, as the staircase's directions do. Call a family of window recipes
 \emph{flat} if it combines into one recipe for everything, and \emph{twisted}
-otherwise. On boards with room, a pattern is an ideal point exactly when its
+otherwise. On triangle-free boards, a pattern is an ideal point exactly when its
 window family is flat (Proposition~\ref{prop:flat}). Pointless patterns are
 twisted families that still extend consistently to every buildable question.
 
@@ -254,13 +260,13 @@ nothing to twist.
 \begin{center}\small
 \begin{tabular}{|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}p{3.2cm}|}
 \hline
-& \textbf{line} & \textbf{loop of 4 or more} & \textbf{triangle}\\
+& \textbf{tree} & \textbf{loops, no triangle} & \textbf{a triangle}\\
 \hline
 finitely many values & actual & actual & actual\\
 \hline
 infinitely many values, answers add up over infinitely many options & actual & actual & actual\\
 \hline
-infinitely many values, finite adding only & ideal \st{hand} & \cellcolor{orange!20}\textbf{pointless exists} \st{Lean} & \cellcolor{yellow!25}\textbf{open}\\
+infinitely many values, finite adding only & ideal \st{hand} & \cellcolor{orange!20}\textbf{pointless exists} on rings \st{Lean}; other graphs: open & \cellcolor{yellow!25}\textbf{open}\\
 \hline
 \end{tabular}
 \end{center}
@@ -279,7 +285,9 @@ Shrink the loop to three windows, $\{x_0,x_1\}$, $\{x_1,x_2\}$, $\{x_2,x_0\}$.
 \draw[up] (u0)--(u1); \draw[up] (u1)--(u2); \draw[up] (u2)--(u0);
 \end{tikzpicture}
 \end{center}
-\noindent Now there is no room: every window shares a slot with every other.
+\noindent Now every two windows share a slot, but no slot is shared by all three:
+the window graph is a triangle, the one shape the locality argument cannot
+handle.
 Questions can braid all three windows. With two possible values, ``are all three
 equal?'' becomes askable, though it cannot be broken into window questions. With
 three possible values that question disappears, and 2{,}088 others take its
@@ -288,7 +296,7 @@ longer applies.
 
 So the triangle is the experiment that decides what the theory is about. If the
 staircase still has consistent answers here, then \emph{any} loop permits
-pointless coherence. If it does not, pointlessness needs room as well as a loop.
+pointless coherence. If it does not, pointlessness needs a triangle-free loop.
 A computer check on a finite part of the board finds consistent answers. That
 proves less than it seems. The finite part sees the slots only coarsely
 (``bigger than 1?'', ``which is larger?''), so like the die it can be pointless
@@ -298,7 +306,12 @@ pointlessness happens on the triangle is genuinely open.
 \paragraph{What the theory must settle.}
 \begin{enumerate}[nosep]
   \item \emph{The invariant.} Which property of the window graph decides whether
-    pointless patterns exist: a loop, or a loop with room? The triangle decides.
+    pointless patterns exist: a loop, or a triangle-free loop? The triangle
+    decides.
+  \item \emph{Extension on triangle-free graphs.} There, a consistent pattern is
+    the same as a family of window recipes that extends, and pointless means
+    twisted (Theorem~\ref{thm:star}, Proposition~\ref{prop:flat}). Which twisted
+    families extend? The rings say some do. Is it all of them, on every loop?
   \item \emph{The classification.} Which twisted families extend to every
     buildable question? The hope is that twist is measured by something like a
     winding number of the directions around each loop.
@@ -408,24 +421,35 @@ point. If $X$ is finite, every state is a point.
 \end{itemize}
 \end{proof}
 
-\begin{lemma}[room]\label{lem:shape}\st{hand; checked on finite alphabets}
-If no three windows pairwise share a coordinate, every $E\in\cD$ is
-$E_{k-1}\sqcup E_k$ with window questions at two adjacent windows. This applies
-to lines and to rings with $L\ge4$.
-\end{lemma}
+\begin{theorem}[no triangle: locality]\label{thm:star}\label{lem:shape}\st{hand; machine-checked on finite alphabets}
+Suppose the window graph has no triangle; equivalently, the windows form a Helly
+family. Then every $E\in\cD$ is a disjoint union $\bigsqcup_i E_i$ of window
+questions on windows that all contain one common coordinate (a star). So every
+state satisfies $s(E)=\sum_i u_{w_i}(E_i)$ and is determined by its window
+ultrafilters.
+\end{theorem}
 \begin{proof}
 \begin{itemize}[nosep]
-  \item Window questions at windows with no shared coordinate both meet if
-    non-empty.
-  \item For $E=E_{k-1}\sqcup E_k$, slicing at the shared coordinate gives
-    disjoint cylinders in independent coordinates, so one is empty. Hence
-    $E^c$ has the same form.
-  \item The family of disjoint unions of one window question per window is
-    therefore closed under complement and countable disjoint union, so it is
-    $\cD$.
+  \item \emph{Rigidity.} Window questions on windows with no shared coordinate
+    meet if both are non-empty. So in a disjoint union of window questions, the
+    non-empty pieces lie on pairwise adjacent windows. Without triangles, these
+    form a star at some coordinate $c$.
+  \item \emph{Slicing.} Fix $x_c=a$. Each piece's slice is a cylinder in its own
+    leaf coordinate; they are pairwise disjoint in independent coordinates, so at
+    most one is non-empty. The slice of $E^c$ is then a cylinder in the same
+    coordinate, or everything. Gathering slices by leaf writes $E^c$ as a star at
+    $c$.
+  \item \emph{Closure.} Let $\cG$ be the disjoint unions of one window question
+    per window. It is closed under complement (by slicing) and under countable
+    disjoint union (regroup window by window). So $\cG=\cD$.
 \end{itemize}
-On the triangle this fails: with binary values the carrier has 70 sets against
-66 (\texttt{pointless\_path\_dynkin.py}, \texttt{triangle\_loop\_questions.py}).
+Machine check of $\cD=\cG$ (\texttt{notes/open\_questions/verification/glued\_helly\_check.py}):
+\begin{itemize}[nosep]
+  \item holds on the star $K_{1,3}$ (binary and ternary), a branching tree, the
+    4- and 5-cycles, and $K_{2,3}$;
+  \item fails whenever there is a triangle: triangle $70$ vs $66$; triangle with
+    pendant $98$ vs $94$; 4-cycle with chord $148$ vs $132$.
+\end{itemize}
 Compare Greechie's loop lemma (Kalmbach 1983, \S4 L9).
 \end{proof}
 
@@ -438,17 +462,22 @@ Members of the two ultrafilters project into the common marginal, so they meet;
 the sets $A\times Z$ and $X\times B$ have the finite intersection property.
 \end{proof}
 
-\begin{theorem}[lines]\label{thm:path}\st{hand}
-On a line every state is an ideal point.
+\begin{theorem}[trees]\label{thm:path}\st{hand}
+If the window graph is a forest, every state is an ideal point.
 \end{theorem}
 \begin{proof}
-Glue the window ultrafilters along the line into $W$. Writing
-$E=E_{k-1}\sqcup E_k$ (Lemma~\ref{lem:shape}) gives
-$s(E)=u_{k-1}(E_{k-1})+u_k(E_k)=W(E)$.
+\begin{itemize}[nosep]
+  \item Order each tree's windows so that each meets the earlier ones in one
+    coordinate.
+  \item Glue the window ultrafilters one at a time (Lemma~\ref{lem:amalg}). Join
+    separate trees by the product of their ultrafilters.
+  \item This gives $W$ projecting to every $u_w$.
+  \item By Theorem~\ref{thm:star}, $s(E)=\sum_iu_{w_i}(E_i)=\sum_iW(E_i)=W(E)$.
+\end{itemize}
 \end{proof}
 
 \begin{proposition}[flatness]\label{prop:flat}\st{hand}
-Under the hypothesis of Lemma~\ref{lem:shape}, a state is an ideal point iff its
+On a triangle-free window graph, a state is an ideal point iff its
 window ultrafilters glue to one ultrafilter on $\Omega$ (a flat family).
 \end{proposition}
 

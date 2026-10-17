@@ -382,6 +382,14 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
   triangle witness must use a different formula.
 - Evidence now leans toward "any cycle permits pointless coherence" rather than
   "length ≥ 4". Not proved.
+- **Downgraded 2026-10-16 (Helly-lens test).** The order+threshold sub-carrier is
+  *not point-Helly*. Its chosen generic cells per window pairwise meet but are
+  jointly empty (checked: pairwise True, joint False). So the finite consistent
+  state found is a **point-level (die-type) Helly failure**, which is possible
+  for finite reasons alone. It does not test the ideal-level question.
+- The same caveat applies to the 4-ring sub-carrier runs; there the Lean
+  witness settles the matter independently.
+- **Triangle: inconclusive.** "Leans any cycle" is withdrawn.
 - A finite-alphabet test of the full carrier would be uninformative: there,
   every two-valued state is a point.
 

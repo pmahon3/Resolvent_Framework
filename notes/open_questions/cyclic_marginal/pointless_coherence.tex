@@ -43,7 +43,7 @@ the contradiction hides in a question nobody can ask.}
 
 \medskip
 \noindent This note follows that sentence through two stories, a sandwich shop
-and friends with deli tickets, and out the other side into a theory. The puzzles come first, because the theory is
+and a dinner with numbered coat-check tickets, and out the other side into a theory. The puzzles come first, because the theory is
 only a careful account of what they show. Precise statements sit in short
 \emph{Precisely} asides and in the appendix, where proofs and status labels
 live (\st{Lean} machine-checked, \st{hand} my proof, \st{cited}
@@ -115,25 +115,29 @@ Pt\'ak, \emph{\v{C}as.\ p\v{e}st.\ mat.}\ 108 (1983): six possibilities and four
 yes/no questions, each possibility answering ``yes'' to exactly two.}
 
 %======================================================================
-\section{The deli tickets}\label{sec:windows}
+\section{The coat check}\label{sec:windows}
 
-Now a story with infinitely many possibilities. A deli counter has a
-take-a-number dispenser whose roll goes on forever: $1,2,3,\dots$. Some friends
-have each drawn a ticket. Their tickets are hidden. Instead there are
-\emph{waiters}, each serving two friends and able to see only those two
-tickets. A waiter answers any yes-or-no question about its two tickets: ``did
-the second friend draw later?'', ``are the tickets 30 and 70?''. You may also ask
-the opposite of any question, and you may lump possibilities together into one
-question, even endlessly many of them: ``is Ann's number even?'' lumps together
-2, 4, 6, and so on forever. A \emph{manager} who knows nothing about tickets checks
-only that the answers hang together: when a question is split into a few
-non-overlapping parts, a ``yes'' to the whole means a ``yes'' to exactly one
-part, and a ``no'' means no to all of them; and two waiters who
-serve the same friend say the same things about that friend's ticket.
+Now a story with infinitely many possibilities. Guests arrive at a dinner, and
+each is handed a numbered coat-check ticket, numbered in order of arrival:
+$1,2,3,\dots$, with no upper limit. Nobody announces the numbers. Instead,
+\emph{each pair of neighbours compares tickets} and fills in one card about their
+two tickets, and the cards are all anyone sees. A card answers yes-or-no
+questions about its two tickets: ``did the second person arrive later?'', ``are
+the tickets 30 and 70?''. It also answers the opposite of any question, and
+questions that lump possibilities together, even endlessly many of them: ``is
+Ann's number even?'' lumps together 2, 4, 6, and so on forever. The \emph{host},
+who never sees a ticket, checks only that the cards hang together:
+\begin{itemize}[nosep]
+  \item when a question is split into a few non-overlapping parts, a ``yes'' to
+    the whole means a ``yes'' to exactly one part, and a ``no'' means no to all
+    of them;
+  \item two cards that mention the same guest say the same things about that
+    guest's ticket.
+\end{itemize}
 
-Start with friends in a queue, Ann, Ben, Cat and Dan, with one waiter for each
-neighbouring pair: Ann--Ben, Ben--Cat, Cat--Dan. Every waiter reports: \emph{the
-friend further back in the queue drew later.}
+Start with guests standing in a queue at the door, Ann, Ben, Cat and Dan, each
+neighbouring pair filling a card: Ann--Ben, Ben--Cat, Cat--Dan. Every card says:
+\emph{the one further back arrived later.}
 \begin{center}
 \begin{tikzpicture}[x=1.7cm]
 \foreach \i in {0,1,2} \draw[win] (\i,0)--(\i+1,0);
@@ -141,52 +145,51 @@ friend further back in the queue drew later.}
 \foreach \i/\j in {0/1,1/2,2/3} \draw[up] (n\i) -- node[above=3pt,font=\scriptsize]{later} (n\j);
 \end{tikzpicture}
 \end{center}
-\noindent The plain way to answer is from real tickets, say $10,20,30,40$, reading
-every answer off them. Those answers are fitted by an actual record of who drew
-what.
+\noindent The plain way to fill in the cards is from real tickets, say
+$10,20,30,40$, reading every answer off them. Those cards are fitted by an
+actual record of who arrived when.
 
 \bp{\textbf{Here the story leaves reality, on purpose.} Everything so far could
-happen at a real deli. What follows cannot: it is a thought experiment about how
-far answers alone can go. No real ticket behaves like the one described next.
+happen at a real dinner. What follows cannot: it is a thought experiment about
+how far answers alone can go. No real ticket behaves like the one described next.
 The mathematics needs exactly this step, so the story takes it openly instead of
 hiding it.}
 
-There is a stranger way, which matters for everything that follows. A waiter can
-describe a ticket as coming from \emph{far down the roll}. ``Is it number 5?''
-No. ``Number 500?'' No. No to every particular number. ``Further along than any
-number you name?'' Yes. ``Is the number even?'' A definite yes or no, fixed once
-and for all. That is a complete, consistent rule for answering every question
-about one ticket. Call it an \emph{ideal ticket}.
+There is a stranger way, which matters for everything that follows. A card can
+describe a ticket as coming from \emph{endlessly far down the roll}. ``Is it
+number 5?'' No. ``Number 500?'' No. No to every particular number. ``Further along
+than any number you name?'' Yes. ``Is the number even?'' A definite yes or no,
+fixed once and for all. That is a complete, consistent way of answering every
+question about one ticket. Call it an \emph{ideal ticket}.
 
 \precisely{an ideal ticket is a non-principal ultrafilter $p$ on $\bbN$. Its
 existence needs a little of the axiom of choice.}
 
-A waiter can describe its \emph{pair} this way too: imagine the two friends
-drawing in turn from far down the roll, the second one \emph{later}. ``Did the
-second friend draw later?'' Yes, since whatever the first friend's number is,
-almost every later draw beats it. Along a queue this always fits together. One
-idealised record of the whole queue, ``Ann draws, then Ben later, then Cat, then
-Dan'', answers every question about all four tickets at once, and each waiter's
-answers are just its answers about two of them. Call such a record of everyone
-together an \emph{ideal record}. A real record is an ideal record too, the
-trivial one.
+A card can describe its \emph{pair} this way too: imagine the two guests arriving
+in turn from endlessly far down the roll, the second one \emph{later}. ``Did the
+second guest arrive later?'' Yes, since whatever the first number is, almost
+every later number beats it. Along a queue this always fits together. One
+idealised record of the whole queue, ``Ann arrives, then Ben later, then Cat,
+then Dan'', answers every question about all four tickets at once, and each card
+is just what it says about two of them. Call such a record of everyone together
+an \emph{ideal record}. A real record is an ideal record too, the trivial one.
 
-\precisely{``draw $x_0$, then $x_1$ later'' is the ordered product $p\otimes p$:
-a question $A$ about $(x_0,x_1)$ gets ``yes'' when $p$ says yes to the set of
-$x_0$ for which $p$ says yes to $\{x_1:(x_0,x_1)\in A\}$. Here $x_k$ is friend
-$k$'s ticket. An ideal record is an ultrafilter on the whole space of
+\precisely{``arrive in turn, the second later'' is the ordered product
+$p\otimes p$: a question $A$ about $(x_0,x_1)$ gets ``yes'' when $p$ says yes to
+the set of $x_0$ for which $p$ says yes to $\{x_1:(x_0,x_1)\in A\}$. Here $x_k$
+is guest $k$'s ticket. An ideal record is an ultrafilter on the whole space of
 possibilities, an \emph{ideal point}; a real record is a \emph{point}.}
 
-In a queue, then, consistent reports always come from some record of who drew
-what, real or at worst ideal. That turns out to be a theorem, not an accident
+In a queue, then, consistent cards always come from some record of who arrived
+when, real or at worst ideal. That turns out to be a theorem, not an accident
 (\S\ref{sec:why}).
 
 %======================================================================
-\section{Friends around a table: the staircase}\label{sec:stair}
+\section{Guests around a table: the staircase}\label{sec:stair}
 
-Now seat the four friends around a table. Add a fourth waiter for Dan--Ann. Every
-waiter reports: \emph{the friend on my right drew later than the friend on my
-left.}
+Now seat the four guests around a table, so that Dan and Ann are neighbours too
+and fill in a fourth card. Every card says: \emph{the person on the right arrived
+later.}
 \begin{center}
 \begin{tikzpicture}
 \foreach \k/\a in {0/90,1/0,2/-90,3/180} \coordinate (r\k) at (\a:1.25);
@@ -195,36 +198,36 @@ left.}
 \draw[up] (q0)--(q1); \draw[up] (q1)--(q2); \draw[up] (q2)--(q3); \draw[up] (q3)--(q0);
 \end{tikzpicture}
 \end{center}
-\noindent No real tickets can do this. Try a few against the reports:
+\noindent No real tickets can do this. Try a few against the cards:
 \begin{center}\small
 \begin{tabular}{l | c c c c | l}
 tickets (A, B, C, D) & B after A? & C after B? & D after C? & A after D? & fits?\\\hline
-\textbf{the reports} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \\\hline
+\textbf{the cards} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \\\hline
 $10,20,30,40$ & yes & yes & yes & no & $\times$\\
 $50,90,20,70$ & yes & no & yes & no & $\times$\\
 $30,30,30,30$ & no & no & no & no & $\times$\\
 \end{tabular}
 \end{center}
-Somebody at the table must have drawn first, so every real record gets at least
-one ``no''. It is a Penrose staircase, every step up and back to the start.
+Somebody at the table arrived first, so every real record gets at least one
+``no''. It is a Penrose staircase, every step up and back to the start.
 
-Now let every waiter use ideal tickets, imagining its two friends drawing in turn,
-the one on the right later. Every waiter genuinely reports ``later''. For the
-Dan--Ann waiter it is Ann who draws later. Two waiters that serve the same friend
-agree about her: both describe Ann's ticket by the same ideal rule, so ``is Ann's
-number even?'' gets the same answer from either side.
+Now let every card use ideal tickets, imagining its two guests arriving in turn,
+the one on the right later. Every card genuinely says ``later''. On the Dan--Ann
+card it is Ann who arrives later. The two cards that mention Ann agree about her:
+both describe her ticket by the same ideal rule, so ``is Ann's number even?'' gets
+the same answer on either card.
 
-The manager now checks \emph{everything}: every question that can be built from
-the waiters' answers, including combined questions spanning neighbouring
-waiters. Every check passes \st{Lean}. And the question that would expose the
-staircase, ``did Ann draw before Ben, who drew before Cat?'', is not among them.
-No waiter sees three friends, so it cannot be built from their answers, just as
-the sandwich form had no line for combinations.
+The host now checks \emph{everything}: every question that can be built from the
+cards, including combined questions spanning neighbouring cards. Every check
+passes \st{Lean}. And the question that would expose the staircase, ``did Ann
+arrive before Ben, who arrived before Cat?'', is not among them. No card covers
+three guests, so it cannot be built from them, just as the sandwich form had no
+line for combinations.
 \begin{center}\small
 \begin{tabular}{l | l | c}
-check & what the reports say & passes?\\\hline
-each waiter, alone & ``right drew later'': yes; ``ticket $n$'': no for every $n$ & \checkmark\\
-Ann, seen by Dan--Ann and Ann--Ben & the same answers (both by $p$) & \checkmark\\
+check & what the cards say & passes?\\\hline
+each card, alone & ``right arrived later'': yes; ``ticket $n$'': no for every $n$ & \checkmark\\
+Ann, on the Dan--Ann and Ann--Ben cards & the same answers (both by $p$) & \checkmark\\
 every buildable question and its opposite & exactly one yes \st{Lean} & \checkmark\\
 some real record fits & no: see the table above & $\times$\\
 some ideal record fits & no: it would answer the forbidden question & $\times$\\
@@ -232,13 +235,13 @@ some ideal record fits & no: it would answer the forbidden question & $\times$\\
 \end{center}
 
 Why can there be no ideal record? An ideal record answers every question about
-all four tickets, the forbidden one included. It would have to say Ann before
-Ben before Cat before Dan before Ann.
+all four tickets, the forbidden one included. It would have to say Ann before Ben
+before Cat before Dan before Ann.
 
-So the reports are consistent and nothing fits them: no real record, and not
-even an ideal one. Call such answers \textbf{pointless}. Each waiter's two
-tickets are ideal; the table as a whole has no record at all. Each waiter has its
-own sense of ``later'', and the table closes those directions on themselves.
+So the cards are consistent and nothing fits them: no real record, and not even
+an ideal one. Call such answers \textbf{pointless}. Each card's two tickets are
+ideal; the table as a whole has no record at all. Each card has its own sense of
+``later'', and the table closes those directions on themselves.
 
 The sandwich order was pointless too, but trivially so, because the menu was
 finite. The table is pointless and infinite, and that is what makes it sharp.
@@ -246,11 +249,10 @@ finite. The table is pointless and infinite, and that is what makes it sharp.
 %======================================================================
 \section{What infinity demands}\label{sec:sigma}
 
-Then the \emph{auditor} arrives. The auditor is the voice of the real deli: real
-tickets have real numbers. ``What is Ann's ticket number?'' The auditor
-reads out the whole roll, $1,2,3,\dots$, and asks for a yes beside the right
-number. The waiters say ``no'' to every number on the list, and ``yes'' to ``Ann
-holds a ticket''.
+Then the \emph{auditor} arrives, the voice of the real dinner: real tickets have
+real numbers. ``What is Ann's ticket number?'' The auditor reads out the whole
+roll, $1,2,3,\dots$, and asks for a yes beside the right number. The cards say
+``no'' to every number on the list, and ``yes'' to ``Ann holds a ticket''.
 \begin{center}
 \begin{tikzpicture}[x=0.85cm]
 \draw[thick,-{Stealth}] (0.7,0)--(9.6,0) node[right,font=\scriptsize]{$\infty$};
@@ -260,17 +262,17 @@ holds a ticket''.
   node[midway,above=4pt,font=\scriptsize,blue!60!black]{``Ann holds a ticket'': yes};
 \end{tikzpicture}
 \end{center}
-\noindent The manager's rule only covers finite splits, and those are fine:
-``ticket at most 100?'' no, ``ticket above 100?'' yes. The auditor's rule is
-stronger: the ``yes''es must add up across \emph{infinitely} many options too.
+\noindent The host's rule only covers splits into a few parts, and those are
+fine: ``ticket at most 100?'' no, ``above 100?'' yes. The auditor's rule is
+stronger: the ``yes''es must add up across \emph{endlessly} many options too.
 This is $\sigma$-additivity, the usual rule of probability theory. Under it some
-single number must get the yes. Every friend is pinned to a real ticket, and then
-somebody at the table drew first.
+single number must get the yes. Every guest is pinned to a real ticket, and then
+somebody at the table arrived first.
 
 On these boards, demanding that answers add up over infinitely many options is
 the same as demanding that they come from a real record
 (Proposition~\ref{prop:sigma}). The auditor's demand for a completed answer is
-exactly what makes the table's reports impossible.
+exactly what makes the table's cards impossible.
 
 
 %======================================================================
@@ -283,12 +285,12 @@ From here on the story's words give way to general ones:
 \begin{center}\small
 \begin{tabular}{l l}
 \textbf{story} & \textbf{general word}\\\hline
-a friend's ticket & a \emph{slot}\\
-a waiter & a \emph{window}\\
-a waiter's way of answering & a \emph{recipe}\\
-a real record of who drew what & a \emph{point}\\
+a guest's ticket & a \emph{slot}\\
+a pair of neighbours (their card) & a \emph{window}\\
+a card's way of answering & a \emph{recipe}\\
+a real record of who arrived when & a \emph{point}\\
 an ideal record & an \emph{ideal point}\\
-which waiter serves whom & the \emph{window graph}\\
+who sits next to whom & the \emph{window graph}\\
 \end{tabular}
 \end{center}
 
@@ -360,10 +362,10 @@ and only finite adding.
 %======================================================================
 \section{The open edge: the triangle}\label{sec:triangle}
 
-Now seat only \emph{three} friends at the table, with three waiters: windows
-$\{x_0,x_1\}$, $\{x_1,x_2\}$, $\{x_2,x_0\}$. Every waiter again reports that the
-friend on the right drew later. This is Specker's seer with three boxes: any two
-waiters are fine, all three together are impossible for real tickets.
+Now seat only \emph{three} guests at the table, so there are three cards:
+windows $\{x_0,x_1\}$, $\{x_1,x_2\}$, $\{x_2,x_0\}$. Every card again says the
+person on the right arrived later. This is Specker's seer with three boxes: any
+two cards are fine, all three together are impossible for real tickets.
 \begin{center}
 \begin{tikzpicture}
 \foreach \k/\a in {0/90,1/-30,2/210} \coordinate (t\k) at (\a:1.1);
@@ -372,8 +374,8 @@ waiters are fine, all three together are impossible for real tickets.
 \draw[up] (u0)--(u1); \draw[up] (u1)--(u2); \draw[up] (u2)--(u0);
 \end{tikzpicture}
 \end{center}
-\noindent Now every two waiters share a friend, but no friend is served by all
-three waiters: in window terms every two windows share a slot, but no slot is
+\noindent Now every two cards share a guest, but no guest is on all three
+cards: in window terms every two windows share a slot, but no slot is
 shared by all three:
 the window graph is a triangle, the one shape the locality argument cannot
 handle.
@@ -398,10 +400,10 @@ settled, or is made of triangles.
 Either answer matches a classical pattern. Trees are where pairwise probability
 tables always fit together (Wainwright--Jordan). Chordal graphs are where junction
 trees and Vorob'ev's theorem live.
-What do we know? Any consistent answers extending the three waiters' reports
+What do we know? Any consistent answers extending the three cards
 are \emph{forced} on every question built in finitely many steps. Each such
-question is a sum of one function per waiter, and its answer must be the sum of
-the waiters' limits (\S\ref{app:defs}, the forced functional). So the test is
+question is a sum of one function per card, and its answer must be the sum of
+the cards' limits (\S\ref{app:defs}, the forced functional). So the test is
 whether those forced answers are always 0 or 1. A computer check of every
 finitely built question using comparisons and small thresholds (430 questions,
 then 74{,}738) finds no failure. That is a necessary condition, and it holds

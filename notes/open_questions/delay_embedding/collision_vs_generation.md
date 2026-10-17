@@ -491,6 +491,23 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
   - Navara–Pták 1983, Q×Q example: a σ-additive pointless state via the lines
     x=1/3, y=1/3, x+y=1/2. That is die-type (not point-Helly); it confirms this
     school owns the die side of the seam, not the σ-forbidden side.
+  - **Navara identity on the triangle ⟦HAND⟧.**
+    - Setup: d₀=x₁−x₀, d₁=x₂−x₁, d₂=x₀−x₂ (summing to 0), and
+      T(α,β,γ) = "at least two of d₀≥α, d₁≥β, d₂≥γ"; E\* = T(0,1,1).
+    - **Identity:** if α+β+γ=2, then T(α−1,β,γ) = T(α,β,γ) ⊔ {d₀=α−1}. On
+      that layer exactly one of the other two conditions holds. The same holds
+      with the roles rotated.
+    - So all T with threshold sum ∈ {1,2} are linked by single window-event
+      layers, and E\* ∈ D ⟺ any of them ∈ D.
+    - Along T(−n,n+1,1), the sets converge pointwise (each point changes ≤2
+      times) to the window event {d₂≥1}.
+    - **The obstacle:** each step adds one layer and removes another, so the
+      sequence is not monotone. D is closed under monotone limits and disjoint
+      unions, not under arbitrary pointwise limits. This is Navara's missing
+      base case.
+    - **Remaining combinatorial question:** can the process be rearranged into a
+      monotone or disjoint-union construction? If yes, E\* ∈ D and s\* fails.
+      If no, the triangle is pointless.
   - Keleti–Preiss (shelf): their method is a σ-ideal normal form. On discrete ℕ
     any σ-ideal containing the bounded slabs is trivial, so it does not
     transfer directly; it would need a continuum model.

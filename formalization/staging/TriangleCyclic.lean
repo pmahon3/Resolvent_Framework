@@ -1054,6 +1054,307 @@ theorem sstar_mem {E : Set Ω} (hE : D₃.Has E) : sstar p E = 0 ∨ sstar p E =
     · have e := (hH b hb a ha c hc h.1 h.2).2.2.2.2.2
       exact e.trans ⟨fun _ => Or.inr (Or.inr h), fun _ => (wv_one p).mp q6⟩
 
+
+/-! ## Layer 3: every tensor-type twist on the triangle
+
+Placements with ties (ordered partitions of {0,1,2} with a repeated value), homogeneity for all
+13 placements, and the strict-pattern step shared by every family. Each family's proof uses a
+minimal set of box identities found by brute force
+(`formalization/tools/gen_triangle_family.py` generates it). -/
+
+def t01_2 (u v _w : ℕ) : Ω := ![u, u, v]
+def t2_01 (u v _w : ℕ) : Ω := ![v, v, u]
+def t0_12 (u v _w : ℕ) : Ω := ![u, v, v]
+def t12_0 (u v _w : ℕ) : Ω := ![v, u, u]
+def t02_1 (u v _w : ℕ) : Ω := ![u, v, u]
+def t1_02 (u v _w : ℕ) : Ω := ![v, u, v]
+def t012 (u _v _w : ℕ) : Ω := ![u, u, u]
+
+omit hp in
+/-- Membership along placement `o` follows its limit, on increasing triples from `P`. -/
+def HomogAt (E : Set Ω) (P : Set ℕ) (o : ℕ → ℕ → ℕ → Ω) : Prop :=
+  ∀ u ∈ P, ∀ v ∈ P, ∀ w ∈ P, u < v → v < w → (o u v w ∈ E ↔ Ev3 p o E)
+
+lemma homog13 (E : Set Ω) : ∃ P : Set ℕ, P.Infinite ∧
+    HomogAt (p := p) E P o012 ∧ HomogAt (p := p) E P o120 ∧ HomogAt (p := p) E P o201 ∧
+    HomogAt (p := p) E P o021 ∧ HomogAt (p := p) E P o210 ∧ HomogAt (p := p) E P o102 ∧
+    HomogAt (p := p) E P t01_2 ∧ HomogAt (p := p) E P t2_01 ∧ HomogAt (p := p) E P t0_12 ∧
+    HomogAt (p := p) E P t12_0 ∧ HomogAt (p := p) E P t02_1 ∧ HomogAt (p := p) E P t1_02 ∧
+    HomogAt (p := p) E P t012 := by
+  obtain ⟨P, hP, hT⟩ := ramsey3 hp (e3_and (e3_iff o012 E) (e3_and (e3_iff o120 E)
+    (e3_and (e3_iff o201 E) (e3_and (e3_iff o021 E) (e3_and (e3_iff o210 E)
+    (e3_and (e3_iff o102 E) (e3_and (e3_iff t01_2 E) (e3_and (e3_iff t2_01 E)
+    (e3_and (e3_iff t0_12 E) (e3_and (e3_iff t12_0 E) (e3_and (e3_iff t02_1 E)
+    (e3_and (e3_iff t1_02 E) (e3_iff t012 E)))))))))))))
+  exact ⟨P, hP,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.2.2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.2.2.2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.2.2.2.2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.2.2.2.2.2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.2.2.2.2.2.2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.2.2.2.2.2.2.2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.2.2.2.2.2.2.2.2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.2.2.2.2.2.2.2.2.2.1,
+    fun u hu v hv w hw a b => (hT u hu v hv w hw a b).2.2.2.2.2.2.2.2.2.2.2.2⟩
+
+omit hp in
+lemma eight (P : Set ℕ) (hP : P.Infinite) : ∃ e₀ e₁ e₂ e₃ e₄ e₅ e₆ e₇, e₀ ∈ P ∧ e₁ ∈ P ∧
+    e₂ ∈ P ∧ e₃ ∈ P ∧ e₄ ∈ P ∧ e₅ ∈ P ∧ e₆ ∈ P ∧ e₇ ∈ P ∧ e₀ < e₁ ∧ e₁ < e₂ ∧ e₂ < e₃ ∧
+    e₃ < e₄ ∧ e₄ < e₅ ∧ e₅ < e₆ ∧ e₆ < e₇ := by
+  have hf : (setOf (· ∈ P)).Infinite := hP
+  have hmono := Nat.nth_strictMono hf
+  exact ⟨_, _, _, _, _, _, _, _, Nat.nth_mem_of_infinite hf 0, Nat.nth_mem_of_infinite hf 1,
+    Nat.nth_mem_of_infinite hf 2, Nat.nth_mem_of_infinite hf 3, Nat.nth_mem_of_infinite hf 4,
+    Nat.nth_mem_of_infinite hf 5, Nat.nth_mem_of_infinite hf 6, Nat.nth_mem_of_infinite hf 7,
+    hmono (by norm_num), hmono (by norm_num), hmono (by norm_num), hmono (by norm_num),
+    hmono (by norm_num), hmono (by norm_num), hmono (by norm_num)⟩
+
+omit hp in
+/-- A cyclic or anticyclic strict profile on a homogeneous infinite set puts `E` in the
+homogeneous-set family. -/
+lemma inP_of_strict {E : Set Ω} {P : Set ℕ} (hP : P.Infinite)
+    (H1 : HomogAt (p := p) E P o012) (H2 : HomogAt (p := p) E P o120)
+    (H3 : HomogAt (p := p) E P o201) (H4 : HomogAt (p := p) E P o021)
+    (H5 : HomogAt (p := p) E P o210) (H6 : HomogAt (p := p) E P o102)
+    (hpat : (Wv p o012 E = 1 ∧ Wv p o120 E = 1 ∧ Wv p o201 E = 1 ∧ Wv p o021 E = 0 ∧
+      Wv p o210 E = 0 ∧ Wv p o102 E = 0) ∨ (Wv p o012 E = 0 ∧ Wv p o120 E = 0 ∧
+      Wv p o201 E = 0 ∧ Wv p o021 E = 1 ∧ Wv p o210 E = 1 ∧ Wv p o102 E = 1)) : InP E := by
+  have z : ∀ {o : ℕ → ℕ → ℕ → Ω}, Wv p o E = 0 → ¬ Ev3 p o E := fun h h' => by
+    rw [(wv_one p).mpr h'] at h; exact one_ne_zero h
+  refine ⟨P, hP, ?_⟩
+  rcases hpat with ⟨q1, q2, q3, q4, q5, q6⟩ | ⟨q1, q2, q3, q4, q5, q6⟩
+  · refine Or.inl fun x hx hd => ?_
+    obtain ⟨a, b, c, rfl⟩ : ∃ a b c, x = ![a, b, c] := ⟨_, _, _, eta x⟩
+    obtain ⟨ha, hb, hc⟩ := hx
+    simp only [Dist, v0, v1, v2] at hd ha hb hc
+    simp only [Cyc, v0, v1, v2]
+    rcases (show (a < b ∧ b < c) ∨ (b < c ∧ c < a) ∨ (c < a ∧ a < b) ∨ (a < c ∧ c < b) ∨
+        (c < b ∧ b < a) ∨ (b < a ∧ a < c) by omega) with h | h | h | h | h | h
+    · exact (H1 a ha b hb c hc h.1 h.2).trans ⟨fun _ => Or.inl h, fun _ => (wv_one p).mp q1⟩
+    · exact (H2 b hb c hc a ha h.1 h.2).trans
+        ⟨fun _ => Or.inr (Or.inl h), fun _ => (wv_one p).mp q2⟩
+    · exact (H3 c hc a ha b hb h.1 h.2).trans
+        ⟨fun _ => Or.inr (Or.inr h), fun _ => (wv_one p).mp q3⟩
+    · exact (H4 a ha c hc b hb h.1 h.2).trans ⟨fun h' => absurd h' (z q4), fun h' => by omega⟩
+    · exact (H5 c hc b hb a ha h.1 h.2).trans ⟨fun h' => absurd h' (z q5), fun h' => by omega⟩
+    · exact (H6 b hb a ha c hc h.1 h.2).trans ⟨fun h' => absurd h' (z q6), fun h' => by omega⟩
+  · refine Or.inr fun x hx hd => ?_
+    obtain ⟨a, b, c, rfl⟩ : ∃ a b c, x = ![a, b, c] := ⟨_, _, _, eta x⟩
+    obtain ⟨ha, hb, hc⟩ := hx
+    simp only [Dist, v0, v1, v2] at hd ha hb hc
+    simp only [Acy, v0, v1, v2]
+    rcases (show (a < b ∧ b < c) ∨ (b < c ∧ c < a) ∨ (c < a ∧ a < b) ∨ (a < c ∧ c < b) ∨
+        (c < b ∧ b < a) ∨ (b < a ∧ a < c) by omega) with h | h | h | h | h | h
+    · exact (H1 a ha b hb c hc h.1 h.2).trans ⟨fun h' => absurd h' (z q1), fun h' => by omega⟩
+    · exact (H2 b hb c hc a ha h.1 h.2).trans ⟨fun h' => absurd h' (z q2), fun h' => by omega⟩
+    · exact (H3 c hc a ha b hb h.1 h.2).trans ⟨fun h' => absurd h' (z q3), fun h' => by omega⟩
+    · exact (H4 a ha c hc b hb h.1 h.2).trans ⟨fun _ => Or.inl h, fun _ => (wv_one p).mp q4⟩
+    · exact (H5 c hc b hb a ha h.1 h.2).trans
+        ⟨fun _ => Or.inr (Or.inl h), fun _ => (wv_one p).mp q5⟩
+    · exact (H6 b hb a ha c hc h.1 h.2).trans
+        ⟨fun _ => Or.inr (Or.inr h), fun _ => (wv_one p).mp q6⟩
+
+/-! ### Family `ddp`: windows x₀ = x₁, x₁ = x₂, and p ⊗ p on (x₀, x₂) with x₀ first. -/
+
+/-- Functional of the family `ddp`. -/
+noncomputable def s_ddp (p : Ultrafilter ℕ) (E : Set Ω) : ℤ := Wv p t01_2 E + Wv p t0_12 E - Wv p o012 E
+
+set_option maxHeartbeats 1000000 in
+theorem s_ddp_mem {E : Set Ω} (hE : D₃.Has E) : s_ddp p E = 0 ∨ s_ddp p E = 1 := by
+  by_contra hne
+  obtain ⟨P, hP, Ho012, Ho120, Ho201, Ho021, Ho210, Ho102, Ht01_2, Ht2_01, Ht0_12, Ht12_0, Ht02_1, Ht1_02, Ht012⟩ := homog13 hp E
+  obtain ⟨e₀, e₁, e₂, e₃, e₄, e₅, e₆, e₇, m₀, m₁, m₂, m₃, m₄, m₅, m₆, m₇, l₀, l₁, l₂, l₃, l₄, l₅, l₆⟩ := eight P hP
+  have hB := box_of_mem hE
+  have k0 := cnt_wv (x := ![e₀, e₀, e₀]) (Ht012 e₀ m₀ e₆ m₆ e₇ m₇ (by omega) (by omega))
+  have k1 := cnt_wv (x := ![e₁, e₁, e₀]) (Ht2_01 e₀ m₀ e₁ m₁ e₆ m₆ (by omega) (by omega))
+  have k2 := cnt_wv (x := ![e₁, e₀, e₂]) (Ho102 e₀ m₀ e₁ m₁ e₂ m₂ (by omega) (by omega))
+  have k3 := cnt_wv (x := ![e₀, e₁, e₂]) (Ho012 e₀ m₀ e₁ m₁ e₂ m₂ (by omega) (by omega))
+  have k4 := cnt_wv (x := ![e₁, e₀, e₀]) (Ht12_0 e₀ m₀ e₁ m₁ e₆ m₆ (by omega) (by omega))
+  have k5 := cnt_wv (x := ![e₀, e₁, e₀]) (Ht02_1 e₀ m₀ e₁ m₁ e₆ m₆ (by omega) (by omega))
+  have k6 := cnt_wv (x := ![e₀, e₀, e₂]) (Ht01_2 e₀ m₀ e₂ m₂ e₆ m₆ (by omega) (by omega))
+  have k7 := cnt_wv (x := ![e₁, e₁, e₂]) (Ht01_2 e₁ m₁ e₂ m₂ e₆ m₆ (by omega) (by omega))
+  have b0 := hB e₀ e₁ e₀ e₁ e₀ e₂
+  have b0' : (cnt E ![e₀, e₀, e₀] : ℤ) + (cnt E ![e₁, e₁, e₀] : ℤ) + (cnt E ![e₁, e₀, e₂] : ℤ) + (cnt E ![e₀, e₁, e₂] : ℤ) = (cnt E ![e₁, e₀, e₀] : ℤ) + (cnt E ![e₀, e₁, e₀] : ℤ) + (cnt E ![e₀, e₀, e₂] : ℤ) + (cnt E ![e₁, e₁, e₂] : ℤ) := by exact_mod_cast b0
+  have k8 := cnt_wv (x := ![e₂, e₃, e₀]) (Ho201 e₀ m₀ e₂ m₂ e₃ m₃ (by omega) (by omega))
+  have k9 := cnt_wv (x := ![e₂, e₁, e₃]) (Ho102 e₁ m₁ e₂ m₂ e₃ m₃ (by omega) (by omega))
+  have k10 := cnt_wv (x := ![e₀, e₃, e₃]) (Ht0_12 e₀ m₀ e₃ m₃ e₆ m₆ (by omega) (by omega))
+  have k11 := cnt_wv (x := ![e₂, e₁, e₀]) (Ho210 e₀ m₀ e₁ m₁ e₂ m₂ (by omega) (by omega))
+  have k12 := cnt_wv (x := ![e₀, e₃, e₀]) (Ht02_1 e₀ m₀ e₃ m₃ e₆ m₆ (by omega) (by omega))
+  have k13 := cnt_wv (x := ![e₀, e₁, e₃]) (Ho012 e₀ m₀ e₁ m₁ e₃ m₃ (by omega) (by omega))
+  have k14 := cnt_wv (x := ![e₂, e₃, e₃]) (Ht0_12 e₂ m₂ e₃ m₃ e₆ m₆ (by omega) (by omega))
+  have b1 := hB e₀ e₂ e₁ e₃ e₀ e₃
+  have b1' : (cnt E ![e₀, e₁, e₀] : ℤ) + (cnt E ![e₂, e₃, e₀] : ℤ) + (cnt E ![e₂, e₁, e₃] : ℤ) + (cnt E ![e₀, e₃, e₃] : ℤ) = (cnt E ![e₂, e₁, e₀] : ℤ) + (cnt E ![e₀, e₃, e₀] : ℤ) + (cnt E ![e₀, e₁, e₃] : ℤ) + (cnt E ![e₂, e₃, e₃] : ℤ) := by exact_mod_cast b1
+  have k15 := cnt_wv (x := ![e₀, e₁, e₁]) (Ht0_12 e₀ m₀ e₁ m₁ e₆ m₆ (by omega) (by omega))
+  have k16 := cnt_wv (x := ![e₃, e₂, e₁]) (Ho210 e₁ m₁ e₂ m₂ e₃ m₃ (by omega) (by omega))
+  have k17 := cnt_wv (x := ![e₃, e₁, e₂]) (Ho120 e₁ m₁ e₂ m₂ e₃ m₃ (by omega) (by omega))
+  have k18 := cnt_wv (x := ![e₀, e₂, e₂]) (Ht0_12 e₀ m₀ e₂ m₂ e₆ m₆ (by omega) (by omega))
+  have k19 := cnt_wv (x := ![e₃, e₁, e₁]) (Ht12_0 e₁ m₁ e₃ m₃ e₆ m₆ (by omega) (by omega))
+  have k20 := cnt_wv (x := ![e₀, e₂, e₁]) (Ho021 e₀ m₀ e₁ m₁ e₂ m₂ (by omega) (by omega))
+  have k21 := cnt_wv (x := ![e₃, e₂, e₂]) (Ht12_0 e₂ m₂ e₃ m₃ e₆ m₆ (by omega) (by omega))
+  have b2 := hB e₀ e₃ e₁ e₂ e₁ e₂
+  have b2' : (cnt E ![e₀, e₁, e₁] : ℤ) + (cnt E ![e₃, e₂, e₁] : ℤ) + (cnt E ![e₃, e₁, e₂] : ℤ) + (cnt E ![e₀, e₂, e₂] : ℤ) = (cnt E ![e₃, e₁, e₁] : ℤ) + (cnt E ![e₀, e₂, e₁] : ℤ) + (cnt E ![e₀, e₁, e₂] : ℤ) + (cnt E ![e₃, e₂, e₂] : ℤ) := by exact_mod_cast b2
+  simp only [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15, k16, k17, k18, k19, k20, k21] at b0' b1' b2'
+  have w_o012 : 0 ≤ Wv p o012 E ∧ Wv p o012 E ≤ 1 := by
+    rcases wv_cases p o012 E with h | h <;> rw [h] <;> norm_num
+  have w_o120 : 0 ≤ Wv p o120 E ∧ Wv p o120 E ≤ 1 := by
+    rcases wv_cases p o120 E with h | h <;> rw [h] <;> norm_num
+  have w_o201 : 0 ≤ Wv p o201 E ∧ Wv p o201 E ≤ 1 := by
+    rcases wv_cases p o201 E with h | h <;> rw [h] <;> norm_num
+  have w_o021 : 0 ≤ Wv p o021 E ∧ Wv p o021 E ≤ 1 := by
+    rcases wv_cases p o021 E with h | h <;> rw [h] <;> norm_num
+  have w_o210 : 0 ≤ Wv p o210 E ∧ Wv p o210 E ≤ 1 := by
+    rcases wv_cases p o210 E with h | h <;> rw [h] <;> norm_num
+  have w_o102 : 0 ≤ Wv p o102 E ∧ Wv p o102 E ≤ 1 := by
+    rcases wv_cases p o102 E with h | h <;> rw [h] <;> norm_num
+  have w_t01_2 : 0 ≤ Wv p t01_2 E ∧ Wv p t01_2 E ≤ 1 := by
+    rcases wv_cases p t01_2 E with h | h <;> rw [h] <;> norm_num
+  have w_t2_01 : 0 ≤ Wv p t2_01 E ∧ Wv p t2_01 E ≤ 1 := by
+    rcases wv_cases p t2_01 E with h | h <;> rw [h] <;> norm_num
+  have w_t0_12 : 0 ≤ Wv p t0_12 E ∧ Wv p t0_12 E ≤ 1 := by
+    rcases wv_cases p t0_12 E with h | h <;> rw [h] <;> norm_num
+  have w_t12_0 : 0 ≤ Wv p t12_0 E ∧ Wv p t12_0 E ≤ 1 := by
+    rcases wv_cases p t12_0 E with h | h <;> rw [h] <;> norm_num
+  have w_t02_1 : 0 ≤ Wv p t02_1 E ∧ Wv p t02_1 E ≤ 1 := by
+    rcases wv_cases p t02_1 E with h | h <;> rw [h] <;> norm_num
+  have w_t1_02 : 0 ≤ Wv p t1_02 E ∧ Wv p t1_02 E ≤ 1 := by
+    rcases wv_cases p t1_02 E with h | h <;> rw [h] <;> norm_num
+  have w_t012 : 0 ≤ Wv p t012 E ∧ Wv p t012 E ≤ 1 := by
+    rcases wv_cases p t012 E with h | h <;> rw [h] <;> norm_num
+  simp only [s_ddp] at hne
+  have hpat : (Wv p o012 E = 1 ∧ Wv p o120 E = 1 ∧ Wv p o201 E = 1 ∧ Wv p o021 E = 0 ∧
+      Wv p o210 E = 0 ∧ Wv p o102 E = 0) ∨ (Wv p o012 E = 0 ∧ Wv p o120 E = 0 ∧
+      Wv p o201 E = 0 ∧ Wv p o021 E = 1 ∧ Wv p o210 E = 1 ∧ Wv p o102 E = 1) := by
+    clear k0 k1 k2 k3 k4 k5 k6 k7 k8 k9 k10 k11 k12 k13 k14 k15 k16 k17 k18 k19 k20 k21 b0 b1 b2 hB
+    generalize Wv p o012 E = A0 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p o120 E = A1 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p o201 E = A2 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p o021 E = A3 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p o210 E = A4 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p o102 E = A5 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t01_2 E = A6 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t2_01 E = A7 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t0_12 E = A8 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t12_0 E = A9 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t02_1 E = A10 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t1_02 E = A11 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t012 E = A12 at b0' b1' b2' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    omega
+  exact not_inP_of_mem hE (inP_of_strict hP Ho012 Ho120 Ho201 Ho021 Ho210 Ho102 hpat)
+
+
+/-! ### Family `dpp`: windows x₀ = x₁, p ⊗ p on (x₁, x₂) with x₁ first, and on (x₂, x₀) with
+x₂ first. -/
+
+/-- Functional of the family `dpp`. -/
+noncomputable def s_dpp (p : Ultrafilter ℕ) (E : Set Ω) : ℤ := Wv p t01_2 E - Wv p o102 E + Wv p o120 E
+
+theorem s_dpp_mem {E : Set Ω} (hE : D₃.Has E) : s_dpp p E = 0 ∨ s_dpp p E = 1 := by
+  by_contra hne
+  obtain ⟨P, hP, Ho012, Ho120, Ho201, Ho021, Ho210, Ho102, Ht01_2, Ht2_01, Ht0_12, Ht12_0, Ht02_1, Ht1_02, Ht012⟩ := homog13 hp E
+  obtain ⟨e₀, e₁, e₂, e₃, e₄, e₅, e₆, e₇, m₀, m₁, m₂, m₃, m₄, m₅, m₆, m₇, l₀, l₁, l₂, l₃, l₄, l₅, l₆⟩ := eight P hP
+  have hB := box_of_mem hE
+  have k0 := cnt_wv (x := ![e₀, e₀, e₁]) (Ht01_2 e₀ m₀ e₁ m₁ e₆ m₆ (by omega) (by omega))
+  have k1 := cnt_wv (x := ![e₂, e₂, e₁]) (Ht2_01 e₁ m₁ e₂ m₂ e₆ m₆ (by omega) (by omega))
+  have k2 := cnt_wv (x := ![e₂, e₀, e₃]) (Ho102 e₀ m₀ e₂ m₂ e₃ m₃ (by omega) (by omega))
+  have k3 := cnt_wv (x := ![e₀, e₂, e₃]) (Ho012 e₀ m₀ e₂ m₂ e₃ m₃ (by omega) (by omega))
+  have k4 := cnt_wv (x := ![e₂, e₀, e₁]) (Ho120 e₀ m₀ e₁ m₁ e₂ m₂ (by omega) (by omega))
+  have k5 := cnt_wv (x := ![e₀, e₂, e₁]) (Ho021 e₀ m₀ e₁ m₁ e₂ m₂ (by omega) (by omega))
+  have k6 := cnt_wv (x := ![e₀, e₀, e₃]) (Ht01_2 e₀ m₀ e₃ m₃ e₆ m₆ (by omega) (by omega))
+  have k7 := cnt_wv (x := ![e₂, e₂, e₃]) (Ht01_2 e₂ m₂ e₃ m₃ e₆ m₆ (by omega) (by omega))
+  have b0 := hB e₀ e₂ e₀ e₂ e₁ e₃
+  have b0' : (cnt E ![e₀, e₀, e₁] : ℤ) + (cnt E ![e₂, e₂, e₁] : ℤ) + (cnt E ![e₂, e₀, e₃] : ℤ) + (cnt E ![e₀, e₂, e₃] : ℤ) = (cnt E ![e₂, e₀, e₁] : ℤ) + (cnt E ![e₀, e₂, e₁] : ℤ) + (cnt E ![e₀, e₀, e₃] : ℤ) + (cnt E ![e₂, e₂, e₃] : ℤ) := by exact_mod_cast b0
+  have k8 := cnt_wv (x := ![e₀, e₁, e₀]) (Ht02_1 e₀ m₀ e₁ m₁ e₆ m₆ (by omega) (by omega))
+  have k9 := cnt_wv (x := ![e₂, e₃, e₀]) (Ho201 e₀ m₀ e₂ m₂ e₃ m₃ (by omega) (by omega))
+  have k10 := cnt_wv (x := ![e₂, e₁, e₃]) (Ho102 e₁ m₁ e₂ m₂ e₃ m₃ (by omega) (by omega))
+  have k11 := cnt_wv (x := ![e₀, e₃, e₃]) (Ht0_12 e₀ m₀ e₃ m₃ e₆ m₆ (by omega) (by omega))
+  have k12 := cnt_wv (x := ![e₂, e₁, e₀]) (Ho210 e₀ m₀ e₁ m₁ e₂ m₂ (by omega) (by omega))
+  have k13 := cnt_wv (x := ![e₀, e₃, e₀]) (Ht02_1 e₀ m₀ e₃ m₃ e₆ m₆ (by omega) (by omega))
+  have k14 := cnt_wv (x := ![e₀, e₁, e₃]) (Ho012 e₀ m₀ e₁ m₁ e₃ m₃ (by omega) (by omega))
+  have k15 := cnt_wv (x := ![e₂, e₃, e₃]) (Ht0_12 e₂ m₂ e₃ m₃ e₆ m₆ (by omega) (by omega))
+  have b1 := hB e₀ e₂ e₁ e₃ e₀ e₃
+  have b1' : (cnt E ![e₀, e₁, e₀] : ℤ) + (cnt E ![e₂, e₃, e₀] : ℤ) + (cnt E ![e₂, e₁, e₃] : ℤ) + (cnt E ![e₀, e₃, e₃] : ℤ) = (cnt E ![e₂, e₁, e₀] : ℤ) + (cnt E ![e₀, e₃, e₀] : ℤ) + (cnt E ![e₀, e₁, e₃] : ℤ) + (cnt E ![e₂, e₃, e₃] : ℤ) := by exact_mod_cast b1
+  simp only [k0, k1, k2, k3, k4, k5, k6, k7, k8, k9, k10, k11, k12, k13, k14, k15] at b0' b1'
+  have w_o012 : 0 ≤ Wv p o012 E ∧ Wv p o012 E ≤ 1 := by
+    rcases wv_cases p o012 E with h | h <;> rw [h] <;> norm_num
+  have w_o120 : 0 ≤ Wv p o120 E ∧ Wv p o120 E ≤ 1 := by
+    rcases wv_cases p o120 E with h | h <;> rw [h] <;> norm_num
+  have w_o201 : 0 ≤ Wv p o201 E ∧ Wv p o201 E ≤ 1 := by
+    rcases wv_cases p o201 E with h | h <;> rw [h] <;> norm_num
+  have w_o021 : 0 ≤ Wv p o021 E ∧ Wv p o021 E ≤ 1 := by
+    rcases wv_cases p o021 E with h | h <;> rw [h] <;> norm_num
+  have w_o210 : 0 ≤ Wv p o210 E ∧ Wv p o210 E ≤ 1 := by
+    rcases wv_cases p o210 E with h | h <;> rw [h] <;> norm_num
+  have w_o102 : 0 ≤ Wv p o102 E ∧ Wv p o102 E ≤ 1 := by
+    rcases wv_cases p o102 E with h | h <;> rw [h] <;> norm_num
+  have w_t01_2 : 0 ≤ Wv p t01_2 E ∧ Wv p t01_2 E ≤ 1 := by
+    rcases wv_cases p t01_2 E with h | h <;> rw [h] <;> norm_num
+  have w_t2_01 : 0 ≤ Wv p t2_01 E ∧ Wv p t2_01 E ≤ 1 := by
+    rcases wv_cases p t2_01 E with h | h <;> rw [h] <;> norm_num
+  have w_t0_12 : 0 ≤ Wv p t0_12 E ∧ Wv p t0_12 E ≤ 1 := by
+    rcases wv_cases p t0_12 E with h | h <;> rw [h] <;> norm_num
+  have w_t12_0 : 0 ≤ Wv p t12_0 E ∧ Wv p t12_0 E ≤ 1 := by
+    rcases wv_cases p t12_0 E with h | h <;> rw [h] <;> norm_num
+  have w_t02_1 : 0 ≤ Wv p t02_1 E ∧ Wv p t02_1 E ≤ 1 := by
+    rcases wv_cases p t02_1 E with h | h <;> rw [h] <;> norm_num
+  have w_t1_02 : 0 ≤ Wv p t1_02 E ∧ Wv p t1_02 E ≤ 1 := by
+    rcases wv_cases p t1_02 E with h | h <;> rw [h] <;> norm_num
+  have w_t012 : 0 ≤ Wv p t012 E ∧ Wv p t012 E ≤ 1 := by
+    rcases wv_cases p t012 E with h | h <;> rw [h] <;> norm_num
+  simp only [s_dpp] at hne
+  have hpat : (Wv p o012 E = 1 ∧ Wv p o120 E = 1 ∧ Wv p o201 E = 1 ∧ Wv p o021 E = 0 ∧
+      Wv p o210 E = 0 ∧ Wv p o102 E = 0) ∨ (Wv p o012 E = 0 ∧ Wv p o120 E = 0 ∧
+      Wv p o201 E = 0 ∧ Wv p o021 E = 1 ∧ Wv p o210 E = 1 ∧ Wv p o102 E = 1) := by
+    clear k0 k1 k2 k3 k4 k5 k6 k7 k8 k9 k10 k11 k12 k13 k14 k15 b0 b1 hB
+    generalize Wv p o012 E = A0 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p o120 E = A1 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p o201 E = A2 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p o021 E = A3 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p o210 E = A4 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p o102 E = A5 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t01_2 E = A6 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t2_01 E = A7 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t0_12 E = A8 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t12_0 E = A9 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t02_1 E = A10 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t1_02 E = A11 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    generalize Wv p t012 E = A12 at b0' b1' w_o012 w_o120 w_o201 w_o021 w_o210 w_o102 w_t01_2 w_t2_01 w_t0_12 w_t12_0 w_t02_1 w_t1_02 w_t012 hne ⊢
+    omega
+  exact not_inP_of_mem hE (inP_of_strict hP Ho012 Ho120 Ho201 Ho021 Ho210 Ho102 hpat)
+
+
+/-- `ddp` is pointless: its three window steps have value 1 and empty intersection. -/
+theorem ddp_steps : s_ddp p {x | x 0 = x 1} = 1 ∧ s_ddp p {x | x 1 = x 2} = 1 ∧
+    s_ddp p {x | x 0 < x 2} = 1 := by
+  refine ⟨?_, ?_, ?_⟩ <;> unfold s_ddp
+  · rw [wv_of_order hp (fun u v w h1 h2 => by simp [t01_2]),
+      wv_of_order' hp (fun u v w h1 h2 => by simp [t0_12]; omega),
+      wv_of_order' hp (fun u v w h1 h2 => by simp [o012]; omega)]; norm_num
+  · rw [wv_of_order' hp (fun u v w h1 h2 => by simp [t01_2]; omega),
+      wv_of_order hp (fun u v w h1 h2 => by simp [t0_12]),
+      wv_of_order' hp (fun u v w h1 h2 => by simp [o012]; omega)]; norm_num
+  · rw [wv_of_order hp (fun u v w h1 h2 => by simp [t01_2]; omega),
+      wv_of_order hp (fun u v w h1 h2 => by simp [t0_12]; omega),
+      wv_of_order hp (fun u v w h1 h2 => by simp [o012]; omega)]; norm_num
+
+/-- `dpp` is pointless: its three window steps have value 1 and empty intersection. -/
+theorem dpp_steps : s_dpp p {x | x 0 = x 1} = 1 ∧ s_dpp p {x | x 1 < x 2} = 1 ∧
+    s_dpp p {x | x 2 < x 0} = 1 := by
+  refine ⟨?_, ?_, ?_⟩ <;> unfold s_dpp
+  · rw [wv_of_order hp (fun u v w h1 h2 => by simp [t01_2]),
+      wv_of_order' hp (fun u v w h1 h2 => by simp [o102]; omega),
+      wv_of_order' hp (fun u v w h1 h2 => by simp [o120]; omega)]; norm_num
+  · rw [wv_of_order hp (fun u v w h1 h2 => by simp [t01_2]; omega),
+      wv_of_order hp (fun u v w h1 h2 => by simp [o102]; omega),
+      wv_of_order hp (fun u v w h1 h2 => by simp [o120]; omega)]; norm_num
+  · rw [wv_of_order' hp (fun u v w h1 h2 => by simp [t01_2]; omega),
+      wv_of_order' hp (fun u v w h1 h2 => by simp [o102]; omega),
+      wv_of_order hp (fun u v w h1 h2 => by simp [o120]; omega)]; norm_num
+
+
 end State
 
 /-! ## Fidelity: s* extends the staircase on every window event
@@ -1119,6 +1420,126 @@ theorem sstar_window20 (p : Ultrafilter ℕ) {E : Set Ω}
     unfold Wv stair20; exact if_congr (by simp only [Ev3, E3, o120, hl, Filter.eventually_const]) rfl rfl
   simp only [sstar, e1, e2]; ring
 
+section Pack
+variable {p : Ultrafilter ℕ}
+
+/-! ### Packaging: `ddp` and `dpp` extend their twisted window families to pointless states -/
+
+theorem s_ddp_union {A B : Set Ω} (hd : Disjoint A B) :
+    s_ddp p (A ∪ B) = s_ddp p A + s_ddp p B := by
+  simp only [s_ddp, wv_union p hd]; ring
+
+theorem s_dpp_union {A B : Set Ω} (hd : Disjoint A B) :
+    s_dpp p (A ∪ B) = s_dpp p A + s_dpp p B := by
+  simp only [s_dpp, wv_union p hd]; ring
+
+theorem s_ddp_univ : s_ddp p univ = 1 := by
+  have h : ∀ o, Wv p o univ = 1 := fun o => (wv_one p).mpr
+    (Filter.Eventually.of_forall fun _ => Filter.Eventually.of_forall fun _ =>
+      Filter.Eventually.of_forall fun _ => mem_univ _)
+  simp [s_ddp, h]
+
+theorem s_dpp_univ : s_dpp p univ = 1 := by
+  have h : ∀ o, Wv p o univ = 1 := fun o => (wv_one p).mpr
+    (Filter.Eventually.of_forall fun _ => Filter.Eventually.of_forall fun _ =>
+      Filter.Eventually.of_forall fun _ => mem_univ _)
+  simp [s_dpp, h]
+
+/-- Diagonal window values. -/
+noncomputable def diag01 (p : Ultrafilter ℕ) (E : Set Ω) : ℤ := by
+  classical exact if ∀ᶠ u in (p : Filter ℕ), ![u, u, 0] ∈ E then 1 else 0
+noncomputable def diag12 (p : Ultrafilter ℕ) (E : Set Ω) : ℤ := by
+  classical exact if ∀ᶠ u in (p : Filter ℕ), ![0, u, u] ∈ E then 1 else 0
+/-- Product window on (x₀, x₂) with x₀ drawn first. -/
+noncomputable def prod02 (p : Ultrafilter ℕ) (E : Set Ω) : ℤ := by
+  classical exact if ∀ᶠ u in (p : Filter ℕ), ∀ᶠ v in (p : Filter ℕ), ![u, 0, v] ∈ E then 1 else 0
+
+theorem s_ddp_window01 {E : Set Ω} (hE : @MeasurableSet _ (windowSigma {0, 1}) E) :
+    s_ddp p E = diag01 p E := by
+  obtain ⟨g, hl⟩ : ∃ g : ℕ → ℕ → Prop, ∀ a b c : ℕ, (![a, b, c] ∈ E ↔ g a b) :=
+    ⟨fun a b => ![a, b, 0] ∈ E, fun a b c => loc_of hE (by
+    intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+    rcases hk with rfl | rfl <;> rfl)⟩
+  have e1 : Wv p t01_2 E = diag01 p E := by
+    classical
+    unfold Wv diag01; exact if_congr (by simp only [Ev3, E3, t01_2, hl, Filter.eventually_const]) rfl rfl
+  have e2 : Wv p t0_12 E = Wv p o012 E := by
+    classical
+    unfold Wv; exact if_congr (by simp only [Ev3, E3, t0_12, o012, hl, Filter.eventually_const]) rfl rfl
+  simp only [s_ddp, e1, e2]; ring
+
+theorem s_ddp_window12 {E : Set Ω} (hE : @MeasurableSet _ (windowSigma {1, 2}) E) :
+    s_ddp p E = diag12 p E := by
+  obtain ⟨g, hl⟩ : ∃ g : ℕ → ℕ → Prop, ∀ a b c : ℕ, (![c, a, b] ∈ E ↔ g a b) :=
+    ⟨fun a b => ![0, a, b] ∈ E, fun a b c => loc_of hE (by
+    intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+    rcases hk with rfl | rfl <;> rfl)⟩
+  have e1 : Wv p t0_12 E = diag12 p E := by
+    classical
+    unfold Wv diag12; exact if_congr (by simp only [Ev3, E3, t0_12, hl, Filter.eventually_const]) rfl rfl
+  have e2 : Wv p t01_2 E = Wv p o012 E := by
+    classical
+    unfold Wv; exact if_congr (by simp only [Ev3, E3, t01_2, o012, hl, Filter.eventually_const]) rfl rfl
+  simp only [s_ddp, e1, e2]; ring
+
+theorem s_ddp_window20 {E : Set Ω} (hE : @MeasurableSet _ (windowSigma {2, 0}) E) :
+    s_ddp p E = prod02 p E := by
+  obtain ⟨g, hl⟩ : ∃ g : ℕ → ℕ → Prop, ∀ a b c : ℕ, (![a, b, c] ∈ E ↔ g a c) :=
+    ⟨fun a c => ![a, 0, c] ∈ E, fun a b c => loc_of hE (by
+    intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+    rcases hk with rfl | rfl <;> rfl)⟩
+  have e1 : Wv p t01_2 E = prod02 p E := by
+    classical
+    unfold Wv prod02; exact if_congr (by simp only [Ev3, E3, t01_2, hl, Filter.eventually_const]) rfl rfl
+  have e2 : Wv p t0_12 E = Wv p o012 E := by
+    classical
+    unfold Wv; exact if_congr (by simp only [Ev3, E3, t0_12, o012, hl, Filter.eventually_const]) rfl rfl
+  simp only [s_ddp, e1, e2]; ring
+
+theorem s_dpp_window01 {E : Set Ω} (hE : @MeasurableSet _ (windowSigma {0, 1}) E) :
+    s_dpp p E = diag01 p E := by
+  obtain ⟨g, hl⟩ : ∃ g : ℕ → ℕ → Prop, ∀ a b c : ℕ, (![a, b, c] ∈ E ↔ g a b) :=
+    ⟨fun a b => ![a, b, 0] ∈ E, fun a b c => loc_of hE (by
+    intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+    rcases hk with rfl | rfl <;> rfl)⟩
+  have e1 : Wv p t01_2 E = diag01 p E := by
+    classical
+    unfold Wv diag01; exact if_congr (by simp only [Ev3, E3, t01_2, hl, Filter.eventually_const]) rfl rfl
+  have e2 : Wv p o102 E = Wv p o120 E := by
+    classical
+    unfold Wv; exact if_congr (by simp only [Ev3, E3, o102, o120, hl, Filter.eventually_const]) rfl rfl
+  simp only [s_dpp, e1, e2]; ring
+
+theorem s_dpp_window12 {E : Set Ω} (hE : @MeasurableSet _ (windowSigma {1, 2}) E) :
+    s_dpp p E = stair12 p E := by
+  obtain ⟨g, hl⟩ : ∃ g : ℕ → ℕ → Prop, ∀ a b c : ℕ, (![c, a, b] ∈ E ↔ g a b) :=
+    ⟨fun a b => ![0, a, b] ∈ E, fun a b c => loc_of hE (by
+    intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+    rcases hk with rfl | rfl <;> rfl)⟩
+  have e1 : Wv p t01_2 E = stair12 p E := by
+    classical
+    unfold Wv stair12; exact if_congr (by simp only [Ev3, E3, t01_2, hl, Filter.eventually_const]) rfl rfl
+  have e2 : Wv p o102 E = Wv p o120 E := by
+    classical
+    unfold Wv; exact if_congr (by simp only [Ev3, E3, o102, o120, hl, Filter.eventually_const]) rfl rfl
+  simp only [s_dpp, e1, e2]; ring
+
+theorem s_dpp_window20 {E : Set Ω} (hE : @MeasurableSet _ (windowSigma {2, 0}) E) :
+    s_dpp p E = stair20 p E := by
+  obtain ⟨g, hl⟩ : ∃ g : ℕ → ℕ → Prop, ∀ a b c : ℕ, (![b, c, a] ∈ E ↔ g a b) :=
+    ⟨fun a b => ![b, 0, a] ∈ E, fun a b c => loc_of hE (by
+    intro k hk; simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hk
+    rcases hk with rfl | rfl <;> rfl)⟩
+  have e1 : Wv p o120 E = stair20 p E := by
+    classical
+    unfold Wv stair20; exact if_congr (by simp only [Ev3, E3, o120, hl, Filter.eventually_const]) rfl rfl
+  have e2 : Wv p t01_2 E = Wv p o102 E := by
+    classical
+    unfold Wv; exact if_congr (by simp only [Ev3, E3, t01_2, o102, hl, Filter.eventually_const]) rfl rfl
+  simp only [s_dpp, e1, e2]; ring
+
+end Pack
+
 /-! ## The triangle carries a pointless state -/
 
 lemma window_mem {w : Set (Fin 3)} (hw : w ∈ W₃) (S : Set (w → ℕ)) :
@@ -1173,6 +1594,53 @@ theorem hyperfilter_gt (m : ℕ) : ∀ᶠ n in ((Filter.hyperfilter ℕ : Ultraf
   Filter.hyperfilter_le_cofinite (Filter.eventually_cofinite.2 ((Set.finite_le_nat m).subset
     fun n hn => by simpa using hn))
 
+lemma eq01_mem : D₃.Has {x : Ω | x 0 = x 1} :=
+  window_mem (w := {0, 1}) (by simp [W₃]) {y | y ⟨0, by simp⟩ = y ⟨1, by simp⟩}
+lemma eq12_mem : D₃.Has {x : Ω | x 1 = x 2} :=
+  window_mem (w := {1, 2}) (by simp [W₃]) {y | y ⟨1, by simp⟩ = y ⟨2, by simp⟩}
+lemma lt02_mem : D₃.Has {x : Ω | x 0 < x 2} :=
+  window_mem (w := {2, 0}) (by simp [W₃]) {y | y ⟨0, by simp⟩ < y ⟨2, by simp⟩}
+
+/-- **A graph-type twist on the triangle extends to a pointless state** (family `ddp`: windows
+x₀ = x₁ and x₁ = x₂ diagonal, (x₀, x₂) the product with x₀ first). -/
+theorem triangle_ddp_pointless (p : Ultrafilter ℕ) (hp : ∀ m, ∀ᶠ n in (p : Filter ℕ), m < n) :
+    (∀ E, D₃.Has E → s_ddp p E = 0 ∨ s_ddp p E = 1) ∧
+    (∀ A B : Set Ω, Disjoint A B → s_ddp p (A ∪ B) = s_ddp p A + s_ddp p B) ∧
+    s_ddp p univ = 1 ∧
+    (∀ E, @MeasurableSet _ (windowSigma {0, 1}) E → s_ddp p E = diag01 p E) ∧
+    (∀ E, @MeasurableSet _ (windowSigma {1, 2}) E → s_ddp p E = diag12 p E) ∧
+    (∀ E, @MeasurableSet _ (windowSigma {2, 0}) E → s_ddp p E = prod02 p E) ∧
+    ¬ ∃ U : Ultrafilter Ω, ∀ E, D₃.Has E → (s_ddp p E = 1 ↔ E ∈ U) := by
+  refine ⟨fun _ hE => s_ddp_mem hp hE, fun _ _ hd => s_ddp_union hd, s_ddp_univ,
+    fun _ hE => s_ddp_window01 hE, fun _ hE => s_ddp_window12 hE, fun _ hE => s_ddp_window20 hE, ?_⟩
+  rintro ⟨U, hU⟩
+  obtain ⟨h0, h1, h2⟩ := ddp_steps hp
+  have := U.inter_mem (U.inter_mem ((hU _ eq01_mem).mp h0) ((hU _ eq12_mem).mp h1))
+    ((hU _ lt02_mem).mp h2)
+  have he : {x : Ω | x 0 = x 1} ∩ {x | x 1 = x 2} ∩ {x | x 0 < x 2} = ∅ := by
+    ext x; simp only [mem_inter_iff, mem_setOf_eq, mem_empty_iff_false, iff_false]; omega
+  rw [he] at this; exact U.empty_notMem this
+
+/-- **A mixed twist on the triangle extends to a pointless state** (family `dpp`: x₀ = x₁
+diagonal, (x₁, x₂) with x₁ first, (x₂, x₀) with x₂ first). -/
+theorem triangle_dpp_pointless (p : Ultrafilter ℕ) (hp : ∀ m, ∀ᶠ n in (p : Filter ℕ), m < n) :
+    (∀ E, D₃.Has E → s_dpp p E = 0 ∨ s_dpp p E = 1) ∧
+    (∀ A B : Set Ω, Disjoint A B → s_dpp p (A ∪ B) = s_dpp p A + s_dpp p B) ∧
+    s_dpp p univ = 1 ∧
+    (∀ E, @MeasurableSet _ (windowSigma {0, 1}) E → s_dpp p E = diag01 p E) ∧
+    (∀ E, @MeasurableSet _ (windowSigma {1, 2}) E → s_dpp p E = stair12 p E) ∧
+    (∀ E, @MeasurableSet _ (windowSigma {2, 0}) E → s_dpp p E = stair20 p E) ∧
+    ¬ ∃ U : Ultrafilter Ω, ∀ E, D₃.Has E → (s_dpp p E = 1 ↔ E ∈ U) := by
+  refine ⟨fun _ hE => s_dpp_mem hp hE, fun _ _ hd => s_dpp_union hd, s_dpp_univ,
+    fun _ hE => s_dpp_window01 hE, fun _ hE => s_dpp_window12 hE, fun _ hE => s_dpp_window20 hE, ?_⟩
+  rintro ⟨U, hU⟩
+  obtain ⟨h0, h1, h2⟩ := dpp_steps hp
+  have := U.inter_mem (U.inter_mem ((hU _ eq01_mem).mp h0) ((hU _ C₁_mem).mp h1))
+    ((hU _ C₂_mem).mp h2)
+  have he : {x : Ω | x 0 = x 1} ∩ C₁ ∩ C₂ = ∅ := by
+    ext x; simp only [C₁, C₂, mem_inter_iff, mem_setOf_eq, mem_empty_iff_false, iff_false]; omega
+  rw [he] at this; exact U.empty_notMem this
+
 /-- **Unconditional form.** The triangle carrier over ℕ carries a finitely additive two-valued
 state that no ultrafilter on Ω (in particular no point) reproduces. -/
 theorem triangle_has_pointless_state :
@@ -1195,3 +1663,9 @@ end TriangleCyclic
 #print axioms TriangleCyclic.sstar_window01
 #print axioms TriangleCyclic.sstar_window12
 #print axioms TriangleCyclic.sstar_window20
+#print axioms TriangleCyclic.s_ddp_mem
+#print axioms TriangleCyclic.s_dpp_mem
+#print axioms TriangleCyclic.ddp_steps
+#print axioms TriangleCyclic.dpp_steps
+#print axioms TriangleCyclic.triangle_ddp_pointless
+#print axioms TriangleCyclic.triangle_dpp_pointless

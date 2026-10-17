@@ -580,9 +580,13 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
       is p-small, for example on slices {x₀ odd}. E\* itself shows that no
       statement at the interaction level alone can exclude cyclic behaviour.
       Next: `gate.triangle_lambda2_agreement`.
+    - **Lean-checked (2026-10-17):** `formalization/staging/TriangleCyclic.lean`.
+      - `estar_not_mem` and `not_inF_of_mem`: 0 sorry; axioms propext,
+        Classical.choice, Quot.sound.
+      - The carrier is `DynkinSystem.generate` of the three pair windows,
+        the same construction as `WindowGluing.glued`.
     - **Prior art: unchecked.** Run the hostile λ-system / sums-of-σ-algebras
-      pass before calling this new. Lean target: Mathlib Dynkin induction plus
-      one box identity, independent of p.
+      pass before calling this new.
   - Keleti–Preiss (shelf): their method is a σ-ideal normal form. On discrete ℕ
     any σ-ideal containing the bounded slabs is trivial, so it does not
     transfer directly; it would need a continuum model.

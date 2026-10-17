@@ -75,8 +75,8 @@
     {
       "id": "thm.triangle_estar_not_built",
       "name": "the cyclic set is not in the triangle carrier over N",
-      "status": "proved (hand; lift-box corner conditions machine-checked, 18,000 boxes); PRIOR ART UNCHECKED (lambda-systems / sums of sigma-algebras); Lean target (Dynkin induction + box identity, p-independent)",
-      "lean": null,
+      "status": "proved, LEAN-CHECKED 2026-10-17 (formalization/staging/TriangleCyclic.lean: estar_not_mem, not_inF_of_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound); PRIOR ART UNCHECKED (lambda-systems / sums of sigma-algebras)",
+      "lean": "formalization/staging/TriangleCyclic.lean: TriangleCyclic.estar_not_mem, TriangleCyclic.not_inF_of_mem (D3 = DynkinSystem.generate of the three pair-window sigma-algebras on Fin 3 -> N, same construction as WindowGluing.glued)",
       "one_line": "Let B_n = {min pairwise gap <= n} and F = {Z: Z delta E* or Z delta E*^c lies in some B_n}. No member of F is in the Dynkin closure D over N; in particular E* is not in D. Lift lemma: if Z delta E* is in B_n and f has zero box interaction with f = 0 off Z, then f is constant on strict-cyclic points with gaps >= 2n+2 (box lifting the minimum far above the maximum; the other six corners are generic anticyclic). Least-stage argument: a complement stays in F; in a countable disjoint union exactly one piece takes the generic part and is an earlier member of F.",
       "scope": "E* family only (finite-band perturbations). Does NOT fire gate.triangle: sets with cyclic ultrafilter profile that differ from E* on a non-band p-small region are not covered.",
       "uses": ["obs.forced_functional"],

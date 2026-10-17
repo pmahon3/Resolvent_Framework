@@ -378,6 +378,28 @@
       "detail": "../delay_embedding/collision_vs_generation.md (Ring sweep; Triangle probe 2026-10-15)",
       "check": "../verification/window_gluing_cyclic_order_triangle.py",
       "amended": "2026-10-16: outcomes re-stated after thm.loops_travel (pre-registration of the decision, not a result)"
+    },
+    {
+      "id": "gate.triangle_box3",
+      "category": "gate",
+      "investigation": "Does any set in the ternary triangle carrier (A=3, 15,914 sets) contain all three rotations (0,1,2),(1,2,0),(2,0,1) and none of the reversals (0,2,1),(1,0,2),(2,1,0)?",
+      "outcomes": [
+        {
+          "branch": "(a) none does",
+          "then": "no set of the triangle carrier over N has a bad profile (box-restriction transfer), so Lambda = s* is a pointless state on the triangle, in ZFC, for any non-principal p; by loops-travel, pointless <=> not a forest; gate.triangle fires (a)"
+        },
+        {
+          "branch": "(b) some set does",
+          "then": "inconclusive at the 3-box; escalate to a 4-box search; the construction tree is a candidate to lift to N"
+        }
+      ],
+      "fired": "pending",
+      "pre_registered": "2026-10-16, before running",
+      "affects": {
+        "id": "gate.triangle",
+        "effect": "decides the triangle"
+      },
+      "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, box transfer)"
     }
   ],
   "examples": [

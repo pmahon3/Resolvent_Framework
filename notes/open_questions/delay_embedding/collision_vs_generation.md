@@ -977,3 +977,17 @@ it extend to D₃?
   - Nothing on three or more factors, cycles or graphs. He owns the pair notion; the gluing along
     graphs is not there.
   - Still unread: Blass's thesis, Puritz, Hindman–Strauss.
+
+### Distinct slot ultrafilters ⟦HAND sketch, unverified⟧
+
+- **Labelled Ramsey.** Build one increasing sequence whose elements carry round-robin coordinate
+  labels 0, 1, 2. A new element of label i only has to lie in finitely many p_i-large sets,
+  because every condition on it is a p_i-limit. So Q_i (the label-i elements) are homogeneous
+  for all 13 placements, coordinate by coordinate.
+- **Box identities.** They need elements in a prescribed label order. These exist, since each
+  Q_i is infinite.
+- **Lift.** The betweenness witnesses come from the *other* coordinates' sets. Keeping every 4th
+  element makes every label occur between any two kept elements.
+- **Graph windows.** Coordinate bijections reduce them to diagonals with equal ultrafilters.
+- **Consequence, if checked.** Every tensor-type family on the triangle extends. The only open
+  part of `conj.triangle_extends_all` is non-tensor 2-types, which is Blass/Puritz territory.

@@ -892,3 +892,39 @@ summaries and some abstracts only; nothing below is shelf-verified.
 **What looks open** is the fixed-h, deterministic, explicit-constant
 (prevalence-quantitative) bi-Lipschitz Takens theorem. It is heavy technical
 analysis, and it does not touch "what coherence forces".
+
+## Extension and classification (2026-10-17)
+
+### (i) Extension is automatic on triangle-free graphs ⟦HAND; a corollary of `thm:star`⟧
+
+Take a finite-degree triangle-free window graph and window ultrafilters u_w with consistent slot
+marginals. Then s(E) := Σ u_{w_i}(E_i), summed over a star decomposition of E, is a state. It is
+unique and fits the u_w.
+- **Same centre.** A full slice can be assigned to either leaf, and the marginals agree. Empty
+  slices contribute 0.
+- **Different centres.** A set that is a star set at two centres depends only on single
+  coordinates or on a shared window, and consistent marginals settle it.
+- **Two-valued.** The pieces lie over disjoint x_c-sets, so the sum is at most m_c(union) ≤ 1.
+- **Complement.** s(E) + s(Eᶜ) = m_c(S) + m_c(Sᶜ) = 1.
+- **Additive.** Disjoint pieces pairwise meet, so with no triangle they lie on one star; regroup
+  window by window.
+
+**Consequence.** Every twisted family extends on rings with L ≥ 4. The Lean `mu_cases` is the
+staircase instance. On triangle-free graphs the carrier drops out: states are consistent window
+families, and pointless means non-amalgamable. Ultrafilters on ℕⁿ are complete n-types over the
+full structure on ℕ, so this is type amalgamation. Model-theory prior art is unchecked, and
+banking (ii) is blocked on it.
+
+### (ii) Candidate invariant for tensor types (NOT banked)
+
+"A directed cycle of product orders after contracting the bijection windows." Hand sketch:
+- *Flat:* the projection of an iterated product to i<j is p_i⊗p_j, and bijection monodromy
+  F₊p = p forces Fix F ∈ p (Katětov).
+- *Twisted:* a directed cycle gives an empty intersection of {y_i < y_{i+1}}; a single product
+  window closed by bijections gives the graph measure 0.
+- Blocked on the model-theory pass.
+
+### Probe `gate.triangle_graph_windows` (pre-registered)
+
+The triangle with diagonal, diagonal and p⊗p windows (WLOG via coordinatewise bijections). Does
+it extend to D₃?

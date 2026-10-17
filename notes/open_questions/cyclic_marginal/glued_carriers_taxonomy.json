@@ -17,8 +17,8 @@
     "headline": {
       "objects": 6,
       "theorems": 18,
-      "conjectures": 13,
-      "probes": 7,
+      "conjectures": 14,
+      "probes": 8,
       "examples": 3,
       "owned_regions": 16,
       "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
@@ -284,6 +284,14 @@
   ],
   "conjectures": [
     {
+      "id": "conj.trianglefree_classification",
+      "name": "on triangle-free graphs, pointless = failure of ultrafilter amalgamation",
+      "status": "open; part (i) PROVED by hand 2026-10-17 (extension corollary of thm:star); part (ii) BLOCKED on a hostile model-theory prior-art pass (types amalgamation: Kim-Pillay independence theorem, Hrushovski, Goodrick-Kim-Kolesnikov amalgamation homology)",
+      "one_line": "(i) Every family of window ultrafilters with consistent slot marginals on a finite-degree triangle-free graph extends uniquely to a state (s(E) = sum of window values over a star decomposition; well-defined, two-valued, additive by locality). So the carrier drops out: states = consistent window families, pointless = the family does not amalgamate to one ultrafilter on X^V (ultrafilters on N^n = complete n-types over the full structure on N). (ii) Candidate invariant for tensor-type families: directed cycle of product orders after contracting bijection windows.",
+      "detail": "../delay_embedding/collision_vs_generation.md (Extension and classification)",
+      "uses": ["thm.star_locality"]
+    },
+    {
       "id": "conj.invariant_any_cycle",
       "name": "dichotomy = forest vs not",
       "status": "open (evidence withdrawn 2026-10-16: sub-carrier not point-Helly)",
@@ -395,6 +403,18 @@
   ],
   "probes": [
     {
+      "id": "gate.triangle_graph_windows",
+      "category": "gate",
+      "investigation": "Triangle over N with windows x1 = f(x0), x2 = g(x1) (graphs of bijections) and a product window on (x2,x0). By coordinatewise bijections (which preserve the carrier) WLOG f = g = id, all slots p: windows diagonal, diagonal, and p(x)p with x0 first. The family is twisted (the product gives the diagonal measure 0). Does it extend to a state on D3?",
+      "outcomes": [
+        {"branch": "(a) extends", "then": "the triangle carries graph-type twists too; evidence that every twisted family extends on the triangle"},
+        {"branch": "(b) does not extend", "then": "the triangle carries only some twists; the obstruction (a buildable set with forced value 2 or -1) names what separates product-type from graph-type twist - carrier-specific content"}
+      ],
+      "pre_registered": "2026-10-17, before running",
+      "affects": {"id": "conj.trianglefree_classification", "effect": "whether extension is a real constraint once triangles are present"},
+      "detail": "../delay_embedding/collision_vs_generation.md (Extension and classification)"
+    },
+    {
       "id": "gate.trianglefree_extension_classification",
       "category": "gate",
       "investigation": "Triangle-free window graph of finite degree over N. (i) Does EVERY family of window ultrafilters with consistent slot marginals extend to a state (expected: yes, a corollary of thm:star; well-definedness across two star decompositions is the only issue)? (ii) For TENSOR-TYPE families (each window either p_i (x) p_j in one of its two orders, or the graph of a bijection, all slot ultrafilters non-principal): is the state pointless exactly when, after contracting the graph windows, the product windows' orders contain a directed cycle?",
@@ -404,7 +424,7 @@
         {"branch": "(c) (i) yes, (ii) fails", "then": "the orientation invariant is wrong for tensor types; the counterexample names the missing datum (monodromy? Rudin-Keisler order?)"}
       ],
       "pre_registered": "2026-10-17, before running",
-      "affects": {"id": "conj.helly_transfer_bfmy", "effect": "classification on triangle-free graphs (note's open item: which twisted families extend)"},
+      "affects": {"id": "conj.trianglefree_classification", "effect": "classification on triangle-free graphs (note's open item: which twisted families extend)"},
       "detail": "../delay_embedding/collision_vs_generation.md (to be added: Extension and classification)"
     },
     {

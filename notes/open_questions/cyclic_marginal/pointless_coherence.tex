@@ -40,30 +40,46 @@
 \begin{document}
 \maketitle
 
-\bp{\textbf{The theory in one paragraph.} Fix a space of possible
-configurations and a family of \emph{windows}, each a couple of coordinates,
-glued wherever they share one. Questions are asked through windows. A \emph{state} answers yes or no to every question that
-can be built from the windows, consistently. Nothing is assumed about what, if
-anything, the answers are answers \emph{about}. The theory asks one thing: \emph{when
-must a state be a point, when may it be an ideal point, and when can it be
-neither?} It answers in terms of the shape of the window graph and the kind of
-additivity demanded. So far:
-\begin{itemize}[nosep]
-  \item \emph{acyclic}: every state is an ideal point;
-  \item \emph{a cycle of length $\ge4$}: pointless states exist;
-  \item \emph{demanding $\sigma$-additivity}: every state is a point.
-\end{itemize}
-The open centre of the theory is the invariant that governs this, and a
-classification of the pointless states.
+\bp{\large Answers can be consistent without being about anything, as long as the
+contradiction hides in a question nobody can ask.}
 
-\textbf{How to read it.} Proofs here are raw data. \S\ref{sec:lessons} says what
-they show about structure. Status labels:
-\begin{itemize}[nosep]
-  \item \st{Lean}: machine-checked;
-  \item \st{hand}: my proof, not independently checked;
-  \item \st{cited}: from the literature.
-\end{itemize}
-The index is \texttt{glued\_carriers\_taxonomy.json} (same directory).}
+\noindent With finitely many possibilities that is harmless: the die. Around a
+loop with infinitely many possibilities it becomes sharp. The consistent answers
+exist, but demanding that they add up over infinitely many cases destroys them:
+the staircase. Without a loop it cannot happen: the path. This note develops the
+theory of when such \emph{pointless} coherence occurs.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{scope}
+\foreach \k in {1,...,6} \coordinate (d\k) at ({90-60*(\k-1)}:1.05);
+\draw[line width=6pt,orange!35,line cap=round] (d1)--(d2)--(d3);
+\draw[line width=6pt,green!35,line cap=round] (d3)--(d4)--(d5);
+\draw[line width=6pt,violet!30,line cap=round] (d5)--(d6)--(d1);
+\foreach \k in {1,...,6} \node[var,minimum size=5.5mm,font=\scriptsize] at (d\k) {\k};
+\foreach \k in {2,4,6} \draw[thick,densely dashed,gray] (d\k) circle (3.8mm);
+\node[font=\small\bfseries] at (0,1.75) {the die};
+\node[font=\scriptsize,align=center] at (0,-1.75) {``no'' to all four sets: consistent;\\ no face fits};
+\node[font=\scriptsize,align=center,red!70!black] at (0,-2.45) {unaskable: ``in $\{4,5,6\}$ \emph{and} $\{6,1,2\}$?''};
+\node[font=\scriptsize,align=center,gray] at (0,-2.95) {finite, so harmless};
+\end{scope}
+\begin{scope}[xshift=6.3cm]
+\foreach \k/\a in {0/135,1/45,2/-45,3/-135} \coordinate (r\k) at (\a:1.05);
+\draw[win] (r0)--(r1); \draw[win] (r1)--(r2); \draw[win] (r2)--(r3); \draw[win] (r3)--(r0);
+\foreach \k in {0,...,3} \node[var] (q\k) at (r\k) {$x_\k$};
+\draw[up] (q0)--(q1); \draw[up] (q1)--(q2); \draw[up] (q2)--(q3); \draw[up] (q3)--(q0);
+\node[font=\small\bfseries] at (0,1.75) {the staircase};
+\node[font=\scriptsize,align=center] at (0,-1.75) {every window ``up'': consistent;\\ no assignment, not even an ideal one};
+\node[font=\scriptsize,align=center,red!70!black] at (0,-2.45) {unaskable: ``is $x_0<x_1<x_2$?''};
+\node[font=\scriptsize,align=center,gray] at (0,-2.95) {infinite: forbidden by $\sigma$-additivity};
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\noindent\small Status labels: \st{Lean} machine-checked; \st{hand} my proof, not
+independently checked; \st{cited} from the literature. Index:
+\texttt{glued\_carriers\_taxonomy.json}. The puzzle, a glossary and the
+philosophical context are in the appendices.\normalsize
 
 \tableofcontents
 
@@ -108,7 +124,8 @@ $\Omega$ and nothing more.
   \item \textbf{Additivity}: finite, or countable ($\sigma$).
 \end{itemize}
 
-\paragraph{The map so far.}
+\paragraph{The map so far.} (The boards of the puzzle, Appendix~\ref{sec:puzzle},
+are the cells of this map.)
 \begin{center}\small
 \begin{tabular}{|>{\raggedright\arraybackslash}p{3.3cm}|>{\raggedright\arraybackslash}p{3.3cm}|>{\raggedright\arraybackslash}p{3.4cm}|>{\raggedright\arraybackslash}p{3.4cm}|}
 \hline
@@ -158,394 +175,6 @@ states.
   \item abstract carriers with no possibility space, where ``point'' must be
     redefined as ``representable''.
 \end{itemize}
-
-\section{The puzzle}\label{sec:puzzle}
-
-The domain, as a game. Each paragraph ends with the result it encodes. The
-dictionary at the end pins every puzzle word to its exact object.
-
-\paragraph{The game.} There are slots $x_0,x_1,x_2,\dots$, each of which
-\emph{could} hold a number. Nothing says they do.
-\begin{itemize}[nosep]
-  \item \emph{Windows.} Questions come through \emph{windows}, a couple of slots
-    at a time. Through a window you may ask any question about its slots: ``is $x_0<x_1$?'', ``is $(x_0,x_1)=(3,7)$?''.
-  \item \emph{Compound questions.} You may also build questions from those, with
-    ``not'' and with ``exactly one of these mutually exclusive options''. That
-    allows even infinitely many options, such as ``which value is $x_0$?''.
-  \item \emph{The answer pattern.} An \emph{answer pattern} says yes or no to
-    every such question. It must be consistent: when a question is split into
-    two exclusive parts, exactly the right number of them get a ``yes''.
-    Nobody has to be giving the answers; it is just a pattern.
-  \item \emph{The question.} Is there an assignment of numbers to the slots, a
-    \emph{reality}, whose answers these are? Nothing guarantees one: the answers
-    come first.
-\end{itemize}
-
-\paragraph{The path: always fine.} Windows $\{x_0,x_1\},\{x_1,x_2\},\{x_2,x_3\}$,
-each saying ``the right number is bigger''. You can comply: $1,2,3,4$. Even with
-strange answer patterns, the views always chain together into one whole, at worst an
-\emph{ideal} one (see below). \emph{(Theorem~\ref{thm:path}.)}
-\begin{center}
-\begin{tikzpicture}[x=1.7cm]
-\foreach \i in {0,1,2} \draw[win] (\i,0)--(\i+1,0);
-\foreach \i in {0,...,3} \node[var] (n\i) at (\i,0) {$x_\i$};
-\foreach \i/\j in {0/1,1/2,2/3} \draw[up] (n\i) -- node[above=3pt,font=\scriptsize]{up} (n\j);
-\node[font=\scriptsize,right=4mm] at (n3) {e.g.\ $1,2,3,4$ \ \checkmark};
-\end{tikzpicture}\\[-2pt]
-{\scriptsize Shaded bands are windows; an arrow means ``the number it points to is bigger''.}
-\end{center}
-
-\bp{\textbf{Walking through the path.}
-\begin{itemize}[nosep]
-  \item \emph{An ordinary answer pattern.} Take the assignment $1,2,3,4$ and
-    answer every question by reading it off: ``is $x_0<x_1$?'' yes; ``is
-    $x_2=3$?'' yes; ``is $x_1$ odd?'' no. That pattern is a point, a reality.
-  \item \emph{A strange one.} Let each window answer by the far-out rule of the
-    ring below: the second slot is ``drawn later, from further out''. No window
-    names a value: ``is $x_0=5$?'' gets no, for every number.
-  \item \emph{It still describes a whole.} One ideal recipe answers for all four
-    slots at once: draw $x_0$ far out, then $x_1$ later, then $x_2$, then $x_3$.
-    Each window's answers are that recipe's answers about its two slots. Along a
-    line you can always keep drawing in order, so the windows' local orders fit
-    one global order. That is the amalgamation lemma at work.
-\end{itemize}}
-
-\paragraph{Six outcomes: no single answer, but harmless.} A die with six faces
-and four yes/no questions: ``is it in $\{1,2,3\}$, in $\{3,4,5\}$, in
-$\{5,6,1\}$, in $\{2,4,6\}$?''. The first three overlap in a loop. Answering
-``no'' to all four is perfectly consistent, yet no face gives those answers.
-Nothing infinite is involved, so nothing more can go wrong. \emph{(The
-Navara--Pt\'ak example, \S\ref{sec:cheap}.)}
-\begin{center}
-\begin{tikzpicture}
-\foreach \k in {1,...,6} \coordinate (d\k) at ({90-60*(\k-1)}:1.25);
-\draw[line width=6pt,orange!35,line cap=round] (d1)--(d2)--(d3);
-\draw[line width=6pt,green!35,line cap=round] (d3)--(d4)--(d5);
-\draw[line width=6pt,violet!30,line cap=round] (d5)--(d6)--(d1);
-\foreach \k in {1,...,6} \node[var,minimum size=6mm] at (d\k) {\k};
-\foreach \k in {2,4,6} \draw[thick,densely dashed,gray] (d\k) circle (4.3mm);
-\node[font=\scriptsize,align=left,anchor=west] at (2.0,0)
- {bands: $\{1,2,3\},\{3,4,5\},\{5,6,1\}$\\ dashed: $\{2,4,6\}$\\ answer ``no'' to all four:\\ consistent, but no face fits};
-\end{tikzpicture}
-\end{center}
-
-\bp{\textbf{Walking through the die.}
-\begin{itemize}[nosep]
-  \item \emph{Which questions exist.} Only the four questions, their opposites
-    (``is it in $\{4,5,6\}$?'', etc.), ``always'' and ``never''. Disjoint
-    three-face sets out of six are always opposites, so no new questions can be
-    built.
-  \item \emph{What consistency demands.} It only applies to a question split into
-    two exclusive parts. Here that means a question and its opposite: exactly
-    one gets ``yes''.
-  \item \emph{The pattern.} Answer ``no'' to $\{1,2,3\},\{3,4,5\},\{5,6,1\},\{2,4,6\}$,
-    and so ``yes'' to $\{4,5,6\},\{6,1,2\},\{2,3,4\},\{1,3,5\}$. Every rule is
-    satisfied.
-  \item \emph{No face gives it.} Each face lands in two of the four sets:
-    \begin{center}\small
-    \begin{tabular}{c|cccc}
-    face & $\{1,2,3\}$ & $\{3,4,5\}$ & $\{5,6,1\}$ & $\{2,4,6\}$\\\hline
-    1 & yes & no & yes & no\\
-    2 & yes & no & no & yes\\
-    3 & yes & yes & no & no\\
-    4 & no & yes & no & yes\\
-    5 & no & yes & yes & no\\
-    6 & no & no & yes & yes\\
-    \end{tabular}
-    \end{center}
-    So no face answers ``no'' to all four. (The first three sets already cover
-    the die; the fourth only makes the example symmetric.)
-  \item \emph{Why no contradiction ever shows up.} A face fitting all the ``yes''
-    answers would lie in $\{4,5,6\}\cap\{6,1,2\}\cap\{2,3,4\}\cap\{1,3,5\}=\emptyset$.
-    But ``is it in both $\{4,5,6\}$ and $\{6,1,2\}$?'' is \emph{not a question
-    here}: the carrier contains no intersections. The contradiction lives only
-    in a question that cannot be asked.
-  \item \emph{Why it is harmless.} There are only finitely many questions, so
-    ``adding up across infinitely many options'' never arises. Pointless, but
-    nothing about infinity is involved.
-\end{itemize}}
-
-\paragraph{The ring: the staircase.} Four or more windows in a loop,
-$\{x_0,x_1\},\{x_1,x_2\},\dots,\{x_{L-1},x_0\}$, each saying ``up''. With actual
-numbers this is impossible: $x_0<x_1<\dots<x_0$, a Penrose staircase.
-\begin{itemize}[nosep]
-  \item \emph{The ideal number.} Let each window's answers follow one rule: the
-    second slot behaves as if \emph{drawn later, from further out}. This is an
-    ultrafilter, an ideal ``number at infinity''.
-  \item \emph{Everything checks locally.} Every window genuinely believes
-    ``up''. Neighbouring windows agree about every shared number.
-  \item \emph{There is an answer pattern.} A consistent answer pattern exists for \emph{every}
-    question built from the windows.
-  \item \emph{But no reality.} No reality fits, not even an ideal one.
-\end{itemize}
-The whole is coherent and has no point. \emph{(Theorem~\ref{thm:witness}, Lean,
-every $L\ge4$; Proposition~\ref{prop:stair}.)}
-\begin{center}
-\begin{tikzpicture}
-\foreach \k/\a in {0/135,1/45,2/-45,3/-135} \coordinate (r\k) at (\a:1.2);
-\draw[win] (r0)--(r1); \draw[win] (r1)--(r2); \draw[win] (r2)--(r3); \draw[win] (r3)--(r0);
-\foreach \k in {0,...,3} \node[var] (q\k) at (r\k) {$x_\k$};
-\draw[up] (q0)--(q1); \draw[up] (q1)--(q2); \draw[up] (q2)--(q3); \draw[up] (q3)--(q0);
-\node[font=\scriptsize,align=left,anchor=west] at (2.0,0.35) {every window: ``up'' \ \checkmark};
-\node[font=\scriptsize,align=left,anchor=west] at (2.0,-0.1) {neighbours agree \ \checkmark};
-\node[font=\scriptsize,align=left,anchor=west,red!70!black] at (2.0,-0.55) {around the loop: no reality,\\ not even an ideal one};
-\end{tikzpicture}
-\end{center}
-
-\bp{\textbf{Walking through the staircase} (four slots).
-\begin{itemize}[nosep]
-  \item \emph{Single-slot questions.} ``Is $x_0=5$?'' No, and likewise for every
-    number. ``Is $x_0$ even?'' The rule $p$ decides, say yes. Both windows that
-    show $x_0$ (that is, $\{x_3,x_0\}$ and $\{x_0,x_1\}$) give the \emph{same}
-    answer, since in both $x_0$ is ``a number at infinity'' governed by $p$.
-    That is what ``neighbours agree'' means.
-  \item \emph{The window question.} ``Is $x_0<x_1$?'' Yes. Whatever far-out
-    value the rule has for $x_0$, the later, further-out $x_1$ beats it. The
-    same holds in every window, including ``is $x_3<x_0$?'', because in window
-    $\{x_3,x_0\}$ it is $x_0$ that is drawn later.
-  \item \emph{A compound question,} built from two neighbouring windows: ``either
-    ($x_0<x_1$ and $x_1$ even) or ($x_1$ odd and $x_2>x_1$)''. The two options
-    exclude each other. Each window answers its own part:
-    \begin{itemize}[nosep]
-      \item if $p$ says ``$x_1$ even'', the first part is yes and the second no;
-      \item if $p$ says ``odd'', the reverse.
-    \end{itemize}
-    Either way, exactly one ``yes''. On a ring of four or more, every buildable
-    question has this two-neighbouring-windows shape, and this is how each one
-    gets answered (\S\ref{sec:forced}).
-  \item \emph{The question that would break it.} ``Is $x_0<x_1<x_2$?'' would have
-    to be answered yes, and then ``$x_0<x_1<x_2<x_3<x_0$'' would follow, which is
-    impossible. But ``$x_0<x_1<x_2$'' is \emph{not a buildable question}: its
-    slice at each value of $x_1$ is not a single-window cylinder
-    (\S\ref{sec:shape}). As with the die, the contradiction lives only in
-    questions that cannot be asked.
-  \item \emph{Why there is no ideal reality.} An ideal reality \emph{does} answer
-    every question about the four slots, including the joint one. It would have
-    to say yes to all four ``up''s and so to their impossible intersection.
-  \item \emph{Two copies, so you can keep them apart.}
-    \begin{itemize}[nosep]
-      \item \emph{Die:} pointless, finitely many questions.
-      \item \emph{Staircase:} pointless, infinitely many questions, and every
-        window's answers come from an ideal number.
-    \end{itemize}
-\end{itemize}}
-
-\paragraph{Demanding a real answer kills it.} Ask the staircase's answer pattern ``which
-value is $x_0$?'', split into $x_0=0$, $x_0=1$, and so on. The pattern says ``no''
-to each option, but ``yes'' to ``$x_0$ is some number''. That is allowed when only
-\emph{finitely} many options need to add up. Now demand that the answers add up
-across \emph{infinitely} many options ($\sigma$-additivity).
-\begin{itemize}[nosep]
-  \item Each window's answers are then forced to be those of one definite pair of
-    numbers.
-  \item The staircase becomes impossible again.
-\end{itemize}
-Insisting that the answers be completed into a reality forbids the coherent
-pattern.
-\emph{(Proposition~\ref{prop:dirac}.)}
-\begin{center}
-\begin{tikzpicture}[x=0.9cm]
-\draw[thick,-{Stealth}] (-0.3,0)--(8.6,0) node[right,font=\scriptsize]{$\infty$};
-\foreach \n in {0,...,7} {\draw (\n,0.08)--(\n,-0.08); \node[below,font=\scriptsize] at (\n,-0.08) {\n};
-  \node[above,font=\scriptsize,red!70!black] at (\n,0.08) {no};}
-\draw[decorate,decoration={brace,amplitude=4pt},thick] (0,0.55)--(8.4,0.55)
-  node[midway,above=4pt,font=\scriptsize,blue!60!black]{``$x_0$ is some number'': yes};
-\end{tikzpicture}\\[-2pt]
-{\scriptsize The pattern's $x_0$ lives ``at infinity'': no to every value, yes to the whole line.
-Demanding that the ``no''s add up to the ``yes'' ($\sigma$) is impossible.}
-\end{center}
-
-\bp{\textbf{Walking through the collapse.}
-\begin{itemize}[nosep]
-  \item \emph{Finite splits are fine.} ``Is $x_0\le 100$?'' No. ``Is $x_0>100$?''
-    Yes. One ``yes'' out of two, which is consistent. The same works for any
-    finite split.
-  \item \emph{The infinite split.} ``$x_0=0$'', ``$x_0=1$'', ``$x_0=2$'', \dots:
-    every one is ``no''. The pieces cover everything, so $\sigma$-additivity
-    demands that the ``yes''es among them add up to the whole's ``yes'', which is
-    1. But they add to 0.
-  \item \emph{So under $\sigma$} some ``$x_0=n$'' must get a yes. Then every slot
-    gets an actual value, the windows describe one actual assignment, and four
-    actual numbers cannot each beat the one before around a loop.
-  \item \emph{The point.} $\sigma$-additivity is the demand that the answers be
-    completed into a reality, and on this board that demand alone rules out the
-    coherent pattern.
-\end{itemize}}
-
-\paragraph{The triangle: the open puzzle.} Three windows,
-$\{x_0,x_1\},\{x_1,x_2\},\{x_2,x_0\}$, each touching both others.
-\begin{itemize}[nosep]
-  \item \emph{Loop-only questions.} There are now questions that cannot be
-    broken into separate questions to individual windows. (On a ring of four or
-    more, every question breaks into questions to at most two neighbouring
-    windows.)
-  \item \emph{With two values,} ``are all three equal?'' is one. It is the
-    ``not'' of a question that \emph{does} break up, but it does not break up
-    itself.
-  \item \emph{With three values,} ``all equal'' is not even askable. There are
-    2{,}088 questions such that neither they nor their ``not'' break up. The
-    simplest is a nine-point cyclic pattern.
-  \item \emph{Still open.} Can the staircase $x_0<x_1<x_2<x_0$ still have a
-    consistent answer pattern and no reality? Evidence says yes: on a faithful finite
-    part of the board, a consistent answer pattern exists. Nobody here has built one.
-\end{itemize}
-\emph{(\S\ref{sec:conj}; machine evidence only.)}
-\begin{center}
-\begin{tikzpicture}
-\foreach \k/\a in {0/90,1/-30,2/210} \coordinate (t\k) at (\a:1.1);
-\draw[win] (t0)--(t1); \draw[win] (t1)--(t2); \draw[win] (t2)--(t0);
-\foreach \k in {0,1,2} \node[var] (u\k) at (t\k) {$x_\k$};
-\draw[up] (u0)--(u1); \draw[up] (u1)--(u2); \draw[up] (u2)--(u0);
-\node[font=\scriptsize,align=left,anchor=west] at (1.9,0.3) {every window touches both others};
-\node[font=\scriptsize,align=left,anchor=west] at (1.9,-0.15) {Specker's three boxes; Penrose's tribar};
-\node[font=\scriptsize,align=left,anchor=west,orange!80!black] at (1.9,-0.6) {answer pattern with no reality? \ open};
-\end{tikzpicture}
-\end{center}
-
-\bp{\textbf{Walking through the triangle.}
-\begin{itemize}[nosep]
-  \item \emph{What changes.} On the ring of four, windows $\{x_0,x_1\}$ and
-    $\{x_2,x_3\}$ share nothing, and that forces every buildable question to
-    live on two neighbouring windows. On the triangle every pair of windows
-    shares a slot, so questions can braid all three.
-  \item \emph{An example, with two possible values.} ``Are all three equal?'' is
-    buildable. It is the opposite of a question that splits into one window
-    question each, but it does not split up itself.
-  \item \emph{With three values,} ``all equal?'' is not buildable at all. There
-    are genuinely loop-only questions instead (2{,}088 of them).
-  \item \emph{Why the ring's method fails.} The ring's rule answered each
-    question from two windows. Loop-only questions need a rule that looks at the
-    whole triangle at once.
-  \item \emph{What is open.} Whether a consistent pattern still exists with every
-    window saying ``up''. A computer check on a faithful finite part of the
-    board finds one, but nobody has built it on the whole board.
-\end{itemize}}
-
-\paragraph{The moral.} In every example the contradiction lives only in a
-question that cannot be asked: an intersection the board does not contain
-(Lemma~\ref{lem:basic}). A loop is what lets every local view be right while the
-whole is nothing. Infinity is what lets that survive. Demanding a completed
-whole is what forbids it.
-
-\paragraph{Dictionary (puzzle $\to$ mathematics).}\leavevmode
-\begin{center}\small
-\begin{tabular}{p{4.6cm}p{9.6cm}}
-slots that could hold numbers & coordinates of the possibility space $\Omega=\bbN^V$ (assumed)\\
-window & a pair $\{i,j\}\subseteq V$\\
-question through a window & a window event $\{x:(x_i,x_j)\in A\}$, $A\subseteq\bbN^2$ arbitrary\\
-all buildable questions & the glued carrier $\cD$ (closure under complement and countable disjoint union)\\
-consistent answer pattern & a two-valued \emph{finitely} additive state on $\cD$\\
-answers add up over infinitely many options & $\sigma$-additivity\\
-a reality (the answers are those of one assignment) & a point $\delta_\omega$ (not assumed: earned or not)\\
-an ideal reality & an ultrafilter $W$ on $\Omega$ (not assumed)\\
-``drawn later, from further out'' & the ordered product $p\otimes p$, $p$ non-principal\\
-neighbouring windows agree & equal marginals on the shared coordinate\\
-breaks into window questions & $E\in\cG$: a disjoint union of window events (\S\ref{sec:shape})\\
-loop-only question & $E\in\cD\setminus\cG$. Two values: complements of $\cG$-sets only. Three values: 2{,}088 sets with $E,E^c\notin\cG$\\
-\end{tabular}
-\end{center}
-\noindent\emph{Scope of the puzzle.} The six-outcome paragraph uses a different
-board: arbitrary questions on a die, not windows. The triangle counts (2{,}088,
-nine points) are for a three-valued alphabet. Over $\bbN$ the loop-only questions
-are of the same kind, but they have not been enumerated.
-
-\subsection*{Words used in this note, and what they mean on the boards}
-\addcontentsline{toc}{subsection}{Words used in this note}
-
-Each entry gives the plain meaning, an example from the boards above, and the
-exact object.
-
-\begin{description}[style=nextline,leftmargin=1.2em,itemsep=3pt]
-\item[question; window question]
-  \emph{Plain:} a yes/no question about the slots.
-  \emph{Example:} ``is $x_0<x_1$?''
-  \emph{Exact:} a window event, i.e.\ a set $\{x:(x_i,x_j)\in A\}$.
-\item[buildable question; the carrier]
-  \emph{Plain:} the questions you can make from window questions using ``not''
-  and ``exactly one of these exclusive options''.
-  \emph{Example:} ``either ($x_0<x_1$ and $x_1$ even) or ($x_1$ odd and
-  $x_2>x_1$)''.
-  \emph{Exact:} the carrier $\cD$, the Dynkin closure.
-\item[unaskable question]
-  \emph{Plain:} a combination of questions that is not itself buildable,
-  typically an ``and''.
-  \emph{Example:} ``is it in $\{4,5,6\}$ \emph{and} $\{6,1,2\}$?'' on the die;
-  ``is $x_0<x_1<x_2$?'' on the ring.
-  \emph{Exact:} an intersection not in $\cD$.
-\item[consistent; coherent; state; answer pattern]
-  \emph{Plain:} a yes/no answer to every buildable question such that, whenever
-  a question is split into two exclusive parts, the ``yes''es add up right.
-  \emph{Example:} ``no'' to all four die questions.
-  \emph{Exact:} a two-valued finitely additive state on $\cD$.
-\item[fits; gives; realises]
-  \emph{Plain:} an assignment of values \emph{fits} an answer pattern if
-  reading the answers off that assignment gives exactly the pattern.
-  \emph{Example:} $1,2,3,4$ fits ``up'' on the path; no face fits ``no to all
-  four''.
-  \emph{Exact:} $s=\delta_\omega$, a point.
-\item[ideal point; ideal reality]
-  \emph{Plain:} a recipe that answers \emph{every} question about \emph{all} the
-  slots at once, including every ``and'', consistently, without naming
-  values.
-  \emph{Example:} ``draw $x_0$ far out, then $x_1$ later, then $x_2$ \dots'' on
-  the path.
-  \emph{Exact:} an ultrafilter $W$ on $\Omega$. Equivalently, the yes-answers
-  have the \emph{finite intersection property}: any finitely many of them
-  share at least one possibility.
-\item[pointless]
-  \emph{Plain:} consistent, but fitted by no assignment and by no ideal recipe.
-  \emph{Example:} the staircase on four slots.
-  \emph{Exact:} neither a point nor an ideal point.
-\item[extends; lifts]
-  \emph{Plain:} answers given on part of the questions (one window, a few
-  questions) are \emph{kept} while answers to all the other buildable questions
-  are added consistently. Elsewhere in the programme ``lift'' names the same
-  move.
-  \emph{Example:} the window rules of the staircase extend to the whole ring
-  (Lean), but not $\sigma$-additively.
-  \emph{Related, the OML lane's $\sigma$-liftability ($\Phi$):} whenever finitely
-  many answers come from \emph{some} consistent pattern, the same finitely many
-  answers also come from some $\sigma$-additive pattern. The ring carrier fails
-  this: ``all four `up's yes'' comes from the staircase and from no
-  $\sigma$-additive pattern. (\texttt{oml\_attack/CAMPAIGN\_LOG.md}; Lean
-  \texttt{phi\_iff\_dense}.)
-  \emph{Exact:} a state on $\cD$ agreeing with the given one where it is
-  defined.
-\item[marginal; neighbours agree]
-  \emph{Plain:} what a window's answers say about one of its slots alone.
-  Neighbours \emph{agree} when both windows showing a slot answer every
-  single-slot question the same way.
-  \emph{Example:} both windows showing $x_0$ say ``$x_0$ even: yes''.
-  \emph{Exact:} equal projections of the window ultrafilters to the shared
-  coordinate.
-\item[glued]
-  \emph{Plain:} the windows are tied together only through the slots they share.
-  \emph{Exact:} the carrier generated by the window events and nothing else.
-\item[amalgamate]
-  \emph{Plain:} combine two neighbouring windows' ideal recipes into one ideal
-  recipe for all their slots, keeping both.
-  \emph{Example:} $\{x_0,x_1\}$ and $\{x_1,x_2\}$ combine into ``draw $x_0$, then
-  $x_1$, then $x_2$''.
-  \emph{Exact:} an ultrafilter on the product projecting to both
-  (Lemma~\ref{lem:amalg}).
-\item[flat; non-flat]
-  \emph{Plain:} the windows' recipes \emph{all} amalgamate into one recipe for
-  everything (flat), or they cannot (non-flat).
-  \emph{Example:} every path is flat; the staircase is non-flat.
-  \emph{Exact:} Definition~\ref{def:flat} (tentative).
-\item[$\sigma$-additive]
-  \emph{Plain:} the ``yes''es must add up even when a question is split into
-  infinitely many exclusive options.
-  \emph{Example:} ``which value is $x_0$?'' then needs exactly one ``yes''.
-  \emph{Exact:} additivity over countable disjoint unions.
-\item[slice; cylinder]
-  \emph{Plain:} \emph{slice}: fix one slot's value and look at what is left of a
-  question. \emph{Cylinder}: a question that, after slicing, depends on only one
-  remaining slot.
-  \emph{Example:} at $x_1=7$, ``$x_0<x_1$'' slices to ``$x_0<7$'', a cylinder,
-  while ``$x_0<x_1<x_2$'' slices to ``$x_0<7$ and $x_2>7$'', which is not.
-  \emph{Exact:} sections of a set at a fixed coordinate value.
-\end{description}
 
 \section{Objects}\label{sec:objects}
 
@@ -881,6 +510,422 @@ Greechie (Kalmbach 1983) & order-3 loops in pastings & carrier shape, not states
 \texttt{glued\_carriers\_taxonomy.json}. The fixed-$L$ cycle results are read from
 primary sources (\texttt{cyclic\_marginal\_scoping.md}).
 
+\section{Status and where things live}\label{sec:status}
+
+\begin{itemize}
+  \item \textbf{Proved:}
+    \begin{itemize}[nosep]
+      \item \st{Lean}: Theorem~\ref{thm:witness}; Proposition~\ref{prop:dirac}
+        on the ring.
+      \item \st{hand}: Lemma~\ref{lem:shape}, Theorem~\ref{thm:path},
+        \S\ref{sec:forced}, and Proposition~\ref{prop:dirac} for general graphs.
+    \end{itemize}
+  \item \textbf{Open:} \S\ref{sec:conj}.
+  \item \textbf{Prior-art risk for the witness:} Bhaskara Rao, \emph{Theory of
+    Charges}; Goldberg on ultrafilter products.
+  \item \textbf{Files:}
+    \begin{itemize}[nosep]
+      \item the taxonomy \texttt{glued\_carriers\_taxonomy.json} (this
+        directory);
+      \item the witness and its prior art:
+        \texttt{notes/open\_questions/delay\_embedding/collision\_vs\_generation.md};
+      \item Lean: \texttt{formalization/staging/WindowGluing.lean};
+      \item the cycle side:
+        \texttt{notes/open\_questions/cyclic\_marginal/cyclic\_marginal\_scoping.md}.
+    \end{itemize}
+\end{itemize}
+
+
+\appendix
+
+\section{The puzzle, board by board}\label{sec:puzzle}
+
+The essence, played out as a game on several boards. Each paragraph ends with the
+result it encodes; each board has a walk-through. The dictionary at the end pins
+every puzzle word to its exact object.
+
+\paragraph{The game.} There are slots $x_0,x_1,x_2,\dots$, each of which
+\emph{could} hold a number. Nothing says they do.
+\begin{itemize}[nosep]
+  \item \emph{Windows.} Questions come through \emph{windows}, a couple of slots
+    at a time. Through a window you may ask any question about its slots: ``is $x_0<x_1$?'', ``is $(x_0,x_1)=(3,7)$?''.
+  \item \emph{Compound questions.} You may also build questions from those, with
+    ``not'' and with ``exactly one of these mutually exclusive options''. That
+    allows even infinitely many options, such as ``which value is $x_0$?''.
+  \item \emph{The answer pattern.} An \emph{answer pattern} says yes or no to
+    every such question. It must be consistent: when a question is split into
+    two exclusive parts, exactly the right number of them get a ``yes''.
+    Nobody has to be giving the answers; it is just a pattern.
+  \item \emph{The question.} Is there an assignment of numbers to the slots, a
+    \emph{reality}, whose answers these are? Nothing guarantees one: the answers
+    come first.
+\end{itemize}
+
+\paragraph{The path: always fine.} Windows $\{x_0,x_1\},\{x_1,x_2\},\{x_2,x_3\}$,
+each saying ``the right number is bigger''. You can comply: $1,2,3,4$. Even with
+strange answer patterns, the views always chain together into one whole, at worst an
+\emph{ideal} one (see below). \emph{(Theorem~\ref{thm:path}.)}
+\begin{center}
+\begin{tikzpicture}[x=1.7cm]
+\foreach \i in {0,1,2} \draw[win] (\i,0)--(\i+1,0);
+\foreach \i in {0,...,3} \node[var] (n\i) at (\i,0) {$x_\i$};
+\foreach \i/\j in {0/1,1/2,2/3} \draw[up] (n\i) -- node[above=3pt,font=\scriptsize]{up} (n\j);
+\node[font=\scriptsize,right=4mm] at (n3) {e.g.\ $1,2,3,4$ \ \checkmark};
+\end{tikzpicture}\\[-2pt]
+{\scriptsize Shaded bands are windows; an arrow means ``the number it points to is bigger''.}
+\end{center}
+
+\bp{\textbf{Walking through the path.}
+\begin{itemize}[nosep]
+  \item \emph{An ordinary answer pattern.} Take the assignment $1,2,3,4$ and
+    answer every question by reading it off: ``is $x_0<x_1$?'' yes; ``is
+    $x_2=3$?'' yes; ``is $x_1$ odd?'' no. That pattern is a point, a reality.
+  \item \emph{A strange one.} Let each window answer by the far-out rule of the
+    ring below: the second slot is ``drawn later, from further out''. No window
+    names a value: ``is $x_0=5$?'' gets no, for every number.
+  \item \emph{It still describes a whole.} One ideal recipe answers for all four
+    slots at once: draw $x_0$ far out, then $x_1$ later, then $x_2$, then $x_3$.
+    Each window's answers are that recipe's answers about its two slots. Along a
+    line you can always keep drawing in order, so the windows' local orders fit
+    one global order. That is the amalgamation lemma at work.
+\end{itemize}}
+
+\paragraph{Six outcomes: no single answer, but harmless.} A die with six faces
+and four yes/no questions: ``is it in $\{1,2,3\}$, in $\{3,4,5\}$, in
+$\{5,6,1\}$, in $\{2,4,6\}$?''. The first three overlap in a loop. Answering
+``no'' to all four is perfectly consistent, yet no face gives those answers.
+Nothing infinite is involved, so nothing more can go wrong. \emph{(The
+Navara--Pt\'ak example, \S\ref{sec:cheap}.)}
+\begin{center}
+\begin{tikzpicture}
+\foreach \k in {1,...,6} \coordinate (d\k) at ({90-60*(\k-1)}:1.25);
+\draw[line width=6pt,orange!35,line cap=round] (d1)--(d2)--(d3);
+\draw[line width=6pt,green!35,line cap=round] (d3)--(d4)--(d5);
+\draw[line width=6pt,violet!30,line cap=round] (d5)--(d6)--(d1);
+\foreach \k in {1,...,6} \node[var,minimum size=6mm] at (d\k) {\k};
+\foreach \k in {2,4,6} \draw[thick,densely dashed,gray] (d\k) circle (4.3mm);
+\node[font=\scriptsize,align=left,anchor=west] at (2.0,0)
+ {bands: $\{1,2,3\},\{3,4,5\},\{5,6,1\}$\\ dashed: $\{2,4,6\}$\\ answer ``no'' to all four:\\ consistent, but no face fits};
+\end{tikzpicture}
+\end{center}
+
+\bp{\textbf{Walking through the die.}
+\begin{itemize}[nosep]
+  \item \emph{Which questions exist.} Only the four questions, their opposites
+    (``is it in $\{4,5,6\}$?'', etc.), ``always'' and ``never''. Disjoint
+    three-face sets out of six are always opposites, so no new questions can be
+    built.
+  \item \emph{What consistency demands.} It only applies to a question split into
+    two exclusive parts. Here that means a question and its opposite: exactly
+    one gets ``yes''.
+  \item \emph{The pattern.} Answer ``no'' to $\{1,2,3\},\{3,4,5\},\{5,6,1\},\{2,4,6\}$,
+    and so ``yes'' to $\{4,5,6\},\{6,1,2\},\{2,3,4\},\{1,3,5\}$. Every rule is
+    satisfied.
+  \item \emph{No face gives it.} Each face lands in two of the four sets:
+    \begin{center}\small
+    \begin{tabular}{c|cccc}
+    face & $\{1,2,3\}$ & $\{3,4,5\}$ & $\{5,6,1\}$ & $\{2,4,6\}$\\\hline
+    1 & yes & no & yes & no\\
+    2 & yes & no & no & yes\\
+    3 & yes & yes & no & no\\
+    4 & no & yes & no & yes\\
+    5 & no & yes & yes & no\\
+    6 & no & no & yes & yes\\
+    \end{tabular}
+    \end{center}
+    So no face answers ``no'' to all four. (The first three sets already cover
+    the die; the fourth only makes the example symmetric.)
+  \item \emph{Why no contradiction ever shows up.} A face fitting all the ``yes''
+    answers would lie in $\{4,5,6\}\cap\{6,1,2\}\cap\{2,3,4\}\cap\{1,3,5\}=\emptyset$.
+    But ``is it in both $\{4,5,6\}$ and $\{6,1,2\}$?'' is \emph{not a question
+    here}: the carrier contains no intersections. The contradiction lives only
+    in a question that cannot be asked.
+  \item \emph{Why it is harmless.} There are only finitely many questions, so
+    ``adding up across infinitely many options'' never arises. Pointless, but
+    nothing about infinity is involved.
+\end{itemize}}
+
+\paragraph{The ring: the staircase.} Four or more windows in a loop,
+$\{x_0,x_1\},\{x_1,x_2\},\dots,\{x_{L-1},x_0\}$, each saying ``up''. With actual
+numbers this is impossible: $x_0<x_1<\dots<x_0$, a Penrose staircase.
+\begin{itemize}[nosep]
+  \item \emph{The ideal number.} Let each window's answers follow one rule: the
+    second slot behaves as if \emph{drawn later, from further out}. This is an
+    ultrafilter, an ideal ``number at infinity''.
+  \item \emph{Everything checks locally.} Every window genuinely believes
+    ``up''. Neighbouring windows agree about every shared number.
+  \item \emph{There is an answer pattern.} A consistent answer pattern exists for \emph{every}
+    question built from the windows.
+  \item \emph{But no reality.} No reality fits, not even an ideal one.
+\end{itemize}
+The whole is coherent and has no point. \emph{(Theorem~\ref{thm:witness}, Lean,
+every $L\ge4$; Proposition~\ref{prop:stair}.)}
+\begin{center}
+\begin{tikzpicture}
+\foreach \k/\a in {0/135,1/45,2/-45,3/-135} \coordinate (r\k) at (\a:1.2);
+\draw[win] (r0)--(r1); \draw[win] (r1)--(r2); \draw[win] (r2)--(r3); \draw[win] (r3)--(r0);
+\foreach \k in {0,...,3} \node[var] (q\k) at (r\k) {$x_\k$};
+\draw[up] (q0)--(q1); \draw[up] (q1)--(q2); \draw[up] (q2)--(q3); \draw[up] (q3)--(q0);
+\node[font=\scriptsize,align=left,anchor=west] at (2.0,0.35) {every window: ``up'' \ \checkmark};
+\node[font=\scriptsize,align=left,anchor=west] at (2.0,-0.1) {neighbours agree \ \checkmark};
+\node[font=\scriptsize,align=left,anchor=west,red!70!black] at (2.0,-0.55) {around the loop: no reality,\\ not even an ideal one};
+\end{tikzpicture}
+\end{center}
+
+\bp{\textbf{Walking through the staircase} (four slots).
+\begin{itemize}[nosep]
+  \item \emph{Single-slot questions.} ``Is $x_0=5$?'' No, and likewise for every
+    number. ``Is $x_0$ even?'' The rule $p$ decides, say yes. Both windows that
+    show $x_0$ (that is, $\{x_3,x_0\}$ and $\{x_0,x_1\}$) give the \emph{same}
+    answer, since in both $x_0$ is ``a number at infinity'' governed by $p$.
+    That is what ``neighbours agree'' means.
+  \item \emph{The window question.} ``Is $x_0<x_1$?'' Yes. Whatever far-out
+    value the rule has for $x_0$, the later, further-out $x_1$ beats it. The
+    same holds in every window, including ``is $x_3<x_0$?'', because in window
+    $\{x_3,x_0\}$ it is $x_0$ that is drawn later.
+  \item \emph{A compound question,} built from two neighbouring windows: ``either
+    ($x_0<x_1$ and $x_1$ even) or ($x_1$ odd and $x_2>x_1$)''. The two options
+    exclude each other. Each window answers its own part:
+    \begin{itemize}[nosep]
+      \item if $p$ says ``$x_1$ even'', the first part is yes and the second no;
+      \item if $p$ says ``odd'', the reverse.
+    \end{itemize}
+    Either way, exactly one ``yes''. On a ring of four or more, every buildable
+    question has this two-neighbouring-windows shape, and this is how each one
+    gets answered (\S\ref{sec:forced}).
+  \item \emph{The question that would break it.} ``Is $x_0<x_1<x_2$?'' would have
+    to be answered yes, and then ``$x_0<x_1<x_2<x_3<x_0$'' would follow, which is
+    impossible. But ``$x_0<x_1<x_2$'' is \emph{not a buildable question}: its
+    slice at each value of $x_1$ is not a single-window cylinder
+    (\S\ref{sec:shape}). As with the die, the contradiction lives only in
+    questions that cannot be asked.
+  \item \emph{Why there is no ideal reality.} An ideal reality \emph{does} answer
+    every question about the four slots, including the joint one. It would have
+    to say yes to all four ``up''s and so to their impossible intersection.
+  \item \emph{Two copies, so you can keep them apart.}
+    \begin{itemize}[nosep]
+      \item \emph{Die:} pointless, finitely many questions.
+      \item \emph{Staircase:} pointless, infinitely many questions, and every
+        window's answers come from an ideal number.
+    \end{itemize}
+\end{itemize}}
+
+\paragraph{Demanding a real answer kills it.} Ask the staircase's answer pattern ``which
+value is $x_0$?'', split into $x_0=0$, $x_0=1$, and so on. The pattern says ``no''
+to each option, but ``yes'' to ``$x_0$ is some number''. That is allowed when only
+\emph{finitely} many options need to add up. Now demand that the answers add up
+across \emph{infinitely} many options ($\sigma$-additivity).
+\begin{itemize}[nosep]
+  \item Each window's answers are then forced to be those of one definite pair of
+    numbers.
+  \item The staircase becomes impossible again.
+\end{itemize}
+Insisting that the answers be completed into a reality forbids the coherent
+pattern.
+\emph{(Proposition~\ref{prop:dirac}.)}
+\begin{center}
+\begin{tikzpicture}[x=0.9cm]
+\draw[thick,-{Stealth}] (-0.3,0)--(8.6,0) node[right,font=\scriptsize]{$\infty$};
+\foreach \n in {0,...,7} {\draw (\n,0.08)--(\n,-0.08); \node[below,font=\scriptsize] at (\n,-0.08) {\n};
+  \node[above,font=\scriptsize,red!70!black] at (\n,0.08) {no};}
+\draw[decorate,decoration={brace,amplitude=4pt},thick] (0,0.55)--(8.4,0.55)
+  node[midway,above=4pt,font=\scriptsize,blue!60!black]{``$x_0$ is some number'': yes};
+\end{tikzpicture}\\[-2pt]
+{\scriptsize The pattern's $x_0$ lives ``at infinity'': no to every value, yes to the whole line.
+Demanding that the ``no''s add up to the ``yes'' ($\sigma$) is impossible.}
+\end{center}
+
+\bp{\textbf{Walking through the collapse.}
+\begin{itemize}[nosep]
+  \item \emph{Finite splits are fine.} ``Is $x_0\le 100$?'' No. ``Is $x_0>100$?''
+    Yes. One ``yes'' out of two, which is consistent. The same works for any
+    finite split.
+  \item \emph{The infinite split.} ``$x_0=0$'', ``$x_0=1$'', ``$x_0=2$'', \dots:
+    every one is ``no''. The pieces cover everything, so $\sigma$-additivity
+    demands that the ``yes''es among them add up to the whole's ``yes'', which is
+    1. But they add to 0.
+  \item \emph{So under $\sigma$} some ``$x_0=n$'' must get a yes. Then every slot
+    gets an actual value, the windows describe one actual assignment, and four
+    actual numbers cannot each beat the one before around a loop.
+  \item \emph{The point.} $\sigma$-additivity is the demand that the answers be
+    completed into a reality, and on this board that demand alone rules out the
+    coherent pattern.
+\end{itemize}}
+
+\paragraph{The triangle: the open puzzle.} Three windows,
+$\{x_0,x_1\},\{x_1,x_2\},\{x_2,x_0\}$, each touching both others.
+\begin{itemize}[nosep]
+  \item \emph{Loop-only questions.} There are now questions that cannot be
+    broken into separate questions to individual windows. (On a ring of four or
+    more, every question breaks into questions to at most two neighbouring
+    windows.)
+  \item \emph{With two values,} ``are all three equal?'' is one. It is the
+    ``not'' of a question that \emph{does} break up, but it does not break up
+    itself.
+  \item \emph{With three values,} ``all equal'' is not even askable. There are
+    2{,}088 questions such that neither they nor their ``not'' break up. The
+    simplest is a nine-point cyclic pattern.
+  \item \emph{Still open.} Can the staircase $x_0<x_1<x_2<x_0$ still have a
+    consistent answer pattern and no reality? Evidence says yes: on a faithful finite
+    part of the board, a consistent answer pattern exists. Nobody here has built one.
+\end{itemize}
+\emph{(\S\ref{sec:conj}; machine evidence only.)}
+\begin{center}
+\begin{tikzpicture}
+\foreach \k/\a in {0/90,1/-30,2/210} \coordinate (t\k) at (\a:1.1);
+\draw[win] (t0)--(t1); \draw[win] (t1)--(t2); \draw[win] (t2)--(t0);
+\foreach \k in {0,1,2} \node[var] (u\k) at (t\k) {$x_\k$};
+\draw[up] (u0)--(u1); \draw[up] (u1)--(u2); \draw[up] (u2)--(u0);
+\node[font=\scriptsize,align=left,anchor=west] at (1.9,0.3) {every window touches both others};
+\node[font=\scriptsize,align=left,anchor=west] at (1.9,-0.15) {Specker's three boxes; Penrose's tribar};
+\node[font=\scriptsize,align=left,anchor=west,orange!80!black] at (1.9,-0.6) {answer pattern with no reality? \ open};
+\end{tikzpicture}
+\end{center}
+
+\bp{\textbf{Walking through the triangle.}
+\begin{itemize}[nosep]
+  \item \emph{What changes.} On the ring of four, windows $\{x_0,x_1\}$ and
+    $\{x_2,x_3\}$ share nothing, and that forces every buildable question to
+    live on two neighbouring windows. On the triangle every pair of windows
+    shares a slot, so questions can braid all three.
+  \item \emph{An example, with two possible values.} ``Are all three equal?'' is
+    buildable. It is the opposite of a question that splits into one window
+    question each, but it does not split up itself.
+  \item \emph{With three values,} ``all equal?'' is not buildable at all. There
+    are genuinely loop-only questions instead (2{,}088 of them).
+  \item \emph{Why the ring's method fails.} The ring's rule answered each
+    question from two windows. Loop-only questions need a rule that looks at the
+    whole triangle at once.
+  \item \emph{What is open.} Whether a consistent pattern still exists with every
+    window saying ``up''. A computer check on a faithful finite part of the
+    board finds one, but nobody has built it on the whole board.
+\end{itemize}}
+
+\paragraph{The moral.} In every example the contradiction lives only in a
+question that cannot be asked: an intersection the board does not contain
+(Lemma~\ref{lem:basic}). A loop is what lets every local view be right while the
+whole is nothing. Infinity is what lets that survive. Demanding a completed
+whole is what forbids it.
+
+\paragraph{Dictionary (puzzle $\to$ mathematics).}\leavevmode
+\begin{center}\small
+\begin{tabular}{p{4.6cm}p{9.6cm}}
+slots that could hold numbers & coordinates of the possibility space $\Omega=\bbN^V$ (assumed)\\
+window & a pair $\{i,j\}\subseteq V$\\
+question through a window & a window event $\{x:(x_i,x_j)\in A\}$, $A\subseteq\bbN^2$ arbitrary\\
+all buildable questions & the glued carrier $\cD$ (closure under complement and countable disjoint union)\\
+consistent answer pattern & a two-valued \emph{finitely} additive state on $\cD$\\
+answers add up over infinitely many options & $\sigma$-additivity\\
+a reality (the answers are those of one assignment) & a point $\delta_\omega$ (not assumed: earned or not)\\
+an ideal reality & an ultrafilter $W$ on $\Omega$ (not assumed)\\
+``drawn later, from further out'' & the ordered product $p\otimes p$, $p$ non-principal\\
+neighbouring windows agree & equal marginals on the shared coordinate\\
+breaks into window questions & $E\in\cG$: a disjoint union of window events (\S\ref{sec:shape})\\
+loop-only question & $E\in\cD\setminus\cG$. Two values: complements of $\cG$-sets only. Three values: 2{,}088 sets with $E,E^c\notin\cG$\\
+\end{tabular}
+\end{center}
+\noindent\emph{Scope of the puzzle.} The six-outcome paragraph uses a different
+board: arbitrary questions on a die, not windows. The triangle counts (2{,}088,
+nine points) are for a three-valued alphabet. Over $\bbN$ the loop-only questions
+are of the same kind, but they have not been enumerated.
+
+\section{Glossary}\label{sec:glossary}
+
+Each entry gives the plain meaning, an example from the boards above, and the
+exact object.
+
+\begin{description}[style=nextline,leftmargin=1.2em,itemsep=3pt]
+\item[question; window question]
+  \emph{Plain:} a yes/no question about the slots.
+  \emph{Example:} ``is $x_0<x_1$?''
+  \emph{Exact:} a window event, i.e.\ a set $\{x:(x_i,x_j)\in A\}$.
+\item[buildable question; the carrier]
+  \emph{Plain:} the questions you can make from window questions using ``not''
+  and ``exactly one of these exclusive options''.
+  \emph{Example:} ``either ($x_0<x_1$ and $x_1$ even) or ($x_1$ odd and
+  $x_2>x_1$)''.
+  \emph{Exact:} the carrier $\cD$, the Dynkin closure.
+\item[unaskable question]
+  \emph{Plain:} a combination of questions that is not itself buildable,
+  typically an ``and''.
+  \emph{Example:} ``is it in $\{4,5,6\}$ \emph{and} $\{6,1,2\}$?'' on the die;
+  ``is $x_0<x_1<x_2$?'' on the ring.
+  \emph{Exact:} an intersection not in $\cD$.
+\item[consistent; coherent; state; answer pattern]
+  \emph{Plain:} a yes/no answer to every buildable question such that, whenever
+  a question is split into two exclusive parts, the ``yes''es add up right.
+  \emph{Example:} ``no'' to all four die questions.
+  \emph{Exact:} a two-valued finitely additive state on $\cD$.
+\item[fits; gives; realises]
+  \emph{Plain:} an assignment of values \emph{fits} an answer pattern if
+  reading the answers off that assignment gives exactly the pattern.
+  \emph{Example:} $1,2,3,4$ fits ``up'' on the path; no face fits ``no to all
+  four''.
+  \emph{Exact:} $s=\delta_\omega$, a point.
+\item[ideal point; ideal reality]
+  \emph{Plain:} a recipe that answers \emph{every} question about \emph{all} the
+  slots at once, including every ``and'', consistently, without naming
+  values.
+  \emph{Example:} ``draw $x_0$ far out, then $x_1$ later, then $x_2$ \dots'' on
+  the path.
+  \emph{Exact:} an ultrafilter $W$ on $\Omega$. Equivalently, the yes-answers
+  have the \emph{finite intersection property}: any finitely many of them
+  share at least one possibility.
+\item[pointless]
+  \emph{Plain:} consistent, but fitted by no assignment and by no ideal recipe.
+  \emph{Example:} the staircase on four slots.
+  \emph{Exact:} neither a point nor an ideal point.
+\item[extends; lifts]
+  \emph{Plain:} answers given on part of the questions (one window, a few
+  questions) are \emph{kept} while answers to all the other buildable questions
+  are added consistently. Elsewhere in the programme ``lift'' names the same
+  move.
+  \emph{Example:} the window rules of the staircase extend to the whole ring
+  (Lean), but not $\sigma$-additively.
+  \emph{Related, the OML lane's $\sigma$-liftability ($\Phi$):} whenever finitely
+  many answers come from \emph{some} consistent pattern, the same finitely many
+  answers also come from some $\sigma$-additive pattern. The ring carrier fails
+  this: ``all four `up's yes'' comes from the staircase and from no
+  $\sigma$-additive pattern. (\texttt{oml\_attack/CAMPAIGN\_LOG.md}; Lean
+  \texttt{phi\_iff\_dense}.)
+  \emph{Exact:} a state on $\cD$ agreeing with the given one where it is
+  defined.
+\item[marginal; neighbours agree]
+  \emph{Plain:} what a window's answers say about one of its slots alone.
+  Neighbours \emph{agree} when both windows showing a slot answer every
+  single-slot question the same way.
+  \emph{Example:} both windows showing $x_0$ say ``$x_0$ even: yes''.
+  \emph{Exact:} equal projections of the window ultrafilters to the shared
+  coordinate.
+\item[glued]
+  \emph{Plain:} the windows are tied together only through the slots they share.
+  \emph{Exact:} the carrier generated by the window events and nothing else.
+\item[amalgamate]
+  \emph{Plain:} combine two neighbouring windows' ideal recipes into one ideal
+  recipe for all their slots, keeping both.
+  \emph{Example:} $\{x_0,x_1\}$ and $\{x_1,x_2\}$ combine into ``draw $x_0$, then
+  $x_1$, then $x_2$''.
+  \emph{Exact:} an ultrafilter on the product projecting to both
+  (Lemma~\ref{lem:amalg}).
+\item[flat; non-flat]
+  \emph{Plain:} the windows' recipes \emph{all} amalgamate into one recipe for
+  everything (flat), or they cannot (non-flat).
+  \emph{Example:} every path is flat; the staircase is non-flat.
+  \emph{Exact:} Definition~\ref{def:flat} (tentative).
+\item[$\sigma$-additive]
+  \emph{Plain:} the ``yes''es must add up even when a question is split into
+  infinitely many exclusive options.
+  \emph{Example:} ``which value is $x_0$?'' then needs exactly one ``yes''.
+  \emph{Exact:} additivity over countable disjoint unions.
+\item[slice; cylinder]
+  \emph{Plain:} \emph{slice}: fix one slot's value and look at what is left of a
+  question. \emph{Cylinder}: a question that, after slicing, depends on only one
+  remaining slot.
+  \emph{Example:} at $x_1=7$, ``$x_0<x_1$'' slices to ``$x_0<7$'', a cylinder,
+  while ``$x_0<x_1<x_2$'' slices to ``$x_0<7$ and $x_2>7$'', which is not.
+  \emph{Exact:} sections of a set at a fixed coordinate value.
+\end{description}
+
 \section{Philosophical context}\label{sec:philo}
 
 \bp{\textbf{The one question.} Is the whole \emph{given}, or \emph{set as a task}?
@@ -1018,30 +1063,5 @@ Kantian investigation, and they meet in \S\ref{sec:stair}.}
 
 
 
-
-\section{Status and where things live}\label{sec:status}
-
-\begin{itemize}
-  \item \textbf{Proved:}
-    \begin{itemize}[nosep]
-      \item \st{Lean}: Theorem~\ref{thm:witness}; Proposition~\ref{prop:dirac}
-        on the ring.
-      \item \st{hand}: Lemma~\ref{lem:shape}, Theorem~\ref{thm:path},
-        \S\ref{sec:forced}, and Proposition~\ref{prop:dirac} for general graphs.
-    \end{itemize}
-  \item \textbf{Open:} \S\ref{sec:conj}.
-  \item \textbf{Prior-art risk for the witness:} Bhaskara Rao, \emph{Theory of
-    Charges}; Goldberg on ultrafilter products.
-  \item \textbf{Files:}
-    \begin{itemize}[nosep]
-      \item the taxonomy \texttt{glued\_carriers\_taxonomy.json} (this
-        directory);
-      \item the witness and its prior art:
-        \texttt{notes/open\_questions/delay\_embedding/collision\_vs\_generation.md};
-      \item Lean: \texttt{formalization/staging/WindowGluing.lean};
-      \item the cycle side:
-        \texttt{notes/open\_questions/cyclic\_marginal/cyclic\_marginal\_scoping.md}.
-    \end{itemize}
-\end{itemize}
 
 \end{document}

@@ -52,14 +52,17 @@ literature).
 \tableofcontents
 
 %======================================================================
-\section{A die that cannot be thrown}\label{sec:die}
+\section{An answer sheet no die could fill in}\label{sec:die}
 
-Six faces, and four yes/no questions about which face is up:
+Nothing is rolled here. You find an \emph{answer sheet} for a quiz about a die.
+The quiz has four questions about which face is up,
 \[
 \text{in } \{1,2,3\}? \qquad \text{in } \{3,4,5\}? \qquad \text{in } \{5,6,1\}? \qquad \text{in } \{2,4,6\}?
 \]
-You may also ask the opposite of any of them (``in $\{4,5,6\}$?'', and so on).
-That is all. Now suppose someone answers \emph{no} to all four.
+together with their opposites (``in $\{4,5,6\}$?'', and so on), and nothing else.
+Every question is answered, and the sheet says \emph{no} to all four. You do not
+know whether a die was ever involved. Two checks can be made: is the sheet
+consistent, and could any face have filled it in?
 
 \begin{center}
 \begin{tikzpicture}
@@ -88,13 +91,13 @@ in $\{2,4,6\}$? & no & in $\{1,3,5\}$? & yes & 1 \checkmark\\
 \end{center}
 Every row has exactly one ``yes'', so the answers are \emph{consistent}.
 
-Is there a face that \emph{fits} them, a face that would give exactly these
-answers if it were the one showing? Try every face and compare its row with the
-pattern's row:
+Could a face have filled it in? Say a face \emph{fits} the sheet if, were that
+face showing, every answer would be correct. Hold each face up against the
+sheet:
 \begin{center}\small
 \begin{tabular}{l | c c c c | l}
  & in $\{1,2,3\}$? & in $\{3,4,5\}$? & in $\{5,6,1\}$? & in $\{2,4,6\}$? & fits?\\\hline
-\textbf{the pattern} & \textbf{no} & \textbf{no} & \textbf{no} & \textbf{no} & \\\hline
+\textbf{the sheet} & \textbf{no} & \textbf{no} & \textbf{no} & \textbf{no} & \\\hline
 face 1 & yes & no & yes & no & $\times$\\
 face 2 & yes & no & no & yes & $\times$\\
 face 3 & yes & yes & no & no & $\times$\\
@@ -104,7 +107,7 @@ face 6 & no & no & yes & yes & $\times$\\
 \end{tabular}
 \end{center}
 Every face says ``yes'' to exactly two questions, so no face's row matches the
-pattern's.
+sheet. It is a consistent sheet that no face could have filled in.
 
 Where did the contradiction go? A fitting face would have to lie in all four
 opposites at once, $\{4,5,6\}\cap\{6,1,2\}\cap\{2,3,4\}\cap\{1,3,5\}$, which is
@@ -174,7 +177,8 @@ accident (\S\ref{sec:why}).
 \section{Closing the loop: the staircase}\label{sec:stair}
 
 Bend the line into a ring: windows $\{x_0,x_1\}$, $\{x_1,x_2\}$, $\{x_2,x_3\}$,
-$\{x_3,x_0\}$. Let every window say ``up''.
+$\{x_3,x_0\}$. Again think of an answer sheet, now for questions about the slots,
+on which every window says ``up''.
 \begin{center}
 \begin{tikzpicture}
 \foreach \k/\a in {0/135,1/45,2/-45,3/-135} \coordinate (r\k) at (\a:1.2);

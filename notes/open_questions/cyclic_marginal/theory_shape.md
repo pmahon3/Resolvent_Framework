@@ -282,3 +282,21 @@ behind these.
 - *Board.* At A = 3 the board is exactly the 0/1 elements of V (machine count). So every
   probability state on the three-valued triangle board is a mixture of real buildings.
 - *A = 4.* Not done: it needs an exact polyhedral library, and the A = 4 board is unknown.
+
+**Priority 2, hand reading: what "beyond" is in a finite world** ⟦HAND; the cycle inequality itself is
+classical⟧
+- *Finite "beyond" must wrap.* If a window's two slots have the same law and P(up) = 1 − ε, then
+  ε ≥ P(top value), since the top cannot go higher. Spread over A values, ε ≳ 1/A. Every finite
+  near-staircase is "up, except a small wrap at the top": a clock.
+- *The twist costs a full unit.* Any joint picture needs Σ_k P(flight not up) ≥ 1. Locally each
+  flight wraps with probability only about 1/A. Growing the scale shrinks the local wrap, but never
+  the unit of "down" that the loop demands.
+- *In the limit the unit escapes to infinity.* The ultrafilter staircase has no "down" at all,
+  which is exactly the mass escaping beyond every number. This is why σ-additivity forbids it (H3).
+- *Why the regimes differ.* A renaming loop can twist in a finite world, because the clock ℤ_A has
+  rotations that preserve uniform marginals (F_A). In the infinite ultrafilter world, a consistent
+  renaming loop must fix its ultrafilter, and by Katětov it then fixes a large set: no twist. The
+  "+1 per flight" loop over ℕ is not even locally consistent (p + L ≠ p).
+- **Slogan: finite twists are wraps (a clock); infinite twists are escapes ("beyond").** A finite
+  near-staircase's wrap becomes, in the limit, the escape to infinity. Candidate theorem (open): the
+  ultrafilter staircase state is a limit of finite near-staircases, with the forced "down" escaping.

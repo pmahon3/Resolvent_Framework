@@ -17,7 +17,7 @@
     "headline": {
       "objects": 6,
       "theorems": 18,
-      "conjectures": 16,
+      "conjectures": 19,
       "probes": 9,
       "examples": 3,
       "owned_regions": 16,
@@ -283,6 +283,30 @@
     }
   ],
   "conjectures": [
+    {
+      "id": "q.lived_finite_probabilistic",
+      "name": "PRIORITY 1 (2026-10-18): a finite, probabilistic version of pointless coherence",
+      "status": "open question; priority set by user",
+      "one_line": "When are local marginals on a web of relations consistent yet unrealisable (local vs marginal polytope), and does composition, not only cycles, govern it? The bridge from the idealised theory to real systems (belief propagation first).",
+      "detail": "order_without_a_centre.tex section 12; theory_shape.md Priorities",
+      "uses": []
+    },
+    {
+      "id": "q.lived_scale_beyond",
+      "name": "PRIORITY 2 (2026-10-18): scale as the source of 'beyond'",
+      "status": "open question; priority set by user",
+      "one_line": "In the theory 'beyond every number' creates twist; in lived systems the analogue may be separation of scales. Make precise what a finite 'beyond' is and whether it carries twist and composition.",
+      "detail": "order_without_a_centre.tex section 12",
+      "uses": ["conj.cycle_of_beyond"]
+    },
+    {
+      "id": "q.lived_dynamic_cycle",
+      "name": "PRIORITY 3 (2026-10-18): dynamics revisited - can a cycle in time carry coherence without a top?",
+      "status": "open question; priority set by user; re-opens conj.impossible_dynamics from the lived angle (the lizard cycle), not group invariance",
+      "one_line": "The lizard cycle is a dynamic order with no top. The invariance lens was degenerate (detects motion, not impossibility); ask instead whether a cycle in time, rather than in the questions, can play the role of the loop.",
+      "detail": "order_without_a_centre.tex section 12; impossible_dynamics_seed.md",
+      "uses": ["conj.impossible_dynamics"]
+    },
     {
       "id": "conj.cycle_of_beyond",
       "name": "pointless coherence is exactly a cycle of 'beyond'",

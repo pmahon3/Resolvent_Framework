@@ -186,3 +186,18 @@ What would refute the thesis: a twist built from window 2-types that are neither
   βℤ.
 - **Open:** (ii) does this family still extend to a state on D₃, i.e. does the board absorb a
   non-orientation twist too?
+
+## Priorities, 2026-10-18 (set by the user, after Part II)
+
+The lived side's questions come first. They are in `order_without_a_centre.tex`, section 12.
+1. **A finite, probabilistic version.** When are local marginals on a web of relations consistent
+   yet unrealisable, and does *composition* govern it, not only cycles? This is the bridge to real
+   systems, belief propagation being the first setting.
+2. **Scale as the source of "beyond".** In the theory, "beyond every number" creates twist. In
+   lived systems the analogue may be *separation of scales*. Make that precise.
+3. **Dynamics, revisited.** The lizard cycle is a *dynamic* order. Can a cycle in time carry
+   coherence without a top? This re-opens the parked dynamics seed from a new angle: the lived
+   cycle, not group invariance.
+
+The earlier list above (NT1's extension question, wider windows, no background, hygiene) continues
+behind these.

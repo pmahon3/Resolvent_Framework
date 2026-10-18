@@ -286,7 +286,7 @@
     {
       "id": "q.lived_finite_probabilistic",
       "name": "PRIORITY 1 (2026-10-18): a finite, probabilistic version of pointless coherence",
-      "status": "open question; priority set by user",
+      "status": "PARTLY ANSWERED 2026-10-18 (hand + certified computation): rings L>=4 any finite A: board states = locally consistent families (locality), so the board is blind and finite probabilistic pointless states exist exactly when local != joint (classical cycle territory, owned). Triangle: A=3 board states = mixtures of points on 400 sampled board vertices (evidence, verification/finite_board_vs_joint.py); A=4..7 the +1-mod-A family is killed by the buildable circle cyclic set (gate.finite_staircase_carrier). Conjecture: on the finite triangle the board sees every finite twist.",
       "one_line": "When are local marginals on a web of relations consistent yet unrealisable (local vs marginal polytope), and does composition, not only cycles, govern it? The bridge from the idealised theory to real systems (belief propagation first).",
       "detail": "order_without_a_centre.tex section 12; theory_shape.md Priorities",
       "uses": []
@@ -294,7 +294,7 @@
     {
       "id": "q.lived_scale_beyond",
       "name": "PRIORITY 2 (2026-10-18): scale as the source of 'beyond'",
-      "status": "open question; priority set by user",
+      "status": "ANSWER SHAPE 2026-10-18 (computation, upper bounds): in a finite world the exposing (cyclic) question is ALWAYS askable on the triangle, but its construction lengthens with the scale A (12, 20, 29, 39 moves for A=4..7) while its forced value tends to 2 = the value of E* on N. On N, 'beyond' = the limit in which the exposing question's construction diverges and it becomes unaskable (lift lemma). Scale separation makes contradictions longer to expose, never unaskable; infinity makes them unaskable.",
       "one_line": "In the theory 'beyond every number' creates twist; in lived systems the analogue may be separation of scales. Make precise what a finite 'beyond' is and whether it carries twist and composition.",
       "detail": "order_without_a_centre.tex section 12",
       "uses": ["conj.cycle_of_beyond"]
@@ -302,7 +302,7 @@
     {
       "id": "q.lived_dynamic_cycle",
       "name": "PRIORITY 3 (2026-10-18): dynamics revisited - can a cycle in time carry coherence without a top?",
-      "status": "open question; priority set by user; re-opens conj.impossible_dynamics from the lived angle (the lizard cycle), not group invariance",
+      "status": "HAND READING 2026-10-18: a period-T dynamics observed in time-windows (t,t+1) has, modulo the period, the RING C_T as window graph; so a cycle in time IS a loop in the questions, and the ring/triangle theory applies (T=3, the lizards, = the triangle). Reconciles with the degeneracy lemma: motion alone only moves worlds; PERIODICITY creates the loop. The lizard order is the lived form of a pointless state: local 'who beats whom' coherent, global ranking absent. Not yet a theorem about population dynamics.",
       "one_line": "The lizard cycle is a dynamic order with no top. The invariance lens was degenerate (detects motion, not impossibility); ask instead whether a cycle in time, rather than in the questions, can play the role of the loop.",
       "detail": "order_without_a_centre.tex section 12; impossible_dynamics_seed.md",
       "uses": ["conj.impossible_dynamics"]
@@ -450,6 +450,7 @@
         {"branch": "(a) min Lambda < 0 for some A", "then": "the triangle's board SEES the finite twist: a buildable joint question gets negative probability; state-on-board polytope strictly inside the local polytope (contrast rings L>=4, where locality makes them equal). Record how the detecting set looks and how min Lambda scales with A (finite shadow of 'beyond')."},
         {"branch": "(b) min Lambda >= 0 for all A tested", "then": "the board cannot see the finite twist either; finite probabilistic pointless states exist on the triangle carrier; check whether this persists and why"}
       ],
+      "fired": {"branch": "(a)", "date": "2026-10-18", "result": "MILP: min Lambda over 0/1 span elements = 0 (A=3, family realisable), -0.75 (A=4), -0.8 (A=5), -0.5 (A=6); the A=4 minimiser is span-atomic (no proper nonempty 0/1 span subset) and its buildability is undecided. Decisive instead: the circle cyclic set Cyc_A = {d01 + d12 + d20 = A} (d01 in 1..A, others in 0..A-1) is a 0/1 span element with forced value 2 - 3/A > 1, and it is BUILDABLE for A = 4,5,6,7 (certified beam-search constructions of 12, 20, 29, 39 moves: add a disjoint window cell / remove a contained cell / complement; upper bounds, not minimal). So the finite triangle board SEES the +1-mod-A twist: no probability state on the board extends F_A. Scripts: verification/finite_staircase_carrier.py, finite_staircase_invariant_closure.py (shift-invariant closure too small: inconclusive), finite_cyclic_buildable.py."},
       "pre_registered": "2026-10-18, before running",
       "affects": {"id": "q.lived_finite_probabilistic", "effect": "first finite datum: does the carrier detect twist with finitely many values"},
       "detail": "theory_shape.md (Priorities); verification/finite_staircase_carrier.py"

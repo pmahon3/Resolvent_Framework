@@ -201,3 +201,39 @@ The lived side's questions come first. They are in `order_without_a_centre.tex`,
 
 The earlier list above (NT1's extension question, wider windows, no background, hygiene) continues
 behind these.
+
+## Session 2026-10-18: the priorities, first pass ⟦certified computation + hand⟧
+
+**Priority 2: what "beyond" is.**
+- *The finite staircase.* Heights 0..A−1, every flight "+1 mod A". It is locally consistent and
+  has no whole building unless A divides the loop length.
+- *What it costs.* Any whole picture needs Σ P(flight not up) ≥ 1.
+- *The board sees it on the triangle.* On the circle ℤ_A, Cyc_A = "positively oriented" is a 0/1
+  sum of window functions. Its forced value is 2 − 3/A > 1, and it is buildable for A = 4..7. The
+  certified constructions take 12, 20, 29 and 39 moves; these are upper bounds.
+- *Reading.* In a finite world the exposing question is always askable, but it gets longer as
+  the scale grows, and its forced value tends to 2, the value E\* has on ℕ. On ℕ the lift lemma
+  makes it unaskable. **"Beyond" is the limit in which the exposing question's construction
+  diverges.** Scale separation makes contradictions harder to expose; only infinity makes them
+  unaskable.
+
+**Priority 1: finite and probabilistic.**
+- *Rings L ≥ 4, any finite A.* By locality, board states are exactly the locally consistent
+  families. The board is blind, and finite probabilistic pointless states exist exactly when local
+  ≠ joint. That is classical cycle territory: Vorob'ev, Kharoof–Ipek–Okay.
+- *Triangle, A = 3.* Across 400 sampled vertices of the board polytope, all are mixtures of
+  points. This is evidence that the board sees every twist.
+- *Triangle, A = 4..7.* The +1 family is killed by the buildable cyclic set.
+- *Conjecture.* On the finite triangle, board states are exactly mixtures of points.
+- *Contrast.* Rings never see; the finite triangle sees everything; the infinite triangle is
+  pointless.
+
+**Priority 3: dynamics revisited.** ⟦hand reading⟧
+- *A cycle in time is a loop in the questions.* For a period-T dynamics observed in time windows
+  (t, t+1), the window graph modulo the period is the ring C_T.
+- *Lizards.* Three phases, so T = 3: the triangle.
+- *Reconciliation.* This agrees with the degeneracy lemma: motion only moves worlds, and periodicity
+  is what makes the loop.
+- *Reading.* The lizard order is the lived form of a pointless state: local "who beats whom" is
+  coherent, and a global ranking is absent.
+- *Not yet a theorem about population dynamics.*

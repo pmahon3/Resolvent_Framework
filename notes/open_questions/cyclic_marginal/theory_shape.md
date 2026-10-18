@@ -254,3 +254,21 @@ behind these.
   the triangle appears to see everything; it fills itself in as if a 3-window were present. If so,
   then in the lived, finite regime a loop with a shortcut behaves like a tree. Pre-registered as
   `gate.finite_chordal_line`.
+
+**gate.finite_chordal_line fired (a).**
+- *Triangle, A = 3: rigorous.* The board kills a gauge family exactly when its monodromy is not the
+  identity. Of the 216 families, 180 are killed and 36 are realisable.
+- *A = 2, board enumerated directly.*
+  - C4 is blind: the board allows the parity twist ≠, ≠, =, ≠, which is not a mixture (rigorous
+    witness).
+  - The diamond and K4 show no non-mixture board state (evidence: 300 vertices each).
+- **Reading.** In the finite, probabilistic, lived regime, the dividing line is plausibly **chordal
+  vs non-chordal**: the board fills each triangle in, as if the 3-window were present.
+- **Consequence.** The two regimes draw different lines:
+  - *finite and probabilistic:* pointless iff some long loop has no shortcut (Vorob'ev-style;
+    the finite ordinary-probability side is owned);
+  - *infinite with finite adding:* pointless iff any loop at all.
+
+  So it is exactly the triangle, and chordal shortcuts generally, that idealisation turns from safe
+  into twisted.
+- *Prior art for "the board fills triangles in": unchecked.*

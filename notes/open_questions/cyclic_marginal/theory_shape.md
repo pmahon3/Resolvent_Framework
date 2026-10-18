@@ -30,6 +30,19 @@ coherent because the only question that would expose them is unaskable.
 
 ## 3. Objects
 
+**Vocabulary (adopted 2026-10-18).** In prose a window is a **query**, matching the repo's oldest
+layer (`Query`, `QuerySystem`) and neutral about whether anything stands behind the answer. Physicists
+call it a *measurement*. The board is "**the questions you can ask**"; formally it is the
+**carrier**, and in the literature a σ-class or concrete logic. "Board" in older text means the
+carrier together with its window graph.
+
+| Thing | Plain prose | Repo / formal | Community name |
+|---|---|---|---|
+| a window (one flight's view) | a query | query / window | measurement, context |
+| the window graph | which queries overlap | window graph | measurement scenario / cover |
+| the board | the questions you can ask | carrier | σ-class / concrete logic / event structure |
+| a state | a consistent answer pattern | state | two-valued or probability state |
+
 | Object | Meaning | Standard name |
 |---|---|---|
 | board | Ω = X^V with pair windows; the window graph | marginal scheme / measurement cover |

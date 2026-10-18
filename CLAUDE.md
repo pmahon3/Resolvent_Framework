@@ -26,6 +26,10 @@ world, not to stay in an ivory tower. It is not mathematical content, but it gui
   stop adding: orient in plain language, then offer a choice, including "pause".
 - **Honest distance.** Name practical bridges (ecology, commons, inference, data merging) only as
   lenses and questions, with the gap to applicability stated. Never overclaim.
+- **Vocabulary.** In prose a window is a **query** (the repo's word; neutral about any reality
+  behind it), and "measurement" is the physics translation. The board is "**the questions you can
+  ask**" in prose and the **carrier** in formal text. Glossary: `theory_shape.md` §3. Avoid
+  private jargon like "board" without saying what it is.
 - **Reversals cost.** When a result overturns something recently framed as central, lead with
   that, plainly, and update every place that asserts it.
 

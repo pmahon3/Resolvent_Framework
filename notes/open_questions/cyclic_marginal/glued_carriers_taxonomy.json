@@ -18,7 +18,7 @@
       "objects": 6,
       "theorems": 18,
       "conjectures": 19,
-      "probes": 10,
+      "probes": 11,
       "examples": 3,
       "owned_regions": 16,
       "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
@@ -294,7 +294,7 @@
     {
       "id": "q.lived_scale_beyond",
       "name": "PRIORITY 2 (2026-10-18): scale as the source of 'beyond'",
-      "status": "ANSWER SHAPE 2026-10-18 (computation, upper bounds): in a finite world the exposing (cyclic) question is ALWAYS askable on the triangle, but its construction lengthens with the scale A (12, 20, 29, 39 moves for A=4..7) while its forced value tends to 2 = the value of E* on N. On N, 'beyond' = the limit in which the exposing question's construction diverges and it becomes unaskable (lift lemma). Scale separation makes contradictions longer to expose, never unaskable; infinity makes them unaskable.",
+      "status": "HEURISTIC ONLY (downgraded on review 2026-10-18; the probe used a gauge family F_A, not order windows, and move counts are upper bounds that may just track set size): in a finite world the exposing (cyclic) question appears askable on the triangle, but its construction lengthens with the scale A (12, 20, 29, 39 moves for A=4..7) while its forced value tends to 2 = the value of E* on N. On N, 'beyond' = the limit in which the exposing question's construction diverges and it becomes unaskable (lift lemma). Scale separation makes contradictions longer to expose, never unaskable; infinity makes them unaskable.",
       "one_line": "In the theory 'beyond every number' creates twist; in lived systems the analogue may be separation of scales. Make precise what a finite 'beyond' is and whether it carries twist and composition.",
       "detail": "order_without_a_centre.tex section 12",
       "uses": ["conj.cycle_of_beyond"]
@@ -302,7 +302,7 @@
     {
       "id": "q.lived_dynamic_cycle",
       "name": "PRIORITY 3 (2026-10-18): dynamics revisited - can a cycle in time carry coherence without a top?",
-      "status": "HAND READING 2026-10-18: a period-T dynamics observed in time-windows (t,t+1) has, modulo the period, the RING C_T as window graph; so a cycle in time IS a loop in the questions, and the ring/triangle theory applies (T=3, the lizards, = the triangle). Reconciles with the degeneracy lemma: motion alone only moves worlds; PERIODICITY creates the loop. The lizard order is the lived form of a pointless state: local 'who beats whom' coherent, global ranking absent. Not yet a theorem about population dynamics.",
+      "status": "METAPHOR, NOT A RESULT (downgraded on review 2026-10-18; identifying times mod the period is a modelling choice and the covering forgets the loop; the real lizard orbit is a realisable point, only a forced global ranking would be pointless): a period-T dynamics observed in time-windows (t,t+1) has, modulo the period, the ring C_T as window graph; so a cycle in time can be modelled as a loop in the questions, and the ring/triangle theory applies (T=3, the lizards, = the triangle). Reconciles with the degeneracy lemma: motion alone only moves worlds; PERIODICITY creates the loop. The lizard order is the lived form of a pointless state: local 'who beats whom' coherent, global ranking absent. Not yet a theorem about population dynamics.",
       "one_line": "The lizard cycle is a dynamic order with no top. The invariance lens was degenerate (detects motion, not impossibility); ask instead whether a cycle in time, rather than in the questions, can play the role of the loop.",
       "detail": "order_without_a_centre.tex section 12; impossible_dynamics_seed.md",
       "uses": ["conj.impossible_dynamics"]
@@ -443,6 +443,18 @@
   ],
   "probes": [
     {
+      "id": "gate.finite_chordal_line",
+      "category": "gate",
+      "investigation": "Finite alphabets, probability states on the board vs mixtures of points. (i) Rigorous at A=3 on the triangle (D = 0/1 span, machine-known): run the exact MILP min Lambda over all 216 bijection (gauge) families; expect min Lambda < 0 exactly for non-identity monodromy. (ii) Board vs joint on C4, on two triangles sharing an edge (diamond), and on K4, at A=2, enumerating D directly (not assuming D = 0/1 span).",
+      "outcomes": [
+        {"branch": "(a) board = joint on chordal graphs (triangle, diamond, K4) and board = local on C4", "then": "in the finite probabilistic regime the dividing line is CHORDAL vs NON-CHORDAL (Vorob'ev / junction-tree territory, owned on the finite side): the board fills triangles in; Part II's honest-distance section must say a loop with a shortcut behaves like a tree in the lived regime"},
+        {"branch": "(b) a chordal graph whose board polytope strictly exceeds the joint polytope", "then": "finite pointless states survive shortcuts; the witness names how"}
+      ],
+      "pre_registered": "2026-10-18, before running",
+      "affects": {"id": "q.lived_finite_probabilistic", "effect": "where the finite dividing line falls"},
+      "detail": "theory_shape.md (Session 2026-10-18)"
+    },
+    {
       "id": "gate.finite_staircase_carrier",
       "category": "gate",
       "investigation": "Finite alphabet {0..A-1}, triangle, window family F_A: x_{k+1} = x_k + 1 mod A with uniform slots (locally consistent; no joint picture unless A | 3; any joint has sum_k P(flight not up) >= 1, F_A has 3/A). The forced linear functional Lambda on the span V of window functions is well defined. Is Lambda >= 0 on every 0/1 element of V (the carrier's questions; D = 0/1 elements of V is machine-checked at A=3 only)? Compute min Lambda over 0/1 elements of V by exact MILP for A = 3..6.",
@@ -450,7 +462,7 @@
         {"branch": "(a) min Lambda < 0 for some A", "then": "the triangle's board SEES the finite twist: a buildable joint question gets negative probability; state-on-board polytope strictly inside the local polytope (contrast rings L>=4, where locality makes them equal). Record how the detecting set looks and how min Lambda scales with A (finite shadow of 'beyond')."},
         {"branch": "(b) min Lambda >= 0 for all A tested", "then": "the board cannot see the finite twist either; finite probabilistic pointless states exist on the triangle carrier; check whether this persists and why"}
       ],
-      "fired": {"branch": "(a)", "date": "2026-10-18", "result": "MILP: min Lambda over 0/1 span elements = 0 (A=3, family realisable), -0.75 (A=4), -0.8 (A=5), -0.5 (A=6); the A=4 minimiser is span-atomic (no proper nonempty 0/1 span subset) and its buildability is undecided. Decisive instead: the circle cyclic set Cyc_A = {d01 + d12 + d20 = A} (d01 in 1..A, others in 0..A-1) is a 0/1 span element with forced value 2 - 3/A > 1, and it is BUILDABLE for A = 4,5,6,7 (certified beam-search constructions of 12, 20, 29, 39 moves: add a disjoint window cell / remove a contained cell / complement; upper bounds, not minimal). So the finite triangle board SEES the +1-mod-A twist: no probability state on the board extends F_A. Scripts: verification/finite_staircase_carrier.py, finite_staircase_invariant_closure.py (shift-invariant closure too small: inconclusive), finite_cyclic_buildable.py."},
+      "fired": {"branch": "(a)", "date": "2026-10-18", "result": "MILP: min Lambda over 0/1 span elements = 0 (A=3, family realisable), -0.75 (A=4), -0.8 (A=5), -0.5 (A=6); the A=4 minimiser is span-atomic (no proper nonempty 0/1 span subset) and its buildability is undecided. Decisive instead: the circle cyclic set Cyc_A = {d01 + d12 + d20 = A} (d01 in 1..A, others in 0..A-1) is a 0/1 span element with forced value 2 - 3/A > 1, and it is BUILDABLE for A = 4,5,6,7 (certified beam-search constructions of 12, 20, 29, 39 moves: add a disjoint window cell / remove a contained cell / complement; upper bounds, not minimal). So the finite triangle board SEES the +1-mod-A twist: no probability state on the board extends F_A. CAVEAT (review 2026-10-18): F_A is a GAUGE (bijection-window) family with fixed-point-free monodromy +3 mod A, not an order family; and the move counts are beam upper bounds under a restricted move set. Scripts: verification/finite_staircase_carrier.py, finite_staircase_invariant_closure.py (shift-invariant closure too small: inconclusive), finite_cyclic_buildable.py."},
       "pre_registered": "2026-10-18, before running",
       "affects": {"id": "q.lived_finite_probabilistic", "effect": "first finite datum: does the carrier detect twist with finitely many values"},
       "detail": "theory_shape.md (Priorities); verification/finite_staircase_carrier.py"

@@ -211,11 +211,16 @@ behind these.
 - *The board sees it on the triangle.* On the circle ℤ_A, Cyc_A = "positively oriented" is a 0/1
   sum of window functions. Its forced value is 2 − 3/A > 1, and it is buildable for A = 4..7. The
   certified constructions take 12, 20, 29 and 39 moves; these are upper bounds.
-- *Reading.* In a finite world the exposing question is always askable, but it gets longer as
-  the scale grows, and its forced value tends to 2, the value E\* has on ℕ. On ℕ the lift lemma
-  makes it unaskable. **"Beyond" is the limit in which the exposing question's construction
-  diverges.** Scale separation makes contradictions harder to expose; only infinity makes them
-  unaskable.
+- *Reading, downgraded to a HEURISTIC on review.* One picture: in a finite world the exposing
+  question is askable but gets longer as the scale grows, and in the limit it becomes unaskable.
+  The data doesn't support it:
+  - F_A is a *gauge* family. Its windows are bijections, with fixed-point-free monodromy +3 mod A,
+    so it is not an order family.
+  - Comparing its forced value 2 − 3/A → 2 with E\*'s is a rhyme, not a limit.
+  - The move counts are beam upper bounds under a restricted move set, and growth may just track
+    set size.
+  - A real test of "beyond" needs order-type windows ("mostly up", with ε slack) and a complexity
+    measure that has a lower bound.
 
 **Priority 1: finite and probabilistic.**
 - *Rings L ≥ 4, any finite A.* By locality, board states are exactly the locally consistent
@@ -228,7 +233,10 @@ behind these.
 - *Contrast.* Rings never see; the finite triangle sees everything; the infinite triangle is
   pointless.
 
-**Priority 3: dynamics revisited.** ⟦hand reading⟧
+**Priority 3: dynamics revisited.** ⟦METAPHOR, not a result: downgraded on review⟧
+- *Why it is only a metaphor.* Identifying times modulo the period is a modelling choice, and the
+  covering forgets the loop. The real lizard orbit is a realisable point; only a forced global
+  ranking would be pointless.
 - *A cycle in time is a loop in the questions.* For a period-T dynamics observed in time windows
   (t, t+1), the window graph modulo the period is the ring C_T.
 - *Lizards.* Three phases, so T = 3: the triangle.
@@ -237,3 +245,12 @@ behind these.
 - *Reading.* The lizard order is the lived form of a pointless state: local "who beats whom" is
   coherent, and a global ranking is absent.
 - *Not yet a theorem about population dynamics.*
+
+**Corrections from the 2026-10-18 review.**
+- *"Renaming never creates impossibility" holds only for two-valued states* (Katětov). In the
+  finite probabilistic regime a renaming loop with fixed-point-free holonomy *is* a twist: F_A is
+  one. T4 and §5 of `order_without_a_centre` are scoped by regime.
+- *New candidate: the finite dividing line may be chordal vs non-chordal.* Rings are blind, while
+  the triangle appears to see everything; it fills itself in as if a 3-window were present. If so,
+  then in the lived, finite regime a loop with a shortcut behaves like a tree. Pre-registered as
+  `gate.finite_chordal_line`.

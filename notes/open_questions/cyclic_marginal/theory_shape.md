@@ -272,3 +272,13 @@ behind these.
   So it is exactly the triangle, and chordal shortcuts generally, that idealisation turns from safe
   into twisted.
 - *Prior art for "the board fills triangles in": unchecked.*
+
+**The triangle board sees every finite twist: RIGOROUS at A = 3** (2026-10-18).
+- *Method.* By LP duality, board = joint iff every non-negative g in the span V is a non-negative
+  combination of board sets.
+- *Extreme rays.* An exact double-description enumeration of the cone {g ∈ V : g ≥ 0} finds 207
+  extreme rays at A = 3 (16 at A = 2). All are multiples of 0/1 vectors. The enumeration was
+  validated by 300 independent LPs.
+- *Board.* At A = 3 the board is exactly the 0/1 elements of V (machine count). So every
+  probability state on the three-valued triangle board is a mixture of real buildings.
+- *A = 4.* Not done: it needs an exact polyhedral library, and the A = 4 board is unknown.

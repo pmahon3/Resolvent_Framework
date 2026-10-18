@@ -143,3 +143,37 @@ What would refute the thesis: a twist built from window 2-types that are neither
    - Lean assembly of T1;
    - the distinct-ultrafilter sketch;
    - promoting the staging files to the library and blueprint.
+
+## Update 2026-10-17: NT1 fired (a). The thesis is false as stated ⟦HAND — unverified⟧
+
+**The family is twisted although its orientation is acyclic** (for any p containing a lacunary set).
+
+**Witness.**
+- Take S ∈ p+p and B = {b : S − b ∈ p} ∈ p.
+- X = {(a, a+b) : b ∈ B} has value 1 in window 01.
+- Y = {(y, y+c) : c ∈ ⋂_{b∈B, b≤y} (S − b)} has value 1 in window 12. The intersection is finite,
+  so it lies in p.
+- Together X and Y force x₂ − x₀ ∈ S.
+- Z = {x₂ − x₀ ∉ S} has value 1 in window 02 unless p+p = (−p+p) + (p+p) in βℤ.
+
+**Why that equation fails.**
+- −p+p is non-principal.
+- p is right-cancellable when it contains a set with gaps tending to ∞: translated tails of the
+  set give disjoint witnesses.
+- So p+p is right-cancellable too, and the equation would force −p+p = 0, a contradiction.
+- Hence X ∩ Y ∩ Z = ∅, and no ultrafilter glues the windows.
+
+**What it means.**
+- "Beyond" is not just a direction. Beyonds *compose*. The difference x₂ − x₀ has to be the
+  composite of x₁ − x₀ and x₂ − x₁, computed in the non-commutative semigroup (βℤ, +).
+- An independent window asks for a *different* composite, so the loop fails to close even
+  though nothing goes round in a circle.
+- **Refined thesis (candidate):** twist = failure of a cocycle condition for beyond-increments in
+  (βℤ, +). Orientation is its shadow: a directed cycle is the special case in which the composite
+  would have to be both positive and negative.
+- This is the note's old "cohomological classification" hope, with non-abelian ultrafilter
+  algebra as the coefficients.
+- **Owned ingredients to check:** Hindman–Strauss on right cancellation (Ch. 8) and the algebra of
+  βℤ.
+- **Open:** (ii) does this family still extend to a state on D₃, i.e. does the board absorb a
+  non-orientation twist too?

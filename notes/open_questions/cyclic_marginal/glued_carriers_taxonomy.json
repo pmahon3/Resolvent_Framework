@@ -286,7 +286,7 @@
     {
       "id": "conj.cycle_of_beyond",
       "name": "pointless coherence is exactly a cycle of 'beyond'",
-      "status": "conjecture (working thesis, 2026-10-17); hand sketch for tensor types; tested by gate.nontensor_sum_type",
+      "status": "REFUTED AS STATED 2026-10-17 (hand, unverified; gate.nontensor_sum_type fired (a)): an acyclic family of sum-type windows is twisted. Survives for tensor types (hand sketch). Refinement candidate: twist = failure of a composition (cocycle) condition for beyond-increments in the non-commutative semigroup (beta Z, +); orientation is only its shadow.",
       "one_line": "Every off-diagonal window 2-type decides {x_i < x_j} (an orientation, 'drawn beyond'); diagonal ones are gauge (renaming). Thesis: a consistent window family is twisted (non-amalgamable) iff, after contracting gauge windows, the orientations contain a directed cycle. Renaming, motion (group actions) and sigma-additivity never produce twist. If true, the twist invariant is acyclicity, not winding.",
       "detail": "theory_shape.md (sections 4-5)",
       "uses": ["conj.trianglefree_classification", "conj.triangle_extends_all"]
@@ -426,6 +426,7 @@
         {"branch": "(a) twisted although acyclic", "then": "conj.cycle_of_beyond FALSE as stated: 'beyond' has finer structure (how beyonds compose: the semigroup (beta N, +); owner candidates Hindman-Strauss). Refine the invariant to include composition. Then (ii) decides whether the board still absorbs the twist."},
         {"branch": "(b) amalgamates", "then": "evidence for conj.cycle_of_beyond (orientation is the whole invariant even for non-tensor types); look for a harder non-tensor family"}
       ],
+      "fired": {"branch": "(a)", "date": "2026-10-17", "result": "HAND, unverified: for every non-principal p containing a set with gaps tending to infinity (exists in ZFC, e.g. p containing the squares), the three windows do NOT amalgamate although the orientation is acyclic. Witness: S in w=p+p, B={b: S-b in p}, X={(a,a+b): b in B} (window 01), Y={(y,y+c): c in C_y}, C_y = finite intersection of S-b over b in B, b<=y (window 12); X,Y force x2-x0 in S; Z={x2-x0 not in S} has value 1 in window 02 unless w = (-p+p)+w in beta Z; z=-p+p is non-principal; p right-cancellable (lacunary member; hand proof via disjoint translated tails) => w=p+p right-cancellable => z=0, contradiction. conj.cycle_of_beyond FALSE as stated. (ii) extension to D3: OPEN."},
       "pre_registered": "2026-10-17, before running",
       "affects": {"id": "conj.cycle_of_beyond", "effect": "decides whether orientation is the whole twist invariant"},
       "detail": "theory_shape.md (section 8, NT1)"

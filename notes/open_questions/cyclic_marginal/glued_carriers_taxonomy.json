@@ -17,8 +17,8 @@
     "headline": {
       "objects": 6,
       "theorems": 18,
-      "conjectures": 15,
-      "probes": 8,
+      "conjectures": 16,
+      "probes": 9,
       "examples": 3,
       "owned_regions": 16,
       "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
@@ -284,6 +284,14 @@
   ],
   "conjectures": [
     {
+      "id": "conj.cycle_of_beyond",
+      "name": "pointless coherence is exactly a cycle of 'beyond'",
+      "status": "conjecture (working thesis, 2026-10-17); hand sketch for tensor types; tested by gate.nontensor_sum_type",
+      "one_line": "Every off-diagonal window 2-type decides {x_i < x_j} (an orientation, 'drawn beyond'); diagonal ones are gauge (renaming). Thesis: a consistent window family is twisted (non-amalgamable) iff, after contracting gauge windows, the orientations contain a directed cycle. Renaming, motion (group actions) and sigma-additivity never produce twist. If true, the twist invariant is acyclicity, not winding.",
+      "detail": "theory_shape.md (sections 4-5)",
+      "uses": ["conj.trianglefree_classification", "conj.triangle_extends_all"]
+    },
+    {
       "id": "conj.triangle_extends_all",
       "name": "the triangle carries every consistent window family",
       "status": "open; TRUE for all 27 tensor-type families with one slot ultrafilter (hand + finite check, 2026-10-17)",
@@ -410,6 +418,18 @@
     }
   ],
   "probes": [
+    {
+      "id": "gate.nontensor_sum_type",
+      "category": "gate",
+      "investigation": "Triangle, slot ultrafilters from one non-principal p, with p+p = law of a+b for (a,b) ~ p(x)p. Windows: (x0,x1) = law of (a, a+b) [sum type, x1 beyond x0]; (x1,x2) = law of (y, y+c), y ~ p+p, c ~ p [sum type]; (x0,x2) = product p (x) (p+p+p), x0 first [independent]. Marginals consistent; orientation x0->x1->x2, x0->x2 is ACYCLIC. (i) Do the three 2-types amalgamate into one ultrafilter on N^3? (The natural candidate (a, a+b, a+b+c) gives the (x0,x2) window a SUM type, which differs from the product when p+p+p is not a translate of p+p.) (ii) If not: does the family still extend to a state on D3?",
+      "outcomes": [
+        {"branch": "(a) twisted although acyclic", "then": "conj.cycle_of_beyond FALSE as stated: 'beyond' has finer structure (how beyonds compose: the semigroup (beta N, +); owner candidates Hindman-Strauss). Refine the invariant to include composition. Then (ii) decides whether the board still absorbs the twist."},
+        {"branch": "(b) amalgamates", "then": "evidence for conj.cycle_of_beyond (orientation is the whole invariant even for non-tensor types); look for a harder non-tensor family"}
+      ],
+      "pre_registered": "2026-10-17, before running",
+      "affects": {"id": "conj.cycle_of_beyond", "effect": "decides whether orientation is the whole twist invariant"},
+      "detail": "theory_shape.md (section 8, NT1)"
+    },
     {
       "id": "gate.triangle_graph_windows",
       "category": "gate",

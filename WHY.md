@@ -52,8 +52,8 @@ relations, with no centre holding it together.**
   - *Quantum contextuality:* Specker, Kochen–Specker.
   - *Merging data:* pairwise-consistent tables are guaranteed to join only on acyclic schemas.
 
-Written up as a short note: `notes/open_questions/cyclic_marginal/pointless_coherence_lived.tex`
-(Part II, "Order Without a Centre"; Part I is the essence note).
+Written up as a short note: `notes/open_questions/cyclic_marginal/order_without_a_centre.tex`.
+Part I is the essence, Part II the lived side, with checked references.
 
 ## Four questions to carry back into the world
 

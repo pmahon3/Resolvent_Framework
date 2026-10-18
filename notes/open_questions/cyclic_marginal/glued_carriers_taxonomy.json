@@ -286,7 +286,7 @@
     {
       "id": "conj.cycle_of_beyond",
       "name": "pointless coherence is exactly a cycle of 'beyond'",
-      "status": "REFUTED AS STATED 2026-10-17 (hand, unverified; gate.nontensor_sum_type fired (a)): an acyclic family of sum-type windows is twisted. Survives for tensor types (hand sketch). Refinement candidate: twist = failure of a composition (cocycle) condition for beyond-increments in the non-commutative semigroup (beta Z, +); orientation is only its shadow.",
+      "status": "REFUTED AS STATED 2026-10-17 (hand, unverified; gate.nontensor_sum_type fired (a)): an acyclic family of sum-type windows is twisted. Survives for tensor types (hand sketch). Provable narrower statement (hand): translation-type triangle (all windows law(a,a+d_ij), d drawn beyond) is flat iff d02 = d01 + d12 in (beta N,+). General 'cocycle in (beta Z,+) via difference map' = HEURISTIC only (a product window's difference law varies with the fibre).",
       "one_line": "Every off-diagonal window 2-type decides {x_i < x_j} (an orientation, 'drawn beyond'); diagonal ones are gauge (renaming). Thesis: a consistent window family is twisted (non-amalgamable) iff, after contracting gauge windows, the orientations contain a directed cycle. Renaming, motion (group actions) and sigma-additivity never produce twist. If true, the twist invariant is acyclicity, not winding.",
       "detail": "theory_shape.md (sections 4-5)",
       "uses": ["conj.trianglefree_classification", "conj.triangle_extends_all"]

@@ -77,7 +77,9 @@ coherent because the only question that would expose them is unaskable.
   (Katětov). Status: hand.
 - For tensor types: twisted ⟺ the orientations of the order windows, after contracting the gauge
   windows, contain a directed cycle. Status: hand sketch, not banked.
-- So the twist is an *acyclicity* invariant, not the winding number the note once hoped for.
+- For tensor types, the twist is an *acyclicity* invariant, not the winding number the note once
+  hoped for. **Scope: tensor types only.** NT1 (the update at the end) shows that orientation is not
+  the whole invariant in general.
 
 **T5. Motion is not impossibility.**
 - Invariance under a group action only detects symmetry breaking. An invariant ideal point exists
@@ -87,6 +89,9 @@ coherent because the only question that would expose them is unaskable.
 ## 5. Thesis (conjecture)
 
 > **Pointless coherence is exactly a cycle of "beyond".**
+>
+> **REFUTED AS STATED (2026-10-17, hand; see the update at the end).** It holds for tensor types,
+> by hand sketch, and fails for sum-type windows.
 
 "Drawn beyond every number" is the potential infinite's own direction. Each local "beyond" is
 consistent. A cycle of them is a task that, carried round the loop, would have to finish before it
@@ -103,7 +108,7 @@ What would refute the thesis: a twist built from window 2-types that are neither
 | Aristotle, *Physics* III.6 | the infinite is only potential | finite adding is the potential infinite; demanding the actual (σ) collapses every coherent state to a point (T1) |
 | Kant, KrV Antinomy §§7–8 | the totality of conditions is *aufgegeben*, a task, not given | each window is right, and the totality read as an object contradicts them; read as a task (an ideal limit) it is coherent; on a loop the task is circular (T1, §5) |
 | Specker 1960 | the seer's three boxes: any two opened are consistent, all three are impossible | the triangle; the one unaskable question (T3) |
-| Penrose 1991 | impossible figures as cohomology of a loop | the loop is necessary (T1), but the invariant is acyclicity of "beyond", not a winding class (T4) |
+| Penrose 1991 | impossible figures as cohomology of a loop | the loop is necessary (T1). For tensor types the invariant is acyclicity of "beyond" (T4). In general, beyonds compose, and the twist looks like a failed composition law (the NT1 update) |
 | Gödel / ultrafilter theorem | complete consistent theories have models (Boolean) | fails on glued boards exactly at loops (T1) |
 
 ## 7. What is owned (seam map, short)
@@ -168,11 +173,15 @@ What would refute the thesis: a twist built from window 2-types that are neither
   composite of x₁ − x₀ and x₂ − x₁, computed in the non-commutative semigroup (βℤ, +).
 - An independent window asks for a *different* composite, so the loop fails to close even
   though nothing goes round in a circle.
-- **Refined thesis (candidate):** twist = failure of a cocycle condition for beyond-increments in
-  (βℤ, +). Orientation is its shadow: a directed cycle is the special case in which the composite
-  would have to be both positive and negative.
-- This is the note's old "cohomological classification" hope, with non-abelian ultrafilter
-  algebra as the coefficients.
+- **Provable narrower statement ⟦HAND⟧: translation-type triangle.** Suppose every window has the
+  form law(a, a + d_ij) with d_ij drawn beyond. Then the family is flat ⟺ d₀₂ = d₀₁ + d₁₂ in
+  (βℕ, +).
+  - ⇐: the natural glue (a, a+b, a+b+c) works.
+  - ⇒: the NT1 forcing puts every S ∈ d₀₁ + d₁₂ into d₀₂.
+- **Heuristic, not proved:** use the difference map δ(u) = law(x_j − x_i) ∈ βℤ. For a product,
+  δ(p⊗q) = −p + q. Twist might then be a failed composition (cocycle) law for δ, with orientation
+  as its sign shadow. But a product window's difference law varies with the fibre, and the forcing
+  needs the "drawn after" structure. So the general case is OPEN.
 - **Owned ingredients to check:** Hindman–Strauss on right cancellation (Ch. 8) and the algebra of
   βℤ.
 - **Open:** (ii) does this family still extend to a state on D₃, i.e. does the board absorb a

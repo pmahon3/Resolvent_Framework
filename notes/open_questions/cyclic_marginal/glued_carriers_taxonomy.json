@@ -18,7 +18,7 @@
       "objects": 6,
       "theorems": 18,
       "conjectures": 19,
-      "probes": 9,
+      "probes": 10,
       "examples": 3,
       "owned_regions": 16,
       "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
@@ -442,6 +442,18 @@
     }
   ],
   "probes": [
+    {
+      "id": "gate.finite_staircase_carrier",
+      "category": "gate",
+      "investigation": "Finite alphabet {0..A-1}, triangle, window family F_A: x_{k+1} = x_k + 1 mod A with uniform slots (locally consistent; no joint picture unless A | 3; any joint has sum_k P(flight not up) >= 1, F_A has 3/A). The forced linear functional Lambda on the span V of window functions is well defined. Is Lambda >= 0 on every 0/1 element of V (the carrier's questions; D = 0/1 elements of V is machine-checked at A=3 only)? Compute min Lambda over 0/1 elements of V by exact MILP for A = 3..6.",
+      "outcomes": [
+        {"branch": "(a) min Lambda < 0 for some A", "then": "the triangle's board SEES the finite twist: a buildable joint question gets negative probability; state-on-board polytope strictly inside the local polytope (contrast rings L>=4, where locality makes them equal). Record how the detecting set looks and how min Lambda scales with A (finite shadow of 'beyond')."},
+        {"branch": "(b) min Lambda >= 0 for all A tested", "then": "the board cannot see the finite twist either; finite probabilistic pointless states exist on the triangle carrier; check whether this persists and why"}
+      ],
+      "pre_registered": "2026-10-18, before running",
+      "affects": {"id": "q.lived_finite_probabilistic", "effect": "first finite datum: does the carrier detect twist with finitely many values"},
+      "detail": "theory_shape.md (Priorities); verification/finite_staircase_carrier.py"
+    },
     {
       "id": "gate.nontensor_sum_type",
       "category": "gate",

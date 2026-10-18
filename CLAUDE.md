@@ -8,6 +8,27 @@ embeddings, OML theory. Philosophy undergrad + three years math
 undergrad. Working outside academia. No advisor — uses LLM to
 partially fill that gap.
 
+## The why (read first; added 2026-10-17)
+
+**`WHY.md` is the compass the mathematics answers to.** The question it holds: *when do local
+views, each correct as far as it goes, add up to one world, and what do they say when they
+don't?* Practically, what lights the fire is **ecology and anarchism**: how order arises from
+local relations with no centre holding it together. The user wants the work to resurface in the
+world, not to stay in an ivory tower. It is not mathematical content, but it guides every agent.
+
+**Operational:**
+- **At every checkpoint, say how the result bears on the question.** Use WHY.md's four questions:
+  loop? unaskable joint question? hidden idealisation? circle, or composition?
+- **Protect the user's own seeing.** The spark lives in puzzles and pictures understood by hand,
+  not in machine output. Offer a puzzle before a proof dump. Don't bury the user in generated
+  Lean or enumerations. Machines are the answer key.
+- **Go at a human pace.** At most one new thread per checkpoint. If the user says they are lost,
+  stop adding: orient in plain language, then offer a choice, including "pause".
+- **Honest distance.** Name practical bridges (ecology, commons, inference, data merging) only as
+  lenses and questions, with the gap to applicability stated. Never overclaim.
+- **Reversals cost.** When a result overturns something recently framed as central, lead with
+  that, plainly, and update every place that asserts it.
+
 ## The aim: build new mathematical theory (adopted 2026-10-16)
 
 The programme builds **new mathematical theory**: definitions, invariants and

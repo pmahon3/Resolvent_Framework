@@ -125,6 +125,46 @@ questions, but they do not extend to all the askable ones.
     simplest shadow. Its exact form is the main open question.
 \end{itemize}
 
+\section{Probabilities and finite worlds}\label{sec:finite}
+So far answers were yes or no. Let them be probabilities: each query reports
+how likely each pair of heights is, and the probabilities of the questions you
+can ask must add up. A \emph{mixture of real buildings} is what you get by
+choosing heights at random.
+\begin{itemize}[nosep]
+  \item \emph{Loops without shortcuts are blind.} On a ring of four or more
+    landings the questions you can ask are exactly the questions about one
+    query, so any pattern that agrees where queries overlap is allowed, including
+    impossible ones. Example, with two heights around a square: ``different,
+    different, same, different''. Every query is fine, but going round flips the
+    height three times \st{hand; certified example}.
+  \item \emph{The triangle fills itself in.} With three possible heights, every
+    probability pattern on the triangle's questions \emph{is} a mixture of real
+    buildings \st{exact computation}. The questions you can ask already do the
+    work a view of all three landings would do. Two triangles sharing a flight,
+    and four landings all joined, behave the same way at two heights
+    \st{evidence}. So in finite worlds the line seems to fall between loops
+    \emph{without} shortcuts and loops \emph{with} them (chordal graphs), not
+    between trees and loops.
+  \item \emph{Idealisation is what turns a shortcut into a twist.} With infinitely
+    many heights and finite adding, the triangle carries pointless answers
+    \st{Lean}. A box-by-box limit of finite real mixtures is always a real
+    mixture \st{hand}. So the triangle's pointless answers are not limits of finite
+    ones, at least when its finite questions see every twist (proved at three
+    heights). They exist only at infinity.
+  \item \emph{Renaming can twist, with probabilities.} For yes-or-no answers a
+    loop of renamings never creates impossibility. With probabilities it can: a
+    loop saying ``each landing is one more than the last'' is coherent on each
+    query and impossible as a whole, whether the heights wrap round a clock or
+    spread evenly over all numbers \st{computation; hand}. So the sharp divide is
+    between \emph{yes-or-no} and \emph{probabilistic} answers, not between finite
+    and infinite.
+\end{itemize}
+Open: whether the infinite triangle's questions absorb such a probabilistic
+renaming twist. It comes down to whether any askable question can have a
+negative value at an ``impossible point'', where three steps of $+1$ fail to
+add to zero. This is a question about the shift $x\mapsto x+1$ and its invariant
+means, the territory of ergodic Ramsey theory.
+
 \section{The lineage}
 \begin{itemize}[nosep]
   \item \emph{Specker}~\cite{specker1960}: a seer's three boxes, any two of
@@ -243,9 +283,16 @@ coherent as a \emph{dynamics} rather than as a set of answers, and real commons
 are finite. So the lived reading needs a different bridge: a
 \emph{probabilistic} or \emph{dynamical} version, in which ``locally consistent
 but globally unrealisable'' is real for finite systems. Belief propagation on
-loopy networks is one such setting~\cite{wainwrightjordan2008}. Whether the
-composition law has a finite, probabilistic shadow is open, and it may be the
-bridge that matters most.
+loopy networks is one such setting~\cite{wainwrightjordan2008}.
+
+The finite version (Section~\ref{sec:finite}) already changes the lived picture. In finite,
+probabilistic worlds a web whose loops all have shortcuts seems to behave like a
+tree: local agreement is enough. Only loops without shortcuts, such as a ring of
+four or more parties with no cross-links, can hold locally coherent arrangements
+that no whole supports. For a commons or a food web, the structural question
+becomes whether its loops have shortcuts. Whether the composition law has a
+finite, probabilistic shadow is open, and it may be the bridge that matters
+most.
 
 \section{What the lived side asks of the mathematics}
 Questions 1--3 are the current priorities (October 2026). Question 4 waits on

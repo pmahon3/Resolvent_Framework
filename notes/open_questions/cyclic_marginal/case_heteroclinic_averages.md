@@ -87,3 +87,17 @@ lived instance of the triangle filling itself in.
    positively oriented copy fits on it. This is small, a simulation or the closed form.
 3. Check that "abundance ≈ 'only k'" is accurate enough for the station reports, or redo them with
    thresholded presence/absence.
+
+## Check 2 and 3 results (2026-10-19) ⟦simulation + exact geometry⟧
+- **The limit polygon.** The hand formula V_i ∝ e_i + r e_{i−1} + r² e_{i−2}, with r = b/a, matches
+  the simulated replicator turning points to about 2 decimals. Stay durations grow by a/b.
+- **The bad configuration is realisable.** For every r tested, and both traversal directions,
+  P, P + δ(−1,0,1) and P + δ(0,−1,1) with δ > 0 fit on the limit triangle (exact solve). At
+  a/b = 2: P = (0.4, 0.4, 0.2), Q = (0.2, 0.4, 0.4), R = (0.4, 0.2, 0.4), δ = 0.2. These are the
+  points 60% of the way along each edge.
+- **Real epochs realise it.** Simulated running dominance frequencies come within 0.002 of P, Q and
+  R. The three stations' reports agree on the shared species to within 0.001. The implied probability
+  of "no species dominant" is **−0.199**.
+- **F3 is confirmed in this system**, with reports taken as dominance frequencies (exact, with no
+  abundance approximation). Scripts: `verification/case1_polygon_check.py`,
+  `verification/case1_epochs.py`. Still a case, not a generalisation.

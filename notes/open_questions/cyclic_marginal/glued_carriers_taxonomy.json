@@ -18,7 +18,7 @@
       "objects": 6,
       "theorems": 18,
       "conjectures": 19,
-      "probes": 11,
+      "probes": 12,
       "examples": 3,
       "owned_regions": 16,
       "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
@@ -294,7 +294,7 @@
     {
       "id": "q.lived_scale_beyond",
       "name": "PRIORITY 2 (2026-10-18): scale as the source of 'beyond'",
-      "status": "HAND READING 2026-10-18 (replaces the downgraded heuristic): finite 'beyond' must WRAP (same-law window with P(up)=1-eps forces eps >= P(top value) ~ 1/A); the loop still demands a full unit of 'down' (cycle inequality, classical); in the infinite limit that unit ESCAPES to infinity (no down at all, why sigma forbids it). Finite twists are wraps (renaming on the clock Z_A, F_A); infinite twists are escapes (beyond); consistent renaming loops cannot twist over N (Katetov). HAND THEOREM 2026-10-18 (rings L>=4, unverified): ultrafilter limits (N,w -> inf, w/N -> 0) of the finite near-staircases x_{k+1} = x_k + U mod N (U uniform on 1..w), transported by E -> E cap [0,N)^L, are pointless (non-coherent) probability states on the N^L ring carrier giving every 'beyond' step probability 1: wraps become escapes. Contrast (conditional on finite triangle board = joint, proven A=3): triangle pointless states are NOT limits of finite ones - pure idealisation. Earlier: HEURISTIC ONLY (downgraded on review 2026-10-18; the probe used a gauge family F_A, not order windows, and move counts are upper bounds that may just track set size): in a finite world the exposing (cyclic) question appears askable on the triangle, but its construction lengthens with the scale A (12, 20, 29, 39 moves for A=4..7) while its forced value tends to 2 = the value of E* on N. On N, 'beyond' = the limit in which the exposing question's construction diverges and it becomes unaskable (lift lemma). Scale separation makes contradictions longer to expose, never unaskable; infinity makes them unaskable.",
+      "status": "RESCOPED 2026-10-18 on review: finite 'beyond' must wrap is a SINGLE-QUERY fact (with equal marginals P(up)=1-eps forces eps >= P(top); over N always-up forces mass to escape, H3). WITHDRAWN: the slogan 'finite twists are wraps, infinite twists are escapes' and 'renaming twists only in finite worlds' (a translation-invariant density charge makes +1 per flight consistent over N; on a ring it extends and is non-coherent) - the regime split is two-valued vs probabilistic. BOX-LIMIT LEMMA (hand, any graph): box limits of mixtures of points are coherent, so the loop's unit of down never escapes and idealised pointless states are box limits only of finite POINTLESS states. Rings have them (finite ring blind; near-staircases x_{k+1}=x_k+U mod N already non-joint), so their twist is finitely visible; the triangle has none IF finite triangle board = joint at every alphabet size along the limit (proven only A=3), so its pointless states are not box limits (scoped to box approximations). Ring extension of consistent query charges is near-immediate by locality. Earlier: HEURISTIC ONLY (downgraded on review 2026-10-18; the probe used a gauge family F_A, not order windows, and move counts are upper bounds that may just track set size): in a finite world the exposing (cyclic) question appears askable on the triangle, but its construction lengthens with the scale A (12, 20, 29, 39 moves for A=4..7) while its forced value tends to 2 = the value of E* on N. On N, 'beyond' = the limit in which the exposing question's construction diverges and it becomes unaskable (lift lemma). Scale separation makes contradictions longer to expose, never unaskable; infinity makes them unaskable.",
       "one_line": "In the theory 'beyond every number' creates twist; in lived systems the analogue may be separation of scales. Make precise what a finite 'beyond' is and whether it carries twist and composition.",
       "detail": "order_without_a_centre.tex section 12",
       "uses": ["conj.cycle_of_beyond"]
@@ -442,6 +442,18 @@
     }
   ],
   "probes": [
+    {
+      "id": "gate.triangle_density_plus1",
+      "category": "gate",
+      "investigation": "Triangle over N with a translation-invariant density charge d (Banach limit; d+1 = d) and the probabilistic renaming loop x1 = x0+1, x2 = x1+1, x0 = x2+1 (locally consistent with charges; non-coherent). Is the forced functional Lambda >= 0 on the N triangle carrier, i.e. does the infinite carrier absorb a probabilistic RENAMING twist? (E* has Lambda = 2 here but is not buildable; Cyc_A has no N analogue.)",
+      "outcomes": [
+        {"branch": "(a) Lambda >= 0 on the carrier", "then": "the infinite triangle carries probabilistic renaming twists; the carrier absorbs them, unlike the finite triangle"},
+        {"branch": "(b) some buildable set gets Lambda < 0", "then": "the infinite carrier sees renaming twists; the witness names how (new machinery beyond the lift lemma)"}
+      ],
+      "pre_registered": "2026-10-18, before running (NOT RUN; one thread per checkpoint)",
+      "affects": {"id": "q.lived_finite_probabilistic", "effect": "probabilistic regime on the infinite triangle"},
+      "detail": "theory_shape.md (box limits)"
+    },
     {
       "id": "gate.finite_chordal_line",
       "category": "gate",

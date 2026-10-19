@@ -330,3 +330,17 @@ being a finite sum of limits.
   limits of finite states: pure idealisation. This is scoped to box approximations.
 
 **Successor, pre-registered only (not run):** `gate.triangle_density_plus1`.
+
+**`gate.triangle_density_plus1`, progress ⟦HAND; not fired⟧.**
+- *Reduction to differences.* On translation-invariant questions, write the indicator as
+  g₀(u) + g₁(v) + g₂(w), with u = x₁ − x₀, v = x₂ − x₁, w = −u − v and bounded parts. Then
+  Λ = g₀(1) + g₁(1) + g₂(1): **evaluation at the impossible point u = v = w = 1**.
+- *What is known.* Among Navara's two-of-three sets, only the E\* family reaches Λ = 2, and it is
+  unbuildable (Lean). The others give 0 or 1.
+- *What is open.* Is there any buildable difference-question with Λ < 0? This is Navara's
+  two-sided-unbounded regime on ℤ² with three directions.
+- *Why finite truncation can't decide it.* Linear kernel terms (c·u, c·v, c·w) shift Λ by 3c, and
+  only boundedness at infinity pins Λ down.
+- *Connection.* A translation-invariant density is an invariant mean of the shift, so this is ergodic
+  Ramsey territory (Furstenberg correspondence, Hindman). Here the dynamics supplies the *answers*,
+  not a symmetry of the questions, which re-links priority 3.

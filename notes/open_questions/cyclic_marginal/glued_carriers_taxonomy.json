@@ -450,6 +450,7 @@
         {"branch": "(a) Lambda >= 0 on the carrier", "then": "the infinite triangle carries probabilistic renaming twists; the carrier absorbs them, unlike the finite triangle"},
         {"branch": "(b) some buildable set gets Lambda < 0", "then": "the infinite carrier sees renaming twists; the witness names how (new machinery beyond the lift lemma)"}
       ],
+      "progress": "2026-10-18 HAND (not fired): restricted to translation-invariant (difference) questions, 1_E = g0(u)+g1(v)+g2(w), u=x1-x0, v=x2-x1, w=-u-v, bounded parts, and Lambda = g0(1)+g1(1)+g2(1) = evaluation at the IMPOSSIBLE point u=v=w=1. Navara two-of-three sets reach Lambda=2 only on the E* family (not buildable, Lean); others give 0/1. Open: any buildable difference-question with Lambda<0 = Navara's two-sided-unbounded regime on Z^2 with three directions. Finite truncation cannot decide it (linear kernel g=c*u etc. shifts Lambda by 3c; only boundedness at infinity fixes Lambda). Connection: a translation-invariant density = an invariant mean of the shift, so this is ergodic Ramsey territory (Furstenberg correspondence, Hindman) - the dynamics supplies the ANSWERS, not a symmetry of the questions (re-links q.lived_dynamic_cycle).",
       "pre_registered": "2026-10-18, before running (NOT RUN; one thread per checkpoint)",
       "affects": {"id": "q.lived_finite_probabilistic", "effect": "probabilistic regime on the infinite triangle"},
       "detail": "theory_shape.md (box limits)"

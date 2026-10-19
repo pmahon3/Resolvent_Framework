@@ -313,3 +313,28 @@ classical⟧
 - **Slogan: finite twists are wraps (a clock); infinite twists are escapes ("beyond").** A finite
   near-staircase's wrap becomes, in the limit, the escape to infinity. Candidate theorem (open): the
   ultrafilter staircase state is a limit of finite near-staircases, with the forced "down" escaping.
+
+## Session 2026-10-18 (cont.): wraps become escapes ⟦HAND — unverified⟧
+
+**Theorem (rings L ≥ 4).**
+- *The finite near-staircases.* On ℤ_N, let F_{N,w} be the family where each query says x_{k+1}
+  = x_k + U mod N, with U uniform on {1..w} and uniform slots.
+  - By locality, F_{N,w} is a probability state on the finite ring carrier: the window sum over a
+    star decomposition.
+  - Each query wraps ("goes down") with probability at most about w/N.
+- *The limit.* Transport each finite state to the carrier over ℕ^L by E ↦ E ∩ [0,N)^L. That map
+  sends query events to query events and commutes with complements and disjoint unions.
+- *Take any ultrafilter limit as N, w → ∞ with w/N → 0.* The result s:
+  - is a finitely additive probability state on the ℕ^L carrier;
+  - gives s(x_{k+1} > x_k + M) = 1 for every M and k;
+  - has a diffuse density charge as each slot marginal;
+  - is **not coherent**: a charge P on all subsets fitting s would give P(⋂ C_k) = 1, yet
+    ⋂ C_k = ∅.
+- *Reading.* Pointless probability states on rings are limits of finite near-staircases, and the
+  forced unit of "down" escapes to infinity.
+
+**Contrast (conditional on "finite triangle board = joint", proven at A = 3).** Every limit of finite
+triangle board states would be a limit of mixtures of points, hence coherent: an ultrafilter limit of
+the joint laws is a charge on all sets. So the triangle's pointless states (Lean) are not limits of
+finite ones. On rings the twist is visible finitely, as a cost paid in wraps; on the triangle it
+exists only at infinity.

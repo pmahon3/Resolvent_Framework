@@ -50,6 +50,25 @@ is a companion to cases 1 (three species) and 2 (delay windows). No computation 
   stations did, each body would need its own clock or epoch. That points toward proper time
   (relativity) or relational notions of time (Barbour). **Open pointer, speculation.**
 
+## Open: different results beyond Newtonian physics ⟦speculation, not a result⟧
+
+Case 3's "no pointlessness" verdict rests on Newtonian absolute time: one shared history, one
+shared way of averaging. Other physics may change it.
+- **Relativity.** There is no absolute simultaneity, and each body has its own proper time.
+  Spacelike-separated observers have no privileged common epoch over which to average. That is a
+  natural, physical source of the "observers who cannot combine their averaging" that case 1
+  needed. Open question: can the long-run relational statistics of a relativistic few-body system,
+  each averaged along a body's own proper time, agree on overlaps yet admit no joint description?
+- **Relational time (Barbour, shape dynamics).** Time is read off from change within the system.
+  Different "clocks" built from different relations could play the role of the separate epochs.
+- **Quantum mechanics.** Here joint questions are unaskable *in principle*, not just in practice.
+  Specker's three boxes are the triangle, and Kochen–Specker contextuality is this phenomenon in
+  the lab. The theory's triangle is literal there, but that is the owned finite,
+  ordinary-probability side (Abramsky–Brandenburger; Kharoof–Ipek–Okay).
+
+Status: pointers only. They need their own cases before any claim. They do suggest that "a world
+exists" in case 3 may be a property of Newtonian time, not of three bodies.
+
 ## Equilibrium after three cases
 
 | Case | Separated views? | Non-settling statistics? | Asynchrony? | Pointless? |

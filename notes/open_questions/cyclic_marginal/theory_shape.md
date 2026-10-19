@@ -296,45 +296,37 @@ behind these.
   probability state on the three-valued triangle board is a mixture of real buildings.
 - *A = 4.* Not done: it needs an exact polyhedral library, and the A = 4 board is unknown.
 
-**Priority 2, hand reading: what "beyond" is in a finite world** ⟦HAND; the cycle inequality itself is
-classical⟧
-- *Finite "beyond" must wrap.* If a window's two slots have the same law and P(up) = 1 − ε, then
-  ε ≥ P(top value), since the top cannot go higher. Spread over A values, ε ≳ 1/A. Every finite
-  near-staircase is "up, except a small wrap at the top": a clock.
-- *The twist costs a full unit.* Any joint picture needs Σ_k P(flight not up) ≥ 1. Locally each
-  flight wraps with probability only about 1/A. Growing the scale shrinks the local wrap, but never
-  the unit of "down" that the loop demands.
-- *In the limit the unit escapes to infinity.* The ultrafilter staircase has no "down" at all,
-  which is exactly the mass escaping beyond every number. This is why σ-additivity forbids it (H3).
-- *Why the regimes differ.* A renaming loop can twist in a finite world, because the clock ℤ_A has
-  rotations that preserve uniform marginals (F_A). In the infinite ultrafilter world, a consistent
-  renaming loop must fix its ultrafilter, and by Katětov it then fixes a large set: no twist. The
-  "+1 per flight" loop over ℕ is not even locally consistent (p + L ≠ p).
-- **Slogan: finite twists are wraps (a clock); infinite twists are escapes ("beyond").** A finite
-  near-staircase's wrap becomes, in the limit, the escape to infinity. Candidate theorem (open): the
-  ultrafilter staircase state is a limit of finite near-staircases, with the forced "down" escaping.
+**Priority 2, hand reading: what "beyond" is in a finite world** ⟦HAND; RESCOPED on review⟧
+- *A single query.* If both slots of a query have the same law and P(up) = 1 − ε, then
+  ε ≥ P(top value). So a finite "beyond" must wrap: it is "up, except a small wrap at the top". Over
+  ℕ, "always up" with equal marginals forces mass to escape to infinity (H3). **This is a fact about
+  one query, not about the loop.**
+- *The loop.* The cycle inequality Σ P(down) ≥ 1 holds for every mixture of points (classical). It
+  never "escapes" (see the box-limit lemma below).
+- *WITHDRAWN:* the slogan "finite twists are wraps, infinite twists are escapes", and the claim
+  that renaming can twist only in finite worlds. A translation-invariant density charge d on ℕ has
+  d + 1 = d, so the "+1 per flight" loop is consistent with charges. On a ring it extends by
+  locality and is non-coherent. **The regime split is two-valued vs probabilistic, not finite vs
+  infinite.**
 
-## Session 2026-10-18 (cont.): wraps become escapes ⟦HAND — unverified⟧
+## Session 2026-10-18 (cont.): box limits ⟦HAND; corrected on review⟧
 
-**Theorem (rings L ≥ 4).**
-- *The finite near-staircases.* On ℤ_N, let F_{N,w} be the family where each query says x_{k+1}
-  = x_k + U mod N, with U uniform on {1..w} and uniform slots.
-  - By locality, F_{N,w} is a probability state on the finite ring carrier: the window sum over a
-    star decomposition.
-  - Each query wraps ("goes down") with probability at most about w/N.
-- *The limit.* Transport each finite state to the carrier over ℕ^L by E ↦ E ∩ [0,N)^L. That map
-  sends query events to query events and commutes with complements and disjoint unions.
-- *Take any ultrafilter limit as N, w → ∞ with w/N → 0.* The result s:
-  - is a finitely additive probability state on the ℕ^L carrier;
-  - gives s(x_{k+1} > x_k + M) = 1 for every M and k;
-  - has a diffuse density charge as each slot marginal;
-  - is **not coherent**: a charge P on all subsets fitting s would give P(⋂ C_k) = 1, yet
-    ⋂ C_k = ∅.
-- *Reading.* Pointless probability states on rings are limits of finite near-staircases, and the
-  forced unit of "down" escapes to infinity.
+**Box-limit lemma (any window graph).** Suppose finite states s_N are carried to the ℕ^V carrier by
+E ↦ E ∩ [0,N)^V and each s_N is a mixture of points (a law P_N). Then every ultrafilter limit is
+**coherent**: P(E) := lim P_N(E ∩ box) is a charge on all sets that fits it. So box limits of
+mixtures of points never produce pointless states, and the loop's unit of "down" never escapes,
+being a finite sum of limits.
 
-**Contrast (conditional on "finite triangle board = joint", proven at A = 3).** Every limit of finite
-triangle board states would be a limit of mixtures of points, hence coherent: an ultrafilter limit of
-the joint laws is a charge on all sets. So the triangle's pointless states (Lean) are not limits of
-finite ones. On rings the twist is visible finitely, as a cost paid in wraps; on the triangle it
-exists only at infinity.
+**Corollary (what is true about wraps).**
+- *Pointless idealised states are box limits only of finite POINTLESS states.*
+- *Rings.* Rings have finite pointless states, because the finite ring is blind (locality). Example:
+  x_{k+1} = x_k + U mod N with U uniform on {1..w} is already non-joint once L(w+1)/(2N) < 1. Its
+  box limits are pointless; the limit carries finite pointlessness to infinity, it does not create
+  it.
+- *Rings, directly (a near-immediate lemma).* Any consistent family of query *charges* on a ring
+  extends by locality: s(E) = c₋(A) + c₊(B) ≤ m(S) + m(Sᶜ) = 1.
+- *The triangle.* If the finite triangle board equals the joint polytope at EVERY alphabet size
+  used along the limit (proven only at A = 3), then the triangle's pointless states are not box
+  limits of finite states: pure idealisation. This is scoped to box approximations.
+
+**Successor, pre-registered only (not run):** `gate.triangle_density_plus1`.

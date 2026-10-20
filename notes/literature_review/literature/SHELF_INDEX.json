@@ -1,0 +1,2143 @@
+{
+ "$meta": {
+  "purpose": "Index of the PDF shelf (PDFs are gitignored; this file is the tracked record). Shelf-first rule: grep THIS FILE and the *_taxonomy.json owned_regions before any web search or 'new lead' claim.",
+  "created": "2026-10-20",
+  "reviewed": false,
+  "fields": {
+   "summary_basis": "read = primary source read in the programme (see read_trail); abstract = first page/abstract only; memory = from title + standard knowledge, UNVERIFIED",
+   "verdict_for_us": "owns (owns a region we touch; see programme_links) / neighbour / lens / unread",
+   "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
+  },
+  "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
+  "count": 89
+ },
+ "questions": {
+  "additivity_of_sums": "Does E[f]+E[g] = E[f+g] when f, g are not jointly measurable (Gudder's problem)? Programme: impossible points, case 4 core Z1.",
+  "impossible_point": "Can askable questions expose a state concentrated at an impossible triple? (gate.triangle_density_plus1)",
+  "clock_holonomy": "Synchronisation round a loop; Sagnac; case 4.",
+  "asynchrony": "Observers without a shared clock (definitions_draft section 12).",
+  "contextuality_finite": "Finite, probabilistic local-vs-global (owned by contextuality theory).",
+  "cycle_scenarios": "n-cycle scenarios, vertices and facets.",
+  "loop_count_witnesses": "Hidden-twist witnesses = loop counts / n-cycle facets.",
+  "marginal_problem": "Existence of a joint with prescribed marginals (Vorob'ev, Kellerer, Maharam).",
+  "coherence_extension": "Extending coherent states from a carrier to all events.",
+  "finitely_additive_charges": "Charges, de Finetti coherence, imprecise probability.",
+  "carriers_logics": "Concrete logics / sigma-classes / partial Boolean algebras as 'the questions you can ask'.",
+  "carrier_membership": "Proving a set is NOT buildable (Dynkin non-membership).",
+  "oml_structure": "Orthomodular lattice structure (OML thread).",
+  "sigma_essential": "sigma-essential / countable additivity thread.",
+  "sigma_essential_background": "Set-theoretic topology and measure background for the sigma-essential thread.",
+  "reconstruction_cycles": "Reconstruction/commensurability: primitive matrices, even cycles.",
+  "ecology_cases": "Lived cases in ecology (Part II).",
+  "delay_embedding": "Delay embedding origins.",
+  "local_to_global": "Sheaf/gluing readings of local-to-global.",
+  "data_merging": "Merging overlapping evidence.",
+  "data_tests": "Testing real data for joint existence.",
+  "pointfree_measure": "Locale/pointfree measure theory.",
+  "completeness_points": "Completeness theorems; when coherent = has a point.",
+  "philosophy_infinity": "Potential vs actual infinity.",
+  "idealisation": "Idealisations in physics (real numbers, infinite populations).",
+  "methodology_bridges": "Theory-building methodology (bridges).",
+  "states": "State spaces.",
+  "dynamics": "Dynamics and invariant states.",
+  "operational_boundary": "Statistics side (archived operational boundary)."
+ },
+ "by_question": {
+  "additivity_of_sums": [
+   "dravecky_sipos_1980_additivity_gudder_integral.pdf",
+   "navara_1984_two_valued_additivity.pdf",
+   "navara_1989_integration_generalized_measure_spaces.pdf",
+   "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
+  ],
+  "asynchrony": [
+   "dzhafarov_kujala_2017.pdf",
+   "minguzzi_2005_simultaneity_holonomy.pdf"
+  ],
+  "carrier_membership": [
+   "keleti_preiss_2000_balls_dynkin.pdf"
+  ],
+  "carriers_logics": [
+   "abramsky_barbosa_2025_duality_pBA_talk.pdf",
+   "bunce_wright_1992.pdf",
+   "ellerman_2010.pdf",
+   "engesser_gabbay_lehmann_2009.pdf",
+   "harding_2004_concrete_oml.pdf",
+   "hhln_1711.03748_boolean_subalgebras.pdf",
+   "muller_1993.pdf",
+   "muller_1993_jauch_piron.pdf",
+   "muller_ptak_tkadlec_1992_covering_properties.pdf",
+   "ptak_1987.pdf",
+   "rogalewicz_1988_any_orthomodular_poset_pasting_boolean_algebras.pdf",
+   "tkadlec_1994.pdf",
+   "tkadlec_1998_generalised_compatibility.pdf"
+  ],
+  "clock_holonomy": [
+   "dravecky_sipos_1980_additivity_gudder_integral.pdf",
+   "minguzzi_2005_simultaneity_holonomy.pdf",
+   "rizzi_ruggiero_2003_sagnac_kinematical.pdf"
+  ],
+  "coherence_extension": [
+   "derr_williamson_2023.pdf",
+   "horn_tarski_1948.pdf",
+   "maharam_1972.pdf",
+   "walley_1991.pdf"
+  ],
+  "completeness_points": [
+   "espindola_2020.pdf",
+   "howson_2008.pdf",
+   "vickers_1989.pdf"
+  ],
+  "contextuality_finite": [
+   "abramsky_barbosa_2025_duality_pBA_talk.pdf",
+   "abramsky_barbosa_kishida_lal_mansfield_2016_possibilities_determine.pdf",
+   "abramsky_brandenburger_2011.pdf",
+   "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf",
+   "dzhafarov_kujala_2017.pdf",
+   "hhln_1711.03748_boolean_subalgebras.pdf",
+   "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf"
+  ],
+  "cycle_scenarios": [
+   "abramsky_barbosa_kishida_lal_mansfield_2016_possibilities_determine.pdf",
+   "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf",
+   "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf"
+  ],
+  "data_merging": [
+   "biesel_2024.pdf"
+  ],
+  "data_tests": [
+   "dzhafarov_kujala_2017.pdf"
+  ],
+  "delay_embedding": [
+   "botvinick_greenhouse_2025.pdf"
+  ],
+  "dynamics": [
+   "pivato_2001_stationary_process_from_marginal.pdf"
+  ],
+  "ecology_cases": [
+   "bleay_comendant_sinervo_2007_fds_field.pdf",
+   "sinervo_lively_1996_rock_paper_scissors_nature.pdf"
+  ],
+  "finitely_additive_charges": [
+   "astbury_1981.pdf",
+   "casanova_kohlas_zaffalon_2022.pdf",
+   "horn_tarski_1948.pdf",
+   "howson_2008.pdf",
+   "kelley_1959.pdf",
+   "measurable_closure_springer.pdf",
+   "walley_1991.pdf",
+   "wasserman_walley_review_1993.pdf"
+  ],
+  "idealisation": [
+   "gisin_2021.pdf"
+  ],
+  "impossible_point": [
+   "dravecky_sipos_1980_additivity_gudder_integral.pdf",
+   "navara_1984_two_valued_additivity.pdf",
+   "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
+  ],
+  "local_to_global": [
+   "biesel_2024.pdf",
+   "casanova_kohlas_zaffalon_2022.pdf",
+   "epperson_zafiris_2013/",
+   "zafiris_2006.pdf"
+  ],
+  "loop_count_witnesses": [
+   "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf"
+  ],
+  "marginal_problem": [
+   "kellerer_1964_mass_theoretic_marginal_problems.pdf",
+   "maharam_1972.pdf",
+   "pivato_2001_stationary_process_from_marginal.pdf"
+  ],
+  "methodology_bridges": [
+   "caramello_2018/"
+  ],
+  "oml_structure": [
+   "amemiya_araki_1966_remark_piron.pdf",
+   "bruns_1979_block_finite_orthomodular_lattices.pdf",
+   "bruns_harding_2000_algebraic_aspects_omls.pdf",
+   "engesser_gabbay_lehmann_2009.pdf",
+   "foulis_1962_note_orthomodular_lattices.pdf",
+   "harding_1991_omls_macneille_completions_not_orthomodular.pdf",
+   "harding_1998_canonical_completions.pdf",
+   "harding_2004_concrete_oml.pdf",
+   "harding_wang_2108.09819_completions.pdf",
+   "holland_1964_distributivity_perspectivity_tams.pdf",
+   "kalmbach_1983_orthomodular_lattices.pdf",
+   "mcdonald_bimbo_2023.pdf",
+   "ptak_pulmannova_1994.pdf",
+   "rogalewicz_1988_any_orthomodular_poset_pasting_boolean_algebras.pdf",
+   "shultz_1974.pdf"
+  ],
+  "operational_boundary": [
+   "liu_gao_2019.pdf"
+  ],
+  "philosophy_infinity": [
+   "linnebo_shapiro_2019.pdf"
+  ],
+  "pointfree_measure": [
+   "coquand_spitters_2009.pdf",
+   "mcdonald_bimbo_2023.pdf",
+   "sambin_2003.pdf",
+   "simpson_2012.pdf",
+   "vickers_1989.pdf",
+   "vickers_2008.pdf"
+  ],
+  "reconstruction_cycles": [
+   "ardizzoni_consolini_locatelli_nebel_saccani_2025_mapf_strongly_connected.pdf",
+   "dulmage_mendelsohn_1964_exponent_gaps_primitive_matrices.pdf",
+   "mccuaig_2000_even_dicycles.pdf",
+   "schwarz_1970_semigroup_binary_relations.pdf",
+   "thomassen_1992_even_cycle_problem_jams.pdf",
+   "wielandt_1950_unzerlegbare_matrizen.pdf"
+  ],
+  "sigma_essential": [
+   "derr_williamson_2023.pdf",
+   "dvurecenskij_neubrunn_pulmannova_1992.pdf",
+   "feldman_wilce_1993.pdf",
+   "marczewski_1951_almost_independent.pdf",
+   "marczewski_1953_on_compact_measures.pdf",
+   "marczewski_ryll_nardzewski_1953_compactness_products.pdf",
+   "navara_1992.pdf",
+   "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
+  ],
+  "sigma_essential_background": [
+   "argyros_1982.pdf",
+   "argyros_1983.pdf",
+   "bunce_wright_1992.pdf",
+   "comfort_negrepontis_1982/",
+   "dzamonja_plebanek_2008.pdf",
+   "fedorchuk_1977.pdf",
+   "fremlin_2003/",
+   "gillman_jerison_pages/",
+   "kunen_1981.pdf",
+   "plebanek_2023_kunen.pdf",
+   "plebanek_2024.pdf",
+   "takeuti_zaring_axiomatic_set_theory.pdf",
+   "todorcevic_2000_chain_condition.pdf"
+  ],
+  "states": [
+   "shultz_1974.pdf"
+  ]
+ },
+ "entries": [
+  {
+   "file": "abramsky_barbosa_2025_duality_pBA_talk.pdf",
+   "citation": "Abramsky & Barbosa, 'Duality for partial Boolean algebras', Topos Institute colloquium slides, 2025",
+   "what_it_proves": "Stone-type duality for partial Boolean algebras (Kochen-Specker's algebras of jointly observable properties).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "contextuality_finite",
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "168",
+   "read_trail": [
+    "notes/open_questions/sigma_essential/sigma_essential_construction_runs.md",
+    "notes/open_questions/sigma_essential_taxonomy.json",
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/distributed_sensor_contextuality.md",
+    "notes/covered_leads/epistemic_boundary_extension.md",
+    "notes/covered_leads/two_species_underdetermination_kill.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib"
+   ]
+  },
+  {
+   "file": "abramsky_barbosa_kishida_lal_mansfield_2016_possibilities_determine.pdf",
+   "citation": "Abramsky, Barbosa, Kishida, Lal, Mansfield, 'Possibilities determine the combinatorial structure of probability polytopes', J. Math. Psych. 2016, arXiv:1603.07735",
+   "what_it_proves": "Face lattice of the no-signalling polytope = support lattice; vertices = local deterministic + minimal-support strongly contextual (Prop 6.3).",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.abklm_vertex_form"
+   ],
+   "questions": [
+    "contextuality_finite",
+    "cycle_scenarios"
+   ],
+   "text_layer": true,
+   "pages": "15",
+   "read_trail": [
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/distributed_sensor_contextuality.md",
+    "notes/covered_leads/epistemic_boundary_extension.md",
+    "notes/covered_leads/two_species_underdetermination_kill.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/cyclic_marginal/case_three_body.md"
+   ]
+  },
+  {
+   "file": "abramsky_brandenburger_2011.pdf",
+   "citation": "Abramsky & Brandenburger, 'The sheaf-theoretic structure of non-locality and contextuality', New J. Phys. 13 (2011) 113036",
+   "what_it_proves": "Contextuality = failure of a global section of a presheaf of distributions over a measurement cover; hierarchy probabilistic / logical / strong.",
+   "summary_basis": "memory",
+   "verdict_for_us": "owns",
+   "programme_links": [],
+   "questions": [
+    "contextuality_finite"
+   ],
+   "text_layer": true,
+   "pages": "40",
+   "read_trail": [
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/distributed_sensor_contextuality.md",
+    "notes/covered_leads/epistemic_boundary_extension.md",
+    "notes/covered_leads/two_species_underdetermination_kill.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/cyclic_marginal/case_three_body.md"
+   ]
+  },
+  {
+   "file": "amemiya_araki_1966_remark_piron.pdf",
+   "citation": "Amemiya & Araki, 'A remark on Piron's paper', Publ. RIMS 2 (1966)",
+   "what_it_proves": "Subspace lattice of a pre-Hilbert space is orthomodular iff the space is complete.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "oml_structure"
+   ],
+   "text_layer": true,
+   "pages": "6",
+   "read_trail": []
+  },
+  {
+   "file": "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf",
+   "citation": "Araújo, Quintino, Budroni, Terra Cunha, Cabello, 'All noncontextuality inequalities for the n-cycle scenario', PRA 88 (2013) 022118",
+   "what_it_proves": "Thm 1: tight n-cycle inequalities sum gamma_i <X_i X_{i+1}> <= n-2, odd number of gamma=-1; Thm 2: vertices of the no-disturbance polytope.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.ncycle_facets",
+    "own.cycle_vertices_fixed_L"
+   ],
+   "questions": [
+    "contextuality_finite",
+    "cycle_scenarios",
+    "loop_count_witnesses"
+   ],
+   "text_layer": true,
+   "pages": "8",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/cyclic_marginal/order_without_a_centre.tex",
+    "notes/taxonomies_index.json",
+    "papers/reconstruction/notes/PRIOR_ART_VERDICT.md",
+    "papers/reconstruction/notes/PROOF_PROMPT.md",
+    "papers/reconstruction/notes/commensurability_taxonomy.json",
+    "papers/reconstruction/reconstruction_skeleton.tex",
+    "papers/reconstruction/references.bib"
+   ]
+  },
+  {
+   "file": "ardizzoni_consolini_locatelli_nebel_saccani_2025_mapf_strongly_connected.pdf",
+   "citation": "Ardizzoni et al., 'Multi-agent pathfinding on strongly connected digraphs: feasibility and solution algorithms', Artif. Intell. 347 (2025) 104372",
+   "what_it_proves": "Feasibility of multi-agent pathfinding on strongly connected digraphs (cited in the reconstruction Wielandt finding).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "reconstruction_cycles"
+   ],
+   "text_layer": true,
+   "pages": "25",
+   "read_trail": [
+    "papers/reconstruction/notes/joint2_wielandt_finding.md"
+   ]
+  },
+  {
+   "file": "argyros_1982.pdf",
+   "citation": "Argyros, 'Boolean algebras without free families', Algebra Universalis 14 (1982) 244-256",
+   "what_it_proves": "Constructs Boolean algebras without large free families (chain-condition / strictly positive measure context).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": true,
+   "pages": "13",
+   "read_trail": [
+    "notes/README.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/programme/genealogy.md",
+    "notes/programme/genealogy.tex",
+    "notes/programme/program_overview.md"
+   ]
+  },
+  {
+   "file": "argyros_1983.pdf",
+   "citation": "Argyros, 'On compact spaces without strictly positive measure', Pacific J. Math. 105 (1983)",
+   "what_it_proves": "Compact spaces carrying no strictly positive measure despite chain conditions; used in the killed Strategy D.",
+   "summary_basis": "read",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": true,
+   "pages": "19",
+   "read_trail": [
+    "notes/README.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/programme/genealogy.md",
+    "notes/programme/genealogy.tex",
+    "notes/programme/program_overview.md"
+   ]
+  },
+  {
+   "file": "astbury_1981.pdf",
+   "citation": "Astbury, Ann. Probab. (1981) [JSTOR scan; title not extracted]",
+   "what_it_proves": "Scanned; content not summarised (cited in archived resolution-dependent-charges note).",
+   "summary_basis": "memory",
+   "verdict_for_us": "unread",
+   "programme_links": [],
+   "questions": [
+    "finitely_additive_charges"
+   ],
+   "text_layer": false,
+   "pages": "10",
+   "read_trail": [
+    "notes/unsorted/README.md"
+   ]
+  },
+  {
+   "file": "biesel_2024.pdf",
+   "citation": "Biesel, 'Sheaves of probability', arXiv:2401.01968 (2024)",
+   "what_it_proves": "When are credence functions of agents with overlapping evidence consistent? Sheaf condition for probability.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "local_to_global",
+    "data_merging"
+   ],
+   "text_layer": true,
+   "pages": "7",
+   "read_trail": [
+    "notes/covered_leads/operational_boundary/index.md",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/programme/program_overview.md",
+    "notes/reading_directions/general_reading/reading_directions_body.tex",
+    "notes/unsorted/README.md"
+   ]
+  },
+  {
+   "file": "bleay_comendant_sinervo_2007_fds_field.pdf",
+   "citation": "Bleay, Comendant, Sinervo, 'An experimental test of frequency-dependent selection on male mating strategy in the field', Proc. R. Soc. B 274 (2007) 2019-2025",
+   "what_it_proves": "Lizard morph siring regressed on neighbourhood morph frequencies; no tables, no pairwise counts, no supplement.",
+   "summary_basis": "read",
+   "verdict_for_us": "lens",
+   "programme_links": [
+    "own.aerts_lizards"
+   ],
+   "questions": [
+    "ecology_cases"
+   ],
+   "text_layer": true,
+   "pages": "7",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_sweep_2026-10-20.md",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json"
+   ]
+  },
+  {
+   "file": "botvinick_greenhouse_2025.pdf",
+   "citation": "Botvinick-Greenhouse, Oprea, Maulik, Yang, 'Measure-theoretic time-delay embedding', J. Stat. Phys. 192 (2025) 171",
+   "what_it_proves": "Delay embedding for measures (pushforward of invariant measures under delay maps).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "delay_embedding"
+   ],
+   "text_layer": true,
+   "pages": "34",
+   "read_trail": [
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/descent_ladder_mechanistic_feasibility.md",
+    "notes/covered_leads/relational_prob_taxonomy.json",
+    "notes/covered_leads/relational_reconstruction_separation.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib"
+   ]
+  },
+  {
+   "file": "bruns_1979_block_finite_orthomodular_lattices.pdf",
+   "citation": "Bruns, 'Block-finite orthomodular lattices', Canad. J. Math. 31 (1979) 961-985",
+   "what_it_proves": "Structure of OMLs with finitely many blocks (maximal Boolean subalgebras).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "oml_structure"
+   ],
+   "text_layer": true,
+   "pages": "25",
+   "read_trail": [
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md",
+    "notes/open_questions/oml_attack/oml_cyclic_order_coupling.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
+    "notes/open_questions/sigma_essential/sigma_essential_large_cardinal_bounds.md",
+    "notes/programme/shovel_plan.md"
+   ]
+  },
+  {
+   "file": "bruns_harding_2000_algebraic_aspects_omls.pdf",
+   "citation": "Bruns & Harding, 'Algebraic aspects of orthomodular lattices' (survey, 2000)",
+   "what_it_proves": "Survey: blocks, varieties, free OMLs, completions.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "oml_structure"
+   ],
+   "text_layer": true,
+   "pages": "30",
+   "read_trail": [
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md",
+    "notes/open_questions/oml_attack/oml_cyclic_order_coupling.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
+    "notes/open_questions/sigma_essential/sigma_essential_large_cardinal_bounds.md",
+    "notes/programme/shovel_plan.md"
+   ]
+  },
+  {
+   "file": "bunce_wright_1992.pdf",
+   "citation": "Bunce & Wright, 'The Mackey-Gleason problem', Bull. AMS 26 (1992) 288-293, arXiv:math/9204228",
+   "what_it_proves": "Bounded finitely additive measures on projections of a von Neumann algebra without type I_2 summand extend to linear functionals.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background",
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "6",
+   "read_trail": [
+    "notes/covered_leads/boolean_factoring_sigma_essential_PARKED.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib"
+   ]
+  },
+  {
+   "file": "caramello_2018/",
+   "citation": "Caramello, 'Theories, Sites, Toposes' (OUP 2018), chapters",
+   "what_it_proves": "Topos-theoretic 'bridges'; classifying toposes. Chapters on shelf.",
+   "summary_basis": "memory",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "methodology_bridges"
+   ],
+   "text_layer": true,
+   "pages": "2",
+   "read_trail": [
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/programme/program_overview.md",
+    "notes/reading_directions/general_reading/reading_directions_body.tex",
+    "notes/unsorted/README.md"
+   ]
+  },
+  {
+   "file": "casanova_kohlas_zaffalon_2022.pdf",
+   "citation": "Casanova, Kohlas, Zaffalon, 'Information algebras in the theory of imprecise probabilities', IJAR 142 (2022) 383-416",
+   "what_it_proves": "Imprecise probability (coherent sets of gambles) as an information algebra; marginalisation and combination.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "local_to_global",
+    "finitely_additive_charges"
+   ],
+   "text_layer": true,
+   "pages": "34",
+   "read_trail": []
+  },
+  {
+   "file": "comfort_negrepontis_1982/",
+   "citation": "Comfort & Negrepontis, 'Chain Conditions in Topology' (CUP 1982), chapters",
+   "what_it_proves": "Chain conditions, calibres, strictly positive measures, ultrafilters.",
+   "summary_basis": "memory",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": true,
+   "pages": "20",
+   "read_trail": []
+  },
+  {
+   "file": "coquand_spitters_2009.pdf",
+   "citation": "Coquand & Spitters, 'Integrals and valuations', J. Logic & Analysis 1:3 (2009)",
+   "what_it_proves": "Homeomorphism between the locale of integrals on a Riesz space and the locale of valuations.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "pointfree_measure"
+   ],
+   "text_layer": true,
+   "pages": "22",
+   "read_trail": [
+    "notes/covered_leads/descent_axis_residue_post_kill.md",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/verification/bell_deepresearch_partial.json",
+    "notes/open_questions/verification/bell_synthesis.md",
+    "notes/open_questions/verification/topos_route_read_2026-06-19.md",
+    "notes/programme/genealogy.md",
+    "notes/programme/genealogy.tex"
+   ]
+  },
+  {
+   "file": "derr_williamson_2023.pdf",
+   "citation": "Derr & Williamson, 'Systems of precision: coherent probabilities on pre-Dynkin systems and coherent previsions on linear subspaces', arXiv:2302.03522",
+   "what_it_proves": "Coherent extension of probabilities from pre-Dynkin systems; D.6 takes a sigma-additive input (does NOT reach finitely coherent patterns).",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.coherence_extension"
+   ],
+   "questions": [
+    "coherence_extension",
+    "sigma_essential"
+   ],
+   "text_layer": true,
+   "pages": "50",
+   "read_trail": [
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s10.md",
+    "notes/open_questions/oml_attack/SKELETON_A_READ_2026-07-10_receipt.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/README.md",
+    "notes/covered_leads/boolean_factoring_sigma_essential_PARKED.md",
+    "notes/covered_leads/two_species_underdetermination_kill.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json"
+   ]
+  },
+  {
+   "file": "dravecky_sipos_1980_additivity_gudder_integral.pdf",
+   "citation": "Dravecký & Šipoš, 'On the additivity of Gudder integral', Math. Slovaca 30 (1980) 299-303",
+   "what_it_proves": "Ex. 6: if nonempty preimages of f, g, f+g pairwise meet, A_f u A_g u A_{f+g} is a sigma-class carrying a two-valued sigma-additive state at an impossible triple (int f + int g != int(f+g)). Applies to Z^2.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.dravecky_sipos_flight_subcarrier",
+    "own.sigma_class_integral_additivity",
+    "gate.triangle_density_plus1"
+   ],
+   "questions": [
+    "additivity_of_sums",
+    "impossible_point",
+    "clock_holonomy"
+   ],
+   "text_layer": true,
+   "pages": "6",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/case_relativistic_triangle.md",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/cyclic_marginal/order_without_a_centre.tex",
+    "papers/sigma_essential/references.bib",
+    "papers/sigma_essential/sigma_essential_body.tex",
+    "papers/sigma_essential/witness_candidate/GATE_BETA_REPORT.md"
+   ]
+  },
+  {
+   "file": "dulmage_mendelsohn_1964_exponent_gaps_primitive_matrices.pdf",
+   "citation": "Dulmage & Mendelsohn, 'Gaps in the exponent set of primitive matrices', Illinois J. Math. (1964)",
+   "what_it_proves": "Exponent gaps of primitive matrices (used in the pruning theorem).",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "reconstruction_cycles"
+   ],
+   "text_layer": true,
+   "pages": "15",
+   "read_trail": [
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "papers/reconstruction/notes/PROOF_READ_2026-07-10_pruning.md",
+    "papers/reconstruction/notes/pruning_theorem_and_B.md"
+   ]
+  },
+  {
+   "file": "dvurecenskij_neubrunn_pulmannova_1992.pdf",
+   "citation": "Dvurečenskij, Neubrunn, Pulmannová, 'Regular states and countable additivity on quantum logics', Proc. AMS 114 (1992)",
+   "what_it_proves": "Regular states vs countable additivity on quantum logics; flags the Beaver-Cook proof gap (answered by Navara 1992).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential"
+   ],
+   "text_layer": true,
+   "pages": "8",
+   "read_trail": [
+    "papers/sigma_essential/witness_candidate/GATE_BETA_REPORT.md",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/BLOCKING_REFS_2026-08-23.md"
+   ]
+  },
+  {
+   "file": "dzamonja_plebanek_2008.pdf",
+   "citation": "Džamonja & Plebanek, 'Strictly positive measures on Boolean algebras', JSL (2008)",
+   "what_it_proves": "Strictly positive finitely additive measures on Boolean algebras and Radon measures on compact zero-dimensional spaces.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": true,
+   "pages": "20",
+   "read_trail": [
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "papers/paper_i/references.bib"
+   ]
+  },
+  {
+   "file": "dzhafarov_kujala_2017.pdf",
+   "citation": "de Barros, Coecke, Pothos (eds.), Quantum Interaction QI 2016, LNCS 10106 (2017) [contains Dzhafarov-Kujala CbD work]",
+   "what_it_proves": "Contextuality-by-Default for inconsistently connected systems; separates contextuality from direct influences in real data.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [],
+   "questions": [
+    "contextuality_finite",
+    "asynchrony",
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "279",
+   "read_trail": [
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/distributed_sensor_contextuality.md",
+    "notes/covered_leads/two_species_underdetermination_kill.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/reading_directions/general_reading/reading_directions_body.tex",
+    "papers/paper_ii/distributivity_and_realism_body.tex",
+    "papers/paper_ii/paper_ii_taxonomy.json",
+    "papers/paper_ii/references.bib"
+   ]
+  },
+  {
+   "file": "ellerman_2010.pdf",
+   "citation": "Ellerman, 'An introduction to partition logic', Logic J. IGPL 22 (2014) 94-125",
+   "what_it_proves": "Logic of partitions, dual to subset logic.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "32",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/reading_directions/general_reading/reading_directions_body.tex"
+   ]
+  },
+  {
+   "file": "engesser_gabbay_lehmann_2009.pdf",
+   "citation": "Engesser, Gabbay, Lehmann (eds.), 'Handbook of Quantum Logic and Quantum Structures: Quantum Logic' (Elsevier 2009)",
+   "what_it_proves": "Handbook (scanned, no text layer); OML and quantum-structure reference.",
+   "summary_basis": "memory",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "oml_structure",
+    "carriers_logics"
+   ],
+   "text_layer": false,
+   "pages": "727",
+   "read_trail": [
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/references_oml.bib"
+   ]
+  },
+  {
+   "file": "epperson_zafiris_2013/",
+   "citation": "Epperson & Zafiris, 'Foundations of Relational Realism' (2013), chapters 6-10",
+   "what_it_proves": "Localization processes; sheaf-theoretic reading of quantum events.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "23",
+   "read_trail": [
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/reading_directions/general_reading/reading_directions_body.tex"
+   ]
+  },
+  {
+   "file": "espindola_2020.pdf",
+   "citation": "Espíndola, 'Infinitary generalizations of Deligne's completeness theorem', JSL 85 (2020)",
+   "what_it_proves": "Completeness for infinitary first-order logic in toposes under cardinal hypotheses.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "completeness_points"
+   ],
+   "text_layer": true,
+   "pages": "16",
+   "read_trail": [
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib"
+   ]
+  },
+  {
+   "file": "fedorchuk_1977.pdf",
+   "citation": "Fedorchuk, 'A compact space having the cardinality of the continuum with no convergent sequences', Math. Proc. Camb. Phil. Soc. 81 (1977) 177",
+   "what_it_proves": "CH-type construction of a compact space of size continuum with no nontrivial convergent sequences.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": true,
+   "pages": "5",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/reading_directions/general_reading/reading_directions_body.tex",
+    "notes/unsorted/foundations/ce_nonderivability/index.md",
+    "papers/paper_i/references.bib"
+   ]
+  },
+  {
+   "file": "feldman_wilce_1993.pdf",
+   "citation": "Feldman & Wilce, 'sigma-additivity in manuals and orthoalgebras', Order 10 (1993) 383-392",
+   "what_it_proves": "When finitely additive states on manuals/orthoalgebras are sigma-additive.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential"
+   ],
+   "text_layer": true,
+   "pages": "10",
+   "read_trail": [
+    "notes/literature_review/references.bib",
+    "notes/open_questions/sigma_essential/sigma_essential_construction_runs.md",
+    "notes/open_questions/sigma_essential/sigma_essential_large_cardinal_bounds.md",
+    "notes/open_questions/sigma_essential_taxonomy.json",
+    "notes/reading_directions/oml_leads/nondistributive_primitive_handoff.md",
+    "notes/open_questions/cyclic_marginal/order_without_a_centre.tex",
+    "notes/open_questions/oml_attack/ADMISSIBILITY_SCOPE.md",
+    "notes/open_questions/oml_attack/BLUEPRINT_OML_SURVEY.md"
+   ]
+  },
+  {
+   "file": "foulis_1962_note_orthomodular_lattices.pdf",
+   "citation": "Foulis, 'A note on orthomodular lattices', Portugal. Math. 21 (1962)",
+   "what_it_proves": "Scanned (no text layer); early OML structure note.",
+   "summary_basis": "memory",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "oml_structure"
+   ],
+   "text_layer": false,
+   "pages": "9",
+   "read_trail": [
+    "notes/covered_leads/distributed_sensor_contextuality.md",
+    "notes/covered_leads/probability_before_realism_owned.md",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/problemset_oml_descent.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md"
+   ]
+  },
+  {
+   "file": "fremlin_2003/",
+   "citation": "Fremlin, 'Measure Theory' vols 3, 5 (chapters 31, 32, 39, 53, 54)",
+   "what_it_proves": "Boolean algebras, measure algebras, measurable algebras (39), cardinal functions (53-54).",
+   "summary_basis": "memory",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": true,
+   "pages": "68",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/sigma_essential/sigma_essential_load_bearing_facts.md",
+    "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md"
+   ]
+  },
+  {
+   "file": "gillman_jerison_pages/",
+   "citation": "Gillman & Jerison, 'Rings of Continuous Functions', selected pages (1H, 6M, 6W)",
+   "what_it_proves": "Basically disconnected spaces; betaX examples (images).",
+   "summary_basis": "read",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": false,
+   "pages": "",
+   "read_trail": []
+  },
+  {
+   "file": "gisin_2021.pdf",
+   "citation": "Gisin, 'Indeterminism in physics, classical chaos and Bohmian mechanics: are real numbers really real?', Erkenntnis 86 (2021)",
+   "what_it_proves": "Finite-information quantities as an alternative to real numbers in physics.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "idealisation"
+   ],
+   "text_layer": true,
+   "pages": "13",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/reading_directions/general_reading/reading_directions_body.tex"
+   ]
+  },
+  {
+   "file": "harding_1991_omls_macneille_completions_not_orthomodular.pdf",
+   "citation": "Harding, 'Orthomodular lattices whose MacNeille completions are not orthomodular', Order 8 (1991) 93-103",
+   "what_it_proves": "MacNeille completion need not preserve orthomodularity.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "oml_structure"
+   ],
+   "text_layer": true,
+   "pages": "11",
+   "read_trail": [
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/ADMISSIBILITY_SCOPE.md",
+    "notes/open_questions/oml_attack/BLOCKING_REFS_2026-08-23.md",
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md",
+    "notes/open_questions/oml_attack/oml_cyclic_order_coupling.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md"
+   ]
+  },
+  {
+   "file": "harding_1998_canonical_completions.pdf",
+   "citation": "Harding, 'Canonical completions of lattices and ortholattices', Tatra Mt. Math. Publ. 15 (1998) 85-96",
+   "what_it_proves": "Canonical completions of lattices and ortholattices.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "oml_structure"
+   ],
+   "text_layer": true,
+   "pages": "12",
+   "read_trail": [
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/ADMISSIBILITY_SCOPE.md",
+    "notes/open_questions/oml_attack/BLOCKING_REFS_2026-08-23.md",
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md",
+    "notes/open_questions/oml_attack/oml_cyclic_order_coupling.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md"
+   ]
+  },
+  {
+   "file": "harding_2004_concrete_oml.pdf",
+   "citation": "Harding, 'Remarks on concrete orthomodular lattices', IJTP 43 (2004)",
+   "what_it_proves": "Concrete (set-representable) OMLs: characterisations and examples.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "oml_structure",
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "20",
+   "read_trail": [
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/sigma_essential_taxonomy.json",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/ADMISSIBILITY_SCOPE.md",
+    "notes/open_questions/oml_attack/BLOCKING_REFS_2026-08-23.md",
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md"
+   ]
+  },
+  {
+   "file": "harding_wang_2108.09819_completions.pdf",
+   "citation": "Harding & Wang, 'Logical aspects of quantum structures', arXiv:2108.09819 (2021)",
+   "what_it_proves": "Survey of completions, decidability and related problems for quantum structures.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "oml_structure"
+   ],
+   "text_layer": true,
+   "pages": "17",
+   "read_trail": [
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/ADMISSIBILITY_SCOPE.md",
+    "notes/open_questions/oml_attack/BLOCKING_REFS_2026-08-23.md",
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md",
+    "notes/open_questions/oml_attack/oml_cyclic_order_coupling.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md"
+   ]
+  },
+  {
+   "file": "hhln_1711.03748_boolean_subalgebras.pdf",
+   "citation": "Harding, Heunen, Lindenhovius, Navara, 'Boolean subalgebras of orthoalgebras', arXiv:1711.03748",
+   "what_it_proves": "Recovering an orthoalgebra from its poset of Boolean subalgebras.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "carriers_logics",
+    "contextuality_finite"
+   ],
+   "text_layer": true,
+   "pages": "43",
+   "read_trail": []
+  },
+  {
+   "file": "holland_1964_distributivity_perspectivity_tams.pdf",
+   "citation": "Holland, 'Distributivity and perspectivity in orthomodular lattices', TAMS (1964)",
+   "what_it_proves": "Continuous-geometry analogues for complete OMLs.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "oml_structure"
+   ],
+   "text_layer": true,
+   "pages": "14",
+   "read_trail": [
+    "notes/covered_leads/disintegration_diagnostic.md",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/problemset_oml_descent.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md"
+   ]
+  },
+  {
+   "file": "horn_tarski_1948.pdf",
+   "citation": "Horn & Tarski, 'Measures in Boolean algebras', TAMS 64 (1948)",
+   "what_it_proves": "Existence/extension of finitely additive measures on Boolean algebras; extension from subalgebras.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "finitely_additive_charges",
+    "coherence_extension"
+   ],
+   "text_layer": true,
+   "pages": "31",
+   "read_trail": [
+    "notes/covered_leads/epistemic_boundary_extension.md",
+    "notes/open_questions/cyclic_marginal/deep_research_2026-10-15.json",
+    "notes/open_questions/delay_embedding/collision_vs_generation.md",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/problemset_oml_descent.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/CAMPAIGN_CHAIN.md",
+    "notes/open_questions/oml_attack/CAMPAIGN_LOG.md"
+   ]
+  },
+  {
+   "file": "howson_2008.pdf",
+   "citation": "Howson, 'De Finetti, countable additivity, consistency and coherence', BJPS 59 (2008)",
+   "what_it_proves": "Coherence = consistency; countable additivity not forced by Dutch book; compactness reading.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.howson_compactness"
+   ],
+   "questions": [
+    "finitely_additive_charges",
+    "completeness_points"
+   ],
+   "text_layer": true,
+   "pages": "23",
+   "read_trail": [
+    "notes/covered_leads/operational_boundary/index.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/cyclic_marginal/pointless_coherence.tex",
+    "notes/programme/genealogy.md"
+   ]
+  },
+  {
+   "file": "kalmbach_1983_orthomodular_lattices.pdf",
+   "citation": "Kalmbach, 'Orthomodular Lattices' (Academic Press 1983)",
+   "what_it_proves": "Standard monograph (scanned); Greechie loop lemma (Sec 4 Lemma 9).",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.greechie_loop"
+   ],
+   "questions": [
+    "oml_structure"
+   ],
+   "text_layer": false,
+   "pages": "404",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/sigma_essential/automorphisms/TASK_C.md",
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/descent_axis_residue_post_kill.md",
+    "notes/covered_leads/l2_dispersion_free_homomorphism_separation.md",
+    "notes/covered_leads/l2_state_space_separation_seed.md",
+    "notes/covered_leads/relational_prob_taxonomy.json",
+    "notes/knowledge_map/knowledge_map_body.tex"
+   ]
+  },
+  {
+   "file": "keleti_preiss_2000_balls_dynkin.pdf",
+   "citation": "Keleti & Preiss, 'The balls do not generate all Borel sets using complements and countable disjoint unions', Math. Proc. Camb. Phil. Soc. 128 (2000) 539-547",
+   "what_it_proves": "Template for proving non-membership in a generated Dynkin system.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "own.keleti_preiss"
+   ],
+   "questions": [
+    "carrier_membership"
+   ],
+   "text_layer": true,
+   "pages": "9",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/delay_embedding/collision_vs_generation.md"
+   ]
+  },
+  {
+   "file": "kellerer_1964_mass_theoretic_marginal_problems.pdf",
+   "citation": "Kellerer, 'Masstheoretische Marginalprobleme', Math. Ann. 153 (1964)",
+   "what_it_proves": "Existence of measures with prescribed marginals (marginal problem).",
+   "summary_basis": "memory",
+   "verdict_for_us": "owns",
+   "programme_links": [],
+   "questions": [
+    "marginal_problem"
+   ],
+   "text_layer": true,
+   "pages": "32",
+   "read_trail": [
+    "notes/covered_leads/descent_ladder_mechanistic_feasibility.md",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/delay_embedding/collision_vs_generation.md",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s10.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md"
+   ]
+  },
+  {
+   "file": "kelley_1959.pdf",
+   "citation": "Kelley, 'Measures on Boolean algebras', Pacific J. Math. 9 (1959)",
+   "what_it_proves": "Intersection-number criterion for existence of strictly positive finitely additive measures.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "finitely_additive_charges"
+   ],
+   "text_layer": true,
+   "pages": "17",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/reading_directions/general_reading/reading_directions_body.tex"
+   ]
+  },
+  {
+   "file": "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf",
+   "citation": "Kharoof, Ipek, Okay, 'Extremal simplicial distributions on cycle scenarios with arbitrary outcomes', arXiv:2406.19961",
+   "what_it_proves": "Thm 4.4: contextual vertices of the n-cycle (outcomes Z_d) = k-order cycle distributions, k>=2.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.cycle_vertices_fixed_L",
+    "thm.winding_characterization"
+   ],
+   "questions": [
+    "cycle_scenarios",
+    "contextuality_finite"
+   ],
+   "text_layer": true,
+   "pages": "22",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/case_three_body.md",
+    "notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/cyclic_marginal/order_without_a_centre.tex",
+    "notes/open_questions/cyclic_marginal/pointless_coherence.tex",
+    "notes/open_questions/cyclic_marginal/theory_shape.md",
+    "notes/programme/hierarchy_and_open_space.md",
+    "notes/programme/program_overview.md"
+   ]
+  },
+  {
+   "file": "kunen_1981.pdf",
+   "citation": "Kunen, 'A compact L-space under CH', Topology Appl. 12 (1981)",
+   "what_it_proves": "Compact hereditarily Lindelöf non-separable space under CH; measure/category coincidences.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": true,
+   "pages": "5",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/open_questions/cyclic_marginal/theory_shape.md",
+    "notes/reading_directions/general_reading/reading_directions_body.tex",
+    "notes/unsorted/foundations/ce_nonderivability/index.md",
+    "papers/paper_i/references.bib"
+   ]
+  },
+  {
+   "file": "linnebo_shapiro_2019.pdf",
+   "citation": "Linnebo & Shapiro, 'Actual and potential infinity', Noûs 53 (2019) 160-191",
+   "what_it_proves": "Modal account of potential infinity; Aristotle to modern.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "philosophy_infinity"
+   ],
+   "text_layer": true,
+   "pages": "32",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/reading_directions/general_reading/reading_directions_body.tex"
+   ]
+  },
+  {
+   "file": "liu_gao_2019.pdf",
+   "citation": "Liu & Gao, 'Density estimation with contamination: minimax rates and theory of adaptation', EJS 13 (2019)",
+   "what_it_proves": "Minimax rates for contaminated density estimation.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "operational_boundary"
+   ],
+   "text_layer": true,
+   "pages": "41",
+   "read_trail": [
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/operational_boundary/index.md",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/unsorted/finite_sample/operational_boundary_theorem/theorem_spec.md",
+    "papers/reconstruction/notes/commensurability_classification_seed.md"
+   ]
+  },
+  {
+   "file": "maharam_1972.pdf",
+   "citation": "Maharam, 'Consistent extensions of linear functionals and of probability measures', Proc. 6th Berkeley Symp. (1972)",
+   "what_it_proves": "Extending compatible measures on a family of fields to a common measure (consistent extension).",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [],
+   "questions": [
+    "marginal_problem",
+    "coherence_extension"
+   ],
+   "text_layer": true,
+   "pages": "21",
+   "read_trail": [
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s10.md",
+    "notes/open_questions/oml_attack/SKELETON_A_READ_2026-07-10_receipt.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md",
+    "notes/README.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib"
+   ]
+  },
+  {
+   "file": "marczewski_1951_almost_independent.pdf",
+   "citation": "Marczewski, 'On almost independent sets' / measure-theoretic note (1951) [scanned]",
+   "what_it_proves": "Scanned; used in the OML regularity attack.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential"
+   ],
+   "text_layer": false,
+   "pages": "7",
+   "read_trail": [
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-11_attack_s11.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/oml_attack/BLUEPRINT_OML_SURVEY.md",
+    "notes/open_questions/oml_attack/CAMPAIGN_LOG.md",
+    "notes/open_questions/oml_attack/oml_coarse_inhabitation_and_defect.md",
+    "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
+    "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md"
+   ]
+  },
+  {
+   "file": "marczewski_1953_on_compact_measures.pdf",
+   "citation": "Marczewski, 'On compact measures', Fund. Math. 40 (1953)",
+   "what_it_proves": "Compact measures (inner approximation by a compact class) are sigma-additive; scanned.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential"
+   ],
+   "text_layer": false,
+   "pages": "7",
+   "read_trail": [
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-11_attack_s11.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/oml_attack/BLUEPRINT_OML_SURVEY.md",
+    "notes/open_questions/oml_attack/CAMPAIGN_LOG.md",
+    "notes/open_questions/oml_attack/oml_coarse_inhabitation_and_defect.md",
+    "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
+    "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md"
+   ]
+  },
+  {
+   "file": "marczewski_ryll_nardzewski_1953_compactness_products.pdf",
+   "citation": "Marczewski & Ryll-Nardzewski, 'Remarks on the compactness and non direct products of measures', Fund. Math. 40 (1953)",
+   "what_it_proves": "Compactness of measures and existence of non-direct products; scanned.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential"
+   ],
+   "text_layer": false,
+   "pages": "4",
+   "read_trail": [
+    "notes/open_questions/oml_attack/PROOF_READ_2026-07-11_attack_s11.md",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/oml_attack/BLUEPRINT_OML_SURVEY.md",
+    "notes/open_questions/oml_attack/CAMPAIGN_LOG.md",
+    "notes/open_questions/oml_attack/oml_coarse_inhabitation_and_defect.md",
+    "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
+    "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md"
+   ]
+  },
+  {
+   "file": "mccuaig_2000_even_dicycles.pdf",
+   "citation": "McCuaig, 'Even dicycles', J. Graph Theory (2000)",
+   "what_it_proves": "Unique strongly 2-connected digraph with no even dicycle.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "reconstruction_cycles"
+   ],
+   "text_layer": true,
+   "pages": "23",
+   "read_trail": [
+    "papers/reconstruction/notes/HANDOFF_2026-07-10_session4.md",
+    "papers/reconstruction/notes/HANDOFF_2026-07-10_session5.md",
+    "papers/reconstruction/notes/joint2_wielandt_finding.md",
+    "papers/reconstruction/notes/universal_impossibility_taxonomy.json"
+   ]
+  },
+  {
+   "file": "mcdonald_bimbo_2023.pdf",
+   "citation": "McDonald & Bimbó, 'Topological duality for orthomodular lattices', arXiv:2208.07430 (2023)",
+   "what_it_proves": "Orthomodular spaces: topological duality for OMLs.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "oml_structure",
+    "pointfree_measure"
+   ],
+   "text_layer": true,
+   "pages": "20",
+   "read_trail": [
+    "notes/open_questions/verification/mb_primeness_check.md",
+    "notes/open_questions/verification/meagre_vs_measure_check.md",
+    "notes/covered_leads/distributed_sensor_contextuality.md",
+    "notes/covered_leads/epistemic_boundary_extension.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib"
+   ]
+  },
+  {
+   "file": "measurable_closure_springer.pdf",
+   "citation": "'Measurable closure of a finitely-additive measure space: an analysis of spaces similar to Stone spaces', MDAI conference paper (Springer)",
+   "what_it_proves": "Measurable closure / Stone-like spaces for finitely additive measures.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "finitely_additive_charges"
+   ],
+   "text_layer": true,
+   "pages": "25",
+   "read_trail": [
+    "notes/README.md",
+    "notes/conceptual_sketches/categorical/categorical_adjunction.tex",
+    "notes/conceptual_sketches/categorical/categorical_classical.tex",
+    "notes/conceptual_sketches/categorical/categorical_foundations.md",
+    "notes/conceptual_sketches/categorical/categorical_program.tex",
+    "notes/conceptual_sketches/categorical/mathlib_gaps.md",
+    "notes/covered_leads/boolean_factoring_sigma_essential_PARKED.md"
+   ]
+  },
+  {
+   "file": "minguzzi_2005_simultaneity_holonomy.pdf",
+   "citation": "Minguzzi, 'Spacelike slices from globally well-behaved simultaneity connections', arXiv:gr-qc/0501055",
+   "what_it_proves": "Einstein simultaneity is a connection; nonzero holonomy (curvature = vorticity) even in flat spacetime for rotating frames; Sagnac, Earth.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [],
+   "questions": [
+    "clock_holonomy",
+    "asynchrony"
+   ],
+   "text_layer": true,
+   "pages": "7",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/case_relativistic_triangle.md",
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
+   "file": "muller_1993.pdf",
+   "citation": "Müller, 'Jauch-Piron states on concrete quantum logics', IJTP 32 (1993)",
+   "what_it_proves": "Concrete non-Boolean logic all of whose states are Jauch-Piron. (Duplicate of muller_1993_jauch_piron.pdf.)",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "own.jauch_piron_covering"
+   ],
+   "questions": [
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "10",
+   "read_trail": [
+    "notes/open_questions/sigma_essential_taxonomy.json",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/reading_directions/realization_technique/realization_technique_reading.tex"
+   ]
+  },
+  {
+   "file": "muller_1993_jauch_piron.pdf",
+   "citation": "Müller, 'Jauch-Piron states on concrete quantum logics', IJTP 32 (1993) [duplicate file]",
+   "what_it_proves": "Duplicate of muller_1993.pdf.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "own.jauch_piron_covering"
+   ],
+   "questions": [
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "10",
+   "read_trail": [
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/sigma_essential_taxonomy.json",
+    "notes/reading_directions/realization_technique/realization_technique_reading.tex"
+   ]
+  },
+  {
+   "file": "muller_ptak_tkadlec_1992_covering_properties.pdf",
+   "citation": "Müller, Pták, Tkadlec, 'Concrete quantum logics with covering properties', IJTP 31 (1992) 843-854",
+   "what_it_proves": "Concrete logics with covering properties and their states.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "12",
+   "read_trail": [
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/sigma_essential_taxonomy.json",
+    "notes/reading_directions/realization_technique/realization_technique_reading.tex"
+   ]
+  },
+  {
+   "file": "navara_1984_two_valued_additivity.pdf",
+   "citation": "Navara, 'Two-valued states on a concrete logic and the additivity problem', Math. Slovaca 34 (1984) 329-336",
+   "what_it_proves": "Two-valued m: additivity of int(f+g) iff m concentrated on C_{f,g}; holds if R_f nowhere dense, R_g != R, one bounded on one side; K(a,b) sets with 1_K = 1{f<a}+1{g<b}-1{f+g<a+b}; final non-two-valued example on Z x N_0.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.navara_two_of_three",
+    "own.sigma_class_integral_additivity"
+   ],
+   "questions": [
+    "additivity_of_sums",
+    "impossible_point"
+   ],
+   "text_layer": true,
+   "pages": "9",
+   "read_trail": [
+    "papers/sigma_essential/witness_candidate/GATE_BETA_REPORT.md",
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/descent_axis_residue_post_kill.md",
+    "notes/covered_leads/descent_ladder_mechanistic_feasibility.md",
+    "notes/covered_leads/distributed_sensor_contextuality.md",
+    "notes/covered_leads/epistemic_boundary_extension.md",
+    "notes/covered_leads/l2_state_space_separation_seed.md",
+    "notes/knowledge_map/knowledge_map_body.tex"
+   ]
+  },
+  {
+   "file": "navara_1989_integration_generalized_measure_spaces.pdf",
+   "citation": "Navara, 'Integration on generalized measure spaces', Acta Univ. Carolinae Math. Phys. 30 (1989) 121-124",
+   "what_it_proves": "Survey of Gudder's additivity problem: D-S first counterexample, NP83 bounded counterexample, Zerbe-Gudder finitely valued; Thm 2 (convex combos of two-valued) under boundedness, nowhere-dense closure, connected complement.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "own.sigma_class_integral_additivity"
+   ],
+   "questions": [
+    "additivity_of_sums"
+   ],
+   "text_layer": true,
+   "pages": "5",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/case_relativistic_triangle.md",
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/descent_axis_residue_post_kill.md",
+    "notes/covered_leads/descent_ladder_mechanistic_feasibility.md",
+    "notes/covered_leads/distributed_sensor_contextuality.md",
+    "notes/covered_leads/epistemic_boundary_extension.md",
+    "notes/covered_leads/l2_state_space_separation_seed.md",
+    "notes/knowledge_map/knowledge_map_body.tex"
+   ]
+  },
+  {
+   "file": "navara_1992.pdf",
+   "citation": "Navara, 'Regularity and sigma-additivity of states on quantum logics', Proc. AMS 115 (1992)",
+   "what_it_proves": "Counterexample to Beaver-Cook: a regular finitely additive state on a quantum logic need not be sigma-additive.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential"
+   ],
+   "text_layer": true,
+   "pages": "3",
+   "read_trail": [
+    "notes/covered_leads/descent_axis_residue_post_kill.md",
+    "notes/open_questions/sigma_essential_taxonomy.json",
+    "papers/sigma_essential/witness_candidate/GATE_BETA_REPORT.md",
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/descent_ladder_mechanistic_feasibility.md",
+    "notes/covered_leads/distributed_sensor_contextuality.md",
+    "notes/covered_leads/epistemic_boundary_extension.md",
+    "notes/covered_leads/l2_state_space_separation_seed.md"
+   ]
+  },
+  {
+   "file": "navara_ptak_1983_two_valued_measures_sigma_classes.pdf",
+   "citation": "Navara & Pták, 'Two-valued measures on sigma-classes', Časopis pěst. mat. 108 (1983) 225-229",
+   "what_it_proves": "Thm 1: additivity iff concentrated; K(a,b) in class => concentrated. Example on (Q cap (0,1))^2: two-valued state at an impossible triple (dense ranges). Thm 2: f finitely valued => additive. Six-point and pure-measure examples.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "ex.navara_ptak_six",
+    "own.sigma_class_integral_additivity"
+   ],
+   "questions": [
+    "additivity_of_sums",
+    "impossible_point",
+    "sigma_essential"
+   ],
+   "text_layer": true,
+   "pages": "6",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/sigma_essential/navara_ptak_1983_byhand_read.md",
+    "notes/open_questions/sigma_essential/sigma_essential_reduction_result.md",
+    "notes/covered_leads/README.md",
+    "notes/covered_leads/descent_axis_residue_post_kill.md",
+    "notes/covered_leads/descent_ladder_mechanistic_feasibility.md",
+    "notes/covered_leads/distributed_sensor_contextuality.md",
+    "notes/covered_leads/epistemic_boundary_extension.md"
+   ]
+  },
+  {
+   "file": "pivato_2001_stationary_process_from_marginal.pdf",
+   "citation": "Pivato, 'Building a stationary stochastic process from a finite-dimensional marginal', Canad. J. Math. 53 (2001), arXiv:math/0108081",
+   "what_it_proves": "When a measure on A^U that looks like a marginal extends to a shift-invariant measure on A^{Z^D}.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.pivato_shift_invariant"
+   ],
+   "questions": [
+    "marginal_problem",
+    "dynamics"
+   ],
+   "text_layer": true,
+   "pages": "40",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md",
+    "notes/open_questions/cyclic_marginal/deep_research_2026-10-15.json",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/programme/hierarchy_and_open_space.md",
+    "papers/reconstruction/notes/PRIOR_ART_VERDICT.md"
+   ]
+  },
+  {
+   "file": "plebanek_2023_kunen.pdf",
+   "citation": "Plebanek, 'Musing on Kunen's compact L-space', arXiv:2012.01849",
+   "what_it_proves": "Connected version of Kunen's CH L-space; Corson compact examples.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": true,
+   "pages": "11",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/reading_directions/general_reading/reading_directions_body.tex",
+    "notes/unsorted/foundations/ce_nonderivability/index.md",
+    "papers/paper_i/references.bib"
+   ]
+  },
+  {
+   "file": "plebanek_2024.pdf",
+   "citation": "Plebanek, 'A survey on topological properties of P(K) spaces', arXiv:2312.14755",
+   "what_it_proves": "Survey: spaces of Radon probability measures with weak* topology.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": true,
+   "pages": "33",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/reading_directions/general_reading/reading_directions_body.tex",
+    "notes/unsorted/foundations/ce_nonderivability/index.md",
+    "papers/paper_i/references.bib"
+   ]
+  },
+  {
+   "file": "ptak_1987.pdf",
+   "citation": "Pták, 1987 [scanned; title not extracted]",
+   "what_it_proves": "Scanned; cited in archived descent/inhabitation notes.",
+   "summary_basis": "memory",
+   "verdict_for_us": "unread",
+   "programme_links": [],
+   "questions": [
+    "carriers_logics"
+   ],
+   "text_layer": false,
+   "pages": "15",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/README.md",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/cyclic_marginal/order_without_a_centre.tex",
+    "notes/open_questions/kits/oml_onboarding.tex"
+   ]
+  },
+  {
+   "file": "ptak_pulmannova_1994.pdf",
+   "citation": "Pták & Pulmannová, 'A measure-theoretic characterization of Boolean algebras among orthomodular lattices', CMUC 35 (1994) 205-208",
+   "what_it_proves": "Measure-theoretic characterisation of Boolean algebras among OMLs.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "oml_structure"
+   ],
+   "text_layer": true,
+   "pages": "5",
+   "read_trail": [
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/programme/shovel_plan.md",
+    "papers/sigma_essential/witness_candidate/GATE_BETA_REPORT.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/README.md"
+   ]
+  },
+  {
+   "file": "rizzi_ruggiero_2003_sagnac_kinematical.pdf",
+   "citation": "Rizzi & Ruggiero, 'A direct kinematical derivation of the relativistic Sagnac effect for light or matter beams', arXiv:gr-qc/0306128",
+   "what_it_proves": "Eq. 18: Sagnac proper-time difference 4 pi R^2 Omega gamma / c^2 = 4 Omega A gamma / c^2.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [],
+   "questions": [
+    "clock_holonomy"
+   ],
+   "text_layer": true,
+   "pages": "10",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/case_relativistic_triangle.md",
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
+   "file": "rogalewicz_1988_any_orthomodular_poset_pasting_boolean_algebras.pdf",
+   "citation": "Rogalewicz, 'Any orthomodular poset is a pasting of Boolean algebras', CMUC 29 (1988) 557-558",
+   "what_it_proves": "Every orthomodular poset is a pasting of Boolean algebras.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [],
+   "questions": [
+    "carriers_logics",
+    "oml_structure"
+   ],
+   "text_layer": true,
+   "pages": "3",
+   "read_trail": [
+    "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
+    "notes/open_questions/sigma_essential/czech_school_prior_art_sigma_essential.md",
+    "notes/open_questions/sigma_essential/sigma_essential_construction_runs.md",
+    "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md",
+    "notes/open_questions/sigma_essential_taxonomy.json",
+    "notes/open_questions/verification/bell_synthesis.md",
+    "notes/programme/program_overview.md",
+    "notes/reading_directions/realization_technique/realization_technique_reading.tex"
+   ]
+  },
+  {
+   "file": "sambin_2003.pdf",
+   "citation": "Sambin, 'Some points in formal topology', Theoret. Comput. Sci. 305 (2003) [garbled text layer]",
+   "what_it_proves": "Formal topology (pointfree, constructive).",
+   "summary_basis": "memory",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "pointfree_measure"
+   ],
+   "text_layer": true,
+   "pages": "50",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/reading_directions/general_reading/reading_directions_body.tex"
+   ]
+  },
+  {
+   "file": "schwarz_1970_semigroup_binary_relations.pdf",
+   "citation": "Schwarz, 'On the semigroup of binary relations on a finite set', Czech. Math. J. 20 (1970) 632-679",
+   "what_it_proves": "Structure of the semigroup of Boolean matrices; periods/indices (used in pruning theorem).",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "reconstruction_cycles"
+   ],
+   "text_layer": true,
+   "pages": "49",
+   "read_trail": [
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "papers/reconstruction/notes/PROOF_READ_2026-07-10_pruning.md",
+    "papers/reconstruction/notes/pruning_theorem_and_B.md"
+   ]
+  },
+  {
+   "file": "shultz_1974.pdf",
+   "citation": "Shultz, 'A characterization of state spaces of orthomodular lattices', JCTA 17 (1974) 317-328",
+   "what_it_proves": "Every compact convex set is the state space of some OML.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "oml_structure",
+    "states"
+   ],
+   "text_layer": true,
+   "pages": "12",
+   "read_trail": [
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md",
+    "notes/reading_directions/general_reading/reading_directions_body.tex"
+   ]
+  },
+  {
+   "file": "simpson_2012.pdf",
+   "citation": "Simpson, 'Measure, randomness and sublocales', APAL 163 (2012) 1642-1659",
+   "what_it_proves": "Pointfree (locale-theoretic) measure theory; random sublocales.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "pointfree_measure"
+   ],
+   "text_layer": true,
+   "pages": "18",
+   "read_trail": [
+    "notes/covered_leads/descent_axis_residue_post_kill.md",
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_sweep_2026-10-20.md",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/verification/topos_route_read_2026-06-19.md",
+    "notes/programme/genealogy.md",
+    "notes/programme/genealogy.tex"
+   ]
+  },
+  {
+   "file": "sinervo_lively_1996_rock_paper_scissors_nature.pdf",
+   "citation": "Sinervo & Lively, 'The rock-paper-scissors game and the evolution of alternative male strategies', Nature 380 (1996) 240-243",
+   "what_it_proves": "Lizard morph frequencies oscillate over 6 years; per-neighbour regression slopes assembled into a payoff matrix W (game), no contest-level win counts.",
+   "summary_basis": "read",
+   "verdict_for_us": "lens",
+   "programme_links": [
+    "own.aerts_lizards"
+   ],
+   "questions": [
+    "ecology_cases"
+   ],
+   "text_layer": true,
+   "pages": "4",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_sweep_2026-10-20.md",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/cyclic_marginal/order_without_a_centre.tex"
+   ]
+  },
+  {
+   "file": "takeuti_zaring_axiomatic_set_theory.pdf",
+   "citation": "Takeuti & Zaring, 'Axiomatic Set Theory', GTM 8 (1973)",
+   "what_it_proves": "Set theory text (forcing, Boolean-valued models).",
+   "summary_basis": "memory",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": false,
+   "pages": "244",
+   "read_trail": [
+    "notes/open_questions/sigma_essential/sigma_essential_large_cardinal_bounds.md",
+    "notes/open_questions/sigma_essential_taxonomy.json"
+   ]
+  },
+  {
+   "file": "thomassen_1992_even_cycle_problem_jams.pdf",
+   "citation": "Thomassen, 'The even cycle problem for directed graphs', JAMS 5 (1992)",
+   "what_it_proves": "Deciding even dicycles; structure results used in the reconstruction lock-avoidance work.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "reconstruction_cycles"
+   ],
+   "text_layer": true,
+   "pages": "13",
+   "read_trail": [
+    "notes/programme/shovel_plan.md",
+    "papers/reconstruction/notes/HANDOFF_2026-07-10_session4.md",
+    "papers/reconstruction/notes/HANDOFF_2026-07-10_session5.md",
+    "papers/reconstruction/notes/joint2_wielandt_finding.md",
+    "papers/reconstruction/notes/universal_impossibility_taxonomy.json"
+   ]
+  },
+  {
+   "file": "tkadlec_1994.pdf",
+   "citation": "Tkadlec, 'Boolean orthoposets - concreteness and orthocompleteness', Math. Bohemica 119 (1994) 123-128",
+   "what_it_proves": "Boolean orthoposets are concrete; orthocompleteness results.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "6",
+   "read_trail": [
+    "notes/covered_leads/l2_dispersion_free_homomorphism_separation.md",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/cyclic_marginal/impossible_dynamics_seed.md",
+    "notes/open_questions/delay_embedding/collision_vs_generation.md",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/linearization_E3_scout_verdict.md"
+   ]
+  },
+  {
+   "file": "tkadlec_1998_generalised_compatibility.pdf",
+   "citation": "Tkadlec, 'Concrete quantum logics with generalised compatibility', Math. Bohemica 123 (1998) 213-218",
+   "what_it_proves": "Concrete logics with generalised compatibility; Jauch-Piron questions.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.jauch_piron_covering"
+   ],
+   "questions": [
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "7",
+   "read_trail": [
+    "notes/covered_leads/l2_dispersion_free_homomorphism_separation.md",
+    "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
+    "notes/open_questions/cyclic_marginal/impossible_dynamics_seed.md",
+    "notes/open_questions/delay_embedding/collision_vs_generation.md",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/oml_attack/linearization_E3_scout_verdict.md"
+   ]
+  },
+  {
+   "file": "todorcevic_2000_chain_condition.pdf",
+   "citation": "Todorcevic, 'Chain-condition methods in topology', Topology Appl. 101 (2000) 45-82",
+   "what_it_proves": "Survey of chain-condition methods.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "sigma_essential_background"
+   ],
+   "text_layer": true,
+   "pages": "38",
+   "read_trail": [
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/sigma_essential/sigma_essential_construction_runs.md",
+    "notes/reading_directions/oml_leads/nondistributive_primitive_handoff.md"
+   ]
+  },
+  {
+   "file": "vickers_1989.pdf",
+   "citation": "Vickers, 'Topology via Logic' (CUP 1989) [scanned]",
+   "what_it_proves": "Locales and geometric logic text.",
+   "summary_basis": "memory",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "pointfree_measure",
+    "completeness_points"
+   ],
+   "text_layer": false,
+   "pages": "211",
+   "read_trail": [
+    "notes/covered_leads/descent_axis_residue_post_kill.md",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/verification/bell_deepresearch_partial.json",
+    "notes/open_questions/verification/bell_synthesis.md"
+   ]
+  },
+  {
+   "file": "vickers_2008.pdf",
+   "citation": "Vickers, 'A localic theory of lower and upper integrals', MLQ 54 (2008) 109-123",
+   "what_it_proves": "Localic lower/upper integrals and valuations.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "pointfree_measure"
+   ],
+   "text_layer": true,
+   "pages": "15",
+   "read_trail": [
+    "notes/covered_leads/descent_axis_residue_post_kill.md",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/open_questions/verification/bell_deepresearch_partial.json",
+    "notes/open_questions/verification/bell_synthesis.md"
+   ]
+  },
+  {
+   "file": "walley_1991.pdf",
+   "citation": "Walley, 'Statistical Reasoning with Imprecise Probabilities' (Chapman & Hall 1991) [scanned]",
+   "what_it_proves": "Coherent lower previsions; natural extension.",
+   "summary_basis": "memory",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "finitely_additive_charges",
+    "coherence_extension"
+   ],
+   "text_layer": false,
+   "pages": "362",
+   "read_trail": [
+    "notes/knowledge_map/knowledge_map_body.tex",
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/oml_onboarding.tex",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/reading_directions/general_reading/reading_directions_body.tex"
+   ]
+  },
+  {
+   "file": "wasserman_walley_review_1993.pdf",
+   "citation": "Wasserman, review of Walley (1991), JASA 88 (1993) 700-702",
+   "what_it_proves": "Review of Walley's imprecise probability book.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "finitely_additive_charges"
+   ],
+   "text_layer": true,
+   "pages": "4",
+   "read_trail": []
+  },
+  {
+   "file": "wielandt_1950_unzerlegbare_matrizen.pdf",
+   "citation": "Wielandt, 'Unzerlegbare, nicht negative Matrizen', Math. Z. 52 (1950)",
+   "what_it_proves": "Primitive exponent bound (n-1)^2+1 (Wielandt bound).",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [],
+   "questions": [
+    "reconstruction_cycles"
+   ],
+   "text_layer": true,
+   "pages": "7",
+   "read_trail": [
+    "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
+    "notes/open_questions/kits/understanding_kit.tex",
+    "notes/programme/frontier_map.md",
+    "notes/programme/hierarchy_and_open_space.md",
+    "notes/reading_directions/reconstruction/reconstruction_background_reading.md",
+    "notes/reading_directions/reconstruction/reconstruction_background_reading_body.tex",
+    "papers/reconstruction/notes/HANDOFF_2026-07-10_session4.md",
+    "papers/reconstruction/notes/HANDOFF_2026-07-10_session5.md"
+   ]
+  },
+  {
+   "file": "zafiris_2006.pdf",
+   "citation": "Zafiris, 'Sheaf-theoretic representation of quantum measure algebras', J. Math. Phys. 47 (2006) 092103",
+   "what_it_proves": "Quantum measure algebras via sheaves over Boolean localisations.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "23",
+   "read_trail": [
+    "notes/knowledge_map/references.bib",
+    "notes/literature_review/literature_review_body.tex",
+    "notes/literature_review/references.bib",
+    "notes/open_questions/kits/references_oml.bib",
+    "notes/programme/program_overview.md",
+    "notes/reading_directions/general_reading/reading_directions_body.tex",
+    "notes/unsorted/README.md",
+    "notes/unsorted/foundations/ce_nonderivability/ce_taxonomy.json"
+   ]
+  }
+ ]
+}

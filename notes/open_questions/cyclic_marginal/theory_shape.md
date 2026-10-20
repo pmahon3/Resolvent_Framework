@@ -406,8 +406,23 @@ It also STRENGTHENS NT1 to every non-principal p, not just lacunary ones:
   forcing lemma, uniqueness of the triangle amalgam and the holonomy statement were not found in
   §3, but folklore risk is HIGH (sums are classical). Still owed: a targeted pass on Frolík/Kunen
   p-sums, Blass on finite-to-one maps, and the model-theory reading (x₀ algebraic over x₁).
-- **Status.** HAND, unverified. Lean target: pure filter reasoning, close to `TriangleCyclic`'s
-  E3 and fibre infrastructure. It stays out of the note until checked.
+- **Status: LEAN-CHECKED 2026-10-19** (`formalization/staging/CompositionLaw.lean`; 0 sorry;
+  axioms propext, Classical.choice, Quot.sound).
+  - `glue_unique`: a forward sum window on (x₀,x₁) plus any sum window on (x₁,x₂) means every
+    gluing equals the natural three-step ultrafilter.
+  - `glue_proj02`: its (x₀,x₂) projection is the composite.
+  - `triangle_glues_iff`: with consistent marginals, a third window glues iff it equals the
+    composite.
+  - The loop/holonomy extension (induction along a forward path) is still hand.
+- **Prior art (second pass, sonnet, about 8 searches, snippets only).**
+  - Forcing lemma: NOT FOUND, folklore risk high. It follows from Frolík's sum calculus (Bull. AMS
+    73 (1967) 87–91), Goldberg's pair lemma and the ultrapower-composition picture. A triple
+    version may sit in Blass (Trans. AMS 1977) or in the Rudin–Frolík tree theory.
+  - Holonomy corollary: NOT FOUND. Its special cases look classical (sums by definition, ⊗
+    non-commutativity, composing bijections). **Any novelty is in the unification, not in the
+    cases.**
+  - Unread: Frolík 1967, Blass 1973/1977, Katětov 'Products of filters' (CMUC 9, 1968),
+    Hindman–Strauss on sums and Rudin–Frolík.
 
 **Scope.** This is about flatness (amalgamation), not about whether the carrier extends. It covers
 only forward types. Non-forward types, such as a reversed product on a window oriented the other

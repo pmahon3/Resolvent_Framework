@@ -322,7 +322,10 @@ clock with finite fibres.
   physical instance.
 - So **a twist in the answers can be induced by a twist in the clocks.**
 - Prior art to check: Čech cohomology of contextuality (Abramsky–Mansfield–Barbosa) and the
-  "synchronisation gap" in rotating frames (Rizzi–Ruggiero). Both are memory, unverified.
+  "synchronisation gap" in rotating frames (Rizzi–Ruggiero). **Update 2026-10-20:** clock
+  holonomy is OWNED in relativity: Minguzzi, arXiv:gr-qc/0501055, the holonomy of the simultaneity
+  connection, whose curvature is vorticity (`case_relativistic_triangle.md`, check 1). Ours, if
+  anything, is the step from clock holonomy to answer-level pointlessness.
 
 ## 13. The three-part triangle theorem (2026-10-20)
 

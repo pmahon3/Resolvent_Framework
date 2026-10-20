@@ -1056,6 +1056,32 @@
     "verified": "search",
     "detail": "abstract/search level only"
    }
+  },
+  {
+   "id": "own.aerts_lizards",
+   "name": "Bell-type claim on the lizard rock-paper-scissors data",
+   "status": "NEIGHBOUR (must-cite for Part II lizards)",
+   "one_line": "Aerts et al. 2014 report CHSH and marginal-law violations from model-derived pairwise win/lose probabilities (Bleay-Comendant-Sinervo 2007 data) and a Hilbert-space model. Not a loop-of-views feasibility test; marginal violation = direct influence in CbD terms.",
+   "detail": "ecology_contextuality_sweep_2026-10-20.md",
+   "owned_by": {
+    "cite": "Aerts-Broekaert-Czachor-Kuna-Sinervo-Sozzo, Ecol. Model. 281 (2014) 38-51, arXiv:1212.0109",
+    "region": "quantum/contextual claims about the lizard cycle",
+    "verified": "abstract (me); full text (scout)",
+    "detail": ""
+   }
+  },
+  {
+   "id": "own.heteroclinic_extinction",
+   "name": "Finite populations cut off the deepening heteroclinic cycle",
+   "status": "OWNS (in words) the case-1b idealisation",
+   "one_line": "Species approach zero more closely each cycle in the deterministic May-Leonard model; discrete populations reach zero; noise gives finite recurrence times.",
+   "detail": "case_heteroclinic_depths.md; ecology sweep",
+   "owned_by": {
+    "cite": "Barendregt-Thomas, J. Math. Biol. 2023, arXiv:2111.05902; Stone-Holmes, SIAM J. Appl. Math. 50 (1990) 726-743",
+    "region": "noise/demographic stochasticity near heteroclinic cycles",
+    "verified": "scout full text (B-T); abstract (S-H)",
+    "detail": ""
+   }
   }
  ]
 }

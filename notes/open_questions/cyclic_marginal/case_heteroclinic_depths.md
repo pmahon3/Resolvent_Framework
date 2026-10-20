@@ -21,7 +21,9 @@ Nothing here is a result. It is a companion to `case_heteroclinic_averages.md`.
   so n_i is unbounded along the orbit. **memory/standard; check against Gaunersdorfer**
 - **Honest distance, and the point of the case.** Real populations are finite. A species dipping
   many decades goes extinct, and noise near heteroclinic cycles stops the slowing-down
-  (memory: Stone–Holmes 1990; unverified). So **the unbounded depth IS the idealisation**: the
+  (Stone–Holmes 1990; Barendregt–Thomas, *J. Math. Biol.* 2023, which says each species gets
+  "closer to zero with each cycle" and that discrete populations reach zero; see the ecology
+  sweep, 2026-10-20). So **the unbounded depth IS the idealisation**: the
   continuum-abundance, infinite-population model. This is WHY.md's question 3 in a concrete form:
   does that idealisation hide a contradiction among the stations?
 

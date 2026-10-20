@@ -100,3 +100,29 @@ If 1 fails, record the owner and stop. If 2 fails everywhere, the thrust stays t
 - One scout at a time (memory: `feedback_token_economy`).
 - Each block ends with a verdict line per lead: owns / neighbour / open, with verification level.
 - Stop early if A or B finds an outright owner. Record it in `owned_regions`.
+
+## Block D results (2026-10-20; `verification/view_thrust_block_d.py`, exact closures, least-squares values)
+
+| Family (triangle unless stated) | R relations | S relata | J = R + S | F pair views | Outcome |
+|---|---|---|---|---|---|
+| clock core mod 2 (relation = difference) | blind | blind | blind (14) | **sees −½** | supports |
+| clock core mod 3 | blind | blind | blind (38) | **sees −2/3** | supports |
+| Condorcet scores mod 4, +1 steps (relation = comparison) | blind | blind | blind (146, *not* a union) | sees (mod-2 transport: {all same parity}, −½) | supports |
+| same, relation = difference | blind | blind | blind (86) | sees (transport) | supports |
+| Specker all-differ, n = 2 (relation = equality) | blind | blind | blind (14) | **sees −½** | supports (non-clock) |
+| noisy Specker (P(differ) = 0.9) | blind | blind | blind | **sees −0.35** | supports (strictly probabilistic) |
+| C4 parity (ring) | blind | blind | blind | blind | irrelevant (rings are blind to pair views) |
+| control: mod 3, +1,+1,+1 (holonomy 0, a world exists) | — | — | — | min 0 | control ok |
+
+**Readings.**
+- **The thrust survives every triangle family tested.** That includes a non-gauge, strictly
+  probabilistic one (noisy Specker) and the order-type Condorcet family with comparison relations.
+  Relations, relata and their combination are blind; joint pair views see.
+- **The union-class lemma is not the general reason.** With comparison relations J is genuinely
+  larger than the union (146 sets) and is still blind. Why J stays blind in general is OPEN. It is
+  the next mathematical question if the thrust proceeds.
+- **The hierarchy is strict:** J ⊊ F (all of the above), and F ⊊ larger views. On rings and on the
+  Lean staircase over ℕ, pair views are blind while a view of the whole sees everything. Each level
+  of joint viewing sees more.
+
+**Decision-rule status:** block D does not stop the thrust. Next: block A (mathematical prior art).

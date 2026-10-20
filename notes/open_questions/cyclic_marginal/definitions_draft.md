@@ -641,3 +641,33 @@ needed before any claim.
   - (a) the minimal hiding alphabet: 4 by search, with 3×3×4 sampled only;
   - (b) which families hide;
   - (c) the construction-depth version.
+
+## 17. Pinned question (user, 2026-10-20): does the twist make separating syntactic and semantic requirements for truth impossible? ⟦reading; owned ingredients flagged⟧
+
+**Short answer.** They can still be defined separately. What fails is their *agreement*, and the
+twist locates the disagreement exactly.
+- **Syntactic side:** coherence, i.e. no contradiction derivable from the answers using the
+  connectives one is allowed (here "not" and "either one" on askable questions; additivity, no
+  Dutch book).
+- **Semantic side:** a model, i.e. a world (point or ideal point) making the answers true
+  compositionally.
+- **Classically they coincide (completeness, Gödel 1930).** That coincidence depends on every "and"
+  being askable. In a partial logic it can fail. Kochen–Specker partial Boolean algebras and
+  Abramsky–Barbosa's logic of contextuality own this in the finite / quantum setting.
+- **The twist is the witness of non-coincidence.** A pointless coherent state is syntactically
+  impeccable and semantically empty. The failure sits at the conjunction that cannot be formed:
+  truth stops being compositional exactly where "A and B" is not a question.
+- **The classification sharpens it:**
+  - visible twist (Tv): syntax catches the semantic failure (some askable question gets a negative
+    value);
+  - hidden twist (Th): the semantic failure is *invisible to syntax*;
+  - world (W): they agree.
+- **Today's results say where they part:**
+  - yes/no answers: only with infinitely many values (Lean);
+  - probabilities: already at 4 values on a triangle (§16);
+  - relations-only questions: blind even where joint views see (§14).
+- **So:** separation is possible; *alignment* is what can be lost. The twist forces a choice
+  between keeping every locally sanctioned truth (coherence) and keeping compositional truth (a
+  world).
+- **Prior art to check:** Tarski's compositional truth vs partial logics; Kochen–Specker; the
+  programme's earlier Paper I note on CE non-derivability (completeness failures for coherence).

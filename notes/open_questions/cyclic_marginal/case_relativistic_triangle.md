@@ -242,3 +242,50 @@ step later" view, read with a translation-invariant average, expose the step?**
 2. Prior-art pass on later literature on "Gudder's problem / additivity of the integral on
    σ-classes" (Dravecký–Šipoš 1980, Ovchinnikov, Pták–Pulmannová book) for the two-sided integer
    case.
+
+## Check 4b: prior art settled the difference part, and (a) a first hand attempt (2026-10-20)
+
+**(b) result (scout + primary source).** Dravecký–Šipoš 1980, Example 6 (`dravecky_sipos_1980_additivity_gudder_integral.pdf`,
+p. 301, read by me from the page image):
+- If all non-empty preimages of f, g, f + g pairwise meet, then A_f ∪ A_g ∪ A_{f+g} is already a
+  σ-class.
+- A Dirac pair (α for f and g, β for f + g) is then a two-valued σ-additive state at an impossible
+  triple.
+- On ℤ² with f = x₁, g = x₂ the hypothesis holds: (x, y − x) meets both. So **the difference part
+  of Z₁ is hidden, and this is OWNED** (D–Š 1980; it is also the example for Navara's condition
+  (iii)).
+- **Process failure.** This was already in our taxonomy (`own.dravecky_sipos_flight_subcarrier`,
+  audit 2026-10-17). I missed it in the shelf-first check. The taxonomy entry states the real
+  content: *extension to the full triangle carrier*, which D–Š's union class lacks.
+- Shelved as well: Navara 1989 survey (`navara_1989_integration_generalized_measure_spaces.pdf`).
+
+**The residual question, now sharp (Z₁-full).** Does the invariant-mean pre-state
+Λ(g) = λ(f₀₁(s,s) + f₁₂(s,s) + f₂₀(s,s+1)) stay ≥ 0 on the **full** triangle carrier D₃ over ℤ³?
+D₃ includes pair events in absolute positions, whose intersections across views D–Š's class
+cannot form. This is the probabilistic twin of the Lean two-valued triangle theorem.
+
+**(a) Hand attempt: Navara's witness is our E\*.** ⟦hand; case check done⟧
+- Navara's set K(a,b) = (u<a ∧ v<b) ∪ (u<a ∧ u+v ≥ a+b) ∪ (v<b ∧ u+v ≥ a+b) has the linear identity
+  **1_K = 1{u<a} + 1{v<b} − 1{u+v < a+b}**. This is Navara 1984's measure equation as a function
+  identity; I checked it in four cases. So K always lies in the span.
+- At Z₁'s impossible point (u, v, u+v) = (0, 0, −1), the set K(0,0) gets **Λ = 0 + 0 − 1 = −1**.
+  So if K(0,0) were buildable, Z₁ would be visible, by Navara's own argument.
+- In clock coordinates, 1_{K(0,0)} = [x₁<x₀] + [x₂<x₁] − [x₂<x₀]: **the cyclic set E\***. Lean proves
+  it is not buildable over ℕ (`estar_not_mem`). Over ℤ the lift argument should carry over unchanged
+  (raise the lowest above the highest); hand, not checked line by line.
+- **So Navara's route to visibility is blocked exactly where the Lean triangle theorem says.** The
+  one witness the 1980s theory supplies is the unaskable cyclic question.
+
+**Status.**
+- Z₁-full remains open.
+- Evidence leans *hidden*: the canonical witness is unaskable, and the difference part is hidden
+  (D–Š).
+- A proof would need either a probabilistic extension theorem for D₃ (the twin of the Lean
+  construction) or a different buildable witness.
+- **Note:** Λ cannot be a mixture of two-valued D₃-states. Each two-valued component would need
+  overlap-consistent marginals, and shifts move ultrafilters. So any extension is genuinely
+  probabilistic.
+
+**What it says.** The 1980s additivity problem and the triangle's unaskable cyclic question are the
+same obstruction. Where expectations of sums fail to add (Gudder's problem), the failure is
+witnessed by the cyclic set, and the triangle cannot ask that set.

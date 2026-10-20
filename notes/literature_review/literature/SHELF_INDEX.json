@@ -9,7 +9,7 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 100,
+  "count": 107,
   "basis_counts": {
    "abstract": 35,
    "read": 51,
@@ -45,7 +45,8 @@
   "methodology_bridges": "Theory-building methodology (bridges).",
   "states": "State spaces.",
   "dynamics": "Dynamics and invariant states.",
-  "operational_boundary": "Statistics side (archived operational boundary)."
+  "operational_boundary": "Statistics side (archived operational boundary).",
+  "philosophy_perspectives": "Perspectives, relational facts, relations vs relata (structural realism, perspectival realism, RQM, Wigner's friend)."
  },
  "by_question": {
   "additivity_of_sums": [
@@ -80,6 +81,7 @@
   ],
   "clock_holonomy": [
    "dravecky_sipos_1980_additivity_gudder_integral.pdf",
+   "ghrist_cooperband_2025_obstructions_to_reality_torsors.pdf",
    "minguzzi_2005_simultaneity_holonomy.pdf",
    "rizzi_ruggiero_2003_sagnac_kinematical.pdf"
   ],
@@ -100,8 +102,11 @@
    "abramsky_barbosa_2025_duality_pBA_talk.pdf",
    "abramsky_barbosa_kishida_lal_mansfield_2016_possibilities_determine.pdf",
    "abramsky_brandenburger_2011.pdf",
+   "abramsky_et_al_2015_contextuality_cohomology_paradox.pdf",
    "abramsky_mansfield_barbosa_2011_cohomology_contextuality.pdf",
    "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf",
+   "bong_et_al_2020_local_friendliness_nogo.pdf",
+   "brukner_2018_nogo_observer_independent_facts.pdf",
    "caru_2017_cohomology_contextuality.pdf",
    "dzhafarov_kujala_2016_cbd_context_content.pdf",
    "dzhafarov_kujala_2017.pdf",
@@ -130,6 +135,7 @@
   ],
   "ecology_cases": [
    "bleay_comendant_sinervo_2007_fds_field.pdf",
+   "livson_pritam_prokopenko_2026_condorcet_nonorientable_topology.pdf",
    "sinervo_lively_1996_rock_paper_scissors_nature.pdf"
   ],
   "finitely_additive_charges": [
@@ -158,17 +164,21 @@
    "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
   ],
   "local_to_global": [
+   "abramsky_et_al_2015_contextuality_cohomology_paradox.pdf",
    "abramsky_mansfield_barbosa_2011_cohomology_contextuality.pdf",
+   "adlam_rovelli_2023_information_cross_perspective_links.pdf",
    "biesel_2024.pdf",
    "caru_2017_cohomology_contextuality.pdf",
    "casanova_kohlas_zaffalon_2022.pdf",
    "depiro_kim_millar_2005_hyperdefinable_group_configuration.pdf",
    "epperson_zafiris_2013/",
+   "ghrist_cooperband_2025_obstructions_to_reality_torsors.pdf",
    "goodrick_2009_amalgamation_slides_banff.pdf",
    "goodrick_kim_kolesnikov_2013_amalgamation_functors_boundary.pdf",
    "goodrick_kim_kolesnikov_2015_type_amalgamation_polygroupoids.pdf",
    "goodrick_kim_kolesnikov_2017_homology_types_hurewicz.pdf",
    "hrushovski_2012_stable_group_theory_approximate_subgroups.pdf",
+   "livson_pritam_prokopenko_2026_condorcet_nonorientable_topology.pdf",
    "zafiris_2006.pdf"
   ],
   "loop_count_witnesses": [
@@ -205,6 +215,12 @@
   ],
   "philosophy_infinity": [
    "linnebo_shapiro_2019.pdf"
+  ],
+  "philosophy_perspectives": [
+   "adlam_rovelli_2023_information_cross_perspective_links.pdf",
+   "bong_et_al_2020_local_friendliness_nogo.pdf",
+   "brukner_2018_nogo_observer_independent_facts.pdf",
+   "dibiagio_rovelli_2021_rqm_facts_not_states.pdf"
   ],
   "pointfree_measure": [
    "coquand_spitters_2009.pdf",
@@ -347,6 +363,23 @@
    "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
+   "file": "abramsky_et_al_2015_contextuality_cohomology_paradox.pdf",
+   "citation": "Abramsky, Barbosa, Kishida, Lal, Mansfield, 'Contextuality, cohomology and paradox', CSL 2015, arXiv:1502.03097",
+   "what_it_proves": "Logical paradoxes (e.g. liar cycles) and contextuality as cohomological obstructions to global sections.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "contextuality_finite",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
+   ]
+  },
+  {
    "file": "abramsky_mansfield_barbosa_2011_cohomology_contextuality.pdf",
    "citation": "Abramsky, Mansfield, Barbosa, 'The cohomology of non-locality and contextuality', QPL 2011, EPTCS 95, arXiv:1111.3620",
    "what_it_proves": "Cech cohomology obstructions to global sections for empirical models; cover-dependence of the obstruction.",
@@ -356,6 +389,23 @@
    "questions": [
     "contextuality_finite",
     "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
+   ]
+  },
+  {
+   "file": "adlam_rovelli_2023_information_cross_perspective_links.pdf",
+   "citation": "Adlam & Rovelli, 'Information is physical: cross-perspective links in relational quantum mechanics', Phil. Phys. 1(1) (2023), arXiv:2203.13342",
+   "what_it_proves": "Adds a 'cross-perspective links' postulate to RQM so that perspectives agree when compared; imposes consistency rather than diagnosing where inconsistency shows.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "local_to_global",
+    "philosophy_perspectives"
    ],
    "text_layer": true,
    "pages": "",
@@ -529,6 +579,23 @@
    ]
   },
   {
+   "file": "bong_et_al_2020_local_friendliness_nogo.pdf",
+   "citation": "Bong et al., 'A strong no-go theorem on the Wigner's friend paradox', Nat. Phys. 16 (2020) 1199, arXiv:1907.05607",
+   "what_it_proves": "'Local friendliness' no-go, experimentally tested; stronger than Bell; perspectives without absolute joint facts.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "philosophy_perspectives",
+    "contextuality_finite"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
+   ]
+  },
+  {
    "file": "botvinick_greenhouse_2025.pdf",
    "citation": "Botvinick-Greenhouse, Oprea, Maulik, Yang, 'Measure-theoretic time-delay embedding', J. Stat. Phys. 192 (2025) 171",
    "what_it_proves": "Delay embedding for measures (pushforward of invariant measures under delay maps).",
@@ -549,6 +616,23 @@
     "notes/knowledge_map/references.bib",
     "notes/literature_review/literature_review_body.tex",
     "notes/literature_review/references.bib"
+   ]
+  },
+  {
+   "file": "brukner_2018_nogo_observer_independent_facts.pdf",
+   "citation": "Brukner, 'A no-go theorem for observer-independent facts', Entropy 20 (2018) 350, arXiv:1804.00749",
+   "what_it_proves": "Wigner's-friend no-go: observers' facts cannot all be jointly observer-independent (Bell-type argument).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "philosophy_perspectives",
+    "contextuality_finite"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
    ]
   },
   {
@@ -751,6 +835,22 @@
     "notes/covered_leads/two_species_underdetermination_kill.md",
     "notes/knowledge_map/knowledge_map_body.tex",
     "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json"
+   ]
+  },
+  {
+   "file": "dibiagio_rovelli_2021_rqm_facts_not_states.pdf",
+   "citation": "Di Biagio & Rovelli, 'Relational quantum mechanics is about facts, not states: a reply to Pienaar and Brukner', arXiv:2110.03610",
+   "what_it_proves": "Relative facts vs 'stable facts' (jointly relative to a third system); reply to the objection that there is no absolute way to compare perspectives.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "philosophy_perspectives"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
    ]
   },
   {
@@ -1061,6 +1161,23 @@
     "notes/open_questions/kits/references_oml.bib",
     "notes/open_questions/sigma_essential/sigma_essential_load_bearing_facts.md",
     "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md"
+   ]
+  },
+  {
+   "file": "ghrist_cooperband_2025_obstructions_to_reality_torsors.pdf",
+   "citation": "Ghrist & Cooperband, 'Obstructions to reality: torsors & visual paradox', arXiv:2507.01226",
+   "what_it_proves": "Locally consistent relations with an H^1 (torsor) obstruction to globalizing; impossible figures (Penrose line) via torsors.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "local_to_global",
+    "clock_holonomy"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
    ]
   },
   {
@@ -1547,6 +1664,23 @@
     "notes/literature_review/references.bib",
     "notes/unsorted/finite_sample/operational_boundary_theorem/theorem_spec.md",
     "papers/reconstruction/notes/commensurability_classification_seed.md"
+   ]
+  },
+  {
+   "file": "livson_pritam_prokopenko_2026_condorcet_nonorientable_topology.pdf",
+   "citation": "Livson, Pritam, Prokopenko, 'The non-orientable topology of Condorcet's paradox', arXiv:2601.07283 (2026)",
+   "what_it_proves": "Topological model of preference cycles (non-orientability); claims not yet applied to Condorcet aggregation in this way.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "ecology_cases",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
    ]
   },
   {

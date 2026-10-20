@@ -157,3 +157,33 @@ abstract level.
 
 **Next:** block B (philosophy: structural realism, perspectival realism, relational quantum
 mechanics). That is where condition 1(iii), the translation, is most likely owned.
+
+## Block B results (2026-10-20; sonnet scout, 11 searches, abstract/secondary level; 7 arXiv PDFs shelved)
+
+| Lead | Verdict |
+|---|---|
+| Structural realism (Esfeld–Lam: relations and relata on a par; Ladyman–Ross: real patterns; the "relations without relata" objection) | NEIGHBOUR. The debate is about ontological *priority*, not about which questions *detect* incoherence |
+| Perspectival realism (Massimi 2022; Giere 2006) | NEIGHBOUR. Perspectives are epistemic and historical; inconsistent models are tolerated. Not a formal unit of consistency checking (secondary reading) |
+| Relational QM (Adlam–Rovelli cross-perspective links; Di Biagio–Rovelli), Wigner's friend (Brukner 2018; Bong et al. 2020) | NEIGHBOUR, closest in spirit: perspectives with no absolute joint facts, phrased as a no-go for absolute facts |
+| Contextuality philosophy (Abramsky et al. 2015 cohomology & paradox; Dzhafarov–Kujala) | NEIGHBOUR. Owns the local-vs-global obstruction formally, with no relations/relata/view trichotomy |
+| Wimsatt, Mitchell, Batterman | not retrieved (gap) |
+| Condorcet (Livson–Pritam–Prokopenko 2026; Ghrist–Cooperband torsors) | NEIGHBOUR: topological obstructions to globalising preferences or relations |
+
+**Verdict: the reading is NOT found articulated.** "The joint local view, not relations, relata or
+their Boolean combinations, is where incoherence of pairwise-consistent data becomes detectable" was
+not found. Its ingredients are owned by different communities (formal: Abramsky et al.; physics:
+RQM and Wigner's friend; metaphysics: Esfeld–Lam; epistemology: Massimi).
+
+**What our cases add, if they hold:**
+- a formal blindness witness;
+- the closure statement (no not/either-one combination of relation-only and relatum-only questions
+  detects it; one joint view does);
+- a question-and-answer vocabulary that is neutral between the structural-realist and perspectivist
+  camps.
+
+**Owed before claiming:** a hostile read of the primary texts (Massimi's chapters on perspectives
+and pluralism; French on relata; Pienaar; Di Biagio–Rovelli). Also check whether the closure
+statement follows directly from the sheaf formulation.
+
+**Decision-rule condition 1: MET (provisionally)** for the translation and the comparison and
+finite-quotient pieces. Next is block C (applied footholds).

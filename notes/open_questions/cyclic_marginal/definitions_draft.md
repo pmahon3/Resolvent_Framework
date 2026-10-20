@@ -549,3 +549,28 @@ needed before any claim.
   problem for charges).
 - **Finite rank:** Sherali–Adams / k-consistency (owned background; Wainwright–Jordan; Kolaitis–
   Vardi; Abramsky–Gottlob–Kolaitis k-robust satisfiability).
+
+**P1 result (2026-10-20; `verification/ring_rank_sa3.py`, LP).**
+- **Method.** A state on D_3 restricts to consistent laws on every 3-subset (Sherali–Adams level 3).
+  So SA₃ infeasibility means visible at rank ≤ 3.
+- **Pair views on rings are blind:** D_2 is the union of the pair algebras, so every consistent
+  family is a state there.
+- **Result: P1 HOLDS.** Rank is exactly 3 for:
+  - C4 parity (P = 1, 0.85, 0.8, 0.76);
+  - C5 all-differ (P = 1, 0.9, 0.85, 0.81).
+  Controls inside the local range (C4: P ≤ 0.75 by CHSH; C5: P ≤ 0.8 by the 5-cycle bound) are
+  SA₃-feasible, as they should be.
+- **Ownership.** "Rank ≤ 3 on rings" is the treewidth bound: Sherali–Adams level tw + 1 is exact,
+  and cycles have treewidth 2 (Wainwright–Jordan; owned). So P1 confirms the definition behaves
+  correctly; it is not a new fact.
+- **Sharper reading of the needle.**
+  - On *finite* chordal graphs (the triangle), the Dynkin carrier D_2 does **better** than the
+    local-consistency bound. Its cross-pair constructions see every twist at rank 2, where SA₂
+    (the local polytope) does not.
+  - At **infinity**, for order twists, that advantage is lost: the rank falls back to the
+    treewidth bound 3 (Lean staircase).
+  - Gauge twists keep the advantage through finite quotients.
+  - **Candidate restatement:** *idealisation removes the question carrier's advantage over local
+    consistency exactly for twists that no finite quotient preserves.*
+  - Unproved beyond instances. Prior art: Sherali–Adams for Dynkin systems was not found (block A
+    scout).

@@ -115,8 +115,8 @@ A pre-class sits outside the table:
 
 - **Linearly local:** the indicator is a *sum* of local indicators, i.e. a 0/1 element of the span V.
 - **Constructively local:** the question is *built* by "not" and "either one", i.e. lies in D.
-- Always D ⊆ V₀₁. **Candidate H5 (gap theorem):** twists can hide exactly in the gap V₀₁ \ D, i.e.
-  in information that *adds up* from local pieces but cannot be *built* from them.
+- Always D ⊆ V₀₁. **Candidate H5 (unnamed until prior art is checked):** twists hide in the gap
+  V₀₁ \ D, i.e. in information that *adds up* from local pieces but cannot be *built* from them.
 
 **Data** (A = 2, D by direct closure; `verification/gap_linear_vs_constructive.py`):
 
@@ -130,8 +130,10 @@ A pre-class sits outside the table:
 
 - Also: triangle at A = 3, gap 0 (machine count 15,914 = 15,914).
 - The infinite triangle has a nonempty gap: E\* ∈ V₀₁ \ D (Lean).
-- **The gap appears exactly on the non-chordal graph.** That is where twists hide in the finite
-  regime. The definitions *predicted* the finite chordal line instead of only recording it.
+- **Consistent with the finite chordal line:** the gap appears on the one non-chordal graph tested
+  (C4) and not on the chordal ones. It is ONE non-chordal datum. The idea was formed after knowing
+  that C4 hides twists, and the hiding status of the diamond and K4 is itself only sampled. A test,
+  not a prediction.
 - The C4 gap sets are half-cubes (8 of 16 points), selected by how many of the four edges disagree
   (0 or 2, or 2 or 4). They are counts round the loop, the 4-cycle analogue of the cyclic question.
 - **H3, sharpened (candidate):** "global information is strange" = information that is a sum of
@@ -139,6 +141,41 @@ A pre-class sits outside the table:
 - **Still to connect.** The finite triangle being Tv-only also needed the extreme rays of the
   non-negative cone to be 0/1 (proved at A = 3). The full condition is probably: no gap AND 0/1
   extreme rays. Status: evidence on five small graphs plus two machine facts. Not a theorem.
+
+## 9b. The solid piece, and the C4 mechanism (2026-10-19)
+
+**Lemma (Farkas, finite Ω; hand, short).**
+- A probability state μ on D is a mixture of points iff Λ_μ(g) ≥ 0 for every non-negative g in the
+  span V.
+- Every extreme ray of V ∩ ℝ₊^Ω is either a multiple of a 0/1 set (which lies in D or in the gap
+  V₀₁ \ D) or a non-binary ray.
+- μ ≥ 0 on D automatically, so **a hidden probabilistic twist is always witnessed by a gap set or
+  by a non-binary extreme ray.**
+- Hence **no gap + all-0/1 extreme rays ⟹ every state is a mixture of points.** That is what the
+  A = 3 triangle proof used implicitly.
+
+**C4 check (A = 2, `verification/c4_mechanism_check.py`).**
+- The parity witness (≠, ≠, =, ≠) has forced value ≥ 0 on every buildable set: a hidden twist.
+- On the 8 gap sets its values are −0.5, 0.5 (six times) and 1.5.
+- All 24 extreme rays are 0/1: 16 in D and 8 in the gap.
+- **So on C4 the gap IS the mechanism.** The twist is witnessed only by a gap set, not by a
+  non-binary ray.
+
+**Open.**
+- Do non-binary extreme rays ever matter?
+- Does a nonempty gap always carry a negative state?
+- More data: a non-chordal graph containing a triangle (the house), and a 5-vertex chordal graph.
+  These need anchor-expansion or MILP enumeration; check memory first.
+
+**Regimes.**
+- With finitely many values, two-valued states are always points, so the C4 gap matters only
+  *probabilistically*.
+- E\* in the infinite triangle's gap is the *two-valued* phenomenon.
+- H3/H5 must state which regime each claim covers.
+
+**Prior art, shelf first.** Navara 1984 ("…the additivity problem") and Dravecký–Šipoš ("On the
+additivity of Gudder integral") are about exactly how sums of observables relate to the logic. Grep
+them for statements relating 0/1 elements of the span to the σ-class before claiming anything.
 
 ## 10. Philosophical horizon (only after the classification earns its keep)
 

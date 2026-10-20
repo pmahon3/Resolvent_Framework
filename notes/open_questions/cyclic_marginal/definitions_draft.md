@@ -192,6 +192,23 @@ A pre-class sits outside the table:
   facts that cannot be assembled from buildable pieces with non-negative weights. Loop counts are
   the examples so far. The gap is the 0/1 special case. Status: 8 graphs at A = 2.
 
+**Prior art, web pass (2026-10-19): the finite probabilistic side is largely OWNED.**
+- **Witnesses.** The loop counts are the tight n-cycle noncontextuality inequalities
+  Σ γᵢ⟨XᵢXᵢ₊₁⟩ ≤ n − 2, with an odd number of γᵢ = −1 (Araújo et al. 2013, Thm 1, read from the
+  primary source). C5's g = 4 − #disagreements is the all-γ = −1 case; C4's is CHSH.
+- **Hidden vs visible.** A state on D respects disjoint unions across contexts, so it satisfies the
+  single-copy **exclusivity principle / local orthogonality** (Cabello; Fritz et al. 2013;
+  Abramsky–Barbosa 2021, logical exclusivity). Known facts match ours: the PR box on C4 satisfies it
+  (for two parties LO = no-signalling), and Specker's triangle violates it. **Search level only.**
+- **Not yet checked:** whether "state on D" is *equivalent* to single-copy exclusivity, or strictly
+  stronger. If equivalent, the finite Th/Tv split is owned outright.
+- **Live lead:** Choudhary–Barbosa (arXiv:2411.09773) use **Ramsey theory** for multi-copy
+  violations by n-cycle PR boxes. Our infinite side uses ultrafilter Ramsey on the triangle. Read
+  it before going further.
+- **What survives, provisionally:** the infinite two-valued side (E\*, pointlessness from
+  ultrafilters). The finite twists are the known contextuality ones, in this programme's
+  vocabulary.
+
 **Regimes.**
 - With finitely many values, two-valued states are always points, so the C4 gap matters only
   *probabilistically*.

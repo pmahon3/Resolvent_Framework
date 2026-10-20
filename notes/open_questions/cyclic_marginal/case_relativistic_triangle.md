@@ -66,3 +66,38 @@ This is owned physics and owned mathematics.
 ## Status
 
 Design only. Nothing here is a result.
+
+## Check 1, the physics (2026-10-20; search level unless noted)
+
+- **Clock holonomy is owned physics.**
+  - Einstein synchronisation is transitive round closed loops iff the observers' congruence has no
+    vorticity, i.e. is time-orthogonal (attributed to Landau–Lifshitz; book not checked).
+  - Minguzzi (arXiv:gr-qc/0501055) treats the failure as the **holonomy of the simultaneity
+    connection**, whose curvature is the vorticity. It can be non-zero in flat spacetime for a
+    rotating congruence.
+  - So `definitions_draft.md` §12's "clock holonomy" is OWNED in the relativistic setting. Cite
+    it; don't claim it.
+- **The Sagnac gap.** Slowly transporting a clock round a rotating disk, or Einstein-synchronising
+  along the rim, leaves a gap equal to the Sagnac time difference (Rizzi–Ruggiero–Serafini;
+  arXiv:gr-qc/0306128, gr-qc/0604118).
+  - **Factor unverified:** 2ωA/c² one-way vs 4ωA/c² round-trip difference. Check the primary
+    source before quoting a number.
+- **A natural instance with real numbers: the rotating Earth.**
+  - Einstein-synchronising clocks station by station round the equator does not close. The gap is
+    about 207 ns (memory: Ashby, *Living Rev. Relativ.* 2003, the GPS review; verify).
+  - GPS resolves it by **adopting a centre**: coordinate time of the Earth-centred, non-rotating
+    frame, with explicit Sagnac corrections.
+  - That is "order *with* a centre" chosen as an engineering fix, and the clearest lived contrast
+    to the theory's question.
+
+**Updated reading of the case.**
+- **(a) Definite readings:** owned (Minguzzi; GPS practice). There is no global Einstein time.
+- **(b) Answers-first, absolute settings unknown:** still the impossible-point question. The
+  overlaps agree (each pair synchronises fine), and the loop carries a real, measured holonomy.
+- **The new datum for the theory:** a natural system where asynchrony is *forced by law* (§12's
+  necessary condition holds), with a **clock cocycle** (offsets) whose holonomy is measurable.
+  Unlike cases 1–3, nothing supplies a shared clock unless someone imposes a centre.
+
+**Next check (2):** whether the answers-first reading (b) is the right state: unknown settings,
+evenly spread over ℝ. Compare with clock gauge in relativity. Then (3), the reduction to the
+difference plane over ℝ.

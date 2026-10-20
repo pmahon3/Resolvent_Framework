@@ -167,6 +167,31 @@ A pre-class sits outside the table:
 - More data: a non-chordal graph containing a triangle (the house), and a 5-vertex chordal graph.
   These need anchor-expansion or MILP enumeration; check memory first.
 
+**More data (2026-10-19, A = 2, exact; `verification/gap_five_vertex.py`, `c5_hidden_check.py`).**
+
+| Graph | dim V | \|D\| | \|V₀₁\| | Gap |
+|---|---|---|---|---|
+| P5 (chordal) | 10 | 76 | 76 | 0 |
+| fan, triangles 012/023/034 (chordal) | 13 | 234 | 234 | 0 |
+| C4 + pendant (non-chordal) | 11 | 110 | 118 | 8 |
+| house, C4 + roof (non-chordal) | 12 | 152 | 160 | 8 |
+| **C5 (non-chordal)** | 11 | 102 | 102 | **0** |
+
+**REVERSAL: "twists hide in the gap and only there" is FALSE.**
+- C5 has no gap, yet it hides a twist. Take every edge "differ", each value evenly. That is
+  non-negative on all 102 buildable sets (min 0), and no world exists (an odd loop can't
+  disagree everywhere).
+- By the Farkas lemma the witness must be non-binary, and it is: g = 4 − #disagreements round the
+  loop. Its values are 0, 2, 4, and the twist gives it −1.
+- **Same object, two parities.** On C4 the witness is a count round the loop that happens to be a
+  0/1 set (a gap set). On C5 the same kind of count takes three values. The mechanism is the
+  **loop count**: a sum of local facts that no single query sees. Whether it shows up as a gap
+  set is parity bookkeeping.
+- The gap also seems to persist when non-chordal C4 sits inside a bigger graph (pendant, house).
+- **Revised candidate (H5′, unnamed):** hidden twists are witnessed by non-negative sums of local
+  facts that cannot be assembled from buildable pieces with non-negative weights. Loop counts are
+  the examples so far. The gap is the 0/1 special case. Status: 8 graphs at A = 2.
+
 **Regimes.**
 - With finitely many values, two-valued states are always points, so the C4 gap matters only
   *probabilistically*.

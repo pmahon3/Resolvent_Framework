@@ -9,7 +9,12 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 89
+  "count": 89,
+  "basis_counts": {
+   "abstract": 30,
+   "read": 51,
+   "memory": 8
+  }
  },
  "questions": {
   "additivity_of_sums": "Does E[f]+E[g] = E[f+g] when f, g are not jointly measurable (Gudder's problem)? Programme: impossible points, case 4 core Z1.",
@@ -132,6 +137,7 @@
   ],
   "impossible_point": [
    "dravecky_sipos_1980_additivity_gudder_integral.pdf",
+   "maharam_1972.pdf",
    "navara_1984_two_valued_additivity.pdf",
    "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
   ],
@@ -142,7 +148,8 @@
    "zafiris_2006.pdf"
   ],
   "loop_count_witnesses": [
-   "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf"
+   "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf",
+   "maharam_1972.pdf"
   ],
   "marginal_problem": [
    "kellerer_1964_mass_theoretic_marginal_problems.pdf",
@@ -217,6 +224,7 @@
    "todorcevic_2000_chain_condition.pdf"
   ],
   "states": [
+   "ptak_1987.pdf",
    "shultz_1974.pdf"
   ]
  },
@@ -274,8 +282,8 @@
   {
    "file": "abramsky_brandenburger_2011.pdf",
    "citation": "Abramsky & Brandenburger, 'The sheaf-theoretic structure of non-locality and contextuality', New J. Phys. 13 (2011) 113036",
-   "what_it_proves": "Contextuality = failure of a global section of a presheaf of distributions over a measurement cover; hierarchy probabilistic / logical / strong.",
-   "summary_basis": "memory",
+   "what_it_proves": "Thm 8.1: factorizable hidden-variable realization iff global section; Thm 5.9: realization with negative probabilities iff no-signalling (signed extension automatic, cf. Maharam, Kellerer); Prop 5.8.",
+   "summary_basis": "read",
    "verdict_for_us": "owns",
    "programme_links": [],
    "questions": [
@@ -292,7 +300,8 @@
     "notes/knowledge_map/references.bib",
     "notes/literature_review/references.bib",
     "notes/open_questions/cyclic_marginal/case_three_body.md"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "amemiya_araki_1966_remark_piron.pdf",
@@ -400,10 +409,10 @@
   },
   {
    "file": "astbury_1981.pdf",
-   "citation": "Astbury, Ann. Probab. (1981) [JSTOR scan; title not extracted]",
-   "what_it_proves": "Scanned; content not summarised (cited in archived resolution-dependent-charges note).",
-   "summary_basis": "memory",
-   "verdict_for_us": "unread",
+   "citation": "Astbury, 'Order convergence of martingales in terms of countably additive and purely finitely additive martingales', Ann. Probab. 9(2) (1981) 266-275",
+   "what_it_proves": "Order convergence of martingales of semibounded variation in terms of countably additive and purely finitely additive parts.",
+   "summary_basis": "read",
+   "verdict_for_us": "lens",
    "programme_links": [],
    "questions": [
     "finitely_additive_charges"
@@ -412,13 +421,14 @@
    "pages": "10",
    "read_trail": [
     "notes/unsorted/README.md"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "biesel_2024.pdf",
    "citation": "Biesel, 'Sheaves of probability', arXiv:2401.01968 (2024)",
-   "what_it_proves": "When are credence functions of agents with overlapping evidence consistent? Sheaf condition for probability.",
-   "summary_basis": "abstract",
+   "what_it_proves": "Thm 4/11 (p.3): pairwise agreement (generalized conditionalization) + a common positive event => unique global P on the union of evidence sets; Ex 3: triangle of agents pairwise compatible, no global P (logically inconsistent); Thm 8: probability is a sheaf for FINITE covers, countable covers fail (Remark 7). Covers by events, not sub-algebras.",
+   "summary_basis": "read",
    "verdict_for_us": "neighbour",
    "programme_links": [],
    "questions": [
@@ -436,7 +446,8 @@
     "notes/programme/program_overview.md",
     "notes/reading_directions/general_reading/reading_directions_body.tex",
     "notes/unsorted/README.md"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "bleay_comendant_sinervo_2007_fds_field.pdf",
@@ -572,9 +583,9 @@
   {
    "file": "casanova_kohlas_zaffalon_2022.pdf",
    "citation": "Casanova, Kohlas, Zaffalon, 'Information algebras in the theory of imprecise probabilities', IJAR 142 (2022) 383-416",
-   "what_it_proves": "Imprecise probability (coherent sets of gambles) as an information algebra; marginalisation and combination.",
-   "summary_basis": "abstract",
-   "verdict_for_us": "neighbour",
+   "what_it_proves": "Coherent sets of gambles / lower previsions form a domain-free information algebra; Thm 9-10 (p.412): pairwise compatible + running intersection property (RIP) => jointly compatible; pairwise alone not sufficient. Triangle supports fail RIP.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
    "programme_links": [],
    "questions": [
     "local_to_global",
@@ -582,7 +593,8 @@
    ],
    "text_layer": true,
    "pages": "34",
-   "read_trail": []
+   "read_trail": [],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "comfort_negrepontis_1982/",
@@ -1047,9 +1059,9 @@
   {
    "file": "hhln_1711.03748_boolean_subalgebras.pdf",
    "citation": "Harding, Heunen, Lindenhovius, Navara, 'Boolean subalgebras of orthoalgebras', arXiv:1711.03748",
-   "what_it_proves": "Recovering an orthoalgebra from its poset of Boolean subalgebras.",
-   "summary_basis": "abstract",
-   "verdict_for_us": "neighbour",
+   "what_it_proves": "Theorem A: a proper orthoalgebra is recovered from its poset of Boolean subalgebras via 'directions'; hypergraph (Greechie-like) representation. No state extension theorem.",
+   "summary_basis": "read",
+   "verdict_for_us": "lens",
    "programme_links": [],
    "questions": [
     "carriers_logics",
@@ -1057,7 +1069,8 @@
    ],
    "text_layer": true,
    "pages": "43",
-   "read_trail": []
+   "read_trail": [],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "holland_1964_distributivity_perspectivity_tams.pdf",
@@ -1085,9 +1098,9 @@
   {
    "file": "horn_tarski_1948.pdf",
    "citation": "Horn & Tarski, 'Measures in Boolean algebras', TAMS 64 (1948)",
-   "what_it_proves": "Existence/extension of finitely additive measures on Boolean algebras; extension from subalgebras.",
-   "summary_basis": "abstract",
-   "verdict_for_us": "neighbour",
+   "what_it_proves": "Def 1.6/Thm 1.9: partial measure on S = multiset inequality condition; Thm 1.21-1.22 (p.477): a partial measure on S extends to any T containing S (0/1 to 0/1); p.478: extension values fill [f_i(x), f_e(x)]. Thm 1.10 (0/1 case) read from garbled OCR. Finite certificate for extending a state from a carrier to the algebra.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
    "programme_links": [],
    "questions": [
     "finitely_additive_charges",
@@ -1104,7 +1117,8 @@
     "notes/open_questions/kits/references_oml.bib",
     "notes/open_questions/oml_attack/CAMPAIGN_CHAIN.md",
     "notes/open_questions/oml_attack/CAMPAIGN_LOG.md"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "howson_2008.pdf",
@@ -1160,8 +1174,8 @@
   {
    "file": "keleti_preiss_2000_balls_dynkin.pdf",
    "citation": "Keleti & Preiss, 'The balls do not generate all Borel sets using complements and countable disjoint unions', Math. Proc. Camb. Phil. Soc. 128 (2000) 539-547",
-   "what_it_proves": "Template for proving non-membership in a generated Dynkin system.",
-   "summary_basis": "abstract",
+   "what_it_proves": "Lemma 12 (p.545): every E in the Dynkin system of caps is, off a cap-null sigma-ideal N, bounded by a NON-CROSSING family of spheres separating E from its complement; Lemma 10 (p.544): K-sets about crossing spheres meet non-null (needs infinite dimension). Template for non-membership: crossing + absorbing sigma-ideal + perturbation stability. Built on countable unions and a topological ideal: lens only for discrete Z^3.",
+   "summary_basis": "read",
    "verdict_for_us": "neighbour",
    "programme_links": [
     "own.keleti_preiss"
@@ -1174,13 +1188,14 @@
    "read_trail": [
     "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
     "notes/open_questions/delay_embedding/collision_vs_generation.md"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "kellerer_1964_mass_theoretic_marginal_problems.pdf",
-   "citation": "Kellerer, 'Masstheoretische Marginalprobleme', Math. Ann. 153 (1964)",
-   "what_it_proves": "Existence of measures with prescribed marginals (marginal problem).",
-   "summary_basis": "memory",
+   "citation": "Kellerer, 'Maßtheoretische Marginalprobleme', Math. Ann. 153 (1964) 168-198",
+   "what_it_proves": "Satz 2.2 (p.178): compatible marginals on a product always have a bounded SIGNED joint (inclusion-exclusion formula); fails in general for infinite index families (p.179). Positive case (sections 3-4) unread.",
+   "summary_basis": "read",
    "verdict_for_us": "owns",
    "programme_links": [],
    "questions": [
@@ -1197,14 +1212,15 @@
     "notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s10.md",
     "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
     "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "kelley_1959.pdf",
    "citation": "Kelley, 'Measures on Boolean algebras', Pacific J. Math. 9 (1959)",
-   "what_it_proves": "Intersection-number criterion for existence of strictly positive finitely additive measures.",
-   "summary_basis": "abstract",
-   "verdict_for_us": "neighbour",
+   "what_it_proves": "Prop 1/Thm 2 (p.1166): max over measures of inf m(B), B in S, equals the intersection number I(S); Thm 4: strictly positive measure iff A minus 0 is a countable union of classes with I>0. Consequence: three sets with empty triple intersection have I=2/3, so no charge gives all three probability 1.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
    "programme_links": [],
    "questions": [
     "finitely_additive_charges"
@@ -1217,7 +1233,8 @@
     "notes/literature_review/references.bib",
     "notes/open_questions/kits/oml_onboarding.tex",
     "notes/reading_directions/general_reading/reading_directions_body.tex"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf",
@@ -1308,13 +1325,17 @@
   {
    "file": "maharam_1972.pdf",
    "citation": "Maharam, 'Consistent extensions of linear functionals and of probability measures', Proc. 6th Berkeley Symp. (1972)",
-   "what_it_proves": "Extending compatible measures on a family of fields to a common measure (consistent extension).",
+   "what_it_proves": "Thm 2.1 (p.128) signed extension iff sum x_i = 0 implies sum phi(x_i) = 0. Example 2.1 (p.129) = THE TRIANGLE in linear form (L1, L2, L3 spanned by (1,0), (0,1), (1,1); consistent, no common extension). Thm 6.1 (p.137): positive extension iff sum x_i >= 0 implies sum phi(x_i) >= 0 (= our Farkas lemma, definitions_draft section 9b). Thm 7.1, Ex 7.2, Thm 8.1 (finitely additive + regular => countably additive).",
    "summary_basis": "read",
    "verdict_for_us": "owns",
-   "programme_links": [],
+   "programme_links": [
+    "definitions_draft.md section 9b (Farkas lemma = Maharam Thm 6.1(iv))"
+   ],
    "questions": [
-    "marginal_problem",
-    "coherence_extension"
+    "coherence_extension",
+    "impossible_point",
+    "loop_count_witnesses",
+    "marginal_problem"
    ],
    "text_layer": true,
    "pages": "21",
@@ -1327,7 +1348,8 @@
     "notes/knowledge_map/knowledge_map_body.tex",
     "notes/literature_review/literature_review_body.tex",
     "notes/literature_review/references.bib"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "marczewski_1951_almost_independent.pdf",
@@ -1443,9 +1465,9 @@
   },
   {
    "file": "measurable_closure_springer.pdf",
-   "citation": "'Measurable closure of a finitely-additive measure space: an analysis of spaces similar to Stone spaces', MDAI conference paper (Springer)",
-   "what_it_proves": "Measurable closure / Stone-like spaces for finitely additive measures.",
-   "summary_basis": "abstract",
+   "citation": "Fukuda, Okazaki, Honda, 'Measurable closure of a finitely-additive measure space', MDAI 2025, LNAI 15957, pp. 3-14",
+   "what_it_proves": "Fukuda-Okazaki-Honda, MDAI 2025 (LNAI 15957, pp.3-14): Thm 1, a bounded, fundamentally decomposable, separable finitely additive space with countable family has a 'measurable closure' (enlarged space where the measure is sigma-additive). Extends by enlarging the space, not to all subsets. Symbols lost in HTML print.",
+   "summary_basis": "read",
    "verdict_for_us": "neighbour",
    "programme_links": [],
    "questions": [
@@ -1461,7 +1483,8 @@
     "notes/conceptual_sketches/categorical/categorical_program.tex",
     "notes/conceptual_sketches/categorical/mathlib_gaps.md",
     "notes/covered_leads/boolean_factoring_sigma_essential_PARKED.md"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "minguzzi_2005_simultaneity_holonomy.pdf",
@@ -1578,9 +1601,9 @@
   {
    "file": "navara_1989_integration_generalized_measure_spaces.pdf",
    "citation": "Navara, 'Integration on generalized measure spaces', Acta Univ. Carolinae Math. Phys. 30 (1989) 121-124",
-   "what_it_proves": "Survey of Gudder's additivity problem: D-S first counterexample, NP83 bounded counterexample, Zerbe-Gudder finitely valued; Thm 2 (convex combos of two-valued) under boundedness, nowhere-dense closure, connected complement.",
-   "summary_basis": "abstract",
-   "verdict_for_us": "neighbour",
+   "what_it_proves": "Thm 1 (pp.122-3): f bounded with nowhere dense range, closure of range g bounded countable => additive (open: drop countability). Thm 2 (p.123): m a countable convex combination of states two-valued on B_f, B_g; (1) f or g bounded on one side, (2) closure H of {(f,g)} nowhere dense, (3) R^2 minus H connected => additive. Remark 3: P x Q example (P = 2^Z, Q rationals) with int f = 2, int g = 0, int(f+g) = 1 shows (3) needed. Z^2: (2),(3) hold, (1) fails (cf. D-S Ex 6). Open: extension of m to the sigma-algebra.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
    "programme_links": [
     "own.sigma_class_integral_additivity"
    ],
@@ -1598,7 +1621,8 @@
     "notes/covered_leads/epistemic_boundary_extension.md",
     "notes/covered_leads/l2_state_space_separation_seed.md",
     "notes/knowledge_map/knowledge_map_body.tex"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "navara_1992.pdf",
@@ -1720,13 +1744,14 @@
   },
   {
    "file": "ptak_1987.pdf",
-   "citation": "Pták, 1987 [scanned; title not extracted]",
-   "what_it_proves": "Scanned; cited in archived descent/inhabitation notes.",
-   "summary_basis": "memory",
-   "verdict_for_us": "unread",
+   "citation": "Pták, 'Exotic logics', Colloq. Math. 54(1) (1987)",
+   "what_it_proves": "Any logic embeds into an exotic logic (no states) with given centre; any logic with a two-valued state embeds into a 'nearly exotic' one with exactly one state.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
    "programme_links": [],
    "questions": [
-    "carriers_logics"
+    "carriers_logics",
+    "states"
    ],
    "text_layer": false,
    "pages": "15",
@@ -1739,7 +1764,8 @@
     "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
     "notes/open_questions/cyclic_marginal/order_without_a_centre.tex",
     "notes/open_questions/kits/oml_onboarding.tex"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "ptak_pulmannova_1994.pdf",
@@ -1843,8 +1869,8 @@
   {
    "file": "shultz_1974.pdf",
    "citation": "Shultz, 'A characterization of state spaces of orthomodular lattices', JCTA 17 (1974) 317-328",
-   "what_it_proves": "Every compact convex set is the state space of some OML.",
-   "summary_basis": "abstract",
+   "what_it_proves": "Every rational polytope is (affinely) the state space of a finite OML; every compact convex set is the state space of some OML (Greechie G-spaces, loops >= 5).",
+   "summary_basis": "read",
    "verdict_for_us": "neighbour",
    "programme_links": [],
    "questions": [
@@ -1860,7 +1886,8 @@
     "notes/open_questions/kits/references_oml.bib",
     "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md",
     "notes/reading_directions/general_reading/reading_directions_body.tex"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "simpson_2012.pdf",
@@ -1945,8 +1972,8 @@
   {
    "file": "tkadlec_1994.pdf",
    "citation": "Tkadlec, 'Boolean orthoposets - concreteness and orthocompleteness', Math. Bohemica 119 (1994) 123-128",
-   "what_it_proves": "Boolean orthoposets are concrete; orthocompleteness results.",
-   "summary_basis": "abstract",
+   "what_it_proves": "Prop 2.3: an orthoposet is concrete iff its two-valued states are full; Thm 2.6: every Boolean orthoposet is concrete; orthocomplete Boolean orthoposet = Boolean algebra.",
+   "summary_basis": "read",
    "verdict_for_us": "neighbour",
    "programme_links": [],
    "questions": [
@@ -1963,7 +1990,8 @@
     "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
     "notes/open_questions/kits/references_oml.bib",
     "notes/open_questions/oml_attack/linearization_E3_scout_verdict.md"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "tkadlec_1998_generalised_compatibility.pdf",
@@ -2059,9 +2087,9 @@
   {
    "file": "walley_1991.pdf",
    "citation": "Walley, 'Statistical Reasoning with Imprecise Probabilities' (Chapman & Hall 1991) [scanned]",
-   "what_it_proves": "Coherent lower previsions; natural extension.",
-   "summary_basis": "memory",
-   "verdict_for_us": "neighbour",
+   "what_it_proves": "Def 3.1.1 natural extension; Thm 3.1.2 (p.123): extension finite iff no sure loss; agrees with P iff P coherent; minimal coherent extension; Thm 3.1.4-3.1.5; p.123 example E(A and B) >= P(A)+P(B)-1 (sure-loss certificate for impossible triples). 6.6-6.7: non-conglomerability, marginal extension Thm 6.7.2. Ch 3.4 unread.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
    "programme_links": [],
    "questions": [
     "finitely_additive_charges",
@@ -2077,7 +2105,8 @@
     "notes/open_questions/kits/oml_onboarding.tex",
     "notes/open_questions/kits/references_oml.bib",
     "notes/reading_directions/general_reading/reading_directions_body.tex"
-   ]
+   ],
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
   },
   {
    "file": "wasserman_walley_review_1993.pdf",

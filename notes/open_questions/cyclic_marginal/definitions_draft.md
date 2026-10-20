@@ -156,6 +156,11 @@ A pre-class sits outside the table:
   by a non-binary extreme ray.**
 - Hence **no gap + all-0/1 extreme rays ⟹ every state is a mixture of points.** That is what the
   A = 3 triangle proof used implicitly.
+- **OWNED (verified 2026-10-20 from the primary source):** this is Maharam 1972, Thm 6.1(iv), p.137:
+  consistent positive maps are positively extendable iff Σxᵢ ≥ 0 implies Σφ(xᵢ) ≥ 0. Her Example 2.1
+  (p.129) is the triangle in linear form, with lines spanned by (1,0), (0,1), (1,1): consistent, yet no
+  extension. Horn–Tarski 1948 (Thm 1.21–1.22) is the Boolean-algebra version. Cite them. What remains
+  ours is the split of witnesses into gap sets and non-binary rays.
 
 **C4 check (A = 2, `verification/c4_mechanism_check.py`).**
 - The parity witness (≠, ≠, =, ≠) has forced value ≥ 0 on every buildable set: a hidden twist.

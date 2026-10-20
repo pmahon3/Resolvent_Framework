@@ -291,3 +291,20 @@ cannot form. This is the probabilistic twin of the Lean two-valued triangle theo
 **What it says.** The 1980s additivity problem and the triangle's unaskable cyclic question are the
 same obstruction. Where expectations of sums fail to add (Gudder's problem), the failure is
 witnessed by the (anti)cyclic set, and the triangle cannot ask that set.
+
+## Check 4c: shelf reading pass (2026-10-20)
+
+- **Maharam 1972, Example 2.1 (p.129, verified).** Three lines spanned by (1,0), (0,1), (1,1) carry
+  consistent linear maps (0, 0 and "x ↦ x") with no common extension. This is the impossible triple
+  in linear form, which is Gudder's problem at the level of linear maps.
+- **Maharam, Thm 6.1(iv) (verified).** A positive extension exists iff Σxᵢ ≥ 0 implies Σφ(xᵢ) ≥ 0.
+  This is the dual test for Z₁: Λ ≥ 0 on the carrier is the *carrier-level* version. Extension to
+  all of ℤ³ is impossible anyway, since Kelley's intersection number for three sets with empty
+  triple intersection is 2/3.
+- **Navara 1989, Remark 3:** a σ-additive state at an impossible triple on P × Q (P = 2^ℤ, Q
+  dense) shows hypothesis (3) of his Thm 2 is needed. On ℤ², hypotheses (2) and (3) hold and (1)
+  (one-sided bound) fails. That is D–Š Ex. 6 territory, already noted.
+- No shelf item settles Z₁-full (positivity on the full triangle carrier over ℤ³).
+- **Keleti–Preiss Lemma 12** (non-crossing boundary families off a σ-ideal) is the nearest template
+  for a *non-membership* proof. It is built on countable unions and a topological ideal, so it is a
+  lens for discrete ℤ³.

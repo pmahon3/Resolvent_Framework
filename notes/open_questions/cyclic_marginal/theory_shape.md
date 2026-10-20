@@ -344,3 +344,48 @@ being a finite sum of limits.
 - *Connection.* A translation-invariant density is an invariant mean of the shift, so this is ergodic
   Ramsey territory (Furstenberg correspondence, Hindman). Here the dynamics supplies the *answers*,
   not a symmetry of the questions, which re-links priority 3.
+
+## 2026-10-19: the composition law for forward window types ⟦HAND — unverified⟧
+
+**Definition.** A 2-type u on (x_i, x_j) is *forward* (over x_i) if:
+- it is fibred over x_i: T ∈ u ⟺ {a : T_a ∈ u_a} ∈ m_i, where m_i is the x_i-marginal and u_a an
+  ultrafilter on x_j; and
+- it contains a set on which each value of x_j comes from only finitely many values of x_i.
+
+Examples:
+- products p⊗q with x_j drawn after x_i (fibre q; restrict to x_j > x_i);
+- graphs of injective maps (fibre δ_{f(a)});
+- translations x_j = x_i + d with d ~ w drawn after (fibre a + w).
+
+**Composite.** (u₀₁∘u₁₂) is fibred over x₀ with fibre at a equal to the u₀₁_a-limit over b of
+u₁₂_b. Explicitly: S is in the fibre iff {b : S ∈ (u₁₂)_b} ∈ (u₀₁)_a.
+
+**Forcing lemma.** If u₀₁ and u₁₂ are forward, every amalgam U on ℕ³ of u₀₁ and u₁₂ projects to
+u₀₁∘u₁₂ on (x₀, x₂).
+- *Proof.* Take T in the composite and A = {a : T_a in the composite fibre} ∈ p.
+- For a ∈ A, set B_a = {b : T_a ∈ (u₁₂)_b} ∈ (u₀₁)_a.
+- X = {(a, b) : a ∈ A, b ∈ B_a}, intersected with the finite-to-one set, lies in u₀₁.
+- Set C_y = ⋂ {T_a : (a, y) ∈ X}. This is a finite intersection, so C_y ∈ (u₁₂)_y, and
+  Y = {(y, c) : c ∈ C_y} lies in u₁₂.
+- So X × Y forces (x₀, x₂) ∈ T.
+
+**Triangle theorem.** For forward u₀₁ and u₁₂, the triangle is flat ⟺ u₀₂ = u₀₁∘u₁₂. The
+natural iterated amalgam realises the composite.
+
+**Loops.** Around a loop cut at one window, with all other windows forward along the path, the loop
+is flat ⟺ the closing window equals the composite of the others. **The twist is the holonomy of
+composition.**
+
+**It unifies three earlier results:**
+- *products:* the orientation / directed-cycle criterion;
+- *bijections:* flat ⟺ trivial monodromy;
+- *sums:* flat ⟺ d₀₂ = d₀₁ + d₁₂.
+
+It also STRENGTHENS NT1 to every non-principal p, not just lacunary ones:
+- the forced (x₀, x₂) has fibres a + w, while a product has constant fibres;
+- equality would need a + w = a′ + w for two distinct a, a′;
+- translation has no fixed point on non-principal ultrafilters (Katětov).
+
+**Scope.** This is about flatness (amalgamation), not about whether the carrier extends. It covers
+only forward types. Non-forward types, such as a reversed product on a window oriented the other
+way, need each window to be read in its own direction; general 2-types that are neither are open.

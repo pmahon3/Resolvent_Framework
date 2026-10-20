@@ -810,6 +810,21 @@
     "conj.composition_law"
    ],
    "detail": "cyclic_marginal/case_heteroclinic_depths.md; finite case 1 = regime (i), owned"
+  },
+  {
+   "id": "gate.order_relational",
+   "category": "gate",
+   "investigation": "Relational carrier for ORDER: R_ord = Dynkin closure (on the 13 weak orders of (x0,x1,x2)) of the pairwise comparison events {xi<xj},{xi=xj},{xi>xj}. Family: no ties, P(x0<x1)=P(x1<x2)=P(x2<x0)=q. Random ranking exists iff 3q <= 2 (linear ordering polytope, owned). Question: for q > 2/3, is the forced comparison functional a state on R_ord (relational questions blind to the Condorcet cycle)? Relata counterpart: realise the same comparison laws with values (e.g. rotation x_{i+1}=x_i+1 mod n, q=(n-1)/n) on the full carrier D3, where finite triangles see twists.",
+   "outcomes": {
+    "(a) R_ord-state for some q > 2/3": "relations-vs-relata duality extends from gauge to order: comparison questions cannot see a Condorcet cycle that value (relata) questions can",
+    "(b) R_ord sees every q > 2/3": "duality is gauge-specific; for order, relations already see the cycle"
+   },
+   "fired": null,
+   "pre_registered": "2026-10-20, before running",
+   "affects": [
+    "definitions_draft section 14 candidate"
+   ],
+   "detail": "definitions_draft.md section 14; verification/order_relational_check.py"
   }
  ],
  "examples": [

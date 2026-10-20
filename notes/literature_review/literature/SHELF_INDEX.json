@@ -9,9 +9,9 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 89,
+  "count": 94,
   "basis_counts": {
-   "abstract": 30,
+   "abstract": 35,
    "read": 51,
    "memory": 8
   }
@@ -55,6 +55,7 @@
    "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
   ],
   "asynchrony": [
+   "dzhafarov_kujala_2016_cbd_context_content.pdf",
    "dzhafarov_kujala_2017.pdf",
    "minguzzi_2005_simultaneity_holonomy.pdf"
   ],
@@ -62,6 +63,7 @@
    "keleti_preiss_2000_balls_dynkin.pdf"
   ],
   "carriers_logics": [
+   "abramsky_barbosa_2021_logic_of_contextuality.pdf",
    "abramsky_barbosa_2025_duality_pBA_talk.pdf",
    "bunce_wright_1992.pdf",
    "ellerman_2010.pdf",
@@ -93,10 +95,14 @@
    "vickers_1989.pdf"
   ],
   "contextuality_finite": [
+   "abramsky_barbosa_2021_logic_of_contextuality.pdf",
    "abramsky_barbosa_2025_duality_pBA_talk.pdf",
    "abramsky_barbosa_kishida_lal_mansfield_2016_possibilities_determine.pdf",
    "abramsky_brandenburger_2011.pdf",
+   "abramsky_mansfield_barbosa_2011_cohomology_contextuality.pdf",
    "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf",
+   "caru_2017_cohomology_contextuality.pdf",
+   "dzhafarov_kujala_2016_cbd_context_content.pdf",
    "dzhafarov_kujala_2017.pdf",
    "hhln_1711.03748_boolean_subalgebras.pdf",
    "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf"
@@ -104,13 +110,16 @@
   "cycle_scenarios": [
    "abramsky_barbosa_kishida_lal_mansfield_2016_possibilities_determine.pdf",
    "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf",
+   "dzhafarov_kujala_cervantes_2020_cyclic_systems_cbd.pdf",
    "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf"
   ],
   "data_merging": [
    "biesel_2024.pdf"
   ],
   "data_tests": [
-   "dzhafarov_kujala_2017.pdf"
+   "dzhafarov_kujala_2016_cbd_context_content.pdf",
+   "dzhafarov_kujala_2017.pdf",
+   "dzhafarov_kujala_cervantes_2020_cyclic_systems_cbd.pdf"
   ],
   "delay_embedding": [
    "botvinick_greenhouse_2025.pdf"
@@ -142,7 +151,9 @@
    "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
   ],
   "local_to_global": [
+   "abramsky_mansfield_barbosa_2011_cohomology_contextuality.pdf",
    "biesel_2024.pdf",
+   "caru_2017_cohomology_contextuality.pdf",
    "casanova_kohlas_zaffalon_2022.pdf",
    "epperson_zafiris_2013/",
    "zafiris_2006.pdf"
@@ -230,6 +241,25 @@
  },
  "entries": [
   {
+   "file": "abramsky_barbosa_2021_logic_of_contextuality.pdf",
+   "citation": "Abramsky & Barbosa, 'The logic of contextuality', CSL 2021, LIPIcs 183, arXiv:2011.03064",
+   "what_it_proves": "Partial Boolean algebras; logical exclusivity principle; Specker's principle (pairwise compatibility implies global); the triangle is its failure.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "own.exclusivity_principle"
+   ],
+   "questions": [
+    "contextuality_finite",
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
+   ]
+  },
+  {
    "file": "abramsky_barbosa_2025_duality_pBA_talk.pdf",
    "citation": "Abramsky & Barbosa, 'Duality for partial Boolean algebras', Topos Institute colloquium slides, 2025",
    "what_it_proves": "Stone-type duality for partial Boolean algebras (Kochen-Specker's algebras of jointly observable properties).",
@@ -302,6 +332,23 @@
     "notes/open_questions/cyclic_marginal/case_three_body.md"
    ],
    "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
+  },
+  {
+   "file": "abramsky_mansfield_barbosa_2011_cohomology_contextuality.pdf",
+   "citation": "Abramsky, Mansfield, Barbosa, 'The cohomology of non-locality and contextuality', QPL 2011, EPTCS 95, arXiv:1111.3620",
+   "what_it_proves": "Cech cohomology obstructions to global sections for empirical models; cover-dependence of the obstruction.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "contextuality_finite",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
+   ]
   },
   {
    "file": "amemiya_araki_1966_remark_piron.pdf",
@@ -581,6 +628,23 @@
    ]
   },
   {
+   "file": "caru_2017_cohomology_contextuality.pdf",
+   "citation": "Carù, 'On the cohomology of contextuality', QPL 2016, EPTCS 236, arXiv:1701.00656",
+   "what_it_proves": "Refines the cohomological witness of contextuality; cover dependence and false positives/negatives of the cohomology test.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "contextuality_finite",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
+   ]
+  },
+  {
    "file": "casanova_kohlas_zaffalon_2022.pdf",
    "citation": "Casanova, Kohlas, Zaffalon, 'Information algebras in the theory of imprecise probabilities', IJAR 142 (2022) 383-416",
    "what_it_proves": "Coherent sets of gambles / lower previsions form a domain-free information algebra; Thm 9-10 (p.412): pairwise compatible + running intersection property (RIP) => jointly compatible; pairwise alone not sufficient. Triangle supports fail RIP.",
@@ -746,6 +810,24 @@
    ]
   },
   {
+   "file": "dzhafarov_kujala_2016_cbd_context_content.pdf",
+   "citation": "Dzhafarov & Kujala, 'Context-content systems of random variables: the Contextuality-by-Default theory', J. Math. Psych. (2016), arXiv:1511.03516",
+   "what_it_proves": "CbD: connections (same content across contexts), maximal couplings; contextuality = no coupling with maximal connections; quasi-couplings with negative values.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "contextuality_finite",
+    "data_tests",
+    "asynchrony"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
+   ]
+  },
+  {
    "file": "dzhafarov_kujala_2017.pdf",
    "citation": "de Barros, Coecke, Pothos (eds.), Quantum Interaction QI 2016, LNCS 10106 (2017) [contains Dzhafarov-Kujala CbD work]",
    "what_it_proves": "Contextuality-by-Default for inconsistently connected systems; separates contextuality from direct influences in real data.",
@@ -768,6 +850,25 @@
     "papers/paper_ii/distributivity_and_realism_body.tex",
     "papers/paper_ii/paper_ii_taxonomy.json",
     "papers/paper_ii/references.bib"
+   ]
+  },
+  {
+   "file": "dzhafarov_kujala_cervantes_2020_cyclic_systems_cbd.pdf",
+   "citation": "Dzhafarov, Kujala, Cervantes, 'Contextuality and noncontextuality measures and generalized Bell inequalities for cyclic systems', PRA 101 (2020), arXiv:1907.03328",
+   "what_it_proves": "Exact CbD criteria and measures for cyclic systems of any rank (cyclic Bell-type inequalities with inconsistent connections).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "own.ncycle_facets"
+   ],
+   "questions": [
+    "cycle_scenarios",
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
    ]
   },
   {

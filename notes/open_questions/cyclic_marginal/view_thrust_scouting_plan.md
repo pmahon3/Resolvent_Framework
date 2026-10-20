@@ -126,3 +126,34 @@ If 1 fails, record the owner and stop. If 2 fails everywhere, the thrust stays t
   of joint viewing sees more.
 
 **Decision-rule status:** block D does not stop the thrust. Next: block A (mathematical prior art).
+
+## Block A results (2026-10-20; sonnet scout, ~14 calls, abstract/snippet level plus shelf)
+
+| Lead | Verdict |
+|---|---|
+| "Single-variable data are always consistent; inconsistency appears only at the pair level" | **OWNED**: the definition of the marginal problem and the cover-dependence of contextuality (Abramsky–Brandenburger; Abramsky–Mansfield–Barbosa cohomology; Carù) |
+| J blind for **differences** (union class, state at the impossible triple) | **OWNED**: Dravecký–Šipoš 1980 Ex. 6 (shelf, read); Gudder's σ(A_f, A_g, A_{f+g}) vs joint (f,g) events |
+| Abramsky–Barbosa logic of contextuality; Contextuality-by-Default (quasi-couplings with negative values) | NEIGHBOURS (now shelved) |
+| Relational observables / quantum reference frames | nothing found linking them to state-vs-view blindness |
+| Finite-quotient detection | not searched (budget) |
+| **J blind for comparisons** (J larger than the union, still blind) | **not found** |
+| The relata / relations / views translation; Condorcet and clock instances; finite-quotient visibility | **not found** |
+
+**Decision-rule condition 1: PARTLY MET.**
+- The difference case and the single-variable case are owned. Do not call them new.
+- Candidate contributions are only:
+  - (i) the comparison case (why J stays blind beyond union classes; open mathematics);
+  - (ii) finite-quotient visibility;
+  - (iii) the translation into relata / relations / views with the clock and Condorcet instances.
+  These are exploratory.
+
+**Coverage gaps:**
+- the Czech scans, which need hand reading: Dvurečenskij 1980, Dvurečenskij–Pulmannová 1980,
+  Chrapčiaková 1987, Zerbe–Gudder 1985;
+- Foulis–Randall and HHLN content.
+
+**Shelved:** arXiv:2011.03064, 1511.03516, 1907.03328, 1111.3620, 1701.00656, all indexed at
+abstract level.
+
+**Next:** block B (philosophy: structural realism, perspectival realism, relational quantum
+mechanics). That is where condition 1(iii), the translation, is most likely owned.

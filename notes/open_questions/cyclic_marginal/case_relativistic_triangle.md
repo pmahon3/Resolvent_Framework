@@ -158,3 +158,42 @@ difference plane over ℝ.
   question.
 - For incommensurable offsets, check whether ℝ adds anything.
 - Then attack the impossible point itself (ergodic Ramsey territory; prior art first).
+
+## Check 3: reduction over ℝ (2026-10-20) ⟦hand, unverified⟧
+
+**Transport lemma.**
+- Take a per-variable map f : X → Y applied to each clock.
+- Suppose it pushes the invariant mean to an invariant mean and carries each view's relation to the
+  target's relation.
+- Then preimages of pair events are pair events, so f⁻¹ maps the target carrier D_Y into D_X.
+- The forced functional pulls back: Λ_X(1_{f⁻¹E}) = Λ_Y(1_E).
+- **So a visible twist (some buildable E with Λ < 0) in the target gives one in the source.**
+
+**Chain of reductions.**
+1. **Offsets → holonomy only.** Rename clocks: t₂′ = t₂ − d₁₂, t₃′ = t₃ − d₁₂ − d₂₃. These are
+   per-variable bijections of ℝ, and they preserve D and the invariant mean. The relations become
+   t₂′ = t₁, t₃′ = t₂′, t₁ = t₃′ + h. Scaling by 1/h then gives h = 1. **Commensurability of the
+   offsets is irrelevant. Only whether the holonomy is non-zero matters.**
+2. **ℝ → ℤ by integer part.** All three relations preserve the fractional part. The floor map pushes
+   the invariant mean on ℝ to one on ℤ and the relations to x₁ = x₀, x₂ = x₁, x₀ = x₂ + 1.
+3. **Steps of +1 (the original gate) → the same target.** Rename to steps (0, 0, 3) over ℤ, then
+   map n ↦ ⌊n/3⌋, which pushes to (0, 0, 1).
+
+**The core problem Z₁.** The triangle over ℤ, invariant mean λ, with views x₁ = x₀, x₂ = x₁ and the
+closing view x₀ = x₂ + 1: two identities and one step.
+- **If Z₁ is visible**, a buildable question with Λ < 0, then **every** relativistic clock loop with
+  non-zero holonomy is visible, and so is the original +1 gate (by the transport lemma).
+- **If any clock loop is hidden**, so is Z₁.
+- The converse transfers (Z₁ hidden ⇒ clocks hidden) are not proved.
+
+**What it says.** Physically, all that matters is that the holonomy is non-zero. Its size,
+direction and how it is split between the pairs drop out. Mathematically, the impossible point
+reduces to one universal problem: **can the questions askable from two "same" views and one "one
+step later" view, read with a translation-invariant average, expose the step?**
+
+**Next: the impossible point Z₁ itself.**
+- Earlier hand reduction (`gate.triangle_density_plus1`): on translation-invariant questions,
+  Λ is evaluation at the impossible point u = v = 0, w = 1 of a decomposition
+  1_E = g₀(u) + g₁(v) + g₂(w) with u + v + w = 0.
+- Prior art first: invariant means and three-direction decompositions on ℤ² (ergodic Ramsey;
+  Bergelson–Ferré Moragues; Navara's two-sided unbounded regime).

@@ -518,3 +518,34 @@ needed before any claim.
   - P2's mechanism is supported by Lean (pair views blind on the staircase). The infinite Condorcet
     version itself is not run.
   - P1 is not run.
+
+**Prior art on the needle (2026-10-20; scout + my own reading of the two primary sources).**
+- **Owned in model theory (NEIGHBOUR, close).**
+  - The triangle problem is the *3-amalgamation problem for types*: complete types p₁₂, p₂₃, p₁₃
+    agreeing on single variables ("coherence"), with no common 3-type.
+  - Goodrick (BIRS 2009 slides) gives both of our kinds as counterexamples: an order cycle
+    x₁<x₂<x₃<x₁, and a two-class equivalence relation with ¬E in every pair (a ℤ/2 gauge twist).
+  - Hrushovski (JAMS 2012), Remark 2.19(3): bounded-class equivalence relations make
+    3-amalgamation fail, and "it is possible that this is the only obstruction" over boundedly
+    closed bases.
+  - Hrushovski §2.20: the order obstruction exists, "but in a measured setting … this obstruction
+    has effect only on a measure zero set" (definable, countably additive measures).
+- **Alignment with our theorem.**
+  - Hrushovski's measured result matches our cell (iii) (countable adding gives a world).
+  - Bounded equivalence relations match our gauge / finite-quotient twists.
+  - His order obstruction is our staircase.
+  - So the needle narrows: **the finitely additive (charge, Dynkin-carrier) version of type
+    amalgamation.** There the order obstruction becomes a coherent pointless state (Lean). It sits
+    between his syntactic failure and his measured almost-sure success.
+- **Not found:**
+  - detection rank via Dynkin systems of k-variable events;
+  - the finitely additive state version;
+  - the principle "idealisation raises the rank exactly for twists no finite quotient preserves".
+  Hrushovski 2.19(3) is the nearest anticipation in spirit: bounded quotients as *the* obstruction.
+  It must be cited.
+- **Leads not read:** Goodrick–Kim–Kolesnikov homology of types (their H₂ measures 3-uniqueness /
+  4-existence failures and starts above our level); Kolesnikov n-amalgamation; NSOP₁ / Kim-
+  independence (3-amalgamation holds there); Hansel–Troallic 1986 and Shortt 1983 (marginal
+  problem for charges).
+- **Finite rank:** Sherali–Adams / k-consistency (owned background; Wainwright–Jordan; Kolaitis–
+  Vardi; Abramsky–Gottlob–Kolaitis k-robust satisfiability).

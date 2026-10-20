@@ -9,7 +9,7 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 94,
+  "count": 96,
   "basis_counts": {
    "abstract": 35,
    "read": 51,
@@ -92,6 +92,7 @@
   "completeness_points": [
    "espindola_2020.pdf",
    "howson_2008.pdf",
+   "hrushovski_2012_stable_group_theory_approximate_subgroups.pdf",
    "vickers_1989.pdf"
   ],
   "contextuality_finite": [
@@ -146,6 +147,8 @@
   ],
   "impossible_point": [
    "dravecky_sipos_1980_additivity_gudder_integral.pdf",
+   "goodrick_2009_amalgamation_slides_banff.pdf",
+   "hrushovski_2012_stable_group_theory_approximate_subgroups.pdf",
    "maharam_1972.pdf",
    "navara_1984_two_valued_additivity.pdf",
    "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
@@ -156,6 +159,8 @@
    "caru_2017_cohomology_contextuality.pdf",
    "casanova_kohlas_zaffalon_2022.pdf",
    "epperson_zafiris_2013/",
+   "goodrick_2009_amalgamation_slides_banff.pdf",
+   "hrushovski_2012_stable_group_theory_approximate_subgroups.pdf",
    "zafiris_2006.pdf"
   ],
   "loop_count_witnesses": [
@@ -1065,6 +1070,25 @@
    ]
   },
   {
+   "file": "goodrick_2009_amalgamation_slides_banff.pdf",
+   "citation": "Goodrick, 'Amalgamation properties for types in stable theories and beyond', BIRS workshop 09w5113 slides (2009)",
+   "what_it_proves": "3-amalgamation problem for complete types p12, p23, p13; coherence (agreement on single variables) necessary; counterexamples: linear order x1<x2<x3<x1, and an equivalence relation with two classes with not-E in every p_ij; stable theories have 3-existence; o-minimal cannot (order cycle).",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "own.type_amalgamation"
+   ],
+   "questions": [
+    "impossible_point",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
    "file": "harding_1991_omls_macneille_completions_not_orthomodular.pdf",
    "citation": "Harding, 'Orthomodular lattices whose MacNeille completions are not orthomodular', Order 8 (1991) 93-103",
    "what_it_proves": "MacNeille completion need not preserve orthomodularity.",
@@ -1245,6 +1269,26 @@
     "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
     "notes/open_questions/cyclic_marginal/pointless_coherence.tex",
     "notes/programme/genealogy.md"
+   ]
+  },
+  {
+   "file": "hrushovski_2012_stable_group_theory_approximate_subgroups.pdf",
+   "citation": "Hrushovski, 'Stable group theory and approximate subgroups', JAMS 25 (2012) 189-243, arXiv:0909.2190",
+   "what_it_proves": "Remark 2.19(3) (verified): with a definable equivalence relation with boundedly many classes, 3-amalgamation of types can fail ('cannot amalgamate p(x,y) implying not xEy with types implying xEy, yEz'); 'it is possible that this is the only obstruction'. Section 2.20 (verified): a triangle of 2-types need not give a 3-type (definable linear order x<y, y<z, z<x), 'but in a measured setting ... this obstruction has effect only on a measure zero set' (Lemma 2.21, definable commuting measures).",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "own.type_amalgamation"
+   ],
+   "questions": [
+    "impossible_point",
+    "completeness_points",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "49",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
    ]
   },
   {

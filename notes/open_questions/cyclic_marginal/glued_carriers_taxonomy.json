@@ -1118,6 +1118,19 @@
     "verified": "scout full text (B-T); abstract (S-H)",
     "detail": ""
    }
+  },
+  {
+   "id": "own.type_amalgamation",
+   "name": "Triangle of 2-types; order vs bounded-quotient obstructions to 3-amalgamation",
+   "status": "NEIGHBOUR, close (primary sources read 2026-10-20)",
+   "one_line": "Model theory owns the triangle problem for complete types (3-amalgamation, coherence on single variables) and both obstruction kinds: order cycles (unstable, o-minimal) and bounded equivalence relations (Hrushovski 2.19(3): possibly the only obstruction over boundedly closed bases). Measured (definable, countably additive) setting: the order obstruction is measure zero (Hrushovski 2.20). NOT found: a rank via Dynkin systems of k-variable events, the finitely additive (charge) version, or 'idealisation raises the rank exactly for twists no finite quotient preserves'.",
+   "detail": "definitions_draft.md section 15 (prior art)",
+   "owned_by": {
+    "cite": "Goodrick, BIRS 2009 slides; Hrushovski, JAMS 25 (2012), Remark 2.19(3), section 2.20, Lemma 2.21; leads: Goodrick-Kim-Kolesnikov arXiv:1006.4410, 1404.1525, 1412.3864; Kolesnikov math/0508583",
+    "region": "3-amalgamation of types and its obstructions",
+    "verified": "primary (Hrushovski passages, Goodrick slides)",
+    "detail": ""
+   }
   }
  ]
 }

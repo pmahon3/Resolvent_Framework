@@ -66,3 +66,26 @@ under "co-occurrence", "network" or "scale".
   shape for contest data. It needs morph-vs-morph contest or siring-competition win rates, which
   are not in the Dryad file. They are possibly in Sinervo's papers (paywalled; the user offered
   SFU access).
+
+## Primary sources read, 2026-10-20 (on the shelf via SFU)
+
+- **Sinervo–Lively 1996** (`sinervo_lively_1996_rock_paper_scissors_nature.pdf`).
+  - The data are per-neighbour **regression slopes**: females gained or lost per neighbour of
+    another morph, by year. Examples: orange gains 1.10 females per blue neighbour (1993); yellow
+    gains 0.23 / 0.54 per orange neighbour (1992); blue gains 0.25 shared per yellow neighbour.
+  - These are assembled into a **payoff matrix** W_ij (fitness of rare i against common j,
+    eq. 1–2, Fig. 4a), which drives replicator-style iteration.
+  - No contest-level win counts appear.
+- **Bleay–Comendant–Sinervo 2007** (`bleay_comendant_sinervo_2007_fds_field.pdf`).
+  - The data are regressions of the proportion of a female's clutch sired by each morph on the
+    morph frequencies in her neighbourhood (Fig. 1).
+  - No pairwise tables, and no supplementary data.
+- **Verdict.**
+  - The published lizard data are a **game** (a payoff matrix, i.e. a cycle of relations), not a
+    loop of overlapping views.
+  - There are no pairwise win probabilities, so even the random-ranking test has no honest input.
+    Raw contest data would have to come from the Sinervo lab ("B. Sinervo 1989–2007, unpublished
+    data").
+  - **(a) closes as: no dataset in reach supports an honest joint-existence test.** The practical
+    bridge needs data collected *as* pairwise views. That is a design question (lived question 4),
+    not a reanalysis.

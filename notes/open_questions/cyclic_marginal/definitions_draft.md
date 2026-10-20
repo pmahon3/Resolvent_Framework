@@ -263,3 +263,106 @@ them for statements relating 0/1 elements of the span to the σ-class before cla
 Plato (worlds as given forms), Aristotle (potential infinite; finite adding), Kant (totality as a
 task; global information "aufgegeben"). The hope is that H2 and H3 say something precise about
 each.
+
+## 11. Why a test needs overlapping views (2026-10-20)
+
+A twist is a property of a *family* of local answer patterns. Data can show one only if all three of
+these hold:
+1. **Each view sees two or more variables jointly.** Single-variable data (one marginal per
+   variable) always fit a world: take the product.
+2. **Views overlap.** Neighbouring views share a variable and agree on it.
+3. **No view sees everything, and the overlaps form a loop.** One table of all variables is
+   already a world. Along a tree, local agreement suffices (Vorob'ev).
+
+Pairs are the smallest views that satisfy 1–3. Larger views work too, as long as the view
+hypergraph has a loop. **Relations are not views.** A payoff matrix (lizards) or a dominance order
+says how variables act on each other, not what an observer saw jointly. That is why the lizard data
+cannot be tested.
+
+**Candidate cases where clocks or scales are built in (lenses, unchecked):**
+- **Trophic loops (omnivory / intraguild predation).** A eats B, B eats C, and A eats C: a triangle
+  of interactions. Each interaction is observed on the timescale of its slower partner (plankton in
+  days, fish in years), so each view has its own clock. Up and down the levels the clocks differ by
+  orders of magnitude.
+- **Critical behaviour.** At a critical point no characteristic scale exists. Views taken at
+  different coarse-graining scales have no shared scale to synchronise to. This is possibly where
+  "beyond" (scale separation) and asynchrony meet. Speculative.
+
+## 12. Asynchrony, defined (2026-10-20) ⟦hand; definitions for equilibrium, not claims⟧
+
+**Setting.**
+- A process is a path x : T → Ω (T is time, or any index of observations).
+- A **clock** is a mean m on T: a finitely additive probability on all subsets of T. Examples are an
+  average over an epoch, a Banach limit, or (two-valued) an ultrafilter on times.
+- View v with clock m_v reports μ_v = (π_v ∘ x)_* m_v, the law of what v sees, read with its own
+  clock.
+
+**Definitions.**
+- The family is **synchronous** if all m_v are equal, and **asynchronous** otherwise.
+- It **agrees on overlaps** if μ_v and μ_w give the same law on the variables v and w share.
+- It is **synchronisable** if some single clock m reproduces every μ_v.
+
+**Lemma A0 (synchrony forces a world).** If all clocks equal m, then x_*m is a charge on all of Ω
+whose marginals are the μ_v. So a world exists. In the two-valued case (m an ultrafilter), x_*m is
+an ideal point. *Proof: the marginals of a pushforward are the pushforwards of the marginals.*
+
+**Hence:** a family that agrees on overlaps yet has no world is necessarily asynchronous, and not
+even synchronisable. **Asynchrony is necessary.**
+
+**It is not sufficient.** In case 1b, different ultrafilter clocks all factor through the
+heteroclinic lap counter, and on the fixed-fraction class a world is forced. Working name
+(unnamed until prior art): **clocks are comparable** when they factor through a common coarse
+clock with finite fibres.
+
+**Clock holonomy (candidate).**
+- Sometimes clocks come with comparison maps between overlapping views. For example, translations
+  t ↦ t + d_vw, which are clock offsets.
+- Then synchronisability asks whether the offsets are a coboundary: d_vw = d_w − d_v.
+- Round a loop the obstruction is Σ d, a holonomy of the clocks themselves. Case 4 (Sagnac) is the
+  physical instance.
+- So **a twist in the answers can be induced by a twist in the clocks.**
+- Prior art to check: Čech cohomology of contextuality (Abramsky–Mansfield–Barbosa) and the
+  "synchronisation gap" in rotating frames (Rizzi–Ruggiero). Both are memory, unverified.
+
+## 13. The three-part triangle theorem (2026-10-20)
+
+**Setting.** The triangle of pair queries on variables x₀, x₁, x₂ with values in X. The carrier D
+consists of the questions built from pair questions by "not" and "either one". A state is a
+two-valued or probabilistic, finitely or countably additive answer pattern on D. A world is a
+point, an ideal point, or a mixture of these, as the regime requires.
+
+**Two-valued regime: complete.**
+
+| | Values | Adding | Every state has a world? | Status |
+|---|---|---|---|---|
+| (i) | finite | finite | yes, a point | hand (standard; `thm.sigma_forces_points`, finite case) |
+| (ii) | countably infinite | finite | **no: pointless states exist** | **Lean** (`thm.triangle_pointless`) |
+| (iii) | countable | countable (σ) | yes, a point | hand (Lean on rings) |
+
+**Probabilistic regime: partial.**
+
+| | Values | Adding | Every state a mixture of worlds? | Status |
+|---|---|---|---|---|
+| (i′) | finite | finite | yes | exact computation at 2 and 3 values; general open. Owned territory (exclusivity) |
+| (ii′) | infinite | finite | open | the impossible-point question; also open whether a two-valued pointless state extends to a charge on X³ |
+| (iii′) | countable | σ | not checked | — |
+
+**What separates (i) from (ii): the finite intersection property.** ⟦hand, from the basic lemma⟧
+- A two-valued state is an ideal point iff its true questions have the finite intersection
+  property.
+- So a pointless state makes **finitely many questions true which are pairwise compatible
+  (additivity forbids two disjoint true questions) yet jointly impossible.** That is Specker's
+  seer, realised at infinity.
+- With finitely many values no state can do this. With infinitely many values and finite adding,
+  the triangle's state can. Countable adding restores the property.
+- How many questions the failing family needs on the triangle is not yet determined.
+
+**Requisite behaviour, as the theorem sorts it:**
+- **loop:** necessary (forests always have worlds);
+- **infinitely many values:** necessary for (ii);
+- **finite, not countable, adding:** necessary for (ii);
+- **two-valued:** where it is proved;
+- **asynchrony (§12):** necessary for any process to *produce* such a family, but not sufficient.
+
+**Experience** (cases) must supply all of these at once. So far none has: case 1 lacks infinitely
+many values; case 1b has a shared lap clock; case 3 has Newtonian time. Case 4 is next.

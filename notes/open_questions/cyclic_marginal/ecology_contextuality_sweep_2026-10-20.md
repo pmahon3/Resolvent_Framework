@@ -47,3 +47,22 @@ No one has run a marginal-feasibility (Vorob'ev / n-cycle / contextuality-by-def
 cyclic ecological dataset. Coverage: US web search, so non-English and paywalled ecology is
 under-covered. The chance a paper was missed is moderate, because ecologists would file such work
 under "co-occurrence", "network" or "scale".
+
+## Follow-up (a), 2026-10-20: finding data for a joint-existence test
+
+- **Bleay–Comendant–Sinervo 2007** (PMC2275174) has no tables, no deposited data and no pairwise
+  morph × morph counts. Its values exist only in figures.
+- **Open data:** Corl et al., Dryad doi:10.5061/dryad.4qrfj6qq7 (2025). `Uta_field_data_on_morphs.csv`
+  is 3.7 KB: per outcrop ("World") per year, counts of oo/ob/yo/bb/by/yy throats and morph
+  frequencies (Friedman et al. 2017). Not downloaded.
+- **Pushback from the data: the lizard cycle is a loop of *relations*, not a loop of *views*.**
+  - Site-year morph counts are one joint table per population: one observer, so a world always
+    exists (case 1, F2).
+  - Building pairwise "views" from them would repeat the Aerts move of manufacturing the scenario.
+- **The honest finite test for a dominance cycle** uses pairwise *win rates* P(i beats j). Ask
+  whether some random ranking produces them, i.e. the linear ordering polytope. For three items the
+  only non-trivial condition is P(1>2) + P(2>3) + P(3>1) ≤ 2 (memory: Block–Marschak 1960;
+  Fishburn 1992; to verify). That is owned mathematics (random utility theory), and it is the right
+  shape for contest data. It needs morph-vs-morph contest or siring-competition win rates, which
+  are not in the Dryad file. They are possibly in Sinervo's papers (paywalled; the user offered
+  SFU access).

@@ -72,3 +72,48 @@ Nothing here is a result. It is a companion to `case_heteroclinic_averages.md`.
 attracts) turns out to play the role of holonomy: do NOT name or claim it.** Shelf first, then a
 hostile web pass over the heteroclinic-cycle literature (Krupa–Melbourne and others). Assume it is
 owned until shown otherwise.
+
+## 5. Hand classification, first pass (2026-10-20) ⟦hand, unverified; floors ignored⟧
+
+**Linearised passages.** Visit order 1 → 2 → 3. Let c = a be the decay rate and e = b the invasion
+rate, ρ = c/e > 1 (the cycle attracts). Passages are numbered t = 0, 1, 2, … and each has a scale
+M_t ≈ M₀ρᵗ. In passage t (at vertex k), s ∈ [0, M_t/e] time in:
+- the invader k+1 has depth M_t − e·s;
+- the decliner k+2 has depth c·s;
+- k itself has depth ≈ 0.
+
+A station sees two unbounded depths only when the *third* species dominates:
+- (1,2) during passages at 3;
+- (2,3) during passages at 1;
+- (3,1) during passages at 2.
+
+**R1. Every station type factors through the passage counter t, with finite fibres.** A pair of
+depths fixes t (the segments x + (e/c)y = M_t are geometrically spaced). Each passage holds only
+finitely many pairs. So a station's report is a lap ultrafilter p on t, together with "where in the
+passage".
+
+**R2. Fixed-fraction types are renamings, and then a world exists (W).**
+- Suppose a station sits at a fixed fraction θ of each passage. Its pair is
+  ((1−θ)M_t, ρθM_t), and each depth determines t, so the type is a renaming.
+- Overlap agreement can be arranged. Equal marginals need matching constants up to powers of ρ
+  and shifted lap ultrafilters, and the loop condition
+  θφψ / ((1−θ)(1−φ)(1−ψ)) ∈ ρ^(3ℤ) can be met.
+- Once the marginals agree, Katětov forces the loop's composite renaming (a lap shift) to be
+  trivial. So the triangle glues: **W**. This is note §5 ("renaming never twists for yes-or-no
+  answers") appearing in the dynamics.
+
+**R3. Not settled.**
+- (i) Section types whose single depth does not fix t: the position in the passage varies
+  irregularly with t.
+- (ii) Non-section types. These exist only if the lap ultrafilter p is not a Q-point-like
+  ultrafilter for the finite-to-one map to t. They are genuinely sum-like within a lap, which is
+  the only place a twist could hide.
+
+Gate status: **partial, not fired.** W on the fixed-fraction subclass; the rest is *Stuck* (the
+non-forward open edge).
+
+**What the case says (equilibrium, not a claim).** The heteroclinic lap counter t acts as a
+**shared clock** for all three stations. Every report factors through it, and on the natural
+subclass that forces a world. This is the same shape as case 3, where Newtonian shared time
+forced a world. *Shared time forces a world* now has two instances. A twist would have to hide in
+how a station places itself *within* a lap, beyond what any regular reading of the clock fixes.

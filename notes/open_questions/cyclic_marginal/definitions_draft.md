@@ -671,3 +671,15 @@ twist locates the disagreement exactly.
   world).
 - **Prior art to check:** Tarski's compositional truth vs partial logics; Kochen–Specker; the
   programme's earlier Paper I note on CE non-derivability (completeness failures for coherence).
+
+**Problem 2(a): minimal hiding alphabet (2026-10-20).**
+- **Exact (verified ray + Maharam/separation):**
+  - hiding exists at sizes **3×4×4** (rank 30 vs 29; value 2 at (0,0,0) and (2,3,1)) and 4×4×4;
+  - no hiding at 3×3×3 (exact, earlier).
+- **Search-level only** (40k random-objective LPs, extremality filter): no non-binary ray at 3×3×4,
+  2×4×4, 2×2×6 or 2×3×5. Not a proof.
+- **Reading:** hiding seems to need at least two variables with four values, together with a third
+  variable of three or more values. Not the total size.
+- **Exact closure of 3×3×4 and 2×4×4** needs facet enumeration (pycddlib); installation awaits the
+  user's permission.
+- Script: `verification/triangle_ray_verify_sizes.py`.

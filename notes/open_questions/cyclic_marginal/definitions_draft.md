@@ -111,6 +111,35 @@ A pre-class sits outside the table:
    pre-class).
 3. **Revisit "being local".** Is locality perspectival all the way down?
 
+## 9a. Test 1 result (2026-10-19): two meanings of "made of local information"
+
+- **Linearly local:** the indicator is a *sum* of local indicators, i.e. a 0/1 element of the span V.
+- **Constructively local:** the question is *built* by "not" and "either one", i.e. lies in D.
+- Always D ⊆ V₀₁. **Candidate H5 (gap theorem):** twists can hide exactly in the gap V₀₁ \ D, i.e.
+  in information that *adds up* from local pieces but cannot be *built* from them.
+
+**Data** (A = 2, D by direct closure; `verification/gap_linear_vs_constructive.py`):
+
+| Graph | \|D\| | \|V₀₁\| | Gap |
+|---|---|---|---|
+| triangle | 70 | 70 | 0 |
+| path P4 | 56 | 56 | 0 |
+| C4 | 82 | 90 | **8** |
+| diamond | 148 | 148 | 0 |
+| K4 | 222 | 222 | 0 |
+
+- Also: triangle at A = 3, gap 0 (machine count 15,914 = 15,914).
+- The infinite triangle has a nonempty gap: E\* ∈ V₀₁ \ D (Lean).
+- **The gap appears exactly on the non-chordal graph.** That is where twists hide in the finite
+  regime. The definitions *predicted* the finite chordal line instead of only recording it.
+- The C4 gap sets are half-cubes (8 of 16 points), selected by how many of the four edges disagree
+  (0 or 2, or 2 or 4). They are counts round the loop, the 4-cycle analogue of the cyclic question.
+- **H3, sharpened (candidate):** "global information is strange" = information that is a sum of
+  local information but not locally constructible. Twists hide there and only there.
+- **Still to connect.** The finite triangle being Tv-only also needed the extreme rays of the
+  non-negative cone to be 0/1 (proved at A = 3). The full condition is probably: no gap AND 0/1
+  extreme rays. Status: evidence on five small graphs plus two machine facts. Not a theorem.
+
 ## 10. Philosophical horizon (only after the classification earns its keep)
 
 Plato (worlds as given forms), Aristotle (potential infinite; finite adding), Kant (totality as a

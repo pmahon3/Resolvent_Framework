@@ -81,7 +81,7 @@ A pre-class sits outside the table:
 | The cyclic question is not locally generated | global-only information exists | Lean |
 | Two forward queries force the third | rigid composition; holonomy = closing view vs composite | Lean (triangle), hand (loops) |
 | Finite triangle (3 values): every probabilistic twist is visible | Tv, never Th | exact computation |
-| Rings ≥ 4: twists hidden even with finitely many values | Th | hand + certified example |
+| Rings ≥ 4: twists hidden even with finitely many values | Th | hand + certified example; OWNED (Choudhary–Barbosa Cor 5 + exclusivity check, §9b) |
 | Case 1: asynchronous stations | A, then Tv in the finite reading; U for the long-run worlds | simulation |
 | Case 2: one quantity in time windows | W | simulation |
 | Case 4: Sagnac clocks | Th or Tv, i.e. the impossible-point question | design only |
@@ -205,6 +205,24 @@ A pre-class sits outside the table:
 - **Live lead:** Choudhary–Barbosa (arXiv:2411.09773) use **Ramsey theory** for multi-copy
   violations by n-cycle PR boxes. Our infinite side uses ultrafilter Ramsey on the triangle. Read
   it before going further.
+- **(b) checked, 2026-10-19 (`verification/dstate_vs_exclusivity.py`, A = 2, exact LP).** On the
+  triangle, C4, C5 and the house, the polytope of states on D **equals** the single-copy
+  exclusivity polytope inside no-signalling. Both LP gaps are 0, and the span functional is
+  well defined. So on these graphs "hidden vs visible" *is* single-copy exclusivity, and it is
+  owned. Not proved in general.
+- **(a) read, Choudhary–Barbosa (arXiv:2411.09773v2, full HTML).**
+  - Cor 5: a single n-cycle PR box satisfies the E-principle for every n ≥ 4, because its
+    exclusivity graph has no triangle. With (b), this OWNS our "rings ≥ 4 hide twists with finitely
+    many values" at A = 2, at least for the PR-box vertices.
+  - Thms 9–13: two copies break it for n = 4, 5; not two or three copies for n ≥ 6; not k copies for
+    n ≥ 2^k + 2.
+  - Their Ramsey is finite graph Ramsey (R(3,3) = 6; multicolour odd-cycle numbers) on
+    copy-coloured exclusivity multigraphs. They conjecture finitely many copies always suffice.
+  - No infinite copies, ultrafilters, finitely additive states or infinite outcome sets.
+  - **Link to our side: an analogy, not a transfer (yet).** Copies are *products* of finite
+    states, while our infinite side is one carrier with infinitely many values. A real bridge would
+    need a reading of "k copies" as k independent coordinates of one infinite-valued variable.
+    Unexplored. Do not claim.
 - **What survives, provisionally:** the infinite two-valued side (E\*, pointlessness from
   ultrafilters). The finite twists are the known contextuality ones, in this programme's
   vocabulary.

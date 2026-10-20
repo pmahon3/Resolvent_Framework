@@ -9,7 +9,7 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 107,
+  "count": 112,
   "basis_counts": {
    "abstract": 35,
    "read": 51,
@@ -86,6 +86,7 @@
    "rizzi_ruggiero_2003_sagnac_kinematical.pdf"
   ],
   "coherence_extension": [
+   "capotorti_2011_incoherence_correction_statistical_matching.pdf",
    "derr_williamson_2023.pdf",
    "horn_tarski_1948.pdf",
    "maharam_1972.pdf",
@@ -111,7 +112,8 @@
    "dzhafarov_kujala_2016_cbd_context_content.pdf",
    "dzhafarov_kujala_2017.pdf",
    "hhln_1711.03748_boolean_subalgebras.pdf",
-   "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf"
+   "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf",
+   "morton_2017_contextuality_missing_versioned_data.pdf"
   ],
   "cycle_scenarios": [
    "abramsky_barbosa_kishida_lal_mansfield_2016_possibilities_determine.pdf",
@@ -120,12 +122,17 @@
    "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf"
   ],
   "data_merging": [
-   "biesel_2024.pdf"
+   "biesel_2024.pdf",
+   "bratelund_rydell_2023_compatibility_fundamental_matrices.pdf",
+   "capotorti_2011_incoherence_correction_statistical_matching.pdf",
+   "fritz_chaves_2013_entropic_inequalities_marginal_problems.pdf",
+   "morton_2017_contextuality_missing_versioned_data.pdf"
   ],
   "data_tests": [
    "dzhafarov_kujala_2016_cbd_context_content.pdf",
    "dzhafarov_kujala_2017.pdf",
-   "dzhafarov_kujala_cervantes_2020_cyclic_systems_cbd.pdf"
+   "dzhafarov_kujala_cervantes_2020_cyclic_systems_cbd.pdf",
+   "jiang_lim_yao_ye_2011_hodgerank.pdf"
   ],
   "delay_embedding": [
    "botvinick_greenhouse_2025.pdf"
@@ -168,6 +175,7 @@
    "abramsky_mansfield_barbosa_2011_cohomology_contextuality.pdf",
    "adlam_rovelli_2023_information_cross_perspective_links.pdf",
    "biesel_2024.pdf",
+   "bratelund_rydell_2023_compatibility_fundamental_matrices.pdf",
    "caru_2017_cohomology_contextuality.pdf",
    "casanova_kohlas_zaffalon_2022.pdf",
    "depiro_kim_millar_2005_hyperdefinable_group_configuration.pdf",
@@ -178,6 +186,7 @@
    "goodrick_kim_kolesnikov_2015_type_amalgamation_polygroupoids.pdf",
    "goodrick_kim_kolesnikov_2017_homology_types_hurewicz.pdf",
    "hrushovski_2012_stable_group_theory_approximate_subgroups.pdf",
+   "jiang_lim_yao_ye_2011_hodgerank.pdf",
    "livson_pritam_prokopenko_2026_condorcet_nonorientable_topology.pdf",
    "zafiris_2006.pdf"
   ],
@@ -186,6 +195,7 @@
    "maharam_1972.pdf"
   ],
   "marginal_problem": [
+   "fritz_chaves_2013_entropic_inequalities_marginal_problems.pdf",
    "kellerer_1964_mass_theoretic_marginal_problems.pdf",
    "maharam_1972.pdf",
    "pivato_2001_stationary_process_from_marginal.pdf"
@@ -619,6 +629,23 @@
    ]
   },
   {
+   "file": "bratelund_rydell_2023_compatibility_fundamental_matrices.pdf",
+   "citation": "Bråtelund & Rydell, 'Compatibility of fundamental matrices for complete viewing graphs', arXiv:2303.10658",
+   "what_it_proves": "When pairwise fundamental matrices are compatible with a joint camera configuration (compatibility vs solvability) on viewing graphs.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_merging",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
+   ]
+  },
+  {
    "file": "brukner_2018_nogo_observer_independent_facts.pdf",
    "citation": "Brukner, 'A no-go theorem for observer-independent facts', Entropy 20 (2018) 350, arXiv:1804.00749",
    "what_it_proves": "Wigner's-friend no-go: observers' facts cannot all be jointly observer-independent (Bell-type argument).",
@@ -701,6 +728,23 @@
     "notes/open_questions/kits/oml_onboarding.tex",
     "notes/open_questions/kits/ratification_kit_2026-07-11.tex",
     "notes/open_questions/kits/references_oml.bib"
+   ]
+  },
+  {
+   "file": "capotorti_2011_incoherence_correction_statistical_matching.pdf",
+   "citation": "Capotorti, 'Incoherence correction strategies in statistical matching', ISIPTA 2011",
+   "what_it_proves": "Separately coherent sources can be jointly incoherent in statistical matching; distance-minimising / sub-assessment corrections.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_merging",
+    "coherence_extension"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
    ]
   },
   {
@@ -1164,6 +1208,23 @@
    ]
   },
   {
+   "file": "fritz_chaves_2013_entropic_inequalities_marginal_problems.pdf",
+   "citation": "Fritz & Chaves, 'Entropic inequalities and marginal problems', IEEE Trans. Inf. Theory 59 (2013), arXiv:1112.4788",
+   "what_it_proves": "Marginal problems via entropic inequalities; triangle and cycle hypergraphs.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "marginal_problem",
+    "data_merging"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
+   ]
+  },
+  {
    "file": "ghrist_cooperband_2025_obstructions_to_reality_torsors.pdf",
    "citation": "Ghrist & Cooperband, 'Obstructions to reality: torsors & visual paradox', arXiv:2507.01226",
    "what_it_proves": "Locally consistent relations with an H^1 (torsor) obstruction to globalizing; impossible figures (Penrose line) via torsors.",
@@ -1488,6 +1549,23 @@
    "pages": "49",
    "read_trail": [
     "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
+   "file": "jiang_lim_yao_ye_2011_hodgerank.pdf",
+   "citation": "Jiang, Lim, Yao, Ye, 'Statistical ranking and combinatorial Hodge theory', Math. Program. 127 (2011), arXiv:0811.1067",
+   "what_it_proves": "HodgeRank: pairwise comparison flows decompose into gradient (global ranking), curl (local triangle cycles) and harmonic (global cycles); inconsistency visible from relations (edge flows).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
    ]
   },
   {
@@ -1863,6 +1941,23 @@
    "read_trail": [
     "notes/open_questions/cyclic_marginal/case_relativistic_triangle.md",
     "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
+   "file": "morton_2017_contextuality_missing_versioned_data.pdf",
+   "citation": "Morton, 'Contextuality from missing and versioned data', arXiv:1708.03264 (2017)",
+   "what_it_proves": "Databases with missing/versioned data as presheaves; contextuality = no global section.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_merging",
+    "contextuality_finite"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/view_thrust_scouting_plan.md"
    ]
   },
   {

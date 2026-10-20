@@ -187,3 +187,38 @@ statement follows directly from the sheaf formulation.
 
 **Decision-rule condition 1: MET (provisionally)** for the translation and the comparison and
 finite-quotient pieces. Next is block C (applied footholds).
+
+## Block C results (2026-10-20; sonnet scout, 25 calls, snippet/abstract level; 5 PDFs shelved)
+
+| Domain | Relations / relata / joint view | Verdict |
+|---|---|---|
+| Group synchronisation (clock offsets, rotations; Singer 2011) | relative offsets / absolute settings / — | **COUNTER-CASE**: holonomy is computed from relations alone, by summing offsets round a loop |
+| Network meta-analysis (Higgins 2012 design-by-treatment; Dias–Ades; White 2019) | contrasts / arm outcomes / within-trial records | PARTIAL: strong practice and data, but loop inconsistency is tested on contrasts and works. Joints are not discarded in the relevant sense |
+| Rankings (HodgeRank; chess non-transitivity) | edge flows / scalar ratings / per-match records | PARTIAL: relations already see cycles (curl/harmonic parts); only scalar scores hide them |
+| **Statistical matching** (Capotorti, ISIPTA 2011; D'Orazio–Di Zio–Scanu; Fréchet bounds) | correlations / marginals / record-level pair tables | **best conceptual niche**: "separately coherent sources … whole assessment incoherent", and no routine loop test in practice |
+| **Camera viewing graphs** (Bråtelund–Rydell 2023; Trager–Osserman–Ponce) | pairwise fundamental matrices / camera poses / feature tracks | **best practical foothold**: compatibility of pair geometries with a joint configuration; tracks (joint records) vs pairs; 1DSfM public data |
+| Ecology (integrated SDMs) | — | nothing found |
+
+**The counter-case teaches a refinement (my reading, not the scout's).**
+- Synchronisation "sees" the holonomy by *adding* the offsets: E[u] + E[v] + E[w] vs E[u + v + w] = 0.
+- That uses **additivity of expectation across relations that were never measured jointly**, which
+  is exactly Gudder's question. Additivity there is guaranteed only if a world exists.
+- So practice detects the twist by *presupposing* the world whose absence it then reports. Our
+  blindness result is about **yes/no questions** (bounded, event-level) about relations. Relations
+  used as **quantities with arithmetic** see the gauge twist, but only through that presupposition.
+- **Refined thrust:** detection needs either joint views or an additivity (world) assumption.
+  Practices that sum relations round loops (sync, NMA contrasts, HodgeRank) are using the latter.
+
+**Decision-rule condition 2: PARTLY MET.**
+- Foothold candidates: statistical matching (a strong, b moderate, c uncertain) and camera viewing
+  graphs (a, b, c moderate; algebraic compatibility is owned).
+- NMA and rankings are **contrast cases** (relations plus additivity suffice).
+- Group synchronisation is the **counter-case**, now explained by the additivity presupposition.
+
+**Overall scouting verdict:**
+- Condition 1 is provisionally met: the finitely additive amalgamation / rank / finite-quotient
+  pieces and the relations/relata/view translation were not found.
+- Condition 2 is partly met.
+- The thrust is worth bringing to bear **narrowly**. Theory: finitely additive type amalgamation.
+  Application: statistical matching or viewing-graph compatibility, tested on public data. Not as
+  a general methodology claim.

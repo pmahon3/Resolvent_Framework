@@ -503,7 +503,12 @@
     "id": "q.lived_finite_probabilistic",
     "effect": "probabilistic regime on the infinite triangle"
    },
-   "detail": "theory_shape.md (box limits)"
+   "detail": "theory_shape.md (box limits)",
+   "fired": {
+    "branch": "(b)",
+    "date": "2026-10-20",
+    "result": "VISIBLE. Finite-quotient witness: push the invariant mean through s -> s mod n (transport lemma). Core Z1 (x1=x0, x2=x1, x0=x2+1): W={x0 = x2 != x1 mod 2}, 1_W = 1/2[x0=x2] - 1/2[x0=x1] - 1/2[x1=x2] + 1/2, Lambda = -1/2 (hand + exact closure). Original +1,+1,+1 gate: {x0=x1=x2 mod 2}, Lambda = -1/2. Mod 3: 9-point witness, Lambda = -2/3, exact verification. Hence every relativistic clock loop with nonzero holonomy is visible (Tv). Machinery: finite quotients (residues) detect gauge/renaming holonomy; hiding needs order ('beyond') types no finite quotient preserves. Prior art owed (residual finiteness / profinite detection). Scripts: verification/z1_modn_witness.py, z1_mod3_verify.py."
+   }
   },
   {
    "id": "gate.finite_chordal_line",

@@ -354,3 +354,43 @@ placements, even agreeing only on the three views.
   check plus a sign condition on the two constants.
 - Caveat: const_cyc needs the set to avoid far anticyclic points. General carrier sets need the
   box identity directly.
+
+## RESULT, step 2: Z₁ is VISIBLE (2026-10-20). REVERSAL of "leans hidden" ⟦hand reduction + exact computation⟧
+
+**The finite quotient sees the twist.**
+- Reduce clock readings mod n. The map s ↦ s mod n pushes the invariant mean on ℤ to the uniform
+  law on ℤ_n, and the relations to x₁ ≡ x₀, x₂ ≡ x₁, x₀ ≡ x₂ + 1 (mod n).
+- By the transport lemma (machine-checked for the inclusion as `mem_pre`; the same proof works for
+  any per-coordinate map), a buildable set over ℤ_n pulls back to a buildable set over ℤ with the
+  same forced value.
+
+**Witness (n = 2), checked by hand.** W = {x₀ ≡ x₂ ≢ x₁ (mod 2)}, i.e. "clocks 1 and 3 have the
+same parity, clock 2 the other".
+- With two values, 1_W = ½[x₀=x₂] − ½[x₀=x₁] − ½[x₁=x₂] + ½.
+- The forced values of the pair terms are 0, 1, 1, so **Λ(W) = −½**.
+- W is buildable over ℤ₂³ (explicit Dynkin closure, `verification/z1_modn_witness.py 2 0,0,1`).
+- n = 3 gives a 9-point witness with Λ = −2/3, verified in exact arithmetic: the functional kills
+  all 8 dependencies, the witness is in D at depth 5, and the pullback is consistent on [−4,4]³
+  (`verification/z1_mod3_verify.py`).
+
+**Consequences.**
+- **Z₁ is visible.** By the reductions (renaming, scaling, floor, mod 2), **every relativistic clock
+  loop with non-zero holonomy, read with an even spread, has an askable question exposing it**:
+  read each clock in units of the holonomy and compare *parities* pairwise.
+- The original gate (+1, +1, +1 over ℕ, holonomy 3) is visible via mod 2: the set {x₀ ≡ x₁ ≡ x₂}
+  gets Λ = −½. `gate.triangle_density_plus1` FIRES branch (b).
+- So case 4 does **not** produce pointless coherence. The relativistic twist is real (no world) but
+  *visible*: class Tv, not Th.
+
+**What the proof says (theory, candidate; prior art owed: residual finiteness / profinite detection
+of holonomy).**
+- Renaming (gauge) twists are detected by **finite quotients**. Nonzero holonomy in ℤ survives mod
+  n for some n, and finite triangles see every twist.
+- Hiding needs a twist that **no finite quotient preserves**: order ("beyond") types, as in the Lean
+  staircase. No finite quotient respects "x₁ far beyond x₀".
+- This sharpens the regime split: **gauge twists are finitely visible; order twists can hide at
+  infinity.**
+
+**Equilibrium with experience.** Clocks whose synchronisation fails round a loop produce a
+*detectable* inconsistency (parity questions any pair can ask). Pointless coherence in nature
+would need an *order*-type idealisation (something running off to infinity), not a gauge one.

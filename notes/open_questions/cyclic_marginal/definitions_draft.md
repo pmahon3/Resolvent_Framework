@@ -352,7 +352,7 @@ point, an ideal point, or a mixture of these, as the regime requires.
 | | Values | Adding | Every state a mixture of worlds? | Status |
 |---|---|---|---|---|
 | (i′) | finite | finite | yes | exact computation at 2 and 3 values; general open. Owned territory (exclusivity) |
-| (ii′) | infinite | finite | open | the impossible-point question; also open whether a two-valued pointless state extends to a charge on X³ |
+| (ii′) | infinite | finite | **gauge (renaming) families: twists VISIBLE** (finite quotient, 2026-10-20); order families: open | renaming case settled via mod-n witnesses; open whether a two-valued pointless state extends to a charge on X³ |
 | (iii′) | countable | σ | not checked | — |
 
 **What separates (i) from (ii): the finite intersection property.** ⟦hand, from the basic lemma⟧

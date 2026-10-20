@@ -117,13 +117,42 @@ questions, but they do not extend to all the askable ones.
     other carries a direction. A loop of such directions is a task that would
     have to finish before it started.
   \item \emph{And beyonds compose.} A triangle whose directions never go round
-    can still fail to close. The combined step from the first landing to the
-    last must be the composite of the other two in the algebra of
-    ultrafilters~\cite{hindmanstrauss,goldberg2025}, and one window can ask for a
-    different composite \st{hand, not yet independently checked}. So the true
-    invariant is a \emph{composition law}, with the directed cycle as its
-    simplest shadow. Its exact form is the main open question.
+    can still fail to close. See the next section.
 \end{itemize}
+
+\section{The twist is a failure of composition}\label{sec:composition}
+A Möbius strip looks like an ordinary strip in every small piece, and the
+pieces join perfectly; yet once round, it comes back upside down. A
+\emph{twist} is local agreement whose composition round a loop does not return
+to its start.
+
+\paragraph{Two forward queries force the third.} Call a query \emph{forward} if it
+draws its second landing after the first, landing by landing, and each value of
+the second landing comes from only finitely many values of the first.
+Independent ``beyond'' draws, renamings and steps ``$x_1=x_0+b$'' are all
+forward. If the queries on $\{x_0,x_1\}$ and $\{x_1,x_2\}$ are forward, then any
+world fitting both is \emph{unique}, and it fixes how $x_0$ relates to $x_2$:
+the \emph{composite} of the two queries, an iterated sum of
+ultrafilters~\cite{goldberg2025}. So the triangle has a world exactly when its third
+query \emph{is} that composite \st{Lean}. Around a longer loop, the closing query
+must equal the composite of the others \st{hand}.
+
+\paragraph{What it explains.} The twist is the \emph{holonomy of composition}: the
+closing query disagreeing with what the rest compose to.
+\begin{itemize}[nosep]
+  \item \emph{Independent beyonds:} the composite is again ``$x_0$ first'', so
+    the twist is a directed cycle (for orientations with a forward path).
+  \item \emph{Renamings:} the composite is the composed renaming, so the twist is
+    its monodromy (automatically trivial for yes-or-no answers).
+  \item \emph{Steps:} the composite of steps $d_{01}$ and $d_{12}$ is their
+    ultrafilter sum. A triangle whose third query is an \emph{independent} draw is
+    therefore twisted for every non-principal ultrafilter, although nothing goes
+    round in a circle \st{hand}.
+\end{itemize}
+Prior art: the sum of ultrafilters is classical (Frolík), and the pair-level
+description of how two ultrafilters glue is Goldberg's~\cite{goldberg2025}. The
+cases above look classical one by one; what appears new is the unification.
+Queries that are not forward are the open edge.
 
 \section{Probabilities and finite worlds}\label{sec:finite}
 So far answers were yes or no. Let them be probabilities: each query reports
@@ -254,6 +283,33 @@ yet fail to add up. That happens not because anyone contradicts anyone, but
 because the agreement between the first and last parties must match the
 composite of those in between.
 
+\section{Cases: testing the ideas against the world}\label{sec:cases}
+The ideas are held to concrete cases before any generalisation, and the cases
+can push back.
+\begin{itemize}[nosep]
+  \item \emph{Three species that never settle.} In a rock-paper-scissors cycle of
+    competitors~\cite{maylonard1975}, long-run averages never converge; they
+    circle a polygon forever~\cite{gaunersdorfer1992,takens1994}. Three field
+    stations, each watching one pair of species over its own span of time, can
+    agree wherever they overlap and still imply that ``no species is dominant''
+    has probability $-0.2$: no long-run world fits them all \st{simulation and
+    exact geometry}. Each long-run world exists only as an ideal limit, and there
+    is a whole loop of them; the observer's choice of time span selects one.
+  \item \emph{One quantity in time windows.} Watching one quantity through
+    overlapping time windows never produced the failure: windows that share the
+    same variable share too much to disagree \st{simulation}.
+  \item \emph{Three bodies.} Pairwise observers of the three-body problem could
+    describe no world only along motions whose statistics never settle. How common
+    those are is tied to a famous open question of Kolmogorov. In an isolated
+    three-body universe each body's own view of its two relations forms the
+    triangle, but Newtonian shared time forces a world. Relativity and relational
+    time may not \st{open}.
+\end{itemize}
+The pattern so far, which is a description and not yet a law: no world needs
+views of separate variables, statistics that never settle, and observers who
+cannot share a clock or way of averaging. Shared time looks like what forces a
+world.
+
 \section{The four questions, lived}
 \begin{center}\small
 \begin{tabular}{|>{\raggedright\arraybackslash}p{3.9cm}|>{\raggedright\arraybackslash}p{4.6cm}|>{\raggedright\arraybackslash}p{4.6cm}|}
@@ -367,6 +423,12 @@ them.
 \bibitem{larsenhaine2015} Larsen and Haine, Monte Carlo replication of
   competitive network theory, abstract, Ecological Society of America annual
   meeting, 2015 (conference abstract; not yet read in full).
+\bibitem{maylonard1975} R.~M.~May and W.~J.~Leonard, Nonlinear aspects of competition
+  between three species, \emph{SIAM J.\ Appl.\ Math.} 29(2) (1975) 243--253.
+\bibitem{gaunersdorfer1992} A.~Gaunersdorfer, Time averages for heteroclinic
+  attractors, \emph{SIAM J.\ Appl.\ Math.} 52 (1992) 1476--1489.
+\bibitem{takens1994} F.~Takens, Heteroclinic attractors: time averages and moduli of
+  topological conjugacy, \emph{Bol.\ Soc.\ Bras.\ Mat.} 25 (1994) 107--120.
 \bibitem{navara1984} M.~Navara, Two-valued states on a concrete logic and the
   additivity problem, \emph{Math.\ Slovaca} 34(3) (1984) 329--336.
 \bibitem{navaraptak1983} M.~Navara and P.~Pt\'ak, Two-valued measures on

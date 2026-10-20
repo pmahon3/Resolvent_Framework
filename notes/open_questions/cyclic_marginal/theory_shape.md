@@ -164,7 +164,7 @@ What would refute the thesis: a twist built from window 2-types that are neither
 
 ## Update 2026-10-17: NT1 fired (a). The thesis is false as stated ⟦HAND — unverified⟧
 
-**The family is twisted although its orientation is acyclic** (for any p containing a lacunary set).
+**The family is twisted although its orientation is acyclic**: for any p containing a lacunary set, and by the composition law (2026-10-19, hand) for EVERY non-principal p.
 
 **Witness.**
 - Take S ∈ p+p and B = {b : S − b ∈ p} ∈ p.
@@ -385,6 +385,29 @@ It also STRENGTHENS NT1 to every non-principal p, not just lacunary ones:
 - the forced (x₀, x₂) has fibres a + w, while a product has constant fibres;
 - equality would need a + w = a′ + w for two distinct a, a′;
 - translation has no fixed point on non-principal ultrafilters (Katětov).
+
+**Additions after review (2026-10-19).**
+- The same X/Y construction on sets in ℕ³ shows the *whole* amalgam is unique, not just its
+  (x₀, x₂) projection.
+- Composites of forward types are forward: they are fibred, and finite-to-one through b. That is
+  what makes the loop induction legitimate.
+- **Scope of "unifies orientation".** It covers only orientations that admit a forward path
+  through every window except the closing one. That includes every acyclic triangle (by a
+  topological order) and every directed cycle. It does NOT cover alternating rings such as
+  x₀→x₁←x₂→x₃←x₀; there, flatness still follows from the iterated-product argument, but not from
+  the loop statement.
+- **"Bijections: flat ⟺ trivial monodromy"** is automatic for consistent two-valued families.
+  Katětov forces F₊p = p, so F fixes a p-large set. It is not a new constraint.
+- **Prior art.** Goldberg (JSL 2025, arXiv:2102.04677) §3, Lemma 3.2: every amalgamation D of (U, W)
+  is determined by U and a fibre (D)₀, which is an M_U-ultrafilter in the ultrapower. Our forward
+  types are the case where the fibre is represented by a V-family (u_a): the classical *sums*
+  Σ_p u_a (Frolík; Blass). The composite is an iterated sum. Goldberg owns the pair-level
+  description, and he is the owner of the "neither forward" boundary (general amalgamations). The
+  forcing lemma, uniqueness of the triangle amalgam and the holonomy statement were not found in
+  §3, but folklore risk is HIGH (sums are classical). Still owed: a targeted pass on Frolík/Kunen
+  p-sums, Blass on finite-to-one maps, and the model-theory reading (x₀ algebraic over x₁).
+- **Status.** HAND, unverified. Lean target: pure filter reasoning, close to `TriangleCyclic`'s
+  E3 and fibre infrastructure. It stays out of the note until checked.
 
 **Scope.** This is about flatness (amalgamation), not about whether the carrier extends. It covers
 only forward types. Non-forward types, such as a reversed product on a window oriented the other

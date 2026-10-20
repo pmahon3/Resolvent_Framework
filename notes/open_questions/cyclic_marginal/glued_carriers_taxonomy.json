@@ -17,7 +17,7 @@
     "headline": {
       "objects": 6,
       "theorems": 18,
-      "conjectures": 19,
+      "conjectures": 20,
       "probes": 12,
       "examples": 3,
       "owned_regions": 16,
@@ -284,6 +284,14 @@
   ],
   "conjectures": [
     {
+      "id": "conj.composition_law",
+      "name": "composition law: two forward windows force the third; the twist is the holonomy of composition",
+      "status": "HAND, unverified (2026-10-19); reviewed once. Prior art: Goldberg JSL 2025 \u00a73 Lemma 3.2 owns the pair-level fibre description; forward types = classical sums (Frolik, Blass); folklore risk HIGH; targeted pass owed. Lean target.",
+      "one_line": "Forward 2-type: fibred over its first coordinate by a family (u_a), with a member on which the second coordinate is finite-to-one back to the first (products drawn after, injective graphs, translations). If u01, u12 are forward, every amalgam is UNIQUE and projects to the composite u01 o u12 (an iterated sum) on (x0,x2). So the triangle is flat iff u02 = u01 o u12; around a loop with a forward path, flat iff the closing window equals the composite. Unifies: products (orientation, for orientations with a forward path), bijections (monodromy, automatically trivial for two-valued families by Katetov), sums (d02 = d01 + d12; NT1 twisted for every p). Open: non-forward / general amalgamations (Goldberg's boundary), alternating orientations.",
+      "detail": "theory_shape.md (2026-10-19: the composition law)",
+      "uses": ["conj.cycle_of_beyond", "conj.trianglefree_classification"]
+    },
+    {
       "id": "q.lived_finite_probabilistic",
       "name": "PRIORITY 1 (2026-10-18): a finite, probabilistic version of pointless coherence",
       "status": "PARTLY ANSWERED 2026-10-18 (hand + certified computation): rings L>=4 any finite A: board states = locally consistent families (locality), so the board is blind and finite probabilistic pointless states exist exactly when local != joint (classical cycle territory, owned). Triangle: A=3 board states = mixtures of points RIGOROUSLY (2026-10-18): exact double description shows all 207 extreme rays of the cone {g in V : g >= 0} are multiples of 0/1 vectors (A=2: 16), validated by 300 independent LPs; with D = 0/1 span at A=3 (machine count) and LP duality, every board state is a mixture of points (verification/triangle_cone_extreme_rays.py). A=4 not computed (pure-Python DD reached 32k intermediate rays; quadratic adjacency step too slow; needs cdd/lrs and the A=4 board, which is unknown). A=4..7 the +1-mod-A family is killed by the buildable circle cyclic set (gate.finite_staircase_carrier). Conjecture: on the finite triangle the board sees every finite twist.",
@@ -310,7 +318,7 @@
     {
       "id": "conj.cycle_of_beyond",
       "name": "pointless coherence is exactly a cycle of 'beyond'",
-      "status": "REFUTED AS STATED 2026-10-17 (hand, unverified; gate.nontensor_sum_type fired (a)): an acyclic family of sum-type windows is twisted. Survives for tensor types (hand sketch). Provable narrower statement (hand): translation-type triangle (all windows law(a,a+d_ij), d drawn beyond) is flat iff d02 = d01 + d12 in (beta N,+). General 'cocycle in (beta Z,+) via difference map' = HEURISTIC only (a product window's difference law varies with the fibre).",
+      "status": "REFUTED AS STATED 2026-10-17 (hand, unverified; gate.nontensor_sum_type fired (a)): an acyclic family of sum-type windows is twisted (for every non-principal p, by the composition law 2026-10-19). SUPERSEDED in content by conj.composition_law. Survives for tensor types (hand sketch). Provable narrower statement (hand): translation-type triangle (all windows law(a,a+d_ij), d drawn beyond) is flat iff d02 = d01 + d12 in (beta N,+). General 'cocycle in (beta Z,+) via difference map' = HEURISTIC only (a product window's difference law varies with the fibre).",
       "one_line": "Every off-diagonal window 2-type decides {x_i < x_j} (an orientation, 'drawn beyond'); diagonal ones are gauge (renaming). Thesis: a consistent window family is twisted (non-amalgamable) iff, after contracting gauge windows, the orientations contain a directed cycle. Renaming, motion (group actions) and sigma-additivity never produce twist. If true, the twist invariant is acyclicity, not winding.",
       "detail": "theory_shape.md (sections 4-5)",
       "uses": ["conj.trianglefree_classification", "conj.triangle_extends_all"]
@@ -489,7 +497,7 @@
         {"branch": "(a) twisted although acyclic", "then": "conj.cycle_of_beyond FALSE as stated: 'beyond' has finer structure (how beyonds compose: the semigroup (beta N, +); owner candidates Hindman-Strauss). Refine the invariant to include composition. Then (ii) decides whether the board still absorbs the twist."},
         {"branch": "(b) amalgamates", "then": "evidence for conj.cycle_of_beyond (orientation is the whole invariant even for non-tensor types); look for a harder non-tensor family"}
       ],
-      "fired": {"branch": "(a)", "date": "2026-10-17", "result": "HAND, unverified: for every non-principal p containing a set with gaps tending to infinity (exists in ZFC, e.g. p containing the squares), the three windows do NOT amalgamate although the orientation is acyclic. Witness: S in w=p+p, B={b: S-b in p}, X={(a,a+b): b in B} (window 01), Y={(y,y+c): c in C_y}, C_y = finite intersection of S-b over b in B, b<=y (window 12); X,Y force x2-x0 in S; Z={x2-x0 not in S} has value 1 in window 02 unless w = (-p+p)+w in beta Z; z=-p+p is non-principal; p right-cancellable (lacunary member; hand proof via disjoint translated tails) => w=p+p right-cancellable => z=0, contradiction. conj.cycle_of_beyond FALSE as stated. (ii) extension to D3: OPEN."},
+      "fired": {"branch": "(a)", "date": "2026-10-17", "result": "STRENGTHENED 2026-10-19 by the composition law (hand): twisted for EVERY non-principal p (the forced (x0,x2) has fibres a+w; a product has constant fibres; equality would need two distinct translates a+w = a'+w, impossible). Original: HAND, unverified: for every non-principal p containing a set with gaps tending to infinity (exists in ZFC, e.g. p containing the squares), the three windows do NOT amalgamate although the orientation is acyclic. Witness: S in w=p+p, B={b: S-b in p}, X={(a,a+b): b in B} (window 01), Y={(y,y+c): c in C_y}, C_y = finite intersection of S-b over b in B, b<=y (window 12); X,Y force x2-x0 in S; Z={x2-x0 not in S} has value 1 in window 02 unless w = (-p+p)+w in beta Z; z=-p+p is non-principal; p right-cancellable (lacunary member; hand proof via disjoint translated tails) => w=p+p right-cancellable => z=0, contradiction. conj.cycle_of_beyond FALSE as stated. (ii) extension to D3: OPEN."},
       "pre_registered": "2026-10-17, before running",
       "affects": {"id": "conj.cycle_of_beyond", "effect": "decides whether orientation is the whole twist invariant"},
       "detail": "theory_shape.md (section 8, NT1)"

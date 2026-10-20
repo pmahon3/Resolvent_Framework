@@ -319,3 +319,38 @@ witnessed by the (anti)cyclic set, and the triangle cannot ask that set.
 - `navaraK_not_mem`: **Navara's K(0,0) is not in the carrier over ℤ.**
 - The clocks' impossible point therefore cannot be exposed by the one witness the 1980s theory
   supplies. Z₁-full (positivity of Λ on the whole carrier) stays open.
+
+## Attempt (i), step 1: the unit must escape to infinity (2026-10-20) ⟦hand; checked twice⟧
+
+**Placements.**
+- A placement is a configuration c ∈ ℤ³ averaged along the diagonal:
+  μ_c(h) = λ_s h(s + c₀, s + c₁, s + c₂).
+- Its view laws depend only on the differences u = c₁ − c₀, v = c₂ − c₁, w = c₀ − c₂, with
+  u + v + w = 0.
+- The clock state Λ needs view laws u ≡ 0, v ≡ 0, w ≡ 1.
+
+**Lemma (no finite signed decomposition).** Λ is not a finite signed combination Σ a_c μ_c of
+placements, even agreeing only on the three views.
+- *First-moment proof.* Every placement has u + v + w = 0, so any combination has
+  Σ a_c (u_c + v_c + w_c) = 0. The required marginals give 0 + 0 + 1 = 1.
+- *Generating-function proof.* Write p(x,y) = Σ a_c x^{u_c} y^{v_c}. The views force p(x,1) = 1,
+  p(1,y) = 1 and p(t,t) = 1/t. The first two give p = 1 + (x−1)(y−1)r for a Laurent polynomial r.
+  Then r(t,t) = −1/(t(t−1)), which has a pole at t = 1. Contradiction.
+
+**Reading.**
+- Any representation of the clock state by actual configurations needs mass at unbounded offsets:
+  the holonomy's unit has to *escape to infinity*.
+- That is the converse picture to the box-limit lemma ("the unit of down never escapes" for limits
+  of finite mixtures). It is why Λ is not a limit of finite pictures, and why finite truncation
+  cannot decide Z₁.
+
+**Next (step 2).**
+- Truncate: r_N(x,y) = −Σ_{k=0}^{N} x^{k−1}·(…) chosen so the diagonal matches up to a remainder
+  carried by far placements (offsets ≥ N).
+- Then use the Lean far-point structure: the lift lemma and const_cyc / const_acy make membership
+  of a carrier set at far points depend only on cyclic vs anticyclic type, under the lemma's
+  hypotheses.
+- If the far remainder is controlled by those two constants, positivity of Λ reduces to a finite
+  check plus a sign condition on the two constants.
+- Caveat: const_cyc needs the set to avoid far anticyclic points. General carrier sets need the
+  box identity directly.

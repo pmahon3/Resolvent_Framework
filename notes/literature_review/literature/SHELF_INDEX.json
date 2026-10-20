@@ -9,7 +9,7 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 96,
+  "count": 100,
   "basis_counts": {
    "abstract": 35,
    "read": 51,
@@ -146,8 +146,12 @@
    "gisin_2021.pdf"
   ],
   "impossible_point": [
+   "depiro_kim_millar_2005_hyperdefinable_group_configuration.pdf",
    "dravecky_sipos_1980_additivity_gudder_integral.pdf",
    "goodrick_2009_amalgamation_slides_banff.pdf",
+   "goodrick_kim_kolesnikov_2013_amalgamation_functors_boundary.pdf",
+   "goodrick_kim_kolesnikov_2015_type_amalgamation_polygroupoids.pdf",
+   "goodrick_kim_kolesnikov_2017_homology_types_hurewicz.pdf",
    "hrushovski_2012_stable_group_theory_approximate_subgroups.pdf",
    "maharam_1972.pdf",
    "navara_1984_two_valued_additivity.pdf",
@@ -158,8 +162,12 @@
    "biesel_2024.pdf",
    "caru_2017_cohomology_contextuality.pdf",
    "casanova_kohlas_zaffalon_2022.pdf",
+   "depiro_kim_millar_2005_hyperdefinable_group_configuration.pdf",
    "epperson_zafiris_2013/",
    "goodrick_2009_amalgamation_slides_banff.pdf",
+   "goodrick_kim_kolesnikov_2013_amalgamation_functors_boundary.pdf",
+   "goodrick_kim_kolesnikov_2015_type_amalgamation_polygroupoids.pdf",
+   "goodrick_kim_kolesnikov_2017_homology_types_hurewicz.pdf",
    "hrushovski_2012_stable_group_theory_approximate_subgroups.pdf",
    "zafiris_2006.pdf"
   ],
@@ -703,6 +711,23 @@
    ]
   },
   {
+   "file": "depiro_kim_millar_2005_hyperdefinable_group_configuration.pdf",
+   "citation": "De Piro, Kim, Millar, 'Constructing the hyperdefinable group from the group configuration', arXiv:math/0508583 (downloaded in error for Kolesnikov 'n-simple theories')",
+   "what_it_proves": "Not relevant to the programme questions (mis-download kept for the record).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [],
+   "questions": [
+    "impossible_point",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
    "file": "derr_williamson_2023.pdf",
    "citation": "Derr & Williamson, 'Systems of precision: coherent probabilities on pre-Dynkin systems and coherent previsions on linear subspaces', arXiv:2302.03522",
    "what_it_proves": "Coherent extension of probabilities from pre-Dynkin systems; D.6 takes a sigma-additive input (does NOT reach finitely coherent patterns).",
@@ -1073,6 +1098,63 @@
    "file": "goodrick_2009_amalgamation_slides_banff.pdf",
    "citation": "Goodrick, 'Amalgamation properties for types in stable theories and beyond', BIRS workshop 09w5113 slides (2009)",
    "what_it_proves": "3-amalgamation problem for complete types p12, p23, p13; coherence (agreement on single variables) necessary; counterexamples: linear order x1<x2<x3<x1, and an equivalence relation with two classes with not-E in every p_ij; stable theories have 3-existence; o-minimal cannot (order cycle).",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "own.type_amalgamation"
+   ],
+   "questions": [
+    "impossible_point",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
+   "file": "goodrick_kim_kolesnikov_2013_amalgamation_functors_boundary.pdf",
+   "citation": "Goodrick, Kim, Kolesnikov, 'Amalgamation functors and boundary properties in simple theories', Israel J. Math. (2013), arXiv:1006.4410",
+   "what_it_proves": "n-amalgamation functors over INDEPENDENT problems; 3-existence holds in all simple theories (p.1, verified); boundary groups Aut(ab~/a b) profinite abelian (Thm 2.18); obstructions start at 4-existence / 3-uniqueness.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "own.type_amalgamation"
+   ],
+   "questions": [
+    "impossible_point",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
+   "file": "goodrick_kim_kolesnikov_2015_type_amalgamation_polygroupoids.pdf",
+   "citation": "Goodrick, Kim, Kolesnikov, 'Type-amalgamation properties and polygroupoids in stable theories', J. Math. Logic (2015), arXiv:1404.1525",
+   "what_it_proves": "Failure of (n+2)-amalgamation in stable theories witnessed by n-ary polygroupoids (n=2: Hrushovski's definable groupoids).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [
+    "own.type_amalgamation"
+   ],
+   "questions": [
+    "impossible_point",
+    "local_to_global"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
+   "file": "goodrick_kim_kolesnikov_2017_homology_types_hurewicz.pdf",
+   "citation": "Goodrick, Kim, Kolesnikov, 'Homology groups of types in stable theories and the Hurewicz correspondence', APAL (2017), arXiv:1412.3864",
+   "what_it_proves": "Thm 2.1: under k-amalgamation for k <= n+1, H_n(p) is isomorphic to Gamma_n(p), a profinite abelian automorphism group of part of acl of n independent realizations (finite quotients carry the obstruction, but at the 3-uniqueness level, not 3-existence).",
    "summary_basis": "read",
    "verdict_for_us": "neighbour",
    "programme_links": [

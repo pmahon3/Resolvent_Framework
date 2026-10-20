@@ -574,3 +574,16 @@ needed before any claim.
     consistency exactly for twists that no finite quotient preserves.*
   - Unproved beyond instances. Prior art: Sherali–Adams for Dynkin systems was not found (block A
     scout).
+
+**(a) GKK homology of types, read (2026-10-20; scout + my spot-checks).**
+- Goodrick–Kim–Kolesnikov work with **independent** amalgamation problems. 3-existence then holds
+  in every simple theory (2013, p.1, verified: "3-existence holds in all simple theories").
+- Their obstructions start at 4-existence / 3-uniqueness. H_n(p) ≅ Γ_n(p) is a profinite abelian
+  automorphism group (2017 Thm 2.1): "finite quotients carry the obstruction", but **one level up**
+  (non-uniqueness of 3-types, not non-existence).
+- No measures, charges, Dynkin systems or ranks (grep).
+- **Verdict:** NEIGHBOUR (2013, 2017), nothing (2015). They do not own our level.
+- The bare 3-existence failure examples are Goodrick's slides (order cycle) and Hrushovski 2.19(3)
+  (bounded quotient), as already recorded.
+- Kolesnikov "n-simple theories" (APAL 2005): simple theories only, so nothing at our level
+  (abstract only).

@@ -778,9 +778,8 @@
   },
   {
    "id": "gate.case1b_depth_types",
-   "name": "Case 1b: depth-of-rarity types on the three-species cycle",
-   "status": "PRE-REGISTERED 2026-10-19 (not run)",
-   "one_line": "Stations log decades-of-rarity n_i (unbounded only in the continuum idealisation); two-valued reports = ultrafilter limits of (n_i,n_j) along own time ultrafilters. Outcomes A/W/Tv/Th/Stuck.",
+   "category": "lived case probe",
+   "investigation": "Stations log decades-of-rarity n_i (unbounded only in the continuum idealisation); two-valued reports = ultrafilter limits of (n_i,n_j) along own time ultrafilters. Outcomes A/W/Tv/Th/Stuck.",
    "outcomes": {
     "A": "case pushes back: idealisation creates no pointlessness",
     "W": "as A, stronger",
@@ -788,6 +787,11 @@
     "Th": "infinity alone hides the twist; regime (ii) meets experience",
     "Stuck": "non-forward types: concrete instance of the open edge"
    },
+   "fired": null,
+   "pre_registered": "2026-10-19",
+   "affects": [
+    "conj.composition_law"
+   ],
    "detail": "cyclic_marginal/case_heteroclinic_depths.md; finite case 1 = regime (i), owned"
   }
  ],

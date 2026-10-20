@@ -352,7 +352,7 @@ point, an ideal point, or a mixture of these, as the regime requires.
 | | Values | Adding | Every state a mixture of worlds? | Status |
 |---|---|---|---|---|
 | (i′) | finite | finite | yes | exact computation at 2 and 3 values; general open. Owned territory (exclusivity) |
-| (ii′) | infinite | finite | **gauge (renaming) families: twists VISIBLE** (finite quotient, 2026-10-20); order families: open | renaming case settled via mod-n witnesses; open whether a two-valued pointless state extends to a charge on X³ |
+| (ii′) | infinite | finite | gauge (renaming) families: **visible on the full carrier** (mod-n witnesses), **hidden on the gauge-invariant single-difference carrier** (D–Š); order families: open | fork recorded in `case_relativistic_triangle.md` (CORRECTION + FORK); which carrier is physical is open |
 | (iii′) | countable | σ | not checked | — |
 
 **What separates (i) from (ii): the finite intersection property.** ⟦hand, from the basic lemma⟧

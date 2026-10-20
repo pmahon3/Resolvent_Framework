@@ -78,7 +78,9 @@ add up only finitely.}
 back into existence. ``Ideal'' and ``pointless'' match the standard notions of
 coherent and non-coherent finitely additive states~\cite{bhaskararao1983}. For
 ordinary probabilities and finitely many outcomes, the tree/loop line is
-classical~\cite{vorobev1962,bfmy1983}.
+classical~\cite{vorobev1962,bfmy1983}, and which patterns the askable questions
+catch is the exclusivity principle of contextuality theory
+(Section~\ref{sec:finite}). What is offered as new lies on the infinite side.
 
 \section{Why: what the askable questions contribute}
 On the triangle (three landings, three flights) the contradiction could only be
@@ -170,8 +172,9 @@ choosing heights at random.
     probability pattern on the triangle's questions \emph{is} a mixture of real
     buildings \st{exact computation}. The questions you can ask already do the
     work a view of all three landings would do. Two triangles sharing a flight,
-    and four landings all joined, behave the same way at two heights
-    \st{evidence}. So in finite worlds the line seems to fall between loops
+    four landings all joined, and a fan of three triangles behave the same way
+    at two heights, while the five-ring and the ``house'' (a square with a roof)
+    hide twists \st{evidence}. So in finite worlds the line seems to fall between loops
     \emph{without} shortcuts and loops \emph{with} them (chordal graphs), not
     between trees and loops.
   \item \emph{Idealisation is what turns a shortcut into a twist.} With infinitely
@@ -188,7 +191,66 @@ choosing heights at random.
     between \emph{yes-or-no} and \emph{probabilistic} answers, not between finite
     and infinite.
 \end{itemize}
-Open: whether the infinite triangle's questions absorb such a probabilistic
+
+\paragraph{Strange information: the loop count.} Five people sit in a ring, and
+each neighbouring pair reports ``we differ'', each person's answer split evenly.
+With two possible answers this is impossible: going round an odd ring, someone
+must agree with a neighbour, so the number of disagreements is $0$, $2$ or $4$,
+never $5$. Yet the reports pass every question you can ask. What exposes them is
+the \emph{loop count}, $4-\#\text{disagreements}$. It is never negative in any
+world, and the reports give it $-1$. The loop count is a \emph{sum} of local
+facts, but no query sees it and it cannot be built from the questions you can
+ask.
+\begin{itemize}[nosep]
+  \item \emph{Two ways to be made of local information.} A fact can \emph{add up}
+    from local facts (lie in their linear span), or be \emph{built} from them by
+    ``not'' and ``either one''. Built implies adds up, never conversely.
+  \item \emph{Lemma.} With finitely many possibilities, a probability pattern on
+    the questions you can ask is a mixture of real buildings exactly when it gives
+    every non-negative sum of local facts a non-negative value. So a hidden twist
+    is always exposed by a non-negative sum that cannot be built: either a
+    yes-or-no question that adds up but cannot be built (on the four-ring the loop
+    count is such a question), or a many-valued one (on the five-ring)
+    \st{hand, Farkas' lemma; computation on eight small graphs}.
+  \item \emph{Reading.} ``Global information is strange'' becomes precise here:
+    it is information that is a sum of local information but not locally
+    constructible.
+\end{itemize}
+
+\paragraph{This is contextuality, and it is known.} The finite side of this
+section is owned by the quantum foundations literature.
+\begin{itemize}[nosep]
+  \item \emph{The witnesses.} The loop counts are exactly the tight
+    inequalities of the $n$-cycle scenario, $\sum_i\gamma_i\langle
+    X_iX_{i+1}\rangle\le n-2$ with an odd number of signs
+    $\gamma_i=-1$~\cite{araujo2013}. The four-ring is the CHSH Bell test, and its
+    twist ``different, different, same, different'' is the Popescu--Rohrlich box.
+  \item \emph{What the askable questions catch.} A pattern that respects the
+    questions you can ask never gives more than total probability one to
+    outcomes that pairwise contradict each other. That is the \emph{exclusivity
+    principle}, also called local orthogonality or consistent
+    exclusivity~\cite{cabello2013,fritz2013,abramskybarbosa2021}. On the
+    triangle, the four-ring, the five-ring and the house, the two conditions cut
+    out exactly the same patterns \st{exact linear programming, two answers per
+    landing; not proved in general}.
+  \item \emph{Rings hide, triangles do not.} A single $n$-cycle
+    Popescu--Rohrlich box obeys the exclusivity principle for every
+    $n\ge 4$~\cite{choudharybarbosa2024}, while Specker's triangle violates it.
+    That is the finite fact ``rings of four or more hide twists''. Choudhary and
+    Barbosa show that several independent copies can expose what one copy hides,
+    using finite Ramsey theory.
+\end{itemize}
+
+\paragraph{Where the new ground is.} In finite worlds a triangle cannot hide a
+twist (proved at two and three heights; larger finite cases unchecked). With infinitely many heights and finite adding, it can \st{Lean}.
+\emph{Infinity alone} makes the triangle's askable questions blind. That is the
+part of the theory not found in the contextuality literature after the passes so
+far. The infinite proof also runs on Ramsey theory, for ultrafilters on triples
+of numbers. Whether ``infinitely many values'' and ``many independent copies''
+are one lever is open, and it is an analogy, not yet a transfer.
+
+\medskip
+\noindent Open: whether the infinite triangle's questions absorb such a probabilistic
 renaming twist. It comes down to whether any askable question can have a
 negative value at an ``impossible point'', where three steps of $+1$ fail to
 add to zero. This is a question about the shift $x\mapsto x+1$ and its invariant
@@ -201,7 +263,9 @@ means, the territory of ergodic Ramsey theory.
     and the seed of the Kochen--Specker theorem~\cite{kochenspecker1967}. The
     sheaf-theoretic account of contextuality~\cite{abramskybrandenburger2011}
     and the classification of cycle scenarios~\cite{kharoofipekokay2024} own the
-    finite, ordinary-probability side.
+    finite, ordinary-probability side, and the exclusivity
+    principle~\cite{cabello2013,fritz2013} says which finite twists the askable
+    questions catch.
   \item \emph{Penrose}~\cite{penrose1991}: impossible figures as a property of
     loops. Here the loop is necessary, and the obstruction is the way steps
     compose.
@@ -350,13 +414,23 @@ becomes whether its loops have shortcuts. Whether the composition law has a
 finite, probabilistic shadow is open, and it may be the bridge that matters
 most.
 
+That finite bridge is real, and it is not ours: it is contextuality
+(Section~\ref{sec:finite}). This is good news for practice. The loop counts are
+Bell-type inequalities, and they can be computed from field data. Each survey
+that sees one pair supplies one term, and a negative loop count says no single
+landscape fits the surveys. The gap to applicability is that each term needs
+paired observations over a comparable span, and real data are noisy, so a
+violation must be large to mean anything.
+
 \section{What the lived side asks of the mathematics}
 Questions 1--3 are the current priorities (October 2026). Question 4 waits on
 them.
 \begin{enumerate}[nosep]
   \item \textbf{(priority)} \emph{A finite, probabilistic version.} When are local marginals on a
     web of relations consistent yet unrealisable? Does composition, and not only
-    cycles, govern it?
+    cycles, govern it? \emph{Partly answered:} the finite probabilistic version is
+    contextuality, and the loop counts are its tests (Section~\ref{sec:finite}).
+    Composition in the finite setting is still open.
   \item \textbf{(priority)} \emph{Scale as the source of ``beyond''.} In the theory, ``beyond every
     number'' creates twist. In ecology and society the analogue may be
     \emph{separation of scales}. Can that be made precise?
@@ -382,6 +456,11 @@ them.
   Phys.} 13 (2011) 113036.
 \bibitem{allesinalevine2011} S.~Allesina and J.~M.~Levine, A competitive
   network theory of species diversity, \emph{PNAS} 108(14) (2011) 5638--5642.
+\bibitem{abramskybarbosa2021} S.~Abramsky and R.~S.~Barbosa, The logic of
+contextuality, \emph{CSL 2021}, LIPIcs 183 (2021), 5:1--5:18; arXiv:2011.03064.
+\bibitem{araujo2013} M.~Ara\'ujo, M.~T.~Quintino, C.~Budroni, M.~Terra~Cunha and
+A.~Cabello, All noncontextuality inequalities for the $n$-cycle scenario,
+\emph{Phys.\ Rev.\ A} 88 (2013), 022118.
 \bibitem{aristotle} Aristotle, \emph{Physics}, Book III, ch.~6.
 \bibitem{bfmy1983} C.~Beeri, R.~Fagin, D.~Maier and M.~Yannakakis, On the
   desirability of acyclic database schemes, \emph{J.\ ACM} 30(3) (1983)
@@ -392,10 +471,17 @@ them.
 \bibitem{bussjackson1979} L.~W.~Buss and J.~B.~C.~Jackson, Competitive networks:
   nontransitive competitive relationships in cryptic coral reef environments,
   \emph{Amer.\ Natur.} 113 (1979) 223--234.
+\bibitem{cabello2013} A.~Cabello, Simple explanation of the quantum violation of
+a fundamental inequality, \emph{Phys.\ Rev.\ Lett.} 110 (2013), 060402.
+\bibitem{choudharybarbosa2024} R.~Choudhary and R.~S.~Barbosa, Exclusivity
+principle, Ramsey theory, and $n$-cycle PR boxes, arXiv:2411.09773 (2024).
 \bibitem{draveckysipos1980} J.~Drav\'eck\'y and J.~\v{S}ipo\v{s}, On the
   additivity of Gudder integral, \emph{Math.\ Slovaca} 30(3) (1980) 299--303.
 \bibitem{feyerabend1975} P.~Feyerabend, \emph{Against Method}, New Left Books,
   London, 1975.
+\bibitem{fritz2013} T.~Fritz, A.~B.~Sainz, R.~Augusiak, J.~B.~Brask, R.~Chaves,
+A.~Leverrier and A.~Ac\'in, Local orthogonality as a multipartite principle for
+quantum correlations, \emph{Nat.\ Commun.} 4 (2013), 2263.
 \bibitem{godel1930} K.~G\"odel, Die Vollst\"andigkeit der Axiome des logischen
   Funktionenkalk\"uls, \emph{Monatsh.\ Math.\ Phys.} 37 (1930) 349--360.
 \bibitem{goldberg2025} G.~Goldberg, On products of ultrafilters, \emph{J.\

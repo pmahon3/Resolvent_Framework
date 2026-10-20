@@ -351,7 +351,7 @@ point, an ideal point, or a mixture of these, as the regime requires.
 
 | | Values | Adding | Every state a mixture of worlds? | Status |
 |---|---|---|---|---|
-| (i′) | finite | finite | yes | exact computation at 2 and 3 values; general open. Owned territory (exclusivity) |
+| (i′) | finite | finite | **yes for 2 and 3 values; NO from 4 values** (non-binary extreme ray, 2026-10-20) | exact computation; Maharam 6.1 + separation |
 | (ii′) | infinite | finite | gauge (renaming) families: **visible on the full carrier** (mod-n witnesses), **hidden on the gauge-invariant single-difference carrier** (D–Š); order families: open | fork recorded in `case_relativistic_triangle.md` (CORRECTION + FORK); which carrier is physical is open |
 | (iii′) | countable | σ | not checked | — |
 
@@ -587,3 +587,39 @@ needed before any claim.
   (bounded quotient), as already recorded.
 - Kolesnikov "n-simple theories" (APAL 2005): simple theories only, so nothing at our level
   (abstract only).
+
+## 16. Problem 1 resolved NEGATIVELY: the finite triangle can hide a twist at four values (2026-10-20)
+⟦exact computation + owned criterion; REVERSAL of "finite triangle sees every twist"⟧
+
+- **Statement.** On the triangle with values {0,1,2,3}, there is a consistent family of pair laws
+  which is a state on the carrier D (non-negative on every buildable question) but is not a mixture
+  of points.
+- **Proof.**
+  - (i) `verification/triangle_A4_ray_verify.py` exhibits g = Σ c·[pair cell], with values 0, 1, 2
+    on the 64 points: value 2 at (0,3,2), (3,2,1), (3,2,3).
+  - (ii) Exact rational check: g ≥ 0, g lies in the span, and rank M = 37 while rank M_Z = 36 on
+    g's zero set. So g spans an extreme ray of V₊ = {non-negative sums of pair functions}.
+  - (iii) g is extreme and not a multiple of a 0/1 vector, so g ∉ cone(V₀₁). Separation gives a
+    functional Λ ≥ 0 on cone(V₀₁) with Λ(g) < 0.
+  - (iv) Λ ≥ 0 on the cells gives pair laws, which are consistent because Λ is linear on the span,
+    and normalised. D ⊆ V₀₁, so Λ is a state on D. Λ(g) < 0 with g ≥ 0, so it is not a mixture
+    (Maharam 1972, Thm 6.1).
+- **Sizes checked** (random-objective LP with an exact extremality filter): (3,3,3), (2,2,4),
+  (2,3,4), (3,3,4) showed none; (4,4,4) showed 11.
+  - A sampled "none" is NOT a proof for those sizes. Only A = 3 is exact (earlier).
+  - First appearance: between 3×3×4 and 4×4×4 (search-level).
+- **Consequences, already propagated:**
+  - The note §7 is corrected.
+  - The three-part theorem's probabilistic cell (i′) is false from four values.
+  - §15: the finite triangle's rank is 2 only for small alphabets. This hidden twist has rank 3 at
+    A = 4.
+  - "Infinity alone blinds the triangle" now holds **for yes/no answers only**: two-valued finite
+    states are points, and the Lean result stands.
+  - Explicit witnesses (clocks mod 2 and 3, Specker, Condorcet transport) are unaffected.
+- **Prior art owed:**
+  - facets of the marginal polytope of K₃ with 4 labels (no-three-way-interaction / 3-way
+    transportation polytopes; Vlach; De Loera–Onn), where coefficient-2 facets are probably known;
+  - the exclusivity principle for larger outcome sets (does it fail to characterise the classical
+    set at A = 4?).
+- **Open:** which twist family does g witness: order-like, gauge-like, or neither? Does the
+  minimal hiding alphabet equal 4 exactly? (3×3×4 needs an exact check.)

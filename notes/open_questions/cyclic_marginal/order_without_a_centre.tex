@@ -174,21 +174,22 @@ choosing heights at random.
     impossible ones. Example, with two heights around a square: ``different,
     different, same, different''. Every query is fine, but going round flips the
     height three times \st{hand; certified example}.
-  \item \emph{The triangle fills itself in.} With three possible heights, every
-    probability pattern on the triangle's questions \emph{is} a mixture of real
-    buildings \st{exact computation}. The questions you can ask already do the
-    work a view of all three landings would do. Two triangles sharing a flight,
+  \item \emph{The triangle fills itself in, up to three heights.} With two or
+    three possible heights, every probability pattern on the triangle's questions
+    \emph{is} a mixture of real buildings \st{exact computation}. With four heights
+    this fails: a sum of local facts taking the values $0$, $1$, $2$ is an extreme
+    non-negative witness that no askable question replaces, so a probabilistic
+    twist can hide on a finite triangle \st{exact computation + Maharam's
+    criterion~\cite{maharam1972}; corrected October 2026}. Two triangles sharing a flight,
     four landings all joined, and a fan of three triangles behave the same way
     at two heights, while the five-ring and the ``house'' (a square with a roof)
-    hide twists \st{evidence}. So in finite worlds the line seems to fall between loops
-    \emph{without} shortcuts and loops \emph{with} them (chordal graphs), not
-    between trees and loops.
+    hide twists \st{evidence}. So in finite worlds shortcuts help but do not settle it: the number of heights
+    matters too.
   \item \emph{Idealisation is what turns a shortcut into a twist.} With infinitely
     many heights and finite adding, the triangle carries pointless answers
     \st{Lean}. A box-by-box limit of finite real mixtures is always a real
-    mixture \st{hand}. So the triangle's pointless answers are not limits of finite
-    ones, at least when its finite questions see every twist (proved at three
-    heights). They exist only at infinity.
+    mixture \st{hand}. For yes-or-no answers, pointlessness needs infinity: with finitely many
+    heights every coherent yes-or-no pattern is a point.
   \item \emph{Renaming can twist, with probabilities.} For yes-or-no answers a
     loop of renamings never creates impossibility. With probabilities it can: a
     loop saying ``each landing is one more than the last'' is coherent on each
@@ -246,9 +247,10 @@ section is owned by the quantum foundations literature.
     using finite Ramsey theory.
 \end{itemize}
 
-\paragraph{Where the new ground is.} In finite worlds a triangle cannot hide a
-twist (proved at two and three heights; larger finite cases unchecked). With infinitely many heights and finite adding, it can \st{Lean}.
-\emph{Infinity alone} makes the triangle's askable questions blind. That is the
+\paragraph{Where the new ground is.} For yes-or-no answers, a triangle hides a
+twist only with infinitely many heights and finite adding \st{Lean}. For
+probabilities, hiding already begins at four heights (above), so the new ground
+is the yes-or-no, infinite regime. That is the
 part of the theory not found in the contextuality literature after the passes so
 far. The infinite proof also runs on Ramsey theory, for ultrafilters on triples
 of numbers. Whether ``infinitely many values'' and ``many independent copies''

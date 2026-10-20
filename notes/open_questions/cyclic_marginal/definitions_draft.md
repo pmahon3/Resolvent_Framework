@@ -93,6 +93,9 @@ A pre-class sits outside the table:
 - **H2 (where hiding lives).** A twist can hide, i.e. there is coherent locally generated
   information with no world, exactly when the views form a loop, there are infinitely many values,
   and answers add up only finitely (two-valued). *Lean + hand*
+- **H3 — WITHDRAWN 2026-10-19 (user): the "strangeness" framing is a trap ("I am a strange loop"
+  genre) and leads nowhere. Keep only the plain mathematics (span vs carrier; Farkas witnesses).**
+  Original text kept for the record:
 - **H3 (global information is strange).** In the Th class, the global-only questions are exactly
   where a world would have to commit, and no consistent commitment exists. Local information is
   coherent and global information is impossible.
@@ -136,7 +139,7 @@ A pre-class sits outside the table:
   not a prediction.
 - The C4 gap sets are half-cubes (8 of 16 points), selected by how many of the four edges disagree
   (0 or 2, or 2 or 4). They are counts round the loop, the 4-cycle analogue of the cyclic question.
-- **H3, sharpened (candidate):** "global information is strange" = information that is a sum of
+- **(WITHDRAWN, see H3)** H3, sharpened (candidate): "global information is strange" = information that is a sum of
   local information but not locally constructible. Twists hide there and only there.
 - **Still to connect.** The finite triangle being Tv-only also needed the extreme rays of the
   non-negative cone to be 0/1 (proved at A = 3). The full condition is probably: no gap AND 0/1

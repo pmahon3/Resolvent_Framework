@@ -775,6 +775,20 @@
     "effect": "decides the triangle"
    },
    "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, box transfer)"
+  },
+  {
+   "id": "gate.case1b_depth_types",
+   "name": "Case 1b: depth-of-rarity types on the three-species cycle",
+   "status": "PRE-REGISTERED 2026-10-19 (not run)",
+   "one_line": "Stations log decades-of-rarity n_i (unbounded only in the continuum idealisation); two-valued reports = ultrafilter limits of (n_i,n_j) along own time ultrafilters. Outcomes A/W/Tv/Th/Stuck.",
+   "outcomes": {
+    "A": "case pushes back: idealisation creates no pointlessness",
+    "W": "as A, stronger",
+    "Tv": "composition law applies to dynamical types (conj.composition_law)",
+    "Th": "infinity alone hides the twist; regime (ii) meets experience",
+    "Stuck": "non-forward types: concrete instance of the open edge"
+   },
+   "detail": "cyclic_marginal/case_heteroclinic_depths.md; finite case 1 = regime (i), owned"
   }
  ],
  "examples": [

@@ -71,6 +71,9 @@ is the triangle. In finite, probabilistic worlds the triangle's askable question
 (rigorous at three values). Here the exposing question is "is no species dominant?", whose forced
 probability is z < 0. So asynchronous inconsistency is always *detectable* on a triangle. This is a
 lived instance of the triangle filling itself in.
+**SCOPE (2026-10-20):** the explicit witness z < 0 stands for this case (3 values). The general
+"always detectable on a triangle" holds only for ≤ 3 values: at 4 values a triangle can hide a twist
+(`definitions_draft.md` §16).
 
 ## What this does to the concepts (equilibrium so far)
 

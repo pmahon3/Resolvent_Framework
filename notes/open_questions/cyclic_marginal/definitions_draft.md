@@ -80,7 +80,7 @@ A pre-class sits outside the table:
 | Countable adding or finitely many values ⟹ no Th | completeness restored | hand |
 | The cyclic question is not locally generated | global-only information exists | Lean |
 | Two forward queries force the third | rigid composition; holonomy = closing view vs composite | Lean (triangle), hand (loops) |
-| Finite triangle (3 values): every probabilistic twist is visible | Tv, never Th | exact computation |
+| Finite triangle (3 values): every probabilistic twist is visible | Tv, never Th | exact computation; **holds at 2, 3 values only; Th exists at 4 (§16)** |
 | Rings ≥ 4: twists hidden even with finitely many values | Th | hand + certified example; OWNED (Choudhary–Barbosa Cor 5 + exclusivity check, §9b) |
 | Case 1: asynchronous stations | A, then Tv in the finite reading; U for the long-run worlds | simulation |
 | Case 2: one quantity in time windows | W | simulation |
@@ -133,7 +133,7 @@ A pre-class sits outside the table:
 
 - Also: triangle at A = 3, gap 0 (machine count 15,914 = 15,914).
 - The infinite triangle has a nonempty gap: E\* ∈ V₀₁ \ D (Lean).
-- **Consistent with the finite chordal line:** the gap appears on the one non-chordal graph tested
+- **(§16: the chordal line fails at A = 4 even on the triangle.)** **Consistent with the finite chordal line:** the gap appears on the one non-chordal graph tested
   (C4) and not on the chordal ones. It is ONE non-chordal datum. The idea was formed after knowing
   that C4 hides twists, and the hiding status of the diamond and K4 is itself only sampled. A test,
   not a prediction.
@@ -565,7 +565,7 @@ needed before any claim.
   correctly; it is not a new fact.
 - **Sharper reading of the needle.**
   - On *finite* chordal graphs (the triangle), the Dynkin carrier D_2 does **better** than the
-    local-consistency bound. Its cross-pair constructions see every twist at rank 2, where SA₂
+    local-consistency bound (**at A ≤ 3 only; §16**). Its cross-pair constructions see every twist at rank 2, where SA₂
     (the local polytope) does not.
   - At **infinity**, for order twists, that advantage is lost: the rank falls back to the
     treewidth bound 3 (Lean staircase).
@@ -623,3 +623,21 @@ needed before any claim.
     set at A = 4?).
 - **Open:** which twist family does g witness: order-like, gauge-like, or neither? Does the
   minimal hiding alphabet equal 4 exactly? (3×3×4 needs an exact check.)
+
+**Restating §15 after the reversal (pre-registered candidate, 2026-10-20).**
+- "Idealisation raises the rank" is FALSE as stated: a finite triangle at A = 4 already has a rank-3
+  twist.
+- **Transport fact (hand).** Push a carrier state through any per-coordinate map onto ≤ 3 values.
+  The result is a carrier state on the small triangle, which has a world, since ≤ 3 values is exact.
+  So every *hidden* twist has untwisted small quotients.
+- **Candidate (converse, falsifiable):** *on the triangle, a twist is visible iff some
+  coordinatewise quotient onto ≤ 3 values is still twisted.*
+- It fits clocks (mod 2), Specker, Condorcet (mod-2 transport), the Lean staircase (two-valued; no
+  small quotient keeps "beyond") and the A = 4 hidden twist (its small quotients are untwisted by
+  the transport fact).
+- **The infinite two-valued regime is separate:** there, hiding needs infinity (finite two-valued
+  states are points).
+- **Problem 2 reframed:**
+  - (a) the minimal hiding alphabet: 4 by search, with 3×3×4 sampled only;
+  - (b) which families hide;
+  - (c) the construction-depth version.

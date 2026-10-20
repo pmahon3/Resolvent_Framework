@@ -241,6 +241,8 @@ behind these.
   ≠ joint. That is classical cycle territory: Vorob'ev, Kharoof–Ipek–Okay.
 - *Triangle, A = 3.* Across 400 sampled vertices of the board polytope, all are mixtures of
   points. This is evidence that the board sees every twist.
+  **CORRECTED 2026-10-20:** true at A = 2, 3 only. At A = 4 the triangle hides a probabilistic twist
+  (exact non-binary extreme ray; `definitions_draft.md` §16).
 - *Triangle, A = 4..7.* The +1 family is killed by the buildable cyclic set.
 - *Conjecture.* On the finite triangle, board states are exactly mixtures of points.
 - *Contrast.* Rings never see; the finite triangle sees everything; the infinite triangle is
@@ -284,6 +286,9 @@ behind these.
 
   So it is exactly the triangle, and chordal shortcuts generally, that idealisation turns from safe
   into twisted.
+- **CORRECTED 2026-10-20:** the chordal line holds only for small alphabets (A ≤ 3 on the
+  triangle). At A = 4 a finite triangle hides a probabilistic twist. "Idealisation turns shortcuts
+  into twists" stands for **yes/no answers** only.
 - *Prior art for "the board fills triangles in": unchecked.*
 
 **The triangle board sees every finite twist: RIGOROUS at A = 3** (2026-10-18).

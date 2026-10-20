@@ -417,3 +417,25 @@ gauge-invariant observables in contextuality and quantum reference frames, resid
 2. **A second natural case with a relata/relations choice:** an ecological or social one, where
    "who is above whom" (relations) and "each one's own rank or score" (relata) are both
    observable.
+
+**Test 1 result (gate.order_relational, fired (a), 2026-10-20; exact computation).**
+- The relational carrier for order on the triangle (built from pairwise comparisons {<, =, >} on
+  the 13 weak orders) has only **20 sets**: the union of the three pair-comparison algebras.
+  Non-empty comparison events from different pairs always meet, which is D–Š condition (2), so
+  nothing can be built across pairs.
+- Hence **every pairwise-consistent comparison family is a relational state**, including the strict
+  Condorcet cycle (P(x₀<x₁) = P(x₁<x₂) = P(x₂<x₀) = 1). Relational questions are blind to rank cycles
+  at every strength.
+- **Relata side:** the rotation family x_{i+1} = x_i + 1 mod 4 has q = 3/4 > 2/3 and no random
+  ranking. Allowing values makes it **visible** (mod-2 parity witness, by transport). The strict
+  staircase over ℕ stays hidden even with values (Lean).
+- **So the duality extends from gauge to order, but cheaply on the relations side.** On a triangle,
+  a "relations only" algebra is a union of pair algebras whenever cross-pair events always meet,
+  and then it sees nothing. All the content is on the relata side: which value structures let
+  questions about the relata expose the cycle (finite quotients do; "beyond" at infinity does not).
+- **Refined candidate:** a twist is hidden from relations whenever the relational algebra is a union
+  class. It is visible to relata exactly when some quotient of the values carries it finitely.
+  Unproved beyond these instances.
+- **Lens for test 2 (social ranking):** majority comparisons (relations) cannot pose a question
+  exposing a Condorcet cycle. Scores (relata) can, when they exist. Condorcet's paradox and the
+  linear-ordering polytope are owned; this reading of them is ours to test.

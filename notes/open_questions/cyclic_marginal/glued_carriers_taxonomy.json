@@ -819,7 +819,11 @@
     "(a) R_ord-state for some q > 2/3": "relations-vs-relata duality extends from gauge to order: comparison questions cannot see a Condorcet cycle that value (relata) questions can",
     "(b) R_ord sees every q > 2/3": "duality is gauge-specific; for order, relations already see the cycle"
    },
-   "fired": null,
+   "fired": {
+    "branch": "(a)",
+    "date": "2026-10-20",
+    "result": "Exact (verification/order_relational_check.py): R_ord has only 20 sets = the union of the three pair-comparison algebras (cross-pair nonempty comparison events always meet: Dravecky-Sipos condition (2)), so EVERY pairwise-consistent comparison family is a relational state; min forced value 0 for q = 2/3, 3/4, 9/10, 1. Relational questions are blind to the Condorcet cycle at every strength, including the strict cycle q = 1. Relata side: the rotation family x_{i+1} = x_i + 1 mod 4 (q = 3/4) is visible on the full carrier via the mod-2 parity witness (transport mod 4 -> mod 2); the strict two-valued staircase over N stays hidden even with relata (Lean). Caveat: the relational blindness is CHEAP (union class, no cross-pair constructions); the content of the duality sits on the relata side."
+   },
    "pre_registered": "2026-10-20, before running",
    "affects": [
     "definitions_draft section 14 candidate"

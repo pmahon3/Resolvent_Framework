@@ -683,3 +683,34 @@ twist locates the disagreement exactly.
 - **Exact closure of 3×3×4 and 2×4×4** needs facet enumeration (pycddlib); installation awaits the
   user's permission.
 - Script: `verification/triangle_ray_verify_sizes.py`.
+
+**Follow-up (user, 2026-10-20): a sentence written on a twisted strip, readable perpetually.**
+⟦reading; owned ingredients flagged⟧
+- **The object.** A cyclic text where every local window of consecutive words reads correctly, and
+  one circuit returns you transformed: reversed, negated, or with two roles swapped. That is a loop
+  of local views whose composition has a **holonomy**.
+- **Semantics.** A global meaning is an assignment to every token that fits every window. It exists
+  iff the holonomy is trivial.
+  - With an order-2 twist (Möbius-like) there is no meaning on the strip itself.
+  - There *is* one on the **double cover**: read twice round, and meaning returns after two
+    circuits.
+  - Perpetual reading on the strip oscillates with period 2. The content lives on the cover, not on
+    the page.
+- **The negation case is owned.** A cycle of sentences each asserting the next, with an odd number
+  of "not"s, is a **liar cycle**. Abramsky et al. 2015 ("Contextuality, cohomology and paradox",
+  shelved) treat liar cycles as cohomological obstructions to a global section. Each window is fine
+  and no global truth assignment exists. Kripke-style truth-value gaps are the classical repair.
+- **What our results add, read this way.**
+  - A three-sentence liar cycle with the twist on one link is our **mod-2 clock core** (same, same,
+    flip).
+  - With probabilistic readings (each sentence true half the time), every window is consistent.
+  - **Relations-only questions** ("do sentences i and j agree?") cannot detect the twist.
+  - The **joint question** ("are sentences 1 and 2 both true?") can, with forced value −½.
+  - So a reader who only tracks agreement between adjacent sentences can read perpetually without
+    noticing anything wrong. A reader who holds two sentences' truth values together sees the twist.
+  - With finer readings (four or more shades on two links), even the joint questions on a triangle
+    can miss it (§16).
+- **On the syntax/semantics question:** the strip text is syntactically perfect everywhere, so
+  "readable perpetually" is a syntactic property. Its semantic content exists only on the cover,
+  which is a richer space than the page. Truth is recovered by changing *where* the text lives, not
+  by changing the text.

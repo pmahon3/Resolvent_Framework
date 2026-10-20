@@ -270,11 +270,13 @@ cannot form. This is the probabilistic twin of the Lean two-valued triangle theo
   identity; I checked it in four cases. So K always lies in the span.
 - At Z₁'s impossible point (u, v, u+v) = (0, 0, −1), the set K(0,0) gets **Λ = 0 + 0 − 1 = −1**.
   So if K(0,0) were buildable, Z₁ would be visible, by Navara's own argument.
-- In clock coordinates, 1_{K(0,0)} = [x₁<x₀] + [x₂<x₁] − [x₂<x₀]: **the cyclic set E\***. Lean proves
-  it is not buildable over ℕ (`estar_not_mem`). Over ℤ the lift argument should carry over unchanged
+- In clock coordinates, 1_{K(0,0)} = [x₁<x₀] + [x₂<x₁] − [x₂<x₀]. Off ties this is the
+  **anticyclic set**, the complement of E\* (machine-checked on all distinct triples in [−3, 3]).
+  Lean catches both: `InF` contains every set agreeing with the cyclic *or* anticyclic set on the
+  distinct points of some infinite P³, and `not_inF_of_mem` shows no such set is buildable over ℕ. Over ℤ the lift argument should carry over unchanged
   (raise the lowest above the highest); hand, not checked line by line.
 - **So Navara's route to visibility is blocked exactly where the Lean triangle theorem says.** The
-  one witness the 1980s theory supplies is the unaskable cyclic question.
+  one witness the 1980s theory supplies is the unaskable (anti)cyclic question.
 
 **Status.**
 - Z₁-full remains open.
@@ -288,4 +290,4 @@ cannot form. This is the probabilistic twin of the Lean two-valued triangle theo
 
 **What it says.** The 1980s additivity problem and the triangle's unaskable cyclic question are the
 same obstruction. Where expectations of sums fail to add (Gudder's problem), the failure is
-witnessed by the cyclic set, and the triangle cannot ask that set.
+witnessed by the (anti)cyclic set, and the triangle cannot ask that set.

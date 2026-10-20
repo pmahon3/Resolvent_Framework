@@ -308,3 +308,14 @@ witnessed by the (anti)cyclic set, and the triangle cannot ask that set.
 - **Keleti–Preiss Lemma 12** (non-crossing boundary families off a σ-ideal) is the nearest template
   for a *non-membership* proof. It is built on countable unions and a topological ideal, so it is a
   lens for discrete ℤ³.
+
+## Check 4d: Lean, Navara's witness over ℤ (2026-10-20)
+
+`formalization/staging/TriangleCyclic.lean`, section `OverZ` (0 sorry; standard axioms; 37 s).
+- `mem_pre`: the triangle carrier over ℤ pulls back into the carrier over ℕ along the
+  coordinatewise inclusion. This is the transport lemma, machine-checked for this map.
+- `not_mem_of_restrict_inF`: any set over ℤ whose restriction to ℕ³ lies in `InF` is
+  unbuildable.
+- `navaraK_not_mem`: **Navara's K(0,0) is not in the carrier over ℤ.**
+- The clocks' impossible point therefore cannot be exposed by the one witness the 1980s theory
+  supplies. Z₁-full (positivity of Λ on the whole carrier) stays open.

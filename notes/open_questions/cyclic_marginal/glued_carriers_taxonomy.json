@@ -285,6 +285,18 @@
     "obs.cut_the_loop"
    ],
    "scope": "rings L>=4, staircase family"
+  },
+  {
+   "id": "thm.navara_witness_not_buildable_Z",
+   "name": "Navara's K(0,0) is not buildable over Z (transport lemma)",
+   "status": "LEAN-CHECKED 2026-10-20 (formalization/staging/TriangleCyclic.lean: mem_pre, not_mem_of_restrict_inF, navaraK_not_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound)",
+   "one_line": "The triangle carrier over Z pulls back into the carrier over N along the coordinatewise inclusion (mem_pre). Hence any set over Z whose restriction lies in InF is unbuildable; in particular Navara's K(0,0) = {[x1<x0]+[x2<x1]-[x2<x0] = 1} (anticyclic off ties), the set that would expose the clocks' impossible point (Lambda = -1), is not in the carrier over Z.",
+   "uses": [
+    "thm.triangle_estar_not_built",
+    "gate.triangle_density_plus1"
+   ],
+   "scope": "triangle, values in Z; non-membership only (does NOT prove positivity of Lambda on the carrier)",
+   "detail": "cyclic_marginal/case_relativistic_triangle.md (check 4b, 4d)"
   }
  ],
  "conjectures": [

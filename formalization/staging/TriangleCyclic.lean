@@ -1651,9 +1651,67 @@ theorem triangle_has_pointless_state :
     (triangle_pointless_state _ hyperfilter_gt).2.1, (triangle_pointless_state _ hyperfilter_gt).2.2.1,
     triangle_state_no_ultrafilter _ hyperfilter_gt⟩
 
+/-! ## Over ℤ: restriction to ℕ³ (transport lemma)
+
+The triangle carrier over ℤ pulls back into the triangle carrier over ℕ along the coordinatewise
+inclusion `ι`. So no set over ℤ whose restriction to ℕ³ lies in the family `InF` is buildable over
+ℤ. In particular Navara's set K(0,0) = {[x₁<x₀] + [x₂<x₁] − [x₂<x₀] = 1}, the anticyclic set off
+ties, is not in the carrier over ℤ (`navaraK_not_mem`). -/
+
+section OverZ
+
+abbrev ΩZ := Fin 3 → ℤ
+
+abbrev windowSigmaZ (w : Set (Fin 3)) : MeasurableSpace ΩZ :=
+  MeasurableSpace.comap (fun x (k : w) => x k) MeasurableSpace.pi
+
+def gensZ : Set (Set ΩZ) := {E | ∃ w ∈ W₃, @MeasurableSet _ (windowSigmaZ w) E}
+
+/-- The triangle carrier over ℤ. -/
+def D₃Z : DynkinSystem ΩZ := DynkinSystem.generate gensZ
+
+/-- Coordinatewise inclusion ℕ³ → ℤ³. -/
+def ι (x : Ω) : ΩZ := fun i => (x i : ℤ)
+
+lemma gens_pre {E : Set ΩZ} (hE : E ∈ gensZ) : ι ⁻¹' E ∈ gens := by
+  obtain ⟨w, hw, s, hs, rfl⟩ := hE
+  refine ⟨w, hw, (fun (y : w → ℕ) (k : w) => (y k : ℤ)) ⁻¹' s, ?_, rfl⟩
+  exact measurable_pi_lambda _ (fun k => measurable_from_nat.comp (measurable_pi_apply k)) hs
+
+/-- **Transport.** Preimages of carrier sets over ℤ are carrier sets over ℕ. -/
+theorem mem_pre {E : Set ΩZ} (hE : D₃Z.Has E) : D₃.Has (ι ⁻¹' E) := by
+  induction hE with
+  | basic t ht => exact DynkinSystem.GenerateHas.basic _ (gens_pre ht)
+  | empty => exact D₃.has_empty
+  | @compl s _ ih => rw [preimage_compl]; exact D₃.has_compl ih
+  | @iUnion f hd _ ih =>
+    rw [preimage_iUnion]
+    exact D₃.has_iUnion (fun i j hij => (hd hij).preimage ι) ih
+
+theorem not_mem_of_restrict_inF {E : Set ΩZ} (h : InF (ι ⁻¹' E)) : ¬ D₃Z.Has E :=
+  fun hE => not_inF_of_mem (mem_pre hE) h
+
+/-- Navara's K(0,0) over ℤ, written without subtraction. -/
+def navaraK : Set ΩZ :=
+  {x | (if x 1 < x 0 then (1 : ℤ) else 0) + (if x 2 < x 1 then 1 else 0) =
+        1 + (if x 2 < x 0 then 1 else 0)}
+
+lemma navaraK_restrict_inF : InF (ι ⁻¹' navaraK) := by
+  refine ⟨0, Or.inr fun x hx => ?_⟩
+  unfold Far at hx
+  simp only [mem_preimage, navaraK, mem_setOf_eq, ι, Nat.cast_lt, Acy]
+  split_ifs <;> omega
+
+/-- **Navara's witness is not buildable over ℤ.** -/
+theorem navaraK_not_mem : ¬ D₃Z.Has navaraK := not_mem_of_restrict_inF navaraK_restrict_inF
+
+end OverZ
+
 end TriangleCyclic
 
 #print axioms TriangleCyclic.estar_not_mem
+#print axioms TriangleCyclic.mem_pre
+#print axioms TriangleCyclic.navaraK_not_mem
 #print axioms TriangleCyclic.not_inF_of_mem
 #print axioms TriangleCyclic.not_inP_of_mem
 #print axioms TriangleCyclic.triangle_pointless_state

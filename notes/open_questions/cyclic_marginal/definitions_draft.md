@@ -714,3 +714,22 @@ twist locates the disagreement exactly.
   "readable perpetually" is a syntactic property. Its semantic content exists only on the cover,
   which is a richer space than the page. Truth is recovered by changing *where* the text lives, not
   by changing the text.
+
+**Problem 2(a) exact status (2026-10-20, cdd double description; `verification/triangle_rays_exact.py`,
+`triangle_gap_pullback.py`).**
+- **No non-binary extreme rays (exact):** 3×3×3 (207 rays), 3×3×4 (717), 2×4×4 (228).
+- **Non-binary rays, hence hiding (exact):** 3×4×4, 4×4×4.
+- **The remaining source of hiding is a gap.** A 0/1 extreme ray that is not buildable *and* not in
+  cone(D).
+  - Pullback test: rays that are pullbacks of buildable sets from smaller triangles are buildable.
+  - 3×3×4: 465 of 717 rays shown buildable this way; 252 undecided (they use all four values).
+  - 2×4×4: 224 of 228 shown; 4 undecided (their merged versions failed the small-size membership
+    test).
+  - Direct closure at 32 to 36 points is too large to run naïvely. A first targeted script had a
+    target-selection bug (vacuous output) and was removed.
+- **So:**
+  - minimal hiding sizes are ≤ 3×4×4;
+  - 3×3×4 and 2×4×4 are open, pending the gap question;
+  - 3×3×3 does not hide (exact).
+- **Method still needed:** targeted construction search for the undecided sets (e.g. guided
+  disjoint-union decompositions), or a structural argument.

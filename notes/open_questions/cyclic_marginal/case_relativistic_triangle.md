@@ -101,3 +101,60 @@ Design only. Nothing here is a result.
 **Next check (2):** whether the answers-first reading (b) is the right state: unknown settings,
 evenly spread over ℝ. Compare with clock gauge in relativity. Then (3), the reduction to the
 difference plane over ℝ.
+
+## Check 1, verified against primary sources (2026-10-20; PDFs on the shelf)
+
+- **Minguzzi** (arXiv:gr-qc/0501055, "Spacelike slices from globally well-behaved simultaneity
+  connections"; `minguzzi_2005_simultaneity_holonomy.pdf`).
+  - The Einstein convention "is nothing but a connection", and its holonomy is non-zero "even in
+    flat spacetime" for rotating frames.
+  - Its curvature is the vorticity. He names the Sagnac effect and the Earth explicitly.
+  - **Clock holonomy is OWNED.** Read from the primary source.
+- **Rizzi–Ruggiero** (arXiv:gr-qc/0306128; `rizzi_ruggiero_2003_sagnac_kinematical.pdf`, eq. 18).
+  The Sagnac round-trip difference is Δτ = 4πR²Ω/c² · γ = 4ΩA/c² · γ. Read from the primary source.
+- **Earth's equator, arithmetic:**
+  - 2ΩA/c² = 207.4 ns, which matches the remembered GPS synchronisation gap (Ashby).
+  - 4ΩA/c² = 414.8 ns is the counter-propagating difference.
+  - So the one-circuit synchronisation gap is 2ΩA/c², half the Sagnac difference. That is
+    consistent, but the "half" is not quoted from a source. The Ashby PDF could not be fetched
+    (publisher returned HTML), so it still needs verifying.
+
+## Check 2: the answers-first state (2026-10-20) ⟦hand⟧
+
+**Setting.**
+- Clocks i = 1, 2, 3 have unknown settings tᵢ ∈ ℝ.
+- Pair (i,j) synchronises and answers only the relation t_j = t_i + d_ij.
+- The holonomy is h = d₁₂ + d₂₃ + d₃₁, about 207 ns for the equator in the limit of many stations.
+
+**Two-valued answers: overlaps cannot agree (pre-class A).**
+- Each view would be the image of an ultrafilter u under s ↦ (s, s + d).
+- Then the second clock's marginal is u shifted by d. A non-principal ultrafilter is moved by
+  every non-zero shift (Katětov), so neighbouring views cannot agree on their shared clock.
+- This is note §5 ("renaming never twists for yes-or-no answers") again.
+
+**Probabilistic answers, gauge-invariant: overlaps agree, no world, hidden-or-visible open.**
+- **Choose the state.** Absolute clock setting is a *gauge* in relativity: the origin of time has no
+  physical meaning. So the answers-first state should not prefer an origin. Take a
+  translation-invariant mean λ on ℝ, and let view (i,j) be the image of λ under s ↦ (s, s + d_ij).
+- **Overlaps agree.** Every clock's marginal is λ, by invariance.
+- **No world.** A charge on ℝ³ with these views gives full mass to each line t_j − t_i = d_ij. By
+  finite additivity it gives full mass to their intersection, which is empty when h ≠ 0.
+- **Open: is it a state on the questions the clocks can ask (visible vs hidden)?** That is exactly
+  the impossible-point question (`gate.triangle_density_plus1`), over ℝ with step sizes d_ij
+  instead of ℤ with +1.
+
+**What the case contributes (equilibrium).**
+- Gauge invariance **forces the probabilistic regime.** No two-valued state is translation
+  invariant. So "renaming never twists" (two-valued) and "relativistic clocks can twist"
+  (probabilistic) are the same fact seen from two regimes.
+- The case lands in cell **(ii′) of the three-part theorem**: infinitely many values (ℝ), finite
+  adding (an invariant mean is only finitely additive, since no σ-additive invariant probability
+  on ℝ exists), probabilistic. **That is exactly the open cell.**
+- So the natural phenomenon picks out the open mathematical question by itself. This is the first
+  case to do so.
+
+**Check 3 (next).** Reduce over ℝ:
+- If the d_ij are rational multiples of one step, restrict to a coset lattice and reduce to the ℤ
+  question.
+- For incommensurable offsets, check whether ℝ adds anything.
+- Then attack the impossible point itself (ergodic Ramsey territory; prior art first).

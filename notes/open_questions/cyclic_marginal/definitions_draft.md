@@ -439,3 +439,35 @@ gauge-invariant observables in contextuality and quantum reference frames, resid
 - **Lens for test 2 (social ranking):** majority comparisons (relations) cannot pose a question
   exposing a Condorcet cycle. Scores (relata) can, when they exist. Condorcet's paradox and the
   linear-ordering polytope are owned; this reading of them is ours to test.
+
+**A critical test of the partition (2026-10-20; exploratory, NOT pre-registered; exact computation
+mod 2 and mod 3 + hand argument for ℤ).** User: the duality needs a case that fails on either
+account, or is incommensurate with the partition.
+
+Four question algebras for the clock core Z₁ (`verification/relata_relations_join*.py`):
+
+| Algebra | What may be asked | Clock twist |
+|---|---|---|
+| R | relations only (one difference at a time) | hidden |
+| S | relata only (one clock's reading at a time) | hidden |
+| J = closure(R ∪ S) | relations and relata, combined by "not" and "either one" | **hidden** (mod 2: 14 sets; mod 3: 38 sets = just the union) |
+| F | **views**: what a *pair* of clocks shows *together* | **visible** (−½ mod 2; −2/3 mod 3) |
+
+- **Why J sees nothing (hand, holds over ℤ too).** Any non-empty relatum event ({x_i ∈ A}) and any
+  non-empty relation event ({x_j − x_k ∈ B}) intersect, as do any two from different families. So,
+  by D–Š's condition (2), J is just the *union* of the six one-variable algebras. The forced
+  answers restrict to a consistent probability on each, so they form a state on J.
+- **What F adds.** Joint questions such as "are clocks 1 and 2 *both* even?". That is the
+  *conjunction* of a relatum (clock 1 even) with a relation (clock 2 agrees with clock 1). A
+  carrier built only by "not" and "either one" can never form that conjunction from R and S. It
+  exists only if the **view itself, the pair seen together, is primitive**.
+- **Reading (not a claim).** Neither account, nor their sum, sees the twist. Only the *local
+  perspective* does: a joint observation of two things, irreducible to their relation plus their
+  separate states. The partition into relations and relata is incommensurate with where detection
+  lives. The third term is the **view**, which is the programme's own primitive (queries / windows,
+  "answers first").
+- **Scope:** the triangle; the clock (gauge) family; finite quotients computed, ℤ by the hand
+  union argument. Order families and other graphs are not checked. Prior art owed: the
+  measurement-scenario literature (Abramsky–Brandenburger contexts as primitive), Kochen–Specker
+  partial Boolean algebras (contexts as primitive), structural realism (relations vs relata in
+  philosophy of physics).

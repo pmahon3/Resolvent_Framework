@@ -333,6 +333,57 @@ each candidate's own score expose the cycle when the scores wrap round
 that presupposition is what turns a quiet incoherence into a visible one. This
 is a reading of two cases, not yet a theorem.
 
+\section{Three kinds of twist}\label{sec:kinds}
+Three small puzzles, one for each way a loop of pairwise views can fail to close.
+
+\begin{itemize}[nosep]
+  \item \emph{Renamed clocks.} Clock $2$ reads what clock $1$ reads; clock $3$
+    reads what clock $2$ reads; clock $1$ reads one unit more than clock $3$.
+    Each pair is fine; round the loop the labels do not line up. This is a
+    \emph{gauge} twist: a mismatch of renamings, measured by a holonomy.
+  \item \emph{Staircase.} Landing $1$ is beyond landing $0$, $2$ beyond $1$, $0$
+    beyond $2$. Each flight goes up; the loop cannot. This is an \emph{order}
+    twist: directions that close into a cycle.
+  \item \emph{Allowed pairs.} Each pair of variables says only which
+    combinations are \emph{possible}, nine of them, all equally likely. Every
+    possible pair extends to a possible triple; yet no weighting of the triples
+    reproduces the even spreads. This is a \emph{relational} twist: many-to-many
+    constraints whose frequencies do not fit together.
+\end{itemize}
+
+\noindent When can the questions you can ask see each kind?
+\begin{center}\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3.4cm}|}
+\hline
+ & \textbf{gauge} & \textbf{order} & \textbf{relational}\\\hline
+hides on a triangle when & only relations may be asked about & answers are yes or no and values infinite & values fine enough ($3\times4\times4$ and up)\\\hline
+exposed by & a finite reduction (parity) & nothing askable (pointless) & nothing askable\\\hline
+status & hand; exact computation & Lean & certified computation\\\hline
+owned & relations-only case: \cite{draveckysipos1980} & triangle of types: model theory & threshold: \cite{sullivant2006,ohsugihibi2010}\\\hline
+\end{tabular}
+\end{center}
+
+\paragraph{What does the detecting.} Three further facts locate where
+incoherence can be seen.
+\begin{itemize}[nosep]
+  \item \emph{Views, not relations or relata.} Questions about how things stand
+    to each other, about what each is by itself, or any combination of the two,
+    can be blind where a single question about what a pair shows \emph{together}
+    is not. For orderings this is a theorem: with three or more values, every
+    question built from comparisons and individual values concerns one pair only
+    \st{proved; core Lean-checked}.
+  \item \emph{Composition.} Given two pair laws, the askable questions allow a
+    set of closing laws that contains every realisable one. Below the
+    $3\times4\times4$ threshold the two sets coincide; above it the askable set
+    is larger, by a full-dimensional region that passes almost every summary
+    check \st{computation}.
+  \item \emph{The atom.} In every search at $4\times4\times4$, the most hidden
+    incoherence takes the relational form: allowed pairs, evenly spread
+    \st{computation; a candidate, not a theorem}.
+\end{itemize}
+What is offered here is the classification and the reading in terms of
+askable questions; the separate ingredients are owned as cited.
+
 \section{The lineage}
 \begin{itemize}[nosep]
   \item \emph{Specker}~\cite{specker1960}: a seer's three boxes, any two of

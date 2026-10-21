@@ -912,3 +912,29 @@ polytopes.
 - **Transport lemma, general form, Lean-checked** (`TransportGeneral.mem_pre`): for arbitrary
   coordinatewise maps between arbitrary value types. This covers the mod-n witnesses and the
   pullback supplies used in §16–18.
+
+**§19 continued: the shape of C \ R at 3×4×4 (2026-10-21; `verification/sliver_shape.py`, output saved).**
+- **Volume (hit-and-run, 1,500 samples of T,** the 6-dim polytope of closing laws with the right
+  marginals):
+
+  | Region | Samples | Share |
+  |---|---|---|
+  | R (realizable) | 334 | 22% |
+  | C′ \ R (hidden) | 97 | 6.5% |
+  | visibly twisted | 1,069 | 71% |
+
+  So the hidden region is roughly 29% of R's size, and at least that (C′ ⊆ C is an inner
+  approximation).
+- **Dimension.** Of the feasible random perturbations (step 0.004) of the hidden law, 28 stay in
+  C′ \ R and 33 leave C′. The hidden region is **full-dimensional**, not a lower-dimensional face.
+- **Correction to "thin sliver".** In volume it is not thin. It *is* invisible to almost every
+  linear audit: support functions agree in 25 random directions, while along the Farkas direction
+  the gap is 1/6.
+  - Consistent picture: a full-dimensional layer over part of R's boundary that pokes out beyond R
+    only near a few face normals.
+- **Lived reading (lens).** Merged pairwise data that are askable-consistent but correspond to no
+  world are *common* at this resolution: about 1 in 4 of the askable-consistent closings. Yet a
+  random summary-statistic check against realizable ranges almost never flags them. Detection
+  needs the special (non-binary witness) directions.
+- **Caveats:** hit-and-run samples are correlated; C′ is an inner approximation; one family (P₀₁,
+  P₁₂) only.

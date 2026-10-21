@@ -808,3 +808,25 @@ bipartite graph with 9 edges), and every allowed pair has probability 1/9:
 - **Hence an explicit hidden twist on the 3×4×4 triangle**, of the third kind (relational /
   possibilistic). Logically consistent: all 27 allowed pairs extend to the 16 allowed triples.
   Probabilistically impossible. Invisible to every askable question.
+
+**Prior art for §16–18 (2026-10-21; scout plus my reading of both primary sources).**
+- **OWNED: the non-binary-ray threshold.**
+  - "All extreme rays of V₊ are 0/1" means the triangle's marginal polytope is **compressed**
+    (Sullivant 2006, Thm 2.4: each facet takes at most one non-zero value on lattice points;
+    verified).
+  - Ohsugi–Hibi 2010 table (verified): r₁×r₂×2 unimodular; r₁×3×3 compressed; **4×4×3 "normal, not
+    compressed"**.
+  - So our exact results (no non-binary rays at 3×3×K and 2×r×s; non-binary at 3×4×4) are a
+    restatement. Cite them.
+  - Note: compressed ≠ normal. 3×4×4 is normal (Bruns et al. 2011) but not compressed.
+- **NOT found (candidates):**
+  - (i) The **carrier reading**. Questions built by "not" and "either one" see every probabilistic
+    twist iff the polytope is compressed *and* there is no gap (non-buildable 0/1 rays outside
+    cone(D)). Our cone(D) checks at 3×3×4 and 2×4×4 settle the gap half there.
+  - (ii) The **explicit relational hidden family** at 3×4×4 (uniform on 9-edge allowed relations;
+    logically consistent, probabilistically twisted, invisible to every askable question).
+  - (iii) The link to Abramsky–Brandenburger's logical/probabilistic gap. That gap is owned as a
+    phenomenon; the triangle with outcomes 3,4,4 as an instance was not found.
+- **Consequence for the lived reading.** "Fineness needed for hiding" is, in owned language, "the
+  smallest non-compressed three-way table". What is ours is that this is the threshold at which
+  *every askable question goes blind* to some incoherence.

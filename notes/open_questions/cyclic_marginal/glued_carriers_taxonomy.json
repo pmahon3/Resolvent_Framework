@@ -1131,6 +1131,19 @@
     "verified": "primary (Hrushovski passages, Goodrick slides)",
     "detail": ""
    }
+  },
+  {
+   "id": "own.compressed_threshold",
+   "name": "Non-0/1 facets of the triangle marginal polytope (compressedness threshold)",
+   "status": "OWNS the non-binary-extreme-ray threshold (primary sources read 2026-10-21)",
+   "one_line": "Our 'extreme rays of the non-negative pair-sum cone are all 0/1' = the K3 marginal polytope (no-three-way-interaction configuration) is compressed (Sullivant Thm 2.4: each facet takes one nonzero value). Classification: r1xr2x2 unimodular, r1x3x3 compressed, 4x4x3 not compressed (Ohsugi-Hibi table). So the non-binary ray first appearing at 3x4x4 is owned. NOT found: the Dynkin-carrier reading (questions built by not/either-one see every twist iff compressed AND no gap), our gap checks, and the explicit relational hidden family at 3x4x4.",
+   "detail": "definitions_draft.md sections 16-18",
+   "owned_by": {
+    "cite": "Sullivant, Tohoku Math. J. 58 (2006), Thm 2.4; Ohsugi-Hibi, AISM 62 (2010) table, sec. 1",
+    "region": "compressed / unimodular / normal classification of 3-way no-three-way-interaction configurations",
+    "verified": "primary (both PDFs read for the cited statements)",
+    "detail": "compressed-vs-normal are different thresholds: 4x4x3 normal but not compressed (Bruns et al. 2011)"
+   }
   }
  ]
 }

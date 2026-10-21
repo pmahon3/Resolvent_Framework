@@ -9,7 +9,7 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 112,
+  "count": 114,
   "basis_counts": {
    "abstract": 35,
    "read": 51,
@@ -168,7 +168,9 @@
    "hrushovski_2012_stable_group_theory_approximate_subgroups.pdf",
    "maharam_1972.pdf",
    "navara_1984_two_valued_additivity.pdf",
-   "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
+   "navara_ptak_1983_two_valued_measures_sigma_classes.pdf",
+   "ohsugi_hibi_2010_non_very_ample_contingency.pdf",
+   "sullivant_2006_compressed_polytopes_disclosure.pdf"
   ],
   "local_to_global": [
    "abramsky_et_al_2015_contextuality_cohomology_paradox.pdf",
@@ -198,7 +200,9 @@
    "fritz_chaves_2013_entropic_inequalities_marginal_problems.pdf",
    "kellerer_1964_mass_theoretic_marginal_problems.pdf",
    "maharam_1972.pdf",
-   "pivato_2001_stationary_process_from_marginal.pdf"
+   "ohsugi_hibi_2010_non_very_ample_contingency.pdf",
+   "pivato_2001_stationary_process_from_marginal.pdf",
+   "sullivant_2006_compressed_polytopes_disclosure.pdf"
   ],
   "methodology_bridges": [
    "caramello_2018/"
@@ -2132,6 +2136,25 @@
    ]
   },
   {
+   "file": "ohsugi_hibi_2010_non_very_ample_contingency.pdf",
+   "citation": "Ohsugi & Hibi, 'Non-very ample configurations arising from contingency tables', Ann. Inst. Statist. Math. 62 (2010) 639-644, arXiv:0904.3681",
+   "what_it_proves": "Table (verified): no-three-way-interaction configurations: r1 x r2 x 2 unimodular; r1 x 3 x 3 compressed, not unimodular; 4 x 4 x 3 normal, not compressed; 5x5x3, 5x4x3 not compressed; larger not normal. Compressed classification attributed to Sullivant [6].",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.compressed_threshold"
+   ],
+   "questions": [
+    "impossible_point",
+    "marginal_problem"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
    "file": "pivato_2001_stationary_process_from_marginal.pdf",
    "citation": "Pivato, 'Building a stationary stochastic process from a finite-dimensional marginal', Canad. J. Math. 53 (2001), arXiv:math/0108081",
    "what_it_proves": "When a measure on A^U that looks like a marginal extends to a shift-invariant measure on A^{Z^D}.",
@@ -2386,6 +2409,25 @@
     "notes/open_questions/cyclic_marginal/ecology_contextuality_sweep_2026-10-20.md",
     "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
     "notes/open_questions/cyclic_marginal/order_without_a_centre.tex"
+   ]
+  },
+  {
+   "file": "sullivant_2006_compressed_polytopes_disclosure.pdf",
+   "citation": "Sullivant, 'Compressed polytopes and statistical disclosure limitation', Tohoku Math. J. 58 (2006) 433-445, arXiv:math/0412535",
+   "what_it_proves": "Thm 2.4 (verified): a lattice polytope is compressed iff each facet-defining functional takes at most one nonzero value on lattice points (width one) iff lattice-isomorphic to a 0/1 polytope (cube section). Marginal polytopes of decomposable models are compressed.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.compressed_threshold"
+   ],
+   "questions": [
+    "impossible_point",
+    "marginal_problem"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
    ]
   },
   {

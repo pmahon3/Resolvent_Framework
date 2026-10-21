@@ -793,3 +793,18 @@ bipartite graph with 9 edges), and every allowed pair has probability 1/9:
 - **Prior art:** possibilistic vs probabilistic contextuality (Abramsky–Brandenburger's hierarchy:
   probabilistic, logical (possibilistic), strong). This candidate is probabilistic-only. Check
   whether "uniform on a support" families are studied there.
+
+**§18 CERTIFIED (2026-10-21; `verification/certify_344.py`).**
+- **The pair laws Λ** are uniform 1/9 on the allowed pairs (§18). They are well defined on the span:
+  Λ kills every null vector, checked exactly.
+- **Λ ≥ 0 on every 0/1 vector of the span (V₀₁ ⊇ D).**
+  - MILP: 48 binary variables, span membership as exact integer constraints; minimum 0, re-evaluated
+    exactly at the optimum.
+  - So Λ is a state on the whole carrier, i.e. non-negative on every askable question.
+  - Rigour: the minimum relies on the MILP solver's optimality certificate (float). The values are
+    multiples of 1/9.
+- **Not a mixture.** An explicit integer g ≥ 0 in the span with **Λ(g) = −1/9**, exact. g has value
+  2 at (1,2,1) and (2,0,0), and 1 on 17 other points.
+- **Hence an explicit hidden twist on the 3×4×4 triangle**, of the third kind (relational /
+  possibilistic). Logically consistent: all 27 allowed pairs extend to the 16 allowed triples.
+  Probabilistically impossible. Invisible to every askable question.

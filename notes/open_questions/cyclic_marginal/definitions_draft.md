@@ -865,3 +865,31 @@ polytopes.
     witnesses (§16).
 - **Open:** the dimension and shape of C \ R. Is it lower-dimensional, or a thin full-dimensional
   cap? Does it grow with resolution (4×4×4, 5×4×3)?
+
+## 20. Problem 3: why relations plus relata stay blind for comparisons (2026-10-21; `verification/problem3_J_pairlocal.py`)
+
+**Result (exact, triangle, n = 3 and n = 4 values).**
+- Every set in J (the closure of single-variable events and comparison events {<, =, >} under
+  "not" and "either one") is **pair-local**: a function of one pair (x_i, x_j). |J| = 146 for both
+  n = 3 and n = 4.
+- **Hence J is blind to every twist, for every family.** On a pair-local set the forced value is a
+  probability under that pair's law, which is ≥ 0.
+- **n = 2 is the exception.** J = D (70 sets) and contains non-pair-local sets such as "all equal".
+  Comparisons of binary values determine the pair, so relations plus relata rebuild the full
+  carrier and twists are visible.
+
+**Why (hand, sketch; not proved for general n).**
+- Disjoint unions are the only way to build across pairs. Cross-pair disjointness needs two
+  non-empty built sets on different pairs to miss each other.
+- With ≥ 3 values, comparison and relatum events on different pairs always meet. Examples:
+  {x₀<x₁} ∩ {x₁<x₂} needs three distinct values; {x₀ = top} ∩ {x₁ < x₂} is non-empty.
+- The only disjointness is *within* a pair, e.g. {x₀ = top} and {x₀ < x₁}. So every union stays
+  pair-local. This is a D–Š-type mechanism, but relative to pairs, not single functions.
+- Open: a proof for all n ≥ 3, and a check whether |J| stays 146.
+
+**Reading.**
+- For orderings, relations (comparisons) and relata (individual values) can only ever be combined
+  *within* one pair. No askable question links three things.
+- That is why rankings, scores and comparisons, without joint pair records, cannot expose a
+  Condorcet-type incoherence at any resolution beyond two values.
+- It sharpens §14: the joint view is needed because these question kinds cannot cross pairs.

@@ -52,6 +52,11 @@ carrier together with its window graph.
 | point / ideal point / pointless | Dirac / coherent (extends to all sets) / non-coherent | Bhaskara Rao Thm 3.2.10 |
 | gauge window | a graph window, "this landing is that one, renamed" (bijection) | — |
 | order window | a product window p⊗q, "drawn beyond"; it carries an orientation | tensor product of types |
+| relational window (added 2026-10-21) | uniform on an allowed many-to-many relation (a bipartite support), e.g. the 3×4×4 9-edge pattern | possibilistic support with uniform weights |
+| mixture of buildings | a convex combination of point masses: a joint distribution whose pair marginals are the given laws | marginal polytope membership; global section / noncontextual / local hidden-variable model |
+| sum of local facts | an element of the linear span V of pair indicators | — |
+| visible / hidden twist | forced functional negative on some carrier set / a state on the carrier but not a mixture | — (Maharam 1972 Thm 6.1 is the dual test) |
+| all extreme rays 0/1 | every facet of the marginal polytope has width one | compressed polytope (Sullivant 2006, Thm 2.4) |
 
 ## 4. Structure theorems
 

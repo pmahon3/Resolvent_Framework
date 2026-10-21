@@ -981,3 +981,9 @@ pair-local, hence blind to every twist.
     Lemma 3 they meet, which is impossible.
   - Hence U is closed under disjoint union (finite Ω; induct on the number of pieces), so J ⊆ U. □
 - **n = 2** fails exactly at K = Eq ({a} = X \ {a′}), matching the computed exception (J = D).
+- **Formalisation status (2026-10-21).**
+  - Lemma 2 is Lean-checked: `TransportGeneral.PairNormalForm.indep_of_two_empty_rows`. With
+    3 ≤ n, two distinct empty rows of k(cmp)⊕α⊕β force independence of y.
+  - Lemma 3 is Lean-checked: `pairLocal_meet`.
+  - Lemma 1 (P ⊆ normal form) and the final induction are hand-written and routine.
+    Formalising them needs the countable-disjoint-union case of Dynkin systems on a finite type.

@@ -312,7 +312,7 @@
   {
    "id": "thm.problem3_pair_local",
    "name": "Relations + relata (comparisons) build only pair-local questions",
-   "status": "EXACT n=3..7 (verification/problem3_J_pairlocal.py); cross-pair step LEAN-CHECKED (TransportGeneral.pairLocal_meet); general-n invariant OPEN (hand gap: complement control of the 'at most one extreme row/column' invariant)",
+   "status": "PROVED for all n>=3 (hand, definitions_draft section 20: normal-form Lemma 1 + Lemma 2 + Lemma 3); Lemma 2 (at most one empty row, combinatorial core) LEAN-CHECKED (TransportGeneral.PairNormalForm.indep_of_two_empty_rows) and Lemma 3 LEAN-CHECKED (pairLocal_meet); Lemma 1 (normal form contains the pair closure) and the final induction are hand (routine); exact n=3..7",
    "one_line": "On the triangle with n>=3 ordered values, every set built from single-variable events and comparison events {<,=,>} by complement and disjoint union depends on one pair only, so it is blind to every twist; n=2 is the exception (J = D).",
    "uses": [
     "thm.transport_general"

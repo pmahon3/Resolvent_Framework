@@ -77,7 +77,92 @@ theorem pairLocal_meet {n : ℕ} (hn : 3 ≤ n) (S T : Set (Fin n × Fin n))
     meet_of_almost_full hn {a | ∃ u, (u, a) ∈ S} {a | ∃ w, (a, w) ∈ T} hS hT
   exact ⟨![u, a, w], hu, hw⟩
 
+/-! ## Problem 3, Lemma 2: at most one empty row
+
+A pair-set in normal form `A(x,y) = k(cmp x y) ⊕ α x ⊕ β y` (comparison pattern, whole rows and whole
+columns flipped). If two distinct rows are empty and `3 ≤ n`, then `A` does not depend on `y`. So a set
+depending on both coordinates has at most one empty row (hence its projection misses ≤ 1 value). -/
+
+namespace PairNormalForm
+
+/-- Comparison code: 0 for `<`, 1 for `=`, 2 for `>`. -/
+def cmpc {n : ℕ} (a b : Fin n) : Fin 3 := if a < b then 0 else if a = b then 1 else 2
+
+/-- The normal-form set, as a Boolean function. -/
+def nf {n : ℕ} (k : Fin 3 → Bool) (α β : Fin n → Bool) (x y : Fin n) : Bool :=
+  xor (k (cmpc x y)) (xor (α x) (β y))
+
+lemma cmpc_self {n : ℕ} (a : Fin n) : cmpc a a = 1 := by simp [cmpc]
+lemma cmpc_lt {n : ℕ} {a b : Fin n} (h : a < b) : cmpc a b = 0 := by simp [cmpc, h]
+lemma cmpc_gt {n : ℕ} {a b : Fin n} (h : b < a) : cmpc a b = 2 := by
+  simp [cmpc, not_lt.mpr h.le, h.ne']
+
+lemma xor_false_iff (p q r : Bool) : xor p (xor q r) = false ↔ r = xor p q := by
+  cases p <;> cases q <;> cases r <;> decide
+
+/-- Pure Boolean core: the three row comparisons force a constant comparison pattern. -/
+lemma core (k0 k1 k2 p q ba ba' bc : Bool)
+    (c1 : xor k1 (xor p ba) = false) (c2 : xor k2 (xor q ba) = false)
+    (c3 : xor k0 (xor p ba') = false) (c4 : xor k1 (xor q ba') = false)
+    (third : (xor k2 (xor p bc) = false ∧ xor k2 (xor q bc) = false) ∨
+             (xor k0 (xor p bc) = false ∧ xor k2 (xor q bc) = false) ∨
+             (xor k0 (xor p bc) = false ∧ xor k0 (xor q bc) = false)) :
+    k0 = k1 ∧ k1 = k2 := by
+  revert c1 c2 c3 c4 third
+  cases k0 <;> cases k1 <;> cases k2 <;> cases p <;> cases q <;> cases ba <;> cases ba' <;>
+    cases bc <;> decide
+
+lemma exists_third {n : ℕ} (hn : 3 ≤ n) (a a' : Fin n) : ∃ y, y ≠ a ∧ y ≠ a' := by
+  by_contra h
+  push_neg at h
+  have : (Finset.univ : Finset (Fin n)) ⊆ {a, a'} := fun y _ => by
+    by_cases hy : y = a
+    · simp [hy]
+    · simp [h y hy]
+  have := Finset.card_le_card this
+  simp only [Finset.card_univ, Fintype.card_fin] at this
+  have := Finset.card_le_two (a := a) (b := a')
+  omega
+
+/-- Constant comparison pattern from two empty rows `a < a'`. -/
+lemma k_const_of_lt {n : ℕ} (hn : 3 ≤ n) (k : Fin 3 → Bool) (α β : Fin n → Bool) {a a' : Fin n}
+    (hlt : a < a') (ha : ∀ y, nf k α β a y = false) (ha' : ∀ y, nf k α β a' y = false) :
+    k 0 = k 1 ∧ k 1 = k 2 := by
+  obtain ⟨y, hya, hya'⟩ := exists_third hn a a'
+  have c1 := ha a; have c2 := ha' a; have c3 := ha a'; have c4 := ha' a'
+  have d1 := ha y; have d2 := ha' y
+  simp only [nf, cmpc_self, cmpc_lt hlt, cmpc_gt hlt] at c1 c2 c3 c4
+  refine core (k 0) (k 1) (k 2) (α a) (α a') (β a) (β a') (β y) c1 c2 c3 c4 ?_
+  simp only [nf] at d1 d2
+  rcases lt_or_gt_of_ne hya with h1 | h1
+  · -- y < a < a'
+    left; rw [cmpc_gt h1, cmpc_gt (h1.trans hlt)] at *; exact ⟨d1, d2⟩
+  · rcases lt_or_gt_of_ne hya' with h2 | h2
+    · right; left; rw [cmpc_lt h1, cmpc_gt h2] at *; exact ⟨d1, d2⟩
+    · right; right; rw [cmpc_lt h1, cmpc_lt h2] at *; exact ⟨d1, d2⟩
+
+/-- **Lemma 2.** Two distinct empty rows force independence of `y` (for `3 ≤ n`). -/
+theorem indep_of_two_empty_rows {n : ℕ} (hn : 3 ≤ n) (k : Fin 3 → Bool) (α β : Fin n → Bool)
+    {a a' : Fin n} (hne : a ≠ a') (ha : ∀ y, nf k α β a y = false)
+    (ha' : ∀ y, nf k α β a' y = false) : ∀ x y y', nf k α β x y = nf k α β x y' := by
+  have hk : k 0 = k 1 ∧ k 1 = k 2 := by
+    rcases lt_or_gt_of_ne hne with h | h
+    · exact k_const_of_lt hn k α β h ha ha'
+    · exact k_const_of_lt hn k α β h ha' ha
+  have hall : ∀ c : Fin 3, k c = k 0 := by
+    intro c; fin_cases c
+    · rfl
+    · exact hk.1.symm
+    · exact (hk.1.trans hk.2).symm
+  have hb : ∀ y, β y = xor (k 0) (α a) := by
+    intro y; have := ha y; simp only [nf, hall] at this; exact (xor_false_iff _ _ _).1 this
+  intro x y y'
+  simp only [nf, hall, hb]
+
+end PairNormalForm
+
 end TransportGeneral
 
 #print axioms TransportGeneral.mem_pre
 #print axioms TransportGeneral.pairLocal_meet
+#print axioms TransportGeneral.PairNormalForm.indep_of_two_empty_rows

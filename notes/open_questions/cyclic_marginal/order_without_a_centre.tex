@@ -204,6 +204,19 @@ choosing heights at random.
     and infinite.
 \end{itemize}
 
+\paragraph{A third kind of twist.} Renamings (gauge) and ``beyond'' (order) are not
+the only ways to twist. On a triangle whose heights take three, four and four
+values, let each pair of landings say only which combinations are
+\emph{allowed}, nine combinations each, all equally likely. Every allowed pair
+extends to an allowed triple, so nothing is logically impossible. Yet no
+weighting of the triples reproduces the even spreads, and no askable question
+detects this \st{exact computation; certified with an integer program}. The
+twist is \emph{relational}: it lives in many-to-many constraints that are fine
+enough. Composed pair by pair, such answers allow a noticeably larger set of
+closing laws than any world does (about a quarter more, by volume, in this
+example). The extra laws pass every askable question and almost every summary
+check, and show up only along special directions \st{computation}.
+
 \paragraph{The loop count.} Five people sit in a ring, and
 each neighbouring pair reports ``we differ'', each person's answer split evenly.
 With two possible answers this is impossible: going round an odd ring, someone
@@ -310,8 +323,10 @@ may be asked.
     visible \st{hand; exact computation}.
 \end{itemize}
 The same holds for rankings. Three pairwise majorities that run in a cycle
-(Condorcet) pass every question built from comparisons alone: on a triangle such
-questions never combine across pairs \st{exact computation}. Questions about
+(Condorcet) pass every question built from comparisons, even combined with
+questions about each candidate's own value: with three or more possible values,
+every such question is about a single pair, so no pair-by-pair record can be
+contradicted by it \st{proved; core Lean-checked}. Questions about
 each candidate's own score expose the cycle when the scores wrap round
 (a finite reduction carries the twist), and not when they run off to infinity
 \st{hand; Lean}. Asking about relata presupposes them, and when no world exists
@@ -526,10 +541,14 @@ them.
     web of relations consistent yet unrealisable? Does composition, and not only
     cycles, govern it? \emph{Partly answered:} the finite probabilistic version is
     contextuality, and the loop counts are its tests (Section~\ref{sec:finite}).
-    Composition in the finite setting is still open.
+    Composed pair by pair, answers determine a set of closing laws. Below the
+    $3\times4\times4$ threshold the askable questions allow exactly the realisable
+    ones; above it they allow more, and the excess is hidden incoherence.
   \item \textbf{(priority)} \emph{Scale as the source of ``beyond''.} In the theory, ``beyond every
     number'' creates twist. In ecology and society the analogue may be
-    \emph{separation of scales}. Can that be made precise?
+    \emph{separation of scales}. Can that be made precise? \emph{Partly answered:}
+    for probabilities, fineness alone suffices: hidden incoherence appears once
+    two relations distinguish four values and the third three.
   \item \textbf{(priority)} \emph{Dynamics, revisited.} The theory found that motion only moves
     worlds. The lizard cycle is a \emph{dynamic} order. Can a cycle in time,
     rather than in the questions, carry coherence without a top?

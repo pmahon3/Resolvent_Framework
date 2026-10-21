@@ -855,7 +855,8 @@ polytopes.
   - along the Farkas direction the support functions are h_R = −1/2 and h_C′ = −1/3, a **gap of
     1/6**;
   - in **25 random directions the support functions agree** (gap < 1e-9).
-  - So the hidden region C \ R is a **thin sliver**: real, but sticking out of R in few directions.
+  - So the hidden region C \ R sticks out of R in few directions. (Corrected below: it is
+    full-dimensional and about 29% of R by volume, so it is not thin.)
 - **Reading.**
   - At finite resolution the questions you can ask compose to a slightly *larger* set of closing
     laws than any world allows.

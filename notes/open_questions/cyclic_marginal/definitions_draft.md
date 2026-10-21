@@ -939,3 +939,45 @@ polytopes.
   needs the special (non-binary witness) directions.
 - **Caveats:** hit-and-run samples are correlated; C′ is an inner approximation; one family (P₀₁,
   P₁₂) only.
+
+**§20 PROVED for all n ≥ 3 (hand, 2026-10-21; the gap is closed).**
+
+*Setting.* Fix a pair; write its variables (x, y) ∈ X², X = {0, …, n−1}. Generators: rows R_a = {x = a},
+columns C_b = {y = b}, and the comparison classes L = {x < y}, Eq = {x = y}, G = {x > y}. P is the
+Dynkin closure. 𝒦 is the 8 unions of {L, Eq, G}.
+
+**Lemma 1 (normal form).** P ⊆ F := {K Δ R_α Δ C_β : K ∈ 𝒦, α, β ⊆ X}, where R_α = ⋃_{a∈α} R_a and
+C_β likewise.
+- *Proof.* F contains every generator. A complement is a Δ with X², which lies in 𝒦. A disjoint union
+  is a Δ, and 𝒦, the row sets and the column sets are each closed under Δ. So F is a Dynkin system
+  containing the generators. □
+
+**Lemma 2 (at most one empty row).** Let A = K Δ R_α Δ C_β depend on both variables. Then A has at
+most one empty row and at most one empty column (and likewise at most one full row and column).
+- *Proof.*
+  - Row a of A is {y : [K(a,y)] ⊕ [a∈α] ⊕ [y∈β]}. It is empty iff β = T_K(a) when a ∉ α, or
+    β = X \ T_K(a) when a ∈ α, where T_K(a) = {y : K(a,y)}.
+  - If K ∈ {∅, X²}, then T_K(a) ∈ {∅, X}, so an empty row needs β ∈ {∅, X}. But then A depends on x
+    only, a contradiction.
+  - Otherwise, for distinct a ≠ a′, the sets T_K(a), T_K(a′), X \ T_K(a) and X \ T_K(a′) cannot
+    coincide across a and a′:
+    - K ∈ {L, G, L∪Eq, G∪Eq}: the T_K(a) are threshold up-sets or down-sets of distinct thresholds.
+      An up-set equals a down-set only if both are ∅ or both are X, which these thresholds exclude.
+    - K ∈ {Eq, L∪G}: T_K(a) = {a} or X \ {a}, and {a} = X \ {a′} forces n = 2.
+  - So β determines at most one empty row. Columns are symmetric. Full rows are empty rows of the
+    complement, which also lies in F. □
+
+**Lemma 3 (cross-pair meeting, Lean: `TransportGeneral.pairLocal_meet`).** Pair-local sets on two
+different pairs, each missing at most one value of the shared variable, meet when n ≥ 3.
+
+**Theorem.** For n ≥ 3, J = P₀₁ ∪ P₁₂ ∪ P₂₀. Every question built from relata and comparisons is
+pair-local, hence blind to every twist.
+- *Proof.* U = ⋃ P_e contains the generators and is closed under complement. Take A ∈ P_e and
+  B ∈ P_f disjoint and non-empty, with e ≠ f sharing variable x_j:
+  - if A or B depends only on x_j, it lies in both families and the union is in one P;
+  - if A depends only on its non-shared variable, then A ∩ B ≠ ∅ (independent coordinates), which is
+    impossible; likewise for B;
+  - otherwise both depend on both variables. By Lemma 2 each misses at most one value of x_j, so by
+    Lemma 3 they meet, which is impossible.
+  - Hence U is closed under disjoint union (finite Ω; induct on the number of pieces), so J ⊆ U. □
+- **n = 2** fails exactly at K = Eq ({a} = X \ {a′}), matching the computed exception (J = D).

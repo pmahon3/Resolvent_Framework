@@ -893,3 +893,22 @@ polytopes.
 - That is why rankings, scores and comparisons, without joint pair records, cannot expose a
   Condorcet-type incoherence at any resolution beyond two values.
 - It sharpens §14: the joint view is needed because these question kinds cannot cross pairs.
+
+**§20 continued (2026-10-21): hand work and formalisation.**
+- **Exact for n = 3–7:** J is pair-local, with |J| = 146, 146, 218, 338, 554. (n = 3 and n = 4 share
+  146 by coincidence: 20 + 126 and 44 + 102.)
+- **Proof structure:**
+  - (a) Any two pairs of the triangle share one variable.
+  - (b) If a built set on pair e depends only on the shared variable, it also lies in pair f's
+    family, and the union stays pair-local.
+  - (c) **Cross-pair step, Lean-checked** (`TransportGeneral.pairLocal_meet`). If both depend on
+    their non-shared variables and each projection onto the shared variable misses at most one
+    value, they meet when n ≥ 3, so they cannot be disjoint.
+  - (d) **Invariant, open.** Every built pair-set depending on both variables misses at most one
+    value in each projection. Verified exactly for n = 3, 4, 5 on the pair closure. It survives the
+    generators and "either one" with a single-variable set (hand). Complement control needs finer
+    bookkeeping: the sets are comparison patterns with whole rows or columns flipped, and the row
+    and column flips must be bounded.
+- **Transport lemma, general form, Lean-checked** (`TransportGeneral.mem_pre`): for arbitrary
+  coordinatewise maps between arbitrary value types. This covers the mod-n witnesses and the
+  pullback supplies used in §16–18.

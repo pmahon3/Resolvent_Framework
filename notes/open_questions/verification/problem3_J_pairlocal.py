@@ -33,4 +33,4 @@ def run(n, rel):
     if nonlocal_sets:
         m = nonlocal_sets[0]; print("   example:", [pts[t] for t in range(N) if m >> t & 1][:12])
 cmp_ = lambda a, b: (a > b) - (a < b)
-for n in (2, 3, 4): run(n, cmp_)
+for n in map(int, sys.argv[1:] or ["2","3","4"]): run(n, cmp_)

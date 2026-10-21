@@ -830,3 +830,38 @@ bipartite graph with 9 edges), and every allowed pair has probability 1/9:
 - **Consequence for the lived reading.** "Fineness needed for hiding" is, in owned language, "the
   smallest non-compressed three-way table". What is ours is that this is the threshold at which
   *every askable question goes blind* to some incoherence.
+
+## 19. Problem 4: probabilistic composition (2026-10-21; `verification/composition_R_vs_C.py`)
+
+**Question.** Fix P₀₁ and P₁₂. Which closing laws P₀₂ are
+- **R**: realizable (some joint world produces all three)?
+- **C**: carrier-compatible (all three together are a state on the questions you can ask)?
+
+**R is classical.** R = Σ_y P₁(y) · Coupling(P(x₀|y), P(x₂|y)), a weighted sum of Fréchet coupling
+polytopes.
+- It contains the Markov composite Σ_y P(x₀|y)P(x₂|y)P₁(y).
+- **R is a single point iff for every y one of the two conditionals is a point mass.** That is the
+  probabilistic analogue of the rigid two-valued composition law (forward types, Lean). Owned:
+  Fréchet classes.
+- So probabilistic composition is flexible, and **twisted means P₀₂ ∉ R**.
+
+**C ⊇ R.**
+- At compressed, gap-free sizes C = R (exact: 3×3×3, 3×3×4, 2×4×4, 2×3×5, 2×2×6). There every
+  twist is visible.
+- **At 3×4×4, C ⊋ R.** Using the hidden family's P₀₁, P₁₂ (uniform on allowed pairs) and an inner
+  approximation C′ ⊆ C (non-negative on all 0/1 span vectors, via MILP cutting planes):
+  - the hidden family's own P₀₂ lies in C′ \ R. Farkas certificate b·y = −1/6. L∞ distance to R is
+    1/27 (≈ 0.037; cell masses are 1/9);
+  - along the Farkas direction the support functions are h_R = −1/2 and h_C′ = −1/3, a **gap of
+    1/6**;
+  - in **25 random directions the support functions agree** (gap < 1e-9).
+  - So the hidden region C \ R is a **thin sliver**: real, but sticking out of R in few directions.
+- **Reading.**
+  - At finite resolution the questions you can ask compose to a slightly *larger* set of closing
+    laws than any world allows.
+  - The excess is the hidden twists.
+  - Seen from most directions the askable and the realizable compositions coincide. The
+    difference is detectable only along special directions, which correspond to non-binary
+    witnesses (§16).
+- **Open:** the dimension and shape of C \ R. Is it lower-dimensional, or a thin full-dimensional
+  cap? Does it grow with resolution (4×4×4, 5×4×3)?

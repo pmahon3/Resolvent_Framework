@@ -987,3 +987,18 @@ pair-local, hence blind to every twist.
   - Lemma 3 is Lean-checked: `pairLocal_meet`.
   - Lemma 1 (P ⊆ normal form) and the final induction are hand-written and routine.
     Formalising them needs the countable-disjoint-union case of Dynkin systems on a finite type.
+
+**§18 extended: hidden twists at 4×4×4 (2026-10-21; `verification/hidden_twist_search.py`).**
+- **Search.** Cutting planes with MILP separation over all 0/1 span vectors, so the result is a
+  certified carrier state. Objective: minimise Λ(g) for a non-binary ray g. Four seeds, four
+  different starting rays (all with values 0/1/2).
+- **Every run returns the same form:**
+  - each pair law is **uniform 1/9 on a 9-edge allowed relation**;
+  - min Λ(g) = −1/9;
+  - in the run printed in full (seed 0), one value of x₀ goes unused. That is the 3×4×4 pattern
+    embedded in 4×4×4.
+- **Reading (candidate):** at these sizes the relational, uniform-on-support pattern looks like the
+  *extremal* hidden twist, the atom of hiding. Hidden twists that push a non-binary witness
+  furthest negative are possibilistic patterns spread evenly.
+- **Not shown:** that every hidden twist is a mixture of such patterns; the behaviour at larger
+  sizes (5×4×3, 5×5×3).

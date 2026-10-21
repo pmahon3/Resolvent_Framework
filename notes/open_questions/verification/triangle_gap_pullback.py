@@ -50,9 +50,11 @@ def buildable(sz, S, base):
         for v, w in itertools.combinations(range(sz[i]), 2):
             sw = lambda p: tuple((w if p[k] == v else v if p[k] == w else p[k]) if k == i else p[k] for k in range(3))
             if all((sw(p) in S) == (p in S) for p in itertools.product(*[range(s) for s in sz])):
-                mp = lambda x: (v if x == w else x) if x < w else x - 1   # merge w into v, relabel
+                mp = lambda x, v=v, w=w: v if x == w else (x if x < w else x - 1)   # merge w into v, relabel
                 small = list(sz); small[i] -= 1
                 S2 = frozenset(tuple(mp(p[k]) if k == i else p[k] for k in range(3)) for p in S)
+                pre = frozenset(p for p in itertools.product(*[range(s) for s in sz]) if tuple(mp(p[k]) if k == i else p[k] for k in range(3)) in S2)
+                assert pre == frozenset(S), "pullback mismatch"
                 if buildable(tuple(small), S2, base): return True
     return False
 if __name__ == "__main__":

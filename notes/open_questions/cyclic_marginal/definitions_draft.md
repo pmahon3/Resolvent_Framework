@@ -733,3 +733,23 @@ twist locates the disagreement exactly.
   - 3×3×3 does not hide (exact).
 - **Method still needed:** targeted construction search for the undecided sets (e.g. guided
   disjoint-union decompositions), or a structural argument.
+
+**Problem 2(a) RESOLVED at the boundary (2026-10-21; `verification/cone_D_pullback_lp.py`).**
+- **Method.** No hidden twist at size sz iff cone(D) = V₊ (Maharam). Sufficient: every extreme ray of
+  V₊ (exact cdd enumeration) is a non-negative combination of D-sets. The supply is pullbacks
+  (coordinatewise value merges, which are buildable by transport) of the *exact* carriers one size
+  down. LP feasibility uses a residual check below 1e-7.
+- **Results:**
+  - **3×3×4: no hidden twist** (717 rays, supply 105,801).
+  - **2×4×4: no hidden twist** (228 rays, supply 161,613).
+  - 3×3×3: none (earlier, exact).
+  - **3×4×4 and 4×4×4: hiding** (non-binary extreme rays, exact).
+- **So the smallest triangle that hides a probabilistic twist is 3×4×4** among all sizes with
+  coordinatewise sizes ≤ (3,4,4). In words: one variable with three values and two with four.
+  2×3×5 and 2×2×6 are being checked.
+- **Bug note.** The value-merge map in `triangle_gap_pullback.py` / `cone_D_pullback_lp.py` sent
+  w ↦ w−1 instead of w ↦ v (found and fixed 2026-10-21).
+  - The earlier "465/717" and "224/228 shown buildable by pullback" counts may contain false
+    positives and are WITHDRAWN.
+  - The LP conclusions use only genuine pullbacks under the fixed map.
+  - A preimage assertion is now in place.

@@ -753,3 +753,8 @@ twist locates the disagreement exactly.
     positives and are WITHDRAWN.
   - The LP conclusions use only genuine pullbacks under the fixed map.
   - A preimage assertion is now in place.
+- **Also exact (2026-10-21):** 2×3×5 (211 rays) and 2×2×6 (152 rays) hide no twist.
+- **Pattern** (a candidate, not a theorem): hiding needs **two variables with ≥ 4 values and the
+  third with ≥ 3**. Total size does not decide it: 2×2×6 (24 points) and 2×3×5 (30) are safe;
+  3×4×4 (48) hides.
+- **Untested:** 2×K×K for K ≥ 5, and 2×2×K for large K.

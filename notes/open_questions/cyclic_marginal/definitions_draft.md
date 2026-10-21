@@ -758,3 +758,38 @@ twist locates the disagreement exactly.
   third with ≥ 3**. Total size does not decide it: 2×2×6 (24 points) and 2×3×5 (30) are safe;
   3×4×4 (48) hides.
 - **Untested:** 2×K×K for K ≥ 5, and 2×2×K for large K.
+
+## 18. Problem 2(b): what the 3×4×4 hidden twist looks like (2026-10-21) ⟦candidate; certified on a supply, not on all of D⟧
+
+**Computation** (`verification/hidden_twist_344.py`; output saved alongside).
+- Minimise Λ(g) for an exact non-binary extreme ray g, over consistent pair laws with Λ ≥ 0 on a
+  supply of **592,185 buildable sets**. The supply is pullbacks of the exact carriers at 3×3×3,
+  2×3×4, 3×2×4 and so on, through every coordinatewise coarsening up to relabelling. Solved by
+  cutting planes, converging in 3 rounds.
+- Result: **Λ(g) = −1/9.**
+
+**The pair laws are uniform on allowed pairs.** Each pair carries an allowed/forbidden relation (a
+bipartite graph with 9 edges), and every allowed pair has probability 1/9:
+- (x₀,x₁): x₀=0 → x₁∈{0,1,2}; x₀=1 → {0,1,3}; x₀=2 → {1,2,3}. Each x₀ value forbids one x₁ value.
+- (x₁,x₂): x₁=0 → {1,2}; 1 → {0,1,3}; 2 → {0,2}; 3 → {2,3}.
+- (x₂,x₀): x₂=0 → {0,1}; 1 → {0,2}; 2 → {0,1,2}; 3 → {1,2}.
+- Marginals agree on overlaps: x₀ is uniform; x₁ is (2,3,2,2)/9; x₂ is (2,2,3,2)/9.
+
+**Reading.**
+- **Neither gauge nor order.** Gauge twists have *bijective* supports (renamings) and are caught by
+  finite quotients. Order twists need "beyond" at infinity. This one is a **many-to-many relational
+  constraint pattern**: each pair says which combinations are *possible*, with no preference among
+  them.
+- So a third kind of twist appears at finite resolution. It is *possibilistic*: built from what is
+  allowed, spread evenly.
+- It is consistent with the coarse-graining candidate. Hidden twists coarsen to untwisted ≤3-value
+  pictures, by transport.
+
+**Caveats and next checks.**
+- Certified only against the supply. Full D-positivity of *this* Λ is not verified, although some
+  hidden Λ exists (§16).
+- Does the bare *support* pattern (the three allowed relations as yes/no constraints) admit a joint
+  support? That is, is the pattern logically consistent but probabilistically twisted?
+- **Prior art:** possibilistic vs probabilistic contextuality (Abramsky–Brandenburger's hierarchy:
+  probabilistic, logical (possibilistic), strong). This candidate is probabilistic-only. Check
+  whether "uniform on a support" families are studied there.

@@ -1041,3 +1041,27 @@ no r×s×2 triangle hides a twist.**
   coarsening**.
 - Consistent with "visible ⇔ some ≤3-value coarsening twisted". The samples are biased toward the
   hidden family by mixing.
+
+**Conjecture 3 (the atom), evidence at 3×4×4** (2026-10-21; `verification/atom_vertices*.py`).
+- **Random objectives** over S′ = {consistent pair laws ≥ 0 on all 0/1 span vectors} reach only the
+  **48 point masses**. The hidden region is invisible to generic directions, consistent with §19.
+- **Targeted objectives** (minimise Λ(g) for 120 of the 1,728 non-binary extreme rays) reach **120
+  distinct hidden vertices, all uniform 1/9 on a 9-cell support in every pair** (88 + 2,300 MILP
+  cuts).
+- **Reading:** at 3×4×4, every hidden vertex of S′ found is a relational "allowed pairs, evenly
+  spread" pattern. The atom candidate survives a targeted test.
+- **Still open:**
+  - whether these 120 are relabellings of one pattern (orbit count under 3!·4!·4! value
+    permutations; vertices not saved this run);
+  - whether S′ has hidden vertices not reachable this way;
+  - whether S′ = S (the carrier-state set itself).
+
+**r×3×3 (the remaining case of "hiding ⇔ non-compressed"): reduction recorded.**
+- Slices along x₀ pairwise differ by additive {−1,0,1} patterns on 3×3. Merging x₀-values with
+  equal slices makes a 0/1 span vector a pullback from m×3×3, where m is the number of distinct
+  slices.
+- m ≤ 14: the largest additive-difference class of 3×3 binary patterns has 14 members (class sizes
+  1:102, 2:36, 3:36, 6:12, 8:18, 14:1).
+- So D = V₀₁ at all m×3×3 with m ≤ 14 would settle every r×3×3. That is computationally out of
+  reach (up to 126 points). A structural argument is needed: e.g. a decomposition like the r×s×2
+  slice proof, using the explicit 14-member class.

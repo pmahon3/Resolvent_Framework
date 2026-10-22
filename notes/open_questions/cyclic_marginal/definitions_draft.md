@@ -1082,3 +1082,44 @@ no r×s×2 triangle hides a twist.**
 - What is *not* forced: the extremal hidden twist is uniform on its support. The atom claim
   becomes substantive only at larger sizes (4×4×4, 5×4×3), where several ray orbits may exist:
   do all their extremal hidden twists reduce to embedded copies of this pattern?
+
+## 22. CLASSIFICATION: a triangle hides a probabilistic twist ⇔ its marginal polytope is not compressed (2026-10-21) ⟦hand + exact computations; under review⟧
+
+**Theorem (candidate, all sizes).** Sort the sizes r₁ ≥ r₂ ≥ r₃. A triangle of pair views hides a
+probabilistic twist (has a carrier state that is not a convex combination of point masses) **iff
+r₂ ≥ 4 and r₃ ≥ 3**. Equivalently, iff the no-three-way-interaction configuration is not compressed
+(Ohsugi–Hibi table).
+
+**Proof assembly.**
+1. **Not compressed ⇒ hides.** Sullivant Thm 2.4 gives a non-binary extreme ray of V₊. Maharam 6.1
+   and separation give a hidden twist (§16, §21).
+2. **Compressed ⇒ every extreme ray of V₊ is 0/1** (Sullivant). So it suffices that every 0/1 span
+   vector lies in cone(D).
+3. **r×s×2:** D = V₀₁ (§21; rectangle step in Lean).
+4. **r×3×3** (new, hand + exhaustive computation; `verification/rx3x3_row_types.py`).
+   - Slice along x₁: T₀, T₁, T₂ ⊆ X₀×X₂. Span membership makes d₀₁ = 1_{T₀}−1_{T₁} and
+     d₀₂ = 1_{T₀}−1_{T₂} additive, with d₀₁, d₀₂, d₁₂ ∈ {−1,0,1}.
+   - S = C ⊔ R, where C = T₀∩T₁∩T₂ (as an (x₀,x₂) set, a pair event) and R is the part where the
+     slices differ.
+   - On that region the slice values are forced by (d₀₁, d₀₂). So R depends on x₀ only through its
+     **row type** (the pair of d-rows), and on (x₁, x₂).
+   - Exhaustive enumeration: at most **4 row types when some row depends on x₂**. If no row depends on
+     x₂, R is an (x₀,x₁) pair event.
+   - So R is the pullback, under a coordinatewise coarsening, of a 0/1 set R′ at size c₀×3×3 with
+     c₀ ≤ 4. Coarsening descends span membership: average over fibres.
+   - At those sizes V₊ = cone(D): exact at 4×3×3 and 3×3×3 (cone LP with residual check, §21),
+     2×3×3 by step 3, 1×3×3 trivial. So R′ ∈ cone(D) there, hence R ∈ cone(D) by transport, hence
+     S = C + R ∈ cone(D).
+5. Ohsugi–Hibi: the compressed sizes are exactly r×s×2 and r×3×3 (with r₁ ≥ r₂ ≥ r₃). □
+
+**Rigour notes.**
+- Step 4's bound is an exhaustive finite enumeration over normalised (k₁, k₂). The 4×3×3 input is
+  an LP with residual < 1e-7 (float), not rational.
+- The Ohsugi–Hibi table row "r₁×3×3 compressed" is taken from the primary source (verified text).
+
+**The atom at larger sizes** (`verification/atom_larger.py`).
+- 4×4×4: two witness classes (by invariant). Both extremal hidden twists are uniform 1/9 on 9 cells
+  and use only 3 values of one variable: **embedded copies of the 3×4×4 pattern**.
+- 3×4×5: one class, again the embedded pattern.
+- Candidate (still evidence only): every extremal hidden twist on a triangle is an embedded copy of
+  the 3×4×4 relational atom.

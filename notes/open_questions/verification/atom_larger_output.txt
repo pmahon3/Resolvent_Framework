@@ -1,0 +1,5 @@
+(4, 4, 4): non-binary ray classes found (by invariant): 2
+  ray values [0.0, 1.0, 2.0]: min Lambda -0.11111 | supports [9, 9, 9] | uniform True | values used per variable [3, 4, 4]
+  ray values [0.0, 1.0, 2.0]: min Lambda -0.11111 | supports [9, 9, 9] | uniform True | values used per variable [4, 4, 3]
+(3, 4, 5): non-binary ray classes found (by invariant): 1
+  ray values [0.0, 1.0, 2.0]: min Lambda -0.11111 | supports [9, 9, 9] | uniform True | values used per variable [3, 4, 4]

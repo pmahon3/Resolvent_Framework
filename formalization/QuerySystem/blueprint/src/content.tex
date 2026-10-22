@@ -19,10 +19,12 @@ point behind it (\ref{gc:thm:pointless}); the cyclic set is not askable
 the other two (\ref{gc:thm:glues-iff}); carriers transport along coordinate maps
 (\ref{gc:thm:transport}); and the steps of the finite classification that are
 formal. The classification itself (a finite triangle of pair views with sizes
-$r_1\ge r_2\ge r_3$ hides a probabilistic twist iff $r_2\ge4$ and $r_3\ge3$) is
-\emph{not} formalized: its ``hides'' direction is an exact computation, its
-``cannot hide'' direction is a hand proof with formal steps, and its threshold is
-owned (Sullivant 2006; Ohsugi--Hibi 2010). See
+$r_1\ge r_2\ge r_3$ hides a probabilistic twist iff $r_2\ge4$ and $r_3\ge3$) is a
+\emph{candidate} theorem and is \emph{not} formalized. Its ``hides'' direction
+rests on owned results (Sullivant 2006 Thm~2.4, Maharam 1972 Thm~6.1), with an
+exact certificate at $3\times4\times4$; its ``cannot hide'' direction is a hand
+proof with exact enumerations and formal steps; the threshold is owned
+(Ohsugi--Hibi 2010). See
 \texttt{notes/open\_questions/cyclic\_marginal/definitions\_draft.md}~\S22.
 
 \paragraph{Earlier lines.} The remaining chapters are earlier work, kept
@@ -45,7 +47,7 @@ chapter, $\Phi_h$ is the delay map $x \mapsto (h(T^n x))_n$
 open conjecture above.
 
 \paragraph{Status conventions.} A green node is proved on the standard axioms
-alone. Eight nodes rest on cited axioms. Where a claim is conditional, the
+alone. Eight declarations rest on cited constants (axiomcheck). Where a claim is conditional, the
 hypothesis is carried explicitly in the statement rather than assumed; see
 \ref{lem:carrier-not-polish}, whose Polish cut is an explicit hypothesis and not
 a citation. Results proved by hand or by computation are stated in prose with
@@ -208,9 +210,11 @@ The all-equal set on $\{0,1\}^3$ is in the Boolean carrier by an explicit
 disjoint decomposition; transport along the indicator maps of $P,Q,R$.
 \end{proof}
 
-\paragraph{The classification (not formal).} A finite triangle with sizes
-$r_1\ge r_2\ge r_3$ hides a probabilistic twist iff $r_2\ge4$ and $r_3\ge3$.
-\emph{Hides at $3\times4\times4$}: exact computation (\texttt{certify\_344.py},
+\paragraph{The classification (candidate; not formal).} A finite triangle with
+sizes $r_1\ge r_2\ge r_3$ hides a probabilistic twist iff $r_2\ge4$ and
+$r_3\ge3$. \emph{Hides when not compressed}: a non-binary extreme ray
+(Sullivant 2006 Thm~2.4) gives a hidden twist via Maharam's cone criterion
+(owned); explicit exact certificate at $3\times4\times4$ (\texttt{certify\_344.py},
 witness value $-1/9$). \emph{Cannot hide at $r\times s\times2$}: hand proof by
 slices, whose rectangle step is \ref{gc:thm:rect}. \emph{Cannot hide at
 $r\times3\times3$}: hand proof with exact enumeration of remainders. The
@@ -262,7 +266,7 @@ cycle is never exposed. Final assembly \emph{hand}, not formal.
 \lean{WindowGluing.glued_not_interClosed, WindowGluing.generateFrom_glued, WindowGluing.ring4_real_admissible}
 \leanok
 Glued window carriers are not intersection-closed whenever two coordinates share
-no window; they generate the product $\sigma$-algebra when the windows cover;
+no window and some measurable set of values is neither empty nor everything; they generate the product $\sigma$-algebra when the windows cover;
 the real 4-ring is admissible.
 \end{theorem}
 \begin{proof}
@@ -272,14 +276,13 @@ Direct.
 
 \begin{theorem}[Countable $\sigma$-essential witness]
 \label{gc:thm:ring-sigma}
-\lean{WindowGluing.Cyclic.s₀_sigmaEssential, WindowGluing.Cyclic.targetA_sharp_countable, WindowGluing.Cyclic.targetA_sharp_countable_literal, WindowGluing.Cyclic.D₄_six_conjuncts, WindowGluing.Ring.sL_sigmaEssential}
+\lean{WindowGluing.Cyclic.s₀_sigmaEssential, WindowGluing.Cyclic.targetA_sharp_countable, WindowGluing.Cyclic.targetA_sharp_countable_literal, WindowGluing.Ring.sL_sigmaEssential}
 \leanok
 \uses{gc:thm:glued}
 On the countable ring $\mathbb N^L$ with windows $\{k,k+1\}$, for every
 $L\ge4$, the carrier holds a finitely coherent two-valued pattern with no
 $\sigma$-additive extension. For $L=4$ the carrier is admissible, literally
-irreducible, and generates the full $\sigma$-algebra; the Polish clause of the
-six conjuncts is conditional on the cut, carried as a hypothesis.
+irreducible, and generates the full $\sigma$-algebra.
 \end{theorem}
 \begin{proof}
 \leanok
@@ -287,6 +290,24 @@ The staircase on the ring: each step $\{x_k<x_{k+1}\}$ has value $1$. A
 $\sigma$-additive extension locates each coordinate at a value $a_k$ (countable
 additivity over $\{x_k=a\}$), and the steps then force
 $a_0<a_1<\dots<a_{L-1}<a_0$.
+\end{proof}
+
+\begin{lemma}[The six conjuncts on the 4-ring]
+\label{gc:lem:d4-six}
+\uses{gc:thm:ring-sigma, lem:carrier-not-polish}
+\lean{WindowGluing.Cyclic.D₄_six_conjuncts}
+\leanok
+The 4-ring carrier is concrete, $\sigma$-complete, irreducible, non-segregated
+and not intersection-closed. Granting $\mathrm{DWPolishCut}$, it is not
+Polish-representable. The cut is carried explicitly as a hypothesis;
+Polish-representability is the opaque cited predicate of
+\ref{lem:carrier-not-polish}, not unfolded.
+\end{lemma}
+\begin{proof}
+\leanok
+\uses{gc:thm:ring-sigma}
+The ring carries a witness (\ref{gc:thm:ring-sigma}), and the cut forbids one on
+a Polish-representable carrier.
 \end{proof}
 \paragraph{Prior art.} Not found after three passes (finite shadow:
 Navara--Pták 1983). Not claimed.

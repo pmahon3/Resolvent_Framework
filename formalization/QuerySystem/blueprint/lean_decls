@@ -24,8 +24,8 @@ WindowGluing.ring4_real_admissible
 WindowGluing.Cyclic.s₀_sigmaEssential
 WindowGluing.Cyclic.targetA_sharp_countable
 WindowGluing.Cyclic.targetA_sharp_countable_literal
-WindowGluing.Cyclic.D₄_six_conjuncts
 WindowGluing.Ring.sL_sigmaEssential
+WindowGluing.Cyclic.D₄_six_conjuncts
 Query
 Refine
 QuerySystem

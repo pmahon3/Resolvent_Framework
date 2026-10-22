@@ -1161,3 +1161,33 @@ r₂ ≥ 4 and r₃ ≥ 3**. Equivalently, iff the no-three-way-interaction conf
   - check Berti–Rigo for the cone criterion;
   - one targeted search on Pitowsky correlation polytopes / Boole's conditions of possible
     experience (not yet done).
+
+**§22 owed reads, done (2026-10-21).**
+1. **Burešová–Pták–Ševic 2026** (arXiv:2609.10770, read §2 in full).
+   - Thm 2.5: if a logic has enough two-valued states to separate a ≰ b, it is set-representable
+     and any well-conditioned pair of states on **two** Boolean subalgebras extends to a common
+     state. Proof: extend over the power set, via Bhaskara Rao Thm 3.6.1.
+   - Prop 2.7: no such separation ⇒ simultaneous extension fails.
+   - Prop 2.9: a Greechie-pasted finite logic, not set-representable, still allows it.
+   - **Verdict: NEIGHBOUR.** Our carrier D is set-representable, so their Thm 2.5 covers *two*
+     contexts. Our classification is about *three* contexts in a cycle (the triangle), where
+     pairwise good conditioning is not enough and hiding occurs exactly at non-compressed sizes.
+     Not covered.
+2. **Berti–Rigo, "Finitely additive mixtures of probability measures"** (J. Math. Anal. Appl. 2021;
+   search level: abstract and Perugia 2018 slides; the PDF link 404s).
+   - A coherent functional P on a space of bounded functions is a finitely additive mixture of a
+     family 𝒬 iff P(f) ≥ inf_{Q∈𝒬} Q(f) for every f.
+   - With 𝒬 = point masses and the space = the pair span V, this is our cone criterion (a): Λ is a
+     mixture of points iff Λ ≥ 0 on V₊.
+   - **Ingredient (a) is OWNED** (Berti–Rigo; Maharam 6.1 in the finite case).
+3. **Pitowsky correlation polytopes** (search level).
+   - Membership in the marginal/correlation polytope and Boole's conditions as its facets (owned;
+     NP-hardness, Pitowsky 1991; cut-polytope isomorphism).
+   - Garg–Mermin used Farkas on pair distributions.
+   - No logic, Dynkin-system or finitely additive carrier content. **NEIGHBOUR.**
+- **Updated verdict on §22:**
+  - Ingredients (a) and (b) and the size table are owned.
+  - The equivalence "state on the carrier is a mixture ⇔ compressed", via (c) (the λ-closure
+    contains every 0/1 span vector at compressed sizes) and (d) (the carrier reading of the hidden
+    state), was **not found** after two passes.
+  - Coverage is still moderate (snippet level in algebraic statistics).

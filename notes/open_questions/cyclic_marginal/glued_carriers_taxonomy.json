@@ -319,6 +319,18 @@
    ],
    "scope": "triangle; comparison relations; n=3..7 exact",
    "detail": "definitions_draft.md section 20"
+  },
+  {
+   "id": "thm.rxsx2_no_hiding",
+   "name": "Triangles with a binary variable hide no twist",
+   "status": "PROVED (hand, definitions_draft section 21); rectangle step LEAN-CHECKED (TransportGeneral.rect_mem: explicit 2x2x2 all-equal construction + transport); cylinder step and span algebra hand; exact cross-checks D = V01 at 2x3x4, 3x4x2, 2x2x5",
+   "one_line": "For sizes r x s x 2 every 0/1 vector in the span of pair indicators is buildable (D = V01); with compressedness (Ohsugi-Hibi: unimodular), every carrier state is a convex combination of point masses.",
+   "uses": [
+    "thm.transport_general",
+    "own.compressed_threshold"
+   ],
+   "scope": "triangle; one variable binary; any r, s",
+   "detail": "definitions_draft.md section 21"
   }
  ],
  "conjectures": [

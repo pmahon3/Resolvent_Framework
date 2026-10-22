@@ -1065,3 +1065,13 @@ no r×s×2 triangle hides a twist.**
 - So D = V₀₁ at all m×3×3 with m ≤ 14 would settle every r×3×3. That is computationally out of
   reach (up to 126 points). A structural argument is needed: e.g. a decomposition like the r×s×2
   slice proof, using the explicit 14-member class.
+
+**Updates (2026-10-21).**
+- **Lean:** the rectangle step of the r×s×2 theorem is checked (`TransportGeneral.rect_mem`; 0
+  sorry). It contains an explicit construction of {all equal} on 2×2×2: E = ((A ⊔ B)ᶜ ⊔ C)ᶜ with
+  A = {x₀=0, x₁=0}, B = {x₁=1, x₂=1}, C = {x₀=0, x₂=1}. Transport handles any value type. The
+  cylinder step and the span algebra remain hand.
+- **The atom is one pattern:** the 120 hidden vertices found at 3×4×4 form **a single orbit** under
+  value relabelling (S₃×S₄×S₄) and the x₁↔x₂ swap (`verification/atom_orbits.py`, output saved).
+  Every extreme hidden twist found is the same "allowed pairs, evenly spread" pattern up to
+  renaming.

@@ -1,0 +1,4 @@
+non-binary rays: 1728
+distinct vertices: 120; point masses: 0; non-point realizable: 0; NON-REALIZABLE (hidden): 120; cuts: 2300
+  hidden vertex: supports per pair (9, 9, 9) | uniform on support: True | max mass 0.1111 | count 120
+orbits of hidden vertices under relabelling + x1<->x2 swap: 1 sizes [120]

@@ -161,8 +161,69 @@ theorem indep_of_two_empty_rows {n : ℕ} (hn : 3 ≤ n) (k : Fin 3 → Bool) (�
 
 end PairNormalForm
 
+/-! ## r×s×2 theorem, rectangle step
+
+The "all three equal" set on the yes/no triangle is buildable, by an explicit construction:
+`E = complement ((A ⊔ B)ᶜ ⊔ C)` with `A = {x₀ = 0, x₁ = 0}`, `B = {x₁ = 1, x₂ = 1}`,
+`C = {x₀ = 0, x₂ = 1} ⊆ A ⊔ B`. Pulling it back along coordinatewise indicator maps shows that the
+rectangle-pair set `{(x₀∈P ∧ x₁∈Q ∧ x₂∈R) ∨ (x₀∉P ∧ x₁∉Q ∧ x₂∉R)}` is buildable over any value type.
+This is step (b) of the r×s×2 theorem (`definitions_draft.md` §21). -/
+
+section RectangleStep
+
+/-- All three coordinates equal, over `Bool`. -/
+def allEq : Set (Fin 3 → Bool) := {x | x 0 = x 1 ∧ x 1 = x 2}
+
+lemma pe (i j : Fin 3) (S : Set (Bool × Bool)) :
+    (carrier Bool).Has {x | (x i, x j) ∈ S} :=
+  DynkinSystem.GenerateHas.basic _ ⟨i, j, S, rfl⟩
+
+theorem allEq_mem : (carrier Bool).Has allEq := by
+  classical
+  let A : Set (Fin 3 → Bool) := {x | (x 0, x 1) ∈ ({(false, false)} : Set (Bool × Bool))}
+  let B : Set (Fin 3 → Bool) := {x | (x 1, x 2) ∈ ({(true, true)} : Set (Bool × Bool))}
+  let C : Set (Fin 3 → Bool) := {x | (x 0, x 2) ∈ ({(false, true)} : Set (Bool × Bool))}
+  have hA : (carrier Bool).Has A := pe 0 1 _
+  have hB : (carrier Bool).Has B := pe 1 2 _
+  have hC : (carrier Bool).Has C := pe 0 2 _
+  have hAB : Disjoint A B := by
+    rw [Set.disjoint_left]; intro x hx hy
+    simp only [A, B, Set.mem_setOf_eq, Set.mem_singleton_iff, Prod.mk.injEq] at hx hy
+    rw [hx.2] at hy; exact Bool.false_ne_true hy.1
+  have hU : (carrier Bool).Has (A ∪ B) := (carrier Bool).has_union hA hB hAB
+  have hdisj : Disjoint (A ∪ B)ᶜ C := by
+    rw [Set.disjoint_left]; intro x hx hc
+    apply hx
+    simp only [A, B, C, Set.mem_union, Set.mem_setOf_eq, Set.mem_singleton_iff, Prod.mk.injEq] at hc ⊢
+    cases h1 : x 1
+    · left; exact ⟨hc.1, rfl⟩
+    · right; exact ⟨rfl, hc.2⟩
+  have hV : (carrier Bool).Has ((A ∪ B)ᶜ ∪ C) := (carrier Bool).has_union hU.compl hC hdisj
+  have heq : allEq = ((A ∪ B)ᶜ ∪ C)ᶜ := by
+    ext x
+    simp only [allEq, A, B, C, Set.mem_compl_iff, Set.mem_union, Set.mem_setOf_eq,
+      Set.mem_singleton_iff, Prod.mk.injEq]
+    cases x 0 <;> cases x 1 <;> cases x 2 <;> decide
+  rw [heq]; exact hV.compl
+
+/-- **Rectangle step.** For any value type and any sets `P Q R`, the set where the three
+membership bits agree is buildable. -/
+theorem rect_mem (P Q R : Set α) :
+    (carrier α).Has {x | (x 0 ∈ P ∧ x 1 ∈ Q ∧ x 2 ∈ R) ∨ (x 0 ∉ P ∧ x 1 ∉ Q ∧ x 2 ∉ R)} := by
+  classical
+  let f : Fin 3 → α → Bool := fun i a => decide (a ∈ (![P, Q, R] i))
+  have h := mem_pre f allEq_mem
+  convert h using 1
+  ext x
+  simp only [allEq, lift, f, Set.mem_preimage, Set.mem_setOf_eq, Matrix.cons_val_zero,
+    Matrix.cons_val_one, Matrix.head_cons, Matrix.cons_val_two, Matrix.tail_cons]
+  by_cases h0 : x 0 ∈ P <;> by_cases h1 : x 1 ∈ Q <;> by_cases h2 : x 2 ∈ R <;> simp [h0, h1, h2]
+
+end RectangleStep
+
 end TransportGeneral
 
 #print axioms TransportGeneral.mem_pre
 #print axioms TransportGeneral.pairLocal_meet
 #print axioms TransportGeneral.PairNormalForm.indep_of_two_empty_rows
+#print axioms TransportGeneral.rect_mem

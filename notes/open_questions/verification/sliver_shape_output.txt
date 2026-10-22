@@ -1,0 +1,3 @@
+dim T = 6
+hit-and-run over T (1500 samples): {'R': 334, "C'\\R": 97, 'neither': 1069}
+random feasible perturbations of the hidden law (step 0.004): {"C'\\R": 28, 'R': 0, "outside C'": 33}

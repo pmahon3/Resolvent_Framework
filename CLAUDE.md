@@ -8,63 +8,163 @@ embeddings, OML theory. Philosophy undergrad + three years math
 undergrad. Working outside academia. No advisor — uses LLM to
 partially fill that gap.
 
+## The why (read first; added 2026-10-17)
+
+**`WHY.md` is the compass the mathematics answers to.** The question it holds: *when do local
+views, each correct as far as it goes, add up to one world, and what do they say when they
+don't?* Practically, what lights the fire is **ecology and anarchism**: how order arises from
+local relations with no centre holding it together. The user wants the work to resurface in the
+world, not to stay in an ivory tower. It is not mathematical content, but it guides every agent.
+
+**Operational:**
+- **At every checkpoint, say how the result bears on the question.** Use WHY.md's four questions:
+  loop? unaskable joint question? hidden idealisation? circle, or composition?
+- **Protect the user's own seeing.** The spark lives in puzzles and pictures understood by hand,
+  not in machine output. Offer a puzzle before a proof dump. Don't bury the user in generated
+  Lean or enumerations. Machines are the answer key.
+- **Go at a human pace.** At most one new thread per checkpoint. If the user says they are lost,
+  stop adding: orient in plain language, then offer a choice, including "pause".
+- **Honest distance.** Name practical bridges (ecology, commons, inference, data merging) only as
+  lenses and questions, with the gap to applicability stated. Never overclaim.
+- **Vocabulary.** In prose a window is a **query** (the repo's word; neutral about any reality
+  behind it), and "measurement" is the physics translation. The board is "**the questions you can
+  ask**" in prose and the **carrier** in formal text. Glossary: `theory_shape.md` §3. Avoid
+  private jargon like "board" without saying what it is.
+- **Reversals cost.** When a result overturns something recently framed as central, lead with
+  that, plainly, and update every place that asserts it.
+
+## The aim: build new mathematical theory (adopted 2026-10-16)
+
+The programme builds **new mathematical theory**: definitions, invariants and
+structure theorems. **Problems are probes placed at seams between existing
+theories.** They locate where theory is missing, and solving them is a means, not
+the end. This theory-first orientation replaces the earlier problem-first one.
+**Proof is raw data for theory building** (user, 2026-10-16). A proof's value lies
+in what it reveals about structure: which objects matter, which invariant is
+working, where a theory is missing. Proofs are not the product.
+
+The refined source the user points to is 3Blue1Brown, "There's never been a better
+time to go into math" (2026-10-16). Its frame:
+- The research stack is: proving theorems → choosing what is worth asking
+  (conjectures, taste) → **theory building** (Descartes' coordinates, Galois'
+  groups, Grothendieck's rising sea). Then come applications and *motivated*
+  exposition.
+- "Good mathematicians prove theorems, great ones make conjectures, the greatest
+  write definitions."
+- Proof was long the proxy for understanding. It is now losing that role and
+  becoming raw data, "like numerical calculation" or more digits of π.
+
+**Operational consequences:**
+- Treat LLM and Lean proofs as data. Read them for the *elements of simplicity*
+  that recur, and weave those into definitions and theory.
+- At each step ask: **is the bottleneck one more proof, or my understanding of
+  the proofs I already have?** Often the right move is to close the laptop and
+  rebuild the understanding by hand.
+- Use proof machines like the answer key at the back of a textbook: available,
+  but do the problem yourself first.
+- Credit ideas that machine output reuses. This is the prior-art discipline.
+- Explanation is part of the work: a theory is not a list of definitions but a
+  motivated case for why these are the right structures.
+Publication is not a goal. Papers may be shared eventually.
+
 ## Current state of the programme
 
-**Authoritative state doc: `notes/programme/program_overview.md`.**
-Frontier structure: `notes/programme/frontier_map.md`. Work plan:
-`notes/programme/shovel_plan.md` (adopted 2026-07-10 — four theorems
-to prove + vacant lots shipped as invitations).
+**Authoritative state doc: `notes/programme/program_overview.md`.** Its
+2026-10-16 addendum wins over anything older. `frontier_map.md` and
+`shovel_plan.md` are stale (August 2026).
 
-Active flagship: **reconstruction/commensurability**
-(`papers/reconstruction/` — paper skeleton + notes/ hubs + oracles/).
-σ-essential: machine-checked ZFC theorem; paper
-dissemination-ready (`papers/sigma_essential/`); OML/lattice +
-positive-selection + Φ-slice forms open (shovel plan). Paper I parked;
-Paper II is the survivor (Type-6); `papers/spine/` reads the corpus
-as one classification.
+**Theory in construction: pointless coherence on glued carriers.** It concerns
+finitely additive two-valued states on carriers glued from window events, and
+which window-graph shape lets them be pointless.
+- Load `notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json` (the
+  first theory-shaped collection).
+- Read `notes/open_questions/cyclic_marginal/order_without_a_centre.pdf` (the
+  current note: Part I theory, Part II lived; §9 "Three kinds of twist"), and
+  `definitions_draft.md` §16–22 for the latest results. The older
+  `pointless_coherence.pdf` opens with the window puzzle.
+- State (2026-10-21): the finite triangle is classified (candidate theorem). It hides
+  a probabilistic twist iff not compressed (sorted r₂≥4, r₃≥3). The yes/no
+  pointless side needs infinity (Lean).
+- The seam: cycle × infinity.
+- **Stance: answers first.** Questions and states (consistent answer patterns) are
+  primitive. Points and ideal points are derived, earned or not. Only the
+  possibility space Ω is assumed, as scaffold, not ontology. Keep every
+  construction, puzzle and Lean definition consistent with this.
 
-Publication is not a goal of this repo — the work is
-research-oriented. Papers may be shared eventually but the
-driver is understanding, not shipping.
+**Cycle side (former flagship, `papers/reconstruction/`).**
+- The fixed-length winding criterion is prior art (Kharoof–Ipek–Okay 2024), so it
+  is cited, not claimed.
+- The open core is the reach lemma.
+- Detail: `notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md`.
+
+**Infinity side (σ-essential, `papers/sigma_essential/`).**
+- The ZFC witness is machine-checked.
+- A countable witness on every ring L ≥ 4 is Lean-checked; no owner found after
+  three prior-art passes; not in the paper.
+- The OML/lattice and Φ forms are open.
+
+**Other papers.** Paper I is parked. Paper II is the survivor (Type-6).
+`papers/spine/` is reference-only.
 
 Zoom-out navigation: `notes/taxonomies_index.json` (load FIRST).
 
-## The research workflow (FOLLOW THIS)
+## The research workflow: theory first (FOLLOW THIS)
 
-### The 8-phase pipeline:
+**The unit of work is a theory-shaped collection**, a taxonomy with objects,
+theorems, conjectures, probes, examples and owned regions. See
+`notes/TAXONOMY_SCHEMA.md` § Theory-shaped collections.
 
-1. **Seed note** (md, 30 min) → `notes/unsorted/`
-   Declare claimed contribution type(s) and per-type bars.
-   Format: `**Claimed type(s):** Type N (name). **Bar:** [what
-   this seed must demonstrate to clear that type's bar].`
-   Pre-existing seeds without declarations are grandfathered;
-   declarations are added when next audited.
-2. **Skeptical audit** → GATE: evaluate against each claimed type's bar.
-   Default: `/audit full` for Phase 2. Use `pure`/`applied` for
-   targeted re-audits only.
-3. **Problem statement** (md) → the lane's home
-   (`papers/<lane>/notes/` for paper-bound work, else
-   `notes/open_questions/`)
-4. **Mathematical work** (user does this, not LLM)
-5. **Formalization** (Lean, novel results ONLY)
-6. **Draft** (LaTeX, editorial principles)
-7. **Second audit** (before declaring complete)
-8. **Complete or park**
+1. **Locate the seam.** Find where existing theories each own part of a region
+   and none covers the joint.
+   - Map what is owned first: hostile, cross-field prior art.
+   - Record it as `owned_regions` with `owned_by`.
+   - A framing that turns out to be owned is useful: it says where the seam is
+     *not*.
+2. **Sketch the theory.** State the objects, the candidate invariants, and the
+   target structure theorem, all as conjectures in the collection.
+3. **Choose probes.** Pick small, sharp cases that *discriminate* between
+   conjectures. Pre-register each as a gate (outcomes → affected conjecture ids)
+   before running it.
+4. **Run probes.** Use oracles and computation, and hand proofs (flagged
+   ⟦HAND⟧).
+   - Check every puzzle or example claim against the instantiated mathematics,
+     and record `scope`.
+5. **Bank theory items.**
+   - Theorems: Lean or ⟦hand⟧, with `uses` and `scope`.
+   - Fire gates, dated, and update the conjectures.
+   - Never auto-propagate a fired gate.
+6. **Prior-art gate before *claiming* any item.** Run it hostile and
+   cross-field, and never exclude a field as "already known".
+7. **Formalize** novel items in Lean (ground truth).
+8. **Write** a note once the theory has a shape: puzzle first, then mathematics.
+   Papers are optional.
 
-### The open-question lifecycle (sibling to the seed pipeline):
+**Evaluation.**
+- Theory items are measured against **Type 3** (method transfer) and **Type 4**
+  (three new statements + one non-trivial result).
+- Probes need no type.
+- The full 7-type audit applies when a piece of work is written up for others.
+- See `notes/programme/contribution_evaluation.md`.
 
-Open questions in `notes/open_questions/` are a *different unit* than
-seeds — no claimed type, not headed for a draft, dormant until **new
-input** (an adjacent question, source, or probe) triggers a re-audit.
-On re-audit they exit to one of three outcomes: **promote-to-seed**
-(enter Phase 1), **sharpen-in-place** (refine, stay), or **kill** (to
-`covered_leads/`).
+### Subordinate: isolated problems (the former default pipeline)
 
-**Sharpen guardrail.** "Sharpen" is legitimate ONLY when BOTH: (a) a
-standing check actually flipped OR a new hypothesis excludes the old
-(now-false) instance — name the check that changed; (b) a concrete
-witness keeps it live. Else it's a kill. Don't relabel a death as a
-refinement.
+A question not yet attached to any theory goes through the seed pipeline:
+1. seed note in `notes/unsorted/` declaring its claimed contribution type(s) and
+   bar;
+2. `/audit full` (Phase 2 gate);
+3. problem statement;
+4. mathematical work;
+5. Lean (novel results only);
+6. draft;
+7. second audit;
+8. complete or park.
+
+**Open questions** in `notes/open_questions/` stay dormant until new input, then
+exit by promote / sharpen / kill.
+- **Sharpen guardrail:** only when a standing check actually flipped and a
+  concrete witness keeps the question live. Otherwise it is a kill.
+- A seed or open question that turns out to probe a seam **moves into the
+  theory's collection** as a probe or conjecture (re-parent by `id`).
 
 ### Contribution types (see `notes/programme/contribution_evaluation.md`):
 
@@ -81,9 +181,13 @@ Broader lens, not broader standard. Each type has a concrete bar.
 
 ### Key rules:
 
+- **Theory first.** Ask what a result says about the theory and which seam it
+  probes before asking whether it is novel. Problems are probes.
+
 - **Audit before you draft.** Never draft LaTeX for unaudited claims.
 - **Declare types before you audit.** Seeds must commit to claimed
-  contribution types; the audit evaluates each type's bar.
+  contribution types; the audit evaluates each type's bar. (Applies to seeds and
+  to write-ups for others; theory items use Types 3/4.)
 - **Don't formalize known results.** Use `axiom` with citation.
 - **Name things last.** Don't name until you've checked the literature.
 - **Park honestly.** If no type's bar is cleared, stop. Don't rescue
@@ -92,10 +196,15 @@ Broader lens, not broader standard. Each type has a concrete bar.
   a dead one alive. Both guardrail conditions must hold (see lifecycle).
 - **Verify LLM proofs independently.** Lean or manual check only.
 - **Search the shelf before the web.** `notes/literature_review/literature/`
-  holds the PDF library, and the read-trail lives in `*_byhand_read.md`,
-  `*_SOURCE_CHECK_*.md` and `czech_school_prior_art_*.md`. Grep those FIRST for
-  any author or result before a web search, and before calling anything a new
-  lead. On 2026-08-31 two papers were announced as unread leads that were both
+  holds the PDF library. Its tracked index is
+  `notes/literature_review/literature/SHELF_INDEX.json` (citation, what it
+  proves, read level, programme links, by-question map). Grep **that index and
+  every `*_taxonomy.json` (`owned_regions`)** FIRST for any author or result,
+  then the read-trail in `*_byhand_read.md`, `*_SOURCE_CHECK_*.md` and
+  `czech_school_prior_art_*.md`. Do this before a web search, and before calling
+  anything a new lead. Every PDF saved to the shelf gets an index entry in the
+  same commit. On 2026-10-20 Dravecký–Šipoš Ex. 6 and the Gudder additivity
+  region were "rediscovered" although both were already in the taxonomy. On 2026-08-31 two papers were announced as unread leads that were both
   already in the library with primary-source verdicts recorded.
 - **Check prior art before calling a result a contribution.** A statement can be
   correct, machine-checked, and still be a gate the programme already applies
@@ -174,6 +283,9 @@ line each session — paid on every startup, forever.
 ## Communication preferences
 
 - Direct, concise. No preamble, no trailing summaries.
+- **Explain puzzle first.** Lead with a concrete brain-teaser (windows, answer pattern,
+  staircase, triangle), then the formal statement. Check every puzzle claim
+  against the instantiated mathematics and state its scope.
 - **Concision is prioritized:** Be extremely brief. Sacrifice conversational formatting for the sake of brevity.
 - **Direct Output:** Do not open responses with compliments, pleasantries, or validations of the idea.
 - Stop and reassess at natural checkpoints.
@@ -189,6 +301,25 @@ line each session — paid on every startup, forever.
 - **Human:** mathematical architecture, proof strategy, judgment
 - Never skip the Lean step for novel results
 - Never trust an LLM proof without independent verification
+
+## Compute constraints (laptop; kernel panic 2026-10-17)
+
+The machine is a laptop with limited RAM and swap. On 2026-10-17 a memory blow-up
+caused a watchdog kernel panic: `scipy.linalg.null_space` on a 46,656-row matrix
+allocated about 17 GB for the full SVD, while other hunts were also running.
+- **Estimate memory before running.** Dense m×n float64 takes 8mn bytes. A full SVD
+  also allocates m×m. Cap any single job at about 2 GB.
+- **No full SVD or `null_space` on tall matrices.** Use sparse matrices
+  (`scipy.sparse`), exact rank over a prime field, or deduplicate the rows first.
+- **One heavy job at a time.** No parallel hunts locally. Long or many-process
+  runs go to the tower, after asking the user.
+- **Grow box or threshold sizes one step at a time**, checking the time and memory
+  of the previous step first. Stop at the smallest size that answers the question.
+- **Lean is the exception.** A Mathlib-importing Lean compile of
+  `TriangleCyclic.lean` peaks at 2.2–3.8 GB (measured 2026-10-17). That is expected: run
+  one compile at a time and nothing heavy alongside it.
+- **Use `ulimit -v` or a timeout** on exploratory scripts, so that runaway jobs die
+  instead of freezing the machine.
 
 ## Lean as verification
 

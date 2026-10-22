@@ -854,3 +854,343 @@ this — verdicts + citations):**
 stepwise⟧, zero-sorry-equivalent at the oracle level, NOT Lean-formalized.
 SCOPE fence unchanged: winding-2; the full-safety bridge remains
 spot-checked, not proved. The bar-D aperiodic half of L-B remains OPEN.
+
+### BAR-D APERIODIC HALF — reduced to one connectivity statement (2026-10-09)
+
+⟦HAND + machine-checked walks⟧. Oracle: `oracles/barD_aperiodic_census.py`.
+Not Lean.
+
+**PROPOSITION (aperiodicity on the cyclic core).** Let ρ be primitive on |A| ≥ 2.
+Then the closed walks built below all lie in the cycle-carrying strongly
+connected components (SCCs) of bar-D, and their lengths have gcd 1. Hence, **if
+bar-D has exactly one cycle-carrying SCC, that SCC is aperiodic.** That excludes
+the mixed G = {(0,0),(0,1)}, which is the open half of L-B.
+
+**Proof.** Tokens are two synchronous ρ-walks that never occupy the same vertex.
+Each construction returns to the same unordered pair, so it is a closed walk in
+bar-D.
+- *Chase walk.* On a simple cycle C = (x₀,…,x_{c−1}) with c ≥ 2, place the tokens
+  at x₀ and x_j (1 ≤ j ≤ c−1) and let both follow C. Their offset j stays
+  constant, so they never collide. This gives a closed walk of length c.
+- *Swap (c = 2).* On a 2-cycle x₀ ↔ x₁ the tokens exchange in one step. This gives
+  a closed walk of length 1.
+- *Delay walk.* Take a loop at v and a simple cycle C through v = x₀ with c ≥ 3,
+  and put the tokens at x₀ and x_j with 1 ≤ j ≤ c−2.
+  - Token 1 waits once at v, then goes round C.
+  - Token 2 goes round C and waits once when it reaches v.
+  - The offset only takes the values j and j+1 (mod c), and neither is 0, so the
+    tokens never collide.
+  - Both tokens take c+1 steps, which gives a closed walk of length c+1.
+
+Primitivity gives gcd 1 over the simple-cycle lengths of ρ.
+- **Case 1: some non-loop simple cycle has odd length, or the non-loop lengths
+  already have gcd 1.** The chase walks give gcd 1.
+- **Case 2: otherwise** (the gcd g of the non-loop cycle lengths is > 1):
+  - primitivity then forces a loop at some v;
+  - strong connectivity with |A| ≥ 2 gives a simple cycle through v of length
+    c ≥ 2;
+  - c = 2 gives the length-1 swap;
+  - c ≥ 3 gives the lengths c (chase) and c+1 (delay), whose gcd is 1. ∎
+
+Earlier "padding" proofs in this note had closure bugs (above). This time the
+oracle builds every chase, swap and delay walk for every primitive ρ and asserts
+that each is a legal ρ-step pair at every step, never touches the diagonal, and
+closes in bar-D.
+
+**Census (exhaustive A = 2, 3, 4; 4,000 random primitives at A = 5).**
+
+| A | primitive | bar-D s.c. | cycle-carrying SCCs | argument walks: gcd 1 in that SCC | G diagonal / full / mixed | periodic SCC with a crossed walk |
+|---|---|---|---|---|---|---|
+| 3 | 139 | 136 | exactly 1 in all 139 | 139 / 139 | 9 / 130 / 0 | 0 |
+| 4 | 25,575 | 24,311 | exactly 1 in all 25,575 | 25,575 / 25,575 | 64 / 25,511 / 0 | 0 |
+| 5 (sample) | 4,000 | — | exactly 1 in all 4,000 | 4,000 / 4,000 | — | 0 |
+
+Calibration: the A=3 counts reproduce July's record exactly (139 primitives,
+3 with bar-D not s.c., G = 9 diagonal + 130 full). The 3 (A=3) and 1,264 (A=4)
+"disconnected" cases are all **transient vertices only**: in every case there is
+exactly one SCC carrying cycles.
+
+**Correction (same day): L-B does not need (U).** The forcing lemma needs every
+SCC of bar-D that carries a crossed walk to be **aperiodic**. An odd closed walk
+is not enough: a crossed SCC of odd period 3 would put the unsafe lengths inside
+3ℤ, an infinite safe set that is not the evens. (U) is a sufficient condition and
+stays recorded as validated, but it is not on the critical path. The target is
+restated at the end of this section.
+
+**What (U) would give: one connectivity statement, OPEN.**
+
+> **(U)** If ρ is primitive, bar-D has exactly one cycle-carrying SCC.
+
+The data support (U) (exhaustive to A = 4, sampled at A = 5). Proving it is the
+remaining content of the aperiodic half. (U) says the diagonal never separates
+two recurrent two-token configurations. It is a collision-avoidance statement of
+the same family as the lock-avoidance lemma, which suggests that is the place to
+look for a proof.
+- With (U): the aperiodic half follows from the proposition, and L-B is closed
+  (the crossed half was proved in session 5).
+- Without (U): the proposition still covers every primitive ρ with |A| ≤ 4. A
+  periodic SCC would have to be a second recurrent class, unreachable through
+  the off-diagonal from the core.
+
+**Scope.** Unchanged: winding-2. The winding-2-to-full bridge is now proved
+(pruning theorem, 2026-08-21), so the skeleton's statement is unaffected. The
+paper is NOT edited. The skeleton's "[OPEN; VALIDATED, not proved]" stays until
+(U) is proved.
+
+**CYCLE LEMMA (proved 2026-10-09) ⟦HAND + every move machine-built and asserted⟧.**
+Let ρ be primitive and C = (x₀,…,x_{c−1}) a simple cycle with c ≥ 2. Then all
+chase configurations on C (both tokens on C at offset j ≠ 0) lie in **one** SCC
+of bar-D, and that SCC is **aperiodic**.
+
+*Proof.*
+- *c = 2.* The chase is the swap (x₀,x₁) → (x₁,x₀), a bar-D loop of length 1.
+- *Excursions and defects.* An excursion is a walk x_i → x_{i'} whose interior
+  avoids C. Loops and chords count; C's own arcs do not. Its defect is
+  Δ = len − ((i'−i) mod c).
+- *The defects generate ℤ_c.* Every closed walk at x₀ splits into C-arcs and
+  excursions, so its length is ≡ ΣΔ (mod c). By primitivity these lengths have
+  gcd 1, hence they generate ℤ_c.
+- *Excursion moves.* Keep one token on C while the other takes an excursion. The
+  excursion's interior avoids C, so the only possible collision is at the
+  landing vertex.
+  - The offset changes by +Δ (token 1 moves) or −Δ (token 2 moves).
+  - The move is legal exactly when the new offset is not 0.
+  - So the offset graph is the Cayley graph Cay(ℤ_c, ±defects) minus the vertex 0.
+- *The offsets are connected.* The Cayley graph is connected, and for c ≥ 3 it has
+  degree ≥ 2. Connected vertex-transitive graphs of degree ≥ 2 are 2-connected
+  (Watkins 1970: κ ≥ 2(d+1)/3), so removing the vertex 0 leaves it connected.
+  Every move is a D-walk, so all offsets lie in one SCC.
+- *Aperiodicity.*
+  - The chase itself is a closed walk of length c.
+  - For each defect Δ, start from an offset j ∉ {0, −Δ}; such a j exists since
+    c ≥ 3. Let token 1 take the excursion, then token 2 take the same one when
+    it arrives. This is a closed walk whose length is ≡ Δ (mod c).
+  - The defects generate ℤ_c, so the gcd of these lengths is 1. ∎
+
+Machine check (`oracles/barD_aperiodic_census.py --cycle-lemma`):
+- covers every primitive ρ with |A| ≤ 4 and every simple cycle (131,428 pairs at
+  A=4), with excursions up to length 2|A|;
+- the defects generate ℤ_c in every case;
+- the offset graph is built only from constructed moves; each move is asserted
+  legal and collision-free, and it is connected in every case.
+
+**Consequence.** Any crossed-carrying SCC that contains a chase on some simple
+cycle is aperiodic. In particular this holds whenever some crossed walk
+(a,b) → (b,a) closes, with its return path, into a **simple** even cycle W: the
+crossed walk is then the antipodal chase on W.
+
+**L-B, restated (the remaining content, OPEN).** Every crossed-carrying SCC of
+bar-D is aperiodic. By the cycle lemma it suffices that **every crossed-carrying
+SCC contains a chase on some simple cycle.**
+
+The uncovered case is an SCC in which every crossed walk closes only into a
+non-simple W, for example the two-odd-cycle glueings of the lock-avoidance lemma,
+and which contains no simple-cycle chase.
+- An SCC always contains the antipodal chase on W, since the two tokens are half a
+  period apart and never collide.
+- Getting from that chase to a simple-cycle chase and back is the open step. The
+  difficulty is that a non-simple W does not make every offset valid.
+- (U) would close this immediately, and (U) holds exhaustively for |A| ≤ 4 and on
+  every sample to |A| = 9 (2,864 cycle-plus-chord languages up to n = 8, 2,400
+  sparse random languages at |A| = 6–9). So the uncovered case has no instance
+  in any data we have. A discriminating test needs |A| ≥ 5 languages with two or
+  more cycle-carrying SCCs, and none has been found.
+
+**Prior art (discharged 2026-10-09): Ardizzoni–Consolini–Locatelli–Nebel–Saccani,
+"Multi-agent pathfinding on strongly connected digraphs: feasibility and solution
+algorithms", *Artificial Intelligence* 347 (2025) 104372.** Read from the primary
+source; on the shelf as
+`notes/literature_review/literature/ardizzoni_consolini_locatelli_nebel_saccani_2025_mapf_strongly_connected.pdf`.
+
+**Verdict: does NOT contain (U) or the cycle lemma. The model is different.**
+- Their model is pebble motion: "a move corresponds to a movement action for a
+  single agent, while all other agents execute a waiting action … agents cannot
+  move simultaneously" (§2, the definition of move).
+- Ours is synchronous: both tokens move every step, and waiting is possible only
+  at a loop.
+- Their engine is reversibility of single moves on strongly connected digraphs
+  (Prop. 5.1, Thm 5.2). It reduces feasibility to the underlying undirected graph,
+  which is a tree-of-biconnected-components test.
+- That engine has no analogue for us: forced synchronous motion is exactly what
+  makes the period and parity of bar-D matter.
+
+Gao–Shao 2009 (double vertex digraphs, asynchronous) remains unread, but the
+abstract-level model is again asynchronous.
+
+### Second pass on the open case (2026-10-09): cocyclic pairs; primitivity is essential
+
+**Criterion (trivial, proved).** If two distinct vertices x and y lie on a common
+simple cycle C of ρ ("cocyclic"), then the pair (x,y) already starts a chase on
+C. That chase is a closed D-walk through (x,y). So **any SCC containing a cocyclic
+pair contains a simple-cycle chase**, and by the cycle lemma it is aperiodic. L-B
+therefore reduces to:
+
+> **(L-B′)** For primitive ρ, every crossed-carrying SCC of bar-D contains a
+> cocyclic pair.
+
+**Evidence: shortest crossed walks hit a cocyclic pair.** Take, for each pair, its
+shortest crossed walk (a,b) → (b,a) and its antipodal chase on W = π₁·π₂. The
+chase always passes through a cocyclic pair:
+- 0 failures in 828 walks (A=3, exhaustive), 303,972 (A=4, exhaustive), and
+  29,782 / 44,596 in samples at A=5 / 6;
+- oracle: `oracles/barD_cocyclic_shortest_crossed.py`;
+- this test is **not** implied by (U), so it discriminates;
+- the start pair alone does not always suffice, and neither does W being simple
+  (e.g. W = [1,1,0,2,0,1] with L = 3 succeeds only at t = 1).
+
+**Refuted: the purely combinatorial form.** The candidate was: "every
+antipodal-free closed walk W has a cocyclic antipodal pair in supp(W)". It
+**fails**. An exhaustive check over all such walks up to relabelling
+(`oracles/barD_walk_lemma_exhaustive.py`) finds:
+- 1,561,488 walks with L ≤ 6;
+- **36 counterexamples, all at L = 6**, all cacti of short cycles, e.g.
+  W = [0,0,1,2,3,3,2,4,5,5,4,1].
+
+Classified by their own language supp(W):
+- **28 are primitive.** For each, the SCC still contains a cocyclic pair and is
+  aperiodic. The shortest crossed walk there has L = 4 < 6, so these W are simply
+  not shortest.
+- **8 are imprimitive.** For each:
+  - bar-D has **2 cycle-carrying SCCs**;
+  - the crossed SCC has **no cocyclic pair** and is **periodic**: period 2 with
+    the forbidden mixed G = {(0,0),(0,1)}, or period 3 with G full;
+  - W is itself the shortest crossed walk.
+
+  So these are exactly the fork shapes L-B must exclude. Primitivity is what
+  excludes them, and (U) fails without it.
+
+**Consequence for the proof.** No argument that sees only the walk W can prove
+L-B′. Primitivity of the whole language must enter, presumably through
+excursions as in the cycle lemma: the imprimitive cacti have no excursion of
+nonzero defect available. **Status: L-B′ OPEN**, strongly validated, with
+sharp imprimitive near-misses. The paper is not edited.
+
+**Third pass (2026-10-09, time-boxed): the switch device is insufficient. L-B′
+stays OPEN.**
+
+The device: one token leaves the antipodal chase on W to circle a simple cycle C
+while the other keeps following W. If that joint motion never collides, it is a
+closed walk in the SCC. A landing of the W-token on C is then a cocyclic pair.
+(Oracle: `oracles/barD_switch_construction.py`.)
+- It fails on 39,896 of 303,972 shortest crossed walks at A=4 (372 / 828 at A=3).
+  In those cases the antipodal pair is typically already cocyclic, so no switch
+  is needed. As a proof device, though, it does not cover the lemma.
+- It fails on every imprimitive cactus, which is consistent with those being
+  genuine non-examples.
+
+A proof will have to combine the **minimality** of the crossed walk with
+**primitivity**. The 28 primitive walk-lemma counterexamples are non-shortest
+walks in languages that have shorter crossed walks. Next idea, untried: show
+that a shortest crossed walk with no cocyclic antipodal pair admits, by
+primitivity, a strictly shorter crossed walk. Pass stopped per the time box.
+
+### Fourth pass (2026-10-09): one chase class K*, a reversal reduction, and the Reach Lemma
+
+**LEMMA K\* (proved ⟦HAND; the transit move is asserted in code⟧).** For primitive ρ,
+every chase configuration on every simple cycle of length ≥ 2 lies in **one** SCC
+K\* of bar-D. By the cycle lemma, K\* is aperiodic.
+
+*Proof.*
+- *Transit.* Let C and C′ be simple cycles of length ≥ 2 sharing a vertex v.
+  Start from the chase on C with token 1 at v and token 2 at v's predecessor on C.
+  In one step, token 1 moves to v's successor on C′ (which is ≠ v since |C′| ≥ 2)
+  while token 2 moves onto v. The result is a chase on C′ at offset −1. So K(C)
+  reaches K(C′), and by symmetry K(C′) reaches K(C).
+- *Chaining.* Simple cycles of a strongly connected digraph are chain-connected by
+  shared vertices (session 5). A loop at v in such a chain can be skipped, because
+  its neighbours in the chain both contain v.
+- So, with the cycle lemma, all K(C) form one SCC. ∎
+
+Note: cocyclic pairs are exactly the chase configurations, so K\* contains every
+cocyclic pair.
+
+**REVERSAL REDUCTION (proved).** ρᵀ is primitive, D(ρᵀ) is D(ρ) reversed, and the
+two have the same recurrent pairs and the same cocyclic pairs. Suppose every
+recurrent P reaches some cocyclic pair Q *forward* in D(ρ). Applying this in
+D(ρᵀ) also gives some cocyclic Q′ that reaches P in D(ρ). Then
+Q′ ⇝ P ⇝ Q with Q, Q′ ∈ K\*, hence P ∈ K\*. Every recurrent pair is then in K\*,
+which proves **(U)**. With the cycle lemma this gives **L-B**, and hence the
+forcing lemma.
+
+> **REACH LEMMA (the remaining content, OPEN).** For primitive ρ, every recurrent
+> pair can reach a cocyclic pair (forward only).
+
+**Strategy, validated** (`oracles/barD_reach_lemma_strategy.py`):
+- One token (either role) circles a simple cycle C through its own position.
+- The other token walks freely, never colliding, until it stands on C.
+- This is a BFS over (vertex, time mod |C|).
+- It **never fails** on recurrent pairs: 828 (A=3), 303,972 (A=4, exhaustive),
+  and samples of 29,576 / 44,416 / 62,270 at A=5 / 6 / 7.
+
+**What a proof must use** (`oracles/barD_reach_lemma_variants.py`):
+- **Both roles.** With token 1 fixed as the mover, the strategy fails on 1,968
+  recurrent pairs at A=4.
+- **Recurrence.** On non-recurrent pairs both roles can fail: 1,584 at A=4. The
+  simplest is a star with hub 0 and the pair (1,2), whose only moves collide at 0.
+- **Primitivity.** It is needed for K\* (the cycle lemma).
+
+**Proof lead ⟦HAND, not a proof⟧.**
+- *Phase grading.* Suppose the mover circles C. If every way the other token can
+  first enter C collides, then the region it can reach off C carries a ℤ_c phase
+  grading ψ, with ψ(w′) = ψ(w) + 1 along arcs and fixed entry phases into C.
+  Every cycle inside that region then has length ≡ 0 (mod c).
+- *Contradiction.* The intended contradiction is that this grading must fail for
+  at least one role, using recurrence (the pair's own closed walk) together with
+  primitivity (excursion defects generate ℤ_c).
+- *Status.* Not yet closed.
+
+**Status:** L-B ⟸ (U) ⟸ Reach Lemma, with K\* and the reversal reduction proved.
+The paper is not edited. This is pass 1 of the 2 allowed before fencing.
+
+### Fifth pass (2026-10-09, last before fencing): the phase mechanism; the funnel case is open
+
+Notation: the mover circles a simple cycle C (|C| = c ≥ 2) through its own position
+at phase p₀, i.e. it is at C_{p₀+t} at time t. R is the set of vertices the other
+token can reach from its start y without touching C. ⟦HAND⟧ throughout.
+
+**(1) Failure means a grading (proved).** If every first entry of the other token
+into C collides, then:
+- walk lengths from y to any w ∈ R are constant mod c (call the value λ(w));
+- arcs inside R raise λ by 1;
+- every entry arc w → C_k has k ≡ p₀ + λ(w) + 1, so it is "aimed" at the mover;
+- R's out-arcs go only to R or C.
+
+**(2) Out-of-phase tokens never collide in R (proved).** Say one token is at w at
+times ≡ λ(w) and the other at times ≡ λ(w) + e with e ≢ 0 (mod c). Then they are
+never at the same vertex at the same time.
+
+**(3) Excursions shift phase (proved).**
+- Take an excursion E from C_i whose interior is in Q ∪ R, where Q is everything
+  else. Its defect is Δ = (arrival time at its first R-vertex w) − λ(w), counted
+  for a mover starting at phase p₀.
+- So a nonzero-defect excursion leaves the mover out of phase in R (by e = Δ), and
+  returns it to C at phase p₀ − Δ.
+- Excursions with nonzero defect exist (primitivity: the defects generate ℤ_c).
+
+**(4) LOITER LEMMA (proved).** If R contains a cycle reachable from y, the pair
+reaches a cocyclic pair.
+- The other token loiters in R, in phase, never touching C.
+- The mover performs a nonzero-defect excursion. It cannot collide: R's out-arcs
+  avoid Q, and in R the mover is out of phase by (2).
+- The mover returns to C at phase p₀ − Δ.
+- The other token then walks to C. Its entry is aimed at phase p₀, so it lands on
+  a C-vertex distinct from the mover's: a cocyclic pair. ∎
+
+**(5) The FUNNEL case remains OPEN.** This is the case where, for every role and
+every simple cycle C through the mover, the other token's off-C region R is
+acyclic, so it is forced onto C within |R| steps, always aimed.
+- *Partial facts:*
+  - in this case every cycle through x meets every cycle through y;
+  - if the mover's own recurrent walk α circles C during the other token's forced
+    entry, the recurrent motion itself would collide;
+  - so α must leave C first.
+- *Intended closure:* time a nonzero-defect excursion so that the other token's
+  forced, aimed entry happens while the mover is off C. The mover then returns at
+  phase p₀ − Δ, distinct from the other token: success.
+- *What is unproved:* that the timing can always be met, i.e. that an excursion
+  window (τ, τ + |E|) covers a forced entry time. In particular, entry can be
+  forced at time 1.
+
+**Fenced.** The Reach Lemma, and with it (U), L-B and the forcing lemma, is
+stated as the paper's open lemma. It is reduced to the funnel case of the
+phase mechanism above.

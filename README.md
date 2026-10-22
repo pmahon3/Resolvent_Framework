@@ -1,26 +1,39 @@
 # Structure and Observation
 
-## Status (2026-07-10)
+## Status (2026-10-16)
 
-**Active flagship: reconstruction/commensurability** (`papers/reconstruction/`)
-— EA/PR(𝓡) structure theory proved; universal-impossibility attack live.
-**σ-essential** (`papers/sigma_essential/`) — the OMP form is a
-machine-checked ZFC theorem (0-sorry Lean witness); paper dissemination-ready.
+**Aim: build new mathematical theory.** Problems are probes placed at seams
+between existing theories. This theory-first orientation replaces the earlier
+problem-first one.
 
-Authoritative state: `notes/programme/program_overview.md`.
-Open-problem map: `notes/programme/frontier_map.md`.
-Work plan: `notes/programme/shovel_plan.md` (four theorems + vacant lots).
-Zoom-out navigation: `notes/taxonomies_index.json` (load FIRST).
+**Theory in construction: pointless coherence on glued carriers.** When can
+locally coherent views, glued around a loop, form a whole with no points, not
+even ideal ones?
+- Note: `notes/open_questions/cyclic_marginal/pointless_coherence.pdf` (opens
+  with the window puzzle).
+- Index: `notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json`.
+
+**Two sides of the seam:**
+- **Cycle side** (`papers/reconstruction/`): the fixed-length winding criterion is
+  prior art (Kharoof–Ipek–Okay 2024) and is cited; the open core is the reach
+  lemma.
+- **Infinity side** (`papers/sigma_essential/`): the ZFC witness is
+  machine-checked. A countable witness on every ring L ≥ 4 is Lean-checked, with
+  no owner found after three prior-art passes.
+
+Authoritative state: `notes/programme/program_overview.md` (2026-10-16
+addendum). Zoom-out navigation: `notes/taxonomies_index.json` (load FIRST).
+`frontier_map.md` and `shovel_plan.md` are stale (August 2026).
 
 ### Papers
 
-- **reconstruction** — ACTIVE flagship; skeleton public face, Type-6 bridge.
-- **sigma_essential** — Ψ machine-checked; dissemination-ready.
-- **spine** — corpus-level umbrella (reference-only, reads the three
-  transitions as one classification).
-- **Paper I** — audited, fixed honest, PARKED (no submission).
-- **Paper II** — audited, revised: the survivor (Type-6 clears).
-- **Paper III / fibre mixing** — withdrawn/dead, in `papers/archive/`.
+- **reconstruction**: cycle side. Skeleton (5pp), with the fixed-L criterion
+  cited. Claimed open core: the reach lemma.
+- **sigma_essential**: Ψ machine-checked; dissemination-ready.
+- **spine**: corpus-level umbrella (reference-only).
+- **Paper I**: audited, fixed honest, PARKED.
+- **Paper II**: audited, revised: the survivor (Type-6 clears).
+- **Paper III / fibre mixing**: withdrawn/dead, in `papers/archive/`.
 
 ## Repository structure
 

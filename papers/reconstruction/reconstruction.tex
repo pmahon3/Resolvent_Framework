@@ -61,16 +61,20 @@ class ($\PR(\Rc)$); the failure is contextuality in the sense of
 Abramsky--Brandenburger, taken from the observational side. Geometrically, a
 protocol is commensurable iff its coherence polytope $C$ equals its realisability
 polytope $R$, so contextuality is an exactly computable separation with a rational
-witness. The spine is a \emph{winding criterion}: for a symbolic language observed
-around a ring, a length is contextual exactly when the layered ring carries a
-layer-injective winding-$\ge2$ cycle; this makes the boundary of the guarantee
-decidable (its combinatorial kernel is machine-verified in Lean~4). The
+witness. At a fixed length the boundary is classical: for a symbolic language
+observed around a ring, a length is contextual exactly when the layered ring
+carries a layer-injective winding-$\ge2$ cycle, which is the classification of
+contextual vertices of cycle scenarios (Kharoof--Ipek--Okay 2024; Barrett et al.\
+2005 and Ara\'ujo et al.\ 2013 for special cases). Across all lengths of one
+language the safe set is eventually periodic and computable, which is elementary
+given that classification (Lean-verified). The
 reconstruction guarantee holds unconditionally on three tame families and would
 hold for all total languages if the catalogue of taming mechanisms were complete
 --- the open \emph{universal impossibility} capstone. We reduce that capstone to a
-single named forcing lemma (primitivity forces a parity obstruction), validated
-without counterexample but not proved, and state honestly what remains: the forcing
-lemma, and the lift of the winding criterion from winding-2 to full safety. The
+single named forcing lemma (primitivity forces a parity obstruction), and that
+lemma to a reach lemma about two synchronous tokens on the language's graph,
+validated without counterexample but not proved. That lemma is what remains, and
+it is the paper's only claimed open contribution. The
 worked results that populate the criterion --- the parity theorem and its PR-box,
 the taming catalogue, Circuit Localization --- are established and deferred to the
 body; the skeleton points at where they slot beneath the target.

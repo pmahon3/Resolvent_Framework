@@ -1,3 +1,5 @@
+> ⚠ **STALE (as of 2026-10-16).** Superseded by the theory-first orientation and the 2026-10-16 addendum in `program_overview.md`. Current theory: `notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json`. Kept for the record.
+
 # The shovel plan (adopted 2026-07-10)
 
 > **2026-08-31 — PARTIALLY SUPERSEDED on formalization status.** The framing

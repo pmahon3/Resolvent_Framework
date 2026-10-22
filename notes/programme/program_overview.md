@@ -2,6 +2,70 @@
 
 ## STATE AS OF 2026-08-31 (read this first)
 
+### 2026-10-21 addendum (read first)
+
+**Finite triangle classified (candidate theorem; prior art not found after two passes).**
+- Sort the sizes r₁ ≥ r₂ ≥ r₃. A triangle of pair views hides a probabilistic twist (a state on the
+  carrier that is not a mixture of points) **iff r₂ ≥ 4 and r₃ ≥ 3**, i.e. iff the
+  no-three-way-interaction polytope is not compressed (Sullivant; Ohsugi–Hibi).
+- Proof: owned theorems (Sullivant, Ohsugi–Hibi, Maharam / Berti–Rigo) + hand slice proofs +
+  finite exact enumerations. Detail: `definitions_draft.md` §16–22.
+- **Three kinds of twist** (note §9): gauge (caught by finite quotients unless only relations are
+  asked about), order (hides only for yes/no answers at infinity), relational (hides at
+  non-compressed sizes; the extreme hidden state is one "allowed pairs, evenly spread" atom).
+- Also proved: relations + relata (comparisons) build only pair-local questions (n ≥ 3; core in
+  Lean, `TransportGeneral.lean`).
+- Also measured: composition, where askable closing laws exceed realisable ones above the
+  threshold.
+- **Reversals this week:**
+  - "the finite triangle sees every twist" was false from 3×4×4;
+  - "infinity alone blinds the triangle" holds for yes/no answers only;
+  - the Z₁ clock core is visible on the full carrier and hidden on the relational one.
+- Prior art owned around it: Maharam 1972, Dravecký–Šipoš 1980, Navara–Pták, Hrushovski/Goodrick
+  (3-amalgamation), Sullivant/Ohsugi–Hibi, Minguzzi (clock holonomy).
+- Lived cases: case 4 (Earth's clocks) is real. Ecology data are relations, not views.
+- **Open next:**
+  - graphs beyond the triangle (chordal conjecture);
+  - the infinite yes/no side (does the Lean pointless state extend to a charge?);
+  - finite-to-infinite limits.
+
+### 2026-10-17 addendum (one line)
+
+**The triangle is decided.** It carries a pointless state; this is Lean-checked
+(`formalization/QuerySystem/QuerySystem/TriangleCyclic.lean`, 0 sorry). With loops-travel and
+forests (hand), a pair-window graph over ℕ has a pointless state ⟺ it is not a
+forest. Prior art: two scouts found nothing, and the claim gate is still owed.
+See `glued_carriers_taxonomy.json` (`thm.triangle_pointless`).
+
+### 2026-10-16 addendum (read before the 2026-08-31 text below)
+
+**The aim, restated by the user.** Build **new mathematical theory**. Problems are
+probes placed at seams between existing theories, used to locate where theory is
+missing; solving them is a means, not the end.
+
+**Flagship (cycle side): proved core is now cited.**
+- The fixed-L winding criterion is prior art: Kharoof–Ipek–Okay 2024 Thm 4.4, with
+  Barrett 2005, Araújo 2013 and the ABKLM 2016 form.
+- Safe(ρ) eventual periodicity is elementary given it.
+- The skeleton is repositioned (5pp). The **reach lemma** is the sole open core
+  (prior-art scout: apparently open).
+- Detail: `notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md`.
+
+**σ lane (infinity side).** The countable σ-essential witness on every ring L ≥ 4
+(Lean) has no owner after three prior-art passes. Literal irreducibility and all
+six conjuncts are checked at L = 4 (`D₄_six_conjuncts`). It is not in the paper.
+
+**Emerging theory: pointless coherence on glued carriers.** This is the seam
+between the two sides. Data points:
+- paths are never pointless (hand);
+- rings L ≥ 4 are pointless and σ-forbidden (Lean);
+- the triangle is the pending probe.
+
+Load `notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json` (the
+first theory-shaped collection; schema in `notes/TAXONOMY_SCHEMA.md`). Read
+`notes/open_questions/cyclic_marginal/pointless_coherence.pdf`, which opens with
+the window puzzle.
+
 This document below the fold was last revised **2026-08-04** and much of it is
 now out of date on the formalization side. The sections on the central
 question, the three papers, and the frontier structure remain accurate as
@@ -9,7 +73,7 @@ question, the three papers, and the frontier structure remain accurate as
 section, this section wins. `frontier_map.md`, `shovel_plan.md` and
 `taxonomies_index.json` are stale from the same date.
 
-**Ground truth for what is proved is the Lean development plus its five CI
+**Ground truth for what is proved is the Lean development plus its six CI
 gates**, not this file. Run them; they cannot be argued with:
 
 ```
@@ -18,6 +82,7 @@ bash   formalization/QuerySystem/blueprint/checkdecls.sh
 python formalization/QuerySystem/blueprint/coverage.py
 python formalization/QuerySystem/blueprint/structure.py
 bash   formalization/QuerySystem/blueprint/axiomcheck.sh
+bash   formalization/QuerySystem/blueprint/buildtree.sh
 ```
 
 ### The blueprint is the current map
@@ -34,8 +99,8 @@ stopped being true when the Navara ladder was blueprinted. The three cited
 nodes are `def:navara-l2` and `thm:star-infinite` (Navara's eleven axioms) and
 `lem:carrier-not-polish` (Derr–Williamson's two).
 
-The gate count went 4 → 5 on 2026-08-30/31, and the two new checks exist
-because things had already got past the old four:
+The gate count went 4 → 5 on 2026-08-30/31 and 5 → 6 on 2026-09-01, and each
+new check exists because something had already got past the ones before it:
 
 * `axiomcheck.sh` now also **censuses the environment**: every `axiom` declared
   in a `QuerySystem.*` module must be on the citation-keyed allowlist, reached
@@ -47,6 +112,19 @@ because things had already got past the old four:
   Claim nodes with no proof block, `\uses`/`\ref` naming labels that do not
   exist, duplicate labels, macros that lost their backslash. All five checks at
   zero; each was verified by injecting the defect and watching the gate fail.
+* `buildtree.sh` (2026-09-01) is the first gate to look at `.lake/build`
+  rather than at the Lean environment. Every other gate reads whatever
+  `import QuerySystem` reaches, so an **olean with no source file** is outside
+  all of them. Three were found in the working tree the day after the sweep
+  that was supposed to have cleared them, and one — `ZZTestKS.olean` — declared
+  `ks_inconsistent : False`, resting on `KochenSpecker_witness`, the false
+  axiom already deleted from the sources. A live, importable proof of `False`
+  sat in the build tree behind five green gates, and the axiom census is
+  structurally unable to see it: the census enumerates what the root import
+  reaches, and nothing imports an orphan. The gate checks both directions —
+  an olean with no source, and a source with no olean (the shape of the
+  pre-2026-08-21 `globs` bug). All four failure branches, including the two
+  did-not-run branches, were verified by injection.
 
 ### What changed since 2026-08-25
 
@@ -291,13 +369,17 @@ Phase 4 work. Well-posed, and cheaper to attack than anything else on the board.
   from 2026-08-04.
 ## The Central Question
 
+*Navigation: `hierarchy_and_open_space.md` maps this question's layers, where the
+open space is, and how the thread got lost (2026-10-09).*
+
 When an observer makes structured observations of a system — querying it at
 increasing levels of refinement, recording outcomes, building a picture of the world
 through measurement — what does coherence require of them?
 
-The programme shows that coherence, pursued to its conclusion, requires probability,
-dynamics, and reconstruction. Not as additional assumptions, but as what the
-structure of observation already contains.
+The programme asks whether coherence, followed to its end, forces probability,
+dynamics, and reconstruction rather than assuming them, and, where it does, what
+exactly it forces. This is an open question, not a thesis (reopened 2026-10-09).
+Each lane's results count as evidence in either direction.
 
 ---
 

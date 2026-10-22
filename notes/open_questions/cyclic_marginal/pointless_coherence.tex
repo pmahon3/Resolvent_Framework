@@ -1,0 +1,946 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[table]{xcolor}
+\usepackage{mdframed}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,decorations.pathreplacing,calc}
+\tikzset{
+  var/.style={circle,draw,thick,fill=white,inner sep=1.5pt,minimum size=7mm,font=\small},
+  win/.style={line width=9pt,line cap=round,draw=blue!12},
+  up/.style={-{Stealth[length=2.2mm]},thick,blue!60!black},
+}
+\hypersetup{hidelinks}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\st}[1]{\textsf{\small[#1]}}
+\newcommand{\precisely}[1]{\par\smallskip\noindent{\small\textit{Precisely:} #1}\par\smallskip}
+\newcommand{\bp}[1]{\begin{mdframed}[backgroundcolor=black!4,linewidth=0.4pt]#1\end{mdframed}}
+
+\title{Pointless Coherence on Glued Carriers}
+\author{Patrick S.\ Mahon}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\bp{\large Answers can be consistent without being about anything, as long as
+the contradiction hides in a question nobody can ask.}
+
+\medskip
+\noindent This note follows that sentence through a sandwich shop and
+Penrose's impossible staircase, and out the other side into a theory. The puzzles come first, because the theory is
+only a careful account of what they show. Precise statements sit in short
+\emph{Precisely} asides and in the appendix, where proofs and status labels
+live (\st{Lean} machine-checked, \st{hand} my proof, \st{cited}
+literature).
+
+\tableofcontents
+
+%======================================================================
+\section{The sandwich shop}\label{sec:die}
+
+A sandwich shop has six sandwiches on its menu. Each is made of exactly
+\emph{two} of four fillings, so every pair of fillings appears once:
+\begin{center}\small
+\begin{tabular}{l | c c c c}
+sandwich & cheese & ham & egg & tomato\\\hline
+cheese \& ham & \checkmark & \checkmark & & \\
+cheese \& egg & \checkmark & & \checkmark & \\
+cheese \& tomato & \checkmark & & & \checkmark\\
+ham \& egg & & \checkmark & \checkmark & \\
+ham \& tomato & & \checkmark & & \checkmark\\
+egg \& tomato & & & \checkmark & \checkmark\\
+\end{tabular}
+\end{center}
+The online order form asks about one filling at a time: \emph{Cheese? yes/no.
+Ham? yes/no. Egg? yes/no. Tomato? yes/no.} The owners wrote the form's
+validation and know nothing about the menu. Their only rule: \textbf{every line
+must be answered, with exactly one of yes or no.}
+
+A picky customer submits \emph{no, no, no, no}. Does it pass validation?
+\begin{center}\small
+\begin{tabular}{l | c c | c}
+line & yes & no & ticks\\\hline
+Cheese? & & \checkmark & 1 \checkmark\\
+Ham? & & \checkmark & 1 \checkmark\\
+Egg? & & \checkmark & 1 \checkmark\\
+Tomato? & & \checkmark & 1 \checkmark\\
+\end{tabular}
+\end{center}
+Every line has exactly one tick, so the order is \emph{consistent}: it passes
+the only check the owners know how to make.
+
+Can the kitchen make it? Say a sandwich \emph{fits} the order if every answer on
+the form is right for that sandwich. Hold each sandwich up against the order:
+\begin{center}\small
+\begin{tabular}{l | c c c c | l}
+ & cheese? & ham? & egg? & tomato? & fits?\\\hline
+\textbf{the order} & \textbf{no} & \textbf{no} & \textbf{no} & \textbf{no} & \\\hline
+cheese \& ham & yes & yes & no & no & $\times$\\
+cheese \& egg & yes & no & yes & no & $\times$\\
+cheese \& tomato & yes & no & no & yes & $\times$\\
+ham \& egg & no & yes & yes & no & $\times$\\
+ham \& tomato & no & yes & no & yes & $\times$\\
+egg \& tomato & no & no & yes & yes & $\times$\\
+\end{tabular}
+\end{center}
+Every sandwich has two fillings, so nothing on the menu fits. A valid order the
+kitchen cannot make.
+
+Where did the contradiction go? Each line on its own was fine. Even ``no cheese,
+no ham'' is fine, since egg \& tomato fits. The trouble appears only when all the
+``no''s are combined, and the form has no line for combinations. ``No cheese
+\emph{and} no ham \emph{and} no egg?'' is not a question on this form. The
+contradiction lives in a question that is never asked.
+
+This is the whole phenomenon in miniature. Here it is harmless: there are only
+six sandwiches, nothing is infinite, and the cure is simply to add combination
+lines to the form.\footnote{Mathematically this is an example of Navara and
+Pt\'ak, \emph{\v{C}as.\ p\v{e}st.\ mat.}\ 108 (1983): six possibilities and four
+yes/no questions, each possibility answering ``yes'' to exactly two.}
+
+%======================================================================
+\section{The impossible staircase}\label{sec:windows}
+
+Penrose's staircase is a drawing of four flights of stairs joined in a loop. Each
+flight climbs to the next landing, and after four flights you are back where you
+started.
+\begin{center}
+\begin{tikzpicture}
+\foreach \k/\a in {0/90,1/0,2/-90,3/180} \coordinate (r\k) at (\a:1.25);
+\draw[win] (r0)--(r1); \draw[win] (r1)--(r2); \draw[win] (r2)--(r3); \draw[win] (r3)--(r0);
+\foreach \k in {0,...,3} \node[var] (q\k) at (r\k) {$x_\k$};
+\draw[up] (q0)--node[above right=-1pt,font=\scriptsize]{up}(q1); \draw[up] (q1)--node[below right=-1pt,font=\scriptsize]{up}(q2);
+\draw[up] (q2)--node[below left=-1pt,font=\scriptsize]{up}(q3); \draw[up] (q3)--node[above left=-1pt,font=\scriptsize]{up}(q0);
+\end{tikzpicture}
+\end{center}
+\noindent The drawing has everything the theory is about:
+\begin{itemize}[nosep]
+  \item \emph{every local view is coherent:} any one flight, looked at alone, is
+    a perfectly good picture of real stairs;
+  \item \emph{neighbouring views agree:} where two flights meet, they show the
+    same landing;
+  \item \emph{there is no whole:} no building is what the drawing depicts;
+  \item \emph{the contradiction is only in the whole:} no single flight shows
+    it. You see it only by following the entire loop.
+\end{itemize}
+
+To make this mathematics, give the landings heights $x_0,x_1,x_2,x_3$, each a
+whole number. A \emph{view} is one flight. It shows two neighbouring landings,
+and it answers any yes-or-no question about their two heights: ``is the next
+landing higher?'', ``are the heights 30 and 70?''. It also answers the opposite
+of any question, and questions that lump possibilities together, even endlessly
+many: ``is $x_0$ even?''. Answers are \emph{consistent} if they hang together
+in two ways. First, split ``is $x_0$ at most 10?'' into ``at most 5?'' and ``6 to
+10?''. The three answers must fit one of these rows:
+\begin{center}\small
+\begin{tabular}{c | c c}
+at most 10? & at most 5? & 6 to 10?\\\hline
+yes & yes & no\\
+yes & no & yes\\
+no & no & no\\
+\end{tabular}
+\end{center}
+Never two yeses, and a yes to the whole needs a yes to one of its parts. The
+same goes for any split into a few non-overlapping parts. Second, two flights
+that share a landing say the same things about it.
+Every flight in Penrose's drawing says \emph{the next landing is higher}.
+
+\paragraph{A straight staircase is always buildable.} Unbend the loop into a
+straight run of three flights, $x_0$ to $x_1$ to $x_2$ to $x_3$, each going
+up. Real heights $10,20,30,40$ satisfy every view: a real building.
+
+\paragraph{The loop is not.} Try real heights against the four views:
+\begin{center}\small
+\begin{tabular}{l | c c c c | l}
+heights $(x_0,x_1,x_2,x_3)$ & $x_1$ higher? & $x_2$ higher? & $x_3$ higher? & $x_0$ higher? & fits?\\\hline
+\textbf{the drawing} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \textbf{yes} & \\\hline
+$10,20,30,40$ & yes & yes & yes & no & $\times$\\
+$50,90,20,70$ & yes & no & yes & no & $\times$\\
+$30,30,30,30$ & no & no & no & no & $\times$\\
+\end{tabular}
+\end{center}
+Going round, the heights must come back down somewhere. With real heights the
+views cannot even agree with each other: fixing actual heights on each flight
+forces one global set of heights, and that set fails. So with real numbers the
+drawing is not merely unbuildable; its views are inconsistent.
+
+%======================================================================
+\section{Heights beyond every number}\label{sec:stair}
+
+The drawing becomes a genuinely consistent set of views once the heights are
+allowed to be \emph{ideal}. This step has no everyday counterpart: an ideal
+height is not a height anything has. It is a complete, consistent rule for
+answering every question about one number as if that number lay beyond every
+number you could name.
+\begin{itemize}[nosep]
+  \item ``Is $x_0=5$?'' No. ``Is $x_0=500$?'' No. No to every particular number.
+  \item ``Is $x_0$ bigger than any number you name?'' Yes.
+  \item ``Is $x_0$ even?'' A definite yes or no, fixed once and for all.
+\end{itemize}
+
+\precisely{an ideal height is a non-principal ultrafilter $p$ on $\bbN$. Its
+existence needs a little of the axiom of choice.}
+
+A flight answers questions about its two landings by taking both from beyond
+every number, the upper one \emph{further out} than the lower. ``Is the next
+landing higher?'' Yes: whatever the lower height is, almost every further-out
+choice beats it.
+
+\precisely{``the upper one further out'' is the ordered product $p\otimes p$: a
+question $A$ about $(x_0,x_1)$ gets ``yes'' when $p$ says yes to the set of $x_0$
+for which $p$ says yes to $\{x_1:(x_0,x_1)\in A\}$. Its two marginals are both
+$p$, and it is not symmetric.}
+
+\paragraph{On a straight staircase this always fits together.} One ideal
+description of the whole run, ``$x_0$ beyond every number, $x_1$ further out,
+then $x_2$, then $x_3$'', answers every question about all four landings at
+once. Each flight's answers are just its answers about two of them. Call a
+description of all the landings together an \emph{ideal building}. A real
+building is an ideal building too, the trivial one.
+
+\precisely{an ideal building is an ultrafilter on the whole space of
+possibilities, an \emph{ideal point}; a real building is a \emph{point}.}
+
+\paragraph{On the loop, every check passes and still nothing is built.} Let
+every flight of Penrose's loop use ideal heights, upper landing further out.
+Every flight genuinely says ``up''. Two flights that share a landing agree about
+it, since both describe it by the same ideal rule $p$. The checks:
+\begin{center}\small
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.6cm} | >{\raggedright\arraybackslash}p{6.2cm} | c}
+check & what the views say & passes?\\\hline
+each flight, alone & ``next landing higher'': yes; ``height $n$'': no for every $n$ & \checkmark\\
+landing $x_0$, seen from both of its flights & the same answers (both by $p$) & \checkmark\\
+every question built from the views, and its opposite & exactly one yes \st{Lean} & \checkmark\\
+some real building fits & no: see the table in \S\ref{sec:windows} & $\times$\\
+some ideal building fits & no: see below & $\times$\\
+\end{tabular}
+\end{center}
+The third row is the theorem, checked in Lean: \emph{every} question that can be
+built from the views, including combined questions spanning neighbouring
+flights, gets consistent answers. And the question that would expose the loop,
+``is $x_0$ below $x_1$ below $x_2$?'', is not among them. No view shows three
+landings, just as no patch of the drawing shows the whole loop.
+
+There can be no ideal building. An ideal building answers every question about
+all four landings, the forbidden one included. It would have to say
+$x_0<x_1<x_2<x_3<x_0$.
+
+So the views are consistent and nothing fits them: no real building, and not
+even an ideal one. Call such answers \textbf{pointless}. Each flight's landings
+are ideal; the loop as a whole is no building at all.
+
+The sandwich order was pointless too, but trivially so, because the menu was
+finite. The staircase is pointless and infinite, and that is what makes it sharp.
+
+%======================================================================
+\section{What infinity demands}\label{sec:sigma}
+
+Ask the staircase ``what is the height of $x_0$?'', and split the question into
+its endlessly many options: $0,1,2,\dots$. Every option gets ``no''. The whole
+question, ``$x_0$ has some height'', gets ``yes''.
+\begin{center}
+\begin{tikzpicture}[x=0.85cm]
+\draw[thick,-{Stealth}] (-0.3,0)--(8.6,0) node[right,font=\scriptsize]{$\infty$};
+\foreach \n in {0,...,7} {\draw (\n,0.08)--(\n,-0.08); \node[below,font=\scriptsize] at (\n,-0.08) {\n};
+  \node[above,font=\scriptsize,red!70!black] at (\n,0.08) {no};}
+\draw[decorate,decoration={brace,amplitude=4pt},thick] (0,0.55)--(8.4,0.55)
+  node[midway,above=4pt,font=\scriptsize,blue!60!black]{``$x_0$ has some height'': yes};
+\end{tikzpicture}
+\end{center}
+\noindent Consistency only covers splits into a few parts, and those are fine:
+``at most 100?'' no, ``above 100?'' yes. Now demand more: the ``yes''es must add
+up across \emph{endlessly} many options too. This is $\sigma$-additivity, the
+usual rule of probability theory. Under it some single height must get the yes.
+Every landing is pinned to a real height, and real heights cannot climb around a
+loop.
+
+On these boards, demanding that answers add up over infinitely many options is
+the same as demanding that they come from a real building
+(Proposition~\ref{prop:sigma}). The demand for a completed answer is exactly
+what makes the staircase impossible.
+
+
+%======================================================================
+\section{Why loops: the first ideas of the theory}\label{sec:why}
+
+The sandwich shop and the staircase show the whole mechanism. Separating its parts gives the
+theory's first ideas.
+From here on the staircase's words give way to general ones:
+
+\begin{center}\small
+\begin{tabular}{l l}
+\textbf{staircase} & \textbf{general word}\\\hline
+a landing's height & a \emph{slot}\\
+a flight (one view) & a \emph{window}\\
+a flight's way of answering & a \emph{recipe}\\
+a real building & a \emph{point}\\
+an ideal building & an \emph{ideal point}\\
+which flights join which landings & the \emph{window graph}\\
+\end{tabular}
+\end{center}
+
+\paragraph{Contradictions need questions that cannot be asked.} Consistent
+answers respect every ``and'' that is actually on the board: if two questions
+and their joint question can all be asked, two yeses force a yes on the joint
+question (Lemma~\ref{lem:basic}). So a pattern can fail to be fitted only
+through joint questions the board lacks. That is the space pointlessness lives
+in.
+
+\paragraph{No triangle keeps things local.} Questions put to windows that share
+no slot always overlap, since they constrain different slots. So when a question
+is split among several windows, those windows must pairwise share a slot. If the
+window graph has no triangle, pairwise-touching windows always share one
+\emph{common} slot: they form a star around it. Slicing at that slot shows that
+the star's questions stay a star's questions under ``not''. The result is that
+every buildable question is a question to one star of windows
+(Theorem~\ref{thm:star}), so consistent answers are completely determined by what
+each window says. This covers trees, every ring of length at least four, and
+every other triangle-free graph. A triangle is the one shape where three windows
+touch pairwise with no common slot, and there locality fails.
+(In the language of hypergraphs: the windows have the \emph{Helly property}.)
+
+\paragraph{Trees always glue.} Two neighbouring windows' ideal recipes, agreeing
+on their shared slot, always combine into one recipe for all three slots
+(Lemma~\ref{lem:amalg}). On a tree you can keep combining, one window at a time,
+so on any tree, line or branching, every consistent pattern is an ideal point
+(Theorem~\ref{thm:path}). Nothing pointless can happen without a loop.
+
+\paragraph{Loops can carry a twist.} Around a loop the recipes may fail to
+combine, as the staircase's directions do. Call a family of window recipes
+\emph{flat} if it combines into one recipe for everything, and \emph{twisted}
+otherwise. On triangle-free boards, a pattern is an ideal point exactly when its
+window family is flat (Proposition~\ref{prop:flat}). Pointless patterns are
+twisted families that still extend consistently to every buildable question.
+
+\paragraph{Loops travel.} Suppose a board contains a loop of four or more windows
+with no shortcut across it: no window joins two slots of the loop that are not
+neighbours on it. Fix every slot off the loop at some number. As far as the
+board's questions can tell, it is now the ring. A question to a window touching
+the loop becomes a question about one loop slot, and a question off the loop
+becomes trivially yes or no. So the staircase's answers carry over to the bigger
+board, and they are still pointless there (Theorem~\ref{thm:travel}). Any board
+with such a loop has pointless patterns, whatever else it contains.
+
+\paragraph{Infinity forbids the twist.} Under $\sigma$-additivity every window is
+pinned to actual numbers, and actual numbers carry no direction, so there is
+nothing to twist.
+
+\paragraph{The map so far.} Putting the boards together:
+\begin{center}\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{3.2cm}|>{\raggedright\arraybackslash}p{3.2cm}|}
+\hline
+& \textbf{tree} & \textbf{a shortcut-free loop of 4 or more} & \textbf{every loop has a shortcut} (triangles)\\
+\hline
+finitely many values & actual & actual & actual\\
+\hline
+infinitely many values, answers add up over infinitely many options & actual & actual & actual\\
+\hline
+infinitely many values, finite adding only & ideal \st{hand} & \cellcolor{orange!20}\textbf{pointless exists} \st{Lean ring + hand transport} & \cellcolor{orange!20}\textbf{pointless exists} \st{Lean triangle + hand transport}\\
+\hline
+\end{tabular}
+\end{center}
+\noindent In graph language the columns are: forests; graphs with an induced cycle
+of length $\ge4$ (non-chordal); and chordal graphs that are not forests. The
+shaded cells are where the theory lives: a loop, infinitely many possibilities,
+and only finite adding. The last column was the open edge until the triangle
+was settled (\S\ref{sec:triangle}); the line now falls between trees and
+everything else.
+
+%======================================================================
+\section{The triangle}\label{sec:triangle}
+
+Now use only \emph{three} flights: windows $\{x_0,x_1\}$, $\{x_1,x_2\}$,
+$\{x_2,x_0\}$, every one going up. This is Penrose's impossible \emph{triangle},
+the tribar, and Specker's seer with three boxes: any two flights are fine, all
+three together are impossible for real heights.
+\begin{center}
+\begin{tikzpicture}
+\foreach \k/\a in {0/90,1/-30,2/210} \coordinate (t\k) at (\a:1.1);
+\draw[win] (t0)--(t1); \draw[win] (t1)--(t2); \draw[win] (t2)--(t0);
+\foreach \k in {0,1,2} \node[var] (u\k) at (t\k) {$x_\k$};
+\draw[up] (u0)--(u1); \draw[up] (u1)--(u2); \draw[up] (u2)--(u0);
+\end{tikzpicture}
+\end{center}
+\noindent Now every two flights share a landing, but no landing is on all three
+flights: in window terms every two windows share a slot, but no slot is
+shared by all three:
+the window graph is a triangle, the one shape the locality argument cannot
+handle.
+Questions can braid all three windows. With two possible values, ``are all three
+equal?'' becomes askable, though it cannot be broken into window questions. With
+three possible values that question disappears, and 2{,}088 others take its
+place. The ring's method, reading every answer off neighbouring windows, no
+longer applies.
+
+So the triangle was the experiment that decided what the theory is about. Every
+loop either has a shortcut-free stretch of four or more, which is already
+settled, or is made of triangles.
+\begin{itemize}[nosep]
+  \item \emph{If the triangle carried pointless answers,} then so would every board
+    with any loop. Triangles travel too, since a triangle never has a shortcut.
+    Pointless coherence would then happen \emph{exactly} on boards that are not
+    trees.
+  \item \emph{If it did not,} the expected line was \emph{chordal} versus
+    \emph{non-chordal}: boards whose every long loop has a shortcut versus those
+    with a shortcut-free one.
+\end{itemize}
+Either answer matches a classical pattern. Trees are where pairwise probability
+tables always fit together (Wainwright--Jordan). Chordal graphs are where junction
+trees and Vorob'ev's theorem live.
+It carries them. The rest of this section is the puzzle that shows why.
+
+\paragraph{Forced answers.} Any consistent answers extending the three flights'
+views are \emph{forced} on every question built in finitely many steps: the
+answer must be the sum of the flights' limits (Proposition~\ref{prop:forced}).
+Three landings taken from beyond every number can be drawn in six orders, and
+each order gives a genuine ideal building. Up to the sign of one building, the
+forced answer is the sum of what three of those buildings say. It fails to be 0
+or 1 only on a question that holds in exactly the three orders that go round the
+loop the staircase's way: the tribar's own twist. Call that the \emph{cyclic
+question}: ``do the three heights go round the staircase's way?''
+(Proposition~\ref{prop:sixorders}). So everything turns on one thing. Can the
+cyclic question, or anything that looks like it far out, be built?
+
+\paragraph{The balance rule.} Pick two candidate heights for each landing. That
+gives $2\times2\times2=8$ buildings, the corners of a box. Mark a corner
+$+$ or $-$ by whether it uses an even or odd number of second choices. A
+window question answers each corner by looking at two landings only. The
+corners pair up across the third landing, one $+$ and one $-$ in each pair, so
+\emph{every window question says yes equally often on the $+$ and $-$ corners.}
+``Not'' keeps the balance, since every box has four of each, and so does putting
+together questions that never both say yes. So every buildable question, built
+in any number of steps, \emph{balances on every box.}
+
+\paragraph{The lift.} Take heights $1,4,7$ for $x_0,x_1,x_2$: they go up round
+the loop, $x_0<x_1<x_2$, the staircase's way. Now lift the lowest landing above
+the highest: $x_0=10$. The heights $10,4,7$ still go round the staircase's way
+($x_1<x_2<x_0$). Put both into one box, with second choices $10$ for $x_0$, $8$
+for $x_1$ and $2$ for $x_2$:
+\begin{center}\small
+\begin{tabular}{c c l}
+\textbf{corner} $(x_0,x_1,x_2)$ & \textbf{sign} & \textbf{way round}\\\hline
+$(1,4,7)$ & $+$ & staircase's way\\
+$(10,8,7)$ & $+$ & the other way\\
+$(10,4,2)$ & $+$ & the other way\\
+$(1,8,2)$ & $+$ & the other way\\\hline
+$(10,4,7)$ & $-$ & staircase's way\\
+$(1,8,7)$ & $-$ & the other way\\
+$(1,4,2)$ & $-$ & the other way\\
+$(10,8,2)$ & $-$ & the other way\\
+\end{tabular}
+\end{center}
+Suppose a buildable question says no to every configuration that goes the other
+way. Then the balance rule leaves one corner on each side, so it answers
+$(1,4,7)$ and $(10,4,7)$ alike. Lifting the lowest landing never changes its
+answer. Enough lifts carry any spread-out configuration that goes the
+staircase's way to any other, so such a question says yes to all of them or to
+none.
+
+\paragraph{Why that settles it.} Try to build the cyclic question.
+\begin{itemize}[nosep]
+  \item ``Not'' turns it into the question that goes the other way, which the
+    reflection $x_1\leftrightarrow x_2$ turns back.
+  \item Putting together pieces that never both say yes: each piece says no to
+    the other way, so by the lift each piece takes all of the spread-out
+    staircase-way configurations or none of them. One piece takes them all.
+    It already looks like the cyclic question far out, and it was built
+    earlier.
+\end{itemize}
+So nothing that looks like the cyclic question far out is ever built, not even
+in infinitely many steps (Theorem~\ref{thm:estar}). Ramsey's theorem, run
+along the ultrafilter, finishes the job. Any question whose forced answer is 2
+looks like the cyclic question on some infinite set of heights, and two
+balance-rule boxes pin its pattern there. So the forced answers are always 0 or
+1, and \emph{the triangle carries pointless answers}
+(Theorem~\ref{thm:triangle}, machine-checked).
+
+\paragraph{The dividing line.} With the transport of loops
+(Theorem~\ref{thm:travel}): \emph{a board carries pointless answers exactly when
+its window graph is not a tree} (not a forest). This is for two-slot windows
+and infinitely many values. With finitely many values every consistent pattern
+is actual (Proposition~\ref{prop:sigma}), and a window that sees all three landings at once makes the triangle
+an ordinary board.
+
+\paragraph{What the theory must settle.}
+\begin{enumerate}[nosep]
+  \item \emph{Extension on triangle-free graphs.} There, a consistent pattern is
+    the same as a family of window recipes that extends, and pointless means
+    twisted (Theorem~\ref{thm:star}, Proposition~\ref{prop:flat}). Which twisted
+    families extend? The rings and the triangle say some do. Is it all of them,
+    on every loop?
+  \item \emph{The classification.} Which twisted families extend to every
+    buildable question? The hope is that twist is measured by something like a
+    winding number of the directions around each loop. On the triangle the
+    balance rule and the lift are the first instruments.
+  \item \emph{Wider windows.} Windows showing three or more slots at once.
+  \item \emph{No background at all.} The boards assume a space of
+    \emph{possibilities} (the slots and their possible values) and nothing
+    more. Drop even that, keeping only the questions. Does pointlessness
+    survive when there is no space to lack a point in?
+\end{enumerate}
+
+%======================================================================
+\section{Coda: where this sits}\label{sec:coda}
+
+\paragraph{Its neighbours.} Each neighbouring theory covers a region and stops
+at the edge of the shaded cells.
+\begin{itemize}[nosep]
+  \item \emph{Lines.} Vorob'ev (1962) and database theory show that consistent
+    data on line-like structures always comes from a whole, for ordinary
+    probabilities.
+  \item \emph{Loops, with ordinary probabilities and finitely many outcomes.}
+    The sheaf-theoretic account of contextuality owns this: Abramsky and
+    Brandenburger, and for loops exactly, Kharoof, Ipek and Okay (2024).
+  \item \emph{Infinity on ordinary (Boolean) boards.} De Finetti and Howson. On
+    a board where every ``and'' can be asked, consistent answers are always ideal
+    points.
+  \item \emph{Glued boards with answers that add over infinitely many options.}
+    The Czech school of quantum logic: Navara and Pt\'ak (1983) and
+    Drav\'eck\'y and \v{S}ipo\v{s} (1980, Example~6). The latter applies to the
+    triangle's \emph{flights} (the differences $x_1-x_0$, $x_2-x_1$,
+    $x_0-x_2$), which by themselves already form a closed board with pointless
+    answers. Those answers do not extend to the full triangle board, where
+    adding over infinitely many options forces a point. The triangle theorem is
+    exactly that extension, which is possible only with finite adding.
+\end{itemize}
+None of them covers finitely additive answers on the full glued board. That gap is
+where this theory sits.
+
+\paragraph{Standard names.} In the literature's terms: a \emph{state} is a
+two-valued finitely additive state; a \emph{point} is a Dirac (concentrated)
+state; an \emph{ideal point} is a coherent state, one that extends to all sets
+(Bhaskara Rao and Bhaskara Rao, Thm.~3.2.10); \emph{pointless} means
+non-coherent; a \emph{board} or \emph{carrier} is the $\sigma$-class generated by
+coordinate sub-$\sigma$-algebras; the \emph{window graph} is the marginal scheme
+(measurement cover). The puzzle words are kept for the story; the theorems are
+stated so that they can be read in either vocabulary.
+
+\paragraph{Its lineage.} The picture is old.
+\begin{itemize}[nosep]
+  \item \emph{Specker} opened the paper that became the Kochen--Specker theorem
+    (1960) with a seer's three boxes. Any two opened hold exactly one gem, which
+    is pairwise consistent and jointly impossible. That is the triangle.
+  \item \emph{Penrose} explained the impossible staircase and tribar by the
+    cohomology of a loop (1991).
+  \item \emph{Aristotle} held that the infinite exists only potentially, never
+    as a completed whole. Finite adding is the potential infinite. Adding up
+    over infinitely many options is the actual one, and the staircase is a case
+    where demanding the actual infinite excludes what the potential allows.
+  \item \emph{Kant} called the completed series of conditions not \emph{given}
+    but \emph{aufgegeben}, set as a task: ``nicht als Axiom, die Totalit\"at im
+    Objekt als wirklich zu denken, sondern als ein Problem f\"ur den Verstand''.
+    The staircase is a small antinomy. Every window is right, and the totality
+    read as an object contradicts them, while read as a task it does not.
+\end{itemize}
+
+\paragraph{What the results say.} The theory studies one gap: answers that are
+\emph{complete} (every askable question answered) and \emph{coherent}, yet about no
+world. In ordinary logic the completeness theorem closes that gap, because every
+``and'' can be asked. On glued boards it closes in three regimes and opens in one:
+\begin{center}\small
+\begin{tabular}{|>{\raggedright\arraybackslash}p{6.2cm}|>{\raggedright\arraybackslash}p{5.6cm}|}
+\hline
+\textbf{regime} & \textbf{do coherent answers earn a world?}\\\hline
+finitely many values & yes, an actual one\\
+infinitely many, adding over the whole infinity & yes, an actual one\\
+infinitely many, finite adding, no loop & yes, an ideal one\\
+infinitely many, finite adding, a loop & \textbf{no}: pointless answers exist\\\hline
+\end{tabular}
+\end{center}
+Three further findings shape where the theory goes next.
+\begin{itemize}[nosep]
+  \item \emph{The board contributes one unaskable question.} On the triangle it
+    is ``do the heights go round?''; by the balance rule and the lift it can
+    never be built. Beyond that, whether answers are pointless depends only on
+    whether the windows' answers glue together. Extension was never the
+    obstacle in any case checked.
+  \item \emph{Renaming and motion never create impossibility.} A window that
+    only renames a landing can be contracted away, and symmetry only moves
+    worlds around. The twist lives in the loop, not in the action.
+  \item \emph{Only ``beyond'' goes round.} A flight that draws one landing
+    beyond the other carries a direction. A loop of such directions is a task
+    that would have to finish before it started. For the simplest window types
+    (independent draws and renamings) the twist is exactly such a directed cycle
+    \st{hand}. In general it is not. Beyonds also \emph{compose}: a triangle
+    whose directions never go round can still fail to close, because the
+    combined step $x_2-x_0$ must equal the composite of the two others in the
+    algebra of ultrafilters, and one window can ask for a different composite
+    \st{hand}. The invariant is a composition law, with orientation as its
+    shadow.
+\end{itemize}
+In these terms Aristotle's potential infinite is finite adding, and Kant's
+totality \emph{set as a task} is the ideal point. A loop is where the task
+becomes circular.
+
+\paragraph{Its stance.} Throughout, answers come first. Nothing is assumed to
+be giving them. Only the space of possibilities is assumed. Points, actual or
+ideal, are what we get when answers can be reconstructed into a whole. The
+theory is the study of when that reconstruction succeeds, and of what remains
+when it fails.
+
+%======================================================================
+\appendix
+\section{Definitions and results}\label{app:defs}
+
+\begin{definition}[boards and answers]
+A \emph{possibility space} is $\Omega=X^V$, with $V$ finite and $X$ an alphabet.
+A \emph{window} is a two-element $\{i,j\}\subseteq V$, and the windows form a
+graph. A \emph{window question} is $\{x:(x_i,x_j)\in A\}$ with $A\subseteq X^2$
+arbitrary. The \emph{carrier} $\cD$ is the smallest family containing all window
+questions and closed under complement and countable disjoint union: the
+buildable questions. A \emph{state} (consistent answers) is
+$s:\cD\to\{0,1\}$ with $s(\Omega)=1$ and $s(A\sqcup B)=s(A)+s(B)$ for disjoint
+$A,B$. It is \emph{$\sigma$-additive} if additivity holds for countable disjoint
+unions.
+\end{definition}
+
+\begin{definition}[points]
+A state is a \emph{point} (fitted by an actual assignment) if
+$s(E)=[\omega\in E]$ for some $\omega\in\Omega$. It is an \emph{ideal point} if
+$s(E)=[E\in W]$ for an ultrafilter $W$ on $\Omega$. It is \emph{pointless} if it
+is neither.
+\end{definition}
+
+\begin{lemma}\label{lem:basic}\st{hand; standard}
+Let $s$ be a state on $\cD$.
+\begin{enumerate}[label=(\alph*),nosep]
+  \item If $A$, $B$ and $A\cap B$ are in $\cD$ and $s(A)=s(B)=1$, then
+    $s(A\cap B)=1$.
+  \item $s$ is an ideal point iff its true sets have the finite intersection
+    property.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\begin{enumerate}[label=(\alph*),nosep]
+  \item $A\setminus B=(A\cap B^c)$ lies in $\cD$, being $A$ minus $A\cap B$, and
+    lies inside $B^c$. So $s(A\setminus B)\le s(B^c)=0$.
+  \item Extend the true sets to an ultrafilter; the false sets have true
+    complements.
+\end{enumerate}
+\end{proof}
+
+\begin{proposition}\label{prop:sigma}\st{Lean: ring, \texttt{no\_sigma\_extension};
+hand: general}
+If $X$ is countable, every $\sigma$-additive state on a glued carrier is a
+point. If $X$ is finite, every state is a point.
+\end{proposition}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item On each window the fibres $\{(x_i,x_j)=(a,b)\}$ form a countable (or
+    finite) partition, so exactly one is true.
+  \item Shared coordinates make these choices agree, giving one $\omega$.
+  \item The sets on which $s$ agrees with $\delta_\omega$ form a carrier
+    containing the window questions, hence all of $\cD$.
+\end{itemize}
+\end{proof}
+
+\begin{theorem}[no triangle: locality]\label{thm:star}\label{lem:shape}\st{hand; machine-checked on finite alphabets}
+Suppose the window graph has no triangle; equivalently, the windows form a Helly
+family. Then every $E\in\cD$ is a disjoint union $\bigsqcup_i E_i$ of window
+questions on windows that all contain one common coordinate (a star). So every
+state satisfies $s(E)=\sum_i u_{w_i}(E_i)$ and is determined by its window
+ultrafilters.
+\end{theorem}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item \emph{Rigidity.} Window questions on windows with no shared coordinate
+    meet if both are non-empty. So in a disjoint union of window questions, the
+    non-empty pieces lie on pairwise adjacent windows. Without triangles, these
+    form a star at some coordinate $c$.
+  \item \emph{Slicing.} Fix $x_c=a$. Each piece's slice is a cylinder in its own
+    leaf coordinate; they are pairwise disjoint in independent coordinates, so at
+    most one is non-empty. The slice of $E^c$ is then a cylinder in the same
+    coordinate, or everything. Gathering slices by leaf writes $E^c$ as a star at
+    $c$.
+  \item \emph{Closure.} Let $\cG$ be the disjoint unions of one window question
+    per window. It is closed under complement (by slicing) and under countable
+    disjoint union (regroup window by window). So $\cG=\cD$.
+\end{itemize}
+Machine check of $\cD=\cG$ (script \texttt{glued\_helly\_check.py} in the
+verification folder):
+\begin{itemize}[nosep]
+  \item holds on the star $K_{1,3}$ (binary and ternary), a branching tree, the
+    4- and 5-cycles, and $K_{2,3}$;
+  \item fails whenever there is a triangle: triangle $70$ vs $66$; triangle with
+    pendant $98$ vs $94$; 4-cycle with chord $148$ vs $132$.
+\end{itemize}
+Compare Greechie's loop lemma (Kalmbach 1983, \S4 L9).
+\end{proof}
+
+\begin{lemma}[gluing]\label{lem:amalg}\st{hand; very likely folklore}
+Ultrafilters on $X\times Y$ and $Y\times Z$ with the same $Y$-marginal are the
+projections of one ultrafilter on $X\times Y\times Z$.
+\end{lemma}
+\begin{proof}
+Members of the two ultrafilters project into the common marginal, so they meet;
+the sets $A\times Z$ and $X\times B$ have the finite intersection property.
+\end{proof}
+
+\begin{theorem}[trees]\label{thm:path}\st{hand}
+If the window graph is a forest, every state is an ideal point.
+\end{theorem}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item Order each tree's windows so that each meets the earlier ones in one
+    coordinate.
+  \item Glue the window ultrafilters one at a time (Lemma~\ref{lem:amalg}). Join
+    separate trees by the product of their ultrafilters.
+  \item This gives $W$ projecting to every $u_w$.
+  \item By Theorem~\ref{thm:star}, $s(E)=\sum_iu_{w_i}(E_i)=\sum_iW(E_i)=W(E)$.
+\end{itemize}
+\end{proof}
+
+\begin{theorem}[loops travel]\label{thm:travel}\st{hand, from the Lean ring witness}
+If the window graph contains an induced cycle of length $L\ge4$, there is a
+pointless state over $\bbN$ with no $\sigma$-additive version. If the triangle
+carries a pointless state, so does every graph containing a triangle.
+\end{theorem}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item Let $C$ be the induced cycle. Define $\psi:\bbN^C\to\bbN^V$ by copying the
+    cycle coordinates and setting every other coordinate to a constant.
+  \item Pull back each window question of the graph:
+    \begin{itemize}[nosep]
+      \item a window on the cycle gives a window question of the ring, since
+        the cycle is induced, so there is no chord;
+      \item a window from the cycle to outside gives a question about one ring
+        coordinate;
+      \item a window off the cycle gives $\emptyset$ or everything.
+    \end{itemize}
+  \item The sets whose preimage is in $\cD_C$ form a carrier, so
+    $\psi^{-1}(\cD_G)\subseteq\cD_C$. Hence $s=\mu\circ\psi^{-1}$ is a state, with
+    $\mu$ the ring witness (Theorem~\ref{thm:witness}).
+  \item \emph{Pointless.} An ultrafilter fitting $s$ would push forward, along
+    the projection to the cycle coordinates, to one fitting the staircase on the
+    ring.
+  \item \emph{No $\sigma$-additive version:} Proposition~\ref{prop:sigma}.
+  \item \emph{The triangle clause:} the same argument, since a triangle is
+    always induced.
+\end{itemize}
+The Lean development already proves the analogous transport along cycle
+maps, in the lemmas \texttt{pullback} and \texttt{sL\_sigmaEssential}. This
+graph form is not yet in Lean.
+\end{proof}
+
+\begin{proposition}[flatness]\label{prop:flat}\st{hand}
+On a triangle-free window graph, a state is an ideal point iff its
+window ultrafilters glue to one ultrafilter on $\Omega$ (a flat family).
+\end{proposition}
+
+\begin{proposition}[the forced functional]\label{prop:forced}\st{hand}
+On the triangle (and on rings), every buildable question built in finitely many
+steps has indicator $f_0(x_0,x_1)+f_1(x_1,x_2)+f_2(x_2,x_0)$. Any state extending
+a compatible family $(u_k)$ takes the value
+$\Lambda=\sum_k\lim_{u_k}f_k$ there. $\Lambda$ is well defined: if
+$f_0+f_1+f_2=0$, each $f_k$ is $\varphi_i(x_i)-\varphi_j(x_j)$ plus a constant,
+the constants summing to $0$, and these terms cancel because the marginals
+agree. So a family can extend only if $\Lambda\in\{0,1\}$ on every finitely
+built question.
+\end{proposition}
+
+\begin{proposition}[cut the loop]\label{prop:cut}\st{hand}
+On a triangle or ring with window ultrafilters $u_k=p\otimes p$ in a cyclic
+orientation, fix a window $k$ and let $W^{(k)}$ be the ultrafilter gluing the
+other windows along the path left after cutting $k$. For every $E$ whose
+indicator is a finite sum $\sum_jf_j$ of bounded window functions,
+\[ \Lambda(E)=W^{(k)}(E)+\delta_k(E),\qquad
+\delta_k(E)=\lim_a\lim_bf_k-\lim_b\lim_af_k, \]
+the commutator of the iterated $p$-limits on window $k$, in the two orders.
+$\delta_k$ is well defined, since single-coordinate terms have order-independent
+limits. So $\Lambda(E)\in\{0,1\}$ whenever $E$'s window-$k$ part is zero.
+\end{proposition}
+\begin{proof}
+$W^{(k)}$ projects to $u_j$ on every window $j\neq k$ and to $u_k^{T}$ on window
+$k$. Hence $W^{(k)}(E)=\sum_{j\ne k}\lim_{u_j}f_j+\lim_{u_k^T}f_k$; subtract from
+$\Lambda(E)$.
+\end{proof}
+
+\begin{theorem}[rings, conceptual proof]\label{thm:ringconcept}\st{hand; agrees with Lean}
+For $L\ge4$, $\Lambda$ is a two-valued finitely additive state on the whole ring
+carrier extending the staircase.
+\end{theorem}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item By Theorem~\ref{thm:star}, every $E\in\cD$ is $E_{k-1}\sqcup E_k$, so
+    $1_E$ is a sum of two window functions.
+  \item Zero-sum families of window functions on a cycle are differences of
+    single-coordinate functions plus constants, so $\Lambda$ is well defined and
+    linear.
+  \item Pick a window $m\notin\{k-1,k\}$. Then $E$'s window-$m$ part is zero, so
+    $\Lambda(E)=W^{(m)}(E)\in\{0,1\}$ (Proposition~\ref{prop:cut}).
+  \item Linearity gives finite additivity, and $\Lambda(\Omega)=1$.
+\end{itemize}
+In words: cut the staircase where the question is not looking, and read off a
+genuine ideal building. This explains the case analysis behind
+\texttt{mu\_cases}; Lean remains the certificate. The argument inherits the
+locality theorem, which is a hand proof checked on finite alphabets.
+\end{proof}
+
+\begin{proposition}[the triangle, finitely built questions]\label{prop:sixorders}\st{hand}
+On the triangle with the staircase family, $\Lambda(E)\in\{0,1\}$ for every
+question $E$ built from window questions by finitely many complements and
+disjoint unions.
+\end{proposition}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item \emph{Six buildings.} For each of the six orders $\pi$ of
+    $(x_0,x_1,x_2)$, let $W_\pi$ be the ultrafilter ``draw in order $\pi$, each
+    further out'' (iterated $p\otimes p$). Its projection to window $\{i,j\}$
+    is $p\otimes p$ taken in the order $\pi$ gives $i,j$. The \emph{profile} of
+    $E$ is $\pi\mapsto W_\pi(E)$.
+  \item \emph{Profiles of finitely built questions.} A window question's profile
+    depends only on whether $\pi$ puts $i$ before $j$: it is constant or a
+    ``half'' $\{\pi: i\text{ before }j\}$ or its complement. Complements
+    complement the profile. Disjoint questions lie in no common ultrafilter, so
+    their profiles are disjoint and the union's profile is the union. Among
+    constants and halves, the only disjoint pairs are complementary halves or
+    involve $\emptyset$. So every finitely built $E$ has a constant or half
+    profile.
+  \item \emph{$\Lambda$ from profiles.} Applying the cut identity at two windows
+    $k\neq j$ gives
+    $\Lambda(E)=W^{(k)}(E)+W^{(j)}(E)-W^{(jk)}(E)$. Here $W^{(k)},W^{(j)}$ are
+    orders going round the loop the staircase's way (rotations of $0,1,2$), and
+    $W^{(jk)}$, which reverses windows $j$ and $k$, goes the other way (a
+    rotation of $2,1,0$). This holds termwise on each window.
+  \item \emph{Check.} On constants and halves this gives $0$ or $1$. It gives
+    $2$ only on the profile ``exactly the three rotations of $0,1,2$'', the
+    staircase's cyclic orientation at infinity, which is not a half.
+\end{itemize}
+\end{proof}
+\noindent The old ring sweep searched every 0/1 function of the right algebraic
+shape (a sum of window functions) on a finite tower. Its failure at $L=3$ lies
+on such a function with the cyclic profile, which is not buildable. It never
+obstructed the triangle.
+
+\begin{theorem}[the cyclic question is not buildable]\label{thm:estar}\st{Lean:
+\texttt{not\_inP\_of\_mem}, \texttt{estar\_not\_mem}}
+Let $C$ (resp.\ $A$) be the strict cyclic (resp.\ anticyclic) points of $\bbN^3$.
+No set that agrees with $C$, or with $A$, on the distinct-coordinate points of
+$P^3$ for some infinite $P\subseteq\bbN$ lies in the triangle carrier. In
+particular $E^*=\{[x_0\le x_1]+[x_1<x_2]+[x_2<x_0]=2\}$ is not buildable,
+although $1_{E^*}=[x_0\le x_1]+[x_1<x_2]+[x_2<x_0]-1$ is a sum of window
+functions. (Over three values the carrier is exactly the 0/1 sums of window
+functions, a machine count; the gap is only at infinity.)
+\end{theorem}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item \emph{Balance.} Every carrier set has vanishing triple interaction on
+    every $2\times2\times2$ box: window events do, and the identity survives
+    complements and countable disjoint unions (pointwise sums).
+  \item \emph{Lift.} Thin $P$ to $Q$ (every other element), so that a
+    $P$-element lies between any two $Q$-elements. Let $G$ balance and avoid
+    $A$ on $P^3$. For $a<b<c<a'$ in $Q$, choose $\gamma\in P$ between $a,b$ and
+    $\beta\in P$ between $c,a'$. The box
+    $\{a,a'\}\times\{b,\beta\}\times\{c,\gamma\}$ has its other six corners in
+    $A\cap P^3$, so $1_G(a,b,c)=1_G(a',b,c)$. Rotations give the other two
+    orders, and lifts connect any two points of $C\cap Q^3$.
+  \item \emph{Induction.} The family is closed under complement (and under
+    the reflection $(x_0,x_2,x_1)$ for the $A$ side) and contains no window
+    event. In a countable disjoint union, exactly one piece takes
+    $C\cap Q^3$, and it is a member of the family built earlier.\qedhere
+\end{itemize}
+\end{proof}
+
+\begin{theorem}[the triangle]\label{thm:triangle}\st{Lean:
+\texttt{triangle\_pointless\_state}, \texttt{sstar\_window01/12/20}}
+For every non-principal ultrafilter $p$, $s^{*}=W_{012}+W_{120}-W_{102}$ is
+finitely additive with $s^*(\Omega)=1$, is $\{0,1\}$-valued on the triangle
+carrier, and equals the staircase limit on every window question. No ultrafilter
+on $\bbN^3$ reproduces it, since $\{x_0<x_1\}\cap\{x_1<x_2\}\cap\{x_2<x_0\}=\emptyset$.
+So the triangle carries a pointless state.
+\end{theorem}
+\begin{proof}
+\begin{itemize}[nosep]
+  \item $s^*$ is a signed sum of three ultrafilters, so it is finitely additive
+    on every set. On a window question two terms cancel or coincide, leaving
+    the oriented $p\otimes p$ limit.
+  \item Suppose $s^*(E)\in\{2,-1\}$ for a carrier set $E$. The six order
+    conditions intersect to a $p^{\otimes3}$-large set, and the ultrafilter
+    proof of Ramsey's theorem gives an infinite $P$ on which $E$ follows its
+    six-order profile.
+  \item Two balance boxes on six elements of $P$ cut the $64$ patterns to the
+    $10$ in the span of window functions. Of those, $s^*=2$ only on the cyclic
+    pattern and $s^*=-1$ only on the anticyclic one. Theorem~\ref{thm:estar}
+    excludes both.\qedhere
+\end{itemize}
+\end{proof}
+\noindent That $s^*$ is the forced functional $\Lambda$ on finitely built
+questions is Proposition~\ref{prop:forced} \st{hand}. The six-orders argument
+and the Ramsey step sit near known work on products of ultrafilters (Blass;
+Hindman--Strauss, unread). They are offered as theory content, not as a novelty
+claim.
+
+\begin{theorem}[the staircase]\label{thm:witness}\st{Lean: \texttt{mu\_cases},
+\texttt{sL\_sigmaEssential}}
+For every $L\ge4$, the window ultrafilters $u_k=p\otimes p$ on the ring extend to
+a state on the whole carrier over $\bbN^L$. No ultrafilter on $\bbN^L$ projects
+to all $u_k$, since every $\{x_k<x_{k+1}\}$ would be in it, and their
+intersection is empty. So the state is pointless, and by
+Proposition~\ref{prop:sigma} it has no $\sigma$-additive version.
+\end{theorem}
+\noindent At $L=4$ the carrier's centre is literally $\{\emptyset,\Omega\}$ and
+all six admissibility conjuncts hold (Lean, \texttt{D4\_six\_conjuncts}). No
+prior-art owner was found in three passes.
+
+\section{Status, sources, files}\label{app:status}
+
+\paragraph{Status.}
+\begin{itemize}[nosep]
+  \item \st{Lean}: Theorems~\ref{thm:witness}, \ref{thm:estar} and
+    \ref{thm:triangle}; Proposition~\ref{prop:sigma} on the ring.
+  \item \st{hand}: everything else in Appendix~\ref{app:defs}, including the
+    assembly ``pointless $\iff$ not a forest''.
+  \item Open: the classification and extension questions at the end of
+    \S\ref{sec:triangle}.
+  \item Prior art for the triangle: two scouting passes and a hostile audit;
+    see the taxonomy file below.
+  \item Prior-art risk for the staircase: Bhaskara Rao, \emph{Theory of
+    Charges}; Goldberg on ultrafilter products.
+\end{itemize}
+
+\paragraph{Sources for the coda}, with how each was checked:
+\begin{itemize}[nosep]
+  \item read in full:
+    \begin{itemize}[nosep]
+      \item Kant, \emph{KrV}, Antinomy \S\S7--8 (German, Gutenberg ed.);
+      \item Specker, \emph{Dialectica} 14 (1960), in Seevinck's translation,
+        arXiv:1103.4537;
+      \item Kharoof--Ipek--Okay, arXiv:2406.19961;
+    \end{itemize}
+  \item confirmed through bibliographic records only: Penrose, \emph{Structural
+    Topology} 17 (1991);
+  \item confirmed through secondary sources only: Aristotle, \emph{Physics}
+    III.6; Vorob'ev 1962; Howson 2008.
+\end{itemize}
+
+\paragraph{Files.}
+\begin{itemize}[nosep]
+  \item Index: \texttt{glued\_carriers\_taxonomy.json}.
+  \item Witness and prior art: \texttt{collision\_vs\_generation.md}, in the
+    \texttt{delay\_embedding} open questions.
+  \item Lean (in the staging folder of the formalization):
+    \begin{itemize}[nosep]
+      \item rings: \texttt{WindowGluing.lean};
+      \item triangle: \texttt{TriangleCyclic.lean}.
+    \end{itemize}
+  \item Relation to the cycle side:
+    \texttt{cyclic\_marginal\_scoping.md}.
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,1196 @@
+{
+ "$meta": {
+  "title": "Pointless coherence on glued carriers",
+  "purpose": "Zoom-out index of a THEORY in construction (theory-shaped collection, TAXONOMY_SCHEMA.md 2026-10-16). Load first; follow detail pointers. Problems here are probes at a seam, not ends.",
+  "updated": "2026-10-16",
+  "what_is_it": "Which finitely additive two-valued states (states) on Dynkin carriers glued from window events are points, ideal points (ultrafilters on Omega), or pointless - and which shape of window graph decides it.",
+  "status": "OPEN",
+  "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive states on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle'). UPDATE 2026-10-16: triangle-free => locality (stars); forests => no pointless states; any induced cycle of length >= 4 => pointless states (transport). Open = chordal non-forest graphs, decided by the triangle. UPDATE 2026-10-17: TRIANGLE PROBE FIRED (a) - the triangle carries a pointless state (Lean, thm.triangle_pointless); with loops-travel + forests (hand): pointless <=> not a forest. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
+  "categories": {
+   "objects": "definitions the theory is about",
+   "theorems": "proved results (lean or hand), with uses/scope",
+   "conjectures": "candidate statements incl. the target structure theorem and unchecked lenses",
+   "probes": "pre-registered gates whose affects point at conjecture ids",
+   "examples": "small concrete instances (the puzzles), with scope",
+   "owned_regions": "the seam map: which existing theory covers which region (owned_by)"
+  },
+  "headline": {
+   "objects": 6,
+   "theorems": 18,
+   "conjectures": 20,
+   "probes": 12,
+   "examples": 3,
+   "owned_regions": 16,
+   "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
+  },
+  "puzzle": "notes/open_questions/cyclic_marginal/pointless_coherence.tex section 'The puzzle'; domain map in section 'Domain and scope'",
+  "cross_collections": "[[sigma_essential_taxonomy]] (the witness is a sigma-essential object); [[commensurability_taxonomy]] (cycle side; fixed-L winding owned); [[ce_taxonomy]] (concept.oml_center cell inhabited)",
+  "stance": "ANSWERS FIRST (adopted 2026-10-16). Primitive: questions + a state (consistent answer pattern); no answerer/substrate assumed. Derived: point / ideal point (reconstruction succeeds or fails). Pointless states = a region of the domain, not edge cases. Assumed: only the possibility space Omega (questions are sets of possibilities) - possibility assumed, actuality earned; Omega is scaffold, not ontology. Lean matches: FinAddState / LocalState are Val : Set Omega -> Prop with additivity, nothing more (SigmaEssentialWitness.lean). Gap: trichotomy (ideal point / flat / pointless) not yet a Lean predicate."
+ },
+ "objects": [
+  {
+   "id": "obj.glued_carrier",
+   "name": "glued carrier",
+   "status": "defined",
+   "one_line": "Possibility space Omega = X^V (assumed: what could be the case) with a family of two-element windows; window event = {x:(x_i,x_j) in A}, A arbitrary; carrier D = Dynkin closure of all window events.",
+   "detail": "pointless_coherence.tex (Setting, Definition 'glued windows')"
+  },
+  {
+   "id": "obj.state",
+   "name": "state (finitely additive two-valued)",
+   "status": "defined",
+   "one_line": "s: D -> {0,1}, s(Omega)=1, additive on disjoint pairs. Restricted to one window it is an ultrafilter u_k on X^2; adjacent u_k share marginals.",
+   "detail": "pointless_coherence.tex (Setting)"
+  },
+  {
+   "id": "obj.trichotomy",
+   "name": "point / ideal point / pointless",
+   "status": "defined",
+   "one_line": "A state is a point (delta_omega), an ideal point (s(E)=[E in W] for an ultrafilter W on Omega), or pointless (neither).",
+   "detail": "pointless_coherence.tex (Setting, Definition 'points and ideal points')"
+  },
+  {
+   "id": "obj.ordered_product",
+   "name": "ordered product p(x)p",
+   "status": "defined",
+   "one_line": "A in p(x)q iff {m:{n:(m,n) in A} in q} in p - 'draw m, then n later'. With p non-principal: {m<n} in p(x)p, marginals p, not symmetric.",
+   "detail": "pointless_coherence.tex (The staircase, Lemma pp)"
+  },
+  {
+   "id": "obj.window_graph",
+   "name": "window graph",
+   "status": "defined",
+   "one_line": "Vertices = coordinates, edges = windows. Path, ring (L), triangle (L=3) are the instances studied; the theory's invariant should be a property of this graph.",
+   "detail": "pointless_coherence.tex (Setting; Status and open questions)"
+  },
+  {
+   "id": "obj.window_family_flatness",
+   "name": "window family; flat / twisted (tentative)",
+   "status": "defined (tentative)",
+   "one_line": "A state's window family = its ultrafilters u_k on the windows (compatible on shared coordinates). Flat = amalgamates to an ultrafilter on Omega; twisted (non-flat) otherwise. Working definition, the candidate central notion.",
+   "detail": "pointless_coherence.tex (section 'Why loops'; Proposition flat)"
+  }
+ ],
+ "theorems": [
+  {
+   "id": "thm.triangle_pointless",
+   "name": "the triangle carries a pointless state",
+   "status": "LEAN-CHECKED 2026-10-17 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean; 0 sorry; axioms propext, Classical.choice, Quot.sound), including fidelity sstar_window01/12/20 (s* = the staircase p(x)p limit on every window event). AUDIT /audit pure 2026-10-17 (opus, hostile): NOT FOUND (UNCLEAR at the margin); ingredients owned (own.dravecky_sipos_flight_subcarrier, own.navara_two_of_three, own.coherence_extension, own.ultrafilter_products); scoped claim = a finitely additive two-valued NON-COHERENT state on the full lambda-closure of the three pair windows over N, plus non-membership of the cyclic family. Type 3 FAIL for now (no second domain; flip = decide Navara's two-sided-unbounded regime); Type 4 FAIL as vocabulary (use standard names), statements PASS-pending. Do not upgrade to NOVEL until coverage gaps close (Bhaskara Rao body, Gudder SIAM Rev 1984 Ex 3.1, Hindman-Strauss, Blass, Ptak-Pulmannova book, Ovchinnikov PAMS 1999). Earlier: two budgeted sonnet scouts NOT FOUND, shallow coverage (snippet-level; Navara-Ptak-era, Gudder, Bhaskara Rao, Hindman-Strauss text, Blass unread; residual risk = folklore ultrafilter-product non-extendability, or a Navara-style set-representable logic with a non-point two-valued state). Scouting only - NOT the claim gate (workflow step 6 / /audit pure owed).",
+   "lean": "TriangleCyclic.triangle_pointless_state, triangle_state_no_ultrafilter, triangle_state_no_point, triangle_has_pointless_state, sstar_window01, sstar_window12, sstar_window20",
+   "one_line": "For every non-principal ultrafilter p on N, s* = W012 + W120 - W102 (signed combination of three iterated p-limit ultrafilters on N^3) is finitely additive, s*(Omega)=1, {0,1}-valued on the triangle carrier D3, and 1 on the staircase steps {x0<x1},{x1<x2},{x2<x0} (empty intersection), so no ultrafilter on Omega - in particular no point - reproduces it. Two-valuedness: if s*(E) is 2 or -1, ultrafilter Ramsey for triples gives an infinite P on which E follows its six-order profile; two box identities force the cyclic/anticyclic pattern; the homogeneous-set family is excluded from D3 by the lift lemma + Dynkin induction.",
+   "scope": "Triangle over N, any non-principal p. That s* coincides with the forced functional Lambda on finitely built questions is hand (prop:forced). With thm.loops_travel (hand) and the forests theorem (hand): a window graph has a pointless state iff it is not a forest - that assembly is hand, not Lean. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
+   "uses": [
+    "thm.triangle_estar_not_built",
+    "obs.forced_functional"
+   ],
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe)"
+  },
+  {
+   "id": "thm.triangle_estar_not_built",
+   "name": "the cyclic set is not in the triangle carrier over N",
+   "status": "proved, LEAN-CHECKED 2026-10-17 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: estar_not_mem, not_inF_of_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound); PRIOR ART: scout 2026-10-17 NOT FOUND (partial coverage; method folklore-adjacent via Keleti-Preiss)",
+   "lean": "formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: TriangleCyclic.estar_not_mem, TriangleCyclic.not_inF_of_mem (D3 = DynkinSystem.generate of the three pair-window sigma-algebras on Fin 3 -> N, same construction as WindowGluing.glued)",
+   "one_line": "Let B_n = {min pairwise gap <= n} and F = {Z: Z delta E* or Z delta E*^c lies in some B_n}. No member of F is in the Dynkin closure D over N; in particular E* is not in D. Lift lemma: if Z delta E* is in B_n and f has zero box interaction with f = 0 off Z, then f is constant on strict-cyclic points with gaps >= 2n+2 (box lifting the minimum far above the maximum; the other six corners are generic anticyclic). Least-stage argument: a complement stays in F; in a countable disjoint union exactly one piece takes the generic part and is an earlier member of F.",
+   "scope": "E* family only (finite-band perturbations). Does NOT fire gate.triangle: sets with cyclic ultrafilter profile that differ from E* on a non-band p-small region are not covered.",
+   "uses": [
+    "obs.forced_functional"
+   ],
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, Theorem E* is not in the carrier); verification/triangle_lift_lemma_check.py, triangle_offtie_atomicity.py"
+  },
+  {
+   "id": "thm.basic",
+   "name": "basic lemma",
+   "status": "proved-hand (standard)",
+   "one_line": "Proper differences stay in D; s monotone; s(A cap B)=1 when A,B,A cap B in D are true; s is an ideal point iff its true sets have the FIP. So pointlessness needs intersections D lacks.",
+   "detail": "pointless_coherence.tex (Lemma basic)"
+  },
+  {
+   "id": "thm.sigma_forces_points",
+   "name": "sigma forces points (ring)",
+   "status": "proved-lean (ring); proved-hand (general)",
+   "one_line": "Over a countable alphabet every sigma-additive state on a glued pair-window carrier is a point (window Diracs agree; Dynkin uniqueness). Lean for the ring; hand for general window graphs. Finite alphabets: same with finite additivity.",
+   "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
+   "lean": {
+    "file": "formalization/QuerySystem/QuerySystem/WindowGluing.lean",
+    "name": "no_sigma_extension",
+    "status": "proved-edge"
+   },
+   "scope": "countable alphabet, any pair-window graph (Lean: ring only); fails for uncountable alphabets"
+  },
+  {
+   "id": "thm.staircase_no_ideal",
+   "name": "staircase has no ideal point",
+   "status": "proved-hand",
+   "one_line": "u_k = p(x)p on every ring window: coherent on shared coordinates, every C_k true, but no ultrafilter on Omega (nor two-valued charge on the window-generated algebra) agrees, since the C_k have empty intersection.",
+   "detail": "pointless_coherence.tex (Proposition stair)",
+   "uses": [
+    "thm.basic"
+   ]
+  },
+  {
+   "id": "thm.countable_witness",
+   "name": "countable pointless witness, every L>=4",
+   "status": "proved-lean",
+   "one_line": "The staircase window ultrafilters extend to a two-valued finitely additive state on the whole glued carrier D_L over N^L; it is pointless and has no sigma-additive version. No owner found after 3 prior-art passes.",
+   "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
+   "lean": {
+    "file": "formalization/QuerySystem/QuerySystem/WindowGluing.lean",
+    "name": "sL_sigmaEssential",
+    "status": "proved-edge"
+   },
+   "scope": "L>=4, alphabet N",
+   "uses": [
+    "thm.staircase_no_ideal",
+    "thm.sigma_forces_points"
+   ],
+   "lean_also": [
+    "mu_cases",
+    "s₀_sigmaEssential"
+   ]
+  },
+  {
+   "id": "thm.literal_irreducible_L4",
+   "name": "literal irreducibility + six conjuncts (L=4)",
+   "status": "proved-lean",
+   "one_line": "The countable carrier D_4 has centre literally {empty, Omega} (the 'modulo countable' irreducibility is vacuous on countable Omega) and satisfies all six original admissibility conjuncts, Polish clause conditional on DWPolishCut as for the omega_1 witness.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Third-pass prior-art gate, costume found and fixed)",
+   "lean": {
+    "file": "formalization/QuerySystem/QuerySystem/WindowGluing.lean",
+    "name": "targetA_sharp_countable_literal",
+    "status": "proved-edge"
+   },
+   "lean_also": [
+    "D₄_six_conjuncts",
+    "ring4_centre_trivial"
+   ],
+   "scope": "L=4 only"
+  },
+  {
+   "id": "thm.shape_lemma",
+   "name": "locality: triangle-free (Helly windows) => star-sets",
+   "status": "proved-hand; machine-checked on finite alphabets (D=G iff triangle-free on 8 graphs)",
+   "one_line": "If the pair-window graph is triangle-free (windows a Helly family), every E in D is a disjoint union of window events on a star (windows sharing a common slot); states are determined by window ultrafilters, s(E)=sum u_w(E_w). Fails whenever there is a triangle.",
+   "detail": "pointless_coherence.tex (Lemma shape)",
+   "scope": "pair windows, triangle-free graph (trees, rings L>=4, bipartite graphs, ...)",
+   "check": "../verification/glued_helly_check.py"
+  },
+  {
+   "id": "thm.amalgamation",
+   "name": "ultrafilter amalgamation",
+   "status": "proved-hand",
+   "one_line": "Ultrafilters on XxY and YxZ with the same Y-marginal are the projections of one ultrafilter on XxYxZ (FIP argument).",
+   "detail": "pointless_coherence.tex (Lemma amalg)",
+   "owned_by": {
+    "cite": "folklore (ultrafilter / type amalgamation over trees); not located",
+    "region": "window-level gluing along acyclic structures",
+    "verified": "sec",
+    "detail": "pointless_coherence.tex (Lemma amalg, 'very likely folklore')"
+   }
+  },
+  {
+   "id": "thm.path",
+   "name": "no cycle, no pointless coherence (forests)",
+   "status": "proved-hand",
+   "one_line": "If the window graph is a forest, every state is an ideal point (tree amalgamation + locality).",
+   "detail": "pointless_coherence.tex (Theorem path)",
+   "uses": [
+    "thm.shape_lemma",
+    "thm.amalgamation"
+   ],
+   "scope": "pair windows on a forest"
+  },
+  {
+   "id": "obs.ring_forced_formula",
+   "name": "ring state is forced; s<=1 by hand",
+   "status": "proved-hand",
+   "one_line": "On rings L>=4 any state equals u_{k-1}(E_{k-1})+u_k(E_k); it never exceeds 1 (local 3-coordinate amalgamation). Remaining Lean content of mu_cases = global well-definedness + additivity. Weakens the hub's 'all novelty in mu_cases' rebuttal.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Structural simplification of mu_cases)",
+   "uses": [
+    "thm.shape_lemma",
+    "thm.amalgamation"
+   ]
+  },
+  {
+   "id": "obs.c0c1_not_in_D",
+   "name": "C_0 cap C_1 not in the ring carrier",
+   "status": "proved-hand",
+   "one_line": "{x_0<x_1<x_2} is not in D_L (its slice at x_1=c is not a cylinder): the missing intersection that thm.basic says pointlessness needs.",
+   "detail": "pointless_coherence.tex (The shape of the carrier, consequence)",
+   "uses": [
+    "thm.shape_lemma",
+    "thm.basic"
+   ]
+  },
+  {
+   "id": "fact.finite_alphabet_points",
+   "name": "finite alphabet: every state is a point",
+   "status": "proved-hand",
+   "one_line": "With a finite alphabet each window is a full power set, so states are points on windows and, by Dynkin uniqueness, everywhere. Pointlessness needs infinite alphabets; finite tests of the full carrier are uninformative.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, 2026-10-15)"
+  },
+  {
+   "id": "thm.flat_iff_ideal",
+   "name": "ideal point iff flat window family",
+   "status": "proved-hand",
+   "one_line": "On window graphs satisfying the shape lemma, a state is an ideal point iff its window family is flat; so pointless states = non-flat families passing the extension test.",
+   "detail": "pointless_coherence.tex (section 'What the proofs say')",
+   "uses": [
+    "thm.shape_lemma",
+    "thm.amalgamation",
+    "obj.window_family_flatness"
+   ],
+   "scope": "triangle-free pair-window graphs"
+  },
+  {
+   "id": "thm.loops_travel",
+   "name": "loops travel: induced cycles carry pointless states",
+   "status": "proved-hand (from Lean ring witness)",
+   "one_line": "If the window graph has an induced (chordless) cycle of length L>=4, pull back the ring-L staircase along psi (copy cycle coords, others constant): a pointless state over N with no sigma-additive version. Same transport: if the triangle carries one, every graph with a triangle does.",
+   "detail": "pointless_coherence.tex (Theorem 'loops travel'; section 'Why loops', paragraph 'Loops travel')",
+   "uses": [
+    "thm.countable_witness",
+    "thm.sigma_forces_points"
+   ],
+   "scope": "pair windows, countable alphabet; any graph with an induced cycle of length >= 4 (non-chordal)",
+   "lean_note": "analogous cycle-map transport is Lean (pullback, sL_sigmaEssential); graph form not yet in Lean"
+  },
+  {
+   "id": "obs.forced_functional",
+   "name": "extensions are forced on finitely built questions",
+   "status": "proved-hand",
+   "one_line": "Every buildable question has indicator f0+f1+f2 (window functions). On a triangle (and cycles) zero-sum triples are coboundaries + constants, so Lambda(f)=sum_k lim_{u_k} f_k is well defined for any compatible family; any extending state equals Lambda on finitely built questions. A family extends only if Lambda is {0,1}-valued there.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, correction)",
+   "scope": "triangle and cycles; finitely built questions only"
+  },
+  {
+   "id": "obs.cut_the_loop",
+   "name": "cut-the-loop decomposition: Lambda = ideal building + one-window twist",
+   "status": "proved-hand",
+   "one_line": "For any window k: Lambda(E) = W^(k)(E) + delta_k(E), W^(k) the ultrafilter gluing the other windows (cycle cut at k), delta_k(E) = commutator of iterated p-limits of E's window-k part (gauge-invariant, linear). So Lambda is 0/1 on any E twist-free on some window; failure needs same-sign twist on all windows. Twist = non-commutativity of p(x)p, made precise; W^(j)-W^(k) = delta_k - delta_j (cocycle).",
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, cut-the-loop)",
+   "uses": [
+    "obs.forced_functional",
+    "thm.amalgamation"
+   ],
+   "scope": "triangle and rings; finitely built questions"
+  },
+  {
+   "id": "thm.ring_conceptual",
+   "name": "rings: conceptual proof of the witness",
+   "status": "proved-hand (agrees with Lean; not cross-checked line by line)",
+   "one_line": "For L>=4, Lambda is a two-valued finitely additive state on the whole ring carrier: locality puts every question on two adjacent windows; cut at an untouched window m, so Lambda(E)=W^(m)(E) in {0,1}; Lambda linear. Explains (does not replace) the mu_cases case analysis; Lean remains the certificate; inherits the hand locality theorem.",
+   "detail": "pointless_coherence.tex (Theorem rings, conceptual proof)",
+   "uses": [
+    "thm.shape_lemma",
+    "obs.cut_the_loop"
+   ],
+   "scope": "rings L>=4, staircase family"
+  },
+  {
+   "id": "thm.navara_witness_not_buildable_Z",
+   "name": "Navara's K(0,0) is not buildable over Z (transport lemma)",
+   "status": "LEAN-CHECKED 2026-10-20 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: mem_pre, not_mem_of_restrict_inF, navaraK_not_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound)",
+   "one_line": "The triangle carrier over Z pulls back into the carrier over N along the coordinatewise inclusion (mem_pre). Hence any set over Z whose restriction lies in InF is unbuildable; in particular Navara's K(0,0) = {[x1<x0]+[x2<x1]-[x2<x0] = 1} (anticyclic off ties), the set that would expose the clocks' impossible point (Lambda = -1), is not in the carrier over Z.",
+   "uses": [
+    "thm.triangle_estar_not_built",
+    "gate.triangle_density_plus1"
+   ],
+   "scope": "triangle, values in Z; non-membership only (does NOT prove positivity of Lambda on the carrier)",
+   "detail": "cyclic_marginal/case_relativistic_triangle.md (check 4b, 4d)"
+  },
+  {
+   "id": "thm.transport_general",
+   "name": "Transport lemma (coordinatewise maps)",
+   "status": "LEAN-CHECKED 2026-10-21 (formalization/QuerySystem/QuerySystem/TransportGeneral.lean: mem_pre; 0 sorry; standard axioms)",
+   "one_line": "For any coordinatewise maps f_i : alpha -> beta, preimages of triangle-carrier sets over beta are carrier sets over alpha. Backbone of finite-quotient witnesses (mod n) and of pulled-back supplies in the cone(D) checks.",
+   "uses": [
+    "thm.navara_witness_not_buildable_Z"
+   ],
+   "scope": "triangle carrier generated by pair events, arbitrary value types",
+   "detail": "definitions_draft.md sections 16-20"
+  },
+  {
+   "id": "thm.problem3_pair_local",
+   "name": "Relations + relata (comparisons) build only pair-local questions",
+   "status": "PROVED for all n>=3: Lemma 1 (normal form contains the pair closure, TransportGeneral.PairNormalForm.closure_le_NF), Lemma 2 (indep_of_two_empty_rows) and Lemma 3 (pairLocal_meet) LEAN-CHECKED, 0 sorry; final assembly (induction over the three pair families) hand; exact n=3..7",
+   "one_line": "On the triangle with n>=3 ordered values, every set built from single-variable events and comparison events {<,=,>} by complement and disjoint union depends on one pair only, so it is blind to every twist; n=2 is the exception (J = D).",
+   "uses": [
+    "thm.transport_general"
+   ],
+   "scope": "triangle; comparison relations; n=3..7 exact",
+   "detail": "definitions_draft.md section 20"
+  },
+  {
+   "id": "thm.rxsx2_no_hiding",
+   "name": "Triangles with a binary variable hide no twist",
+   "status": "PROVED (hand, definitions_draft section 21); rectangle step LEAN-CHECKED (TransportGeneral.rect_mem: explicit 2x2x2 all-equal construction + transport); cylinder step and span algebra hand; exact cross-checks D = V01 at 2x3x4, 3x4x2, 2x2x5",
+   "one_line": "For sizes r x s x 2 every 0/1 vector in the span of pair indicators is buildable (D = V01); with compressedness (Ohsugi-Hibi: unimodular), every carrier state is a convex combination of point masses.",
+   "uses": [
+    "thm.transport_general",
+    "own.compressed_threshold"
+   ],
+   "scope": "triangle; one variable binary; any r, s",
+   "detail": "definitions_draft.md section 21"
+  },
+  {
+   "id": "thm.triangle_hiding_classification",
+   "name": "Triangle hides a probabilistic twist iff not compressed",
+   "status": "THEOREM modulo owned results (Sullivant 2006 Thm 2.4; Ohsugi-Hibi 2010 table; Maharam 1972 Thm 6.1) and finite exact enumerations (verification/rx3x3_row_types.py, rx3x3_exact.py); r x s x 2 rectangle step Lean (rect_mem); transport Lean for homogeneous types, hand for rectangular; prior-art pass on the combination pending",
+   "one_line": "Sort sizes r1>=r2>=r3. The triangle carrier has a state that is not a convex combination of point masses iff r2>=4 and r3>=3, i.e. iff the no-three-way-interaction polytope is not compressed. Compressed sizes (r x s x 2, r x 3 x 3) have D = V01.",
+   "uses": [
+    "thm.rxsx2_no_hiding",
+    "thm.transport_general",
+    "own.compressed_threshold"
+   ],
+   "scope": "triangle of pair views, finite value sets, probabilistic states",
+   "detail": "definitions_draft.md sections 16, 21, 22"
+  }
+ ],
+ "conjectures": [
+  {
+   "id": "conj.composition_law",
+   "name": "composition law: two forward windows force the third; the twist is the holonomy of composition",
+   "status": "TRIANGLE CASE LEAN-CHECKED 2026-10-19 (formalization/QuerySystem/QuerySystem/CompositionLaw.lean: glue_unique, glue_proj02, triangle_glues_iff; 0 sorry; standard axioms); loop/holonomy induction HAND. Prior art second pass: forcing lemma NOT FOUND (folklore risk high: Frolik sums + Goldberg pair lemma); holonomy corollary NOT FOUND, special cases classical - novelty, if any, is in the unification. Unread: Frolik 1967, Blass 1973/1977, Katetov 1968, Hindman-Strauss. Earlier: HAND, unverified (2026-10-19); reviewed once. Prior art: Goldberg JSL 2025 §3 Lemma 3.2 owns the pair-level fibre description; forward types = classical sums (Frolik, Blass); folklore risk HIGH; targeted pass owed. Lean target.",
+   "one_line": "Forward 2-type: fibred over its first coordinate by a family (u_a), with a member on which the second coordinate is finite-to-one back to the first (products drawn after, injective graphs, translations). If u01, u12 are forward, every amalgam is UNIQUE and projects to the composite u01 o u12 (an iterated sum) on (x0,x2). So the triangle is flat iff u02 = u01 o u12; around a loop with a forward path, flat iff the closing window equals the composite. Unifies: products (orientation, for orientations with a forward path), bijections (monodromy, automatically trivial for two-valued families by Katetov), sums (d02 = d01 + d12; NT1 twisted for every p). Open: non-forward / general amalgamations (Goldberg's boundary), alternating orientations.",
+   "detail": "theory_shape.md (2026-10-19: the composition law)",
+   "uses": [
+    "conj.cycle_of_beyond",
+    "conj.trianglefree_classification"
+   ]
+  },
+  {
+   "id": "q.lived_finite_probabilistic",
+   "name": "PRIORITY 1 (2026-10-18): a finite, probabilistic version of pointless coherence",
+   "status": "PARTLY ANSWERED 2026-10-18 (hand + certified computation): rings L>=4 any finite A: board states = locally consistent families (locality), so the board is blind and finite probabilistic pointless states exist exactly when local != joint (classical cycle territory, owned). Triangle: A=3 board states = mixtures of points RIGOROUSLY (2026-10-18): exact double description shows all 207 extreme rays of the cone {g in V : g >= 0} are multiples of 0/1 vectors (A=2: 16), validated by 300 independent LPs; with D = 0/1 span at A=3 (machine count) and LP duality, every board state is a mixture of points (verification/triangle_cone_extreme_rays.py). A=4 not computed (pure-Python DD reached 32k intermediate rays; quadratic adjacency step too slow; needs cdd/lrs and the A=4 board, which is unknown). A=4..7 the +1-mod-A family is killed by the buildable circle cyclic set (gate.finite_staircase_carrier). Conjecture: on the finite triangle the board sees every finite twist.",
+   "one_line": "When are local marginals on a web of relations consistent yet unrealisable (local vs marginal polytope), and does composition, not only cycles, govern it? The bridge from the idealised theory to real systems (belief propagation first).",
+   "detail": "order_without_a_centre.tex section 12; theory_shape.md Priorities",
+   "uses": []
+  },
+  {
+   "id": "q.lived_scale_beyond",
+   "name": "PRIORITY 2 (2026-10-18): scale as the source of 'beyond'",
+   "status": "RESCOPED 2026-10-18 on review: finite 'beyond' must wrap is a SINGLE-QUERY fact (with equal marginals P(up)=1-eps forces eps >= P(top); over N always-up forces mass to escape, H3). WITHDRAWN: the slogan 'finite twists are wraps, infinite twists are escapes' and 'renaming twists only in finite worlds' (a translation-invariant density charge makes +1 per flight consistent over N; on a ring it extends and is non-coherent) - the regime split is two-valued vs probabilistic. BOX-LIMIT LEMMA (hand, any graph): box limits of mixtures of points are coherent, so the loop's unit of down never escapes and idealised pointless states are box limits only of finite POINTLESS states. Rings have them (finite ring blind; near-staircases x_{k+1}=x_k+U mod N already non-joint), so their twist is finitely visible; the triangle has none IF finite triangle board = joint at every alphabet size along the limit (proven only A=3), so its pointless states are not box limits (scoped to box approximations). Ring extension of consistent query charges is near-immediate by locality. Earlier: HEURISTIC ONLY (downgraded on review 2026-10-18; the probe used a gauge family F_A, not order windows, and move counts are upper bounds that may just track set size): in a finite world the exposing (cyclic) question appears askable on the triangle, but its construction lengthens with the scale A (12, 20, 29, 39 moves for A=4..7) while its forced value tends to 2 = the value of E* on N. On N, 'beyond' = the limit in which the exposing question's construction diverges and it becomes unaskable (lift lemma). Scale separation makes contradictions longer to expose, never unaskable; infinity makes them unaskable. | REOPENED 2026-10-20: its box-limit conclusion was conditional on 'finite triangle board = joint at every alphabet size', which is FALSE at A=4 (definitions_draft section 16). Whether the triangle's infinite pointless states are box limits of finite pointless states is OPEN again.",
+   "one_line": "In the theory 'beyond every number' creates twist; in lived systems the analogue may be separation of scales. Make precise what a finite 'beyond' is and whether it carries twist and composition.",
+   "detail": "order_without_a_centre.tex section 12",
+   "uses": [
+    "conj.cycle_of_beyond"
+   ]
+  },
+  {
+   "id": "q.lived_dynamic_cycle",
+   "name": "PRIORITY 3 (2026-10-18): dynamics revisited - can a cycle in time carry coherence without a top?",
+   "status": "METAPHOR, NOT A RESULT (downgraded on review 2026-10-18; identifying times mod the period is a modelling choice and the covering forgets the loop; the real lizard orbit is a realisable point, only a forced global ranking would be pointless): a period-T dynamics observed in time-windows (t,t+1) has, modulo the period, the ring C_T as window graph; so a cycle in time can be modelled as a loop in the questions, and the ring/triangle theory applies (T=3, the lizards, = the triangle). Reconciles with the degeneracy lemma: motion alone only moves worlds; PERIODICITY creates the loop. The lizard order is a picture of a pointless state (local who-beats-whom coherent, global ranking absent), not an instance; not a theorem about population dynamics.",
+   "one_line": "The lizard cycle is a dynamic order with no top. The invariance lens was degenerate (detects motion, not impossibility); ask instead whether a cycle in time, rather than in the questions, can play the role of the loop.",
+   "detail": "order_without_a_centre.tex section 12; impossible_dynamics_seed.md",
+   "uses": [
+    "conj.impossible_dynamics"
+   ]
+  },
+  {
+   "id": "conj.cycle_of_beyond",
+   "name": "pointless coherence is exactly a cycle of 'beyond'",
+   "status": "REFUTED AS STATED 2026-10-17 (hand, unverified; gate.nontensor_sum_type fired (a)): an acyclic family of sum-type windows is twisted (for every non-principal p, by the composition law 2026-10-19). SUPERSEDED in content by conj.composition_law. Survives for tensor types (hand sketch). Provable narrower statement (hand): translation-type triangle (all windows law(a,a+d_ij), d drawn beyond) is flat iff d02 = d01 + d12 in (beta N,+). General 'cocycle in (beta Z,+) via difference map' = HEURISTIC only (a product window's difference law varies with the fibre).",
+   "one_line": "Every off-diagonal window 2-type decides {x_i < x_j} (an orientation, 'drawn beyond'); diagonal ones are gauge (renaming). Thesis: a consistent window family is twisted (non-amalgamable) iff, after contracting gauge windows, the orientations contain a directed cycle. Renaming, motion (group actions) and sigma-additivity never produce twist. If true, the twist invariant is acyclicity, not winding.",
+   "detail": "theory_shape.md (sections 4-5)",
+   "uses": [
+    "conj.trianglefree_classification",
+    "conj.triangle_extends_all"
+   ]
+  },
+  {
+   "id": "conj.triangle_extends_all",
+   "name": "the triangle carries every consistent window family",
+   "status": "open; TRUE for all 27 tensor-type families with one slot ultrafilter (hand + finite check, 2026-10-17)",
+   "one_line": "Every family of window ultrafilters on the triangle with consistent marginals extends to a state on D3 (so on every window graph, extension is never the obstruction and pointless = non-amalgamable). Evidence: for tensor types the only bad span patterns are cyclic/anticyclic off ties, which the Lean exclusion theorem removes. Twistedness checked mechanically: 14 twisted families (all have bad patterns, all cyclic/anticyclic), 13 flat (none); the 14 form 3 orbits under S3 (staircase; diag-diag-product; diag-product-product). Status of the 27-family claim: LEAN for one representative of each of the 3 S3-orbits of twisted families (staircase: triangle_pointless_state; diag-diag-product: triangle_ddp_pointless; diag-product-product: triangle_dpp_pointless; each = {0,1} on D3 + additive + normalised + window fidelity + no ultrafilter fits; 0 sorry, standard axioms; boxes generated by formalization/tools/gen_triangle_family.py); transport to the other 11 by coordinate permutations (which preserve D3) is HAND; flat families are ideal points (trivial). HAND SKETCH 2026-10-17 (unverified) closing it for tensor types: labelled Ramsey - build one increasing sequence with round-robin coordinate labels; a new element of label i only has to lie in finitely many p_i-large sets (every condition on it is a p_i-limit), so Q_i = label-i elements give per-coordinate homogeneity; box identities need elements with a prescribed label order, available since each Q_i is infinite; the lift lemma runs with betweenness witnesses from the other coordinates' sets after keeping every 4th element (all labels occur between kept ones). Graph windows reduce to equal ultrafilters by coordinate bijections. So conj.triangle_extends_all would hold for ALL tensor-type families; what remains open is NON-TENSOR 2-types (Blass/Puritz territory). Original note of the step: Ramsey yields one set per coordinate (P_i in p_i), but InP needs one common P - refactor layer 1 to coordinate-indexed Q_i subset P_i with lift betweenness witnesses drawn from the other coordinates sets, thinned jointly to interleave. Also open: non-tensor 2-dimensional ultrafilters.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Extension and classification)",
+   "uses": [
+    "thm.triangle_estar_not_built",
+    "thm.triangle_pointless"
+   ]
+  },
+  {
+   "id": "conj.trianglefree_classification",
+   "name": "on triangle-free graphs, pointless = failure of ultrafilter amalgamation",
+   "status": "open; (i) PROVED by hand 2026-10-17 (extension corollary of thm:star); (ii) hand sketch, unverified. Model-theory pass 2026-10-17 (sonnet, abstracts only): forests = folklore (tree amalgamation; BFMY finite analogue); oriented-cycle failure, directed-cycle classification, graph-monodromy flatness NOT FOUND; model theory owns n-amalgamation over models in stable/simple theories, not full types over (N, all subsets). Goldberg 2102.04677 READ (full text, 2026-10-17): 'amalgamation of (U,W)' = an ultrafilter on X x Y projecting to U and W (pairs only); main results concern countably complete ultrafilters under GCH/UA (when U x W = U (x) W, commutation); for ultrafilters on omega 'essentially never' commute; nothing on three or more factors, cycles or graphs - owns the 2-vertex notion only. Remaining gaps: Blass thesis, Puritz, Hindman-Strauss.",
+   "one_line": "(i) Every family of window ultrafilters with consistent slot marginals on a finite-degree triangle-free graph extends uniquely to a state (s(E) = sum of window values over a star decomposition; well-defined, two-valued, additive by locality). So the carrier drops out: states = consistent window families, pointless = the family does not amalgamate to one ultrafilter on X^V (ultrafilters on N^n = complete n-types over the full structure on N). (ii) Candidate invariant for tensor-type families: directed cycle of product orders after contracting bijection windows.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Extension and classification)",
+   "uses": [
+    "thm.star_locality"
+   ]
+  },
+  {
+   "id": "conj.invariant_any_cycle",
+   "name": "dichotomy = forest vs not",
+   "status": "open (evidence withdrawn 2026-10-16: sub-carrier not point-Helly)",
+   "one_line": "Pointless states exist iff the window graph is not a forest. Holds iff the triangle carries a pointless state (then every graph with a cycle does, by thm.loops_travel).",
+   "detail": "pointless_coherence.tex (Status and open questions)"
+  },
+  {
+   "id": "conj.invariant_cycle_ge4",
+   "name": "dichotomy = chordal vs not",
+   "status": "open",
+   "one_line": "Pointless states exist iff the window graph is not chordal (has an induced cycle of length >= 4). The 'if' direction is proved (thm.loops_travel); the 'only if' needs chordal graphs with triangles to have none. Expected if the triangle has none.",
+   "detail": "pointless_coherence.tex (Status and open questions)"
+  },
+  {
+   "id": "conj.forests",
+   "name": "forests: never pointless",
+   "status": "PROVED-hand 2026-10-16 (see thm.path)",
+   "one_line": "Proved: forests never pointless, via triangle-free locality (stars) + tree amalgamation.",
+   "detail": "pointless_coherence.tex (Status and open questions)",
+   "uses": [
+    "thm.shape_lemma",
+    "thm.amalgamation"
+   ]
+  },
+  {
+   "id": "conj.cohomological_classification",
+   "name": "target structure theorem",
+   "status": "target",
+   "one_line": "Pointless states correspond to non-flat compatible window families passing the extension test, with non-flatness measured by a first-cohomology-like invariant of the window graph, coefficients in ultrafilter orders (winding). Target, not a claim. FIRST CONCRETE FORM 2026-10-16: twist delta_k = commutator of iterated ultrafilter limits on window k; moving the cut changes W by delta differences (cocycle) - see obs.cut_the_loop.",
+   "detail": "self-contained; recorded 2026-10-16 from session discussion"
+  },
+  {
+   "id": "conj.wide_windows",
+   "name": "windows of 3+ coordinates",
+   "status": "open",
+   "one_line": "Rigidity weakens when non-adjacent windows overlap; what replaces 'acyclic' (Vorob'ev regularity?).",
+   "detail": "pointless_coherence.tex (Status and open questions)"
+  },
+  {
+   "id": "conj.deligne_lens",
+   "name": "Deligne-type completeness as the lens",
+   "status": "unchecked lens",
+   "one_line": "Deligne (SGA4): coherent toposes have enough points (= completeness for coherent logic, Makkai-Reyes). Is pointless coherence a failure of a Deligne-type theorem for probabilistic coherence? Raised 2026-10-16, no source read.",
+   "detail": "self-contained; unchecked, from session discussion 2026-10-16"
+  },
+  {
+   "id": "conj.extension_test",
+   "name": "which non-flat families extend",
+   "status": "open",
+   "one_line": "Which non-flat compatible window families extend to a state on the whole carrier? The staircase does (Lean). Does every non-flat family on a ring L>=4?",
+   "detail": "pointless_coherence.tex (Conjectures, item 4)"
+  },
+  {
+   "id": "conj.abstract_carriers",
+   "name": "abstract carriers (answers first all the way down)",
+   "status": "open",
+   "one_line": "Drop Omega: carriers as abstract question structures (orthoposets / test spaces); a state is representable if some concrete set representation makes it a point or ideal point. Does pointlessness survive with no background space? Stance owned (Foulis-Randall); classification would be new.",
+   "detail": "pointless_coherence.tex (Conjectures, abstract carriers)",
+   "owned_by": {
+    "cite": "Foulis-Randall test spaces (operational stance)",
+    "region": "answers-first stance itself",
+    "verified": "sec",
+    "detail": "../../covered_leads/probability_before_realism_owned.md"
+   }
+  },
+  {
+   "id": "conj.helly_transfer_bfmy",
+   "name": "Helly lens via Berge duality + BFMY",
+   "status": "partly realised 2026-10-16",
+   "one_line": "If the dual of the hypergraph of true questions is alpha-acyclic (conformal + chordal), pairwise intersection upgrades to the FIP, so the state is an ideal point. Would import BFMY/Vorob'ev machinery; candidate route to the forest case and beyond. REALISED differently: the useful Helly property is of the WINDOWS (triangle-free = Helly for pair windows), giving locality (thm.shape_lemma) and the forests theorem.",
+   "detail": "self-contained; from scout 2026-10-16"
+  },
+  {
+   "id": "conj.nerve_invariant",
+   "name": "nerve of true questions as the twist invariant",
+   "status": "open (evidence on examples)",
+   "one_line": "Nerve of the true window questions: die = K4 graph (Helly fails at 3), staircase L = boundary of a simplex S^{L-2} (fails at L), triangle = S^1. Reads twist consistently but does NOT decide extension. Transfer candidates: topological Helly (Kalai-Meshulam Leray numbers; Colin de Verdiere-Ginot-Goaoc). Compare with the Abramsky-Mansfield-Barbosa Cech obstruction before claiming.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, downgrade note)"
+  },
+  {
+   "id": "conj.triangle_twist_lemma",
+   "name": "triangle twist lemma",
+   "status": "PROVED-hand 2026-10-16 (six-orders profile argument)",
+   "one_line": "PROVED: Lambda in {0,1} on every finitely built triangle question. Profiles over the 6 drawing-order ultrafilters W_pi are constant or 'pair i before j' (closed under complement and disjoint union); Lambda = W^(k)+W^(j)-W^(jk) is 2 only on the 'staircase cyclic orientation' profile, which is not a pair condition. Open: countably built questions.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, cut-the-loop)",
+   "uses": [
+    "obs.cut_the_loop"
+   ]
+  },
+  {
+   "id": "conj.triangle_cyclic_set",
+   "name": "is the cyclic-orientation set in the triangle carrier over N?",
+   "status": "E* PART SETTLED 2026-10-17: E* is NOT in D (thm.triangle_estar_not_built, hand). Open remainder: other cyclic-profile sets (non-band, p-small perturbations).",
+   "one_line": "E* = {[x0<=x1]+[x1<x2]+[x2<x0]=2} lies in the span of window functions and has the cyclic profile, so it is not finitely built (six-orders). If no cyclic-profile set is in the Dynkin closure over N, s* is a pointless triangle state (gate (a)). If E* is in it (via countable unions), s* fails and the question moves to other extensions. Prior-art target: Dynkin (lambda-) systems generated by unions of sigma-algebras / sums of sigma-algebras. Scout 2026-10-16: no characterization found; closest = sigma-class integral-additivity school (Navara, Ptak, Gudder, Dravecky-Sipos); method template Keleti-Preiss. Next reads: Keleti-Preiss, Ptak-Pulmannova (shelf), Navara 1984/1989. NAVARA LINK: E*^c is Navara's two-of-three set K(a,b) for f=x1-x0, g=x2-x1 (Math. Slovaca 34 (1984)); his Lemma-1 chains decide membership from a one-sided-bounded base case, absent here; the question is whether a countable chain / monotone limit reaches one. ATOMICITY 2026-10-17 (finite checks + HAND sketch): E* is V-atomic - any zero-triple-interaction subset of E* is empty or E* (all integer boxes up to 8^3; definable carriers T=0,1, where the only finitely built subset of E* is empty). So E* can enter the carrier only as a complement. Its complement is NOT atomic (it contains the tie window events {x1=x2=c}, {x0=x2=c}); switching tie convention swaps the sides. Proof plan: OFF-TIE LEMMA (each of strict-cyclic, strict-anticyclic is atomic off the tie set, ties free) + least-rank argument over the family {cyclic or anticyclic mod ties} => no member in D, so E* not in D. OFF-TIE LEMMA RAN 2026-10-17 and FAILS at finite boxes (ties free => restricted rank 3 at M=3, all 12 strict points separate at M=4; finite-box evidence, not a refutation on N^3): it freed too much. SUPERSEDED by gate.triangle_thin_atomicity (L = window cells inside E*^c, hand-checked: {x1=x2}, {x0=x2}, {x0=x1+1}; E* contains no window cell). Scope: excludes the E* family only, not every cyclic-profile set.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, box transfer)",
+   "uses": [
+    "obs.cut_the_loop"
+   ]
+  },
+  {
+   "id": "conj.impossible_dynamics",
+   "name": "dynamics on impossible figures (SEED, parked until the triangle line settles)",
+   "status": "PARKED 2026-10-17 (user approved). Banked: locality with infinitely many slots, degeneracy lemma, slogan 'the twist lives in the loop, not the action'. Re-open only via finitely additive regularity (invariant charges with a measurability condition; Bhaskara Rao unread). Record: both probes fired; degeneracy lemma (hand): invariant ideal point exists iff the window family lives on the diagonal, so invariance detects motion not impossibility; the twist lives in the loop of the window graph, not in the group action; the regularity (measurable-height) version is owned (Anosov/Gottschalk-Hedlund/Schmidt). Earlier: seed ACTIVE (triangle settled): impossible_dynamics_seed.md; hand observations H1-H4 (invariant state on the Escher frieze via ring pullback; no invariant ultrafilter by Katetov; sigma-stationary impossible; circle eigenvalue) UNVERIFIED; owned-region scout 2026-10-17: PARTLY OWNED (Penrose H1, Katetov partition + folklore no-invariant-ultrafilter, Gottschalk-Hedlund, Anosov, Okay-Raussendorf, AMB sheaf H1, invariant means/Tarski), core NOT FOUND (invariant two-valued states on glued carriers with no invariant ideal point); snippets only; probes gate.dynamics_frieze_periodic, gate.dynamics_circle",
+   "one_line": "Replace the loop by an ergodic process: charts glued by a cocycle (height increment per step). Impossible = the cocycle is not a coboundary (no global height section; Penrose 1992 reads impossible figures as nonzero Cech H^1, cited from memory, not shelved). Expected trichotomy: point = coboundary / global section; sigma-additive invariant state obstructed (translation holonomy has no invariant probability); finitely additive invariant means exist iff no paradoxical decomposition (Tarski) = amenability, the analogue of the ultrafilter states. Seam guess: Penrose cohomology x amenability/cocycle ergodic theory. Hostile prior-art FIRST: Schmidt 1977 cocycles, Mackey range, essential values, Kesten.",
+   "detail": "impossible_dynamics_seed.md",
+   "uses": [
+    "thm.loops_travel"
+   ]
+  }
+ ],
+ "probes": [
+  {
+   "id": "gate.triangle_density_plus1",
+   "category": "gate",
+   "investigation": "Triangle over N with a translation-invariant density charge d (Banach limit; d+1 = d) and the probabilistic renaming loop x1 = x0+1, x2 = x1+1, x0 = x2+1 (locally consistent with charges; non-coherent). Is the forced functional Lambda >= 0 on the N triangle carrier, i.e. does the infinite carrier absorb a probabilistic RENAMING twist? (E* has Lambda = 2 here but is not buildable; Cyc_A has no N analogue.)",
+   "outcomes": [
+    {
+     "branch": "(a) Lambda >= 0 on the carrier",
+     "then": "the infinite triangle carries probabilistic renaming twists; the carrier absorbs them, unlike the finite triangle"
+    },
+    {
+     "branch": "(b) some buildable set gets Lambda < 0",
+     "then": "the infinite carrier sees renaming twists; the witness names how (new machinery beyond the lift lemma)"
+    }
+   ],
+   "progress": "2026-10-18 HAND (not fired): restricted to translation-invariant (difference) questions, 1_E = g0(u)+g1(v)+g2(w), u=x1-x0, v=x2-x1, w=-u-v, bounded parts, and Lambda = g0(1)+g1(1)+g2(1) = evaluation at the IMPOSSIBLE point u=v=w=1. Navara two-of-three sets reach Lambda=2 only on the E* family (not buildable, Lean); others give 0/1. Open: any buildable difference-question with Lambda<0 = Navara's two-sided-unbounded regime on Z^2 with three directions. Finite truncation cannot decide it (linear kernel g=c*u etc. shifts Lambda by 3c; only boundedness at infinity fixes Lambda). Connection: a translation-invariant density = an invariant mean of the shift, so this is ergodic Ramsey territory (Furstenberg correspondence, Hindman) - the dynamics supplies the ANSWERS, not a symmetry of the questions (re-links q.lived_dynamic_cycle). PRIOR ART (sonnet scout 2026-10-18, 8 searches, snippet-level): NOT FOUND for the specific question (positivity of the impossible-point evaluation / an invariant-mean state on the three-line-family Dynkin system of Z^2). Closest: Navara 1984 (Math. Slovaca 34) final Example on Z x N0 with f, g, f+g - a sigma-additive probability on the generated sigma-class with int(f+g) != int f + int g (unbounded integrands; our Lambda uses bounded decompositions, so no contradiction, but it shows forced linear functionals and states can part ways on three-direction classes); Bergelson-Ferre Moragues (arXiv 2003.03029) invariant-mean correspondence principle; FLRS 1990/91 (two directions); Kellerer/Vorob'ev/Shortt marginal problems. Discrete tomography checked 2026-10-18 (abstract level): Hajdu-Tijdeman 'Algebraic aspects of discrete tomography' - switching components (zero line sums in given directions) are integer combinations of the switching atom; for three directions the atom is the HEXAGON, i.e. the annihilator of our span V (our hexagon identity) - owns the finite linear algebra of V. Gardner-Gritzmann, Trans. AMS 349 (1997) 2271-2295: three X-ray directions do NOT determine convex lattice sets, four do. Neither asks positivity of a forced functional on the generated Dynkin system or anything infinite/finitely additive. Verdict for the density +1 question: NOT FOUND, open (snippet-level coverage). | 2026-10-20 HAND: reduced (transport lemma) to core Z1 (x1=x0, x2=x1, x0=x2+1, invariant mean on Z); every relativistic clock loop with nonzero holonomy maps to it (case_relativistic_triangle.md checks 3-4b). Difference sub-carrier: hidden, OWNED (Dravecky-Sipos 1980 Ex 6 on Z^2). Navara's K(0,0) has 1_K = 1{u<0}+1{v<0}-1{u+v<0}, Lambda = -1, and equals the ANTIcyclic set (complement of E* off ties; InF catches it; not buildable: Lean over N, hand over Z). Residual Z1-full (positivity on full D3 over Z^3) OPEN; leans hidden; any extension is genuinely probabilistic (no two-valued mixture).",
+   "pre_registered": "2026-10-18, before running (NOT RUN; one thread per checkpoint)",
+   "affects": {
+    "id": "q.lived_finite_probabilistic",
+    "effect": "probabilistic regime on the infinite triangle"
+   },
+   "detail": "theory_shape.md (box limits)",
+   "fired": {
+    "branch": "(b)",
+    "date": "2026-10-20",
+    "result": "VISIBLE. Finite-quotient witness: push the invariant mean through s -> s mod n (transport lemma). Core Z1 (x1=x0, x2=x1, x0=x2+1): W={x0 = x2 != x1 mod 2}, 1_W = 1/2[x0=x2] - 1/2[x0=x1] - 1/2[x1=x2] + 1/2, Lambda = -1/2 (hand + exact closure). Original +1,+1,+1 gate: {x0=x1=x2 mod 2}, Lambda = -1/2. Mod 3: 9-point witness, Lambda = -2/3, exact verification. Hence every relativistic clock loop with nonzero holonomy is visible (Tv). Machinery: finite quotients (residues) detect gauge/renaming holonomy; hiding needs order ('beyond') types no finite quotient preserves. Prior art owed (residual finiteness / profinite detection). Scripts: verification/z1_modn_witness.py, z1_mod3_verify.py. | CORRECTION 2026-10-20 (review): W is a joint-DIFFERENCE question, so the earlier 'difference sub-carrier hidden (D-S)' holds only on the single-difference class A_u u A_v u A_w. FORK: full carrier (gauge-dependent single-clock questions askable) => VISIBLE; gauge-invariant single-difference carrier => HIDDEN (D-S Dirac-pair state). Slogan 'only order twists can hide' WITHDRAWN as unscoped. Which carrier is physical = user's call."
+   }
+  },
+  {
+   "id": "gate.finite_chordal_line",
+   "category": "gate",
+   "investigation": "Finite alphabets, probability states on the board vs mixtures of points. (i) Rigorous at A=3 on the triangle (D = 0/1 span, machine-known): run the exact MILP min Lambda over all 216 bijection (gauge) families; expect min Lambda < 0 exactly for non-identity monodromy. (ii) Board vs joint on C4, on two triangles sharing an edge (diamond), and on K4, at A=2, enumerating D directly (not assuming D = 0/1 span).",
+   "outcomes": [
+    {
+     "branch": "(a) board = joint on chordal graphs (triangle, diamond, K4) and board = local on C4",
+     "then": "in the finite probabilistic regime the dividing line is CHORDAL vs NON-CHORDAL (Vorob'ev / junction-tree territory, owned on the finite side): the board fills triangles in; Part II's honest-distance section must say a loop with a shortcut behaves like a tree in the lived regime"
+    },
+    {
+     "branch": "(b) a chordal graph whose board polytope strictly exceeds the joint polytope",
+     "then": "finite pointless states survive shortcuts; the witness names how"
+    }
+   ],
+   "fired": {
+    "branch": "(a)",
+    "date": "2026-10-18",
+    "result": "(i) RIGOROUS at A=3 (D = 0/1 span known): over all 216 gauge families on the triangle, the board kills the family (min Lambda < 0) exactly when its monodromy is not the identity (180 killed, 36 identity, all realisable) - verification/finite_gauge_families_A3.py. (ii) A=2, D enumerated directly (all inside the span): C4 board polytope strictly exceeds joint, rigorous witness = windows x0 != x1, x1 != x2, x2 = x3, x3 != x0 (parity); diamond (|D|=148) and K4 (|D|=222): no non-mixture board state in 300 sampled vertices each (evidence) - verification/finite_chordal_line.py. Reading: in the finite probabilistic regime the dividing line is plausibly CHORDAL vs NON-CHORDAL: the board fills each triangle in as if the 3-window were present. Prior-art scout 2026-10-18 (sonnet, 7 searches, snippet-level): (a) triangle-free 'states on D = local polytope' = FOLKLORE as a polytope identity (local polytope / cycle inequalities: Vorob'ev 1962, BFMY 1983, Pitowsky 1991, Araujo et al. 2013 n-cycle) but NOT FOUND as a statement about the generated Dynkin carrier; (b) 'the triangle board fills in' / finite chordal line for generated carriers NOT FOUND (closest: De Simone-Navara-Ptak, Extending states on finite concrete logics, arXiv math-ph/0311012, Thms 2.3, 2.8, 2.9 - extension of states from finite concrete logics, a different question). Caveat: the classical chordal result is about CLIQUE marginals, not edge marginals + carrier. Weak negative; unread: Gudder/Tkadlec set-representable logics, Pulmannova-Dvurecenskij generated logics. | REVERSAL 2026-10-20: at A=4 the triangle HIDES a probabilistic twist: exact non-binary extreme ray of the non-negative pair-sum cone (values 0,1,2; rank 37 vs 36) => by Maharam 6.1 + separation a carrier state that is not a mixture (verification/triangle_A4_ray_verify.py). Finite chordal line holds only for small alphabets."
+   },
+   "pre_registered": "2026-10-18, before running",
+   "affects": {
+    "id": "q.lived_finite_probabilistic",
+    "effect": "where the finite dividing line falls"
+   },
+   "detail": "theory_shape.md (Session 2026-10-18)"
+  },
+  {
+   "id": "gate.finite_staircase_carrier",
+   "category": "gate",
+   "investigation": "Finite alphabet {0..A-1}, triangle, window family F_A: x_{k+1} = x_k + 1 mod A with uniform slots (locally consistent; no joint picture unless A | 3; any joint has sum_k P(flight not up) >= 1, F_A has 3/A). The forced linear functional Lambda on the span V of window functions is well defined. Is Lambda >= 0 on every 0/1 element of V (the carrier's questions; D = 0/1 elements of V is machine-checked at A=3 only)? Compute min Lambda over 0/1 elements of V by exact MILP for A = 3..6.",
+   "outcomes": [
+    {
+     "branch": "(a) min Lambda < 0 for some A",
+     "then": "the triangle's board SEES the finite twist: a buildable joint question gets negative probability; state-on-board polytope strictly inside the local polytope (contrast rings L>=4, where locality makes them equal). Record how the detecting set looks and how min Lambda scales with A (finite shadow of 'beyond')."
+    },
+    {
+     "branch": "(b) min Lambda >= 0 for all A tested",
+     "then": "the board cannot see the finite twist either; finite probabilistic pointless states exist on the triangle carrier; check whether this persists and why"
+    }
+   ],
+   "fired": {
+    "branch": "(a)",
+    "date": "2026-10-18",
+    "result": "MILP: min Lambda over 0/1 span elements = 0 (A=3, family realisable), -0.75 (A=4), -0.8 (A=5), -0.5 (A=6); the A=4 minimiser is span-atomic (no proper nonempty 0/1 span subset) and its buildability is undecided. Decisive instead: the circle cyclic set Cyc_A = {d01 + d12 + d20 = A} (d01 in 1..A, others in 0..A-1) is a 0/1 span element with forced value 2 - 3/A > 1, and it is BUILDABLE for A = 4,5,6,7 (certified beam-search constructions of 12, 20, 29, 39 moves: add a disjoint window cell / remove a contained cell / complement; upper bounds, not minimal). So the finite triangle board SEES the +1-mod-A twist: no probability state on the board extends F_A. CAVEAT (review 2026-10-18): F_A is a GAUGE (bijection-window) family with fixed-point-free monodromy +3 mod A, not an order family; and the move counts are beam upper bounds under a restricted move set. Scripts: verification/finite_staircase_carrier.py, finite_staircase_invariant_closure.py (shift-invariant closure too small: inconclusive), finite_cyclic_buildable.py."
+   },
+   "pre_registered": "2026-10-18, before running",
+   "affects": {
+    "id": "q.lived_finite_probabilistic",
+    "effect": "first finite datum: does the carrier detect twist with finitely many values"
+   },
+   "detail": "theory_shape.md (Priorities); verification/finite_staircase_carrier.py"
+  },
+  {
+   "id": "gate.nontensor_sum_type",
+   "category": "gate",
+   "investigation": "Triangle, slot ultrafilters from one non-principal p, with p+p = law of a+b for (a,b) ~ p(x)p. Windows: (x0,x1) = law of (a, a+b) [sum type, x1 beyond x0]; (x1,x2) = law of (y, y+c), y ~ p+p, c ~ p [sum type]; (x0,x2) = product p (x) (p+p+p), x0 first [independent]. Marginals consistent; orientation x0->x1->x2, x0->x2 is ACYCLIC. (i) Do the three 2-types amalgamate into one ultrafilter on N^3? (The natural candidate (a, a+b, a+b+c) gives the (x0,x2) window a SUM type, which differs from the product when p+p+p is not a translate of p+p.) (ii) If not: does the family still extend to a state on D3?",
+   "outcomes": [
+    {
+     "branch": "(a) twisted although acyclic",
+     "then": "conj.cycle_of_beyond FALSE as stated: 'beyond' has finer structure (how beyonds compose: the semigroup (beta N, +); owner candidates Hindman-Strauss). Refine the invariant to include composition. Then (ii) decides whether the board still absorbs the twist."
+    },
+    {
+     "branch": "(b) amalgamates",
+     "then": "evidence for conj.cycle_of_beyond (orientation is the whole invariant even for non-tensor types); look for a harder non-tensor family"
+    }
+   ],
+   "fired": {
+    "branch": "(a)",
+    "date": "2026-10-17",
+    "result": "STRENGTHENED 2026-10-19 by the composition law (hand): twisted for EVERY non-principal p (the forced (x0,x2) has fibres a+w; a product has constant fibres; equality would need two distinct translates a+w = a'+w, impossible). Original: HAND, unverified: for every non-principal p containing a set with gaps tending to infinity (exists in ZFC, e.g. p containing the squares), the three windows do NOT amalgamate although the orientation is acyclic. Witness: S in w=p+p, B={b: S-b in p}, X={(a,a+b): b in B} (window 01), Y={(y,y+c): c in C_y}, C_y = finite intersection of S-b over b in B, b<=y (window 12); X,Y force x2-x0 in S; Z={x2-x0 not in S} has value 1 in window 02 unless w = (-p+p)+w in beta Z; z=-p+p is non-principal; p right-cancellable (lacunary member; hand proof via disjoint translated tails) => w=p+p right-cancellable => z=0, contradiction. conj.cycle_of_beyond FALSE as stated. (ii) extension to D3: OPEN."
+   },
+   "pre_registered": "2026-10-17, before running",
+   "affects": {
+    "id": "conj.cycle_of_beyond",
+    "effect": "decides whether orientation is the whole twist invariant"
+   },
+   "detail": "theory_shape.md (section 8, NT1)"
+  },
+  {
+   "id": "gate.triangle_graph_windows",
+   "category": "gate",
+   "investigation": "Triangle over N with windows x1 = f(x0), x2 = g(x1) (graphs of bijections) and a product window on (x2,x0). By coordinatewise bijections (which preserve the carrier) WLOG f = g = id, all slots p: windows diagonal, diagonal, and p(x)p with x0 first. The family is twisted (the product gives the diagonal measure 0). Does it extend to a state on D3?",
+   "outcomes": [
+    {
+     "branch": "(a) extends",
+     "then": "the triangle carries graph-type twists too; evidence that every twisted family extends on the triangle"
+    },
+    {
+     "branch": "(b) does not extend",
+     "then": "the triangle carries only some twists; the obstruction (a buildable set with forced value 2 or -1) names what separates product-type from graph-type twist - carrier-specific content"
+    }
+   ],
+   "fired": {
+    "branch": "(a)",
+    "date": "2026-10-17",
+    "result": "Extends (HAND + finite check). Forced functional = W[01|2] + W[0|12] - W[0|1|2] (ordered-partition buildings, checked per window). Of the 32 tie-patterns allowed by all box identities, exactly 2 have Lambda outside {0,1}, and they agree on strict orders with the anticyclic / cyclic set; Lean not_inP_of_mem (window-family independent) + ultrafilter Ramsey over the 13 cells exclude them. GENERALISED: all 27 tensor-type families on the triangle (each window diagonal or product in either order, one slot ultrafilter p) pass the same check (verification/triangle_tensor_families.py) - every tensor-type family extends; the twisted ones give pointless states."
+   },
+   "pre_registered": "2026-10-17, before running",
+   "affects": {
+    "id": "conj.triangle_extends_all",
+    "effect": "whether extension is a real constraint once triangles are present"
+   },
+   "detail": "../delay_embedding/collision_vs_generation.md (Extension and classification)"
+  },
+  {
+   "id": "gate.trianglefree_extension_classification",
+   "category": "gate",
+   "investigation": "Triangle-free window graph of finite degree over N. (i) Does EVERY family of window ultrafilters with consistent slot marginals extend to a state (expected: yes, a corollary of thm:star; well-definedness across two star decompositions is the only issue)? (ii) For TENSOR-TYPE families (each window either p_i (x) p_j in one of its two orders, or the graph of a bijection, all slot ultrafilters non-principal): is the state pointless exactly when, after contracting the graph windows, the product windows' orders contain a directed cycle?",
+   "outcomes": [
+    {
+     "branch": "(a) (i) yes and (ii) yes",
+     "then": "extension is never the obstruction on triangle-free graphs; pointless <=> twisted <=> cyclic amalgamation of ultrafilters fails; for tensor types the invariant is 'directed cycle of product orders after contracting bijections' (an orientation invariant, not a winding number); the general case is the classification of 2-dimensional ultrafilters with given marginals"
+    },
+    {
+     "branch": "(b) (i) fails",
+     "then": "extension is a real constraint; the failing double-star set names the invariant"
+    },
+    {
+     "branch": "(c) (i) yes, (ii) fails",
+     "then": "the orientation invariant is wrong for tensor types; the counterexample names the missing datum (monodromy? Rudin-Keisler order?)"
+    }
+   ],
+   "pre_registered": "2026-10-17, before running",
+   "affects": {
+    "id": "conj.trianglefree_classification",
+    "effect": "classification on triangle-free graphs (note's open item: which twisted families extend)"
+   },
+   "detail": "../delay_embedding/collision_vs_generation.md (to be added: Extension and classification)"
+  },
+  {
+   "id": "gate.dynamics_frieze_periodic",
+   "category": "gate",
+   "investigation": "Z-line, windows {n,n+1}, window states p(x)p going up. Does every shift-invariant state on the carrier factor through a ring of some length L via the periodic embedding?",
+   "outcomes": [
+    {
+     "branch": "(a) yes",
+     "then": "CE1 supported: equivariant pointlessness = pointlessness of quotients; dynamics reduces to loops (look for an owner in covering-space terms)"
+    },
+    {
+     "branch": "(b) no",
+     "then": "CE2: aperiodic invariant states exist; classify them (twist without a finite loop)"
+    }
+   ],
+   "fired": {
+    "branch": "(a)",
+    "date": "2026-10-17",
+    "result": "(a) trivially: locality survives infinitely many slots (L-infinity, hand), so window values determine states on the line; the staircase state is unique and equals every ring pullback. General invariant states <-> constant consistent families; factoring through ring L <=> extension on ring L (the open triangle-free extension question)."
+   },
+   "pre_registered": "2026-10-17, before running",
+   "affects": {
+    "id": "conj.impossible_dynamics",
+    "effect": "decides whether dynamics adds anything beyond loops"
+   },
+   "detail": "impossible_dynamics_seed.md (P1)"
+  },
+  {
+   "id": "gate.dynamics_circle",
+   "category": "gate",
+   "investigation": "Slots = circle points, windows {x, x+alpha} (alpha irrational), steps up. Does a rotation-invariant state exist on the carrier, and is it equivariantly pointless? First check which theorems survive infinitely many slots (locality; forests via compactness).",
+   "outcomes": [
+    {
+     "branch": "(a) yes",
+     "then": "a genuinely ergodic impossible figure"
+    },
+    {
+     "branch": "(b) no",
+     "then": "the obstruction is sigma-like even for finite additivity; the reason is the next object"
+    }
+   ],
+   "fired": {
+    "branch": "(a)",
+    "date": "2026-10-17",
+    "result": "(a) as stated (invariant state exists, unique; no invariant ideal point) BUT the branch reading is defeated: degeneracy lemma (hand) - an invariant ideal point exists iff u(diagonal)=1, so equivariant pointlessness also holds for possible figures (u = (a -> (a,a+1))_* q). Invariance detects motion, not impossibility."
+   },
+   "pre_registered": "2026-10-17, before running",
+   "affects": {
+    "id": "conj.impossible_dynamics",
+    "effect": "ergodic version"
+   },
+   "detail": "impossible_dynamics_seed.md (P2)"
+  },
+  {
+   "id": "gate.triangle_lambda2_agreement",
+   "category": "gate",
+   "investigation": "Does every 0/1 function with zero box interaction and Lambda = 2 agree with E* off B_n u {min coordinate <= n} for some n? (Stated via Lambda, not the profile.) Probe two ways: (i) hand: on a slice x0 = a a zero-interaction deviation is v(x1)+w(x2); does the 0/1 constraint force it trivial for large x1, x2? (ii) compute: at definable levels T=0,1 enumerate 0/1 span elements with Lambda = 2 and compare them with E* on far atoms. Risk: deviations on p-small unbounded slices (e.g. x0 odd) escape both exceptional sets.",
+   "outcomes": [
+    {
+     "branch": "(a) yes",
+     "then": "with the strengthened lift lemma no Lambda=2 set is in D, so Lambda = s* is a pointless state on the triangle; by loops-travel pointless <=> not a forest; gate.triangle fires (a)"
+    },
+    {
+     "branch": "(b) no",
+     "then": "the counterexample is the next membership candidate; test it against the lift lemma or construct it in D (s* fails)"
+    }
+   ],
+   "pre_registered": "2026-10-17, before running",
+   "fired": {
+    "branch": "(b)",
+    "date": "2026-10-17",
+    "result": "Leg (ii) (definable-level computation) NOT RUN: at definable levels Lambda is fixed by the far strict atoms, so agreement with E* there is automatic - uninformative. Leg (i) by hand: witness F_S = E* + [x0 in S]([x1<x0]-[x2<x0]) (0/1, sum of window functions; {x1<x2} on slices x0 in S): Lambda = 2 for p-small S, deviates on the unbounded non-band region. Route changed: the homogeneous-set family F_inf (infinite P, agree with C or A on distinct points of P^3) catches every bad-profile set via the ultrafilter proof of Ramsey (any non-principal p); HAND, unverified - see hub."
+   },
+   "affects": {
+    "id": "gate.triangle",
+    "effect": "decides the triangle"
+   },
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, Theorem E* is not in the carrier, Scope)"
+  },
+  {
+   "id": "gate.triangle_thin_atomicity",
+   "category": "gate",
+   "investigation": "Let L = {x1=x2} u {x0=x2} u {x0=x1+1} (exactly the window cells inside Y = E*^c; hand-checked). (A) Is every zero-interaction function supported in Y constant on Y minus L? (B) Is every zero-interaction function supported in E* u L constant on E*? Checked on inner boxes [0,M)^3 inside [0,M+k)^3, exact rank over two primes.",
+   "outcomes": [
+    {
+     "branch": "(a) both pass for every M tested",
+     "then": "hand-prove A and B by propagation across 2x2x2 boxes; with them a least-rank argument over the family F = {Z: Z delta Y within L, or Z delta E* within L} (closed under complement, no generator, pieces containing a generic point stay in F) gives: no member of F is in the carrier, so E* is not in D. Advances conj.triangle_cyclic_set; does NOT by itself fire gate.triangle (other bad-profile sets)."
+    },
+    {
+     "branch": "(b) some check fails",
+     "then": "the failing kernel vector names the next member the family needs (enlarge L or F) - finite-box fail is evidence only, not a refutation on N^3"
+    }
+   ],
+   "pre_registered": "2026-10-17, before running",
+   "fired": {
+    "branch": "(b)",
+    "date": "2026-10-17",
+    "result": "A passes (M=3); B fails with rank 9 = exactly the window cells inside E* u L (Navara chain at the interaction level). Family enlarged to finite bands B_n = {min gap <= n}; the enlarged route is PROVED by hand (lift lemma: constancy on C minus B_{2n+1}), giving thm.triangle_estar_not_built."
+   },
+   "affects": {
+    "id": "conj.triangle_cyclic_set",
+    "effect": "proof route for E* not in D"
+   },
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, E* cannot be split); script verification/triangle_offtie_atomicity.py"
+  },
+  {
+   "id": "gate.triangle",
+   "category": "gate",
+   "investigation": "Does the glued triangle (L=3, alphabet N) carry a pointless state extending the staircase u_k = p(x)p?",
+   "outcomes": [
+    {
+     "branch": "(a) the triangle carries a pointless staircase state",
+     "then": "every non-forest graph carries one (loops travel); dichotomy = forest vs not (conj.invariant_any_cycle); matches pairwise-MRF tightness (Wainwright-Jordan)"
+    },
+    {
+     "branch": "(b) it does not",
+     "then": "supports chordal vs non-chordal (conj.invariant_cycle_ge4); still needs chordal graphs with triangles to have none; matches the junction-tree / Vorob'ev pattern"
+    }
+   ],
+   "fired": "pending",
+   "evidence": "NECESSARY CONDITION HOLDS (2026-10-16). Any extension must equal the forced functional Lambda(f)=sum_k lim_{u_k} f_k on finitely built questions (well defined: zero-sum window triples are coboundaries + constants). Lambda is {0,1}-valued on all definable finitely built triangle questions: T=0 430 sets, T=1 74,738 sets, 0 bad (verification/triangle_forced_functional.py). The ring-sweep's L=3 failure is on a non-buildable 0/1 function. Untested: countably built questions (value not forced by finite additivity). The earlier 'not point-Helly' downgrade was over-corrected: the oracle tested forced values, not an arbitrary finite state. Refutation hunt 2026-10-16 (triangle_lambda_hunt.py, 20 min/level): none at T=2,3,4 (~0.5M buildable questions each, ~250k true). UPDATE: the finitely-built necessary condition is now PROVED (six-orders argument); the gate turns entirely on countably built questions. Verified on carriers: profiles constant/half and the three-building identity hold on all T=0 (430) and T=1 (74,738) sets. DICHOTOMY: s*=W^(k)+W^(j)-W^(jk) is a pointless triangle state iff every full-carrier set has constant/half profile. Slice probe at A=3: only 14/512 slices {x0=a}xS are buildable, so the 'carrier = P(N^3)' route to (b) is closed there.",
+   "affects": {
+    "id": "conj.invariant_any_cycle",
+    "effect": "decides between the two invariant conjectures"
+   },
+   "detail": "../delay_embedding/collision_vs_generation.md (Ring sweep; Triangle probe 2026-10-15)",
+   "check": "../verification/window_gluing_cyclic_order_triangle.py",
+   "amended": "2026-10-16: outcomes re-stated after thm.loops_travel (pre-registration of the decision, not a result)"
+  },
+  {
+   "id": "gate.triangle_box3",
+   "category": "gate",
+   "investigation": "Does any set in the ternary triangle carrier (A=3, 15,914 sets) contain all three rotations (0,1,2),(1,2,0),(2,0,1) and none of the reversals (0,2,1),(1,0,2),(2,1,0)?",
+   "outcomes": [
+    {
+     "branch": "(a) none does",
+     "then": "no set of the triangle carrier over N has a bad profile (box-restriction transfer), so Lambda = s* is a pointless state on the triangle, in ZFC, for any non-principal p; by loops-travel, pointless <=> not a forest; gate.triangle fires (a)"
+    },
+    {
+     "branch": "(b) some set does",
+     "then": "inconclusive at the 3-box; escalate to a 4-box search; the construction tree is a candidate to lift to N"
+    }
+   ],
+   "fired": {
+    "branch": "(a)",
+    "date": "2026-10-17",
+    "result": "Triangle pointless: thm.triangle_pointless (Lean). Assembled with loops-travel and forests (hand): pointless <=> not a forest. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean. AWAITING USER REVIEW (not auto-updated): conj.invariant_any_cycle (dichotomy = forest vs not) - the fired gate bears on it."
+   },
+   "pre_registered": "2026-10-16, before running",
+   "affects": {
+    "id": "gate.triangle",
+    "effect": "decides the triangle"
+   },
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, box transfer)"
+  },
+  {
+   "id": "gate.case1b_depth_types",
+   "category": "lived case probe",
+   "investigation": "Stations log decades-of-rarity n_i (unbounded only in the continuum idealisation); two-valued reports = ultrafilter limits of (n_i,n_j) along own time ultrafilters. Outcomes A/W/Tv/Th/Stuck.",
+   "outcomes": {
+    "A": "case pushes back: idealisation creates no pointlessness",
+    "W": "as A, stronger",
+    "Tv": "composition law applies to dynamical types (conj.composition_law)",
+    "Th": "infinity alone hides the twist; regime (ii) meets experience",
+    "Stuck": "non-forward types: concrete instance of the open edge"
+   },
+   "fired": null,
+   "pre_registered": "2026-10-19",
+   "affects": [
+    "conj.composition_law"
+   ],
+   "detail": "cyclic_marginal/case_heteroclinic_depths.md; finite case 1 = regime (i), owned"
+  },
+  {
+   "id": "gate.order_relational",
+   "category": "gate",
+   "investigation": "Relational carrier for ORDER: R_ord = Dynkin closure (on the 13 weak orders of (x0,x1,x2)) of the pairwise comparison events {xi<xj},{xi=xj},{xi>xj}. Family: no ties, P(x0<x1)=P(x1<x2)=P(x2<x0)=q. Random ranking exists iff 3q <= 2 (linear ordering polytope, owned). Question: for q > 2/3, is the forced comparison functional a state on R_ord (relational questions blind to the Condorcet cycle)? Relata counterpart: realise the same comparison laws with values (e.g. rotation x_{i+1}=x_i+1 mod n, q=(n-1)/n) on the full carrier D3, where finite triangles see twists.",
+   "outcomes": {
+    "(a) R_ord-state for some q > 2/3": "relations-vs-relata duality extends from gauge to order: comparison questions cannot see a Condorcet cycle that value (relata) questions can",
+    "(b) R_ord sees every q > 2/3": "duality is gauge-specific; for order, relations already see the cycle"
+   },
+   "fired": {
+    "branch": "(a)",
+    "date": "2026-10-20",
+    "result": "Exact (verification/order_relational_check.py): R_ord has only 20 sets = the union of the three pair-comparison algebras (cross-pair nonempty comparison events always meet: Dravecky-Sipos condition (2)), so EVERY pairwise-consistent comparison family is a relational state; min forced value 0 for q = 2/3, 3/4, 9/10, 1. Relational questions are blind to the Condorcet cycle at every strength, including the strict cycle q = 1. Relata side: the rotation family x_{i+1} = x_i + 1 mod 4 (q = 3/4) is visible on the full carrier via the mod-2 parity witness (transport mod 4 -> mod 2); the strict two-valued staircase over N stays hidden even with relata (Lean). Caveat: the relational blindness is CHEAP (union class, no cross-pair constructions); the content of the duality sits on the relata side."
+   },
+   "pre_registered": "2026-10-20, before running",
+   "affects": [
+    "definitions_draft section 14 candidate"
+   ],
+   "detail": "definitions_draft.md section 14; verification/order_relational_check.py"
+  }
+ ],
+ "examples": [
+  {
+   "id": "ex.navara_ptak_six",
+   "name": "six points, pointless but harmless",
+   "status": "settled",
+   "one_line": "Omega={1..6}, M1={1,2,3}, M2={3,4,5}, M3={5,6,1}, M4={2,4,6}: carrier {0,Omega,M_i,M_i^c}; s(M_i)=0 is a non-point state, automatically sigma-additive (finite).",
+   "detail": "pointless_coherence.tex (Pointlessness alone is cheap)",
+   "owned_by": {
+    "cite": "Navara-Ptak, Cas. pest. mat. 108 (1983)",
+    "region": "finite pointless states on sigma-classes",
+    "verified": "read",
+    "detail": "../delay_embedding/collision_vs_generation.md (Third-pass prior-art gate)"
+   }
+  },
+  {
+   "id": "ex.binary_triangle_loop_sets",
+   "name": "binary triangle: 'are all three equal?'",
+   "status": "settled",
+   "one_line": "Binary triangle carrier has 70 sets; the 4 beyond adjacent-pair unions are {000,111},{011,100},{001,110},{010,101} - each the complement of a union of window events, not one itself.",
+   "detail": "../verification/triangle_loop_questions.py",
+   "scope": "alphabet=2"
+  },
+  {
+   "id": "ex.ternary_loop_sets_2088",
+   "name": "ternary triangle: genuinely loop-only questions",
+   "status": "settled",
+   "one_line": "Ternary triangle carrier: 15,914 sets; 'all equal' is NOT in it; 2,088 sets with neither E nor its complement a union of window events; simplest is a 9-point cyclic step pattern mod 3.",
+   "detail": "../verification/triangle_loop_questions.py",
+   "scope": "alphabet=3"
+  }
+ ],
+ "owned_regions": [
+  {
+   "id": "own.dravecky_sipos_flight_subcarrier",
+   "name": "sigma-additive pointless two-valued states on a union sigma-class of pairwise-meeting observables",
+   "status": "owned",
+   "one_line": "If all nonempty preimages of f, g, f+g pairwise meet, A_f u A_g u A_{f+g} is already a sigma-class, carrying sigma-additive non-point two-valued states. Applies to the flight functions d0, d1 (d0+d1 = -d2) on N^3: a sub-carrier of the triangle carrier. These states do NOT extend to D3 (sigma-additive two-valued states on D3 are Dirac on each window and glue to a point; generator uniqueness). The triangle theorem's content is extension of a pointless state to the full lambda-closure, necessarily finitely additive.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, audit 2026-10-17)",
+   "owned_by": {
+    "cite": "Dravecky-Sipos, Math. Slovaca 30 (1980) 299-303, Example 6",
+    "region": "pointless sigma-additive states on the flight sub-carrier",
+    "verified": "full text read (audit 2026-10-17)"
+   }
+  },
+  {
+   "id": "own.navara_two_of_three",
+   "name": "explicit sigma-class C_{f,g} with a one-sided-bounded generator",
+   "status": "owned",
+   "one_line": "Navara's Lemma 1-3 chains describe C_{f,g} (e.g. on Z x N0: A_f u A_g u A_{f+g} u K u K* u L u L*) and concentration of two-valued sigma-additive states, when one generator is bounded on one side. The triangle sits exactly in the regime with no base case (two-sided unbounded differences).",
+   "detail": "../delay_embedding/collision_vs_generation.md (Navara connection)",
+   "owned_by": {
+    "cite": "Navara, Math. Slovaca 34 (1984), Theorem and Lemmas 1-3",
+    "region": "C_{f,g} membership with a bounded generator",
+    "verified": "full text read (shelf)"
+   }
+  },
+  {
+   "id": "own.coherence_extension",
+   "name": "extendability of finitely additive states on Dynkin systems",
+   "status": "owned",
+   "one_line": "A finitely additive state on a Dynkin system extends to the power set iff it is coherent. For two-valued states: ideal point = coherent/extendable; pointless = non-coherent. Standard names to use: point = concentrated (Dirac) state; ideal point = coherent state; pointless = non-coherent two-valued state; glued carrier = sigma-class generated by coordinate sub-sigma-algebras; window graph = marginal scheme / measurement cover.",
+   "detail": "audit 2026-10-17",
+   "owned_by": {
+    "cite": "Bhaskara Rao & Bhaskara Rao, Theory of Charges (1983) Thm 3.2.10; via Derr-Williamson arXiv:2302.03522",
+    "region": "extension of finitely additive states on Dynkin systems",
+    "verified": "secondary (book body not opened)"
+   }
+  },
+  {
+   "id": "own.ultrafilter_products",
+   "name": "ultrafilter product non-commutativity and ultrafilter Ramsey",
+   "status": "owned",
+   "one_line": "p(x)p is non-commutative (the finitely additive X<Y vs Y<X paradox; Dubins, Schervish-Seidenfeld-Kadane); ultrafilter Ramsey for triples is textbook. Ingredients of the triangle proof, not its result.",
+   "detail": "audit 2026-10-17",
+   "owned_by": {
+    "cite": "Goldberg, JSL 2022 (arXiv:2102.04677); Hindman-Strauss, Algebra in the Stone-Cech Compactification",
+    "region": "p(x)p non-commutativity; ultrafilter Ramsey",
+    "verified": "secondary"
+   }
+  },
+  {
+   "id": "own.cycle_vertices_fixed_L",
+   "name": "contextual vertices of cycle scenarios",
+   "status": "owned",
+   "one_line": "At fixed L the contextual vertices of the n-cycle are exactly k-order cycle distributions (= layer-injective winding-k cycles); the flagship's fixed-L winding criterion is a corollary.",
+   "detail": "cyclic_marginal_scoping.md (4a')",
+   "owned_by": {
+    "cite": "Kharoof-Ipek-Okay arXiv:2406.19961 Thm 4.4; Barrett et al. PRA 71 (2005); Araujo et al. PRA 88 (2013) Thm 2",
+    "region": "cycle obstruction, sigma-additive/finite, fixed length",
+    "verified": "read",
+    "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md"
+   }
+  },
+  {
+   "id": "own.abklm_vertex_form",
+   "name": "vertices = deterministic + min-support strongly contextual",
+   "status": "owned",
+   "one_line": "In any scenario the no-signalling polytope's vertices split into local deterministic and minimal-support strongly contextual models.",
+   "detail": "cyclic_marginal_scoping.md (4a)",
+   "owned_by": {
+    "cite": "Abramsky-Barbosa-Kishida-Lal-Mansfield, J. Math. Psych. (2016), Prop 6.3",
+    "region": "logical form of 'unsafe iff a strongly contextual support exists'",
+    "verified": "read",
+    "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md"
+   }
+  },
+  {
+   "id": "own.vorobev_acyclic",
+   "name": "acyclic structures always extend",
+   "status": "owned",
+   "one_line": "Every consistent family on a regular (alpha-acyclic) complex extends; cycles are the only obstruction.",
+   "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md",
+   "owned_by": {
+    "cite": "Vorob'ev 1962; Beeri-Fagin-Maier-Yannakakis 1983",
+    "region": "acyclic, sigma-additive",
+    "verified": "sec",
+    "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md"
+   }
+  },
+  {
+   "id": "own.howson_compactness",
+   "name": "coherence has compactness; sigma-additivity lacks it",
+   "status": "owned",
+   "one_line": "De Finetti coherence has a completeness/compactness theorem; sigma-additivity does not ('missing completeness theorem').",
+   "detail": "../../unsorted/foundations/ce_nonderivability/ce_taxonomy.json (concept.howson)",
+   "owned_by": {
+    "cite": "Howson, BJPS (2008)",
+    "region": "infinity obstruction on Boolean algebras",
+    "verified": "sec",
+    "detail": "../../unsorted/foundations/ce_nonderivability/ce_taxonomy.json"
+   }
+  },
+  {
+   "id": "own.definetti",
+   "name": "finite additivity as the coherent level",
+   "status": "owned",
+   "one_line": "Coherence forces finite additivity only; sigma-additivity is a further idealization.",
+   "detail": "../../covered_leads/probability_before_realism_owned.md",
+   "owned_by": {
+    "cite": "de Finetti 1937/1974; Dubins-Savage; Bhaskara Rao & Bhaskara Rao 1983",
+    "region": "Boolean finitely additive states",
+    "verified": "sec",
+    "detail": "../../covered_leads/probability_before_realism_owned.md"
+   }
+  },
+  {
+   "id": "own.greechie_loop",
+   "name": "order-3 loops are special",
+   "status": "neighbour",
+   "one_line": "Pasting of Boolean blocks is an OMP iff no loop of order 3, an OML iff none of order 3 or 4. Same shape as the triangle exception to the shape lemma; there blocks share atoms, here coordinate subalgebras.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Structural simplification of mu_cases)",
+   "owned_by": {
+    "cite": "Greechie 1971 Loop Lemma, via Kalmbach, Orthomodular Lattices (1983) Sec 4 Lemma 9",
+    "region": "pasting shape of carriers (not states)",
+    "verified": "read",
+    "detail": "../../literature_review/literature/kalmbach_1983_orthomodular_lattices.pdf"
+   }
+  },
+  {
+   "id": "own.cv_sheaves_sigma",
+   "name": "continuous-variable sheaf contextuality",
+   "status": "neighbour",
+   "one_line": "Measurable-outcome sheaf framework presupposes sigma-additive measures; the finitely additive gap is outside its scope.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Third-pass prior-art gate)",
+   "owned_by": {
+    "cite": "Barbosa-Douce-Emeriau-Kashefi-Mansfield arXiv:1905.08267",
+    "region": "cycle obstruction with infinite outcomes, sigma-additive",
+    "verified": "read",
+    "detail": "../delay_embedding/collision_vs_generation.md"
+   }
+  },
+  {
+   "id": "own.pivato_shift_invariant",
+   "name": "shift-invariant extension from window marginals",
+   "status": "neighbour",
+   "one_line": "On Z the single-window problem is trivial (Markov); periodic extension only open-ball sufficiency. No contextuality layer.",
+   "detail": "cyclic_marginal_scoping.md (3)",
+   "owned_by": {
+    "cite": "Pivato, Canad. J. Math. 53 (2001)",
+    "region": "shift-invariant, sigma-additive, single window",
+    "verified": "read",
+    "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md"
+   }
+  },
+  {
+   "id": "own.helly_hypergraphs",
+   "name": "Helly property / Berge duality / acyclicity",
+   "status": "owned (framing)",
+   "one_line": "The Helly property of a set family, Berge duality (Helly iff dual conformal; DS17 Thm 4.1, 6.8) and BFMY (acyclic iff conformal+chordal iff pairwise-consistent => globally consistent). The 'Helly lens' on true questions is a re-description in these terms.",
+   "detail": "self-contained; scout 2026-10-16 (session report)",
+   "owned_by": {
+    "cite": "Berge 1989; Dourado-Protti-Szwarcfiter, Electron. J. Combin. DS17; Beeri-Fagin-Maier-Yannakakis 1983",
+    "region": "Helly/conformal combinatorics of set families; pairwise-to-global consistency",
+    "verified": "read",
+    "detail": "self-contained (DS17 text read by scout)"
+   }
+  },
+  {
+   "id": "own.jauch_piron_covering",
+   "name": "Jauch-Piron states; covering properties of concrete logics",
+   "status": "neighbour",
+   "one_line": "Jauch-Piron state: s(a)=s(b)=1 => some c<=a,b with s(c)=1 (pairwise lower bound). Tkadlec's n-/finite covering properties (A cap B a union of <=n elements) as Boolean-ness criteria. Closest concrete-logic neighbour of point-Helly; relation untested.",
+   "detail": "self-contained; scout 2026-10-16",
+   "owned_by": {
+    "cite": "Tkadlec, Math. Bohemica 123 (1998) 213-218; Navara-Ptak (Jauch-Piron question)",
+    "region": "pairwise-to-joint upgrades for states on concrete logics",
+    "verified": "sec",
+    "detail": "self-contained (Tkadlec 1998 read by scout; others via snippets)"
+   }
+  },
+  {
+   "id": "own.sigma_class_integral_additivity",
+   "name": "sigma-classes and additivity of the Gudder integral",
+   "status": "neighbour (closest literature)",
+   "one_line": "Czech/Slovak sigma-class school: two-valued states on sigma-classes generated by observables f, g, f+g; additivity of the integral holds for finitely valued observables (Navara-Ptak 1983 Thm 2) and can fail for integer-valued ones (Dravecky-Sipos 1980). The triangle question is the three-generator, infinite-range case of this problem: Lambda two-valued on the generated class is additivity of the integral for f01+f12+f20. Navara-Ptak's six-point example (our sandwich shop) is literally their three-generator counterexample. No characterization of the generated class found; nothing decides E*.",
+   "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe)",
+   "owned_by": {
+    "cite": "Gudder, Proc. AMS 21 (1969); Dravecky-Sipos, Math. Slovaca 30 (1980); Navara-Ptak, Cas. pest. mat. 108 (1983); Chrapciakova, Math. Slovaca 37 (1987); Navara, Math. Slovaca 34 (1984); Zerbe-Gudder 1985",
+    "region": "two-valued states and integral additivity on generated sigma-classes",
+    "verified": "read",
+    "detail": "../../literature_review/literature/navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
+   }
+  },
+  {
+   "id": "own.keleti_preiss",
+   "name": "Dynkin closures that fall short (method)",
+   "status": "neighbour (method only; abstract read)",
+   "one_line": "Keleti-Preiss 2000: balls do not generate all Borel sets in infinite-dimensional Hilbert space using complements and countable disjoint unions. The template for proving a set is NOT in a generated Dynkin system; candidate method for E* not in D.",
+   "detail": "self-contained; scout 2026-10-16",
+   "owned_by": {
+    "cite": "Keleti-Preiss, Math. Proc. Camb. Phil. Soc. 128 (2000) 539-547",
+    "region": "non-membership in generated Dynkin systems",
+    "verified": "sec",
+    "detail": "self-contained"
+   }
+  },
+  {
+   "id": "own.ncycle_facets",
+   "name": "Loop-count witnesses = n-cycle noncontextuality facets",
+   "status": "OWNS the witnesses (primary source on shelf, Thm 1 read 2026-10-19)",
+   "one_line": "The hidden-twist witnesses found on C4 (half-cube gap sets) and C5 (4 - #disagreements) are the tight n-cycle inequalities sum_i gamma_i <X_i X_{i+1}> <= n-2, odd number of gamma_i = -1 (CHSH at n = 4).",
+   "detail": "definitions_draft.md §9b",
+   "owned_by": {
+    "cite": "Araujo-Quintino-Budroni-Terra Cunha-Cabello, PRA 88 (2013) 022118, Thm 1",
+    "region": "facets of the n-cycle noncontextual polytope",
+    "verified": "primary",
+    "detail": "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf"
+   }
+  },
+  {
+   "id": "own.exclusivity_principle",
+   "name": "Hidden vs visible finite twists ~ single-copy exclusivity principle",
+   "status": "LIKELY OWNS the finite probabilistic Th/Tv split (search-level, 2026-10-19; equivalence with D-states NOT checked)",
+   "one_line": "A state on D respects disjoint unions across contexts, so it satisfies the single-copy exclusivity principle / local orthogonality. Known: the PR box (C4) satisfies it (bipartite LO = no-signalling) and Specker's triangle violates it - matching 'C4 hidden, triangle visible'. Choudhary-Barbosa use Ramsey theory for multi-copy violations by n-cycle PR boxes.",
+   "detail": "definitions_draft.md §9b; owed: is D-state equivalent to single-copy E-principle? read Choudhary-Barbosa (Ramsey link to the infinite side)",
+   "owned_by": {
+    "cite": "Cabello (E-principle); Fritz-Sainz-Augusiak-Brask-Chaves-Leverrier-Acin, Nat. Commun. 4 (2013) 2263, arXiv:1210.3018; Abramsky-Barbosa, CSL 2021, arXiv:2011.03064 (logical exclusivity); Choudhary-Barbosa arXiv:2411.09773",
+    "region": "exclusivity / local orthogonality for contextuality scenarios",
+    "verified": "search",
+    "detail": "abstract/search level only"
+   }
+  },
+  {
+   "id": "own.aerts_lizards",
+   "name": "Bell-type claim on the lizard rock-paper-scissors data",
+   "status": "NEIGHBOUR (must-cite for Part II lizards)",
+   "one_line": "Aerts et al. 2014 report CHSH and marginal-law violations from model-derived pairwise win/lose probabilities (Bleay-Comendant-Sinervo 2007 data) and a Hilbert-space model. Not a loop-of-views feasibility test; marginal violation = direct influence in CbD terms.",
+   "detail": "ecology_contextuality_sweep_2026-10-20.md",
+   "owned_by": {
+    "cite": "Aerts-Broekaert-Czachor-Kuna-Sinervo-Sozzo, Ecol. Model. 281 (2014) 38-51, arXiv:1212.0109",
+    "region": "quantum/contextual claims about the lizard cycle",
+    "verified": "abstract (me); full text (scout)",
+    "detail": ""
+   }
+  },
+  {
+   "id": "own.heteroclinic_extinction",
+   "name": "Finite populations cut off the deepening heteroclinic cycle",
+   "status": "OWNS (in words) the case-1b idealisation",
+   "one_line": "Species approach zero more closely each cycle in the deterministic May-Leonard model; discrete populations reach zero; noise gives finite recurrence times.",
+   "detail": "case_heteroclinic_depths.md; ecology sweep",
+   "owned_by": {
+    "cite": "Barendregt-Thomas, J. Math. Biol. 2023, arXiv:2111.05902; Stone-Holmes, SIAM J. Appl. Math. 50 (1990) 726-743",
+    "region": "noise/demographic stochasticity near heteroclinic cycles",
+    "verified": "scout full text (B-T); abstract (S-H)",
+    "detail": ""
+   }
+  },
+  {
+   "id": "own.type_amalgamation",
+   "name": "Triangle of 2-types; order vs bounded-quotient obstructions to 3-amalgamation",
+   "status": "NEIGHBOUR, close (primary sources read 2026-10-20)",
+   "one_line": "Model theory owns the triangle problem for complete types (3-amalgamation, coherence on single variables) and both obstruction kinds: order cycles (unstable, o-minimal) and bounded equivalence relations (Hrushovski 2.19(3): possibly the only obstruction over boundedly closed bases). Measured (definable, countably additive) setting: the order obstruction is measure zero (Hrushovski 2.20). NOT found: a rank via Dynkin systems of k-variable events, the finitely additive (charge) version, or 'idealisation raises the rank exactly for twists no finite quotient preserves'.",
+   "detail": "definitions_draft.md section 15 (prior art)",
+   "owned_by": {
+    "cite": "Goodrick, BIRS 2009 slides; Hrushovski, JAMS 25 (2012), Remark 2.19(3), section 2.20, Lemma 2.21; leads: Goodrick-Kim-Kolesnikov arXiv:1006.4410, 1404.1525, 1412.3864; Kolesnikov math/0508583",
+    "region": "3-amalgamation of types and its obstructions",
+    "verified": "primary (Hrushovski passages, Goodrick slides)",
+    "detail": ""
+   }
+  },
+  {
+   "id": "own.compressed_threshold",
+   "name": "Non-0/1 facets of the triangle marginal polytope (compressedness threshold)",
+   "status": "OWNS the non-binary-extreme-ray threshold (primary sources read 2026-10-21)",
+   "one_line": "Our 'extreme rays of the non-negative pair-sum cone are all 0/1' = the K3 marginal polytope (no-three-way-interaction configuration) is compressed (Sullivant Thm 2.4: each facet takes one nonzero value). Classification: r1xr2x2 unimodular, r1x3x3 compressed, 4x4x3 not compressed (Ohsugi-Hibi table). So the non-binary ray first appearing at 3x4x4 is owned. NOT found: the Dynkin-carrier reading (questions built by not/either-one see every twist iff compressed AND no gap), our gap checks, and the explicit relational hidden family at 3x4x4.",
+   "detail": "definitions_draft.md sections 16-18",
+   "owned_by": {
+    "cite": "Sullivant, Tohoku Math. J. 58 (2006), Thm 2.4; Ohsugi-Hibi, AISM 62 (2010) table, sec. 1",
+    "region": "compressed / unimodular / normal classification of 3-way no-three-way-interaction configurations",
+    "verified": "primary (both PDFs read for the cited statements)",
+    "detail": "compressed-vs-normal are different thresholds: 4x4x3 normal but not compressed (Bruns et al. 2011)"
+   }
+  }
+ ]
+}

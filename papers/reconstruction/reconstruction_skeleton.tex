@@ -32,12 +32,12 @@ where coherence stops forcing a global process --- is exactly decidable.
 \noindent\emph{Status of the target.} The guarantee is established
 \textbf{unconditionally} on three tame families (\S\ref{sec:boundary}), and
 \textbf{conditionally} --- on a single open conjecture (\S\ref{sec:capstone}) ---
-for all total symbolic languages. The decidability of the boundary is
-\textbf{[PROVED]} for a fixed observation length via the winding criterion
-(\S\ref{sec:boundary}); the lift from winding-2 to full safety is
-\textbf{[PROVED at general $k$ and Lean-verified, 2026-08-21]} via the pruning
-theorem, which with the $k$-cap also makes $\mathrm{Safe}(\rho)$ eventually
-periodic and effectively computable.
+for all total symbolic languages. At a fixed observation length the boundary is
+\textbf{[CLASSICAL]}: it is the classification of contextual vertices of cycle
+scenarios (\S\ref{sec:boundary}). The lift to all lengths of one language
+--- $\mathrm{Safe}(\rho)$ eventually periodic and effectively computable --- is
+\textbf{[PROVED, Lean-verified]} but elementary given that classification. The
+paper's own open content is the capstone of \S\ref{sec:capstone}.
 
 The rest of the paper is the dependency chain beneath
 Goal~\ref{goal:recon}: the geometric reduction that makes ``coherence forces a
@@ -116,19 +116,31 @@ universality. Everything below characterises such families.
 
 \section{The boundary: the winding criterion}\label{sec:boundary}
 
-This is the spine. Read a cyclic protocol as recurrence: observe $\rho$ around a
+\emph{[Repositioned 2026-10-15.]} At fixed $L$ this section is classical, and is
+cited rather than claimed. The contextual vertices of the $n$-cycle scenario with
+outcomes $\bbZ_d$ are exactly the $k$-order cycle distributions, $k\ge2$
+\cite[Thm.~4.4]{KharoofIpekOkay2024}; the cases $n=4$ \cite{BarrettEtAl2005} and
+binary outcomes \cite[Thm.~2]{AraujoQuintinoBudroniTerraCunhaCabello2013} came
+first, and in any scenario the vertices split into deterministic and minimal-support
+strongly contextual models \cite[Prop.~6.3]{ABKLM2016}. A $k$-order cycle
+distribution is exactly a layer-injective simple cycle of winding $k$ below.
+
+Read a cyclic protocol as recurrence: observe $\rho$ around a
 ring of length $L$. Lift the ring to its \emph{layered graph} --- vertices $(i,a)$
 for site $i\in\bbZ_L$ and state $a\in A$, arcs $(i,a)\to(i{+}1,b)$ for legal pairs
 $(a,b)$. The \emph{winding} of a closed walk is its net site-advance divided by
 $L$. Call a length $L$ \emph{unsafe} for $\rho$ if the length-$L$ ring carries
 contextual data.
 
-\begin{theorem}[winding criterion --- the decidable boundary]\label{thm:winding}
+\begin{theorem}[winding criterion; a corollary of {\cite[Thm.~4.4]{KharoofIpekOkay2024}}]\label{thm:winding}
 A length $L$ is unsafe for $\rho$ iff the layered ring carries a layer-injective
 simple cycle of winding $\ge 2$.
 \end{theorem}
 
-\noindent\textbf{[PROVED for fixed $L$]}, via three obligations, each discharged in
+\noindent\textbf{[CLASSICAL at fixed $L$]}: restrict \cite[Thm.~4.4]{KharoofIpekOkay2024}
+to the face of data supported on $\rho$, whose vertices are vertices of the whole
+polytope. An independent proof, reached before the citation was found, uses three
+obligations, each discharged in
 the archive: a \emph{gate identification} ($C$ is the layered graph's circulation
 polytope) \textbf{[PROVED; the genericity gate is vacuous for the ring used]}; a
 \emph{flow decomposition} (a polytope vertex is a single simple cycle)
@@ -184,14 +196,34 @@ the even lengths), the only alternative being a finite safe set.
 ``the tamings are the only sources of residue-safety in a primitive language.''
 Its two halves are: a \emph{re-characterisation} (residue-safety $=$ balance of a
 signed pair-graph) \textbf{[PROVED, structural]}; and the \emph{forcing} proper
-(primitivity excludes the mixed cases) \textbf{[OPEN]}, framed as two
-Perron--Frobenius exclusions and checked without counterexample across several
-thousand primitive languages. Discharging it closes
+(primitivity excludes the mixed cases), framed as two Perron--Frobenius
+exclusions. The crossed-cycle exclusion is \textbf{[PROVED by hand, machine-checked
+stepwise]}. The aperiodicity exclusion is reduced as follows. In the pair graph
+(two tokens moving synchronously, never on the same state), the chase
+configurations on all simple cycles form a single aperiodic class
+\textbf{[PROVED by hand]}. Reversing arcs, membership in that class follows from
+forward reachability. So the forcing lemma follows from one statement.
+
+\begin{namedlemma}[reach lemma --- the open core]\label{lem:reach}
+On a primitive language, from every recurrent pair of distinct states the two
+tokens can reach, without colliding, a pair lying on a common simple cycle.
+\end{namedlemma}
+
+\noindent\textbf{[OPEN; VALIDATED, not proved].}
+- Primitivity is essential: imprimitive languages give periodic counterexamples
+  to the forcing lemma's conclusion.
+- An explicit strategy reaches such a pair from every recurrent pair, with no
+  failures exhaustively up to four states and on samples up to seven. In the
+  strategy, one token circles a cycle and the other lands on it out of phase.
+- Its proof is complete except for one case: every off-cycle region drains
+  into the cycle.
+
+Discharging it closes
 Conjecture~\ref{conj:universal}: the other half, the winding-2-to-full bridge, is
 no longer outstanding --- the pruning theorem is proved at general $k$ and
 Lean-verified, and with the $k$-cap gives
 $\mathrm{Unsafe}(\rho)=\bigcup_{k=2}^{|A|}\mathrm{TR}_k^{(1)}$, so every winding
-is accounted for. \textbf{The forcing lemma is now the single remaining result
+is accounted for. \textbf{The reach lemma is now the single remaining result
 the paper is aiming to prove or to state as its open problem.}
 
 
@@ -230,7 +262,7 @@ $C\setminus R$; sampling is only screening. The layer-injectivity discriminant a
 the flow-decomposition kernel are machine-checked in Lean~4.
 
 \textbf{What is owed to fill this skeleton to a complete paper.} (i) The forcing
-lemma (Lemma~\ref{lem:forcing}): prove it, or state it as the paper's open problem.
+lemma (Lemma~\ref{lem:forcing}), now reduced to the reach lemma (Lemma~\ref{lem:reach}): prove it, or state it as the paper's open problem.
 (ii) The winding-2-to-full-safety bridge: prove it applies, or scope every
 boundary claim to winding-2. (iii) Fold the archived proved body
 (parity, PR-box, the ten tamings, Circuit Localization, the three winding

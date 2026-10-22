@@ -1,0 +1,546 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+\newtheorem{problem}{Problem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{why}{Why it matters}
+
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\src}[1]{\par\smallskip\noindent{\footnotesize\textsf{Source: #1}}}
+\newcommand{\bp}[1]{\begin{mdframed}[backgroundcolor=black!4,linewidth=0.4pt]#1\end{mdframed}}
+
+\title{An Understanding Kit\\[2pt]\large Eight results from the corpus, to rebuild by hand}
+\author{Patrick S.\ Mahon}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+
+\bp{\textbf{How to use this.} Read one problem's statement. Close the PDF and
+work on paper until you see \emph{why} it must be true. That means rebuilding
+it, not verifying it. Hints are in Part~II and proofs in Part~III, deliberately
+far away. The problems run from a few minutes to an hour. None needs anything
+outside this document. A problem that lights up tells you something; one that
+doesn't tells you something too.}
+
+\tableofcontents
+
+\part{Problems}
+
+\section*{Shared definitions}
+\addcontentsline{toc}{section}{Shared definitions}
+
+\begin{definition}[two-valued state]
+For a family $\mathcal D$ of subsets of a set $\Omega$ closed under complements
+and countable disjoint unions, a \emph{two-valued state} is $s:\mathcal
+D\to\{0,1\}$ with $s(\Omega)=1$ that is additive on disjoint pairs. It is
+\emph{$\sigma$-additive} if additivity holds for countable disjoint families, and
+\emph{finitely additive} if only for finite ones. The \emph{Dirac} $\delta_\omega$
+is $s(E)=1\iff\omega\in E$.
+\end{definition}
+
+\begin{definition}[language, two tokens]
+A \emph{language} is a relation $\rho\subseteq A\times A$ on a finite alphabet $A$,
+read as a digraph. It is \emph{primitive} if some power of its adjacency matrix is
+entrywise positive (equivalently: strongly connected, and the gcd of its cycle
+lengths is $1$). \emph{Two tokens} sit on distinct vertices and move
+\emph{synchronously}: at each step each token crosses one arc of $\rho$. They may
+never occupy the same vertex at the same time.
+\end{definition}
+
+% ------------------------------------------------------------------
+\section{Tiny}
+
+\begin{problem}[stationary two-valued states are fixed points]\label{p:stat}
+Let $A$ be countable and $\Omega=A^{\bbZ}$ with the product $\sigma$-algebra.
+\begin{enumerate}[label=(\alph*)]
+\item Every $\sigma$-additive two-valued state on $\Omega$ is a Dirac
+  $\delta_\omega$.
+\item If it is also shift-invariant ($s(S^{-1}E)=s(E)$), then $\omega$ is a
+  constant sequence.
+\end{enumerate}
+\end{problem}
+\begin{why}
+``Two-valued'' means \emph{one trajectory}, not ``deterministic dynamics''. So a
+genuine stationary process is never two-valued. This is why the $\sigma$-essential
+lane sits off the path to dynamics.
+\end{why}
+\src{not written elsewhere; derived 2026-10-09 in conversation.}
+
+\begin{problem}[out-of-phase tokens never collide]\label{p:phase}
+Let $\lambda:R\to\bbZ_c$ be a function on a set of vertices. Token~1 is only ever
+at $w\in R$ at times $t\equiv\lambda(w)$, and token~2 only at times
+$t\equiv\lambda(w)+e \pmod c$, with $e\not\equiv0$. Show they never collide in~$R$.
+\end{problem}
+\begin{why}
+This is the engine of the reach-lemma attack. A phase difference is a
+collision-proof shield.
+\end{why}
+\src{\texttt{papers/reconstruction/notes/joint2\_wielandt\_finding.md}, ``(2)
+Out-of-phase tokens never collide''.}
+
+\begin{problem}[the ascending ring]\label{p:ring}
+Fix $L\ge2$ and let $C_k=\{x\in\bbN^L : x_k<x_{k+1}\}$, indices mod $L$.
+\begin{enumerate}[label=(\alph*)]
+\item No point $x$ lies in every $C_k$.
+\item Suppose that, for each window $\{k,k+1\}$, $s_k$ is a $\sigma$-additive
+  two-valued state on the $\sigma$-algebra of events depending only on
+  $(x_k,x_{k+1})$. Suppose also that adjacent windows agree on events of their
+  shared coordinate, and that $s_k(C_k)=1$ for all $k$. Show this is impossible.
+\end{enumerate}
+\end{problem}
+\begin{why}
+Drop ``$\sigma$-'' in (b) and the configuration \emph{exists}: an ordered product
+ultrafilter makes every window an ascent. That finitely additive object, glued on a
+carrier, is the Lean-checked countable $\sigma$-essential witness (every $L\ge4$).
+\end{why}
+\src{\texttt{notes/open\_questions/delay\_embedding/collision\_vs\_generation.md}
+(update 2026-10-09); Lean \texttt{formalization/QuerySystem/QuerySystem/WindowGluing.lean},
+\texttt{sL\_sigmaEssential}.}
+
+% ------------------------------------------------------------------
+\section{Small}
+
+\begin{problem}[the cycle lemma]\label{p:cycle}
+Let $\rho$ be primitive and $C=(x_0,\dots,x_{c-1})$ a simple cycle, $c\ge2$. Two
+tokens \emph{chase} on $C$ at offset $j\neq0$: both follow $C$, token~2 being $j$
+positions ahead. Show that:
+\begin{enumerate}[label=(\alph*)]
+\item from any offset, by legal non-colliding moves and back again, the tokens can
+  reach a chase at any other offset;
+\item among the closed two-token runs so produced there are lengths with gcd $1$.
+\end{enumerate}
+\end{problem}
+\begin{why}
+This is the reason chases are \emph{aperiodic}. Aperiodicity is exactly what the
+flagship's forcing lemma needs.
+\end{why}
+\src{\texttt{joint2\_wielandt\_finding.md}, ``CYCLE LEMMA (proved
+2026-10-09)''.}
+
+\begin{problem}[one chase class]\label{p:kstar}
+Let $C,C'$ be simple cycles of length $\ge2$ sharing a vertex $v$. Find a single
+synchronous step that turns some chase on $C$ into a chase on $C'$. Conclude, using
+that the simple cycles of a strongly connected digraph are chained by shared
+vertices, that all chases on all cycles are mutually reachable.
+\end{problem}
+\src{\texttt{joint2\_wielandt\_finding.md}, ``LEMMA K*''.}
+
+\begin{problem}[no witness in the Boolean case]\label{p:bool}
+Let $\mathcal L$ be a Boolean $\sigma$-algebra on $\Omega$ and $B\subseteq\mathcal L$
+finite and closed under complement. Let $s_0$ be a two-valued assignment on $B$
+that extends to \emph{some} finitely additive two-valued state $\mu$ on $\mathcal L$.
+Show $s_0$ extends to a Dirac.
+\end{problem}
+\begin{why}
+This is the baseline the whole $\sigma$-essential lane pushes against. Coherence
+supplies $\mu$, and distributivity turns $\mu$ into a point. A witness must break
+the second step.
+\end{why}
+\src{\texttt{papers/sigma\_essential/sigma\_essential\_body.tex}, Prop.~\texttt{prop:boolean}.}
+
+% ------------------------------------------------------------------
+\section{Medium}
+
+\begin{problem}[Dirac test and localization]\label{p:local}
+With $B$ finite and complement-closed and $s_0$ two-valued on $B$, put
+$K(s_0)=\bigcap\{E\in B: s_0(E)=1\}$.
+\begin{enumerate}[label=(\alph*)]
+\item $\delta_\omega$ extends $s_0$ iff $\omega\in K(s_0)$.
+\item Hence a pattern that is finitely coherent but has no $\sigma$-additive
+  extension needs $K(s_0)=\varnothing$ \emph{and} must kill every non-Dirac
+  $\sigma$-additive extension. Explain why the second clause is where all the
+  difficulty lives.
+\end{enumerate}
+\end{problem}
+\src{\texttt{sigma\_essential\_body.tex}, Lemma \texttt{lem:dirac-iff}, Thm
+\texttt{thm:localization}, Remark \texttt{rem:localization-scope}.}
+
+\begin{problem}[the parity theorem, odd half]\label{p:parity}
+The golden-mean language on $\{0,1\}$ forbids $11$. Observe it around a ring of
+length $L$ through the $L$ adjacent-pair windows. Let each window assign
+probability $\tfrac12$ to each of $01$ and $10$.
+\begin{enumerate}[label=(\alph*)]
+\item The windows agree on shared sites.
+\item For odd $L$, no probability measure on legal ring configurations has these
+  window marginals.
+\item \emph{Stretch.} For even $L$ every coherent datum is realisable. (Hint
+  section only.)
+\end{enumerate}
+\end{problem}
+\begin{why}
+This is the flagship's smallest real instance of contextuality, and it is
+determined by parity.
+\end{why}
+\src{\texttt{papers/reconstruction/notes/archive/reconstruction\_body\_PROVED\_ARCHIVE.tex},
+\S``The parity theorem''.}
+
+\bigskip
+\noindent\textbf{For comparison.} Re-read your own CE / Stone route
+(\texttt{papers/paper\_i/probability\_from\_observation\_body.tex}, ``Stone
+realization from finitely additive data'') and notice what the click felt like.
+
+% ==================================================================
+\newpage
+\part{Hints}
+
+\begin{enumerate}[label=\textbf{\arabic*.}]
+\item (a) For each time $k$, the sets $\{x_k=a\}$, $a\in A$, are a countable
+  partition. How many can be true? (b) What is $s\circ S^{-1}$ for a Dirac?
+\item Compare the two congruences at a hypothetical meeting.
+\item (a) Follow the inequalities around. (b) Show each $s_k$ is a Dirac at some
+  pair, then glue.
+\item An \emph{excursion} is a walk $x_i\to x_{i'}$ whose interior avoids $C$.
+  While one token takes it, the other stays on $C$. Track the offset. Which
+  quantity changes it? Why do these quantities generate $\bbZ_c$? (Think about
+  closed walks at $x_0$ and primitivity.) Removing one vertex from a Cayley graph:
+  what keeps it connected?
+\item Put token~1 at $v$ and token~2 one step behind $v$ on $C$.
+\item The finite Boolean algebra generated by $B$ has atoms. Exactly one of them
+  is true.
+\item (a) Use complements: every false constraint is a true constraint in disguise.
+\item (b) If every window is a.s.\ $01$ or $10$, what must a global configuration
+  look like? (c) The coherence polytope is the fractional stable-set polytope of
+  the cycle. Look at $\det(I+P)$ for the cyclic shift $P$.
+\end{enumerate}
+
+% ==================================================================
+\newpage
+\part{Proofs}
+
+\paragraph{Problem~\ref{p:stat}.}
+(a) For each $k$ the events $\{x_k=a\}$ ($a\in A$) are countably many, disjoint,
+and cover $\Omega$, so by $\sigma$-additivity exactly one, say $a_k$, has value
+$1$. Let $\omega=(a_k)_k$. Then $\{\omega\}=\bigcap_k\{x_k=a_k\}$, a countable
+intersection of value-$1$ events. Its complement is a countable union of
+value-$0$ events, which can be disjointified into value-$0$ events, so it has
+value $0$ and $s(\{\omega\})=1$. Hence $s(E)=1\iff\omega\in E$.
+(b) $\delta_\omega\circ S^{-1}=\delta_{S\omega}$. Invariance gives
+$\delta_{S\omega}=\delta_\omega$, so $S\omega=\omega$, so $\omega$ is constant.
+\hfill$\square$
+
+\paragraph{Problem~\ref{p:phase}.}
+A meeting at $w$ at time $t$ needs $t\equiv\lambda(w)$ and
+$t\equiv\lambda(w)+e$, so $e\equiv0$, a contradiction.\hfill$\square$
+
+\paragraph{Problem~\ref{p:ring}.}
+(a) $x_0<x_1<\dots<x_{L-1}<x_0$. Equivalently, take $k$ maximising $x_k$; then
+$x_k<x_{k+1}$ contradicts maximality.
+(b) As in Problem~\ref{p:stat}(a), each $s_k$ is $\delta_{(a_k,b_k)}$ on its
+window, since $\bbN^2$ is countable and the singletons are measurable. Agreement
+on the shared coordinate gives $b_k=a_{k+1}$. So one point $x=(a_k)$ makes every
+$C_k$ true, which contradicts (a).\hfill$\square$
+
+\paragraph{Problem~\ref{p:cycle}.}
+\emph{Case $c=2$.} The single offset is the swap $(x_0,x_1)\to(x_1,x_0)$, a
+closed run of length~$1$.
+
+\emph{Case $c\ge3$.}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Defect.} An excursion $x_i\to x_{i'}$ of length $\ell$ has
+  \emph{defect} $\Delta=\ell-((i'-i)\bmod c)$. Loops and chords count.
+\item \emph{Moves.} If token~1 takes it while token~2 stays on $C$, then token~2
+  advances $\ell$ while token~1 lands $\ell-\Delta$ further along $C$. So the
+  offset changes by $+\Delta$, and by $-\Delta$ if token~2 moves. The interior
+  avoids $C$, so the only possible collision is at the landing. The move is
+  therefore legal iff the new offset is $\neq0$.
+\item \emph{The defects generate $\bbZ_c$.} A closed walk at $x_0$ splits into
+  arcs of $C$ and excursions, so its length is $\equiv\sum\Delta\pmod c$. By
+  primitivity these lengths have gcd $1$, so they generate $\bbZ_c$.
+\item \emph{Connectivity, giving (a).} The offset graph is
+  $\mathrm{Cay}(\bbZ_c,\pm\{\Delta\})$ with the vertex $0$ removed. A connected
+  vertex-transitive graph of degree $\ge2$ is $2$-connected (Watkins 1970), so it
+  stays connected.
+\item \emph{Lengths, giving (b).} The chase itself is a closed run of length $c$.
+  For each $\Delta$, start at an offset $\notin\{0,-\Delta\}$. Token~1 takes the
+  excursion, then token~2 takes it when it arrives. That is a closed run of length
+  $\equiv\Delta$. Since the $\Delta$'s generate $\bbZ_c$, the gcd is $1$.
+  \hfill$\square$
+\end{enumerate}
+
+\paragraph{Problem~\ref{p:kstar}.}
+Token~1 is at $v$ and token~2 at $v$'s predecessor on $C$. In one step token~1
+moves to $v$'s successor on $C'$ (which is $\ne v$, since $|C'|\ge2$) and token~2
+moves onto $v$. Both are now on $C'$, one apart: a chase on $C'$. The symmetric
+step goes back. Chains of cycles sharing vertices connect any two cycles, and a
+loop in a chain can be skipped, because its neighbours share its vertex. With
+Problem~\ref{p:cycle}(a), everything is one class.\hfill$\square$
+
+\paragraph{Problem~\ref{p:bool}.}
+The finite algebra $B_0$ generated by $B$ has atoms that partition $\Omega$. By
+finite additivity exactly one atom $a$ has $\mu(a)=1$, and $a\ne\varnothing$.
+Every element of $B_0$ contains $a$ or is disjoint from it. So for $\omega\in a$,
+$\delta_\omega$ agrees with $\mu$, hence with $s_0$, on $B$.\hfill$\square$
+
+\paragraph{Problem~\ref{p:local}.}
+(a) $\delta_\omega$ extends $s_0$ iff $\omega\in E$ for every true $E$, and
+$\omega\notin E$ for every false $E$. A false $E$ has true complement in $B$, so
+its constraint is already a true one. Hence the condition is just
+$\omega\in K(s_0)$.
+(b) $\sigma$-additive two-valued states are Dirac or not. (a) handles the Diracs.
+The empty-kernel condition is easy to arrange (Navara--Pt\'ak does it with even a
+$\sigma$-additive global extension). So the whole difficulty is destroying every
+non-Dirac $\sigma$-additive repair while keeping finite coherence.
+\hfill$\square$
+
+\paragraph{Problem~\ref{p:parity}.}
+(a) Every window gives each site value $1$ with probability $\tfrac12$.
+(b) Almost surely every window is $01$ or $10$, so a realising configuration
+alternates $0,1,0,1,\dots$ around the ring. That needs $L$ even.
+(c) The coherence polytope is $\{u\in[0,1]^L: u_i+u_{i+1}\le1\}$ and $R$ is the
+stable-set polytope. The constraint matrix is $I+P$, with
+$\det(I+P)=1-(-1)^L$; its proper square submatrices are path-incidence matrices,
+with determinants in $\{0,\pm1\}$. For even $L$ the matrix is totally unimodular,
+so the polytope is integral and $C=R$. Full proof: archive
+\S``The parity theorem''.\hfill$\square$
+
+% ==================================================================
+\newpage
+\appendix
+\part{Appendix: definitions, notation and background results}
+
+Everything the problems use, in one place. The table says what to read for each
+problem. Entries marked \emph{(standard)} are textbook facts, quoted without
+proof.
+
+\medskip
+\begin{center}
+\begin{tabular}{cl}
+\textbf{Problem} & \textbf{Read} \\ \hline
+1 & A.1--A.4, A.6 \\
+2 & C.6 \\
+3 & A.1--A.4, A.7 \\
+4 & B.1--B.6, C.1--C.5, D.1--D.3 \\
+5 & B.1--B.4, B.7, C.1--C.3 \\
+6 & A.1--A.5, E.1--E.3 \\
+7 & A.1--A.5, E.1--E.5 \\
+8 & F.1--F.5 \\
+\end{tabular}
+\end{center}
+
+% ------------------------------------------------------------------
+\section{Measure-theoretic basics}
+
+\paragraph{A.1 $\sigma$-algebra, Dynkin system.} A \emph{$\sigma$-algebra} on
+$\Omega$ is a family of subsets containing $\Omega$ and closed under complements
+and countable unions. A \emph{Dynkin system} (or $\sigma$-class) only requires
+closure under complements and \emph{countable disjoint} unions. It need not be
+closed under intersections. That gap is exactly what makes non-Boolean
+(``quantum-logic-like'') carriers possible.
+
+\paragraph{A.2 Product $\sigma$-algebra.} On $\Omega=A^{I}$ (sequences indexed by
+$I$, e.g.\ $I=\bbZ$ or $\{0,\dots,L-1\}$) it is the smallest $\sigma$-algebra
+making each coordinate $x\mapsto x_k$ measurable. It is generated by the
+\emph{cylinders} $\{x: x_{k_1}=a_1,\dots,x_{k_m}=a_m\}$. For countable $A$, every
+singleton $\{\omega\}$ of $A^{\bbZ}$ is measurable, being a countable intersection
+of cylinders.
+
+\paragraph{A.3 Two-valued state; finite vs.\ $\sigma$-additivity.} See the shared
+definitions in Part~I. For a two-valued $s$:
+\begin{itemize}[nosep]
+\item finite additivity means: of two disjoint sets, at most one is true, and
+  their union is true iff one of them is;
+\item $\sigma$-additivity means the same for countable disjoint families.
+\end{itemize}
+Consequences:
+\begin{itemize}[nosep]
+\item $s(E^c)=1-s(E)$;
+\item $s$ is monotone ($E\subseteq F$, $s(E)=1\Rightarrow s(F)=1$);
+\item in a $\sigma$-algebra, a countable intersection of true sets is true when
+  $s$ is $\sigma$-additive.
+\end{itemize}
+
+\paragraph{A.4 Dirac.} $\delta_\omega(E)=1\iff\omega\in E$. It is always
+$\sigma$-additive. ``Two-valued $\sigma$-additive $=$ Dirac'' holds on any
+$\sigma$-algebra in which a countable partition into singletons (or a countable
+separating family) is available. Problem~\ref{p:stat}(a) is an instance.
+
+\paragraph{A.5 Boolean algebra, atoms.} A \emph{Boolean algebra} of sets is closed
+under complement, finite union and finite intersection. A \emph{finite} one is
+generated by finitely many sets, and its \emph{atoms} (minimal nonempty members)
+partition $\Omega$. Every member is a union of atoms
+\emph{(standard)}. ``Boolean'' $=$ distributive $=$ intersection-closed, in the
+concrete setting.
+
+\paragraph{A.6 Shift, stationarity.} The shift $S:A^{\bbZ}\to A^{\bbZ}$ is
+$(Sx)_k=x_{k+1}$. A state $s$ is \emph{stationary} (\emph{shift-invariant}) if
+$s(S^{-1}E)=s(E)$ for all $E$. For Diracs, $\delta_\omega\circ
+S^{-1}=\delta_{S\omega}$. A \emph{process} is a stationary probability measure on
+$A^{\bbZ}$.
+
+\paragraph{A.7 Ultrafilter (for the ``why it matters'' notes).} An
+\emph{ultrafilter} $p$ on $\bbN$ is a finitely additive two-valued state on all
+subsets of $\bbN$. It is \emph{non-principal} if it is not a Dirac, i.e.\ every
+finite set is false. Non-principal ultrafilters exist by Zorn's lemma, and they
+are \emph{never} $\sigma$-additive. The \emph{ordered product} $p\otimes p$ makes
+$\{(a,b): a<b\}$ true: ``the second coordinate is chosen after, and above, the
+first''. This is the device that fakes an ascending ring.
+
+% ------------------------------------------------------------------
+\section{Digraphs and languages}
+
+\paragraph{B.1 Digraph vocabulary.}
+\begin{itemize}[nosep]
+\item A \emph{walk} is a sequence of vertices joined by arcs. Its
+  \emph{length} is the number of arcs.
+\item A walk is \emph{closed} if it ends where it starts.
+\item A \emph{simple cycle} is a closed walk with no repeated vertex other than
+  the endpoints. A \emph{loop} is an arc $v\to v$, a cycle of length $1$.
+\end{itemize}
+
+\paragraph{B.2 Strongly connected.} Every vertex reaches every other by a walk.
+
+\paragraph{B.3 Period, primitive.} For a strongly connected digraph, the
+\emph{period} is the gcd of all closed-walk lengths, equivalently of all
+simple-cycle lengths. It is \emph{aperiodic} (\emph{primitive}) if the period is
+$1$. Equivalently, some power of the adjacency matrix is entrywise positive, and
+then all larger powers are too \emph{(standard; Perron--Frobenius / Wielandt)}.
+In words, for large $n$ there is a walk of length exactly $n$ between any two
+vertices.
+
+\paragraph{B.4 Language.} A relation $\rho\subseteq A\times A$, used as the
+digraph of legal consecutive symbols. ``Primitive language'' means its digraph is
+primitive.
+
+\paragraph{B.5 Excursion, chord, defect.} Fix a simple cycle
+$C=(x_0,\dots,x_{c-1})$.
+\begin{itemize}[nosep]
+\item An \emph{excursion} is a walk from some $x_i$ to some $x_{i'}$ whose
+  interior vertices are all off $C$, other than one of $C$'s own arcs.
+\item A \emph{chord} is an excursion of length $1$, i.e.\ an arc $x_i\to x_{i'}$
+  that is not $C$'s arc.
+\item Its \emph{defect} is $\Delta=\ell-((i'-i)\bmod c)$: how much longer the
+  excursion is than the arc of $C$ it bypasses, mod $c$.
+\end{itemize}
+
+\paragraph{B.6 Decomposing a closed walk.} A closed walk starting and ending on $C$
+splits uniquely into arcs of $C$ and excursions, by cutting at every visit to
+$C$.
+
+\paragraph{B.7 Chain-connectivity of cycles \emph{(standard; proved in the repo,
+session 5)}.} In a strongly connected digraph, any two simple cycles are joined by
+a chain of simple cycles in which consecutive cycles share a vertex.
+
+% ------------------------------------------------------------------
+\section{Two tokens}
+
+\paragraph{C.1 Pair graph $D$.} Vertices are ordered pairs $(a,b)$ with $a\neq b$
+(the two tokens' positions). There is an arc $(a,b)\to(c,d)$ iff $a\to c$ and
+$b\to d$ are arcs of $\rho$ and $c\neq d$. A walk in $D$ is a synchronous
+two-token run that never collides.
+
+\paragraph{C.2 Unordered pair graph $\bar D$.} The same, with $(a,b)$ and $(b,a)$
+identified. A closed walk in $\bar D$ returns the tokens to the same \emph{set} of
+positions, possibly swapped. A \emph{swap} (crossed walk) is a run
+$(a,b)\leadsto(b,a)$.
+
+\paragraph{C.3 Chase, offset.} On a simple cycle $C$, a \emph{chase} has both
+tokens on $C$, following it, with token~2 a fixed number $j\neq0$ of positions
+ahead (the \emph{offset}). It is a closed run of length $c$. A pair of vertices is
+\emph{cocyclic} if both lie on one simple cycle, and then it is a chase position.
+
+\paragraph{C.4 SCC, recurrent.} A \emph{strongly connected component} (SCC) is a
+maximal set of mutually reachable vertices. A pair is \emph{recurrent} if it lies
+on a closed walk of $D$ (equivalently, of $\bar D$), i.e.\ it can return to
+itself.
+
+\paragraph{C.5 Aperiodic SCC; why it matters.} An SCC is aperiodic if the gcd of
+its closed-walk lengths is $1$. The flagship's forcing lemma needs every SCC of
+$\bar D$ that carries a swap to be aperiodic. Otherwise its unsafe ring lengths
+could sit in a residue class like $3\bbZ$, which would be a ``fork''.
+
+\paragraph{C.6 Phase.} If walks from a start $y$ to $w$ all have the same length
+mod $c$, call it $\lambda(w)$. A token starting at $y$ at time $0$ is at $w$ only
+at times $\equiv\lambda(w)$. A second token can be \emph{out of phase} by $e$:
+always at $w$ at times $\equiv\lambda(w)+e$.
+
+% ------------------------------------------------------------------
+\section{Cyclic groups and Cayley graphs}
+
+\paragraph{D.1 $\bbZ_c$, generation.} $\bbZ_c=\{0,\dots,c-1\}$ under addition mod
+$c$. A set $S$ \emph{generates} $\bbZ_c$ iff $\gcd(S\cup\{c\})=1$. If a set of
+integers has gcd $1$, its residues mod $c$ generate $\bbZ_c$.
+
+\paragraph{D.2 Cayley graph.} $\mathrm{Cay}(\bbZ_c,\pm S)$ has vertices $\bbZ_c$
+and an edge $g$---$g\pm s$ for each $s\in S$. It is connected iff $S$ generates
+$\bbZ_c$, and it is \emph{vertex-transitive}: every vertex looks the same.
+
+\paragraph{D.3 Watkins' theorem \emph{(standard; Watkins 1970)}.} A connected
+vertex-transitive graph of degree $d$ has vertex connectivity at least
+$\tfrac23(d+1)$. In particular, for $d\ge2$ removing one vertex leaves it
+connected.
+
+% ------------------------------------------------------------------
+\section{Quantum-logic side ($\sigma$-essential lane)}
+
+\paragraph{E.1 Concrete $\sigma$-orthoposet.} A family $\mathcal L$ of subsets of
+$\Omega$, containing $\Omega$, closed under complement ($E^\perp=E^c$) and under
+countable unions of pairwise disjoint members. This is a Dynkin system (A.1)
+viewed as a ``logic''. Disjoint sets play the role of \emph{orthogonal} events.
+
+\paragraph{E.2 $\perp$-closed sub-orthoposet; local pattern.} A finite
+$B\subseteq\mathcal L$ closed under complement: the finitely many events actually
+being reported. A \emph{two-valued state on $B$} (local pattern) $s_0$ assigns
+$0/1$ with $s_0(E^c)=1-s_0(E)$ (and additivity on disjoint pairs within $B$).
+
+\paragraph{E.3 Finitely coherent.} $s_0$ extends to some \emph{finitely
+additive} two-valued state on all of $\mathcal L$.
+
+\paragraph{E.4 Kernel.} $K(s_0)=\bigcap\{E\in B: s_0(E)=1\}$, the points
+compatible with every reported ``yes''.
+
+\paragraph{E.5 $\sigma$-essential contextual state.} A local pattern that is
+finitely coherent but extends to \emph{no} $\sigma$-additive two-valued state on
+$\mathcal L$: coherence that only finite additivity can honour. The
+Navara--Pt\'ak example (1983) has empty kernel yet a $\sigma$-additive extension,
+which shows that ``empty kernel'' alone is not enough.
+
+% ------------------------------------------------------------------
+\section{Commensurability side (flagship)}
+
+\paragraph{F.1 Ring protocol, windows.} Sites $\bbZ_L$ around a ring. Each
+adjacent pair $\{i,i+1\}$ is a \emph{window}, reported as a probability table over
+the legal pairs of $\rho$.
+
+\paragraph{F.2 Coherent (EA) vs.\ realisable (PR).} The window data are
+\emph{coherent} (empirically adequate) if overlapping windows give the same
+single-site marginals. They are \emph{realisable} if some probability measure on
+legal ring configurations has exactly these window marginals. \emph{Contextual}
+means coherent but not realisable. A protocol is \emph{commensurable} if every
+coherent datum is realisable.
+
+\paragraph{F.3 Polytopes $C$, $R$.} Coherent data form a polytope $C$, and
+realisable data the convex hull $R\subseteq C$ of the deterministic
+configurations. Commensurable $\iff C=R$.
+
+\paragraph{F.4 Stable sets.} In a graph, a \emph{stable (independent) set} has no
+two adjacent vertices.
+\begin{itemize}[nosep]
+\item $\mathrm{STAB}$ is the convex hull of their indicator vectors.
+\item $\mathrm{FSTAB}=\{u\in[0,1]^V: u_i+u_j\le1 \text{ on edges}\}$ is its
+  fractional relaxation.
+\item For the golden mean on a ring, $C\cong\mathrm{FSTAB}(C_L)$ and
+  $R\cong\mathrm{STAB}(C_L)$, with $u_i=\Pr[x_i=1]$.
+\end{itemize}
+
+\paragraph{F.5 Total unimodularity \emph{(standard; Hoffman--Kruskal)}.} A matrix is
+\emph{totally unimodular} if every square submatrix has determinant in
+$\{0,\pm1\}$. Then $\{u: Mu\le b,\,u\ge0\}$ has integral vertices for every
+integral $b$. Also used:
+\begin{itemize}[nosep]
+\item $\det(I+P)=\prod_k(1+\omega^k)=1-(-1)^L$ for the cyclic shift $P$, whose
+  eigenvalues are the $L$-th roots of unity $\omega^k$;
+\item path-incidence matrices have determinants in $\{0,\pm1\}$ (triangularise
+  along the path).
+\end{itemize}
+
+\end{document}

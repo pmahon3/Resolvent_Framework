@@ -7,6 +7,18 @@ had to be defended to a referee. It is not a verdict and it does not end in a
 fork to decide. It is here so the curiosity that started this is legible again
 from inside.*
 
+> **⚑ Post-dating update (2026-10-09): the central question is reopened.**
+> `program_overview.md` now asks *whether* coherence, followed to its end, forces
+> probability, dynamics and reconstruction rather than assuming them, and, where
+> it does, *what exactly* it forces. It no longer asserts that it does. Read every
+> "delivered" below in that light:
+> - CE / Paper I is the Boolean case, and Paper I is PARKED (σ-Loomis–Sikorski
+>   realization gap, 2026-06-23).
+> - The machine-checked σ-essential witnesses show that finite coherence does
+>   **not** force σ-additivity in general.
+>
+> This document is otherwise left as-was.
+
 ---
 
 ## First, the loss — because it is real

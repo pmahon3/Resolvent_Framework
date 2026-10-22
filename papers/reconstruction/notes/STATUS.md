@@ -3,6 +3,20 @@
 Created 2026-07-08. The formal write-up of the reconstruction / commensurability
 structure theory (successor programme to the σ-essential witness).
 
+## ⚠ VERDICT CHANGE 2026-10-15 — fixed-L winding criterion is PRIOR ART
+Kharoof–Ipek–Okay 2024 (arXiv:2406.19961) Thm 4.4: the contextual vertices of the
+n-cycle with outcomes Z_d are exactly the k-order cycle distributions, i.e. the
+layer-injective winding-k cycles. Antecedents: Barrett et al. 2005 (n=4) and
+Araújo 2013 (binary). So `thm:winding` at fixed L is a corollary; restricting to
+the ρ face is ⟦HAND⟧. Theorems P and B (pruning; Safe(ρ) eventually periodic) are
+elementary given that. Theorem P reduces to k lockstep tokens plus a rotation, and
+Theorem B is the pigeonhole k-cap plus eventual periodicity of a Boolean-matrix
+monoid. **The only non-trivial remainder is the OPEN forcing / reach lemma.**
+Skeleton and abstract REPOSITIONED 2026-10-15 at the user's request: `thm:winding`
+is now cited as [CLASSICAL at fixed L] (KIO 2024 Thm 4.4, Barrett 2005, Araújo 2013,
+ABKLM 2016), and the reach lemma is the only claimed open contribution. PDF rebuilt
+(5pp). Detail: `notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md` §4a′.
+
 ## Scope (skeleton + proved core drafted)
 - **Proved core, drafted at LaTeX quality:** framework + C=R geometry (§1);
   trichotomy (§2, free/acyclic + product + De Loera–Onn universality);
@@ -11,7 +25,8 @@ structure theory (successor programme to the σ-essential witness).
   winding characterisation + **Lean-certified layer-injectivity discriminant**
   (§5).
 - **Fenced as conjecture (NOT claimed proved):** universal impossibility
-  conjecture (§6) — specifically the *forcing lemma*, its one open step.
+  conjecture (§6) — specifically the *forcing lemma*, its one open step, reduced
+  2026-10-09 to the *reach lemma* (`lem:reach`; `notes/joint2_wielandt_finding.md`, last five sections).
 - **✎2026-08-21 — no longer fenced:** the **pruning lemma** is proved at general
   `k` and Lean-verified (`QuerySystem/PruningTheorem.lean`, receipts
   `[propext, Quot.sound]`), and **theorem-let B** with it
@@ -261,3 +276,25 @@ polymorphism — the tamings are plausibly its shadows), not just Barto–Kozik.
   all oracles + atlas data in `papers/reconstruction/oracles/` (flat, imports
   preserved). Superseded handoffs (07-09, 07-09_session2, 07-10 session 3) and
   the pre-reskeleton body are in `notes/archive/` here.
+
+## STANDING CHECKS from the embedding root (2026-10-08)
+
+The programme's root question is when observation functions plus delays give
+an embedding that is injective and well-conditioned (pre-repo Overleaf draft;
+`notes/programme/genealogy.md`). Run these checks on any new claim in this lane:
+
+1. **Hidden-factor falsifier.** Does the claim go from "windows separate" to
+   "windows reconstruct"? Test it on the skew product A^ℤ × B^ℤ, h = a₀:
+   collision → 0, δ_L = 1/4. `notes/covered_leads/fibre_mixing.md`.
+2. **Lag boundary.** Does it quantify over varying lags? The full delay system
+   is not sequentially upper-directed (`DelayEmbedding.lean`,
+   `not_seqUpperDirected`). Only fixed-lag, bounded-depth subsystems extend.
+3. **Single-path test.** Is the example one fully observed series? Then it is a
+   joint sample and cannot be contextual. Contextuality needs observables that
+   are not jointly sampled (seed §5).
+4. **Sufficiency, not injectivity.** "Determined by the window" means
+   F ⊥ Q' | Q (factorization), not injectivity of φ
+   (`notes/open_questions/delay_embedding/PLAN_delay_chapter.md`, 2026-08-25
+   update).
+
+Well-conditioning half: ACCOUNTED FOR 2026-10-09 (σ-algebraic form classical, killed for invertible T; metric form partially occupied by the stable-embedding literature). `notes/open_questions/delay_embedding/collision_vs_generation.md`.

@@ -1,0 +1,8 @@
+{1: 336, 2: 198, 3: 84, 4: 18} distinct remainders R' by coarse size
+c0=1: exact carrier |D|=512; all 336 remainders in D: True
+c0=2: exact carrier |D|=2350; all 198 remainders in D: True
+c0=3: exact carrier |D|=15914; all 84 remainders in D: True
+c0=4: supply 105802; remainders 18; NOT in supply: 0
+ALL remainders exactly buildable: True
+
+[exited with code 0]

@@ -65,6 +65,27 @@ the collection's actual shape. List them in `$meta.categories`.
 | `category` | optional | echoes the group key (useful when entries are flattened) |
 | `killed` / `examined` | optional | ISO date of the verdict |
 | cross-links | optional | `costume_of`, `same_as`, `kills_or_bounds`, `death_number` — ids/links that make structure machine-visible |
+| `owned_by` | optional | `{cite, region, verified: "read"\|"bib"\|"sec", detail}` — who owns this region of the map. Makes seams machine-visible. *(added 2026-10-16)* |
+| `uses` | optional | list of ids in the same file this item depends on — the hand-proof dependency DAG, mirroring the blueprint's `\uses`. *(added 2026-10-16)* |
+| `scope` | optional | the conditions under which the claim holds, e.g. `"alphabet=3"`, `"sub-carrier only"`, `"L>=4"`. Puzzle checks showed that scope can flip truth. *(added 2026-10-16)* |
+
+## Theory-shaped collections (added 2026-10-16)
+
+The programme's aim is **new mathematical theory**. Problems are probes placed at
+seams between existing theories. A collection that tracks a *theory* rather than a
+problem's attempts uses these categories:
+
+| category | holds |
+|---|---|
+| `objects` | the definitions the theory is about |
+| `theorems` | proved results; carry `lean` or a ⟦hand⟧ status, plus `uses` and `scope` |
+| `conjectures` | candidate statements, including the target structure theorem |
+| `probes` | `gates` whose `affects` point at conjecture ids. Same disciplines: pre-registered, record-not-propagate, reversal = a new gate |
+| `examples` | small concrete instances (the puzzles), with `scope` |
+| `owned_regions` | the seam map: each entry's `owned_by` says which existing theory covers which region |
+
+Problem-attempt collections stay as they are. A theory collection points into them
+by `[[file-stem]]` and `id`; it does not duplicate them.
 
 ## Cross-linking (what makes the tree modular)
 
@@ -142,6 +163,15 @@ def walk(o):
 walk(d)
 missing = [f for f in files if not os.path.exists(f)]  # run from taxonomy's dir; rule 2
 assert not missing, missing
+ids = set(); uses = []                                    # `uses` resolve (theory collections)
+def walk2(o):
+    if isinstance(o, dict):
+        if "id" in o: ids.add(o["id"])
+        uses.extend(o.get("uses", []))
+        for v in o.values(): walk2(v)
+    elif isinstance(o, list): [walk2(x) for x in o]
+walk2(d)
+assert set(uses) <= ids, set(uses) - ids
 ```
 
 ## Optional `lean` field — formal certificates

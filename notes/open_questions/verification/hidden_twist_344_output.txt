@@ -1,0 +1,36 @@
+non-binary rays: 1728
+  base (3, 3, 3) 15914 maps 36
+    supply so far 333274
+  base (2, 3, 4) 17878 maps 18
+    supply so far 430210
+  base (2, 4, 3) 17878 maps 18
+    supply so far 527146
+  base (3, 2, 4) 17878 maps 7
+    supply so far 559666
+  base (3, 4, 2) 17878 maps 7
+    supply so far 592186
+  base (2, 3, 3) 2350 maps 108
+    supply so far 592186
+  base (3, 3, 2) 2350 maps 42
+    supply so far 592186
+  base (3, 2, 3) 2350 maps 42
+    supply so far 592186
+supply 592185
+  iter 0: Lambda(g) = -1.000000, violated supply sets 4118
+  iter 1: Lambda(g) = -0.200000, violated supply sets 137
+  iter 2: Lambda(g) = -0.111111, violated supply sets 0
+status 0 min Lambda(g) = -0.111111
+pair law (x0,x1):
+ [[ 0.1111  0.1111  0.1111 -0.    ]
+ [ 0.1111  0.1111  0.      0.1111]
+ [ 0.      0.1111  0.1111  0.1111]]
+pair law (x1,x2):
+ [[ 0.      0.1111  0.1111 -0.    ]
+ [ 0.1111  0.1111  0.      0.1111]
+ [ 0.1111  0.      0.1111 -0.    ]
+ [-0.     -0.      0.1111  0.1111]]
+pair law (x2,x0):
+ [[ 0.1111  0.1111  0.    ]
+ [ 0.1111  0.      0.1111]
+ [ 0.1111  0.1111  0.1111]
+ [-0.      0.1111  0.1111]]

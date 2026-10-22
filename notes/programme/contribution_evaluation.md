@@ -250,3 +250,20 @@ currently available.
 - It does not change the 8-phase pipeline structure. The phases
   are type-independent; what varies by type is what "Phase 4
   mathematical work" looks like.
+
+## Theory building (added 2026-10-16)
+
+The programme's aim is **new mathematical theory**: definitions, invariants and
+structure theorems. Problems are probes placed at seams between existing theories.
+They locate where theory is missing, and solving them is a means, not the end.
+
+**How to measure each kind of item:**
+- **A theory item** (a definition, theorem or conjecture in a theory-shaped
+  collection) is measured against **Type 3** (does it enable method transfer?) and
+  **Type 4** (three new statements plus one non-trivial result).
+- **A probe** needs no contribution type. Its value is that it discriminates
+  between candidate conjectures (`probes` in `TAXONOMY_SCHEMA.md`).
+- **Prior-art discipline is unchanged.** Before any item is *claimed*, run hostile
+  cross-field prior art. A framing that turns out to be owned is still useful: it
+  locates where the seam is not.
+

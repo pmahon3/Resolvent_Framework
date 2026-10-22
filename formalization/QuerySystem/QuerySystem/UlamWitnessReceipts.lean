@@ -18,6 +18,8 @@ namespace SigmaEssential
 
 -- The main theorem: Ψ holds in ZFC.
 #print axioms Ulam.psi_ZFC
+-- |Ω| = ℵ₁ (Theorem 1.4).
+#print axioms Ulam.Ω₁_card
 -- The localized witness: the pattern is σ-essential on the ω₁ carrier.
 #print axioms Ulam.product_ulam_witness_ZFC
 -- The σ-side alone (rigidity + empty kernel).

@@ -51,6 +51,27 @@ jobs:
         with:
           lake-package-directory: formalization/QuerySystem
 
+      # The build tree and the source tree must name the same modules. No
+      # other gate looks at `.lake/build`: checkdecls, axiomcheck and the sorry
+      # ratchet all read the Lean environment, and the environment is whatever
+      # `import QuerySystem` reaches -- an olean with no source is outside it.
+      #
+      # In CI this direction is near-vacuous, because the checkout is fresh and
+      # orphans are a property of incremental local trees. It is here anyway
+      # for the OTHER direction, which is not vacuous: a source file with no
+      # olean means `globs` stopped covering it, which is exactly the
+      # pre-2026-08-21 bug this workflow's header describes -- 46 of 47 files
+      # unchecked behind a green build.
+      #
+      # The orphan direction earns its place locally. On 2026-09-01 three
+      # orphan oleans were found in a working tree, one of them ZZTestKS.olean,
+      # declaring `ks_inconsistent : False` on the deleted false axiom
+      # KochenSpecker_witness. A live, importable proof of `False` in the build
+      # tree, with all five gates green: the axiom census enumerates what
+      # `import QuerySystem` reaches, and nothing imports an orphan.
+      - name: build tree matches source tree
+        run: bash formalization/QuerySystem/blueprint/buildtree.sh
+
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'

@@ -120,3 +120,16 @@ API, no choice beyond the global `Classical.choice` in the receipt.
 (amended Ψ, ZFC), and the verification is complete at ground-truth level.
 Receipts: `UlamWitnessReceipts.lean` (`#print axioms` — every theorem shows
 exactly `[propext, Classical.choice, Quot.sound]`).
+
+## Standing re-read: whenever `formalization/` moves
+
+Re-read the paper's Verification-status paragraph (§1), its Acknowledgements,
+Theorem 1.4's conjunct list, Proposition `prop:adm` and the `Adm` clauses
+against the current receipts (`blueprint/axiomcheck.log`, `Admissibility.lean`):
+every Lean name the paper cites must exist; every property the paper asserts
+must be proved unconditionally there, not under a hypothesis. Added 2026-10-07
+after four drifts in one direction were found (stale module names; "in
+progress" vs "in full"; "end-to-end"; a Polish clause asserted while Lean held
+it as the hypothesis `DWPolishCut`). The names above in this sheet
+(`psiAmended_ZFC`, `SigmaEssentialAmended.lean`) are themselves from before
+the rename; the current statements are `psi_ZFC` and `targetA_sharp_ZFC`.

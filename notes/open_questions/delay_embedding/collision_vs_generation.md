@@ -72,7 +72,7 @@ settled (Boolean, horizontal σ-sum, segregated)? **It did not fire.** The non-B
 leg alone would not show that: two *disjoint* windows σ(x₀) ∪ σ(x₁) are also
 non-Boolean, and that carrier is MO₂-shaped and settled. The block-overlap leg is
 the one that separates. Grades are below; everything marked Lean is in
-`formalization/staging/WindowGluing.lean`, axioms `[propext, Classical.choice, Quot.sound]`.
+`formalization/QuerySystem/QuerySystem/WindowGluing.lean`, axioms `[propext, Classical.choice, Quot.sound]`.
 
 | leg | result | grade |
 |---|---|---|
@@ -111,7 +111,7 @@ the bar asks for. A mismatch, or always-amalgamating rings, would kill the bridg
 
 ## Candidate witness on the glued 4-ring (2026-10-08) — LEAN-CHECKED; prior-art gate PASSED 2026-10-15 (not found)
 
-**Update (same day): proved.** In `formalization/staging/WindowGluing.lean` §`WindowGluing.Cyclic`
+**Update (same day): proved.** In `formalization/QuerySystem/QuerySystem/WindowGluing.lean` §`WindowGluing.Cyclic`
 (standard axioms `[propext, Classical.choice, Quot.sound]`), on the glued 4-ring of
 **ℕ-valued** windows (Ω = ℕ⁴, countable; window events are arbitrary sets, so every
 event is Borel):
@@ -580,7 +580,7 @@ propagation oracle on the triangle (`window_gluing_cyclic_order_triangle.py`).
       is p-small, for example on slices {x₀ odd}. E\* itself shows that no
       statement at the interaction level alone can exclude cyclic behaviour.
       Next: `gate.triangle_lambda2_agreement`.
-    - **Lean-checked (2026-10-17):** `formalization/staging/TriangleCyclic.lean`.
+    - **Lean-checked (2026-10-17):** `formalization/QuerySystem/QuerySystem/TriangleCyclic.lean`.
       - `estar_not_mem` and `not_inF_of_mem`: 0 sorry; axioms propext,
         Classical.choice, Quot.sound.
       - The carrier is `DynkinSystem.generate` of the three pair windows,

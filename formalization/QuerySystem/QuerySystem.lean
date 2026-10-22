@@ -34,6 +34,7 @@ import QuerySystem.AndersenJessen
 import QuerySystem.BandClosure
 import QuerySystem.BoundaryDescent
 import QuerySystem.Commensurability
+import QuerySystem.CompositionLaw
 import QuerySystem.ConcreteDescent
 import QuerySystem.ConcreteMO2
 import QuerySystem.ConcreteOMLBlocks
@@ -60,14 +61,16 @@ import QuerySystem.PruningTheorem
 import QuerySystem.QuerySystem
 import QuerySystem.ReconstructionTheorem
 import QuerySystem.RelationalDelay
-import QuerySystem.SigmaEssentialWitness
 import QuerySystem.SigmaEssentialBareForm
 import QuerySystem.SigmaEssentialConjectures
 import QuerySystem.SigmaEssentialLocalization
 import QuerySystem.SigmaEssentialOpenCore
+import QuerySystem.SigmaEssentialWitness
 import QuerySystem.StoneDualityExtension
 import QuerySystem.TheoremB
 import QuerySystem.ThickTrace
+import QuerySystem.TransportGeneral
+import QuerySystem.TriangleCyclic
 import QuerySystem.UlamWitnessCore
 import QuerySystem.UlamWitnessFidelity
 import QuerySystem.UlamWitnessInvariant
@@ -79,3 +82,4 @@ import QuerySystem.UlamWitnessState
 import QuerySystem.UltrafilterCharge
 import QuerySystem.WindingDichotomy
 import QuerySystem.WindingInjectivity
+import QuerySystem.WindowGluing

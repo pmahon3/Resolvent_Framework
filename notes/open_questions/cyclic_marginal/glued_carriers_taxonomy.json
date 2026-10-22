@@ -75,7 +75,7 @@
   {
    "id": "thm.triangle_pointless",
    "name": "the triangle carries a pointless state",
-   "status": "LEAN-CHECKED 2026-10-17 (formalization/staging/TriangleCyclic.lean; 0 sorry; axioms propext, Classical.choice, Quot.sound), including fidelity sstar_window01/12/20 (s* = the staircase p(x)p limit on every window event). AUDIT /audit pure 2026-10-17 (opus, hostile): NOT FOUND (UNCLEAR at the margin); ingredients owned (own.dravecky_sipos_flight_subcarrier, own.navara_two_of_three, own.coherence_extension, own.ultrafilter_products); scoped claim = a finitely additive two-valued NON-COHERENT state on the full lambda-closure of the three pair windows over N, plus non-membership of the cyclic family. Type 3 FAIL for now (no second domain; flip = decide Navara's two-sided-unbounded regime); Type 4 FAIL as vocabulary (use standard names), statements PASS-pending. Do not upgrade to NOVEL until coverage gaps close (Bhaskara Rao body, Gudder SIAM Rev 1984 Ex 3.1, Hindman-Strauss, Blass, Ptak-Pulmannova book, Ovchinnikov PAMS 1999). Earlier: two budgeted sonnet scouts NOT FOUND, shallow coverage (snippet-level; Navara-Ptak-era, Gudder, Bhaskara Rao, Hindman-Strauss text, Blass unread; residual risk = folklore ultrafilter-product non-extendability, or a Navara-style set-representable logic with a non-point two-valued state). Scouting only - NOT the claim gate (workflow step 6 / /audit pure owed).",
+   "status": "LEAN-CHECKED 2026-10-17 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean; 0 sorry; axioms propext, Classical.choice, Quot.sound), including fidelity sstar_window01/12/20 (s* = the staircase p(x)p limit on every window event). AUDIT /audit pure 2026-10-17 (opus, hostile): NOT FOUND (UNCLEAR at the margin); ingredients owned (own.dravecky_sipos_flight_subcarrier, own.navara_two_of_three, own.coherence_extension, own.ultrafilter_products); scoped claim = a finitely additive two-valued NON-COHERENT state on the full lambda-closure of the three pair windows over N, plus non-membership of the cyclic family. Type 3 FAIL for now (no second domain; flip = decide Navara's two-sided-unbounded regime); Type 4 FAIL as vocabulary (use standard names), statements PASS-pending. Do not upgrade to NOVEL until coverage gaps close (Bhaskara Rao body, Gudder SIAM Rev 1984 Ex 3.1, Hindman-Strauss, Blass, Ptak-Pulmannova book, Ovchinnikov PAMS 1999). Earlier: two budgeted sonnet scouts NOT FOUND, shallow coverage (snippet-level; Navara-Ptak-era, Gudder, Bhaskara Rao, Hindman-Strauss text, Blass unread; residual risk = folklore ultrafilter-product non-extendability, or a Navara-style set-representable logic with a non-point two-valued state). Scouting only - NOT the claim gate (workflow step 6 / /audit pure owed).",
    "lean": "TriangleCyclic.triangle_pointless_state, triangle_state_no_ultrafilter, triangle_state_no_point, triangle_has_pointless_state, sstar_window01, sstar_window12, sstar_window20",
    "one_line": "For every non-principal ultrafilter p on N, s* = W012 + W120 - W102 (signed combination of three iterated p-limit ultrafilters on N^3) is finitely additive, s*(Omega)=1, {0,1}-valued on the triangle carrier D3, and 1 on the staircase steps {x0<x1},{x1<x2},{x2<x0} (empty intersection), so no ultrafilter on Omega - in particular no point - reproduces it. Two-valuedness: if s*(E) is 2 or -1, ultrafilter Ramsey for triples gives an infinite P on which E follows its six-order profile; two box identities force the cyclic/anticyclic pattern; the homogeneous-set family is excluded from D3 by the lift lemma + Dynkin induction.",
    "scope": "Triangle over N, any non-principal p. That s* coincides with the forced functional Lambda on finitely built questions is hand (prop:forced). With thm.loops_travel (hand) and the forests theorem (hand): a window graph has a pointless state iff it is not a forest - that assembly is hand, not Lean. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
@@ -88,8 +88,8 @@
   {
    "id": "thm.triangle_estar_not_built",
    "name": "the cyclic set is not in the triangle carrier over N",
-   "status": "proved, LEAN-CHECKED 2026-10-17 (formalization/staging/TriangleCyclic.lean: estar_not_mem, not_inF_of_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound); PRIOR ART: scout 2026-10-17 NOT FOUND (partial coverage; method folklore-adjacent via Keleti-Preiss)",
-   "lean": "formalization/staging/TriangleCyclic.lean: TriangleCyclic.estar_not_mem, TriangleCyclic.not_inF_of_mem (D3 = DynkinSystem.generate of the three pair-window sigma-algebras on Fin 3 -> N, same construction as WindowGluing.glued)",
+   "status": "proved, LEAN-CHECKED 2026-10-17 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: estar_not_mem, not_inF_of_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound); PRIOR ART: scout 2026-10-17 NOT FOUND (partial coverage; method folklore-adjacent via Keleti-Preiss)",
+   "lean": "formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: TriangleCyclic.estar_not_mem, TriangleCyclic.not_inF_of_mem (D3 = DynkinSystem.generate of the three pair-window sigma-algebras on Fin 3 -> N, same construction as WindowGluing.glued)",
    "one_line": "Let B_n = {min pairwise gap <= n} and F = {Z: Z delta E* or Z delta E*^c lies in some B_n}. No member of F is in the Dynkin closure D over N; in particular E* is not in D. Lift lemma: if Z delta E* is in B_n and f has zero box interaction with f = 0 off Z, then f is constant on strict-cyclic points with gaps >= 2n+2 (box lifting the minimum far above the maximum; the other six corners are generic anticyclic). Least-stage argument: a complement stays in F; in a countable disjoint union exactly one piece takes the generic part and is an earlier member of F.",
    "scope": "E* family only (finite-band perturbations). Does NOT fire gate.triangle: sets with cyclic ultrafilter profile that differ from E* on a non-band p-small region are not covered.",
    "uses": [
@@ -111,7 +111,7 @@
    "one_line": "Over a countable alphabet every sigma-additive state on a glued pair-window carrier is a point (window Diracs agree; Dynkin uniqueness). Lean for the ring; hand for general window graphs. Finite alphabets: same with finite additivity.",
    "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
    "lean": {
-    "file": "formalization/staging/WindowGluing.lean",
+    "file": "formalization/QuerySystem/QuerySystem/WindowGluing.lean",
     "name": "no_sigma_extension",
     "status": "proved-edge"
    },
@@ -134,7 +134,7 @@
    "one_line": "The staircase window ultrafilters extend to a two-valued finitely additive state on the whole glued carrier D_L over N^L; it is pointless and has no sigma-additive version. No owner found after 3 prior-art passes.",
    "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
    "lean": {
-    "file": "formalization/staging/WindowGluing.lean",
+    "file": "formalization/QuerySystem/QuerySystem/WindowGluing.lean",
     "name": "sL_sigmaEssential",
     "status": "proved-edge"
    },
@@ -155,7 +155,7 @@
    "one_line": "The countable carrier D_4 has centre literally {empty, Omega} (the 'modulo countable' irreducibility is vacuous on countable Omega) and satisfies all six original admissibility conjuncts, Polish clause conditional on DWPolishCut as for the omega_1 witness.",
    "detail": "../delay_embedding/collision_vs_generation.md (Third-pass prior-art gate, costume found and fixed)",
    "lean": {
-    "file": "formalization/staging/WindowGluing.lean",
+    "file": "formalization/QuerySystem/QuerySystem/WindowGluing.lean",
     "name": "targetA_sharp_countable_literal",
     "status": "proved-edge"
    },
@@ -289,7 +289,7 @@
   {
    "id": "thm.navara_witness_not_buildable_Z",
    "name": "Navara's K(0,0) is not buildable over Z (transport lemma)",
-   "status": "LEAN-CHECKED 2026-10-20 (formalization/staging/TriangleCyclic.lean: mem_pre, not_mem_of_restrict_inF, navaraK_not_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound)",
+   "status": "LEAN-CHECKED 2026-10-20 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: mem_pre, not_mem_of_restrict_inF, navaraK_not_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound)",
    "one_line": "The triangle carrier over Z pulls back into the carrier over N along the coordinatewise inclusion (mem_pre). Hence any set over Z whose restriction lies in InF is unbuildable; in particular Navara's K(0,0) = {[x1<x0]+[x2<x1]-[x2<x0] = 1} (anticyclic off ties), the set that would expose the clocks' impossible point (Lambda = -1), is not in the carrier over Z.",
    "uses": [
     "thm.triangle_estar_not_built",
@@ -301,7 +301,7 @@
   {
    "id": "thm.transport_general",
    "name": "Transport lemma (coordinatewise maps)",
-   "status": "LEAN-CHECKED 2026-10-21 (formalization/staging/TransportGeneral.lean: mem_pre; 0 sorry; standard axioms)",
+   "status": "LEAN-CHECKED 2026-10-21 (formalization/QuerySystem/QuerySystem/TransportGeneral.lean: mem_pre; 0 sorry; standard axioms)",
    "one_line": "For any coordinatewise maps f_i : alpha -> beta, preimages of triangle-carrier sets over beta are carrier sets over alpha. Backbone of finite-quotient witnesses (mod n) and of pulled-back supplies in the cone(D) checks.",
    "uses": [
     "thm.navara_witness_not_buildable_Z"
@@ -350,7 +350,7 @@
   {
    "id": "conj.composition_law",
    "name": "composition law: two forward windows force the third; the twist is the holonomy of composition",
-   "status": "TRIANGLE CASE LEAN-CHECKED 2026-10-19 (formalization/staging/CompositionLaw.lean: glue_unique, glue_proj02, triangle_glues_iff; 0 sorry; standard axioms); loop/holonomy induction HAND. Prior art second pass: forcing lemma NOT FOUND (folklore risk high: Frolik sums + Goldberg pair lemma); holonomy corollary NOT FOUND, special cases classical - novelty, if any, is in the unification. Unread: Frolik 1967, Blass 1973/1977, Katetov 1968, Hindman-Strauss. Earlier: HAND, unverified (2026-10-19); reviewed once. Prior art: Goldberg JSL 2025 §3 Lemma 3.2 owns the pair-level fibre description; forward types = classical sums (Frolik, Blass); folklore risk HIGH; targeted pass owed. Lean target.",
+   "status": "TRIANGLE CASE LEAN-CHECKED 2026-10-19 (formalization/QuerySystem/QuerySystem/CompositionLaw.lean: glue_unique, glue_proj02, triangle_glues_iff; 0 sorry; standard axioms); loop/holonomy induction HAND. Prior art second pass: forcing lemma NOT FOUND (folklore risk high: Frolik sums + Goldberg pair lemma); holonomy corollary NOT FOUND, special cases classical - novelty, if any, is in the unification. Unread: Frolik 1967, Blass 1973/1977, Katetov 1968, Hindman-Strauss. Earlier: HAND, unverified (2026-10-19); reviewed once. Prior art: Goldberg JSL 2025 §3 Lemma 3.2 owns the pair-level fibre description; forward types = classical sums (Frolik, Blass); folklore risk HIGH; targeted pass owed. Lean target.",
    "one_line": "Forward 2-type: fibred over its first coordinate by a family (u_a), with a member on which the second coordinate is finite-to-one back to the first (products drawn after, injective graphs, translations). If u01, u12 are forward, every amalgam is UNIQUE and projects to the composite u01 o u12 (an iterated sum) on (x0,x2). So the triangle is flat iff u02 = u01 o u12; around a loop with a forward path, flat iff the closing window equals the composite. Unifies: products (orientation, for orientations with a forward path), bijections (monodromy, automatically trivial for two-valued families by Katetov), sums (d02 = d01 + d12; NT1 twisted for every p). Open: non-forward / general amalgamations (Goldberg's boundary), alternating orientations.",
    "detail": "theory_shape.md (2026-10-19: the composition law)",
    "uses": [

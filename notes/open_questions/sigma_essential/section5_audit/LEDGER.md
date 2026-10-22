@@ -188,7 +188,7 @@ with the one proved structural fact.
 
 **Cross-ref 2026-10-08 (Q6.6 / `DWPolishCut`).** Glued real-valued delay windows
 give a Lean-certified non-Boolean Dynkin carrier inside the Borel sets of ℝⁿ
-(`formalization/staging/WindowGluing.lean`). That is a natural Polish-built test
+(`formalization/QuerySystem/QuerySystem/WindowGluing.lean`). That is a natural Polish-built test
 family for Q6.6, from the reconstruction lane. This does not change the H-pol
 verdict. Detail: `notes/open_questions/delay_embedding/collision_vs_generation.md`
 §Bridge hypothesis.

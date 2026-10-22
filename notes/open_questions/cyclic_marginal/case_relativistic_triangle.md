@@ -311,7 +311,7 @@ witnessed by the (anti)cyclic set, and the triangle cannot ask that set.
 
 ## Check 4d: Lean, Navara's witness over ℤ (2026-10-20)
 
-`formalization/staging/TriangleCyclic.lean`, section `OverZ` (0 sorry; standard axioms; 37 s).
+`formalization/QuerySystem/QuerySystem/TriangleCyclic.lean`, section `OverZ` (0 sorry; standard axioms; 37 s).
 - `mem_pre`: the triangle carrier over ℤ pulls back into the carrier over ℕ along the
   coordinatewise inclusion. This is the transport lemma, machine-checked for this map.
 - `not_mem_of_restrict_inF`: any set over ℤ whose restriction to ℕ³ lies in `InF` is

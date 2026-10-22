@@ -1,38 +1,295 @@
 \chapter*{What this blueprint is}
 \addcontentsline{toc}{chapter}{What this blueprint is}
 
-Two independent lines of work, formalized in one Lean library and mapped here.
-They are reported together because they ask the same question of different
-objects --- what structure survives when you only ever see observations --- but
-they are not derived from one another, and the dependency graph shows that: it
-has two components, splitting between Chapters 4 and 5, with no
-\texttt{\char92 uses} edge crossing except between the delay and pruning
-chapters.
+\paragraph{The question.} Several views of one situation, each correct as far
+as it goes, are given two at a time. When do they add up to one world, and when
+they do not, what can still be asked that shows it? The programme takes
+\emph{answers first}: the questions you can ask (formally, the
+\emph{carrier}) and the consistent answer patterns on them (the
+\emph{states}) are primitive. Points, the ``one world'' behind the answers, are
+derived when they can be earned, and not otherwise.
 
-\textbf{Chapters 1--4 and 7 (the distributive line).} Query systems, the
-observational extension theorem and its obstruction, the Andersen--Jessen
-tower that refutes it under plain upper-directedness, delay embeddings, and the
-pruning certificate layer. Everything here is Boolean.
+\paragraph{Current line: glued carriers (Chapter~\ref{chap:glued}).} Take
+three variables and three pair views. The carrier is everything built from the
+pair questions by ``not'' and ``either one'' (disjoint countable union). A
+state on it that is not a mixture of points is a \emph{twist}. The chapter
+records what Lean has checked: the triangle carries a two-valued state with no
+point behind it (\ref{gc:thm:pointless}); the cyclic set is not askable
+(\ref{gc:thm:estar}); a closing window glues exactly when it is the composite of
+the other two (\ref{gc:thm:glues-iff}); carriers transport along coordinate maps
+(\ref{gc:thm:transport}); and the steps of the finite classification that are
+formal. The classification itself (a finite triangle of pair views with sizes
+$r_1\ge r_2\ge r_3$ hides a probabilistic twist iff $r_2\ge4$ and $r_3\ge3$) is
+\emph{not} formalized: its ``hides'' direction is an exact computation, its
+``cannot hide'' direction is a hand proof with formal steps, and its threshold is
+owned (Sullivant 2006; Ohsugi--Hibi 2010). See
+\texttt{notes/open\_questions/cyclic\_marginal/definitions\_draft.md}~\S22.
 
-\textbf{Chapters 5--6 (the orthomodular line).} What happens when the carrier
-is a $\sigma$-class that is \emph{not} closed under intersection. The
-theorem is \texttt{psi\_ZFC} (\ref{thm:psi-zfc}): a concrete $\sigma$-complete
-orthomodular \emph{poset} carrying a finitely coherent two-valued pattern with
-no global $\sigma$-additive extension. The open question is
-$\Phi$ (\ref{rmk:phi-open}): whether the same holds with latticehood adjoined.
-$\Phi$ is the frontier this line exists to reach; it is stated in full at
-\ref{rmk:phi-open} and is not settled here.
+\paragraph{Earlier lines.} The remaining chapters are earlier work, kept
+because the results stand.
+\begin{itemize}
+  \item \emph{The distributive line} (query systems, the observational
+    extension theorem and its obstruction, Andersen--Jessen, delay embeddings,
+    the pruning theorem). Everything there is Boolean.
+  \item \emph{The orthomodular line.} The theorem is \texttt{psi\_ZFC}
+    (\ref{thm:psi-zfc}): a concrete $\sigma$-complete orthomodular poset
+    carrying a finitely coherent two-valued pattern with no global
+    $\sigma$-additive extension. $\Phi$ (\ref{rmk:phi-open}), the same with
+    latticehood adjoined, is open and parked. The countable witness on glued
+    rings (\ref{gc:thm:ring-sigma}) belongs to this line and to the glued one.
+\end{itemize}
 
-\emph{Notation warning.} $\Phi$ names two unrelated things below. In
-Chapter~4, $\Phi_h$ is the delay map $x \mapsto (h(T^n x))_n$
-(\ref{def:delay-map}). In Chapters 5--6, unsubscripted $\Phi$ is the open
-conjecture above. They have nothing to do with each other.
+\emph{Notation warning.} $\Phi$ names two unrelated things. In the delay
+chapter, $\Phi_h$ is the delay map $x \mapsto (h(T^n x))_n$
+(\ref{def:delay-map}). In the orthomodular chapters, unsubscripted $\Phi$ is the
+open conjecture above.
 
 \paragraph{Status conventions.} A green node is proved on the standard axioms
-alone. Seven nodes rest on cited axioms; where a claim is conditional, the
-hypothesis is carried explicitly in the statement rather than assumed --- see
-\ref{lem:carrier-not-polish}, whose Polish cut is an explicit hypothesis and
-not a citation.
+alone. Eight nodes rest on cited axioms. Where a claim is conditional, the
+hypothesis is carried explicitly in the statement rather than assumed; see
+\ref{lem:carrier-not-polish}, whose Polish cut is an explicit hypothesis and not
+a citation. Results proved by hand or by computation are stated in prose with
+that label and carry no \texttt{\char92 leanok}.
+
+\chapter{Glued carriers: the triangle}
+\label{chap:glued}
+
+\paragraph{Puzzle.} Three players, each pair reporting who is ahead: $x_0<x_1$,
+$x_1<x_2$, $x_2<x_0$. Each report is satisfiable, the three together are not.
+With scores in $\mathbb N$ and only yes/no questions built from pair questions,
+can anything you ask expose the cycle? The answer below is no, and the reports
+form a consistent two-valued state with no point behind it.
+
+Throughout, $\Omega=\mathbb N^3$ (or $\alpha^3$), the windows are the pairs
+$\{0,1\},\{1,2\},\{2,0\}$, and the carrier $D_3$ is the Dynkin system generated
+by the window events $\{x \mid (x_i,x_j)\in S\}$.
+
+\section{The carrier and the cyclic set}
+
+\begin{definition}[Triangle carrier]
+\label{gc:def:carrier}
+\lean{TriangleCyclic.D₃, TransportGeneral.carrier}
+\leanok
+The Dynkin system on $\alpha^3$ generated by the events $\{x\mid (x_i,x_j)\in S\}$
+for the three pairs $\{i,j\}$ and arbitrary $S\subseteq\alpha^2$. On $\mathbb N^3$
+it is $D_3$; over a general $\alpha$ it is \texttt{TransportGeneral.carrier}.
+\end{definition}
+
+\begin{theorem}[The cyclic set is not askable]
+\label{gc:thm:estar}
+\lean{TriangleCyclic.estar_not_mem, TriangleCyclic.not_inF_of_mem}
+\leanok
+\uses{gc:def:carrier}
+$E^*=\{x \mid [x_0\le x_1]+[x_1<x_2]+[x_2<x_0]=2\}\notin D_3$. More generally, no
+set of $D_3$ agrees with the strict-cyclic or the strict-anticyclic set at all
+points whose three pairwise gaps exceed some $n$.
+\end{theorem}
+\begin{proof}
+\leanok
+Every set of $D_3$ satisfies an eight-corner box identity; lifting the minimum
+coordinate of a far cyclic point does not change membership; so membership is
+constant on far cyclic points, and induction over the Dynkin system finishes.
+\end{proof}
+
+\begin{theorem}[Navara's set over $\mathbb Z$]
+\label{gc:thm:navara}
+\lean{TriangleCyclic.mem_pre, TriangleCyclic.navaraK_not_mem}
+\leanok
+\uses{gc:thm:estar}
+Carrier sets over $\mathbb Z$ pull back to carrier sets over $\mathbb N$, and
+Navara's $K(0,0)$ is not in the carrier over $\mathbb Z$.
+\end{theorem}
+\begin{proof}
+\leanok
+Pull back along $\mathbb N\hookrightarrow\mathbb Z$ and apply \ref{gc:thm:estar}.
+\end{proof}
+
+\section{A pointless state}
+
+\begin{theorem}[The triangle is pointless]
+\label{gc:thm:pointless}
+\lean{TriangleCyclic.triangle_pointless_state, TriangleCyclic.triangle_state_no_ultrafilter, TriangleCyclic.triangle_has_pointless_state}
+\leanok
+\uses{gc:def:carrier}
+For a non-principal ultrafilter $p$ on $\mathbb N$, the integer combination
+$s^*=W_{012}+W_{120}-W_{102}$ of iterated-limit ultrafilters is $\{0,1\}$-valued
+and finitely additive on $D_3$, gives value $1$ to each of
+$C_0=\{x_0<x_1\}$, $C_1=\{x_1<x_2\}$, $C_2=\{x_2<x_0\}$, and
+$C_0\cap C_1\cap C_2=\varnothing$. Hence no ultrafilter on $\mathbb N^3$ agrees
+with $s^*$ on $D_3$: a two-valued state with no point behind it.
+\end{theorem}
+\begin{proof}
+\leanok
+Each window restriction of $s^*$ is an ultrafilter; additivity is linear; the
+three staircase values are direct. A point (ultrafilter) would contain the empty
+intersection.
+\end{proof}
+
+\begin{theorem}[Other pointless patterns]
+\label{gc:thm:ddp}
+\lean{TriangleCyclic.triangle_ddp_pointless, TriangleCyclic.triangle_dpp_pointless}
+\leanok
+\uses{gc:thm:pointless}
+Two further window types (two diagonals and a product; one diagonal and two
+staircase windows) also carry pointless two-valued states with the stated window
+restrictions.
+\end{theorem}
+\begin{proof}
+\leanok
+As for \ref{gc:thm:pointless}.
+\end{proof}
+
+\paragraph{By hand.} Assembled with the forest case, these give: a window graph
+is pointless iff it is not a forest (\texttt{pointless\_coherence.tex};
+assembly \emph{hand}, not formal).
+
+\section{Composition: when the closing window glues}
+
+\begin{theorem}[Forcing]
+\label{gc:thm:glue-unique}
+\lean{CompositionLaw.glue_unique}
+\leanok
+If the $(x_0,x_1)$ window is a forward sum $\Sigma_p u$ and the $(x_1,x_2)$
+window is any sum, every ultrafilter on $\mathbb N^3$ with these two projections
+is the natural three-step ultrafilter.
+\end{theorem}
+\begin{proof}
+\leanok
+A large set in a forward window reaches each $x_1$ from finitely many $x_0$, so
+the requirement on $x_2$ is a finite intersection of large sets.
+\end{proof}
+
+\begin{theorem}[A closing window glues iff it is the composite]
+\label{gc:thm:glues-iff}
+\lean{CompositionLaw.glue_proj02, CompositionLaw.triangle_glues_iff}
+\leanok
+\uses{gc:thm:glue-unique}
+With a forward $(x_0,x_1)$ window and a summed $(x_1,x_2)$ window over the
+consistent marginal, a third window on $(x_0,x_2)$ glues with the two iff it
+equals the composite. The twist is exactly the disagreement of the closing
+window with the composite.
+\end{theorem}
+\begin{proof}
+\leanok
+Project the forced ultrafilter of \ref{gc:thm:glue-unique}; conversely the
+natural ultrafilter has the composite as its third projection.
+\end{proof}
+
+\section{Transport, and the finite classification}
+
+\begin{theorem}[Transport along coordinate maps]
+\label{gc:thm:transport}
+\lean{TransportGeneral.mem_pre}
+\leanok
+\uses{gc:def:carrier}
+For any maps $f_i:\alpha\to\beta$, the preimage of a carrier set over $\beta$
+under $x\mapsto(f_i(x_i))_i$ is a carrier set over $\alpha$. This is what makes
+finite-quotient witnesses (values mod $n$) and pullbacks from smaller triangles
+legitimate.
+\end{theorem}
+\begin{proof}
+\leanok
+Preimage commutes with complement and disjoint union; pair events pull back to
+pair events.
+\end{proof}
+
+\begin{theorem}[The rectangle step]
+\label{gc:thm:rect}
+\lean{TransportGeneral.allEq_mem, TransportGeneral.rect_mem}
+\leanok
+\uses{gc:thm:transport}
+For any $P,Q,R\subseteq\alpha$, the set
+$\{x\mid (x_0\in P\wedge x_1\in Q\wedge x_2\in R)\vee(x_0\notin P\wedge x_1\notin Q\wedge x_2\notin R)\}$
+is in the carrier.
+\end{theorem}
+\begin{proof}
+\leanok
+The all-equal set on $\{0,1\}^3$ is in the Boolean carrier by an explicit
+disjoint decomposition; transport along the indicator maps of $P,Q,R$.
+\end{proof}
+
+\paragraph{The classification (not formal).} A finite triangle with sizes
+$r_1\ge r_2\ge r_3$ hides a probabilistic twist iff $r_2\ge4$ and $r_3\ge3$.
+\emph{Hides at $3\times4\times4$}: exact computation (\texttt{certify\_344.py},
+witness value $-1/9$). \emph{Cannot hide at $r\times s\times2$}: hand proof by
+slices, whose rectangle step is \ref{gc:thm:rect}. \emph{Cannot hide at
+$r\times3\times3$}: hand proof with exact enumeration of remainders. The
+threshold is the compressed/non-compressed boundary of the no-three-way-
+interaction polytope (Sullivant 2006; Ohsugi--Hibi 2010); the equivalence with
+hiding was not found in the literature after two passes, and is not claimed.
+
+\section{Relations and relata stay pair-local}
+
+\paragraph{Puzzle.} Questions ``does $X$ beat $Y$?'' and ``is $X$ at the top?'',
+combined by ``not'' and ``either one''. Any two such questions about different
+pairs can both be yes, so ``either one'' never joins them.
+
+\begin{lemma}[Cross-pair meeting]
+\label{gc:lem:meet}
+\lean{TransportGeneral.pairLocal_meet}
+\leanok
+For $n\ge3$, pair-local sets on $(0,1)$ and $(1,2)$ of $\mathrm{Fin}\,n^3$, each
+missing at most one value of the shared coordinate, intersect.
+\end{lemma}
+\begin{proof}
+\leanok
+Two subsets of $\mathrm{Fin}\,n$ each missing at most one element meet when
+$n\ge3$.
+\end{proof}
+
+\begin{lemma}[Normal form]
+\label{gc:lem:nf}
+\lean{TransportGeneral.PairNormalForm.indep_of_two_empty_rows, TransportGeneral.PairNormalForm.closure_le_NF}
+\leanok
+Every set in the Dynkin closure of the comparison and relatum generators on one
+pair lies in the xor normal form; a normal-form set with two empty rows does not
+depend on its second coordinate.
+\end{lemma}
+\begin{proof}
+\leanok
+The normal form is closed under complement and finite-support disjoint unions
+(xor), so it is a Dynkin system containing the generators.
+\end{proof}
+
+\paragraph{By hand.} With \ref{gc:lem:meet} and \ref{gc:lem:nf}: for $n\ge3$
+every question built from comparisons and relata stays about one pair, so the
+cycle is never exposed. Final assembly \emph{hand}, not formal.
+
+\section{Glued rings: the countable $\sigma$-essential witness}
+
+\begin{theorem}[Glued windows]
+\label{gc:thm:glued}
+\lean{WindowGluing.glued_not_interClosed, WindowGluing.generateFrom_glued, WindowGluing.ring4_real_admissible}
+\leanok
+Glued window carriers are not intersection-closed whenever two coordinates share
+no window; they generate the product $\sigma$-algebra when the windows cover;
+the real 4-ring is admissible.
+\end{theorem}
+\begin{proof}
+\leanok
+Direct.
+\end{proof}
+
+\begin{theorem}[Countable $\sigma$-essential witness]
+\label{gc:thm:ring-sigma}
+\lean{WindowGluing.Cyclic.s₀_sigmaEssential, WindowGluing.Cyclic.targetA_sharp_countable, WindowGluing.Cyclic.targetA_sharp_countable_literal, WindowGluing.Cyclic.D₄_six_conjuncts, WindowGluing.Ring.sL_sigmaEssential}
+\leanok
+\uses{gc:thm:glued}
+On the countable ring $\mathbb N^L$ with windows $\{k,k+1\}$, for every
+$L\ge4$, the carrier holds a finitely coherent two-valued pattern with no
+$\sigma$-additive extension. For $L=4$ the carrier is admissible, literally
+irreducible, and generates the full $\sigma$-algebra; the Polish clause of the
+six conjuncts is conditional on the cut, carried as a hypothesis.
+\end{theorem}
+\begin{proof}
+\leanok
+The staircase on the ring: each step $\{x_k<x_{k+1}\}$ has value $1$. A
+$\sigma$-additive extension locates each coordinate at a value $a_k$ (countable
+additivity over $\{x_k=a\}$), and the steps then force
+$a_0<a_1<\dots<a_{L-1}<a_0$.
+\end{proof}
+\paragraph{Prior art.} Not found after three passes (finite shadow:
+Navara--Pták 1983). Not claimed.
 
 \chapter{Query Systems and Observational Foundations}
 

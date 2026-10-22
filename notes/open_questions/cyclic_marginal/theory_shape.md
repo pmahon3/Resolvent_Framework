@@ -416,7 +416,7 @@ It also STRENGTHENS NT1 to every non-principal p, not just lacunary ones:
   forcing lemma, uniqueness of the triangle amalgam and the holonomy statement were not found in
   §3, but folklore risk is HIGH (sums are classical). Still owed: a targeted pass on Frolík/Kunen
   p-sums, Blass on finite-to-one maps, and the model-theory reading (x₀ algebraic over x₁).
-- **Status: LEAN-CHECKED 2026-10-19** (`formalization/staging/CompositionLaw.lean`; 0 sorry;
+- **Status: LEAN-CHECKED 2026-10-19** (`formalization/QuerySystem/QuerySystem/CompositionLaw.lean`; 0 sorry;
   axioms propext, Classical.choice, Quot.sound).
   - `glue_unique`: a forward sum window on (x₀,x₁) plus any sum window on (x₁,x₂) means every
     gluing equals the natural three-step ultrafilter.

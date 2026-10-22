@@ -199,10 +199,12 @@ combination of point masses, is what you get by choosing heights at random.
     this fails: a sum of local facts taking the values $0$, $1$, $2$ is an extreme
     non-negative witness that no askable question replaces, so a probabilistic
     twist can hide on a finite triangle \st{exact computation + Maharam's
-    criterion~\cite{maharam1972}; corrected October 2026}. The threshold is a known
-    one: three-way tables of sizes $3\times4\times4$ are the smallest whose margin
-    polytope is not ``compressed''~\cite{sullivant2006,ohsugihibi2010}. What the
-    note adds is that at this threshold every askable question goes blind to some
+    criterion~\cite{maharam1972}; corrected October 2026}. In fact the line is
+    exact: with sizes sorted $r_1\ge r_2\ge r_3$, a triangle can hide a probabilistic
+    twist exactly when $r_2\ge4$ and $r_3\ge3$, which is exactly when the margin
+    polytope of three-way tables is not ``compressed''~\cite{sullivant2006,ohsugihibi2010}
+    \st{hand + exact finite computation, on owned theorems}. What the note adds is
+    that this known threshold is where every askable question goes blind to some
     incoherence. Two triangles sharing a flight,
     four landings all joined, and a fan of three triangles behave the same way
     at two heights, while the five-ring and the ``house'' (a square with a roof)
@@ -375,7 +377,7 @@ Three small puzzles, one for each way a loop of pairwise views can fail to close
 \begin{tabular}{|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3.4cm}|}
 \hline
  & \textbf{gauge} & \textbf{order} & \textbf{relational}\\\hline
-hides on a triangle when & only relations may be asked about & answers are yes or no and values infinite & values fine enough ($3\times4\times4$ and up)\\\hline
+hides on a triangle when & only relations may be asked about & answers are yes or no and values infinite & exactly when $r_2\ge4$, $r_3\ge3$ (sorted)\\\hline
 exposed by & a finite reduction (parity) & nothing askable (pointless) & nothing askable\\\hline
 status & hand; exact computation & Lean & certified computation\\\hline
 owned & relations-only case: \cite{draveckysipos1980} & triangle of types: model theory & threshold: \cite{sullivant2006,ohsugihibi2010}\\\hline

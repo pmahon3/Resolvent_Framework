@@ -1083,7 +1083,7 @@ no r×s×2 triangle hides a twist.**
   becomes substantive only at larger sizes (4×4×4, 5×4×3), where several ray orbits may exist:
   do all their extremal hidden twists reduce to embedded copies of this pattern?
 
-## 22. CLASSIFICATION: a triangle hides a probabilistic twist ⇔ its marginal polytope is not compressed (2026-10-21) ⟦hand + exact computations; under review⟧
+## 22. CLASSIFICATION: a triangle hides a probabilistic twist ⇔ its marginal polytope is not compressed (2026-10-21) ⟦THEOREM modulo owned results (Sullivant, Ohsugi–Hibi, Maharam) and finite exact enumerations; prior-art pass on the combination pending⟧
 
 **Theorem (candidate, all sizes).** Sort the sizes r₁ ≥ r₂ ≥ r₃. A triangle of pair views hides a
 probabilistic twist (has a carrier state that is not a convex combination of point masses) **iff
@@ -1122,4 +1122,20 @@ r₂ ≥ 4 and r₃ ≥ 3**. Equivalently, iff the no-three-way-interaction conf
   and use only 3 values of one variable: **embedded copies of the 3×4×4 pattern**.
 - 3×4×5: one class, again the embedded pattern.
 - Candidate (still evidence only): every extremal hidden twist on a triangle is an embedded copy of
-  the 3×4×4 relational atom.
+  the 3×4×4 relational atom. **Wording:** "every extremal hidden twist *found*". The invariant
+  bucketing is a lower bound on orbits, and LP sampling can miss classes.
+- **Lean scope note:** `TransportGeneral.mem_pre` is stated for homogeneous `Fin 3 → α`. Its use
+  for rectangular sizes (r×s×2, r×3×3 → c₀×3×3) is the same proof but **hand-level** for
+  heterogeneous coordinate types.
+
+**§22 step 4 made EXACT (2026-10-21, after review; `verification/rx3x3_exact.py`, output saved).**
+- Every possible remainder R′ was enumerated over normalised (k₁,k₂) and row-type sets of size
+  ≤ 4: 198 at c₀ = 2, 84 at c₀ = 3, 18 at c₀ = 4.
+- Each was tested for **exact membership** in genuinely buildable sets: the exact carrier for
+  c₀ ≤ 3, and pullbacks of exact small carriers for c₀ = 4. **All are buildable.**
+- Hence at every r×3×3, every 0/1 span vector is S = C ⊔ R with both C and R buildable: **D = V₀₁
+  for r×3×3, all r**. No cdd and no LP are involved in this step.
+- Remaining dependencies: owned theorems (Sullivant Thm 2.4, the Ohsugi–Hibi table, Maharam 6.1),
+  the finite exhaustive enumerations (row types; remainders), and hand-level transport for
+  rectangular sizes.
+- §21's "open only for r×3×3" is now CLOSED.

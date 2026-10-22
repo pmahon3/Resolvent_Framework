@@ -331,6 +331,19 @@
    ],
    "scope": "triangle; one variable binary; any r, s",
    "detail": "definitions_draft.md section 21"
+  },
+  {
+   "id": "thm.triangle_hiding_classification",
+   "name": "Triangle hides a probabilistic twist iff not compressed",
+   "status": "THEOREM modulo owned results (Sullivant 2006 Thm 2.4; Ohsugi-Hibi 2010 table; Maharam 1972 Thm 6.1) and finite exact enumerations (verification/rx3x3_row_types.py, rx3x3_exact.py); r x s x 2 rectangle step Lean (rect_mem); transport Lean for homogeneous types, hand for rectangular; prior-art pass on the combination pending",
+   "one_line": "Sort sizes r1>=r2>=r3. The triangle carrier has a state that is not a convex combination of point masses iff r2>=4 and r3>=3, i.e. iff the no-three-way-interaction polytope is not compressed. Compressed sizes (r x s x 2, r x 3 x 3) have D = V01.",
+   "uses": [
+    "thm.rxsx2_no_hiding",
+    "thm.transport_general",
+    "own.compressed_threshold"
+   ],
+   "scope": "triangle of pair views, finite value sets, probabilistic states",
+   "detail": "definitions_draft.md sections 16, 21, 22"
   }
  ],
  "conjectures": [

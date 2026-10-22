@@ -9,7 +9,7 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 114,
+  "count": 116,
   "basis_counts": {
    "abstract": 35,
    "read": 51,
@@ -67,6 +67,8 @@
    "abramsky_barbosa_2021_logic_of_contextuality.pdf",
    "abramsky_barbosa_2025_duality_pBA_talk.pdf",
    "bunce_wright_1992.pdf",
+   "buresova_ptak_sevic_2026_simultaneous_extensions_states.pdf",
+   "desimone_navara_ptak_2007_extending_states_finite_concrete_logics.pdf",
    "ellerman_2010.pdf",
    "engesser_gabbay_lehmann_2009.pdf",
    "harding_2004_concrete_oml.pdf",
@@ -86,8 +88,10 @@
    "rizzi_ruggiero_2003_sagnac_kinematical.pdf"
   ],
   "coherence_extension": [
+   "buresova_ptak_sevic_2026_simultaneous_extensions_states.pdf",
    "capotorti_2011_incoherence_correction_statistical_matching.pdf",
    "derr_williamson_2023.pdf",
+   "desimone_navara_ptak_2007_extending_states_finite_concrete_logics.pdf",
    "horn_tarski_1948.pdf",
    "maharam_1972.pdf",
    "walley_1991.pdf"
@@ -735,6 +739,25 @@
    ]
   },
   {
+   "file": "buresova_ptak_sevic_2026_simultaneous_extensions_states.pdf",
+   "citation": "Burešová, Pták, Ševic, 'Simultaneous extensions of states on quantum logics', arXiv:2609.10770 (2026)",
+   "what_it_proves": "Given states on two Boolean subalgebras A, B of an orthomodular poset L, when do they extend simultaneously to a state on L? Sufficient: abundance of two-valued states; far from necessary (Greechie pasting). Two-context version of our extension question; no marginals, polytopes, or cycles.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "thm.triangle_hiding_classification"
+   ],
+   "questions": [
+    "coherence_extension",
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
+   ]
+  },
+  {
    "file": "capotorti_2011_incoherence_correction_statistical_matching.pdf",
    "citation": "Capotorti, 'Incoherence correction strategies in statistical matching', ISIPTA 2011",
    "what_it_proves": "Separately coherent sources can be jointly incoherent in statistical matching; distance-minimising / sub-assessment corrections.",
@@ -883,6 +906,25 @@
     "notes/covered_leads/two_species_underdetermination_kill.md",
     "notes/knowledge_map/knowledge_map_body.tex",
     "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json"
+   ]
+  },
+  {
+   "file": "desimone_navara_ptak_2007_extending_states_finite_concrete_logics.pdf",
+   "citation": "De Simone, Navara, Pták, 'Extending states on finite concrete logics', IJTP 46 (2007), arXiv:math-ph/0311012",
+   "what_it_proves": "Observations on state extensions on finite concrete logics (e.g. even-size subsets); no marginal polytopes.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "thm.triangle_hiding_classification"
+   ],
+   "questions": [
+    "coherence_extension",
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/definitions_draft.md"
    ]
   },
   {

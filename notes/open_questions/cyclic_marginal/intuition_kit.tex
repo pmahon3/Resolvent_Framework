@@ -1,0 +1,131 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,array,enumitem,xcolor}
+\newcommand{\st}[1]{\textsf{\small[#1]}}
+\title{Three Small Puzzles\\\large an intuition kit for \emph{Order Without a Centre}}
+\author{working notes}
+\date{October 2026}
+\begin{document}
+\maketitle
+
+\noindent Each puzzle is small enough to do with a pencil. Each has the same
+shape: three things, three pairwise reports, every report fine on its own, and the
+question whether one picture of all three can stand behind them. Do the checks by
+hand before reading the commentary. The last question in each section is for you,
+not for the mathematics.
+
+\section*{1. Three watches (gauge)}
+\textbf{Setup.} Three friends compare watches two at a time, in whole minutes.
+\begin{itemize}[nosep]
+  \item A and B: ``B reads exactly what A reads.''
+  \item B and C: ``C reads exactly what B reads.''
+  \item C and A: ``A reads one minute \emph{more} than C.''
+\end{itemize}
+\textbf{Check 1.} Show that no three settings $a,b,c$ satisfy all three reports.
+(Go round the loop and add the offsets: $0+0+1\neq0$.)
+
+\textbf{Check 2.} Now nobody knows the absolute time: each watch's reading is
+``anything, evenly spread''. Each pair's report is then perfectly consistent with
+each watch on its own being evenly spread. Read only the \emph{parity} (even or
+odd minute) of each watch. Verify by listing the eight parity patterns that
+\[
+  [\text{A and C same parity, B the other}]
+  \;=\; \tfrac12[A{\equiv}C] - \tfrac12[A{\equiv}B] - \tfrac12[B{\equiv}C] + \tfrac12 .
+\]
+The reports say $[A{\equiv}B]$ and $[B{\equiv}C]$ always hold and $[A{\equiv}C]$ never
+does, so the question on the left would have probability $-\tfrac12$. The
+contradiction is \emph{visible}.
+
+\textbf{Commentary.} This is a \emph{gauge} twist: renamings (offsets) that do not
+compose back to zero. A coarse reading (parity) catches it. If you may only ask
+how watches stand to each other, one pair at a time, it cannot be caught.
+Round the rotating Earth this is real: the loop misses by about 207\,ns, and GPS
+fixes it by choosing a centre.
+
+\textbf{For you.} Where do you meet offsets that each pair agrees on but that do
+not add up round a loop (schedules, exchange rates, conventions)? Who, if anyone,
+plays the centre?
+
+\section*{2. A tournament (order)}
+\textbf{Setup.} Players P, Q, R. P beats Q, Q beats R, R beats P.
+
+\textbf{Check 1.} Show no ranking fits. (Each report is a direction; the three
+directions close into a cycle.)
+
+\textbf{Check 2.} Try to build a question about \emph{all three} from questions of
+the forms ``does X beat Y?'' and ``is X ranked at the top?'', using only ``not'' and
+``either one'' (joining questions that can never both be yes). Notice that ``P
+beats Q'' and ``Q beats R'' can both be yes, and so can almost any two such
+questions about different pairs. ``Either one'' never gets to join them, so every
+question you build stays about one pair. With three or more possible scores this
+is a theorem \st{proved; core Lean-checked}. So comparisons, even with each
+player's own score, can never pose a question that exposes the cycle.
+
+\textbf{Commentary.} This is an \emph{order} twist: directions that close into a
+loop. With finitely many scores that wrap round, a joint record of a pair (the
+two scores together) exposes it, as in the watches. With scores running off to
+infinity and answers only yes or no, nothing askable exposes it at all
+\st{Lean}.
+
+\textbf{For you.} Where do you meet rankings that are each defensible pairwise but
+form a cycle? Were the records you saw pairwise outcomes, individual scores, or
+joint records of pairs?
+
+\section*{3. Three committees (relational)}
+\textbf{Setup.} Committee X chooses one of 3 options, committees Y and Z one of 4.
+Each pair of committees reports only which combinations of their choices are
+\emph{acceptable}, nine each, and that every acceptable combination happens
+equally often ($\tfrac19$ each).
+\begin{center}\small
+\begin{tabular}{l|l}
+X--Y acceptable & X0: Y0,Y1,Y2;\quad X1: Y0,Y1,Y3;\quad X2: Y1,Y2,Y3\\
+Y--Z acceptable & Y0: Z1,Z2;\quad Y1: Z0,Z1,Z3;\quad Y2: Z0,Z2;\quad Y3: Z2,Z3\\
+Z--X acceptable & Z0: X0,X1;\quad Z1: X0,X2;\quad Z2: X0,X1,X2;\quad Z3: X1,X2
+\end{tabular}
+\end{center}
+\textbf{Check 1.} The pair reports agree where they overlap: X is spread evenly;
+Y has shares $(2,3,2,2)/9$ from both reports that mention it; Z has $(2,2,3,2)/9$.
+
+\textbf{Check 2.} Nothing is \emph{logically} impossible. There are 16 triples whose
+three pairs are all acceptable:
+\[\scriptsize
+(0,0,1)(0,0,2)(0,1,0)(0,1,1)(0,2,0)(0,2,2)(1,0,2)(1,1,0)(1,1,3)(1,3,2)(1,3,3)(2,1,1)(2,1,3)(2,2,2)(2,3,2)(2,3,3),
+\]
+written $(X,Y,Z)$, and every acceptable pair occurs in at least one of them.
+
+\textbf{Check 3.} Yet no plan (no weighting of the 16 triples) produces the even
+$\tfrac19$ spreads. Give each acceptable pair a score:
+\begin{center}\small
+\begin{tabular}{l|l}
+X--Y & $+1$: X1Y1, X1Y3, X2Y1, X2Y3;\quad $-1$: X0Y1, X1Y0, X2Y2;\quad others 0\\
+Y--Z & $+1$: Y0Z2, Y2Z2;\quad $-1$: Y0Z1, Y1Z3, Y2Z0, Y3Z2, Y3Z3;\quad others 0\\
+Z--X & $+1$: Z0X0, Z1X0;\quad $-1$: Z0X1, Z1X2, Z2X0;\quad others 0
+\end{tabular}
+\end{center}
+For each of the 16 triples, add the scores of its three pairs: every total is
+$\ge0$. (Example: $(0,0,1)$ has X0Y0 $=0$, Y0Z1 $=-1$, Z1X0 $=+1$, total $0$.) So any
+plan gives the scores a non-negative average. But the reports give every
+acceptable pair weight $\tfrac19$, and the scores sum to $-3$, so the average would
+be $-\tfrac13$. No plan fits.
+
+\textbf{Commentary.} This is a \emph{relational} twist: many-to-many acceptances
+whose frequencies do not fit together, though their possibilities do. It is the
+smallest case where every question you can ask, built from the pair reports by
+``not'' and ``either one'', stays consistent, so the contradiction is
+\emph{hidden} \st{certified by computation}. With fewer options on two of the
+links it cannot hide; this size is exactly where it first can, and the
+threshold is a known one from the study of contingency tables.
+
+\textbf{For you.} Where do you meet ``these combinations are acceptable'' between
+pairs of parties, with no preference among them? Did anyone ever check whether
+the pairwise arrangements could be one arrangement?
+
+\section*{What to carry from the three}
+\begin{itemize}[nosep]
+  \item \emph{Gauge:} bookkeeping that does not close; caught by a coarse joint
+    reading, missed by relations alone.
+  \item \emph{Order:} directions that close into a loop; hidden only at infinity.
+  \item \emph{Relational:} acceptances whose frequencies do not fit; hidden as soon
+    as two of the relations are fine enough.
+\end{itemize}
+\end{document}

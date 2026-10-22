@@ -1075,3 +1075,10 @@ no r×s×2 triangle hides a twist.**
   value relabelling (S₃×S₄×S₄) and the x₁↔x₂ swap (`verification/atom_orbits.py`, output saved).
   Every extreme hidden twist found is the same "allowed pairs, evenly spread" pattern up to
   renaming.
+- **Why one orbit (checked 2026-10-21):** all **1,728 non-binary extreme rays at 3×4×4 form one
+  orbit** under S₃×S₄×S₄ and the x₁↔x₂ swap (orbit size 1,728 = 6,912/4). So at the threshold
+  there is exactly one kind of non-compressed facet, and the single-orbit atom is largely forced
+  by symmetry.
+- What is *not* forced: the extremal hidden twist is uniform on its support. The atom claim
+  becomes substantive only at larger sizes (4×4×4, 5×4×3), where several ray orbits may exist:
+  do all their extremal hidden twists reduce to embedded copies of this pattern?

@@ -1,6 +1,6 @@
 # Why this work
 
-draft 2026-10-17, reviewed: false. Drafted by Claude from a conversation; the author should
+draft 2026-10-17, updated 2026-10-22, reviewed: false. Drafted by Claude from a conversation; the author should
 rewrite it in his own words. This is the compass the mathematics answers to. It is not
 mathematical content.
 
@@ -51,6 +51,8 @@ relations, with no centre holding it together.**
   - *Condorcet cycles.*
   - *Quantum contextuality:* Specker, Kochen–Specker.
   - *Merging data:* pairwise-consistent tables are guaranteed to join only on acyclic schemas.
+    On a loop, frequencies can fail to join even when every check built from the pairs passes
+    (`notes/open_questions/cyclic_marginal/merging_seam_prior_art.md`).
 
 Written up as a short note: `notes/open_questions/cyclic_marginal/order_without_a_centre.tex`.
 Part I is the essence, Part II the lived side, with checked references.
@@ -65,11 +67,23 @@ Part I is the essence, Part II the lived side, with checked references.
 
 ## Honest distance
 
-The mathematics works with idealised infinities. With finitely many possibilities, the theory
-itself says everything collapses to points. A practical bridge probably goes through probabilistic
-and finite versions, where the tree/loop lesson still holds and is well studied. For now this is a
-lens and a source of questions, not yet a tool to hand an ecologist. **Do not overclaim
-practical relevance.**
+*Updated 2026-10-22 (a reversal of the earlier draft, which said finite cases always collapse to
+points).*
+
+- **Yes/no answers:** with finitely many possibilities, every consistent pattern has a point behind
+  it. The pointless, yes/no side needs idealised infinities.
+- **Frequencies:** this collapse does NOT happen. A finite triangle of pair views, as small as
+  3×4×4, can fail to add up to one population while every question you can build from the pair
+  views stays consistent (the *hidden* case). Hiding is possible exactly when the two smaller
+  sizes are at least 4 and 3 (candidate theorem; prior art not found, not claimed).
+- **So the bridge is finite and probabilistic, and it already exists on paper.** Its practical
+  form is merging data: pipelines that merge through one shared space assume one population by
+  construction, and in the hidden case they must silently override at least one local view.
+- **The gap that remains:** no real dataset or pipeline has yet been shown to land in the hidden
+  case; noise may swamp it, and most merges may have one population behind them.
+
+For now this is a lens and a source of questions, not yet a tool to hand an ecologist or a data
+engineer. **Do not overclaim practical relevance.**
 
 ## How the spark is kept
 

@@ -221,9 +221,106 @@ theorem rect_mem (P Q R : Set α) :
 
 end RectangleStep
 
+/-! ## Problem 3, Lemma 1: the normal form contains the pair closure
+
+`F` = sets of the form `{(x,y) | nf k α β x y = true}`. Rows, columns and comparison classes are in
+`F`; `F` is closed under complement (flip `k`) and under disjoint unions (xor the parameters), so it
+is a Dynkin system containing the generators. -/
+
+namespace PairNormalForm
+
+variable {n : ℕ}
+
+/-- The normal-form family on a pair. -/
+def NF (n : ℕ) : Set (Set (Fin n × Fin n)) :=
+  {A | ∃ (k : Fin 3 → Bool) (α β : Fin n → Bool), A = {p | nf k α β p.1 p.2 = true}}
+
+lemma nf_xor (k k' : Fin 3 → Bool) (α α' β β' : Fin n → Bool) (x y : Fin n) :
+    xor (nf k α β x y) (nf k' α' β' x y) =
+      nf (fun c => xor (k c) (k' c)) (fun a => xor (α a) (α' a)) (fun b => xor (β b) (β' b)) x y := by
+  simp only [nf]; cases k (cmpc x y) <;> cases k' (cmpc x y) <;> cases α x <;> cases α' x <;>
+    cases β y <;> cases β' y <;> rfl
+
+lemma NF_compl {A : Set (Fin n × Fin n)} (h : A ∈ NF n) : Aᶜ ∈ NF n := by
+  obtain ⟨k, α, β, rfl⟩ := h
+  refine ⟨fun c => !k c, α, β, ?_⟩
+  ext p; simp only [Set.mem_compl_iff, Set.mem_setOf_eq, nf]
+  cases k (cmpc p.1 p.2) <;> cases α p.1 <;> cases β p.2 <;> simp
+
+lemma NF_union {A B : Set (Fin n × Fin n)} (hA : A ∈ NF n) (hB : B ∈ NF n) (hd : Disjoint A B) :
+    A ∪ B ∈ NF n := by
+  obtain ⟨k, α, β, rfl⟩ := hA
+  obtain ⟨k', α', β', rfl⟩ := hB
+  refine ⟨fun c => xor (k c) (k' c), fun a => xor (α a) (α' a), fun b => xor (β b) (β' b), ?_⟩
+  ext p
+  have hp : nf k α β p.1 p.2 = true → nf k' α' β' p.1 p.2 = true → False :=
+    fun h1 h2 => Set.disjoint_left.mp hd (show p ∈ {q : Fin n × Fin n | nf k α β q.1 q.2 = true} from h1) h2
+  simp only [Set.mem_union, Set.mem_setOf_eq]
+  rw [← nf_xor]
+  cases h1 : nf k α β p.1 p.2 <;> cases h2 : nf k' α' β' p.1 p.2 <;> simp_all
+
+lemma NF_empty : (∅ : Set (Fin n × Fin n)) ∈ NF n :=
+  ⟨fun _ => false, fun _ => false, fun _ => false, by ext p; simp [nf]⟩
+
+/-- Finite unions of pairwise disjoint `NF` sets are in `NF`. -/
+lemma NF_finset_union (s : Finset ℕ) (f : ℕ → Set (Fin n × Fin n)) (hf : ∀ i, f i ∈ NF n)
+    (hd : Pairwise (Function.onFun Disjoint f)) : (⋃ i ∈ s, f i) ∈ NF n := by
+  induction s using Finset.induction_on with
+  | empty => simpa using NF_empty
+  | insert i s hi ih =>
+    rw [Finset.set_biUnion_insert]
+    refine NF_union (hf i) ih ?_
+    rw [Set.disjoint_iUnion₂_right]
+    intro j hj; exact hd (fun h => hi (h ▸ hj))
+
+/-- Disjoint countable unions reduce to finite ones on a finite type. -/
+lemma NF_iUnion (f : ℕ → Set (Fin n × Fin n)) (hf : ∀ i, f i ∈ NF n)
+    (hd : Pairwise (Function.onFun Disjoint f)) : (⋃ i, f i) ∈ NF n := by
+  classical
+  -- each point lies in at most one f i; the union is the union over the finite set of indices
+  -- realised by points
+  let idx : Fin n × Fin n → Option ℕ := fun p =>
+    if h : ∃ i, p ∈ f i then some (Nat.find h) else none
+  let s : Finset ℕ := (Finset.univ.image idx).filterMap id (fun _ _ _ h1 h2 => by simp_all)
+  have key : (⋃ i, f i) = ⋃ i ∈ s, f i := by
+    ext p; simp only [Set.mem_iUnion]
+    constructor
+    · rintro ⟨i, hi⟩
+      have hex : ∃ i, p ∈ f i := ⟨i, hi⟩
+      refine ⟨Nat.find hex, ?_, Nat.find_spec hex⟩
+      simp only [s, Finset.mem_filterMap, Finset.mem_image, Finset.mem_univ, true_and, id]
+      exact ⟨some (Nat.find hex), ⟨p, by simp [idx, hex]⟩, rfl⟩
+    · rintro ⟨i, -, hi⟩; exact ⟨i, hi⟩
+  rw [key]; exact NF_finset_union s f hf hd
+
+/-- `NF` as a Dynkin system. -/
+def NFsys (n : ℕ) : DynkinSystem (Fin n × Fin n) where
+  Has A := A ∈ NF n
+  has_empty := NF_empty
+  has_compl := NF_compl
+  has_iUnion_nat hd hf := NF_iUnion _ hf hd
+
+/-- Generators of the pair closure: rows, columns, comparison classes. -/
+def pairGens (n : ℕ) : Set (Set (Fin n × Fin n)) :=
+  {A | (∃ a, A = {p | p.1 = a}) ∨ (∃ b, A = {p | p.2 = b}) ∨ (∃ c, A = {p | cmpc p.1 p.2 = c})}
+
+/-- **Lemma 1.** The pair closure is contained in the normal form. -/
+theorem closure_le_NF {A : Set (Fin n × Fin n)} (h : (DynkinSystem.generate (pairGens n)).Has A) :
+    A ∈ NF n := by
+  classical
+  have hgen : ∀ B ∈ pairGens n, B ∈ NF n := by
+    rintro B (⟨a, rfl⟩ | ⟨b, rfl⟩ | ⟨c, rfl⟩)
+    · exact ⟨fun _ => false, fun x => decide (x = a), fun _ => false, by ext p; simp [nf]⟩
+    · exact ⟨fun _ => false, fun _ => false, fun y => decide (y = b), by ext p; simp [nf]⟩
+    · exact ⟨fun c' => decide (c' = c), fun _ => false, fun _ => false, by ext p; simp [nf]⟩
+  exact (DynkinSystem.generate_le (NFsys n) hgen) A h
+
+end PairNormalForm
+
 end TransportGeneral
 
 #print axioms TransportGeneral.mem_pre
 #print axioms TransportGeneral.pairLocal_meet
 #print axioms TransportGeneral.PairNormalForm.indep_of_two_empty_rows
 #print axioms TransportGeneral.rect_mem
+#print axioms TransportGeneral.PairNormalForm.closure_le_NF

@@ -78,8 +78,13 @@ finitely additive two-valued states on carriers glued from window events, and
 which window-graph shape lets them be pointless.
 - Load `notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json` (the
   first theory-shaped collection).
-- Read `notes/open_questions/cyclic_marginal/pointless_coherence.pdf`, which
-  opens with the window puzzle.
+- Read `notes/open_questions/cyclic_marginal/order_without_a_centre.pdf` (the
+  current note: Part I theory, Part II lived; §9 "Three kinds of twist"), and
+  `definitions_draft.md` §16–22 for the latest results. The older
+  `pointless_coherence.pdf` opens with the window puzzle.
+- State (2026-10-21): the finite triangle is classified (candidate theorem). It hides
+  a probabilistic twist iff not compressed (sorted r₂≥4, r₃≥3). The yes/no
+  pointless side needs infinity (Lean).
 - The seam: cycle × infinity.
 - **Stance: answers first.** Questions and states (consistent answer patterns) are
   primitive. Points and ideal points are derived, earned or not. Only the

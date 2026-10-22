@@ -2,6 +2,33 @@
 
 ## STATE AS OF 2026-08-31 (read this first)
 
+### 2026-10-21 addendum (read first)
+
+**Finite triangle classified (candidate theorem; prior art not found after two passes).**
+- Sort the sizes r₁ ≥ r₂ ≥ r₃. A triangle of pair views hides a probabilistic twist (a state on the
+  carrier that is not a mixture of points) **iff r₂ ≥ 4 and r₃ ≥ 3**, i.e. iff the
+  no-three-way-interaction polytope is not compressed (Sullivant; Ohsugi–Hibi).
+- Proof: owned theorems (Sullivant, Ohsugi–Hibi, Maharam / Berti–Rigo) + hand slice proofs +
+  finite exact enumerations. Detail: `definitions_draft.md` §16–22.
+- **Three kinds of twist** (note §9): gauge (caught by finite quotients unless only relations are
+  asked about), order (hides only for yes/no answers at infinity), relational (hides at
+  non-compressed sizes; the extreme hidden state is one "allowed pairs, evenly spread" atom).
+- Also proved: relations + relata (comparisons) build only pair-local questions (n ≥ 3; core in
+  Lean, `TransportGeneral.lean`).
+- Also measured: composition, where askable closing laws exceed realisable ones above the
+  threshold.
+- **Reversals this week:**
+  - "the finite triangle sees every twist" was false from 3×4×4;
+  - "infinity alone blinds the triangle" holds for yes/no answers only;
+  - the Z₁ clock core is visible on the full carrier and hidden on the relational one.
+- Prior art owned around it: Maharam 1972, Dravecký–Šipoš 1980, Navara–Pták, Hrushovski/Goodrick
+  (3-amalgamation), Sullivant/Ohsugi–Hibi, Minguzzi (clock holonomy).
+- Lived cases: case 4 (Earth's clocks) is real. Ecology data are relations, not views.
+- **Open next:**
+  - graphs beyond the triangle (chordal conjecture);
+  - the infinite yes/no side (does the Lean pointless state extend to a charge?);
+  - finite-to-infinite limits.
+
 ### 2026-10-17 addendum (one line)
 
 **The triangle is decided.** It carries a pointless state; this is Lean-checked

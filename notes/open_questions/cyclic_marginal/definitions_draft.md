@@ -1002,3 +1002,42 @@ pair-local, hence blind to every twist.
   furthest negative are possibilistic patterns spread evenly.
 - **Not shown:** that every hidden twist is a mixture of such patterns; the behaviour at larger
   sizes (5×4×3, 5×5×3).
+
+## 21. Toward "hiding ⇔ non-compressed" (2026-10-21)
+
+**Non-compressed ⇒ hides (proved).**
+- Sullivant Thm 2.4: non-compressed ⇔ some facet of the marginal polytope has width ≥ 2 ⇔ V₊ has a
+  non-binary extreme ray.
+- Maharam 6.1 and separation then give a hidden twist (§16).
+- So every non-compressed size hides, e.g. 4×4×3 and 5×4×3, 5×5×3 (Ohsugi–Hibi), and everything
+  larger.
+
+**Theorem (hand; uses the Lean transport lemma).** For sizes r×s×2 (one variable binary, any r and
+s), **D = V₀₁**: every 0/1 vector in the span of pair indicators is buildable. Hence (unimodular ⇒
+compressed ⇒ all extreme rays 0/1) **every carrier state is a convex combination of point masses:
+no r×s×2 triangle hides a twist.**
+- *Proof.* Let S ⊆ X₀×X₁×{0,1} have 1_S in the span, with slices S₀ and S₁ at x₂ = 0 and 1.
+  Span membership gives 1_{S₀} − 1_{S₁} = h(x₀) + k(x₁), taking values in {−1, 0, 1}. So h and k
+  are integer-valued after a shift, and spread(h) + spread(k) ≤ 2.
+  - **(a)** If h or k is constant, the difference regions {h+k = ±1} are cylinders in one variable.
+    The two slice pieces {x₂=0, h+k=1} and {x₂=1, h+k=−1} are pair events on (x₁,x₂) or (x₂,x₀).
+  - **(b)** Otherwise h ∈ {a, a+1} and k ∈ {b, b+1} with a + b = −1. Then {h+k=1} = A×B and
+    {h+k=−1} = Aᶜ×Bᶜ. The union of the two slice pieces is the pullback of the 2×2×2 set
+    {u=v=w}, which is buildable on 2×2×2 (D = V₀₁ there, 70 sets), under the coarsening
+    (x₀, x₁, x₂) ↦ ([x₀∈A], [x₁∈B], [x₂=0]). By transport (`TransportGeneral.mem_pre`) it is
+    buildable.
+  - In both cases S = (S₀ ∩ S₁) ⊔ pieces, with S₀ ∩ S₁ a pair event on (x₀,x₁) and all pieces
+    disjoint. A Dynkin system is closed under finite disjoint unions. □
+- **Cross-check (exact):** |D| = |V₀₁| at 2×3×4 (17,878), 3×4×2 (17,878), 2×2×5 (9,826).
+
+**Status of "hiding ⇔ non-compressed".**
+- Proved for every size with a binary variable, and for all non-compressed sizes.
+- Exact for 3×3×3 and 4×3×3.
+- **Open only for r×3×3 with r ≥ 5** (compressed per Ohsugi–Hibi; the gap half unproved).
+
+**Conjecture 2 test (coarsening criterion), 3×4×4** (`verification/conj2_coarsening.py`, output saved).
+- 150 sampled families: 104 have worlds; of the 46 twisted, 23 are visible via a twisted
+  coarsening onto 3×3×3, 23 are certified hidden, and **0 are visible without a twisted
+  coarsening**.
+- Consistent with "visible ⇔ some ≤3-value coarsening twisted". The samples are biased toward the
+  hidden family by mixing.

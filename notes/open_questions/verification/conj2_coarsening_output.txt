@@ -1,0 +1,1 @@
+{'A visible via coarsening': 23, 'B certified hidden': 23, 'C candidate counterexample': 0, 'world': 104}

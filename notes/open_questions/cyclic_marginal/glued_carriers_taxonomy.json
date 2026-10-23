@@ -344,6 +344,29 @@
    ],
    "scope": "triangle of pair views, finite value sets, probabilistic states",
    "detail": "definitions_draft.md sections 16, 21, 22"
+  },
+  {
+   "id": "thm.pointless_not_mixture",
+   "name": "A pointless two-valued state is outside the closed convex hull of ideal points",
+   "status": "HAND (checked 2026-10-23); Lean not attempted",
+   "one_line": "Two-valued states are extreme in K(D); cl conv rho(beta Omega) has extreme points in the compact set rho(beta Omega) (Milman's converse); so a pointless state is not a limit of mixtures of ideal points. Hence on the infinite triangle R1-failure (answers => points) forces R4-failure (probabilities => mixtures). At 3x4x4 R4 fails while R1 holds: independent failures.",
+   "uses": [
+    "thm.triangle_pointless",
+    "own.coherence_extension"
+   ],
+   "scope": "any carrier D; pointwise topology on D",
+   "detail": "stone_role_prior_art.md addendum"
+  },
+  {
+   "id": "thm.repointing_price",
+   "name": "Re-pointing on S(D) loses countable unions",
+   "status": "HAND (2026-10-23)",
+   "one_line": "E -> {s in S(D): s(E)=1} makes every two-valued state Dirac (Bureshova-Ptak) but preserves only finite disjoint unions; a finitely additive state can give 0 to every piece of a countable disjoint union and 1 to the union. Pointlessness is relative to Omega together with the sigma-structure of D.",
+   "uses": [
+    "own.stone_space_of_logic"
+   ],
+   "scope": "two-valued finitely additive states on sigma-classes",
+   "detail": "stone_role_prior_art.md addendum"
   }
  ],
  "conjectures": [
@@ -527,6 +550,20 @@
    "uses": [
     "thm.loops_travel"
    ]
+  },
+  {
+   "id": "conj.window_restriction_r",
+   "name": "Window restriction r: S(D) -> F (injective? onto?)",
+   "status": "OPEN (2026-10-23)",
+   "one_line": "O1: does the compatible window family determine the two-valued state? O2: does every compatible family of window ultrafilters extend to a state on D? O3: which families come from ideal points (partial: forward-sum windows, triangle_glues_iff).",
+   "detail": "stone_role_prior_art.md; chat 2026-10-23"
+  },
+  {
+   "id": "conj.extreme_state_classification",
+   "name": "Classify extreme states of K(D) by window graph (binary vs non-binary)",
+   "status": "OPEN; first piece = thm.triangle_hiding_classification",
+   "one_line": "The Stone-role target: which window graphs and value sizes give non-binary extreme states (finite, R4) and pointless binary ones (infinite, R1); then the sigma-version.",
+   "detail": "stone_role_prior_art.md section 4"
   }
  ],
  "probes": [
@@ -1190,6 +1227,39 @@
     "region": "compressed / unimodular / normal classification of 3-way no-three-way-interaction configurations",
     "verified": "primary (both PDFs read for the cited statements)",
     "detail": "compressed-vs-normal are different thresholds: 4x4x3 normal but not compressed (Bruns et al. 2011)"
+   }
+  },
+  {
+   "id": "own.landscape_flux",
+   "name": "Landscape from local slopes; potential + flux; snapshot identifiability (Waddington)",
+   "status": "OWNS the gauge/landscape side of the Waddington example (pass 2026-10-22)",
+   "one_line": "Slopes integrate to a potential iff loop sums vanish (Kolmogorov criterion, Schnakenberg 1976, HodgeRank 2011); gene networks = potential + rotational flux (Wang-Xu-Wang 2008/2011, Zhou et al. 2012); snapshots cannot see circulation, identifiability restored by gradient ('Waddington') assumption (Weinreb 2018; Lavenant et al. Thm 1.1). Path-shaped snapshot chains = classical tree gluing (Vorob'ev/Kellerer).",
+   "detail": "waddington_prior_art.md",
+   "owned_by": {
+    "cite": "Kolmogorov; Schnakenberg RMP 1976; Jiang-Lim-Yao-Ye 2011; Wang-Xu-Wang PNAS 2008; Weinreb et al. PNAS 2018; Lavenant et al. (arXiv)",
+    "verified": "Weinreb, Lavenant primary source; others snippet/abstract"
+   }
+  },
+  {
+   "id": "own.merging_existence_gap",
+   "name": "Pairwise-consistent marginals with no joint (data merging)",
+   "status": "OWNS the existence gap; NOT the hidden refinement or its threshold (pass 2026-10-22)",
+   "one_line": "Local vs global consistency is owned (Vorob'ev; Beeri-Fagin-Maier-Yannakakis 1983; Atserias-Kolaitis 2020/2021; Abramsky-Brandenburger; local vs marginal polytope, Wainwright-Jordan). Not found: 'every event-level check passes yet no joint' with a size threshold. Hidden class is strictly finer than Abramsky-Brandenburger probabilistic-only contextuality (hand: binary (a,a,-a), 1/3<a<1, visible). Shared-embedding pipelines glue by construction; separately estimated pairwise couplings could fail; no real pipeline verified to close a loop.",
+   "detail": "merging_seam_prior_art.md",
+   "owned_by": {
+    "cite": "Atserias-Kolaitis arXiv:2009.09488, 2012.12126; De Loera-Onn math/0207200 (neighbour); Wainwright-Jordan (snippet)",
+    "verified": "Atserias-Kolaitis PDF grep; rest snippet"
+   }
+  },
+  {
+   "id": "own.stone_space_of_logic",
+   "name": "Stone space of a concrete logic = its two-valued states; spectrum of local Stone spaces",
+   "status": "OWNS the re-pointing and the section-space shape; NOT the point/ideal/pointless split relative to Omega (pass 2026-10-23)",
+   "one_line": "Taking S(D) as the point set makes every two-valued state Dirac (Bureshova-Ptak 2024, arXiv:2401.13798 Thm 3.1, read). Compatible window families = limit of local Stone spectra (van den Berg-Heunen 2012 Prop 8, read). State spaces of OMLs are arbitrary compact convex sets (Shultz 1974; Navara 1992). Structural OML duality Cannon-Doring 2018. Not found: S(D) = rho(beta Omega) (closed) + pointless; injectivity/surjectivity of window restriction r on Dynkin carriers; infinite contextuality with ultrafilter local sections.",
+   "detail": "stone_role_prior_art.md",
+   "owned_by": {
+    "cite": "Bureshova-Ptak arXiv:2401.13798; van den Berg-Heunen 2012; Shultz JCTA 1974; Cannon-Doring 2018",
+    "verified": "Bureshova-Ptak and van den Berg-Heunen read; caution: Svozil's attribution to Wright 1990 unverified"
    }
   }
  ]

@@ -79,7 +79,10 @@
    "ptak_1987.pdf",
    "rogalewicz_1988_any_orthomodular_poset_pasting_boolean_algebras.pdf",
    "tkadlec_1994.pdf",
-   "tkadlec_1998_generalised_compatibility.pdf"
+   "tkadlec_1998_generalised_compatibility.pdf",
+   "buresova_ptak_2024_point_distinguishing_somp.pdf",
+   "svozil_2001_generalized_probabilities_correlation_polytopes.pdf",
+   "vandenberg_heunen_2012_noncommutativity_colimit.pdf"
   ],
   "clock_holonomy": [
    "dravecky_sipos_1980_additivity_gudder_integral.pdf",
@@ -291,7 +294,9 @@
   ],
   "states": [
    "ptak_1987.pdf",
-   "shultz_1974.pdf"
+   "shultz_1974.pdf",
+   "buresova_ptak_2024_point_distinguishing_somp.pdf",
+   "svozil_2001_generalized_probabilities_correlation_polytopes.pdf"
   ]
  },
  "entries": [
@@ -2824,6 +2829,67 @@
    "read_trail": [
     "notes/open_questions/cyclic_marginal/merging_seam_prior_art.md"
    ]
+  },
+  {
+   "file": "buresova_ptak_2024_point_distinguishing_somp.pdf",
+   "citation": "Burešová & Pták, 'On the set-representable orthomodular posets that are point-distinguishing', arXiv:2401.13798 (2024)",
+   "what_it_proves": "Thm 3.1 (p.5): generalized Stone representation of a set-representable OMP on S subset of its two-valued states; taking S = all two-valued states S2 makes every two-valued state of the NEW representation a Dirac state. Closing remarks (p.6): 4even has a non-Dirac two-valued state; 6even has none.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "stone_role_prior_art.md S1-S2"
+   ],
+   "questions": [
+    "carriers_logics",
+    "states"
+   ],
+   "text_layer": true,
+   "pages": "7",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/stone_role_prior_art.md"
+   ],
+   "read_note": "abstract, Def 1.1, Thm 3.1 and proof, closing remarks read; Sec 2 unread"
+  },
+  {
+   "file": "svozil_2001_generalized_probabilities_correlation_polytopes.pdf",
+   "citation": "Svozil, 'On generalized probabilities: correlation polytopes for automaton logic and generalized urn models...', arXiv:quant-ph/0012066 (2001)",
+   "what_it_proves": "Review. p.6-7: attributes to Wright (1990, 'The state of the pentagon', Thms 1.6,1.7) that any probability on an orthologic admitting two-valued states is a convex combination of two-valued states; defines the nonclassical correlation polytope as the hull of two-valued states. Secondary claim, scope unverified (see stone_role_prior_art.md).",
+   "summary_basis": "read",
+   "verdict_for_us": "lens",
+   "programme_links": [
+    "stone_role_prior_art.md S1"
+   ],
+   "questions": [
+    "states",
+    "carriers_logics",
+    "contextuality_finite"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/stone_role_prior_art.md"
+   ],
+   "read_note": "only the passage near eq (3) read"
+  },
+  {
+   "file": "vandenberg_heunen_2012_noncommutativity_colimit.pdf",
+   "citation": "van den Berg & Heunen, 'Noncommutativity as a colimit', Appl. Categ. Struct. 20 (2012) 393-414, arXiv:1003.3618",
+   "what_it_proves": "Prop 8 (p.7): K(A) = lim over contexts C of Stone spectra Sigma(C) is left adjoint to Loc(-,{0,1}) on partial Boolean algebras, extending Stone duality; i.e. the space of compatible families of local ultrafilters. Finitary (locale/point-free) setting; no states on Dynkin systems.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "stone_role_prior_art.md S3"
+   ],
+   "questions": [
+    "carriers_logics",
+    "contextuality_finite"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/stone_role_prior_art.md"
+   ],
+   "read_note": "abstract and Sec 3 (Prop 8, Thm 9) read; rest unread"
   }
  ]
 }

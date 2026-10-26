@@ -1083,6 +1083,8 @@ no r×s×2 triangle hides a twist.**
   becomes substantive only at larger sizes (4×4×4, 5×4×3), where several ray orbits may exist:
   do all their extremal hidden twists reduce to embedded copies of this pattern?
 
+> **REVERSAL 2026-10-26 (Phase-2 audit):** 2026-10-26 audit: the equivalence itself is Sullivant 2006 Thm 2.4(2) + Prop 5.8 restated, plus Farkas; not ours. Surviving candidate kernel: the carrier contains every 0/1 span vector at compressed sizes (r×s×2, r×3×3), strictly stronger than exclusivity at r×3×3. Owed: Ovchinnikov 1999 read; exact 3×4×4 certificate. `cyclic_marginal/hidden_failure/AUDIT_PHASE2.md`
+
 ## 22. CLASSIFICATION: a triangle hides a probabilistic twist ⇔ its marginal polytope is not compressed (2026-10-21) ⟦THEOREM modulo owned results (Sullivant, Ohsugi–Hibi, Maharam) and finite exact enumerations; prior-art pass on the combination pending⟧
 
 **Theorem (candidate, all sizes).** Sort the sizes r₁ ≥ r₂ ≥ r₃. A triangle of pair views hides a

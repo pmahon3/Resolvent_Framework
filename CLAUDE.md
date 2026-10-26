@@ -82,8 +82,10 @@ which window-graph shape lets them be pointless.
   current note: Part I theory, Part II lived; §9 "Three kinds of twist"), and
   `definitions_draft.md` §16–22 for the latest results. The older
   `pointless_coherence.pdf` opens with the window puzzle.
-- State (2026-10-21): the finite triangle is classified (candidate theorem). It hides
-  a probabilistic twist iff not compressed (sorted r₂≥4, r₃≥3). The yes/no
+- State (2026-10-21): the finite triangle is classified. It hides
+  a probabilistic twist iff not compressed (sorted r₂≥4, r₃≥3). **2026-10-26 audit: this
+  equivalence is OWNED (Sullivant 2006 Thm 2.4(2) + Prop 5.8, plus Farkas); surviving kernel =
+  carrier contains all 0/1 span vectors at compressed sizes** (`hidden_failure/AUDIT_PHASE2.md`). The yes/no
   pointless side needs infinity (Lean).
 - The seam: cycle × infinity.
 - **Stance: answers first.** Questions and states (consistent answer patterns) are

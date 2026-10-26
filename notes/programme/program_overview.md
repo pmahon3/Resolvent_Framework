@@ -5,6 +5,7 @@
 ### 2026-10-21 addendum (read first)
 
 **Finite triangle classified (candidate theorem; prior art not found after two passes).**
+> **REVERSAL 2026-10-26 (Phase-2 audit):** 2026-10-26 audit: the equivalence itself is Sullivant 2006 Thm 2.4(2) + Prop 5.8 restated, plus Farkas; not ours. Surviving candidate kernel: the carrier contains every 0/1 span vector at compressed sizes (r×s×2, r×3×3), strictly stronger than exclusivity at r×3×3. Owed: Ovchinnikov 1999 read; exact 3×4×4 certificate. `cyclic_marginal/hidden_failure/AUDIT_PHASE2.md`
 - Sort the sizes r₁ ≥ r₂ ≥ r₃. A triangle of pair views hides a probabilistic twist (a state on the
   carrier that is not a mixture of points) **iff r₂ ≥ 4 and r₃ ≥ 3**, i.e. iff the
   no-three-way-interaction polytope is not compressed (Sullivant; Ohsugi–Hibi).

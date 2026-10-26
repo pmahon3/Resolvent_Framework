@@ -335,7 +335,7 @@
   {
    "id": "thm.triangle_hiding_classification",
    "name": "Triangle hides a probabilistic twist iff not compressed",
-   "status": "THEOREM modulo owned results (Sullivant 2006 Thm 2.4; Ohsugi-Hibi 2010 table; Maharam 1972 Thm 6.1) and finite exact enumerations (verification/rx3x3_row_types.py, rx3x3_exact.py); r x s x 2 rectangle step Lean (rect_mem); transport Lean for homogeneous types, hand for rectangular; prior-art pass on the combination pending",
+   "status": "EQUIVALENCE OWNED (Phase-2 audit 2026-10-26): Sullivant 2006 Thm 2.4(2) + Prop 5.8 restated, plus Farkas. Surviving candidate kernel: D = V01 at compressed sizes (r x s x 2, r x 3 x 3), strictly stronger than the exclusivity relaxation at r x 3 x 3 (exact). Owed: Ovchinnikov PAMS 1999 / Ovchinnikov-Sultanbekov 1998 full read; exact 3x4x4 certificate (certify_344.py is float MILP); exhaustiveness argument for row-type search. Was: THEOREM modulo owned results (Sullivant 2006 Thm 2.4; Ohsugi-Hibi 2010 table; Maharam 1972 Thm 6.1) and finite exact enumerations (verification/rx3x3_row_types.py, rx3x3_exact.py); r x s x 2 rectangle step Lean (rect_mem); transport Lean for homogeneous types, hand for rectangular; prior-art pass on the combination pending",
    "one_line": "Sort sizes r1>=r2>=r3. The triangle carrier has a state that is not a convex combination of point masses iff r2>=4 and r3>=3, i.e. iff the no-three-way-interaction polytope is not compressed. Compressed sizes (r x s x 2, r x 3 x 3) have D = V01.",
    "uses": [
     "thm.rxsx2_no_hiding",
@@ -343,7 +343,7 @@
     "own.compressed_threshold"
    ],
    "scope": "triangle of pair views, finite value sets, probabilistic states",
-   "detail": "definitions_draft.md sections 16, 21, 22"
+   "detail": "definitions_draft.md sections 16, 21, 22; hidden_failure/AUDIT_PHASE2.md"
   },
   {
    "id": "thm.pointless_not_mixture",

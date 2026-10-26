@@ -75,7 +75,9 @@ points).*
 - **Frequencies:** this collapse does NOT happen. A finite triangle of pair views, as small as
   3×4×4, can fail to add up to one population while every question you can build from the pair
   views stays consistent (the *hidden* case). Hiding is possible exactly when the two smaller
-  sizes are at least 4 and 3 (candidate theorem; prior art not found, not claimed).
+  sizes are at least 4 and 3. *Correction 2026-10-26:* this threshold and the equivalence are owned
+  (Sullivant 2006, Thm 2.4 and Prop 5.8, plus Farkas); what is new is only the reading as "checks
+  you can run", and that the 3×4×4 example is hidden (exact certificate still owed).
 - **So the bridge is finite and probabilistic, and it already exists on paper.** Its practical
   form is merging data: pipelines that merge through one shared space assume one population by
   construction, and in the hidden case they must silently override at least one local view.

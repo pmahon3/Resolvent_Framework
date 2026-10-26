@@ -9,9 +9,9 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 122,
+  "count": 129,
   "basis_counts": {
-   "abstract": 39,
+   "abstract": 43,
    "read": 53,
    "memory": 8
   }
@@ -46,7 +46,8 @@
   "states": "State spaces.",
   "dynamics": "Dynamics and invariant states.",
   "operational_boundary": "Statistics side (archived operational boundary).",
-  "philosophy_perspectives": "Perspectives, relational facts, relations vs relata (structural realism, perspectival realism, RQM, Wigner's friend)."
+  "philosophy_perspectives": "Perspectives, relational facts, relations vs relata (structural realism, perspectival realism, RQM, Wigner's friend).",
+  "audit_benchmark": "Evaluating LLM/auditor judgments of novelty and correctness (peer-review reliability, planted errors, contamination)."
  },
  "by_question": {
   "additivity_of_sums": [
@@ -297,6 +298,12 @@
    "shultz_1974.pdf",
    "buresova_ptak_2024_point_distinguishing_somp.pdf",
    "svozil_2001_generalized_probabilities_correlation_polytopes.pdf"
+  ],
+  "audit_benchmark": [
+   "beygelzimer_et_al_2023_neurips2021_consistency_experiment.pdf",
+   "liu_shah_2023_reviewergpt.pdf",
+   "xi_rao_payan_shah_2025_flaws_error_benchmark.pdf",
+   "lin_peng_fang_2024_schnovel_novelty_benchmark.pdf"
   ]
  },
  "entries": [
@@ -2894,6 +2901,82 @@
     "notes/open_questions/cyclic_marginal/stone_role_prior_art.md"
    ],
    "read_note": "abstract and Sec 3 (Prop 8, Thm 9) read; rest unread"
+  },
+  {
+   "file": "beygelzimer_et_al_2023_neurips2021_consistency_experiment.pdf",
+   "citation": "Beygelzimer, Dauphin, Liang, Vaughan, 'Has the ML review process become more arbitrary as the field has grown? The NeurIPS 2021 consistency experiment', arXiv:2306.03262 (2023)",
+   "what_it_proves": "10% of submissions reviewed by two independent committees; committees disagree on accept/reject for 23% of papers; about half of accepted papers would change on a rerun (consistent with the 2014 experiment).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [
+    "audit benchmark: human inter-committee noise baseline"
+   ],
+   "questions": [
+    "audit_benchmark"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/programme/audit_benchmark_prior_art.md"
+   ],
+   "read_note": "abstract and intro read (2026-10-26); body unread"
+  },
+  {
+   "file": "liu_shah_2023_reviewergpt.pdf",
+   "citation": "Liu & Shah, 'ReviewerGPT? An exploratory study on using LLMs for paper reviewing', arXiv:2306.00622 (2023)",
+   "what_it_proves": "GPT-4: finds the inserted error in 7 of 13 short papers with a deliberately planted error; 86.6% accuracy on 119 checklist pairs; errs on 6 of 10 clear better/worse abstract pairs. Planted-error method.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [
+    "audit benchmark: planted-error design"
+   ],
+   "questions": [
+    "audit_benchmark"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/programme/audit_benchmark_prior_art.md"
+   ],
+   "read_note": "abstract and intro read (2026-10-26); body unread"
+  },
+  {
+   "file": "xi_rao_payan_shah_2025_flaws_error_benchmark.pdf",
+   "citation": "Xi, Rao, Payan, Shah, 'FLAWS: A benchmark for error identification and localization in scientific papers', arXiv:2511.21843 (v2)",
+   "what_it_proves": "713 paper-error pairs, claim-invalidating errors inserted by LLM into ICML 2025 papers; GPT 5 top at 39.1% identification accuracy at k=10 among five frontier models. Synthetic errors; ML papers only.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [
+    "audit benchmark: seeded-fault construction, post-cutoff papers"
+   ],
+   "questions": [
+    "audit_benchmark"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/programme/audit_benchmark_prior_art.md"
+   ],
+   "read_note": "abstract and intro read (2026-10-26); body unread"
+  },
+  {
+   "file": "lin_peng_fang_2024_schnovel_novelty_benchmark.pdf",
+   "citation": "Lin, Peng, Fang, 'Evaluating and enhancing LLMs for novelty assessment in scholarly publications' (SchNovel), arXiv:2409.16605 (2024)",
+   "what_it_proves": "15,000 arXiv paper pairs across six fields, 2-10 years apart; later paper assumed more novel (proxy label, not expert judgment); RAG-Novelty retrieval baseline.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [
+    "audit benchmark: novelty-detection benchmark with proxy labels"
+   ],
+   "questions": [
+    "audit_benchmark"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/programme/audit_benchmark_prior_art.md"
+   ],
+   "read_note": "abstract and intro read (2026-10-26); body unread"
   }
  ]
 }

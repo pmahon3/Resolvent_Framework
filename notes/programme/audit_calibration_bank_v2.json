@@ -1,0 +1,881 @@
+[
+ {
+  "id": "N1",
+  "category": "N",
+  "citation": "Banica, Schlenker, On Hadamard matrices at roots of unity",
+  "arxiv_id": "arXiv:0707.4175",
+  "date": "2007-07-27 (withdrawn v3 2013-01-29)",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/0707.4175",
+   "summary": "Comments: 'withdrawn by the authors, the main result being known since Lam and Leung, J. Algebra 2000.'"
+  },
+  "ground_truth_label": "known",
+  "owner_citation": "Lam and Leung, J. Algebra 2000 (as named in the withdrawal comment; theorem number not checked)",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (abstract page, v1 and v3)",
+  "seed_draft": "We study Hadamard matrices of order n whose entries are l-th roots of unity. A main problem is to determine the allowed pairs (n,l). Write l = p_1^{a_1}...p_s^{a_s}. We discuss the necessary condition that n lies in p_1 N + ... + p_s N. For s=1 the statement is a classical fact. For s=2 and s=3 we prove it in this paper. For s>=4 we state it as a conjecture. We also comment on other known obstructions to existence.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Seed must be written from v1 abstract; the s=1 case is flagged as known in v1 already, so the claim is s=2,3. Authors withdrew themselves (author-as-community). Original leaked via web search; use NR rewording for test.",
+  "split": "test"
+ },
+ {
+  "id": "N2",
+  "category": "N",
+  "citation": "Hegarty, Independent sets in almost-regular graphs and the Cameron-Erdos problem for non-invariant linear equations",
+  "arxiv_id": "arXiv:0905.0990",
+  "date": "2009-05-07 (withdrawn v2 2010-09-16)",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/search/?query=withdrawn+%22previously+known%22&searchtype=comments",
+   "summary": "Comments: main result (Theorem 2.2) follows from Theorem 9.3 of Ben Green's GAFA 2005 paper (search-listing paraphrase; abstract page v1 fetched, comment text only via search listing)."
+  },
+  "ground_truth_label": "known",
+  "owner_citation": "B. Green, GAFA 2005 (Szemeredi-type regularity lemma in abelian groups), Thm 9.3",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (search listing + abstract page)",
+  "seed_draft": "We propose a generalisation of the Cameron-Erdos conjecture for sum-free sets to linear equations over the integers in three or more variables that are not translation invariant. Using graph-theoretic methods on almost-regular graphs, we prove a weak form of the conjecture for a class of such equations. The extremal solution-free sets for this class were already known in size. Our argument bounds the number of independent sets of the associated graphs.",
+  "plausible_declared_types": [
+   1,
+   3
+  ],
+  "notes": "Seed paraphrased from fetched v1 summary, not verbatim; abstract detail is thin. Verify the Green Thm 9.3 correspondence by hand before using as an owner-hit key. Original leaked via web search; use NR rewording for test.",
+  "split": "test"
+ },
+ {
+  "id": "N3",
+  "category": "N",
+  "citation": "Werner, Lenz, Polynomial Bounds on the Slicing Number",
+  "arxiv_id": "arXiv:1004.3381",
+  "date": "2010-04-20 (withdrawn v4 2010-08-02)",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1004.3381",
+   "summary": "Comments: withdrawn 'because we found out that most of the results were already known (under a different name).'"
+  },
+  "ground_truth_label": "known",
+  "owner_citation": "Gyarfas and Lehel 1970 ('d-separated interval piercing'); also Karolyi-Tardos, Kaiser (named in withdrawn abstract)",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (abstract page, v1 page)",
+  "seed_draft": "Given a family of convex objects in R^d whose maximum independent set (pairwise disjoint subfamily) has size at most m, how many axis-parallel hyperplanes are needed to meet every member? We show this number T_d(m) exists and depends only on m and d. We give a first super-exponential bound, then a polynomial bound in m for fixed d. In the plane we improve the best known exponential bound to O(m^2).",
+  "plausible_declared_types": [
+   1,
+   2
+  ],
+  "notes": "Owner names appear only in the later withdrawn abstract (v4), not in v1; use v1. Under a different name = good test of vocabulary stripping. Original leaked via web search; use NR rewording for test.",
+  "split": "test"
+ },
+ {
+  "id": "N4",
+  "category": "N",
+  "citation": "Bagherian, On the wedge product of table algebras and applications to association schemes",
+  "arxiv_id": "arXiv:1508.05604",
+  "date": "2015-08-23 (withdrawn v3 2018-08-20)",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1508.05604",
+   "summary": "Comments: withdrawn; main results already known, Thm 2.9 and Prop 2.11 of H. Blau, 'Fusion rings with few degrees' (J. Algebra 2013) (paraphrase)."
+  },
+  "ground_truth_label": "known",
+  "owner_citation": "H. Blau, 'Fusion rings with few degrees', J. Algebra 2013, Thm 2.9 and Prop 2.11",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (abstract page)",
+  "seed_draft": "We generalize the wedge product of association schemes to table algebras. We give a necessary and sufficient condition for a table algebra to be the wedge product of two table algebras. When the duals of two commutative table algebras are table algebras, we show the dual of their wedge product is a table algebra isomorphic to the wedge product of the duals in reverse order. We close with applications to association schemes.",
+  "plausible_declared_types": [
+   1,
+   3
+  ],
+  "notes": "Withdrawn three years after posting. Comment text paraphrased by fetch tool; verify wording. Original leaked via web search; use NR rewording for test.",
+  "split": "test"
+ },
+ {
+  "id": "X1",
+  "category": "X",
+  "citation": "Czelakowski, 'The Twin Primes Conjecture is True in the Standard Model of Peano Arithmetic: Applications of Rasiowa-Sikorski Lemma in Arithmetic (I)' (Studia Logica, online 2022-10-25)",
+  "arxiv_id": "(no arXiv id found)",
+  "date": "2022-10-25 (retracted 2022-11-01)",
+  "fame": "high (MathOverflow, Daily Nous, Retraction Watch)",
+  "community_evidence": {
+   "url": "https://retractionwatch.com/2022/11/18/mathematician-requests-two-retractions-for-subtle-inaccuracies",
+   "summary": "Retracted within a week: editor cited 'an irreparable mistake'; author found 'subtle inaccuracies'. MO thread (not fetched, blocked) found the flaw."
+  },
+  "ground_truth_label": "wrong",
+  "owner_citation": "n/a (false/unsound proof)",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "high",
+  "evidence_read_level": "fetched (Retraction Watch); MO thread NOT fetched (tool blocked)",
+  "seed_draft": "We use the Rasiowa-Sikorski lemma on generic filters for countable Boolean algebras to build a model of Peano arithmetic from forcing-style conditions. We show that in the resulting standard model the twin prime conjecture holds, i.e. there are infinitely many primes p with p+2 prime. The argument assigns to each arithmetic sentence a Boolean value and uses a countable family of dense sets to force the statement. A companion paper uses the same method to show infinitely many Mersenne primes.",
+  "plausible_declared_types": [
+   1,
+   2
+  ],
+  "notes": "Very high contamination and the claim is absurdly strong; mostly a test of whether the auditor catches soundness/overclaim, not novelty. Seed text is a reconstruction from the title and RW summary, not the paper's abstract.",
+  "split": "dev"
+ },
+ {
+  "id": "X2",
+  "category": "X",
+  "citation": "Boggi, Looijenga, Curves with prescribed symmetry and associated representations of mapping class groups, Math. Ann. 381 (2021) 1511-1535; Retraction Note Math. Ann. 389 (2024), DOI 10.1007/s00208-024-02860-6",
+  "arxiv_id": "(arXiv id not looked up)",
+  "date": "2021 (retracted 2024)",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://link.springer.com/article/10.1007/s00208-024-02860-6",
+   "summary": "Retraction note (search snippet): proofs of Lemmas 1.6 and 1.8 incomplete; Thm 1.1 depends on them; authors agree."
+  },
+  "ground_truth_label": "wrong",
+  "owner_citation": "n/a (incomplete proof, authors retracted)",
+  "blind_seed_writable": "partial",
+  "contamination_risk": "low",
+  "evidence_read_level": "snippet only (Springer page redirected to login)",
+  "seed_draft": "[DRAFT NEEDS ARXIV ABSTRACT, written from title only] We study families of curves with prescribed finite symmetry group and the associated representations of mapping class groups. We prove a main theorem identifying the image of these representations, using two lemmas on the structure of the relevant moduli.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Weak: outside the repo's areas, error is a proof gap (not detectable from a seed) and so tests nothing about novelty. Probably drop. Dropped from the 2026-10-26 run; split assigned only for completeness.",
+  "split": "dev"
+ },
+ {
+  "id": "P1",
+  "category": "P",
+  "citation": "Campos, Griffiths, Morris, Sahasrabudhe, An exponential improvement for diagonal Ramsey, Annals of Math. 203(3) (2026) 869-932, DOI 10.4007/annals.2026.203.3.4",
+  "arxiv_id": "arXiv:2303.09521",
+  "date": "2023-03-23 (Annals online 2025-12-01)",
+  "fame": "high",
+  "community_evidence": {
+   "url": "https://annals.math.princeton.edu/2026/203-3/p04",
+   "summary": "Annals publication; abstract: 'first exponential improvement' over Erdos-Szekeres 1935. Later source: Morris survey arXiv:2601.05221 (snippet)."
+  },
+  "ground_truth_label": "novel",
+  "owner_citation": "none",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "high (famous, pre-cutoff, 2023)",
+  "evidence_read_level": "fetched (Annals page)",
+  "seed_draft": "We show that the diagonal Ramsey number R(k) satisfies R(k) <= (4 - eps)^k for some absolute constant eps > 0 and all large k. The Erdos-Szekeres bound of 1935 has stood as the exponential rate since then. We obtain the improvement via a book algorithm, a density-increment-like procedure that finds large monochromatic books in a two-coloured complete graph. A careful analysis of the algorithm's steps bounds the number of 'bad' steps.",
+  "plausible_declared_types": [
+   1,
+   3
+  ],
+  "notes": "Test of false-kill on a famous result; model may recall it. Not post-cutoff.",
+  "split": "dev"
+ },
+ {
+  "id": "P2",
+  "category": "P",
+  "citation": "Kelley, Meka, Strong Bounds for 3-Progressions (FOCS 2023)",
+  "arxiv_id": "arXiv:2302.05537",
+  "date": "2023-02-10",
+  "fame": "high",
+  "community_evidence": {
+   "url": "https://www.quantamagazine.org/surprise-computer-science-proof-stuns-mathematicians-20230321/",
+   "summary": "Quanta 2023-03-21: Sisask calls it 'the biggest result in the area for 20 years.' Also expounded by Bloom-Sisask (ENT 2023)."
+  },
+  "ground_truth_label": "novel",
+  "owner_citation": "none",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "high",
+  "evidence_read_level": "fetched (arXiv abstract, Quanta page)",
+  "seed_draft": "A subset of {1..N} of density 2^{-O((log N)^beta)} for a constant beta > 0 contains a nontrivial three-term arithmetic progression. The previous best density bound was about 1/(log N)^{1+c}. We first develop new analytic techniques for the analogous finite-field problem and then adapt them to the integers.",
+  "plausible_declared_types": [
+   1,
+   3
+  ],
+  "notes": "FOCS venue not fetched. High contamination.",
+  "split": "test"
+ },
+ {
+  "id": "P3",
+  "category": "P",
+  "citation": "Gladkov, Pak, Zimin, The bunkbed conjecture is false (PNAS 122(24), 2025 per Wikipedia)",
+  "arxiv_id": "arXiv:2410.02545",
+  "date": "2024-10-03",
+  "fame": "medium-high",
+  "community_evidence": {
+   "url": "https://en.wikipedia.org/wiki/Bunkbed_conjecture",
+   "summary": "Wikipedia cites Quanta (Howlett, 2024-11-01), 'Math's Bunkbed Conjecture Has Been Debunked'; Quanta page itself not fetched."
+  },
+  "ground_truth_label": "novel (builds on Hollom 2024 hypergraph example, credited)",
+  "owner_citation": "none (credits Hollom 2406.01790 as source of key example)",
+  "blind_seed_writable": "partial: a seed naming Hollom's input would leak, so state the hypergraph-to-graph transfer without citing",
+  "contamination_risk": "medium-high",
+  "evidence_read_level": "fetched (arXiv abstract, Wikipedia); Quanta/PNAS not fetched",
+  "seed_draft": "The bunkbed conjecture of Kasteleyn (1985) asserts that in a graph G times K_2 with independent edge percolation, a vertex u in the lower copy is at least as likely to connect to v in the upper copy as to the lower copy of v. We give a counterexample on a planar graph with 7222 vertices. The construction converts a small hypergraph counterexample into an ordinary graph through a gadget, and the probability gap is computed exactly. The gap is about 10^-6509.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Seed contains construction details from the abstract; remove Hollom reference.",
+  "split": "dev"
+ },
+ {
+  "id": "P4",
+  "category": "P",
+  "citation": "Hollom, The bunkbed conjecture is not robust to generalisation (Eur. J. Combin. 128 (2025) 104188 per citing work)",
+  "arxiv_id": "arXiv:2406.01790",
+  "date": "2024-06",
+  "fame": "low-medium",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/2406.01790",
+   "summary": "Later source: Gladkov-Pak-Zimin build their disproof on its hypergraph counterexample (per search summary and Wikipedia)."
+  },
+  "ground_truth_label": "novel",
+  "owner_citation": "none",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low-medium",
+  "evidence_read_level": "snippet only (search results; arXiv page of 2406.01790 not fetched)",
+  "seed_draft": "We consider three generalisations of the bunkbed conjecture: to site percolation, to hypergraphs, and to directed graphs. We give counterexamples to all three through a sequence of explicit constructions. We also identify additional conditions under which the site-percolation version might hold, and graph classes where it does.",
+  "plausible_declared_types": [
+   1,
+   5
+  ],
+  "notes": "Evidence is snippet only. Items P3 and P4 are correlated (same thread). Dropped from the 2026-10-26 run; split assigned only for completeness.",
+  "split": "dev"
+ },
+ {
+  "id": "P5",
+  "category": "P",
+  "citation": "Przybylowski, The acyclic directed bunkbed conjecture is false (Eur. J. Combin. 132 (2026) 104289)",
+  "arxiv_id": "arXiv:2506.22284",
+  "date": "2025-06-27",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/2506.22284",
+   "summary": "Published in EJC; answers questions of Leander and of Hollom (abstract page)."
+  },
+  "ground_truth_label": "novel",
+  "owner_citation": "none",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (arXiv abstract page)",
+  "seed_draft": "We give a small directed graph without directed cycles on which the directed bunkbed inequality fails. This settles for acyclic digraphs a question left open for the directed generalisation of the bunkbed conjecture.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Bonus P. Journal acceptance is the only community signal; no later citing source read.",
+  "split": "test"
+ },
+ {
+  "id": "R1",
+  "category": "R",
+  "citation": "Bloom, Sisask, The Kelley-Meka bounds for sets free of three-term arithmetic progressions, Essential Number Theory 2 (2023) 15-44",
+  "arxiv_id": "arXiv:2302.07211",
+  "date": "2023-02-14",
+  "fame": "medium",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/2302.07211",
+   "summary": "Abstract: 'self-contained exposition'; proof identical to Kelley-Meka in main ideas with minor Bohr-set simplifications (fetched paraphrase)."
+  },
+  "ground_truth_label": "reframing (exposition, with minor simplifications)",
+  "owner_citation": "Kelley-Meka arXiv:2302.05537 (the exposition's source)",
+  "blind_seed_writable": "no: any honest seed names the source result; use the Bloom-Sisask simplifications as the claim",
+  "contamination_risk": "high",
+  "evidence_read_level": "fetched (arXiv abstract)",
+  "seed_draft": "We give a self-contained treatment of the bound that a subset of {1..N} with no nontrivial three-term arithmetic progression has size at most N exp(-c (log N)^{1/12}). We follow the main ideas of the known approach and simplify some arguments involving Bohr sets. As a consequence we improve lower bounds for finding long arithmetic progressions in A+A+A.",
+  "plausible_declared_types": [
+   6,
+   2
+  ],
+  "notes": "The seed cannot avoid the main-result owner; test is whether the auditor says 'exposition, not new theorem' rather than KNOWN-kill or NOVEL.",
+  "split": "dev"
+ },
+ {
+  "id": "R2",
+  "category": "R",
+  "citation": "Abramsky, Brandenburger, The sheaf-theoretic structure of non-locality and contextuality, New J. Phys. 13 (2011) 113036",
+  "arxiv_id": "arXiv:1102.0264",
+  "date": "2011-02-01",
+  "fame": "high",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1102.0264",
+   "summary": "Published NJP; abstract frames non-locality and contextuality as obstructions to global sections. No citation or reception source fetched."
+  },
+  "ground_truth_label": "reframing (framework plus some new results)",
+  "owner_citation": "n/a",
+  "blind_seed_writable": "partial",
+  "contamination_risk": "high (in the repo's own shelf; likely known to the auditor)",
+  "evidence_read_level": "fetched (arXiv abstract); reception not verified",
+  "seed_draft": "We treat non-locality and contextuality in one framework by taking empirical models to be presheaf-like families of distributions over measurement contexts. Both phenomena become obstructions to global sections. We give a linear-algebraic method for computing the obstruction and rank the Bell, Hardy and GHZ arguments by strength. We link local hidden-variable models with negative probabilities to no-signalling.",
+  "plausible_declared_types": [
+   3,
+   4
+  ],
+  "notes": "Repo already cites it; likely to be in the repo's shelf. Reception evidence is the weakest of the bank.",
+  "split": "test"
+ },
+ {
+  "id": "R3",
+  "category": "R",
+  "citation": "Morris, Some recent results in Ramsey theory",
+  "arxiv_id": "arXiv:2601.05221",
+  "date": "2026-01-08",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/2601.05221",
+   "summary": "Abstract: 'accessible overview' of recent graph Ramsey advances (fetched paraphrase). No reception evidence."
+  },
+  "ground_truth_label": "reframing (survey)",
+  "owner_citation": "n/a",
+  "blind_seed_writable": "no: any seed is a survey of owned results",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (arXiv abstract)",
+  "seed_draft": "This survey gives an accessible overview of recent progress in graph Ramsey theory. It presents the proofs of exponentially better bounds for diagonal, near-diagonal and multicolour Ramsey numbers, improved lower bounds for R(3,k) and R(4,k), and an exponential upper bound for induced Ramsey numbers.",
+  "plausible_declared_types": [
+   6
+  ],
+  "notes": "Venue and valuation unknown (no journal ref). Weak R item.",
+  "split": "dev"
+ },
+ {
+  "id": "RV1",
+  "category": "RV",
+  "citation": "Kuperberg, Another proof of the alternating sign matrix conjecture (IMRN 1996)",
+  "arxiv_id": "arXiv:math/9712207 (posted 1997-11-29; journal 1996)",
+  "date": "1995-96 (preprint circulated before IMRN 1996; arXiv posting 1997-11-29)",
+  "as_of": "1995-12-31 (approximate; exact first circulation not established)",
+  "fame": "medium",
+  "community_evidence": {
+   "url": "https://en.wikipedia.org/wiki/Alternating_sign_matrix",
+   "summary": "Wikipedia calls Kuperberg's proof \"a short proof\" via Yang-Baxter / six-vertex model; arXiv abstract page also fetched (reframing of Zeilberger's proof)."
+  },
+  "evidence_read_level": "fetched (Wikipedia + arXiv abstract page)",
+  "ground_truth_label": "reframing-valued (new proof of a known theorem, standard alternative route)",
+  "owner_citation": "Zeilberger 1996 (first proof of the ASM conjecture)",
+  "contamination_risk": "medium",
+  "seed_draft": "The number of n x n alternating sign matrices was conjectured to equal a closed product formula, and a proof is already available by purely combinatorial methods. We give a new proof by encoding alternating sign matrices as configurations of the six-vertex (square ice) model with domain-wall boundary conditions. A determinant evaluation for the partition function, together with the Yang-Baxter equation, determines the enumeration. The argument is short and uses tools from statistical mechanics in place of the earlier combinatorial machinery. We also note what the method gives for related symmetry classes.",
+  "plausible_declared_types": [
+   2,
+   3
+  ],
+  "notes": "Seed says a proof already exists; the claim is a new route. Last sentence of seed is a mild addition: check against paper before use. Tests whether a new proof by method transfer is valued.",
+  "split": "dev"
+ },
+ {
+  "id": "RV2",
+  "category": "RV",
+  "citation": "Greene, A new short proof of Kneser's conjecture (Amer. Math. Monthly 109 (2002))",
+  "arxiv_id": "(no arXiv id found)",
+  "date": "2002 (Monthly vol. 109)",
+  "as_of": "2002-01-01 (approximate)",
+  "fame": "medium",
+  "community_evidence": {
+   "url": "https://en.wikipedia.org/wiki/Kneser%27s_conjecture",
+   "summary": "Wikipedia: Greene won 2002 Morgan Prize for a \"further-simplified but still topological proof\" (also lists Barany 1978, Matousek 2004)."
+  },
+  "evidence_read_level": "fetched (Wikipedia); paper text not read",
+  "ground_truth_label": "reframing-valued (simplification of known proof)",
+  "owner_citation": "Lovasz 1978; Barany 1978 (earlier proofs it simplifies)",
+  "contamination_risk": "medium",
+  "seed_draft": "Kneser's conjecture states that the chromatic number of the Kneser graph on k-subsets of an n-set is n-2k+2. Lovasz proved it by topological methods and Barany gave a shorter derivation from the Borsuk-Ulam theorem and a lemma of Gale. We give a proof that avoids Gale's lemma and reduces the statement to a version of the Borsuk-Ulam theorem in a few short steps. The argument is meant to be self-contained at the level of an undergraduate who knows Borsuk-Ulam. We also point out where the earlier proofs used more than is needed.",
+  "plausible_declared_types": [
+   2,
+   6
+  ],
+  "notes": "Seed is reconstructed from the Wikipedia description and general knowledge of the topic, NOT from the paper; its technical sentences may mis-describe the actual argument. Verify against the Monthly text before use.",
+  "split": "dev"
+ },
+ {
+  "id": "RV3",
+  "category": "RV",
+  "citation": "Moser, Tardos, A constructive proof of the general Lovasz Local Lemma (JACM 57(2), 2010)",
+  "arxiv_id": "arXiv:0903.0544",
+  "date": "2009-03-03",
+  "as_of": "2009-03-02",
+  "fame": "high (Godel Prize 2020)",
+  "community_evidence": {
+   "url": "https://en.wikipedia.org/wiki/G%C3%B6del_Prize",
+   "summary": "Wikipedia: 2020 Godel Prize to Moser and Tardos \"for their constructive proof of the Lovasz local lemma\" (fetched)."
+  },
+  "evidence_read_level": "fetched (Wikipedia + arXiv abstract page)",
+  "ground_truth_label": "reframing-valued (new constructive proof of a known lemma; later widely taught)",
+  "owner_citation": "Beck 1991 and successors (constructive versions under restrictions); Lovasz-Erdos 1975 (lemma)",
+  "contamination_risk": "high",
+  "seed_draft": "The Lovasz Local Lemma is a non-constructive tool for showing that combinatorial objects exist. Beck gave a constructive version under restrictive conditions, and later work simplified and relaxed his method. We show that a simple resampling algorithm finds an object avoiding all bad events under the conditions of the general lemma, and that its analysis also gives a new proof of the lemma. The analysis charges each resampling step to a witness structure and bounds the expected number of steps. Applications include constructive versions of nearly all known uses of the general lemma.",
+  "plausible_declared_types": [
+   2,
+   3
+  ],
+  "notes": "Seed text adapted from the fetched arXiv abstract; the last two sentences are paraphrase beyond the abstract. Fame/contamination high: recall expected.",
+  "split": "test"
+ },
+ {
+  "id": "RV4",
+  "category": "RV",
+  "citation": "Lovasz, Szegedy, Limits of dense graph sequences (J. Combin. Theory B 96 (2006))",
+  "arxiv_id": "arXiv:math/0408173",
+  "date": "2004-08-12",
+  "as_of": "2004-08-11",
+  "fame": "high (Fulkerson Prize 2012)",
+  "community_evidence": {
+   "url": "https://en.wikipedia.org/wiki/Fulkerson_Prize",
+   "summary": "Wikipedia: 2012 Fulkerson Prize to Lovasz and Szegedy (fetched); arXiv abstract page fetched."
+  },
+  "evidence_read_level": "fetched (Wikipedia + arXiv abstract page)",
+  "ground_truth_label": "reframing-valued (framework / limit object that became standard)",
+  "owner_citation": "none (new framework; related: Aldous-Hoover, Frieze-Kannan regularity as prior ingredients)",
+  "contamination_risk": "high",
+  "seed_draft": "We consider sequences of dense graphs in which the density of every fixed finite graph converges. We show that such a sequence has a limit object, a symmetric measurable function of two variables on the unit interval, which determines all limiting subgraph densities. We characterise the graph parameters arising as such limits by a positivity condition on an associated matrix (reflection positivity). Every such function is shown to arise as a limit, and the construction yields a general random graph model. We indicate consequences for property testing and extremal graph theory.",
+  "plausible_declared_types": [
+   3,
+   4
+  ],
+  "notes": "Last sentence is not in the fetched abstract; delete if stricter fidelity is wanted. Famous: contamination high. Also owner-adjacent: the analytic ingredients were known; the contribution is the framework.",
+  "split": "dev"
+ },
+ {
+  "id": "RV5",
+  "category": "RV",
+  "citation": "Hoory, Linial, Wigderson, Expander graphs and their applications (Bull. AMS 43 (2006))",
+  "arxiv_id": "(no arXiv id found)",
+  "date": "2006 (Bull. AMS 43(4))",
+  "as_of": "2006-01-01 (approximate)",
+  "fame": "medium (Conant Prize 2008)",
+  "community_evidence": {
+   "url": "https://en.wikipedia.org/wiki/Levi_L._Conant_Prize",
+   "summary": "Wikipedia list of Conant Prize winners shows 2008 award to this article; prize is for \"outstanding expository papers\" (fetched)."
+  },
+  "evidence_read_level": "fetched (Wikipedia list); paper itself not fetched (AMS page 403)",
+  "ground_truth_label": "reframing-valued (survey / exposition)",
+  "owner_citation": "n/a (survey)",
+  "contamination_risk": "medium",
+  "seed_draft": "Expander graphs are sparse graphs with strong connectivity properties. This survey presents several definitions of expansion (combinatorial, spectral, and via random walks) and shows how they relate. It describes explicit constructions and the main tools for analysing them. It then surveys applications in theoretical computer science and in pure mathematics. The text is written for readers with a general mathematical background rather than specialists.",
+  "plausible_declared_types": [
+   6
+  ],
+  "notes": "Seed written from the article title, the Conant listing and general knowledge; contents sentence is a plausible description, not verified against the paper.",
+  "split": "test"
+ },
+ {
+  "id": "RV6",
+  "category": "RV",
+  "citation": "Kra, The Green-Tao theorem on arithmetic progressions in the primes: an ergodic point of view (Bull. AMS 43 (2006))",
+  "arxiv_id": "(no arXiv id found)",
+  "date": "2005-10-06 (AMS e-publication)",
+  "as_of": "2005-10-05",
+  "fame": "medium (Conant Prize 2010)",
+  "community_evidence": {
+   "url": "https://en.wikipedia.org/wiki/Levi_L._Conant_Prize",
+   "summary": "Wikipedia Conant list: 2010 to Kra for this article (fetched); search snippet: cited by Conlon-Fox-Zhao exposition arXiv:1403.2957."
+  },
+  "evidence_read_level": "fetched (Wikipedia list); AMS page via search snippet only",
+  "ground_truth_label": "reframing-valued (expository translation between fields)",
+  "owner_citation": "Green-Tao 2008 (Annals) for the theorem; Furstenberg for the ergodic viewpoint",
+  "contamination_risk": "medium",
+  "seed_draft": "The Green-Tao theorem asserts that the primes contain arbitrarily long arithmetic progressions. The original proof was written in the language of combinatorics and Fourier analysis. This article explains the main ideas of the proof, concentrating on how they parallel notions in ergodic theory, such as the Furstenberg correspondence, structure and randomness decompositions, and characteristic factors. It is addressed to readers who know ergodic theory but not additive combinatorics.",
+  "plausible_declared_types": [
+   6
+  ],
+  "notes": "Seed from the title, Conant listing and AMS snippet; claims about content are plausible but not verified against the text.",
+  "split": "dev"
+ },
+ {
+  "id": "RV7",
+  "category": "RV",
+  "citation": "Diaconis, The Markov chain Monte Carlo revolution (Bull. AMS 46 (2009))",
+  "arxiv_id": "(no arXiv id found)",
+  "date": "2008-2009 (AMS e-pub 2008; vol 46(2) April 2009)",
+  "as_of": "2008-01-01 (approximate)",
+  "fame": "medium (Conant Prize 2012)",
+  "community_evidence": {
+   "url": "https://www.ams.org/bull/2009-46-02/S0273-0979-08-01238-X/",
+   "summary": "Search snippet of AMS citation: Conant Prize 2012 for \"a lively and engaging overview\"; Wikipedia list (fetched) confirms award."
+  },
+  "evidence_read_level": "snippet (AMS) + fetched (Wikipedia list)",
+  "ground_truth_label": "reframing-valued (survey)",
+  "owner_citation": "n/a (survey)",
+  "contamination_risk": "medium",
+  "seed_draft": "Simulation of high-dimensional distributions by Markov chains has become central in applied mathematics. This article explains how Markov chain Monte Carlo algorithms work through examples from statistics, physics and combinatorics. It reviews what is known about how fast such chains converge, and the mathematical techniques used to prove it. It is written for mathematicians who are not specialists in probability.",
+  "plausible_declared_types": [
+   6
+  ],
+  "notes": "Written from title/citation; adjacent to the repo's algebraic-statistics area (Diaconis-Sturmfels), so useful as a side-check.",
+  "split": "test"
+ },
+ {
+  "id": "RV8",
+  "category": "RV",
+  "citation": "Cohn, A conceptual breakthrough in sphere packing (Notices AMS 64(2), 2017)",
+  "arxiv_id": "arXiv:1611.01685",
+  "date": "2016-11-05",
+  "as_of": "2016-11-04",
+  "fame": "medium (Conant Prize 2018)",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1611.01685",
+   "summary": "arXiv abstract page fetched: expository account of Viazovska's 8-dimensional solution and the 24-dimensional extension; Wikipedia Conant list (fetched) shows 2018 prize."
+  },
+  "evidence_read_level": "fetched (arXiv page + Wikipedia list)",
+  "ground_truth_label": "reframing-valued (exposition)",
+  "owner_citation": "Viazovska 2016 (the result explained); Cohn-Kumar-Miller-Radchenko-Viazovska (dim 24)",
+  "contamination_risk": "medium",
+  "seed_draft": "The densest sphere packing in dimension 8 was recently determined, and the case of dimension 24 followed soon after. This article explains the solution for a general mathematical audience. It describes the linear programming bound, the role of Fourier transforms, and the construction of a special function from modular forms that makes the bound sharp. It stresses which ingredients are new and which are classical. It is meant to be read before the technical papers.",
+  "plausible_declared_types": [
+   6
+  ],
+  "notes": "Seed adapted from the fetched abstract plus general knowledge of the topic; the technical sentence on modular forms is not from the abstract.",
+  "split": "test"
+ },
+ {
+  "id": "RN1",
+  "category": "RN",
+  "citation": "F. E. A. Johnson, On weak finiteness for group rings (Communications in Algebra, online 2017-03-08; acceptance rescinded)",
+  "arxiv_id": "(no arXiv id found; DOI 10.1080/00927872.2017.1302457)",
+  "date": "2017-03-08",
+  "as_of": "2017-03-07",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://retractionwatch.com/2017/06/22/no-new-math-journal-pulls-math-paper-already-known-results/",
+   "summary": "Retraction Watch (fetched): notice says paper \"does not offer new results sufficient to warrant publication\"; same property known as \"stably finite\"."
+  },
+  "evidence_read_level": "fetched (Retraction Watch article); paper abstract NOT available",
+  "ground_truth_label": "known (re-naming of an existing notion and its results)",
+  "owner_citation": "Prior work on stable finiteness of group rings, 1980s (not named on the page; Kaplansky-era direct/stable finiteness literature)",
+  "contamination_risk": "low",
+  "seed_draft": "We study rings in which a one-sided inverse is automatically two-sided, in the setting of group rings of groups over a field. We introduce a property, called weak finiteness, and give conditions on the group under which the group ring has it. Several classes of groups are shown to satisfy these conditions. We compare the property with direct finiteness.",
+  "plausible_declared_types": [
+   1,
+   4
+  ],
+  "notes": "Seed is RECONSTRUCTED from the notice's statement that the notion was renamed; no abstract was retrievable, so it is a guess at what the paper says. Weakest seed in the bank. Authors dispute \"retraction\" but accept withdrawal.",
+  "split": "dev"
+ },
+ {
+  "id": "RN2",
+  "category": "RN",
+  "citation": "Sanchez Terraf, Yet Another Proof of Glivenko's Theorem (withdrawn)",
+  "arxiv_id": "arXiv:1510.05873",
+  "date": "2015-10-20 (withdrawn v2 2015-10-25)",
+  "as_of": "2015-10-19",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1510.05873",
+   "summary": "Comments (fetched): withdrawn since the same proof appears in von Plato, Elements of Logical Reasoning (CUP 2013), using a normalization result of von Plato-Siders (RSL 2012)."
+  },
+  "evidence_read_level": "fetched (abstract page)",
+  "ground_truth_label": "known (new proof already in the literature; unvalued reframing)",
+  "owner_citation": "J. von Plato, Elements of Logical Reasoning (CUP 2013); von Plato-Siders, Rev. Symb. Logic 2012",
+  "contamination_risk": "low",
+  "seed_draft": "Glivenko's theorem states that a propositional formula is classically provable iff its double negation is intuitionistically provable. We give a short alternative proof in Gentzen's natural deduction. The key lemma is that every derivation can be transformed so that reductio ad absurdum is applied at most once. The proof uses a normalisation result for natural deduction. The note is intended as a brief self-contained treatment.",
+  "plausible_declared_types": [
+   2,
+   6
+  ],
+  "notes": "Mathematical logic (in-area). Authors-as-community, via a third party telling the author.",
+  "split": "test"
+ },
+ {
+  "id": "RN3",
+  "category": "RN",
+  "citation": "Thilliez, On the non-extendability of quasianalytic germs (withdrawn)",
+  "arxiv_id": "arXiv:1006.4171",
+  "date": "2010-06-21 (withdrawn v2 2010-09-07)",
+  "as_of": "2010-06-20",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1006.4171",
+   "summary": "Comments (fetched): withdrawn since a similar result with a slightly different proof \"already appeared\" in Langenbruch (Manuscripta Math. 83, 1994)."
+  },
+  "evidence_read_level": "fetched (abstract page)",
+  "ground_truth_label": "known (similar result, different proof, already published)",
+  "owner_citation": "M. Langenbruch, Manuscripta Math. 83 (1994) 123-143 (remark after Cor. 2.4)",
+  "contamination_risk": "low",
+  "seed_draft": "Let E_1(M)^+ be the ring of germs at 0 of functions in a Denjoy-Carleman quasianalytic class, defined on a neighbourhood of 0 in [0,+infinity). We show that this ring contains germs that cannot be extended quasianalytically to a neighbourhood of 0 in the real line, unless the class coincides with real-analytic germs. The proof uses the structure of the quasianalytic class and an explicit construction. We discuss consequences for the Borel map.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Analysis, outside programme areas; included for a clean \"different proof, same result\" RN. Last two seed sentences beyond abstract: re-check.",
+  "split": "test"
+ },
+ {
+  "id": "RN4",
+  "category": "RN",
+  "citation": "Parberry, Scattered Sets and Roots of Unity in Z/pZ (withdrawn after v5)",
+  "arxiv_id": "arXiv:1410.2913",
+  "date": "2014-10-10 (withdrawn v5 2015-03-02)",
+  "as_of": "2014-10-09",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1410.2913",
+   "summary": "Comments (fetched): withdrawn because proof of Theorem 4 has a flaw; the resultant involved is \"the Wendt circulant\" (already well studied)."
+  },
+  "evidence_read_level": "fetched (abstract page)",
+  "ground_truth_label": "mixed: wrong proof of Thm 4 AND object already studied under another name",
+  "owner_citation": "Wendt circulant literature (not cited by name on the page)",
+  "contamination_risk": "low",
+  "seed_draft": "A subset of an abelian group scatters if no sum of two of its members lies in it. We study whether the n-th roots of unity modulo a prime p scatter, for n at least 3 dividing p-1. We prove they do not scatter when 6 divides n, and scatter for all but finitely many primes otherwise. We give computational data on the smallest and largest primes and the density of scattering moduli for n up to 10^8.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Mixed-label item: do not use for pure \"known\" scoring. Flaw location is Theorem 4 only.",
+  "split": "dev"
+ },
+ {
+  "id": "NP1",
+  "category": "NP",
+  "citation": "Holmsen, Jung, Keszegh, Simon, Tardos, Piercing all maximum cliques in hypergraphs (withdrawn)",
+  "arxiv_id": "arXiv:2604.21588",
+  "date": "2026-04-23 (withdrawn v2 2026-08-06)",
+  "as_of": "2026-04-22",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/2604.21588",
+   "summary": "Comments (fetched): authors say main problem is the Szemeredi-Petruska conjecture and a 1972 construction covers their k=3,t=1 case; Kezdy-Lehel 2023 resolved extremal problem asymptotically."
+  },
+  "evidence_read_level": "fetched (abstract page)",
+  "ground_truth_label": "known (withdrawn by authors; construction and problem in prior literature)",
+  "owner_citation": "Szemeredi-Petruska 1972 construction; Kezdy-Lehel, Discrete Math 2023",
+  "contamination_risk": "low (very recent)",
+  "seed_draft": "Hajnal's 1965 theorem says that in a graph whose largest clique has more than half the vertices, all maximum cliques share a common vertex. A conjectured analogue for k-uniform hypergraphs has a different threshold. We disprove it strongly: for every constant c<1 and uniformity at least 3 we construct hypergraphs with maximum cliques of size more than c times the number of vertices that cannot be pierced by any bounded set of vertices. Hence no universal threshold exists. We also pose related questions and a geometric variant using Helly-type arguments.",
+  "plausible_declared_types": [
+   1,
+   5
+  ],
+  "notes": "Post-2026-04 and near the training cutoff: low recall chance. Seed from fetched summary; verify wording.",
+  "split": "test"
+ },
+ {
+  "id": "NP2",
+  "category": "NP",
+  "citation": "Niu, The vertex Folkman number F_v(3,3;5) equals 8 (withdrawn)",
+  "arxiv_id": "arXiv:2605.05526",
+  "date": "2026-05-07 (withdrawn v2 2026-05-10)",
+  "as_of": "2026-05-06",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/2605.05526",
+   "summary": "Comments (fetched): author states result is not new: Luczak-Rucinski-Urbanski (Discrete Math 2001, Thm 2) gives same value and witness; missed in literature search."
+  },
+  "evidence_read_level": "fetched (abstract page)",
+  "ground_truth_label": "known (withdrawn by author)",
+  "owner_citation": "Luczak, Rucinski, Urbanski, Discrete Math 2001, Theorem 2",
+  "contamination_risk": "low (very recent)",
+  "seed_draft": "The vertex Folkman number F_v(s,t;k) is the fewest vertices of a K_k-free graph in which every 2-colouring of the vertices has a monochromatic K_s or K_t. We show F_v(3,3;5)=8. The upper bound is a cone over the complement of the 7-cycle, using an independence number argument. The lower bound is by exhaustive enumeration with nauty and a SAT check. An appendix provides a verification script.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Post-2026-05 and near the training cutoff. Seed from fetched summary.",
+  "split": "dev"
+ },
+ {
+  "id": "OA1",
+  "category": "OA",
+  "citation": "Christian, Disproof of Bell's Theorem by Clifford Algebra Valued Local Variables",
+  "arxiv_id": "arXiv:quant-ph/0703179",
+  "date": "2007-03-20",
+  "as_of": "2007-03-19",
+  "fame": "medium (long public dispute)",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1203.1504",
+   "summary": "Gill, Entropy 22 (2020) 61 (arXiv:1203.1504, fetched): argues Bell's theorem is simple so any counterexample \"must contain an error\"; traces model to a sign error in a GA identity."
+  },
+  "evidence_read_level": "fetched (Christian arXiv page; Gill arXiv page)",
+  "ground_truth_label": "wrong",
+  "owner_citation": "Bell 1964 / CHSH (theorem not disproved); error located by Gill 2012/2020",
+  "contamination_risk": "medium",
+  "seed_draft": "We argue that Bell's theorem fails when the local hidden variables take values in a Clifford algebra. We present a local deterministic model with such variables that reproduces the quantum expectation values of the EPR-Bohm spin correlations. Because Clifford products are noncommutative, the model's correlations violate the CHSH inequality as strongly as quantum mechanics. No remote contextuality or backward causation is invoked.",
+  "plausible_declared_types": [
+   1,
+   5
+  ],
+  "notes": "Quantum foundations. Tests soundness (like X1). Fetched abstract is a paraphrase of v1.",
+  "split": "dev"
+ },
+ {
+  "id": "OA2",
+  "category": "OA",
+  "citation": "Rajan, Visser, Kochen-Specker theorem revisited (v1)",
+  "arxiv_id": "arXiv:1708.01380",
+  "date": "2017-08-04 (v2 withdrawn 2018-05-24; v3 2019-04-10 replaced the argument)",
+  "as_of": "2017-08-03",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1708.01380",
+   "summary": "Comments (fetched): \"the measure-theoretic arguments used in V1 were deeply flawed and have been replaced\"; physics conclusions unaltered."
+  },
+  "evidence_read_level": "fetched (abstract page v1 and latest)",
+  "ground_truth_label": "wrong (v1 argument; self-corrected in v3)",
+  "owner_citation": "n/a (the Kochen-Specker theorem itself is not in doubt; flaw is in the v1 argument)",
+  "contamination_risk": "low",
+  "seed_draft": "The Kochen-Specker theorem is a roughly fifty-year-old non-existence result in quantum foundations, usually discussed as contextuality. Early proofs were intricate brute-force constructions of finite sets of vectors, and later proofs became more geometrical. We give another simplified geometrical proof that works in any dimension at least three and uses minimal technical machinery. The argument uses measure-theoretic properties of assignments of values on the sphere. We discuss what the theorem implies about realism.",
+  "plausible_declared_types": [
+   2,
+   6
+  ],
+  "notes": "Seed from v1 abstract + last-version comment; the measure-theoretic sentence is from the later author comment (it identifies the flawed part) and slightly leaks. Remove it for a stricter blind run. Needs a careful reading of v1 to confirm the gap by hand.",
+  "split": "test"
+ },
+ {
+  "id": "OA3",
+  "category": "OA",
+  "citation": "Cabello, Severini, Winter, Graph-theoretic approach to quantum correlations (PRL 112, 040401 (2014))",
+  "arxiv_id": "arXiv:1401.7081",
+  "date": "2014-01-28",
+  "as_of": "2014-01-27",
+  "fame": "medium",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1212.4084",
+   "summary": "Acin-Fritz-Leverrier-Sainz (arXiv:1212.4084, search snippet) say they \"refine\" the CSW approach; arXiv page of CSW fetched; PRL publication."
+  },
+  "evidence_read_level": "fetched (CSW arXiv page); follow-up evidence via search snippet only",
+  "ground_truth_label": "reframing-valued (framework with new identification)",
+  "owner_citation": "Overlaps: Lovasz theta (1979), Grötschel-Lovász-Schrijver theta body; earlier CSW preprint arXiv:1010.2163 (2010) is partial prior",
+  "contamination_risk": "medium",
+  "seed_draft": "Scores in Bell and noncontextuality tests are weighted sums of probabilities of events. Taking mutually exclusive events as adjacent vertices of a graph, each test corresponds to a subgraph. We show that the maximum score is the independence number of the graph for classical theories, the Lovasz number for quantum theory and the fractional packing number for general probabilistic theories. For every graph there is an experiment whose quantum behaviours form the theta body. This links graph invariants to physically observable quantities.",
+  "plausible_declared_types": [
+   3,
+   4
+  ],
+  "notes": "Within quantum contextuality area. Seed is a light paraphrase of the fetched abstract, which is close to the paper's own words. Warning: the 2010 preprint partially predates; set as_of 2014-01-27 anyway.",
+  "split": "test"
+ },
+ {
+  "id": "OA4",
+  "category": "OA",
+  "citation": "Diaconis, Sturmfels, Algebraic algorithms for sampling from conditional distributions (Ann. Statist. 26(1), 1998)",
+  "arxiv_id": "(no arXiv id found)",
+  "date": "1998 (Ann. Statist. 26(1))",
+  "as_of": "1997-12-31 (approximate)",
+  "fame": "high within statistics",
+  "community_evidence": {
+   "url": "https://en.wikipedia.org/wiki/Algebraic_statistics",
+   "summary": "Wikipedia Algebraic statistics (fetched): in 1998 they \"introduced Groebner bases for constructing Markov chain Monte Carlo algorithms\"; played a pivotal role in establishing the field."
+  },
+  "evidence_read_level": "fetched (Wikipedia); paper not read",
+  "ground_truth_label": "novel (and framework valued; foundational for algebraic statistics)",
+  "owner_citation": "near neighbours: Pistone-Wynn 1996 (Groebner bases in statistics); Markov bases classical contingency table literature",
+  "contamination_risk": "medium",
+  "seed_draft": "We consider sampling from the set of contingency tables with fixed margins, or more generally from a discrete exponential family conditional on its sufficient statistic. Connected Markov chains on the fibres can be built from a finite set of moves. We show that such a generating set can be obtained from a Groebner basis of a toric ideal associated to the model. This gives algorithms for exact conditional tests with a guarantee of connectivity. We illustrate with examples including tables with fixed row and column sums and models for incomplete data.",
+  "plausible_declared_types": [
+   3,
+   4
+  ],
+  "notes": "In-area: contingency tables / algebraic statistics. Seed written from general knowledge of the paper and Wikipedia sentence; not from the abstract. Real novelty vs Pistone-Wynn is nuanced.",
+  "split": "dev"
+ },
+ {
+  "id": "OA5",
+  "category": "OA",
+  "citation": "Laskowski, Vapnik-Chervonenkis classes of definable sets (J. London Math. Soc. 45 (1992))",
+  "arxiv_id": "(no arXiv id found)",
+  "date": "1992",
+  "as_of": "1992-01-01 (approximate)",
+  "fame": "medium within model theory",
+  "community_evidence": {
+   "url": "https://arxiv.org/pdf/1208.3944",
+   "summary": "Search snippets (A Guide to NIP theories; others): Laskowski showed a formula is NIP iff its family of definable sets has finite VC dimension; credited in later NIP literature."
+  },
+  "evidence_read_level": "snippet (search results only; no page fetched)",
+  "ground_truth_label": "reframing-valued (bridge between model theory and learning theory)",
+  "owner_citation": "Shelah (independence property); Vapnik-Chervonenkis 1971; Sauer-Shelah lemma (ingredients known)",
+  "contamination_risk": "medium",
+  "seed_draft": "Shelah's independence property is a combinatorial dividing line for formulas in model theory. Vapnik and Chervonenkis introduced classes of sets of finite VC dimension in probability and learning theory. We show that a formula is without the independence property exactly when the family of sets it defines has finite VC dimension. This lets results about VC classes (such as uniform convergence of empirical measures) be applied to definable sets, and conversely. We give examples from o-minimal and stable theories.",
+  "plausible_declared_types": [
+   3,
+   4
+  ],
+  "notes": "Evidence is snippet-level; fetch the NIP guide before relying on it. Seed from general knowledge; last two sentences are a guess at content. Equivalence itself is nearly definitional, so Type 4 (three new statements) is the live bar.",
+  "split": "test"
+ },
+ {
+  "id": "NR1",
+  "category": "NR",
+  "citation": "Banica, Schlenker, On Hadamard matrices at roots of unity [REWORDED seed; original title/abstract not reproduced]",
+  "arxiv_id": "arXiv:0707.4175",
+  "date": "2007-07-27 (withdrawn v3 2013-01-29)",
+  "as_of": "2007-07-26",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/0707.4175",
+   "summary": "Comments: 'withdrawn by the authors, the main result being known since Lam and Leung, J. Algebra 2000.'"
+  },
+  "evidence_read_level": "fetched (abstract page, v1 and v3)",
+  "ground_truth_label": "known",
+  "owner_citation": "Lam and Leung, J. Algebra 2000 (as named in the withdrawal comment; theorem number not checked)",
+  "contamination_risk": "low-medium (reworded; must be checked by searching a sentence of the seed before the run)",
+  "seed_draft": "Let H be an n x n matrix all of whose entries are complex numbers z with z^l = 1, and suppose H times its conjugate transpose equals n times the identity. Which pairs (n,l) admit such an H? Factor l as a product of s distinct prime powers q_1^{e_1}...q_s^{e_s}. We study the necessary condition that n can be written as c_1 q_1 + ... + c_s q_s with all c_j non-negative integers. When s=1 this reduces to a standard divisibility fact. We establish it for s=2 and s=3, and conjecture it for every s. We end with remarks on other obstructions known for such matrices.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Same claim as N1 (s=2,3 proved, s>=4 conjectured) with unitary-matrix wording, q_j for prime powers, c_j coefficients. Avoid the words Hadamard/roots-of-unity in the title when running. Check a web search on a seed sentence before use.",
+  "split": "test",
+  "reword_of": "N1"
+ },
+ {
+  "id": "NR2",
+  "category": "NR",
+  "citation": "Hegarty, Independent sets in almost-regular graphs and the Cameron-Erdos problem for non-invariant linear equations [REWORDED seed; original title/abstract not reproduced]",
+  "arxiv_id": "arXiv:0905.0990",
+  "date": "2009-05-07 (withdrawn v2 2010-09-16)",
+  "as_of": "2009-05-06",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/search/?query=withdrawn+%22previously+known%22&searchtype=comments",
+   "summary": "Comments: main result (Theorem 2.2) follows from Theorem 9.3 of Ben Green's GAFA 2005 paper (search-listing paraphrase; abstract page v1 fetched, comment text only via search listing)."
+  },
+  "evidence_read_level": "fetched (search listing + abstract page)",
+  "ground_truth_label": "known",
+  "owner_citation": "B. Green, GAFA 2005 (Szemeredi-type regularity lemma in abelian groups), Thm 9.3",
+  "contamination_risk": "low-medium (reworded; must be checked by searching a sentence of the seed before the run)",
+  "seed_draft": "Fix an integer k>=3 and coefficients a_1..a_k, b with a_1+...+a_k not zero, so that the equation a_1x_1+...+a_kx_k=b is not preserved under shifting all variables. Call a subset of {1,...,N} free if it contains no solution. The largest free sets are known; we ask how many free sets there are in total, conjecturing that the count is 2^{(1+o(1)) m} where m is the maximum size. We prove a weakened version for a family of such equations by associating to each equation a nearly regular graph on {1,...,N} whose independent sets are exactly the free sets, and counting those independent sets. This extends to general equations the known counting question for sum-free sets.",
+  "plausible_declared_types": [
+   1,
+   3
+  ],
+  "notes": "Same claim as N2 in different notation (free sets, m). The exact exponent form of the conjecture is a rewording and not from the original; the original abstract is thin, so the equivalence is approximate.",
+  "split": "test",
+  "reword_of": "N2"
+ },
+ {
+  "id": "NR3",
+  "category": "NR",
+  "citation": "Werner, Lenz, Polynomial Bounds on the Slicing Number [REWORDED seed; original title/abstract not reproduced]",
+  "arxiv_id": "arXiv:1004.3381",
+  "date": "2010-04-20 (withdrawn v4 2010-08-02)",
+  "as_of": "2010-04-19",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1004.3381",
+   "summary": "Comments: withdrawn 'because we found out that most of the results were already known (under a different name).'"
+  },
+  "evidence_read_level": "fetched (abstract page, v1 page)",
+  "ground_truth_label": "known",
+  "owner_citation": "Gyarfas and Lehel 1970 ('d-separated interval piercing'); also Karolyi-Tardos, Kaiser (named in withdrawn abstract)",
+  "contamination_risk": "low-medium (reworded; must be checked by searching a sentence of the seed before the run)",
+  "seed_draft": "Let C be a finite collection of convex bodies in d-dimensional space such that no m+1 of them are pairwise disjoint. We ask for the smallest number of hyperplanes, each perpendicular to a coordinate axis, such that every body in C is cut by at least one of them. We prove that this smallest number is bounded by a function f(d,m) alone. First bound is super-exponential, then a polynomial bound in m for fixed d. In the plane we lower the best exponential bound to O(m^2).",
+  "plausible_declared_types": [
+   1,
+   2
+  ],
+  "notes": "Same claim as N3. Replaced \"slicing number T_d(m)\" and \"axis-parallel hyperplanes meet\" with \"cut by coordinate hyperplanes\". Note the original claims improvement of known bound; owners found by the withdrawal comment named differently (interval piercing).",
+  "split": "test",
+  "reword_of": "N3"
+ },
+ {
+  "id": "NR4",
+  "category": "NR",
+  "citation": "Bagherian, On the wedge product of table algebras and applications to association schemes [REWORDED seed; original title/abstract not reproduced]",
+  "arxiv_id": "arXiv:1508.05604",
+  "date": "2015-08-23 (withdrawn v3 2018-08-20)",
+  "as_of": "2015-08-22",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1508.05604",
+   "summary": "Comments: withdrawn; main results already known, Thm 2.9 and Prop 2.11 of H. Blau, 'Fusion rings with few degrees' (J. Algebra 2013) (paraphrase)."
+  },
+  "evidence_read_level": "fetched (abstract page)",
+  "ground_truth_label": "known",
+  "owner_citation": "H. Blau, 'Fusion rings with few degrees', J. Algebra 2013, Thm 2.9 and Prop 2.11",
+  "contamination_risk": "low-medium (reworded; must be checked by searching a sentence of the seed before the run)",
+  "seed_draft": "Association schemes admit a construction in which one scheme is placed on top of another, so that the relations of the second refine one class of the first. We define a counterpart of this construction for table algebras. We prove a necessary and sufficient condition for a table algebra to decompose as such a composite of two smaller ones. Moreover, if the dual objects of two commutative table algebras are again table algebras, then the dual of their composite is a table algebra, isomorphic to the composite of the duals taken in the opposite order. Consequences for association schemes follow.",
+  "plausible_declared_types": [
+   1,
+   3
+  ],
+  "notes": "Same claim as N4. \"Wedge product\" replaced by \"composite where one scheme refines a class of the other\" (the actual wedge product is what is meant; check the definition against the original before use). Verify that the original's claimed owner theorem (Blau 2013) still applies.",
+  "split": "test",
+  "reword_of": "N4"
+ }
+]

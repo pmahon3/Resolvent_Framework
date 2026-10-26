@@ -1806,10 +1806,14 @@
   {
    "file": "livson_pritam_prokopenko_2026_condorcet_nonorientable_topology.pdf",
    "citation": "Livson, Pritam, Prokopenko, 'The non-orientable topology of Condorcet's paradox', arXiv:2601.07283 (2026)",
-   "what_it_proves": "Topological model of preference cycles (non-orientability); claims not yet applied to Condorcet aggregation in this way.",
-   "summary_basis": "abstract",
-   "verdict_for_us": "neighbour",
-   "programme_links": [],
+   "what_it_proves": "Baryshnikov nerve of Strict(3) = annulus whose two boundary circles are the two Condorcet cycles. Valid (intransitive) cycles: annulus / sphere (realised). Contradictory cycles: under transitivity both cycles are identified as one 'contradiction' object c; the identification must reverse orientation, giving Klein bottle (unrealised, Thm 4) or RP2 (realised, Thm 5). Thm 6: Arrow <=> no SWFC with Unanimity, IIA, Non-Dictatorship has orientable social choices (a reformulation, not a new proof; their words).",
+   "summary_basis": "full text sections 1-4 (2026-10-26, v6); appendices skimmed",
+   "verdict_for_us": "neighbour, NOT owner. Their twist is a quotient of the OUTCOME space (both cycle directions identified as one contradiction), not holonomy of local views round a loop; it is not our Z/2 gauge twist (my 2026-10-26 guess retracted). No local/global, no carrier, no question of which queries see the cycle. Sec 4.1 cites Ghrist's hypothesis that a cohomological (Penrose-triangle) obstruction underlies preference cycles, 'not yet applied to aggregation' - that side is close to HodgeRank/Saari (owned) and to our order twist.",
+   "programme_links": [
+    "own.landscape_flux",
+    "thm.triangle_pointless",
+    "order twist (order_without_a_centre.tex sec 9)"
+   ],
    "questions": [
     "ecology_cases",
     "local_to_global"

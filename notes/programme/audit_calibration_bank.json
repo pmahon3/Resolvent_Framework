@@ -1,0 +1,319 @@
+[
+ {
+  "id": "N1",
+  "category": "N",
+  "citation": "Banica, Schlenker, On Hadamard matrices at roots of unity",
+  "arxiv_id": "arXiv:0707.4175",
+  "date": "2007-07-27 (withdrawn v3 2013-01-29)",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/0707.4175",
+   "summary": "Comments: 'withdrawn by the authors, the main result being known since Lam and Leung, J. Algebra 2000.'"
+  },
+  "ground_truth_label": "known",
+  "owner_citation": "Lam and Leung, J. Algebra 2000 (as named in the withdrawal comment; theorem number not checked)",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (abstract page, v1 and v3)",
+  "seed_draft": "We study Hadamard matrices of order n whose entries are l-th roots of unity. A main problem is to determine the allowed pairs (n,l). Write l = p_1^{a_1}...p_s^{a_s}. We discuss the necessary condition that n lies in p_1 N + ... + p_s N. For s=1 the statement is a classical fact. For s=2 and s=3 we prove it in this paper. For s>=4 we state it as a conjecture. We also comment on other known obstructions to existence.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Seed must be written from v1 abstract; the s=1 case is flagged as known in v1 already, so the claim is s=2,3. Authors withdrew themselves (author-as-community)."
+ },
+ {
+  "id": "N2",
+  "category": "N",
+  "citation": "Hegarty, Independent sets in almost-regular graphs and the Cameron-Erdos problem for non-invariant linear equations",
+  "arxiv_id": "arXiv:0905.0990",
+  "date": "2009-05-07 (withdrawn v2 2010-09-16)",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/search/?query=withdrawn+%22previously+known%22&searchtype=comments",
+   "summary": "Comments: main result (Theorem 2.2) follows from Theorem 9.3 of Ben Green's GAFA 2005 paper (search-listing paraphrase; abstract page v1 fetched, comment text only via search listing)."
+  },
+  "ground_truth_label": "known",
+  "owner_citation": "B. Green, GAFA 2005 (Szemeredi-type regularity lemma in abelian groups), Thm 9.3",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (search listing + abstract page)",
+  "seed_draft": "We propose a generalisation of the Cameron-Erdos conjecture for sum-free sets to linear equations over the integers in three or more variables that are not translation invariant. Using graph-theoretic methods on almost-regular graphs, we prove a weak form of the conjecture for a class of such equations. The extremal solution-free sets for this class were already known in size. Our argument bounds the number of independent sets of the associated graphs.",
+  "plausible_declared_types": [
+   1,
+   3
+  ],
+  "notes": "Seed paraphrased from fetched v1 summary, not verbatim; abstract detail is thin. Verify the Green Thm 9.3 correspondence by hand before using as an owner-hit key."
+ },
+ {
+  "id": "N3",
+  "category": "N",
+  "citation": "Werner, Lenz, Polynomial Bounds on the Slicing Number",
+  "arxiv_id": "arXiv:1004.3381",
+  "date": "2010-04-20 (withdrawn v4 2010-08-02)",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1004.3381",
+   "summary": "Comments: withdrawn 'because we found out that most of the results were already known (under a different name).'"
+  },
+  "ground_truth_label": "known",
+  "owner_citation": "Gyarfas and Lehel 1970 ('d-separated interval piercing'); also Karolyi-Tardos, Kaiser (named in withdrawn abstract)",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (abstract page, v1 page)",
+  "seed_draft": "Given a family of convex objects in R^d whose maximum independent set (pairwise disjoint subfamily) has size at most m, how many axis-parallel hyperplanes are needed to meet every member? We show this number T_d(m) exists and depends only on m and d. We give a first super-exponential bound, then a polynomial bound in m for fixed d. In the plane we improve the best known exponential bound to O(m^2).",
+  "plausible_declared_types": [
+   1,
+   2
+  ],
+  "notes": "Owner names appear only in the later withdrawn abstract (v4), not in v1; use v1. Under a different name = good test of vocabulary stripping."
+ },
+ {
+  "id": "N4",
+  "category": "N",
+  "citation": "Bagherian, On the wedge product of table algebras and applications to association schemes",
+  "arxiv_id": "arXiv:1508.05604",
+  "date": "2015-08-23 (withdrawn v3 2018-08-20)",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1508.05604",
+   "summary": "Comments: withdrawn; main results already known, Thm 2.9 and Prop 2.11 of H. Blau, 'Fusion rings with few degrees' (J. Algebra 2013) (paraphrase)."
+  },
+  "ground_truth_label": "known",
+  "owner_citation": "H. Blau, 'Fusion rings with few degrees', J. Algebra 2013, Thm 2.9 and Prop 2.11",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (abstract page)",
+  "seed_draft": "We generalize the wedge product of association schemes to table algebras. We give a necessary and sufficient condition for a table algebra to be the wedge product of two table algebras. When the duals of two commutative table algebras are table algebras, we show the dual of their wedge product is a table algebra isomorphic to the wedge product of the duals in reverse order. We close with applications to association schemes.",
+  "plausible_declared_types": [
+   1,
+   3
+  ],
+  "notes": "Withdrawn three years after posting. Comment text paraphrased by fetch tool; verify wording."
+ },
+ {
+  "id": "X1",
+  "category": "X",
+  "citation": "Czelakowski, 'The Twin Primes Conjecture is True in the Standard Model of Peano Arithmetic: Applications of Rasiowa-Sikorski Lemma in Arithmetic (I)' (Studia Logica, online 2022-10-25)",
+  "arxiv_id": "(no arXiv id found)",
+  "date": "2022-10-25 (retracted 2022-11-01)",
+  "fame": "high (MathOverflow, Daily Nous, Retraction Watch)",
+  "community_evidence": {
+   "url": "https://retractionwatch.com/2022/11/18/mathematician-requests-two-retractions-for-subtle-inaccuracies",
+   "summary": "Retracted within a week: editor cited 'an irreparable mistake'; author found 'subtle inaccuracies'. MO thread (not fetched, blocked) found the flaw."
+  },
+  "ground_truth_label": "wrong",
+  "owner_citation": "n/a (false/unsound proof)",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "high",
+  "evidence_read_level": "fetched (Retraction Watch); MO thread NOT fetched (tool blocked)",
+  "seed_draft": "We use the Rasiowa-Sikorski lemma on generic filters for countable Boolean algebras to build a model of Peano arithmetic from forcing-style conditions. We show that in the resulting standard model the twin prime conjecture holds, i.e. there are infinitely many primes p with p+2 prime. The argument assigns to each arithmetic sentence a Boolean value and uses a countable family of dense sets to force the statement. A companion paper uses the same method to show infinitely many Mersenne primes.",
+  "plausible_declared_types": [
+   1,
+   2
+  ],
+  "notes": "Very high contamination and the claim is absurdly strong; mostly a test of whether the auditor catches soundness/overclaim, not novelty. Seed text is a reconstruction from the title and RW summary, not the paper's abstract."
+ },
+ {
+  "id": "X2",
+  "category": "X",
+  "citation": "Boggi, Looijenga, Curves with prescribed symmetry and associated representations of mapping class groups, Math. Ann. 381 (2021) 1511-1535; Retraction Note Math. Ann. 389 (2024), DOI 10.1007/s00208-024-02860-6",
+  "arxiv_id": "(arXiv id not looked up)",
+  "date": "2021 (retracted 2024)",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://link.springer.com/article/10.1007/s00208-024-02860-6",
+   "summary": "Retraction note (search snippet): proofs of Lemmas 1.6 and 1.8 incomplete; Thm 1.1 depends on them; authors agree."
+  },
+  "ground_truth_label": "wrong",
+  "owner_citation": "n/a (incomplete proof, authors retracted)",
+  "blind_seed_writable": "partial",
+  "contamination_risk": "low",
+  "evidence_read_level": "snippet only (Springer page redirected to login)",
+  "seed_draft": "[DRAFT NEEDS ARXIV ABSTRACT, written from title only] We study families of curves with prescribed finite symmetry group and the associated representations of mapping class groups. We prove a main theorem identifying the image of these representations, using two lemmas on the structure of the relevant moduli.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Weak: outside the repo's areas, error is a proof gap (not detectable from a seed) and so tests nothing about novelty. Probably drop."
+ },
+ {
+  "id": "P1",
+  "category": "P",
+  "citation": "Campos, Griffiths, Morris, Sahasrabudhe, An exponential improvement for diagonal Ramsey, Annals of Math. 203(3) (2026) 869-932, DOI 10.4007/annals.2026.203.3.4",
+  "arxiv_id": "arXiv:2303.09521",
+  "date": "2023-03-23 (Annals online 2025-12-01)",
+  "fame": "high",
+  "community_evidence": {
+   "url": "https://annals.math.princeton.edu/2026/203-3/p04",
+   "summary": "Annals publication; abstract: 'first exponential improvement' over Erdos-Szekeres 1935. Later source: Morris survey arXiv:2601.05221 (snippet)."
+  },
+  "ground_truth_label": "novel",
+  "owner_citation": "none",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "high (famous, pre-cutoff, 2023)",
+  "evidence_read_level": "fetched (Annals page)",
+  "seed_draft": "We show that the diagonal Ramsey number R(k) satisfies R(k) <= (4 - eps)^k for some absolute constant eps > 0 and all large k. The Erdos-Szekeres bound of 1935 has stood as the exponential rate since then. We obtain the improvement via a book algorithm, a density-increment-like procedure that finds large monochromatic books in a two-coloured complete graph. A careful analysis of the algorithm's steps bounds the number of 'bad' steps.",
+  "plausible_declared_types": [
+   1,
+   3
+  ],
+  "notes": "Test of false-kill on a famous result; model may recall it. Not post-cutoff."
+ },
+ {
+  "id": "P2",
+  "category": "P",
+  "citation": "Kelley, Meka, Strong Bounds for 3-Progressions (FOCS 2023)",
+  "arxiv_id": "arXiv:2302.05537",
+  "date": "2023-02-10",
+  "fame": "high",
+  "community_evidence": {
+   "url": "https://www.quantamagazine.org/surprise-computer-science-proof-stuns-mathematicians-20230321/",
+   "summary": "Quanta 2023-03-21: Sisask calls it 'the biggest result in the area for 20 years.' Also expounded by Bloom-Sisask (ENT 2023)."
+  },
+  "ground_truth_label": "novel",
+  "owner_citation": "none",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "high",
+  "evidence_read_level": "fetched (arXiv abstract, Quanta page)",
+  "seed_draft": "A subset of {1..N} of density 2^{-O((log N)^beta)} for a constant beta > 0 contains a nontrivial three-term arithmetic progression. The previous best density bound was about 1/(log N)^{1+c}. We first develop new analytic techniques for the analogous finite-field problem and then adapt them to the integers.",
+  "plausible_declared_types": [
+   1,
+   3
+  ],
+  "notes": "FOCS venue not fetched. High contamination."
+ },
+ {
+  "id": "P3",
+  "category": "P",
+  "citation": "Gladkov, Pak, Zimin, The bunkbed conjecture is false (PNAS 122(24), 2025 per Wikipedia)",
+  "arxiv_id": "arXiv:2410.02545",
+  "date": "2024-10-03",
+  "fame": "medium-high",
+  "community_evidence": {
+   "url": "https://en.wikipedia.org/wiki/Bunkbed_conjecture",
+   "summary": "Wikipedia cites Quanta (Howlett, 2024-11-01), 'Math's Bunkbed Conjecture Has Been Debunked'; Quanta page itself not fetched."
+  },
+  "ground_truth_label": "novel (builds on Hollom 2024 hypergraph example, credited)",
+  "owner_citation": "none (credits Hollom 2406.01790 as source of key example)",
+  "blind_seed_writable": "partial: a seed naming Hollom's input would leak, so state the hypergraph-to-graph transfer without citing",
+  "contamination_risk": "medium-high",
+  "evidence_read_level": "fetched (arXiv abstract, Wikipedia); Quanta/PNAS not fetched",
+  "seed_draft": "The bunkbed conjecture of Kasteleyn (1985) asserts that in a graph G times K_2 with independent edge percolation, a vertex u in the lower copy is at least as likely to connect to v in the upper copy as to the lower copy of v. We give a counterexample on a planar graph with 7222 vertices. The construction converts a small hypergraph counterexample into an ordinary graph through a gadget, and the probability gap is computed exactly. The gap is about 10^-6509.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Seed contains construction details from the abstract; remove Hollom reference."
+ },
+ {
+  "id": "P4",
+  "category": "P",
+  "citation": "Hollom, The bunkbed conjecture is not robust to generalisation (Eur. J. Combin. 128 (2025) 104188 per citing work)",
+  "arxiv_id": "arXiv:2406.01790",
+  "date": "2024-06",
+  "fame": "low-medium",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/2406.01790",
+   "summary": "Later source: Gladkov-Pak-Zimin build their disproof on its hypergraph counterexample (per search summary and Wikipedia)."
+  },
+  "ground_truth_label": "novel",
+  "owner_citation": "none",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low-medium",
+  "evidence_read_level": "snippet only (search results; arXiv page of 2406.01790 not fetched)",
+  "seed_draft": "We consider three generalisations of the bunkbed conjecture: to site percolation, to hypergraphs, and to directed graphs. We give counterexamples to all three through a sequence of explicit constructions. We also identify additional conditions under which the site-percolation version might hold, and graph classes where it does.",
+  "plausible_declared_types": [
+   1,
+   5
+  ],
+  "notes": "Evidence is snippet only. Items P3 and P4 are correlated (same thread)."
+ },
+ {
+  "id": "P5",
+  "category": "P",
+  "citation": "Przybylowski, The acyclic directed bunkbed conjecture is false (Eur. J. Combin. 132 (2026) 104289)",
+  "arxiv_id": "arXiv:2506.22284",
+  "date": "2025-06-27",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/2506.22284",
+   "summary": "Published in EJC; answers questions of Leander and of Hollom (abstract page)."
+  },
+  "ground_truth_label": "novel",
+  "owner_citation": "none",
+  "blind_seed_writable": "yes",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (arXiv abstract page)",
+  "seed_draft": "We give a small directed graph without directed cycles on which the directed bunkbed inequality fails. This settles for acyclic digraphs a question left open for the directed generalisation of the bunkbed conjecture.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Bonus P. Journal acceptance is the only community signal; no later citing source read."
+ },
+ {
+  "id": "R1",
+  "category": "R",
+  "citation": "Bloom, Sisask, The Kelley-Meka bounds for sets free of three-term arithmetic progressions, Essential Number Theory 2 (2023) 15-44",
+  "arxiv_id": "arXiv:2302.07211",
+  "date": "2023-02-14",
+  "fame": "medium",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/2302.07211",
+   "summary": "Abstract: 'self-contained exposition'; proof identical to Kelley-Meka in main ideas with minor Bohr-set simplifications (fetched paraphrase)."
+  },
+  "ground_truth_label": "reframing (exposition, with minor simplifications)",
+  "owner_citation": "Kelley-Meka arXiv:2302.05537 (the exposition's source)",
+  "blind_seed_writable": "no: any honest seed names the source result; use the Bloom-Sisask simplifications as the claim",
+  "contamination_risk": "high",
+  "evidence_read_level": "fetched (arXiv abstract)",
+  "seed_draft": "We give a self-contained treatment of the bound that a subset of {1..N} with no nontrivial three-term arithmetic progression has size at most N exp(-c (log N)^{1/12}). We follow the main ideas of the known approach and simplify some arguments involving Bohr sets. As a consequence we improve lower bounds for finding long arithmetic progressions in A+A+A.",
+  "plausible_declared_types": [
+   6,
+   2
+  ],
+  "notes": "The seed cannot avoid the main-result owner; test is whether the auditor says 'exposition, not new theorem' rather than KNOWN-kill or NOVEL."
+ },
+ {
+  "id": "R2",
+  "category": "R",
+  "citation": "Abramsky, Brandenburger, The sheaf-theoretic structure of non-locality and contextuality, New J. Phys. 13 (2011) 113036",
+  "arxiv_id": "arXiv:1102.0264",
+  "date": "2011-02-01",
+  "fame": "high",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1102.0264",
+   "summary": "Published NJP; abstract frames non-locality and contextuality as obstructions to global sections. No citation or reception source fetched."
+  },
+  "ground_truth_label": "reframing (framework plus some new results)",
+  "owner_citation": "n/a",
+  "blind_seed_writable": "partial",
+  "contamination_risk": "high (in the repo's own shelf; likely known to the auditor)",
+  "evidence_read_level": "fetched (arXiv abstract); reception not verified",
+  "seed_draft": "We treat non-locality and contextuality in one framework by taking empirical models to be presheaf-like families of distributions over measurement contexts. Both phenomena become obstructions to global sections. We give a linear-algebraic method for computing the obstruction and rank the Bell, Hardy and GHZ arguments by strength. We link local hidden-variable models with negative probabilities to no-signalling.",
+  "plausible_declared_types": [
+   3,
+   4
+  ],
+  "notes": "Repo already cites it; likely to be in the repo's shelf. Reception evidence is the weakest of the bank."
+ },
+ {
+  "id": "R3",
+  "category": "R",
+  "citation": "Morris, Some recent results in Ramsey theory",
+  "arxiv_id": "arXiv:2601.05221",
+  "date": "2026-01-08",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/2601.05221",
+   "summary": "Abstract: 'accessible overview' of recent graph Ramsey advances (fetched paraphrase). No reception evidence."
+  },
+  "ground_truth_label": "reframing (survey)",
+  "owner_citation": "n/a",
+  "blind_seed_writable": "no: any seed is a survey of owned results",
+  "contamination_risk": "low",
+  "evidence_read_level": "fetched (arXiv abstract)",
+  "seed_draft": "This survey gives an accessible overview of recent progress in graph Ramsey theory. It presents the proofs of exponentially better bounds for diagonal, near-diagonal and multicolour Ramsey numbers, improved lower bounds for R(3,k) and R(4,k), and an exponential upper bound for induced Ramsey numbers.",
+  "plausible_declared_types": [
+   6
+  ],
+  "notes": "Venue and valuation unknown (no journal ref). Weak R item."
+ }
+]

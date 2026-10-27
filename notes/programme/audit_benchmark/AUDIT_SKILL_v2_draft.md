@@ -33,7 +33,11 @@ with objects/theorems/conjectures/probes/owned_regions):
 - evaluate against **Type 3** and **Type 4** only;
 - report any owner found as an `owned_by` region (citation, region, how
   verified), so the seam map updates;
-- publishability is not a criterion.
+- publishability is not a criterion;
+- **entry-level cap (v2.1, 2026-10-27):** a NOVEL pure verdict requires that the nearest prior work was
+  read beyond abstract level; otherwise the verdict is UNCLEAR and the unread source is named. If an
+  owner is found in print, record it as `owned_by` and mark the entry OWNED (or PARTLY OWNED with the
+  residual stated).
 
 ---
 

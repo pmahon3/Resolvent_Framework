@@ -75,3 +75,18 @@ reframing items are thin (no zbMATH review text). Seeds for some items were writ
 
 **6/6.** Caps adopted (no longer provisional for these cases). Remaining limits: n small; V5/V6 seeds
 reconstructed from titles; one minor leak (V5 opened own abstract page, verdict independent of it).
+
+## v2.1 re-test on valued work (5 positives; the 18/18 above was v2, before the caps)
+
+| Item | v2 | v2.1 | Caps |
+|---|---|---|---|
+| P1 diagonal Ramsey | ACCEPT-LIKELY | ACCEPT-LIKELY | none |
+| P2 Kelley–Meka | ACCEPT-LIKELY | ACCEPT-LIKELY | none |
+| RV2 Greene Kneser | ACCEPT-LIKELY | **BORDERLINE** | novelty UNCLEAR + neighbour unread (Bárány 1978 unretrievable) |
+| RV6 Kra exposition | ACCEPT-LIKELY | ACCEPT-LIKELY | none (overlap routed to Type 6) |
+| OA3 Cabello–Severini–Winter | ACCEPT-LIKELY | ACCEPT-LIKELY | none |
+
+4/5 unchanged; 1 demoted by the read-depth cap when the key source could not be retrieved. The caps trade
+false passes on obscure-owner work (fixed: 6/6) for occasional false demotions of valued work when a source
+is unreachable. Read a cap-driven BORDERLINE as "read X first", not as "weak". Routing ambiguity fixed in the
+skill: overlap with earlier expositions counts under Type 6, not under pure novelty.

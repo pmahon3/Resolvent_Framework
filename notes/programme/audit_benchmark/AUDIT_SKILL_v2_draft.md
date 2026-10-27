@@ -198,6 +198,10 @@ stand in for the other. Calibration: `notes/programme/audit_benchmark/` (communi
 - If an owner of the main result is found in print and not credited, REJECT-LIKELY unless a clearly
   substantial residual result remains (state it).
 
+**Cap reading (v2.1, 2026-10-27):** a BORDERLINE produced only by the read-depth cap means "read the named
+source first", not "weak"; say so. Overlap with earlier *expositions* is assessed under Type 6 / factor 4,
+not under the pure novelty verdict (so it does not trigger the UNCLEAR cap).
+
 **Output, after the programme verdicts:**
 ```
 ### Referee estimate: [ACCEPT-LIKELY / BORDERLINE / REJECT-LIKELY]

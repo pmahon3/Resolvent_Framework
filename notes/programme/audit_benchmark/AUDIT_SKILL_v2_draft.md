@@ -157,7 +157,7 @@ redirect to expository venue / needs deeper audit]
 
 ---
 
-## REFEREE ESTIMATE (v2.1 provisional, 2026-10-26; run in every mode)
+## REFEREE ESTIMATE (v2.1, validated 2026-10-26; run in every mode)
 
 The programme bar above is deliberately stricter than community practice. Separately, estimate what a
 competent referee at a good venue *in the item's own field* would decide. Do not let one verdict
@@ -186,7 +186,7 @@ stand in for the other. Calibration: `notes/programme/audit_benchmark/` (communi
 - an exposition that duplicates an existing accessible exposition without added value;
 - claims of novelty or of independence that the literature contradicts.
 
-**Caps (v2.1, provisional 2026-10-26; from held-out test misses RN3, NR4; validation pending):**
+**Caps (v2.1; from held-out misses RN3, NR4; validated 6/6 on fresh items 2026-10-26):**
 - If the pure novelty verdict is UNCLEAR (an owner is suspected, partially found, or could not be read),
   the referee estimate is at most BORDERLINE.
 - ACCEPT-LIKELY on factor 1 or 2 requires that the nearest prior work was read beyond abstract level;

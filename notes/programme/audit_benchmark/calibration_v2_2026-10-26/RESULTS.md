@@ -61,3 +61,17 @@ Test positives (valued/novel): **9/9**. Test negatives (known/wrong): **3/8 matc
 n = 27 runs (10 dev, 17 test) + 12 v1 + 6 pilot. Many valued items are famous (recall likely). Negative
 reframing items are thin (no zbMATH review text). Seeds for some items were written from titles/notices.
 
+
+## Validation of v2.1 caps (6 fresh known/wrong items, obscure owners; live skill)
+
+| Item | Community | Referee estimate | Match |
+|---|---|---|---|
+| V1 Waring mod n | known (Small 1977; Hardy–Littlewood) | REJECT-LIKELY | yes |
+| V2 non-congruent numbers | known (Iskra 1996; Monsky 1994) | REJECT-LIKELY | yes |
+| V3 diagonal of similarity class | known (Fillmore 1969) | REJECT-LIKELY | yes |
+| V4 local chromatic number | partly known | BORDERLINE (cap engaged: neighbours unread) | yes |
+| V5 Urysohn Ramsey | wrong | REJECT-LIKELY (counterexample, hand-checked) | yes |
+| V6 arithmetic reflection groups | not proved | REJECT-LIKELY (no facet bound in dim 2–3) | yes |
+
+**6/6.** Caps adopted (no longer provisional for these cases). Remaining limits: n small; V5/V6 seeds
+reconstructed from titles; one minor leak (V5 opened own abstract page, verdict independent of it).

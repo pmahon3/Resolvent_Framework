@@ -1,6 +1,6 @@
 # Audit v2 (referee estimate) calibration — interim (2026-10-26)
 
-Rubric: `../AUDIT_SKILL_v2_draft.md` (frozen at 7f5c6fd after dev). Bank: `../../audit_calibration_bank_v2.json`.
+Rubric: `../AUDIT_SKILL_tracked_copy.md` (frozen at 7f5c6fd after dev). Bank: `../../audit_calibration_bank_v2.json`.
 
 ## Dev half (rubric written from these; 9 of 10 run)
 

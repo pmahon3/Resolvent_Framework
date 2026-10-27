@@ -267,7 +267,7 @@ Main risk a referee would raise: full scope: "the central 'every check you can r
 
 **What the prior audit had that I lacked, adopted here:**
 - **The exclusivity probe's location.** The 3×3×3 comparison was computed by the prior audit. The scripts are
-  `/tmp/audit_ce/ce1_test.py` and `ce1_vs_D.py`, *outside the repo*, which is why I did not locate them.
+  `notes/open_questions/verification/audit_exclusivity/ (copied from /tmp/audit_ce/)ce1_test.py` and `ce1_vs_D.py`, *outside the repo*, which is why I did not locate them.
   - Results: exact CE¹ ⊋ K_D at 3×3×3 (72 of 207 facets violated, worst −1/6, all violated supports in D);
     float at 3×3×4.
   - The 3×3×4 float result makes my zero-padding lemma less urgent, but it is still owed in exact form.

@@ -2,7 +2,7 @@
 
 reviewed: false. Hostile referee, opus. Shelf first (SHELF_INDEX, taxonomy `owned_regions`), then about 10 standard web
 searches. Read levels are given per source. One probe was computed for this audit (§2), with its script kept outside
-the repo at `/tmp/audit_ce/ce1_test.py`. Nothing in the repo was edited except this file.
+the repo at `notes/open_questions/verification/audit_exclusivity/ (copied from /tmp/audit_ce/)ce1_test.py`. Nothing in the repo was edited except this file.
 
 ### Declared contribution type(s): Type 1, Type 3, Type 6 (declared, with bars). Seed is Phase-2 ready.
 
@@ -84,7 +84,7 @@ results concern the normal/Hilbert-basis side, a different threshold.
 
 All facets at all of these sizes are width one, consistent with Sullivant.
 
-- **Exact upgrade at 3×3×3** (`/tmp/audit_ce/ce1_vs_D.py`):
+- **Exact upgrade at 3×3×3** (`notes/open_questions/verification/audit_exclusivity/ (copied from /tmp/audit_ce/)ce1_vs_D.py`):
   - exact closure gives |D| = 15914, matching the repo;
   - all 72 violated facet supports S lie in D (exact bitmask lookup);
   - each LP minimiser, rationalised, satisfies every clique and consistency constraint exactly, with μ(S) < 0 exactly.

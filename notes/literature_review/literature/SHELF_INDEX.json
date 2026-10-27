@@ -9,10 +9,10 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 132,
+  "count": 135,
   "basis_counts": {
-   "abstract": 43,
-   "read": 56,
+   "abstract": 58,
+   "read": 68,
    "memory": 8
   }
  },
@@ -54,7 +54,9 @@
    "dravecky_sipos_1980_additivity_gudder_integral.pdf",
    "navara_1984_two_valued_additivity.pdf",
    "navara_1989_integration_generalized_measure_spaces.pdf",
-   "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
+   "navara_ptak_1983_two_valued_measures_sigma_classes.pdf",
+   "zerbe_gudder_1985_additivity_integrals_generalized_measure.pdf",
+   "gudder_1984_extension_classical_measure_theory_siamrev.pdf"
   ],
   "asynchrony": [
    "dzhafarov_kujala_2016_cbd_context_content.pdf",
@@ -62,7 +64,8 @@
    "minguzzi_2005_simultaneity_holonomy.pdf"
   ],
   "carrier_membership": [
-   "keleti_preiss_2000_balls_dynkin.pdf"
+   "keleti_preiss_2000_balls_dynkin.pdf",
+   "zerbe_gudder_1985_additivity_integrals_generalized_measure.pdf"
   ],
   "carriers_logics": [
    "abramsky_barbosa_2021_logic_of_contextuality.pdf",
@@ -86,7 +89,9 @@
    "vandenberg_heunen_2012_noncommutativity_colimit.pdf",
    "ovchinnikov_1999_measures_finite_concrete_logics.pdf",
    "ovchinnikov_sultanbekov_1998_finite_concrete_logics.pdf",
-   "desimone_navara_ptak_2015_states_symmetric_difference.pdf"
+   "desimone_navara_ptak_2015_states_symmetric_difference.pdf",
+   "zerbe_gudder_1985_additivity_integrals_generalized_measure.pdf",
+   "gudder_1984_extension_classical_measure_theory_siamrev.pdf"
   ],
   "clock_holonomy": [
    "dravecky_sipos_1980_additivity_gudder_integral.pdf",
@@ -104,7 +109,8 @@
    "walley_1991.pdf",
    "ovchinnikov_1999_measures_finite_concrete_logics.pdf",
    "ovchinnikov_sultanbekov_1998_finite_concrete_logics.pdf",
-   "desimone_navara_ptak_2015_states_symmetric_difference.pdf"
+   "desimone_navara_ptak_2015_states_symmetric_difference.pdf",
+   "gudder_1984_extension_classical_measure_theory_siamrev.pdf"
   ],
   "completeness_points": [
    "espindola_2020.pdf",
@@ -311,7 +317,8 @@
    "beygelzimer_et_al_2023_neurips2021_consistency_experiment.pdf",
    "liu_shah_2023_reviewergpt.pdf",
    "xi_rao_payan_shah_2025_flaws_error_benchmark.pdf",
-   "lin_peng_fang_2024_schnovel_novelty_benchmark.pdf"
+   "lin_peng_fang_2024_schnovel_novelty_benchmark.pdf",
+   "barany_1978_short_proof_kneser.pdf"
   ]
  },
  "entries": [
@@ -3050,6 +3057,80 @@
    "read_trail": [
     "notes/open_questions/cyclic_marginal/entry_audits/RESOLUTION_ovchinnikov_dnp.md",
     "notes/open_questions/cyclic_marginal/entry_audits/G4_countable_witness.md"
+   ],
+   "read_note": "full text read 2026-10-27"
+  },
+  {
+   "file": "zerbe_gudder_1985_additivity_integrals_generalized_measure.pdf",
+   "citation": "J. E. Zerbe, S. P. Gudder, 'Additivity of integrals on generalized measure spaces', JCTA 39 (1985) 42-51",
+   "what_it_proves": "Thm 6: on a sigma-class (Dynkin system) the integral is additive on two summable SIMPLE functions. Sec 2 (Gleason's 'magic sequence'): on a finite N x N grid, staircase sets S_lambda depending jointly on (i,j) are built from rows, columns, diagonals by finitely many disjoint unions / proper differences (Lemma 3, Corollary p.47), giving sum i r_i + sum j c_j = sum t d_t (Lemma 4); rational approximation (Lemma 5). Sec 4: 6-point sigma-class with a two-valued pointless measure where additivity fails for THREE summable simple functions (simultaneous with Navara-Ptak 1983's six-point example; different set system). Sec 1 credits the infinite-valued counterexample to Gudder-Zerbe 1981 / Zerbe 1979.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.sigma_class_integral_additivity",
+    "own.dnp_finite_nonextendable",
+    "thm.triangle_estar_not_built (finite positive side only; NOT OWNED)",
+    "thm.triangle_pointless (finite part)"
+   ],
+   "questions": [
+    "additivity_of_sums",
+    "carriers_logics",
+    "carrier_membership"
+   ],
+   "text_layer": true,
+   "pages": "42-51",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/entry_audits/RESOLUTION_gudder.md",
+    "notes/open_questions/cyclic_marginal/entry_audits/G2_non_askable.md",
+    "notes/open_questions/cyclic_marginal/entry_audits/RESOLUTION_ovchinnikov_dnp.md"
+   ],
+   "read_note": "full text read 2026-10-27; pdftotext loses symbols (checked on page images); Corollary p.47 printed with B_lambda for S_lambda"
+  },
+  {
+   "file": "gudder_1984_extension_classical_measure_theory_siamrev.pdf",
+   "citation": "S. P. Gudder, 'An extension of classical measure theory', SIAM Review 26 (1984) 71-89",
+   "what_it_proves": "Survey of generalized measure spaces (sigma-classes). Ex 3.1: finite non-subadditive measure on a sigma-class whose only disjoint pairs are complements, no extension. Ex 3.2 / Thms 3.1-3.3: Prather and Gudder-Marchand classes, signed extensions. Ex 4.2: 'sigma-class product' {A1 x O2, O1 x A2} is a sigma-class (rigidity for two independent factors); Thm 4.1 compatible iff inside a sub-sigma-algebra. Ex 6.1: Z^2 rows/cols/diagonals, union of the three sigma-algebras is a sigma-class with a two-valued sigma-additive pointless state (int f = int g = 0, int(f+g) = 1; printed '= empty' is a typo for 'nonempty'). Thm 6.1: sketch of Zerbe-Gudder additivity for simple functions. Ex 6.3: three-summand failure. Thm 7.2: logic admits hidden variables iff it is a sigma-class. Sec 9: Pitowsky spin model.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "own.dravecky_sipos_flight_subcarrier (co-owner, Ex 6.1)",
+    "own.flight_class_nonmembership (Ex 6.1)",
+    "own.dynkin_two_set_intersection (Ex 4.2)",
+    "own.dnp_finite_nonextendable (Ex 3.1, 3.2)",
+    "thm.triangle_pointless / thm.shape_lemma (NOT OWNED)"
+   ],
+   "questions": [
+    "additivity_of_sums",
+    "carriers_logics",
+    "coherence_extension"
+   ],
+   "text_layer": true,
+   "pages": "71-89",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/entry_audits/RESOLUTION_gudder.md",
+    "notes/open_questions/cyclic_marginal/entry_audits/G1_pointless_states.md",
+    "notes/open_questions/cyclic_marginal/entry_audits/G2_non_askable.md",
+    "notes/open_questions/cyclic_marginal/entry_audits/G5_forest_side.md"
+   ],
+   "read_note": "full text read 2026-10-27; pdftotext drops many symbols (checked on page images)"
+  },
+  {
+   "file": "barany_1978_short_proof_kneser.pdf",
+   "citation": "I. Barany, 'A short proof of Kneser's conjecture', JCTA 25 (1978) 325-326",
+   "what_it_proves": "Kneser's conjecture from Borsuk's theorem (open-cover form, k+1 sets on S^k) plus Gale's theorem (2n+k points on S^k, every open hemisphere holds >= n). Remark 1: only pointed-cone n-tuples used. Remark 2: hypergraph generalisation (map V -> S^k with an edge in every open hemisphere); converse left open. No general-position / Gale-free remark.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "audit_benchmark calibration_v2 RV2 (nearest prior work to the Gale-free seed; lifts the 'Barany unread' cap)"
+   ],
+   "questions": [
+    "audit_benchmark"
+   ],
+   "text_layer": true,
+   "pages": "325-326",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/entry_audits/RESOLUTION_gudder.md",
+    "notes/programme/audit_benchmark/calibration_v2_2026-10-26/retest_v21_positive/RV2/AUDIT.md"
    ],
    "read_note": "full text read 2026-10-27"
   }

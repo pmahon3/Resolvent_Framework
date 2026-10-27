@@ -473,7 +473,12 @@ balance-rule boxes pin its pattern there. So the forced answers are always 0 or
 \paragraph{The dividing line.} With the transport of loops
 (Theorem~\ref{thm:travel}): \emph{a board carries pointless answers exactly when
 its window graph is not a tree} (not a forest). This is for two-slot windows
-and infinitely many values. With finitely many values every consistent pattern
+and infinitely many values. \emph{Credit (audit, October 2026):} the dividing line
+and the transport method (reduce any cycle to a triangle or an induced cycle of
+length $\ge4$, then fix the other coordinates) are those of Atserias--Kolaitis,
+arXiv:2009.09488, Lemmas 13--15, for relations and bags; what remains here is the
+two base witnesses at the level of two-valued finitely additive states, and the
+locality step on the full carrier \st{unclear: owners unread}. With finitely many values every consistent pattern
 is actual (Proposition~\ref{prop:sigma}), and a window that sees all three landings at once makes the triangle
 an ordinary board.
 
@@ -905,7 +910,8 @@ prior-art owner was found in three passes.
   \item \st{Lean}: Theorems~\ref{thm:witness}, \ref{thm:estar} and
     \ref{thm:triangle}; Proposition~\ref{prop:sigma} on the ring.
   \item \st{hand}: everything else in Appendix~\ref{app:defs}, including the
-    assembly ``pointless $\iff$ not a forest''.
+    assembly ``pointless $\iff$ not a forest'' (method owned: Atserias--Kolaitis
+    2020, Lemmas 13--15).
   \item Open: the classification and extension questions at the end of
     \S\ref{sec:triangle}.
   \item Prior art for the triangle: two scouting passes and a hostile audit;

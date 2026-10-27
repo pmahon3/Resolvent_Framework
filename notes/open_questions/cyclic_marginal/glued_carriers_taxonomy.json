@@ -2,7 +2,7 @@
  "$meta": {
   "title": "Pointless coherence on glued carriers",
   "purpose": "Zoom-out index of a THEORY in construction (theory-shaped collection, TAXONOMY_SCHEMA.md 2026-10-16). Load first; follow detail pointers. Problems here are probes at a seam, not ends.",
-  "updated": "2026-10-16",
+  "updated": "2026-10-27",
   "what_is_it": "Which finitely additive two-valued states (states) on Dynkin carriers glued from window events are points, ideal points (ultrafilters on Omega), or pointless - and which shape of window graph decides it.",
   "status": "OPEN",
   "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive states on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle'). UPDATE 2026-10-16: triangle-free => locality (stars); forests => no pointless states; any induced cycle of length >= 4 => pointless states (transport). Open = chordal non-forest graphs, decided by the triangle. UPDATE 2026-10-17: TRIANGLE PROBE FIRED (a) - the triangle carries a pointless state (Lean, thm.triangle_pointless); with loops-travel + forests (hand): pointless <=> not a forest. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
@@ -16,11 +16,11 @@
   },
   "headline": {
    "objects": 6,
-   "theorems": 18,
-   "conjectures": 20,
-   "probes": 12,
+   "theorems": 25,
+   "conjectures": 22,
+   "probes": 14,
    "examples": 3,
-   "owned_regions": 16,
+   "owned_regions": 43,
    "overall": "triangle DECIDED 2026-10-17 (pointless, Lean); dichotomy pointless <=> not-a-forest assembled by hand; open: invariant/classification beyond existence, extension test, prior-art claim gate"
   },
   "puzzle": "notes/open_questions/cyclic_marginal/pointless_coherence.tex section 'The puzzle'; domain map in section 'Domain and scope'",
@@ -75,7 +75,7 @@
   {
    "id": "thm.triangle_pointless",
    "name": "the triangle carries a pointless state",
-   "status": "LEAN-CHECKED 2026-10-17 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean; 0 sorry; axioms propext, Classical.choice, Quot.sound), including fidelity sstar_window01/12/20 (s* = the staircase p(x)p limit on every window event). AUDIT /audit pure 2026-10-17 (opus, hostile): NOT FOUND (UNCLEAR at the margin); ingredients owned (own.dravecky_sipos_flight_subcarrier, own.navara_two_of_three, own.coherence_extension, own.ultrafilter_products); scoped claim = a finitely additive two-valued NON-COHERENT state on the full lambda-closure of the three pair windows over N, plus non-membership of the cyclic family. Type 3 FAIL for now (no second domain; flip = decide Navara's two-sided-unbounded regime); Type 4 FAIL as vocabulary (use standard names), statements PASS-pending. Do not upgrade to NOVEL until coverage gaps close (Bhaskara Rao body, Gudder SIAM Rev 1984 Ex 3.1, Hindman-Strauss, Blass, Ptak-Pulmannova book, Ovchinnikov PAMS 1999). Earlier: two budgeted sonnet scouts NOT FOUND, shallow coverage (snippet-level; Navara-Ptak-era, Gudder, Bhaskara Rao, Hindman-Strauss text, Blass unread; residual risk = folklore ultrafilter-product non-extendability, or a Navara-style set-representable logic with a non-point two-valued state). Scouting only - NOT the claim gate (workflow step 6 / /audit pure owed).",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G1_pointless_states.md): PARTLY OWNED — pure UNCLEAR (cap). Existence of pointless two-valued states on concrete logics is owned (De Simone-Navara-Ptak Ex 2.2, finite; Navara-Ptak 1983 Example, sigma-additive on the sigma-class of x, y, x+y over Q^2; both read primary). Residual: a purely finitely additive pointless state on the full lambda-closure of pair windows on a 3-cycle over N (every sigma-state there is a point), plus non-buildability of the cyclic family. Unread before NOVEL: Bhaskara Rao Ch.3 body, Gudder SIAM Rev 1984 Ex 3.1, Ptak-Pulmannova book, Chrapciakova 1987 (scan); Hindman-Strauss/Blass (ingredients). Ovchinnikov 1999 dropped from the gap list (finite logics, out of scope). Type 3 FAIL, Type 4 FAIL, referee BORDERLINE (cap). LEAN-CHECKED 2026-10-17 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean; 0 sorry; axioms propext, Classical.choice, Quot.sound), including fidelity sstar_window01/12/20 (s* = the staircase p(x)p limit on every window event). AUDIT /audit pure 2026-10-17 (opus, hostile): NOT FOUND (UNCLEAR at the margin); ingredients owned (own.dravecky_sipos_flight_subcarrier, own.navara_two_of_three, own.coherence_extension, own.ultrafilter_products); scoped claim = a finitely additive two-valued NON-COHERENT state on the full lambda-closure of the three pair windows over N, plus non-membership of the cyclic family. Type 3 FAIL for now (no second domain; flip = decide Navara's two-sided-unbounded regime); Type 4 FAIL as vocabulary (use standard names), statements PASS-pending. Do not upgrade to NOVEL until coverage gaps close (Bhaskara Rao body, Gudder SIAM Rev 1984 Ex 3.1, Hindman-Strauss, Blass, Ptak-Pulmannova book, Ovchinnikov PAMS 1999). Earlier: two budgeted sonnet scouts NOT FOUND, shallow coverage (snippet-level; Navara-Ptak-era, Gudder, Bhaskara Rao, Hindman-Strauss text, Blass unread; residual risk = folklore ultrafilter-product non-extendability, or a Navara-style set-representable logic with a non-point two-valued state). Scouting only - NOT the claim gate (workflow step 6 / /audit pure owed).",
    "lean": "TriangleCyclic.triangle_pointless_state, triangle_state_no_ultrafilter, triangle_state_no_point, triangle_has_pointless_state, sstar_window01, sstar_window12, sstar_window20",
    "one_line": "For every non-principal ultrafilter p on N, s* = W012 + W120 - W102 (signed combination of three iterated p-limit ultrafilters on N^3) is finitely additive, s*(Omega)=1, {0,1}-valued on the triangle carrier D3, and 1 on the staircase steps {x0<x1},{x1<x2},{x2<x0} (empty intersection), so no ultrafilter on Omega - in particular no point - reproduces it. Two-valuedness: if s*(E) is 2 or -1, ultrafilter Ramsey for triples gives an infinite P on which E follows its six-order profile; two box identities force the cyclic/anticyclic pattern; the homogeneous-set family is excluded from D3 by the lift lemma + Dynkin induction.",
    "scope": "Triangle over N, any non-principal p. That s* coincides with the forced functional Lambda on finitely built questions is hand (prop:forced). With thm.loops_travel (hand) and the forests theorem (hand): a window graph has a pointless state iff it is not a forest - that assembly is hand, not Lean. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
@@ -88,7 +88,7 @@
   {
    "id": "thm.triangle_estar_not_built",
    "name": "the cyclic set is not in the triangle carrier over N",
-   "status": "proved, LEAN-CHECKED 2026-10-17 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: estar_not_mem, not_inF_of_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound); PRIOR ART: scout 2026-10-17 NOT FOUND (partial coverage; method folklore-adjacent via Keleti-Preiss)",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G2_non_askable.md): PARTLY OWNED — UNCLEAR. Flight sub-class analogue OWNED (Dravecky-Sipos 1980 Ex 6: C_{f,g}=A_f u A_g u A_{f+g}; Navara-Ptak 1983 Thm 1 contrapositive; full text read); good-sets method OWNED (Keleti-Preiss, textbook). Residual NOT FOUND: non-membership in the full lambda-closure D3 over N (strictly larger than C_{f,g}, contains bounded-below coordinates). Upgrade to NOVEL after reading Zerbe-Gudder 1985 and Gudder SIAM Rev 1984 Ex 3.1. Type 3 FAIL; Type 4 = non-trivial-result leg only. proved, LEAN-CHECKED 2026-10-17 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: estar_not_mem, not_inF_of_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound); PRIOR ART: scout 2026-10-17 NOT FOUND (partial coverage; method folklore-adjacent via Keleti-Preiss)",
    "lean": "formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: TriangleCyclic.estar_not_mem, TriangleCyclic.not_inF_of_mem (D3 = DynkinSystem.generate of the three pair-window sigma-algebras on Fin 3 -> N, same construction as WindowGluing.glued)",
    "one_line": "Let B_n = {min pairwise gap <= n} and F = {Z: Z delta E* or Z delta E*^c lies in some B_n}. No member of F is in the Dynkin closure D over N; in particular E* is not in D. Lift lemma: if Z delta E* is in B_n and f has zero box interaction with f = 0 off Z, then f is constant on strict-cyclic points with gaps >= 2n+2 (box lifting the minimum far above the maximum; the other six corners are generic anticyclic). Least-stage argument: a complement stays in F; in a countable disjoint union exactly one piece takes the generic part and is an earlier member of F.",
    "scope": "E* family only (finite-band perturbations). Does NOT fire gate.triangle: sets with cyclic ultrafilter profile that differ from E* on a non-band p-small region are not covered.",
@@ -100,14 +100,14 @@
   {
    "id": "thm.basic",
    "name": "basic lemma",
-   "status": "proved-hand (standard)",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G3_sigma_points.md): KNOWN — standard: Dynkin proper differences (Navara-Ptak 1983 Def 1 remark); (b) = ultrafilter lemma, two-valued case of coherence/extension (own.coherence_extension). Infrastructure. Type 3/4 FAIL. proved-hand (standard)",
    "one_line": "Proper differences stay in D; s monotone; s(A cap B)=1 when A,B,A cap B in D are true; s is an ideal point iff its true sets have the FIP. So pointlessness needs intersections D lacks.",
    "detail": "pointless_coherence.tex (Lemma basic)"
   },
   {
    "id": "thm.sigma_forces_points",
    "name": "sigma forces points (ring)",
-   "status": "proved-lean (ring); proved-hand (general)",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G3_sigma_points.md): OWNED — folklore; the argument is printed in Navara-Ptak 1983 Thm 1 proof (1)=>(2) and Navara 1984 Prop (both read in full), plus Ulam via Jech Lemma 10.2 (secondary). Lean-scope correction: Lean (WindowGluing.lean) has window_point + coord_unique + no_sigma_extension (s0 only) on the ring; the Dirac-on-D step is hand even on the ring, so 'proved-lean (ring)' overclaims. Scope corrected below (scope_previous kept). Type 3/4 FAIL; REJECT-LIKELY standalone (a fence, owned). proved-lean (ring); proved-hand (general)",
    "one_line": "Over a countable alphabet every sigma-additive state on a glued pair-window carrier is a point (window Diracs agree; Dynkin uniqueness). Lean for the ring; hand for general window graphs. Finite alphabets: same with finite additivity.",
    "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
    "lean": {
@@ -115,12 +115,13 @@
     "name": "no_sigma_extension",
     "status": "proved-edge"
    },
-   "scope": "countable alphabet, any pair-window graph (Lean: ring only); fails for uncountable alphabets"
+   "scope": "any alphabet of non-measurable cardinality (Ulam), incl. countable and R; Borel windows on standard Borel alphabets; proof as written uses countability. At measurable |X| a product kappa-complete ultrafilter gives a sigma-additive NON-point (but ideal-point) state [HAND]. Coordinate windows are load-bearing: false for general sigma-classes on countable/finite Omega (Navara-Ptak 1983 QxQ; Buresova-Ptak 2024 4even). Lean covers only: window picks, coordinate agreement, no_sigma_extension for s0 on the ring; Dirac-on-D is hand. [G3 2026-10-27; replaces 'countable alphabet ... fails for uncountable alphabets', which does not follow]",
+   "scope_previous": "countable alphabet, any pair-window graph (Lean: ring only); fails for uncountable alphabets"
   },
   {
    "id": "thm.staircase_no_ideal",
    "name": "staircase has no ideal point",
-   "status": "proved-hand",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G1_pointless_states.md): KNOWN — trivial consequence / folklore: {x<y} in p(x)p + equal marginals + FIP failure of the intersection of C_k; ultrafilter instance of the cyclic-marginal obstruction (own.vorobev_acyclic, own.ultrafilter_products). No novelty claimed; content is the extension to the carrier (thm.countable_witness, thm.triangle_pointless). Type 3/4 FAIL. proved-hand",
    "one_line": "u_k = p(x)p on every ring window: coherent on shared coordinates, every C_k true, but no ultrafilter on Omega (nor two-valued charge on the window-generated algebra) agrees, since the C_k have empty intersection.",
    "detail": "pointless_coherence.tex (Proposition stair)",
    "uses": [
@@ -130,7 +131,7 @@
   {
    "id": "thm.countable_witness",
    "name": "countable pointless witness, every L>=4",
-   "status": "proved-lean",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G4_countable_witness.md): UNCLEAR — cap; no owner found, ingredients owned. Nearest unread: De Simone-Navara-Ptak, Math. Nachr. 288 (2015) 1995-2000 (sigma-complete symmetric logics; abstract only, Wiley 403). Ptak 1987 CMUC owns the name 'free hidden variable' and a finite shadow (X_even(4)); Hindman-Strauss Sec 11.1/18.1 body read (own.hindman_strauss_tensor); Bikchentaev-Navara 2016 read. If DNP 2015 has no countable sigma-class with all sigma-states concentrated and a free hidden variable, scoped claim becomes NOVEL (entry level). Type 3 FAIL, Type 4 FAIL-vocab (answers q:cardinality). proved-lean",
    "one_line": "The staircase window ultrafilters extend to a two-valued finitely additive state on the whole glued carrier D_L over N^L; it is pointless and has no sigma-additive version. No owner found after 3 prior-art passes.",
    "detail": "../delay_embedding/collision_vs_generation.md#candidate-witness-on-the-glued-4-ring",
    "lean": {
@@ -151,7 +152,7 @@
   {
    "id": "thm.literal_irreducible_L4",
    "name": "literal irreducibility + six conjuncts (L=4)",
-   "status": "proved-lean",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G4_countable_witness.md): KNOWN — routine: centre triviality = few-line rectangle-identity check; the six-conjunct bundle is repo-internal (no external owner). Receipt for thm.countable_witness. L=4 only (L>4 irreducibility conjunct still vacuous); Polish clause conditional on DWPolishCut. Type 3/4 FAIL. proved-lean",
    "one_line": "The countable carrier D_4 has centre literally {empty, Omega} (the 'modulo countable' irreducibility is vacuous on countable Omega) and satisfies all six original admissibility conjuncts, Polish clause conditional on DWPolishCut as for the omega_1 witness.",
    "detail": "../delay_embedding/collision_vs_generation.md (Third-pass prior-art gate, costume found and fixed)",
    "lean": {
@@ -168,7 +169,7 @@
   {
    "id": "thm.shape_lemma",
    "name": "locality: triangle-free (Helly windows) => star-sets",
-   "status": "proved-hand; machine-checked on finite alphabets (D=G iff triangle-free on 8 graphs)",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G5_forest_side.md): UNCLEAR — no owner found; hand proof re-checked by auditor (rigidity, slicing, closure, finiteness sound; scope pair windows, V finite). Nearest unread: Ptak-Pulmannova 1991 book, Gudder SIAM Rev 1984 Ex 3.1, Ovchinnikov PAMS 1999, Bhaskara Rao body, Dvurecenskij-Neubrunn-Pulmannova 1992 (on shelf, not grepped). Folklore risk MEDIUM. The forest side's only unowned item (own.dynkin_star_normal_form_search). Type 3 FAIL, Type 4 supporting only. proved-hand; machine-checked on finite alphabets (D=G iff triangle-free on 8 graphs)",
    "one_line": "If the pair-window graph is triangle-free (windows a Helly family), every E in D is a disjoint union of window events on a star (windows sharing a common slot); states are determined by window ultrafilters, s(E)=sum u_w(E_w). Fails whenever there is a triangle.",
    "detail": "pointless_coherence.tex (Lemma shape)",
    "scope": "pair windows, triangle-free graph (trees, rings L>=4, bipartite graphs, ...)",
@@ -177,10 +178,16 @@
   {
    "id": "thm.amalgamation",
    "name": "ultrafilter amalgamation",
-   "status": "proved-hand",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G5_forest_side.md): OWNED — beta (ultrafilter functor) satisfies Beck-Chevalley / preserves weak pullbacks (nLab 'relational beta-module' Prop BC, proof read; Barr LNM 137 uses it; Hofmann-Seal-Tholen unopened); filter case of the charge compatibility theorem (Cardona-Mejia-Uribe-Zapata arXiv:2503.08910 Thm 3.12). Cite, do not claim. Type 3/4 FAIL. proved-hand",
    "one_line": "Ultrafilters on XxY and YxZ with the same Y-marginal are the projections of one ultrafilter on XxYxZ (FIP argument).",
    "detail": "pointless_coherence.tex (Lemma amalg)",
    "owned_by": {
+    "cite": "Barr, Relational algebras, LNM 137 (1970) 39-55 (uses it); nLab 'relational beta-module', Prop (BC) (statement+proof); Hofmann-Seal-Tholen, Monoidal Topology (CUP 2014); filter case of the charge compatibility theorem (Guy 1961; Bhaskara Rao 1983 Ch. 3; Cardona-Mejia-Uribe-Zapata arXiv:2503.08910 Thm 3.12 and Sec. 3.2 remark)",
+    "region": "gluing two ultrafilters with a common marginal = beta sends pullbacks to weak pullbacks",
+    "verified": "nLab proof read in full; Barr OCR read (use, not stated as a lemma); CMU-Z Thm 3.12 read; HST and Bhaskara Rao body NOT opened",
+    "detail": "entry_audits/G5_forest_side.md section 1"
+   },
+   "owned_by_previous": {
     "cite": "folklore (ultrafilter / type amalgamation over trees); not located",
     "region": "window-level gluing along acyclic structures",
     "verified": "sec",
@@ -190,7 +197,7 @@
   {
    "id": "thm.path",
    "name": "no cycle, no pointless coherence (forests)",
-   "status": "proved-hand",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G5_forest_side.md): PARTLY OWNED — gluing step = iterated Beck-Chevalley for beta (own.beta_beck_chevalley) / Vorob'ev-BFMY (sigma case) / charge compatibility (finitely additive, HAND reduction; own.charge_compatibility: compatible window charges on a forest extend to a charge on P(Omega)); residual = thm.shape_lemma (UNCLEAR). Type 3/4 FAIL; referee BORDERLINE (cap). proved-hand",
    "one_line": "If the window graph is a forest, every state is an ideal point (tree amalgamation + locality).",
    "detail": "pointless_coherence.tex (Theorem path)",
    "uses": [
@@ -202,7 +209,7 @@
   {
    "id": "obs.ring_forced_formula",
    "name": "ring state is forced; s<=1 by hand",
-   "status": "proved-hand",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G1_pointless_states.md): UNCLEAR — corollary of thm.shape_lemma + amalgamation (trivial given the lemma); residual = slicing half of thm.shape_lemma (rigidity half = Dravecky-Sipos, owned). Unread likely owner: Ptak-Pulmannova book; Gudder SIAM Rev 1984. Stands as the honest qualification of the 'all novelty in mu_cases' rebuttal. proved-hand",
    "one_line": "On rings L>=4 any state equals u_{k-1}(E_{k-1})+u_k(E_k); it never exceeds 1 (local 3-coordinate amalgamation). Remaining Lean content of mu_cases = global well-definedness + additivity. Weakens the hub's 'all novelty in mu_cases' rebuttal.",
    "detail": "../delay_embedding/collision_vs_generation.md (Structural simplification of mu_cases)",
    "uses": [
@@ -213,7 +220,7 @@
   {
    "id": "obs.c0c1_not_in_D",
    "name": "C_0 cap C_1 not in the ring carrier",
-   "status": "proved-hand",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G2_non_askable.md): KNOWN — folklore / trivial consequence of thm.shape_lemma. Mechanism owned: Dravecky-Sipos 1980 Ex 6 (pairwise-meeting sub-sigma-algebras give a sigma-class); two-crossing-set Dynkin exercise (own.dynkin_two_set_intersection). Diagnostic role only; novelty, if any, sits in thm.shape_lemma. proved-hand",
    "one_line": "{x_0<x_1<x_2} is not in D_L (its slice at x_1=c is not a cylinder): the missing intersection that thm.basic says pointlessness needs.",
    "detail": "pointless_coherence.tex (The shape of the carrier, consequence)",
    "uses": [
@@ -224,14 +231,14 @@
   {
    "id": "fact.finite_alphabet_points",
    "name": "finite alphabet: every state is a point",
-   "status": "proved-hand",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G3_sigma_points.md): KNOWN — folklore; finite case of thm.sigma_forces_points (finite Omega => finite additivity = sigma), Navara-Ptak 1983 Thm 1 template; 'V finite' is load-bearing; coordinate windows load-bearing (Buresova-Ptak 4even is a finite sigma-class with a non-Dirac two-valued state). proved-hand",
    "one_line": "With a finite alphabet each window is a full power set, so states are points on windows and, by Dynkin uniqueness, everywhere. Pointlessness needs infinite alphabets; finite tests of the full carrier are uninformative.",
    "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, 2026-10-15)"
   },
   {
    "id": "thm.flat_iff_ideal",
    "name": "ideal point iff flat window family",
-   "status": "proved-hand",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G5_forest_side.md): KNOWN — trivial corollary of thm.shape_lemma + rename: 'flat' = global section of the window-ultrafilter presheaf (Abramsky-Brandenburger 2011 Thm 8.1; van den Berg-Heunen 2012 Prop 8). Alias only; standard name first. Type 3/4 FAIL. proved-hand",
    "one_line": "On window graphs satisfying the shape lemma, a state is an ideal point iff its window family is flat; so pointless states = non-flat families passing the extension test.",
    "detail": "pointless_coherence.tex (section 'What the proofs say')",
    "uses": [
@@ -239,12 +246,18 @@
     "thm.amalgamation",
     "obj.window_family_flatness"
    ],
-   "scope": "triangle-free pair-window graphs"
+   "scope": "triangle-free pair-window graphs",
+   "owned_by": {
+    "cite": "Abramsky-Brandenburger, NJP 13 (2011) 113036, Thm 8.1; van den Berg-Heunen 2012 Prop 8",
+    "region": "'flat' window family = global section of compatible local data",
+    "verified": "both read (shelf / own.stone_space_of_logic)",
+    "detail": "entry_audits/G5_forest_side.md section 4"
+   }
   },
   {
    "id": "thm.loops_travel",
    "name": "loops travel: induced cycles carry pointless states",
-   "status": "proved-hand (from Lean ring witness)",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G6_loops_travel.md): PARTLY OWNED — KNOWN as method: transport = Atserias-Kolaitis arXiv:2009.09488 Lemma 15 (fix deleted attribute at a constant) + Lemma 16 + Lemma 14 (induced C_{>=4}), pp. 25-31 read primary; residual = base witness thm.countable_witness only. Credit A-K when stated. Type 3/4 FAIL. proved-hand (from Lean ring witness)",
    "one_line": "If the window graph has an induced (chordless) cycle of length L>=4, pull back the ring-L staircase along psi (copy cycle coords, others constant): a pointless state over N with no sigma-additive version. Same transport: if the triangle carries one, every graph with a triangle does.",
    "detail": "pointless_coherence.tex (Theorem 'loops travel'; section 'Why loops', paragraph 'Loops travel')",
    "uses": [
@@ -257,15 +270,16 @@
   {
    "id": "obs.forced_functional",
    "name": "extensions are forced on finitely built questions",
-   "status": "proved-hand",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G6_loops_travel.md): KNOWN — trivial: Lambda = restriction of the signed global section (Abramsky-Brandenburger 2011 Thm 5.9) to the span of window functions; well-definedness = uniqueness of the pair-interaction (ANOVA/log-linear) decomposition, holds on ANY graph (hand check in G6 sec 3), not just triangle/cycles. Scope widened below; cite AB 5.9. proved-hand",
    "one_line": "Every buildable question has indicator f0+f1+f2 (window functions). On a triangle (and cycles) zero-sum triples are coboundaries + constants, so Lambda(f)=sum_k lim_{u_k} f_k is well defined for any compatible family; any extending state equals Lambda on finitely built questions. A family extends only if Lambda is {0,1}-valued there.",
    "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, correction)",
-   "scope": "triangle and cycles; finitely built questions only"
+   "scope": "any simple graph (G6 hand check); finitely built questions (all questions on triangle-free graphs)",
+   "scope_previous": "triangle and cycles; finitely built questions only"
   },
   {
    "id": "obs.cut_the_loop",
    "name": "cut-the-loop decomposition: Lambda = ideal building + one-window twist",
-   "status": "proved-hand",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G6_loops_travel.md): UNCLEAR — leaning KNOWN (folklore-level computation): ingredients = own.ultrafilter_products + Cech/holonomy cut (Abramsky-Mansfield-Barbosa 2011, grep-level); explicit charge formula not found; unread: Hindman-Strauss iterated limits, AMB 2011 body. Value = internal explanation of mu_cases (thm.ring_conceptual). Type 3 FAIL (internal only), Type 4 statements PASS-pending. proved-hand",
    "one_line": "For any window k: Lambda(E) = W^(k)(E) + delta_k(E), W^(k) the ultrafilter gluing the other windows (cycle cut at k), delta_k(E) = commutator of iterated p-limits of E's window-k part (gauge-invariant, linear). So Lambda is 0/1 on any E twist-free on some window; failure needs same-sign twist on all windows. Twist = non-commutativity of p(x)p, made precise; W^(j)-W^(k) = delta_k - delta_j (cocycle).",
    "detail": "../delay_embedding/collision_vs_generation.md (Triangle probe, cut-the-loop)",
    "uses": [
@@ -277,7 +291,7 @@
   {
    "id": "thm.ring_conceptual",
    "name": "rings: conceptual proof of the witness",
-   "status": "proved-hand (agrees with Lean; not cross-checked line by line)",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G1_pointless_states.md): UNCLEAR — pure UNCLEAR, inherits thm.countable_witness (cap: Bhaskara Rao body, Hindman-Strauss/Goldberg bodies, Ptak-Pulmannova book unread). Correct given thm.shape_lemma; all weight on locality: rigidity step = Dravecky-Sipos pairwise-meeting device (owned), slicing step unlocated. Hostile reading: makes the ring witness look routine once locality holds. Type 3 FAIL (cocycle = form-neighbour of Abramsky-Mansfield-Barbosa 2011), Type 4 FAIL. proved-hand (agrees with Lean; not cross-checked line by line)",
    "one_line": "For L>=4, Lambda is a two-valued finitely additive state on the whole ring carrier: locality puts every question on two adjacent windows; cut at an untouched window m, so Lambda(E)=W^(m)(E) in {0,1}; Lambda linear. Explains (does not replace) the mu_cases case analysis; Lean remains the certificate; inherits the hand locality theorem.",
    "detail": "pointless_coherence.tex (Theorem rings, conceptual proof)",
    "uses": [
@@ -289,7 +303,7 @@
   {
    "id": "thm.navara_witness_not_buildable_Z",
    "name": "Navara's K(0,0) is not buildable over Z (transport lemma)",
-   "status": "LEAN-CHECKED 2026-10-20 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: mem_pre, not_mem_of_restrict_inF, navaraK_not_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound)",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G2_non_askable.md): PARTLY OWNED — UNCLEAR; corollary of thm.triangle_estar_not_built + textbook transport (good-sets). Two-generator analogue OWNED: K(a,b) not in C_{f,g} on Z^2 (Dravecky-Sipos Ex 6), whereas K(a,b) IS in C_{f,g} on Z x N0 (Navara 1984 Example). Residual = Entry-1 residual over Z. Navara-Ptak Thm 1 is sigma-additive: says nothing about the sign of Lambda on D3 (do not read 'K not in D3' as 'Lambda non-additive'). Type 3/4 FAIL. LEAN-CHECKED 2026-10-20 (formalization/QuerySystem/QuerySystem/TriangleCyclic.lean: mem_pre, not_mem_of_restrict_inF, navaraK_not_mem; 0 sorry; axioms propext, Classical.choice, Quot.sound)",
    "one_line": "The triangle carrier over Z pulls back into the carrier over N along the coordinatewise inclusion (mem_pre). Hence any set over Z whose restriction lies in InF is unbuildable; in particular Navara's K(0,0) = {[x1<x0]+[x2<x1]-[x2<x0] = 1} (anticyclic off ties), the set that would expose the clocks' impossible point (Lambda = -1), is not in the carrier over Z.",
    "uses": [
     "thm.triangle_estar_not_built",
@@ -301,7 +315,7 @@
   {
    "id": "thm.transport_general",
    "name": "Transport lemma (coordinatewise maps)",
-   "status": "LEAN-CHECKED 2026-10-21 (formalization/QuerySystem/QuerySystem/TransportGeneral.lean: mem_pre; 0 sorry; standard axioms)",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G7_transport_pairlocal.md): OWNED — folklore: preimage commutes with the generated Dynkin system (good-sets argument; sigma-algebra form = Mathlib MeasurableSpace.comap_generateFrom). Infrastructure receipt, not a claim (own.generated_preimage). Type 3/4 FAIL. LEAN-CHECKED 2026-10-21 (formalization/QuerySystem/QuerySystem/TransportGeneral.lean: mem_pre; 0 sorry; standard axioms)",
    "one_line": "For any coordinatewise maps f_i : alpha -> beta, preimages of triangle-carrier sets over beta are carrier sets over alpha. Backbone of finite-quotient witnesses (mod n) and of pulled-back supplies in the cone(D) checks.",
    "uses": [
     "thm.navara_witness_not_buildable_Z"
@@ -312,8 +326,8 @@
   {
    "id": "thm.problem3_pair_local",
    "name": "Relations + relata (comparisons) build only pair-local questions",
-   "status": "PROVED for all n>=3: Lemma 1 (normal form contains the pair closure, TransportGeneral.PairNormalForm.closure_le_NF), Lemma 2 (indep_of_two_empty_rows) and Lemma 3 (pairLocal_meet) LEAN-CHECKED, 0 sorry; final assembly (induction over the three pair families) hand; exact n=3..7",
-   "one_line": "On the triangle with n>=3 ordered values, every set built from single-variable events and comparison events {<,=,>} by complement and disjoint union depends on one pair only, so it is blind to every twist; n=2 is the exception (J = D).",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G7_transport_pairlocal.md): PARTLY OWNED — mechanism = Dravecky-Sipos 1980 Ex 6 union-class argument (own.dravecky_sipos_union_class; primary read); residual = routine instance check (pair Dynkin blocks, shared-variable exception, n=2), not found in print. Lemma 1 is Lean-checked (closure_le_NF); only the final union induction is hand (checked G7). SCOPE FIX: 'blind' only for questions built by complement/disjoint union; Condorcet cycles ARE detected by cross-pair linear checks (triangle inequality of the linear ordering polytope; HodgeRank curl), i.e. non-disjoint covers not expressible in J (own.linear_ordering_polytope_condorcet; Block-Marschak/Fishburn snippet level). Type 3/4 FAIL; REJECT-LIKELY standalone. PROVED for all n>=3: Lemma 1 (normal form contains the pair closure, TransportGeneral.PairNormalForm.closure_le_NF), Lemma 2 (indep_of_two_empty_rows) and Lemma 3 (pairLocal_meet) LEAN-CHECKED, 0 sorry; final assembly (induction over the three pair families) hand; exact n=3..7",
+   "one_line": "On the triangle with n>=3 ordered values, every set built from single-variable events and comparison events {<,=,>} by complement and disjoint union depends on one pair only, so no askable question (complement / disjoint union) sees any twist; cross-pair linear checks (Condorcet triangle facet, HodgeRank curl) are not askable questions and do see order cycles; n=2 is the exception (J = D).",
    "uses": [
     "thm.transport_general"
    ],
@@ -348,11 +362,13 @@
   {
    "id": "thm.pointless_not_mixture",
    "name": "A pointless two-valued state is outside the closed convex hull of ideal points",
-   "status": "HAND (checked 2026-10-23); Lean not attempted",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G9_stone_role.md): KNOWN — trivial consequence of Krein-Milman/Milman converse: cl conv rho(beta Omega) = coherent states (R(ba_1(Omega))), so the entry = 'a coherent two-valued state extends to an ultrafilter', already presupposed by own.coherence_extension. Keep as expository lemma. Finite half (R1 holds, R4 fails at 3x4x4) rests on fact.finite_alphabet_points + own.compressed_threshold (equivalence owned: Sullivant 2006, Araujo et al. 2013). Type 3/4 FAIL. HAND (checked 2026-10-23); Lean not attempted",
    "one_line": "Two-valued states are extreme in K(D); cl conv rho(beta Omega) has extreme points in the compact set rho(beta Omega) (Milman's converse); so a pointless state is not a limit of mixtures of ideal points. Hence on the infinite triangle R1-failure (answers => points) forces R4-failure (probabilities => mixtures). At 3x4x4 R4 fails while R1 holds: independent failures.",
    "uses": [
     "thm.triangle_pointless",
-    "own.coherence_extension"
+    "own.coherence_extension",
+    "fact.finite_alphabet_points",
+    "own.compressed_threshold"
    ],
    "scope": "any carrier D; pointwise topology on D",
    "detail": "stone_role_prior_art.md addendum"
@@ -360,13 +376,15 @@
   {
    "id": "thm.repointing_price",
    "name": "Re-pointing on S(D) loses countable unions",
-   "status": "HAND (2026-10-23)",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G9_stone_role.md): KNOWN — re-pointing = Buresova-Ptak 2024 Thm 3.1 (read; their price is cardinality); countable-union loss = Stone vs Loomis-Sikorski gap (Boolean, textbook; snippet), verbatim on concrete logics. CORRECTION: the witness can be an ideal point (free ultrafilter restriction), so the sigma-loss is caused by finite additivity, not pointlessness; 'pointlessness is relative to Omega together with the sigma-structure of D' overclaims. Residue = dichotomy: re-point on S2(D) (lose sigma) or on S_sigma(D) = Omega-points on D3 (keep pointless states), reducing to own.dravecky_sipos_flight_subcarrier. Type 3/4 FAIL. HAND (2026-10-23)",
    "one_line": "E -> {s in S(D): s(E)=1} makes every two-valued state Dirac (Bureshova-Ptak) but preserves only finite disjoint unions; a finitely additive state can give 0 to every piece of a countable disjoint union and 1 to the union. Pointlessness is relative to Omega together with the sigma-structure of D.",
    "uses": [
-    "own.stone_space_of_logic"
+    "own.stone_space_of_logic",
+    "own.dravecky_sipos_flight_subcarrier"
    ],
-   "scope": "two-valued finitely additive states on sigma-classes",
-   "detail": "stone_role_prior_art.md addendum"
+   "scope": "two-valued finitely additive states on sigma-classes containing an infinite disjoint sequence of nonempty members",
+   "detail": "stone_role_prior_art.md addendum",
+   "scope_previous": "two-valued finitely additive states on sigma-classes"
   }
  ],
  "conjectures": [
@@ -444,14 +462,14 @@
   {
    "id": "conj.invariant_any_cycle",
    "name": "dichotomy = forest vs not",
-   "status": "open (evidence withdrawn 2026-10-16: sub-carrier not point-Helly)",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G6_loops_travel.md): PARTLY OWNED — STALE STATUS (the 'open' text below predates the Lean triangle of 2026-10-17). G6 proposes: PROVED-hand assembly from Lean triangle + Lean ring + thm.loops_travel + thm.path (combined statement 'pointless iff not a forest', assembly re-checked). The line forest-vs-not and the reduction to triangle + induced C_{>=4} are OWNED (own.acyclic_line_and_reduction: Vorob'ev, BFMY Thm 3.4, Atserias-Kolaitis Thm 3/4, Lemmas 13-16); residual = base witnesses (thm.triangle_pointless, thm.countable_witness) and the carrier lift (thm.shape_lemma, no K-relation analogue), UNCLEAR under the cap (unread: Basile-Bhaskara Rao-Shortt 1994, Shortt 1983, Atserias-Kolaitis consistency-monoids). Type 3 UNCLEAR (functorial version for weak-pullback-preserving functors not demonstrated), Type 4 FAIL-vocab. Status not auto-changed here; user to adopt. open (evidence withdrawn 2026-10-16: sub-carrier not point-Helly)",
    "one_line": "Pointless states exist iff the window graph is not a forest. Holds iff the triangle carries a pointless state (then every graph with a cycle does, by thm.loops_travel).",
    "detail": "pointless_coherence.tex (Status and open questions)"
   },
   {
    "id": "conj.invariant_cycle_ge4",
    "name": "dichotomy = chordal vs not",
-   "status": "open",
+   "status": "AUDIT 2026-10-27 (entry-level v2.1, G6_loops_travel.md): PARTLY OWNED — STALE STATUS (G6 flag): per G6 this is refuted by thm.triangle_pointless (the triangle is chordal yet carries a pointless state); proposed mark REFUTED. Not auto-changed here; user to adopt. Line/reduction owned (own.acyclic_line_and_reduction). open",
    "one_line": "Pointless states exist iff the window graph is not chordal (has an induced cycle of length >= 4). The 'if' direction is proved (thm.loops_travel); the 'only if' needs chordal graphs with triangles to have none. Expected if the triangle has none.",
    "detail": "pointless_coherence.tex (Status and open questions)"
   },
@@ -980,19 +998,19 @@
    "owned_by": {
     "cite": "Bhaskara Rao & Bhaskara Rao, Theory of Charges (1983) Thm 3.2.10; via Derr-Williamson arXiv:2302.03522",
     "region": "extension of finitely additive states on Dynkin systems",
-    "verified": "secondary (book body not opened)"
+    "verified": "TOC read (Sec 3.2 'Real partial charges and their extensions'); citation numbers Def 3.2.1-3.2.2, Th 3.2.5, 3.2.10 cross-confirmed by De Simone-Navara-Ptak 2007 text (shelf); body unread [G4 2026-10-27]. Earlier: secondary (book body not opened)"
    }
   },
   {
    "id": "own.ultrafilter_products",
    "name": "ultrafilter product non-commutativity and ultrafilter Ramsey",
    "status": "owned",
-   "one_line": "p(x)p is non-commutative (the finitely additive X<Y vs Y<X paradox; Dubins, Schervish-Seidenfeld-Kadane); ultrafilter Ramsey for triples is textbook. Ingredients of the triangle proof, not its result.",
+   "one_line": "p(x)p is non-commutative (the finitely additive X<Y vs Y<X paradox; Dubins, Schervish-Seidenfeld-Kadane); ultrafilter Ramsey for triples is textbook. Ingredients of the triangle proof, not its result. The staircase no-ideal-point fact (thm.staircase_no_ideal) is a trivial consequence (FIP), folklore [G1 2026-10-27]. See own.hindman_strauss_tensor.",
    "detail": "audit 2026-10-17",
    "owned_by": {
     "cite": "Goldberg, JSL 2022 (arXiv:2102.04677); Hindman-Strauss, Algebra in the Stone-Cech Compactification",
     "region": "p(x)p non-commutativity; ultrafilter Ramsey",
-    "verified": "secondary"
+    "verified": "Hindman-Strauss: body read (Sec 11.1, Sec 18.1) [G4 2026-10-27]; Goldberg full text; Dubins/Schervish-Seidenfeld-Kadane secondary. Earlier: secondary"
    }
   },
   {
@@ -1025,7 +1043,7 @@
    "id": "own.vorobev_acyclic",
    "name": "acyclic structures always extend",
    "status": "owned",
-   "one_line": "Every consistent family on a regular (alpha-acyclic) complex extends; cycles are the only obstruction.",
+   "one_line": "Every consistent family on a regular (alpha-acyclic) complex extends; cycles are the only obstruction. [G6 2026-10-27] Converse, reduction to triangle + induced C_{>=4}, and padding transport: see own.acyclic_line_and_reduction (Atserias-Kolaitis).",
    "detail": "../../../papers/reconstruction/notes/PRIOR_ART_VERDICT.md",
    "owned_by": {
     "cite": "Vorob'ev 1962; Beeri-Fagin-Maier-Yannakakis 1983",
@@ -1255,11 +1273,227 @@
    "id": "own.stone_space_of_logic",
    "name": "Stone space of a concrete logic = its two-valued states; spectrum of local Stone spaces",
    "status": "OWNS the re-pointing and the section-space shape; NOT the point/ideal/pointless split relative to Omega (pass 2026-10-23)",
-   "one_line": "Taking S(D) as the point set makes every two-valued state Dirac (Bureshova-Ptak 2024, arXiv:2401.13798 Thm 3.1, read). Compatible window families = limit of local Stone spectra (van den Berg-Heunen 2012 Prop 8, read). State spaces of OMLs are arbitrary compact convex sets (Shultz 1974; Navara 1992). Structural OML duality Cannon-Doring 2018. Not found: S(D) = rho(beta Omega) (closed) + pointless; injectivity/surjectivity of window restriction r on Dynkin carriers; infinite contextuality with ultrafilter local sections.",
-   "detail": "stone_role_prior_art.md",
+   "one_line": "Taking S(D) as the point set makes every two-valued state Dirac (Bureshova-Ptak 2024, arXiv:2401.13798 Thm 3.1, read). Compatible window families = limit of local Stone spectra (van den Berg-Heunen 2012 Prop 8, read). State spaces of OMLs are arbitrary compact convex sets (Shultz 1974; Navara 1992). Structural OML duality Cannon-Doring 2018. Not found: S(D) = rho(beta Omega) (closed) + pointless; injectivity/surjectivity of window restriction r on Dynkin carriers; infinite contextuality with ultrafilter local sections. [G9 2026-10-27 merge] The countable-union loss of the re-pointing is the Stone vs Loomis-Sikorski gap (Boolean, textbook; witness can be an ideal point). cl conv rho(beta Omega) = coherent states (Krein-Milman on ba(P(Omega))); two-valued states are extreme, so a two-valued state is in the hull iff it is an ideal point (Milman converse). NOT owned: the point/ideal/pointless split relative to Omega as a function of the window graph.",
+   "detail": "stone_role_prior_art.md; entry_audits/G9_stone_role.md",
    "owned_by": {
-    "cite": "Bureshova-Ptak arXiv:2401.13798; van den Berg-Heunen 2012; Shultz JCTA 1974; Cannon-Doring 2018",
-    "verified": "Bureshova-Ptak and van den Berg-Heunen read; caution: Svozil's attribution to Wright 1990 unverified"
+    "cite": "Bureshova-Ptak arXiv:2401.13798; van den Berg-Heunen 2012; Shultz JCTA 1974; Cannon-Doring 2018; Loomis-Sikorski / Sikorski, Boolean Algebras; Krein-Milman + Milman converse (Phelps, Lectures on Choquet's Theorem); Bhaskara Rao & Bhaskara Rao, Theory of Charges (extreme charges = 0/1)",
+    "verified": "Bureshova-Ptak and van den Berg-Heunen read; caution: Svozil's attribution to Wright 1990 unverified; G9: Loomis-Sikorski and Bhaskara Rao extreme-charge fact snippet/secondary; Krein-Milman/Milman hand-verified, textbook location not opened"
+   }
+  },
+  {
+   "id": "own.navara_ptak_1983_triangle_of_observables",
+   "name": "sigma-additive pointless two-valued state on the sigma-class generated by x, y, x+y",
+   "status": "OWNS the sigma-additive 'triangle of observables' (primary read 2026-10-27, entry audit G1)",
+   "one_line": "Omega = (Q cap (0,1))^2, A = sigma-class generated by A_f u A_g u A_{f+g} (f=x, g=y); m(A)=1 iff A contains {x=1/3}, {y=1/3} or {x+y=1/2} is a two-valued sigma-additive non-concentrated measure (the three sets have empty intersection). Thm 1: concentrated on A_{f,g} iff the integral is additive. Closest printed analogue of thm.triangle_pointless; differs because D3 admits no sigma-additive pointless state (every sigma-state is a point) and D3 is strictly larger than the union of the window sigma-algebras.",
+   "detail": "entry_audits/G1_pointless_states.md",
+   "owned_by": {
+    "cite": "Navara-Ptak, Cas. pest. mat. 108 (1983) 225-229, Example (after Thm 1) and Thm 1",
+    "region": "pointless two-valued sigma-additive states on three-generator sigma-classes",
+    "verified": "primary (shelf PDF, full text, 2026-10-27)"
+   }
+  },
+  {
+   "id": "own.dnp_finite_nonextendable",
+   "name": "two-valued states on finite concrete logics with no extension (even signed)",
+   "status": "OWNS existence of pointless two-valued states on concrete logics, finite case (primary read 2026-10-27)",
+   "one_line": "X = {1..6}, Delta = concrete logic generated by A={1,2,3}, B={2,3,4}, C={3,4,5}, D={1,3,5} (a copy of MO4); s(A)=s(C)=0, s(B)=s(D)=1 extends to no signed measure on exp X. On finite Omega finite = sigma additivity and ultrafilters are points, so 'pointless' is owned there; the glued-carrier residual is infinite and purely finitely additive.",
+   "detail": "entry_audits/G1_pointless_states.md",
+   "owned_by": {
+    "cite": "De Simone-Navara-Ptak, Extending states on finite concrete logics (arXiv math-ph/0311012; IJTP 2007), Ex 2.2",
+    "region": "non-extendable two-valued states on finite concrete logics",
+    "verified": "primary (shelf PDF, 2026-10-27)"
+   }
+  },
+  {
+   "id": "own.flight_class_nonmembership",
+   "name": "K(a,b) / cyclic sets outside the two-generator sigma-class C_{f,g}",
+   "status": "owned",
+   "one_line": "For f, g with pairwise-meeting preimages (e.g. coordinate differences on Z^2, two-sided unbounded), C_{f,g} = A_f u A_g u A_{f+g}, so K(a,b) and the cyclic set are not in it; equivalently (contrapositive of Navara-Ptak Thm 1) a non-concentrated sigma-additive two-valued state forces some K(a,b) out. With a generator bounded on one side the opposite holds: K(a,b) in C_{f,g} (Navara 1984, Z x N0). Does NOT reach the full lambda-closure of the pair sigma-algebras (strictly larger).",
+   "detail": "entry_audits/G2_non_askable.md",
+   "owned_by": {
+    "cite": "Dravecky-Sipos, Math. Slovaca 30 (1980) Ex 6; Navara-Ptak, Cas. pest. mat. 108 (1983) Thm 1 and Example; Navara, Math. Slovaca 34 (1984) Lemmas 1-3 and final Example",
+    "region": "non-membership / membership of K(a,b) in the sigma-class generated by f, g, f+g",
+    "verified": "primary, full text read 2026-10-27 (shelf PDFs)"
+   }
+  },
+  {
+   "id": "own.dynkin_good_sets_transport",
+   "name": "good-sets principle; preimage transport of generated lambda-systems",
+   "status": "owned (folklore)",
+   "one_line": "Sets with a property closed under complements and countable disjoint unions form a lambda-system; preimages commute with both, so phi^{-1} of a generated lambda-system lies in the lambda-system generated by preimages. Covers mem_pre and the least-stage frame of not_inF_of_mem; the lift lemma is the instance-specific invariant. See also own.generated_preimage.",
+   "detail": "entry_audits/G2_non_askable.md",
+   "owned_by": {
+    "cite": "standard pi-lambda chapter (e.g. Kallenberg, Foundations of Modern Probability, Ch. 1); Keleti-Preiss, Math. Proc. Camb. Phil. Soc. 128 (2000) Lemma 12 (non-membership template)",
+    "region": "method for proving (non-)membership in generated Dynkin systems",
+    "verified": "Keleti-Preiss theorem pages read (shelf); textbook principle not page-checked"
+   }
+  },
+  {
+   "id": "own.dynkin_two_set_intersection",
+   "name": "Dynkin system of crossing sets lacks their intersection",
+   "status": "owned (folklore / exercise)",
+   "one_line": "If all four atoms of {A,B} are non-empty, the Dynkin system generated by {A,B} omits A cap B; the union of sub-sigma-algebras whose non-trivial events pairwise meet is itself a sigma-class. Prototype of obs.c0c1_not_in_D and of the shape lemma's rigidity step.",
+   "detail": "entry_audits/G2_non_askable.md",
+   "owned_by": {
+    "cite": "Dravecky-Sipos, Math. Slovaca 30 (1980) Ex 6 (rigidity); exercise e.g. Univ. Tuebingen Masstheorie WS 2020/21 Blatt 02 Aufg. 5",
+    "region": "elementary non-closure of Dynkin systems under intersection",
+    "verified": "D-S full text; exercise at search-snippet level"
+   }
+  },
+  {
+   "id": "own.sigma_generator_uniqueness",
+   "name": "sigma-additive two-valued states on coordinate-generated sigma-classes are Dirac",
+   "status": "owned",
+   "one_line": "A sigma-additive two-valued state is concentrated on each generating sigma-algebra (countable range: a fibre; Borel(R): a point; P(S), |S| non-measurable: principal by Ulam). If the chosen fibres meet (automatic for coordinate windows on X^V), agreement on generators extends to the whole sigma-class, since the agreement set is itself a sigma-class. Fails for non-coordinate generators (Navara-Ptak QxQ via f+g; Buresova-Ptak 4even) and at measurable |X| (product kappa-complete ultrafilter: non-point but ideal point).",
+   "detail": "entry_audits/G3_sigma_points.md",
+   "owned_by": {
+    "cite": "Navara-Ptak, Cas. pest. mat. 108 (1983) 225-229, Thm 1 proof (1)=>(2); Navara, Math. Slovaca 34 (1984), Proposition + Theorem proof (Borel(R) concentration); Ulam 1930 via Jech, Set Theory (2003) Lemma 10.2",
+    "region": "sigma-additive {0,1}-states on sigma-classes generated by observables whose true fibres meet; Ulam cardinal boundary",
+    "verified": "Navara-Ptak 1983, Navara 1984: full text read (shelf). Jech L10.2: secondary (lecture-note PDF via search)."
+   }
+  },
+  {
+   "id": "own.ptak_free_hidden_variables",
+   "name": "free (pointless) hidden variables on concrete logics; finite free example",
+   "status": "owned (vocabulary + finite shadow)",
+   "one_line": "A two-valued state concentrated at no point is a 'free hidden variable'. X_even(4) has one (h{12}=h{23}=h{13}=1); for even n>=6 every hidden variable on X_even(n) is concentrated. Boolean sublogics are smooth (compactness, Thm 4). Every concrete logic has an isomorphic representation over Hid(A) with only concentrated hidden variables (Thm 5; finite joins only, so its bearing on sigma-essentiality is undetermined). Finite, so no sigma split.",
+   "detail": "entry_audits/G4_countable_witness.md",
+   "owned_by": {
+    "cite": "Ptak, 'Hidden variables' on concrete logics (extensions), Comment. Math. Univ. Carolin. 28 (1987) 157-163, Prop 2, Thm 4, Thm 5",
+    "region": "free two-valued states on finite concrete logics; terminology",
+    "verified": "full text read 2026-10-27 (dml.cz 106518); NOT yet on shelf"
+   }
+  },
+  {
+   "id": "own.hindman_strauss_tensor",
+   "name": "tensor products of ultrafilters; ultrafilter Ramsey",
+   "status": "owned (ingredients)",
+   "one_line": "p(x)q = lim_s lim_t (s,t) (Def 11.1, Lemma 11.3); Thm 11.1.1: f~(p)=g~(p) with {f=g} empty, via q(x)q off the diagonal (pairwise, Boolean); Ramsey from any non-principal ultrafilter (Lemma 18.1, Thm 18.2). Nothing on Dynkin systems, window cycles, or non-Boolean set systems. Supersedes the 'secondary' grade for Hindman-Strauss in own.ultrafilter_products.",
+   "detail": "entry_audits/G4_countable_witness.md",
+   "owned_by": {
+    "cite": "Hindman-Strauss, Algebra in the Stone-Cech Compactification, 2nd ed. (2012), Sec 11.1, Sec 18.1",
+    "region": "staircase window ultrafilter; Ramsey ingredient",
+    "verified": "body read 2026-10-27 (Sec 11.1 Def 11.1-Lemma 11.3; Sec 18.1 Lemma 18.1-Thm 18.2)"
+   }
+  },
+  {
+   "id": "own.symmetric_logics_extension",
+   "name": "states on symmetric (difference-closed) logics; non-extendable two-valued states",
+   "status": "neighbour (UNREAD body: the cap source for thm.countable_witness)",
+   "one_line": "A difference-closed system on which two-valued states do not extend; a sigma-complete class with notable state properties (DNP 2015, abstract). Bikchentaev-Navara 2016 (read): Delta-subadditivity; Ex 4.4 uncountable even/co-even. D_L is not difference-closed (C0 Delta C2 is not adjacent-window), so the construction differs; the existence question may not.",
+   "detail": "entry_audits/G4_countable_witness.md",
+   "owned_by": {
+    "cite": "De Simone-Navara-Ptak, Math. Nachr. 288 (2015) 1995-2000; Bikchentaev-Navara, Math. Slovaca 66 (2016) 359-366",
+    "region": "extension failure of two-valued states on difference-closed (incl. sigma-complete) logics",
+    "verified": "DNP 2015 abstract only; Bikchentaev-Navara full text"
+   }
+  },
+  {
+   "id": "own.beta_beck_chevalley",
+   "name": "Ultrafilter gluing over a shared coordinate = beta preserves weak pullbacks",
+   "status": "OWNS thm.amalgamation (pass 2026-10-27)",
+   "one_line": "The canonical map beta(R x_Y S) -> beta(R) x_{beta Y} beta(S) is surjective (Beck-Chevalley for the ultrafilter functor). With R = XxY, S = YxZ this is thm.amalgamation; iterated along a tree order it is the gluing step of thm.path. (G6: nLab 'taut functor' says the same, snippet; charge common extensions of two consistent charges: Basile-Bhaskara Rao-Shortt PAMS 121 (1994), Shortt 1983, unread.)",
+   "detail": "entry_audits/G5_forest_side.md",
+   "owned_by": {
+    "cite": "Barr, LNM 137 (1970) 39-55; nLab 'relational beta-module' Prop (BC); Hofmann-Seal-Tholen, Monoidal Topology (CUP 2014); Clementino-Hofmann-Tholen 2004",
+    "region": "joint ultrafilters with prescribed projections over a pullback",
+    "verified": "nLab proof read in full; Barr OCR read (uses it in Prop 5.2, not stated as a lemma); HST/CHT not opened"
+   }
+  },
+  {
+   "id": "own.charge_compatibility",
+   "name": "Compatibility theorem for finitely additive measures (and its forest iteration)",
+   "status": "OWNS finitely additive gluing along forests on the generated algebra (pass 2026-10-27; tree reduction HAND)",
+   "one_line": "Two charges on subalgebras extend jointly iff a <= a' implies Xi0(a) <= Xi1(a'); the filter case is easy by FIP. For window cylinder algebras along a tree order the condition reduces to equal shared marginals (HAND), so compatible window charges on a forest extend to a charge on P(Omega). Says nothing about states on the Dynkin carrier D (that is thm.shape_lemma).",
+   "detail": "entry_audits/G5_forest_side.md",
+   "owned_by": {
+    "cite": "Guy 1961; Bhaskara Rao & Bhaskara Rao, Theory of Charges (1983) Ch. 3; Kindler 1988; Cardona-Mejia-Uribe-Zapata arXiv:2503.08910 Thm 3.12 and Sec. 3.2; Shelah 2000 Prop 1.3(3) (filter case)",
+    "region": "joint extension of finitely additive measures from two (or tree-many) subalgebras",
+    "verified": "CMU-Z Thm 3.12 + remark read in full text; Bhaskara Rao body, Guy, Kindler, Shelah NOT opened"
+   }
+  },
+  {
+   "id": "own.dynkin_star_normal_form_search",
+   "name": "Dynkin closure of coordinate-pair algebras: star normal form (searched, not found)",
+   "status": "NEIGHBOURS ONLY (pass 2026-10-27); owner not found; nearest sources unread",
+   "one_line": "No source found stating that the Dynkin system generated by pair-window cylinder algebras on a triangle-free graph is the family of star-shaped disjoint unions. Same shape as Greechie's loop lemma (order-3 loops) and the horizontal-sum fact for independent algebras; different objects.",
+   "detail": "entry_audits/G5_forest_side.md",
+   "owned_by": {
+    "cite": "Greechie 1971 via Kalmbach 1983 sec 4 L9 (read); Navara 1984 (read; C_{f,g}, two generators); Tkadlec 1998, Muller-Ptak-Tkadlec 1992 (read); Buresova-Ptak-Sevic arXiv:2609.10770 (statements grepped)",
+    "region": "pasting/concrete-logic neighbours of the star normal form",
+    "verified": "neighbours read; UNREAD: Ptak-Pulmannova 1991 book, Gudder SIAM Rev 1984, Ovchinnikov PAMS 1999, Bhaskara Rao body, Dvurecenskij-Neubrunn-Pulmannova 1992"
+   }
+  },
+  {
+   "id": "own.acyclic_gluing",
+   "name": "alias: acyclic gluing (repointed link target)",
+   "status": "ALIAS (stale-link fix 2026-10-27)",
+   "one_line": "SHELF_INDEX.json (Atserias-Kolaitis arXiv:2009.09488 entry) links to own.acyclic_gluing, which did not exist. It should point to own.acyclic_line_and_reduction (the forest/acyclic line and A-K Lemmas 13-16; also own.vorobev_acyclic for the sigma-additive/BFMY side and own.beta_beck_chevalley for the ultrafilter gluing step). SHELF_INDEX.json not edited here; repoint it or keep this alias.",
+   "detail": "entry_audits/G5_forest_side.md",
+   "owned_by": {
+    "cite": "see own.acyclic_line_and_reduction",
+    "region": "alias",
+    "verified": "n/a"
+   }
+  },
+  {
+   "id": "own.acyclic_line_and_reduction",
+   "name": "Forest/acyclic dividing line and its reduction to triangle + induced C_{>=4} with constant-padding transport",
+   "status": "OWNS the line, the minimal-obstruction reduction and the transport; NOT the two-valued finitely additive base witnesses (audit G6 2026-10-27)",
+   "one_line": "For pair windows, alpha-acyclic = conformal + chordal = forest. Local-to-global consistency holds iff acyclic for probability (Vorob'ev 1962), relations (BFMY 1983 Thm 3.4) and positive-semiring K-relations (Atserias-Kolaitis Thm 3/4). The converse proof reduces to minimal non-conformal (graphs: triangle; Lemma 13) or minimal non-chordal (induced cycle >= 4; Lemma 14) and transports by fixing deleted attributes at a constant (Lemma 15) and dropping covered edges (Lemma 16) = thm.loops_travel's psi. One uniform ordinary-relation counterexample works for all positive semirings. Neighbour: Xu-Cabello 2019 (contexts = cliques, so the line is chordality; the gap is A-K's non-conformal case = our triangle).",
+   "detail": "entry_audits/G6_loops_travel.md",
+   "owned_by": {
+    "cite": "Atserias-Kolaitis arXiv:2009.09488, Thm 3, Thm 4, Lemmas 12-16; Beeri-Fagin-Maier-Yannakakis JACM 30 (1983) Thm 3.4; Vorob'ev, Theory Probab. Appl. 7 (1962); neighbour Xu-Cabello PRA 99 020103 (2019)",
+    "region": "local-to-global consistency vs hypergraph acyclicity; reduction and padding transport",
+    "verified": "A-K pp. 25-31 primary (2026-10-27); BFMY and Vorob'ev via A-K; Xu-Cabello abstract"
+   }
+  },
+  {
+   "id": "own.dravecky_sipos_union_class",
+   "name": "Union of blocks is a sigma-class when cross members meet (mechanism of thm.problem3_pair_local)",
+   "status": "OWNS the mechanism; residual = routine instance check (pair Dynkin blocks, shared-variable exception, n=2)",
+   "one_line": "If nonempty sets from different blocks always meet, a disjoint family lies in one block, so the union of blocks is closed under disjoint union. Problem 3 applies this to three pair blocks, with condition (2) holding off the shared one-variable algebra.",
+   "detail": "entry_audits/G7_transport_pairlocal.md",
+   "owned_by": {
+    "cite": "Dravecky-Sipos, Math. Slovaca 30 (1980) 299-303, Example 6, condition (2)",
+    "region": "union-class sigma-classes from pairwise-meeting blocks",
+    "verified": "primary (full text re-read 2026-10-27)"
+   }
+  },
+  {
+   "id": "own.linear_ordering_polytope_condorcet",
+   "name": "Pairwise comparison probabilities vs rankings; Condorcet cycle detected by a cross-pair facet",
+   "status": "OWNS 'comparisons see Condorcet cycles' via linear checks; NOT the Dynkin-question blindness",
+   "one_line": "Binary choice probabilities come from a ranking distribution iff they lie in the linear ordering polytope; on three alternatives the cyclic triangle inequality P(a>b)+P(b>c)+P(c>a) <= 2 is violated by the strict Condorcet cycle (facet claim to be verified in Fishburn 1992 / Doignon-Fiorini-Joret before citing). HodgeRank sees cycles as curl. These are cross-pair LINEAR checks, i.e. non-disjoint covers, which no question in J can express.",
+   "detail": "entry_audits/G7_transport_pairlocal.md",
+   "owned_by": {
+    "cite": "Block-Marschak 1960; Guilbaud 1953; Fishburn, Math. Soc. Sci. 23 (1992) 67-80; Jiang-Lim-Yao-Ye, Math. Program. 127 (2011)",
+    "region": "pairwise-to-ranking consistency and cycle detection from comparisons",
+    "verified": "snippet (Block-Marschak, Fishburn); abstract (HodgeRank, shelf)"
+   }
+  },
+  {
+   "id": "own.sigma_class_compatibility",
+   "name": "When is a sigma-class (or a family of sub-sigma-fields inside it) a sigma-field",
+   "status": "neighbour",
+   "one_line": "Necessary and sufficient conditions (via compatibility / n-compatibility) for the generated sigma-class to be a sigma-field, and for sub-sigma-fields to sit in a common sub-sigma-field. Concerns intersections, not closure of a union of blocks.",
+   "detail": "entry_audits/G7_transport_pairlocal.md",
+   "owned_by": {
+    "cite": "Gudder, Proc. AMS 21 (1969); Neubrunn, Proc. AMS 25 (1970) 672-675; Katrinak-Neubrunn, Mat. casopis 23 (1973) 209-215, Lemma 2, Thm 2",
+    "region": "compatibility in sigma-classes",
+    "verified": "Katrinak-Neubrunn full text; Neubrunn abstract (AMS 403); Gudder not opened"
+   }
+  },
+  {
+   "id": "own.generated_preimage",
+   "name": "Preimage commutes with generated sigma-algebra / Dynkin system",
+   "status": "owned (folklore)",
+   "one_line": "Good-sets argument: {E : F^-1 E in C} is a Dynkin system containing the generators. Owns thm.transport_general. See also own.dynkin_good_sets_transport.",
+   "detail": "entry_audits/G7_transport_pairlocal.md",
+   "owned_by": {
+    "cite": "standard measure theory; Mathlib MeasurableSpace.comap_generateFrom (sigma-algebra form)",
+    "region": "transport of generated classes under maps",
+    "verified": "argument reconstructed; Lean six-line proof"
    }
   }
  ]

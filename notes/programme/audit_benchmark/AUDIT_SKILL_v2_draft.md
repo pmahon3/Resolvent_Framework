@@ -157,7 +157,7 @@ redirect to expository venue / needs deeper audit]
 
 ---
 
-## REFEREE ESTIMATE (v2 draft, 2026-10-26; run in every mode)
+## REFEREE ESTIMATE (v2, frozen for test 2026-10-26; run in every mode)
 
 The programme bar above is deliberately stricter than community practice. Separately, estimate what a
 competent referee at a good venue *in the item's own field* would decide. Do not let one verdict
@@ -180,7 +180,9 @@ stand in for the other. Calibration: `notes/programme/audit_benchmark/` (communi
 - wrong or unverifiable central claim;
 - the main result already in print and not credited (a re-proof already published, or a known object
   under a new name);
-- renaming with no new statement or tool;
+- renaming with no new statement or tool; **if the central notion is identified as an existing notion
+  under a new name and no new statement is exhibited, the estimate is REJECT-LIKELY, not BORDERLINE**
+  (dev calibration, item RN1);
 - an exposition that duplicates an existing accessible exposition without added value;
 - claims of novelty or of independence that the literature contradicts.
 

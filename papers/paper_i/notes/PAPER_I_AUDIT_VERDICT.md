@@ -1,5 +1,8 @@
 # Paper I audit verdict — "When Does Observational Coherence Determine Probability?" (2026-06-23)
 
+> **REVERSAL 2026-10-27 (v2.1 re-audit, independently CONFIRMED in `PAPER_I_REVERSAL_CHECK.md`):** the park stands, but the recorded diagnosis below is WRONG. The fixed `I:thm:stone-main` is still false: Ω = eventually-zero 0/1 sequences, ι = ℕ, fair-coin marginals satisfies every hypothesis (realization vacuously) yet Ω is countable, so no σ-additive P. The break is Prop B2's first step (CE ⟹ μ̂(Σ)=1): per-level σ-additivity is not σ-additivity of the glued charge (Andersen–Jessen), not a σ-Loomis–Sikorski gap; the 'countable index + standard Borel' fix fails on this example. Lean already recorded this on 2026-08-22 (`StoneDualityExtension.lean` HISTORY, `AJNoExtension.lean`; repair = `SequentiallyUpperDirected`). Correct criterion is folklore (Hahn–Kolmogorov + trace measure). See `PAPER_I_REAUDIT_v21.md`.
+
+
 Two-pronged hostile audit (proof-correctness + cross-field prior-art), modeled on
 the sweep that retired the companion note. **Overall: REVISE-DOWN / PARK THE
 NOVELTY CLAIMS.** One fatal proof error in the headline contribution + the

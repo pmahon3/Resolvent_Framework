@@ -51,6 +51,10 @@ built from pair questions) is exact iff the triangle polytope is compressed.* Th
 content beyond Sullivant is (a) every 0/1 facet functional is realised by a carrier set at compressed
 sizes, and (b) the bridge from a non-binary ray to a carrier state (Maharam).
 
+## Ovchinnikov read (2026-10-27)
+
+Kernel (b) is closedness and hidden failure is non-positivity in Ovchinnikov's sense (PAMS 1999); framework owned, our instances (r×s×2, r×3×3 closed; 3×4×4 non-positive) not found; his positivity criterion (Problem 6.3) is open, so (b)+Sullivant is a partial answer to it at triangle sizes ⟦HAND identification, check⟧. Remaining unread: Sultanbekov 1992a/1993/1996, Ovchinnikov 1994a. See `../entry_audits/RESOLUTION_ovchinnikov_dnp.md`.
+
 ## Declared contribution types and bars
 
 - **Type 1 (new theorem).** Bar: the carrier-exactness ⇔ compressed equivalence for the triangle is

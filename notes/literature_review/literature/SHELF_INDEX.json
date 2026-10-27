@@ -9,10 +9,10 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 129,
+  "count": 132,
   "basis_counts": {
    "abstract": 43,
-   "read": 53,
+   "read": 56,
    "memory": 8
   }
  },
@@ -83,7 +83,10 @@
    "tkadlec_1998_generalised_compatibility.pdf",
    "buresova_ptak_2024_point_distinguishing_somp.pdf",
    "svozil_2001_generalized_probabilities_correlation_polytopes.pdf",
-   "vandenberg_heunen_2012_noncommutativity_colimit.pdf"
+   "vandenberg_heunen_2012_noncommutativity_colimit.pdf",
+   "ovchinnikov_1999_measures_finite_concrete_logics.pdf",
+   "ovchinnikov_sultanbekov_1998_finite_concrete_logics.pdf",
+   "desimone_navara_ptak_2015_states_symmetric_difference.pdf"
   ],
   "clock_holonomy": [
    "dravecky_sipos_1980_additivity_gudder_integral.pdf",
@@ -98,7 +101,10 @@
    "desimone_navara_ptak_2007_extending_states_finite_concrete_logics.pdf",
    "horn_tarski_1948.pdf",
    "maharam_1972.pdf",
-   "walley_1991.pdf"
+   "walley_1991.pdf",
+   "ovchinnikov_1999_measures_finite_concrete_logics.pdf",
+   "ovchinnikov_sultanbekov_1998_finite_concrete_logics.pdf",
+   "desimone_navara_ptak_2015_states_symmetric_difference.pdf"
   ],
   "completeness_points": [
    "espindola_2020.pdf",
@@ -276,7 +282,8 @@
    "marczewski_1953_on_compact_measures.pdf",
    "marczewski_ryll_nardzewski_1953_compactness_products.pdf",
    "navara_1992.pdf",
-   "navara_ptak_1983_two_valued_measures_sigma_classes.pdf"
+   "navara_ptak_1983_two_valued_measures_sigma_classes.pdf",
+   "desimone_navara_ptak_2015_states_symmetric_difference.pdf"
   ],
   "sigma_essential_background": [
    "argyros_1982.pdf",
@@ -297,7 +304,8 @@
    "ptak_1987.pdf",
    "shultz_1974.pdf",
    "buresova_ptak_2024_point_distinguishing_somp.pdf",
-   "svozil_2001_generalized_probabilities_correlation_polytopes.pdf"
+   "svozil_2001_generalized_probabilities_correlation_polytopes.pdf",
+   "ovchinnikov_1999_measures_finite_concrete_logics.pdf"
   ],
   "audit_benchmark": [
    "beygelzimer_et_al_2023_neurips2021_consistency_experiment.pdf",
@@ -2977,6 +2985,73 @@
     "notes/programme/audit_benchmark_prior_art.md"
    ],
    "read_note": "abstract and intro read (2026-10-26); body unread"
+  },
+  {
+   "file": "ovchinnikov_1999_measures_finite_concrete_logics.pdf",
+   "citation": "P. G. Ovchinnikov, 'Measures on finite concrete logics', Proc. AMS 127 (1999) 1957-1966",
+   "what_it_proves": "Duality for finite concrete logics: regular/positive/closed (Galois correspondence); R and P iff pure states = point states (p.1959); positive => closed (Thm 2.6); Delta(nxm) (logic of x, y, x+y on a grid) regular (Thm 3.3); Delta({0..3}^2) not positive via local positivity (Thm 4.6, p.1962), Sultanbekov: n,m>=4; symmetric logics = Z2-kernels = Nim (Thm 5.9). Open: locally positive => positive? (Problem 6.3).",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "thm.triangle_hiding_classification (kernel (b) = D closed; hidden failure = D not positive)",
+    "own.compressed_threshold"
+   ],
+   "questions": [
+    "coherence_extension",
+    "carriers_logics",
+    "states"
+   ],
+   "text_layer": true,
+   "pages": "1957-1966",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/entry_audits/RESOLUTION_ovchinnikov_dnp.md",
+    "notes/open_questions/cyclic_marginal/hidden_failure/REAUDIT_v21.md"
+   ],
+   "read_note": "full text read 2026-10-27; owns vocabulary + positive=>closed; does NOT prove (b) for pair-generated product logics"
+  },
+  {
+   "file": "ovchinnikov_sultanbekov_1998_finite_concrete_logics.pdf",
+   "citation": "P. G. Ovchinnikov, F. F. Sultanbekov, 'Finite concrete logics: their structure and measures on them', IJTP 37 (1998) 147-153",
+   "what_it_proves": "Survey (proofs omitted) of finite concrete logics: Prather and Gudder-Marchand logics, extension of (signed) measures, same duality as Ovchinnikov 1999; D({0..n-1}x{0..m-1}) not locally positive for n,m>=4 (p.150); regular (Thm 2.9); two-valued states on D(Lambda) are points (Rem 2.10, via Navara-Ptak 1983); symmetric logics via Nim (Thm 3.3); open problems 5.1-5.6.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "thm.triangle_hiding_classification"
+   ],
+   "questions": [
+    "coherence_extension",
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "147-153",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/entry_audits/RESOLUTION_ovchinnikov_dnp.md",
+    "notes/open_questions/cyclic_marginal/hidden_failure/REAUDIT_v21.md"
+   ],
+   "read_note": "full text read 2026-10-27; nothing beyond Ovchinnikov 1999 for our items; bibliography pointers: Sultanbekov 1992a/1993/1995/1996, Ovchinnikov 1994a (unread)"
+  },
+  {
+   "file": "desimone_navara_ptak_2015_states_symmetric_difference.pdf",
+   "citation": "A. De Simone, M. Navara, P. Ptak, 'States on systems of sets that are closed under symmetric difference', Math. Nachr. 288 (2015) 1995-2000",
+   "what_it_proves": "Delta-subadditive states on symmetric logics: compactness extension from Boolean subalgebras incl. two-valued (Thm 1); extension from E_2n copies (Thm 2); finite 10-point symmetric logic (MO15) with a non-extendable two-valued state (Thm 3); sigma-complete S x (Omega,D) construction (Thm 4); card S = aleph1, Omega countable: every sigma-additive state countably carried, hence extends (Thm 5); ZFC+notRM version (Thm 6).",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "thm.countable_witness (not owned: finite Thm 3 + positive sigma-extension results on uncountable carriers)",
+    "thm.triangle_pointless (finite shadow, Thm 3)"
+   ],
+   "questions": [
+    "sigma_essential",
+    "coherence_extension",
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "1995-2000",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/entry_audits/RESOLUTION_ovchinnikov_dnp.md",
+    "notes/open_questions/cyclic_marginal/entry_audits/G4_countable_witness.md"
+   ],
+   "read_note": "full text read 2026-10-27"
   }
  ]
 }

@@ -15,7 +15,7 @@
    "id": "sigma_essential",
    "name": "σ-essential contextual state / OML descent",
    "taxonomy": "notes/open_questions/sigma_essential_taxonomy.json",
-   "status": "RESOLVED: the OMP witness is Lean-certified and promoted. The OML/lattice form and literal irreducibility remain open; the lattice attack now has its own taxonomy.",
+   "status": "REVISED 2026-10-27: REVERSAL 2026-10-27 (v2.1 re-audit, independently CONFIRMED in papers/sigma_essential/SIGMA_ESSENTIAL_REVERSAL_CHECK.md): the Lean-checked `Psi`/`psi_ZFC` statement is a ROUTINE consequence (Binder–Navara carrier + 4-point even-subsets fibre + ultrafilter limit of its non-Dirac state meets every conjunct); the paper's Def 1.2 with essential irreducibility (`targetA_sharp_ZFC`) is UNCLEAR, not owned. Measurable-cardinal remarks §2(c)/Rem 3.7 FALSE (countable–cocountable algebra on ω₁); Rem 6.1 partly. arXiv:1905.08267 misattributed; Akemann–Weaver needs CH; 'formalized in full' overclaims (Cor 5.12 quotient-centre half not in Lean). NOT dissemination-ready. PRIOR: RESOLVED: the OMP witness is Lean-certified and promoted. The OML/lattice form and literal irreducibility remain open; the lattice attack now has its own taxonomy.",
    "one_line": "The OMP form is a ZFC theorem; the OML finite-trace liftability problem is tracked separately in oml_lattice_taxonomy.json.",
    "entries": 99,
    "pruned": "CHARTED ledger + 4 dead maps retired; unique content extracted to load_bearing_facts / construction_runs / navara_ptak leaves"

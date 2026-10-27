@@ -11,6 +11,8 @@
 - **Paper I park stands; diagnosis corrected.** Not a σ-LS gap: per-level ≠ glued σ-additivity (counterexample:
   eventually-zero sequences, fair coins). `papers/paper_i/notes/PAPER_I_REVERSAL_CHECK.md`.
 - Hidden-failure equivalence OWNED (Sullivant); kernel BORDERLINE pending Ovchinnikov read.
+- **σ-essential paper REVISED (confirmed):** Lean `Psi` statement routine (Binder–Navara + 4-point fibre); essentially-
+  irreducible form UNCLEAR; measurable-cardinal remarks false; not dissemination-ready. `papers/sigma_essential/KNOWN_ISSUES.md`.
 
 ### 2026-10-21 addendum (read first)
 

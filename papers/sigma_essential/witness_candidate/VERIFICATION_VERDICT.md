@@ -1,5 +1,8 @@
 # Verification Verdict — Product Ulam Carrier (2026-07-06)
 
+> **REVERSAL 2026-10-27 (v2.1 re-audit, independently CONFIRMED in papers/sigma_essential/SIGMA_ESSENTIAL_REVERSAL_CHECK.md): the Lean-checked `Psi`/`psi_ZFC` statement is a ROUTINE consequence (Binder–Navara carrier + 4-point even-subsets fibre + ultrafilter limit of its non-Dirac state meets every conjunct); the paper's Def 1.2 with essential irreducibility (`targetA_sharp_ZFC`) is UNCLEAR, not owned. Measurable-cardinal remarks §2(c)/Rem 3.7 FALSE (countable–cocountable algebra on ω₁); Rem 6.1 partly. arXiv:1905.08267 misattributed; Akemann–Weaver needs CH; 'formalized in full' overclaims (Cor 5.12 quotient-centre half not in Lean). NOT dissemination-ready.**
+
+
 > **UPDATE (2026-07-06, later the same day): the construction is now
 > MACHINE-CHECKED end-to-end.** `psiAmended_ZFC` (Theorem 7.1 → Ψ amended, in
 > ZFC) compiles with **zero sorries** and axioms exactly

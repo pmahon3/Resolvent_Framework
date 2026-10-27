@@ -1,5 +1,8 @@
 # Definitional-fidelity review — side-by-side (2026-07-06)
 
+> **REVERSAL 2026-10-27 (v2.1 re-audit, independently CONFIRMED in papers/sigma_essential/SIGMA_ESSENTIAL_REVERSAL_CHECK.md): the Lean-checked `Psi`/`psi_ZFC` statement is a ROUTINE consequence (Binder–Navara carrier + 4-point even-subsets fibre + ultrafilter limit of its non-Dirac state meets every conjunct); the paper's Def 1.2 with essential irreducibility (`targetA_sharp_ZFC`) is UNCLEAR, not owned. Measurable-cardinal remarks §2(c)/Rem 3.7 FALSE (countable–cocountable algebra on ω₁); Rem 6.1 partly. arXiv:1905.08267 misattributed; Akemann–Weaver needs CH; 'formalized in full' overclaims (Cor 5.12 quotient-centre half not in Lean). NOT dissemination-ready.**
+
+
 The Lean development proves `psiAmended_ZFC` from `[propext, Classical.choice,
 Quot.sound]` with zero sorries, so the proofs need no re-checking. What follows
 is the complete trust surface: every definition on the path from the paper's

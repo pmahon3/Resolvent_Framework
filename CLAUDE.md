@@ -100,7 +100,10 @@ which window-graph shape lets them be pointless.
 - Detail: `notes/open_questions/cyclic_marginal/cyclic_marginal_scoping.md`.
 
 **Infinity side (σ-essential, `papers/sigma_essential/`).**
-- The ZFC witness is machine-checked.
+- The ZFC witness is machine-checked, BUT (reversal 2026-10-27, confirmed): the Lean `Psi` statement
+  is a routine consequence of Binder–Navara + a 4-point fibre; only the essentially-irreducible form is
+  UNCLEAR; measurable-cardinal remarks false; not dissemination-ready
+  (`papers/sigma_essential/SIGMA_ESSENTIAL_REVERSAL_CHECK.md`).
 - A countable witness on every ring L ≥ 4 is Lean-checked; no owner found after
   three prior-art passes; not in the paper.
 - The OML/lattice and Φ forms are open.

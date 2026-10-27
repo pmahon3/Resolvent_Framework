@@ -1,0 +1,137 @@
+[
+ {
+  "id": "V1",
+  "category": "N",
+  "citation": "Covert, Iosevich, Pakianathan, A variant of Waring's Problem for the ring of integers modulo n (withdrawn)",
+  "arxiv_id": "arXiv:1609.02090",
+  "date": "2016-09-07 (withdrawn v2 2017-08-30)",
+  "as_of": "2016-09-06",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1609.02090",
+   "summary": "Comments (fetched): 'Paper withdrawn as main results are not original as we once thought'; names Hardy-Littlewood 1928."
+  },
+  "evidence_read_level": "fetched (abstract page)",
+  "ground_truth_label": "known",
+  "owner_citation": "G. H. Hardy and J. E. Littlewood, 'Some Problems of Partitio Numerorum (VIII): The Number Gamma(k) in Waring's Problem', Proc. London Math. Soc. (2) 28 (1928) 518-542 (as named in the withdrawal comment; theorem not checked)",
+  "contamination_risk": "low-medium (Waring problem famous; this variant obscure)",
+  "seed_draft": "For a modulus n and exponent k, let s(k,n) denote the least number of k-th powers whose sums cover every residue class modulo n. We determine s(k,n) for all exponents k up to 10 and all n, using only elementary arguments. The method reduces to prime-power moduli and lifts solutions of the corresponding congruences by a p-adic Hensel argument, with a finite check for small primes. As an application we give a bound on how large a subset of Z_n^d can be before it must determine a prescribed set of distances, in the spirit of the Erdos-Falconer problem over rings. We regard the covering numbers as the main new object.",
+  "plausible_declared_types": [
+   1,
+   2
+  ],
+  "notes": "Comment says results unoriginal; the seed's Hensel/application wording is from the abstract summary."
+ },
+ {
+  "id": "V2",
+  "category": "N",
+  "citation": "Zhang, On non-congruent numbers with 3 modulo 8 prime factors (withdrawn)",
+  "arxiv_id": "arXiv:1212.0196",
+  "date": "2012-12-02 (withdrawn v2 2016-07-29)",
+  "as_of": "2012-12-01",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1212.0196",
+   "summary": "Comments (fetched): withdrawn 'because it is a corollary of a well-known result by Monsky'."
+  },
+  "evidence_read_level": "fetched (abstract page); search snippet for the content of the criterion",
+  "ground_truth_label": "known",
+  "owner_citation": "P. Monsky, formula for the 2-Selmer rank of the congruent number curve (as named: 'a well-known result by Monsky'; exact reference, probably Math. Z. 1990 appendix to Heath-Brown/Monsky work, NOT verified)",
+  "contamination_risk": "low",
+  "seed_draft": "We give an infinite family of squarefree positive integers m, all of whose prime factors are congruent to 3 modulo 8, that are not the area of any right triangle with rational sides. To a given m we attach a square matrix over F_2 built from Legendre symbols between its prime factors. If a certain quadratic polynomial in this matrix is invertible, the relevant 2-Selmer group is trivial and the elliptic curve y^2=x^3-m^2x has rank zero. In particular m is non-congruent whenever all pairwise Legendre symbols equal 1, and doubling m is also allowed when the number of prime factors is even. We list small examples such as 3, 11, 83 and 107.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "Zhang's corollary is subsumed by Monsky's matrix formula; owner reference unchecked."
+ },
+ {
+  "id": "V3",
+  "category": "N",
+  "citation": "de Seguins Pazzis, On the diagonal of the matrices in a similarity class (withdrawn)",
+  "arxiv_id": "arXiv:1207.0631",
+  "date": "2012-07-03 (withdrawn v2 2012-07-26)",
+  "as_of": "2012-07-02",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/1207.0631",
+   "summary": "Comments (fetched): 'withdrawn since the result has already been published with a similar proof'."
+  },
+  "evidence_read_level": "fetched (abstract page); owner from search snippets",
+  "ground_truth_label": "known",
+  "owner_citation": "Fillmore, 'On similarity and the diagonal of a matrix', Amer. Math. Monthly 76 (1969) 167-169; also Mirsky (real/complex), Djokovic (arbitrary field), Gibson (special diagonal) per later paper v1 text via search snippet; which one the withdrawal means is not stated",
+  "contamination_risk": "low-medium",
+  "seed_draft": "Let K be a field and let A be an n-by-n matrix over K that is not a scalar multiple of the identity. We show that for scalars d_1,...,d_n in K there is a matrix similar to A with diagonal (d_1,...,d_n) exactly when the d_i sum to the trace of A. Necessity is immediate. For sufficiency we proceed by induction on n, choosing a vector that is not an eigenvector to adjust one diagonal entry at a time and passing to a complementary block. The case of a non-scalar companion matrix is treated separately. No restriction on the characteristic of K is needed.",
+  "plausible_declared_types": [
+   1,
+   2
+  ],
+  "notes": "Owner is a family of results; Fillmore 1969 is the clean one. Seed is an inferred standard proof."
+ },
+ {
+  "id": "V4",
+  "category": "N",
+  "citation": "Simonyi, Tardos, Local chromatic number, Ky Fan's theorem, and circular colorings (v1 of math/0407075; v2 temporarily withdrawn as partly known)",
+  "arxiv_id": "arXiv:math/0407075",
+  "date": "2004-07-06 (v2 withdrawal 2004-09-24; v3 revised paper 2004-11-26)",
+  "as_of": "2004-07-05",
+  "fame": "low-medium (authors well known; this episode obscure)",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/math/0407075v2",
+   "summary": "v2 notice (fetched): 'some of its results turned out to be known'; names Ky Fan 1952 and 1982."
+  },
+  "evidence_read_level": "fetched (abstract page v2 and current)",
+  "ground_truth_label": "known (partly; paper later revised and published with credit)",
+  "owner_citation": "Ky Fan 1952 (topological theorems) and Ky Fan 1982 (zig-zag theorem for Kneser graphs); Corollary independently by F. Meunier (per v2 notice; journal references not verified)",
+  "contamination_risk": "low-medium",
+  "seed_draft": "The local chromatic number of a graph lies between its chromatic and fractional chromatic numbers. We prove, for a broad class of topologically highly connected graphs, including Kneser, Schrijver, generalized Mycielski and Borsuk-type graphs, that the local chromatic number is at least ceil(t/2)+1, where t is the topological lower bound for the chromatic number. The proof uses a Borsuk-Ulam type theorem for free Z_2 actions with an alternating-sign condition. We show the bound is tight or nearly tight in several cases. We also prove that the circular and ordinary chromatic numbers coincide for these graphs when the chromatic number is even, whereas odd chromatic Schrijver graphs behave differently.",
+  "plausible_declared_types": [
+   1,
+   2
+  ],
+  "notes": "MIXED: only some results known; a calibrated auditor should flag the topological theorem as owned but not reject the circular-coloring part. Closest to topological combinatorics."
+ },
+ {
+  "id": "V5",
+  "category": "X",
+  "citation": "Pestov, Oscillation stability of the Urysohn metric space (v1 withdrawn)",
+  "arxiv_id": "arXiv:math/0407444",
+  "date": "2004-07-26 (withdrawn v2 2004-07-28)",
+  "as_of": "2004-07-25",
+  "fame": "medium (author well known; episode obscure)",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/math/0407444",
+   "summary": "v2 abstract (fetched): withdrawn 'as the main technical result (Th. 4.6) is false' and Corol. 4.3."
+  },
+  "evidence_read_level": "fetched (abstract page)",
+  "ground_truth_label": "wrong (proof false; v2 says question remains open; the statement was later settled by others, not verified here)",
+  "owner_citation": "none (own error); later literature on oscillation stability of the Urysohn sphere (Nguyen Van The-Sauer), not verified",
+  "contamination_risk": "low",
+  "seed_draft": "A metric space is oscillation stable if, for every bounded uniformly continuous real function f and every epsilon>0, the space contains an isometric copy on which the oscillation of f is below epsilon. We prove that the universal separable Urysohn metric space has this property. The argument rests on a technical statement controlling the oscillation of f on a suitably chosen finite configuration, together with a corollary that lets one iterate the selection along an exhaustion by finite subspaces. A Ramsey-type consequence for finite colorings of the space with tolerance in the metric is derived. The answer closes a question coming from the extreme amenability of the isometry group.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "v1 content reconstructed from the withdrawal note only; abstract of v1 not fetched, so the seed is an inference."
+ },
+ {
+  "id": "V6",
+  "category": "X",
+  "citation": "Prokhorov, Boundedness of degree of the basic field of an arithmetic reflection group in Lobachevsky space (withdrawn)",
+  "arxiv_id": "arXiv:math/0407313",
+  "date": "2004-07-19 (withdrawn v2 2004-07-20)",
+  "as_of": "2004-07-18",
+  "fame": "low",
+  "community_evidence": {
+   "url": "https://arxiv.org/abs/math/0407313",
+   "summary": "Abstract (fetched): 'serious error in the proof of main theorem'; withdrawn the next day."
+  },
+  "evidence_read_level": "fetched (abstract page)",
+  "ground_truth_label": "wrong (main theorem not proved)",
+  "owner_citation": "none (own error); related context Nikulin and Agol on arithmetic reflection groups, not verified",
+  "contamination_risk": "low",
+  "seed_draft": "We consider discrete groups generated by reflections that act on hyperbolic space with finite-volume fundamental polyhedron and are arithmetic. Each has a basic field of definition, a totally real number field. We show the degree of this field is bounded above by an absolute constant independent of the dimension. The proof combines a lower bound on the covolume from the arithmetic volume formula with a bound on the number of facets of a Coxeter polytope. This gives a uniform restriction on which fields can occur and a route to finiteness statements for arithmetic reflective groups.",
+  "plausible_declared_types": [
+   1
+  ],
+  "notes": "v1 content reconstructed from the withdrawal note and title only, so the seed is an inference; weakest item."
+ }
+]

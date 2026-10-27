@@ -65,3 +65,16 @@ Affected: `thm.countable_witness`, `thm.literal_irreducible_L4` (glued_carriers_
 
 Full prior-art pass under `/audit full` v2.1 (Types 1, 5), with the user's hardcopy reads
 (Theory of Charges Ch. 3; Pták–Pulmannová concrete-logic chapters) folded in.
+
+## Gate 1 fired (2026-10-27): outcome C (A claimed, not confirmed)
+
+- GATE1.md claimed Outcome A via W★ (Ω = G*×{1,2,3,4}, G = ⊕_ℕ 𝔽₂; carrier = sets whose fibre-parity
+  pattern is a character χ_y; U-limit of the free state on X_even(4)).
+- GATE1_CHECK.md (independent): W★ is CORRECT ⟦HAND⟧, but NOT routine: every pre-registered cheap
+  mechanism dies on countable Ω (every σ-ideal on a countable set is principal — the Outcome-B reason);
+  the parity-code carrier and the singleton-free rigidity proof are new (~1.5 pp). Effective outcome C.
+- Consequence: two candidate countable, literally irreducible σ-essential witnesses for Gate 2:
+  the RING (a circle: Boolean windows, empty kernel from the cycle) and W★ (a composition: non-Booleanness
+  imported from a 4-point fibre). Bare existence is shared; the mechanisms differ.
+- Gate 2 risk: W★ is a short σ-complete symmetric logic — check the Bikchentaev / De Simone–Navara–Pták
+  school (DNP 2015 does not contain it), Bikchentaev–Yakushev Problem 7.2.

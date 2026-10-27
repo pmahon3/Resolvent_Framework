@@ -10,8 +10,8 @@
 The Phase 2 audit gate originally asked: "is this result known?" This
 is a theorem-novelty check — necessary but insufficient. Mathematical
 contributions come in several types, each with its own standard for
-novelty and substance. Paper II (EA/PR/VDR vocabulary) is a Type 4
-vocabulary contribution that passed the existing audit; Papers I and
+novelty and substance. Paper II (EA/PR/VDR vocabulary) was treated as a Type 4
+vocabulary contribution that passed the existing audit (reversed 2026-10-27); Papers I and
 II together are a Type 3 unification. The pipeline already handles
 non-theorem work implicitly. This document makes the evaluation
 explicit and operational.
@@ -94,7 +94,9 @@ vocabulary, AND provide a non-trivial result about at least one.
 new statements. Failure mode #2 in the pipeline ("rediscovery as
 synthesis") is a failed Type 4 contribution.
 
-**Calibration:** Paper II (EA/PR/VDR) clears this bar. The parked
+**Calibration:** Paper II (EA/PR/VDR) was recorded as clearing this bar; REVERSED 2026-10-27 (PR_dual =
+Jauch–Piron representability renamed; `papers/paper_ii/PAPER_II_REVERSAL_CHECK.md`), so it no longer
+calibrates a pass. The parked
 seeds (KVP merger, five-traditions, residual_structure_inference)
 do not.
 

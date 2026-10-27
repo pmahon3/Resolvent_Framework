@@ -1,5 +1,8 @@
 # Paper II audit verdict — "Distributivity and the Commensurability of EA and Realism" (2026-06-23)
 
+> **REVERSAL 2026-10-27 (v2.1 re-audit, independently CONFIRMED in papers/paper_ii/PAPER_II_REVERSAL_CHECK.md): NOT the survivor. PR_dual = a state in the closed convex hull of Hom(A,2) (lattice homomorphisms) = Jauch–Piron 1963 representability renamed (stronger than Kochen–Specker valuations); three central statements false: Bub–Clifton D(ρ,R) need not be Boolean (Bub quant-ph/9910096); 'non-distributive ⟺ no joint distribution' refuted by the paper's own tree example; VDR_σ ⇒ PR_dual fails (MO₂, L(C²), tree). Referee estimate REJECT-LIKELY as written; PARK.**
+
+
 Two-pronged hostile audit (proof-correctness + cross-field prior-art), same method
 that retired the note and parked Paper I. **Overall: REVISE — the SURVIVOR. The
 central math is SOUND.** No fatal error, no retirement. Blocking fixes are

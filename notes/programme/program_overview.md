@@ -2,6 +2,16 @@
 
 ## STATE AS OF 2026-08-31 (read this first)
 
+### 2026-10-27 addendum (read first): audit recalibrated; two paper reversals
+
+- **/audit v2.1** calibrated against community verdicts (`notes/programme/audit_benchmark/`): programme bar unchanged,
+  plus a referee estimate; caps for unclear novelty / unread neighbour / uncredited owner (validated 6/6).
+- **Paper II REVERSED → PARKED.** PR_dual = Jauch–Piron (lattice-homomorphism) representability renamed; three central
+  claims false. `papers/paper_ii/PAPER_II_REVERSAL_CHECK.md`. No longer 'the survivor'.
+- **Paper I park stands; diagnosis corrected.** Not a σ-LS gap: per-level ≠ glued σ-additivity (counterexample:
+  eventually-zero sequences, fair coins). `papers/paper_i/notes/PAPER_I_REVERSAL_CHECK.md`.
+- Hidden-failure equivalence OWNED (Sullivant); kernel BORDERLINE pending Ovchinnikov read.
+
 ### 2026-10-21 addendum (read first)
 
 **Finite triangle classified (candidate theorem; prior art not found after two passes).**

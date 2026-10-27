@@ -84,8 +84,8 @@
    "id": "paper_ii",
    "name": "Paper II — EA/PR/VDR, van Fraassen-to-duality",
    "taxonomy": "papers/paper_ii/paper_ii_taxonomy.json",
-   "status": "REVISE (the SURVIVOR — strongest novelty zone)",
-   "one_line": "Indexes realism positions EA⊂PR⊂VDR by distributivity, bridging McDonald–Bimbó OML duality to van Fraassen. Type-6 bridge clears; crown jewel sound; 4 blocking citation/notation fixes before submission.",
+   "status": "PARKED 2026-10-27 (REVERSED: was 'the SURVIVOR')",
+   "one_line": "REVERSAL 2026-10-27 (v2.1 re-audit, independently CONFIRMED in papers/paper_ii/PAPER_II_REVERSAL_CHECK.md): NOT the survivor. PR_dual = a state in the closed convex hull of Hom(A,2) (lattice homomorphisms) = Jauch–Piron 1963 representability renamed (stronger than Kochen–Specker valuations); three central statements false: Bub–Clifton D(ρ,R) need not be Boolean (Bub quant-ph/9910096); 'non-distributive ⟺ no joint distribution' refuted by the paper's own tree example; VDR_σ ⇒ PR_dual fails (MO₂, L(C²), tree). Referee estimate REJECT-LIKELY as written; PARK. Prior: Indexes realism positions EA⊂PR⊂VDR by distributivity, bridging McDonald–Bimbó OML duality to van Fraassen. Type-6 bridge clears; crown jewel sound; 4 blocking citation/notation fixes before submission.",
    "entries": 19,
    "pruned": "none (excludes stale programme_reception/ meta — kept as standalone historical docs)"
   },

@@ -105,7 +105,9 @@ which window-graph shape lets them be pointless.
   three prior-art passes; not in the paper.
 - The OML/lattice and Φ forms are open.
 
-**Other papers.** Paper I is parked. Paper II is the survivor (Type-6).
+**Other papers.** Paper I is parked (diagnosis corrected 2026-10-27). Paper II was "the survivor" until
+2026-10-27: REVERSED, now PARKED (PR_dual = Jauch–Piron representability renamed; three central claims
+false; `papers/paper_ii/PAPER_II_REVERSAL_CHECK.md`).
 `papers/spine/` is reference-only.
 
 Zoom-out navigation: `notes/taxonomies_index.json` (load FIRST).
@@ -341,7 +343,7 @@ papers/
   sigma_essential/    ← Ψ witness paper (machine-checked; dissemination-ready)
   spine/              ← Corpus-level umbrella (reference-only)
   paper_i/            ← Synthesis (audited, parked)
-  paper_ii/           ← EA/PR/VDR vocabulary (the survivor, Type-6)
+  paper_ii/           ← EA/PR/VDR vocabulary (PARKED 2026-10-27; was the survivor)
   archive/            ← Withdrawn/canned/dead papers
 
 formalization/

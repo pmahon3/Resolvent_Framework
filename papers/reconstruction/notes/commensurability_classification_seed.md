@@ -1,5 +1,8 @@
 # Seed — Commensurability classification for dynamical protocols (EA/PR(𝓡))
 
+> **⚠ DEPENDENCY ALERT 2026-10-27:** Paper II was REVERSED → PARKED (`papers/paper_ii/PAPER_II_REVERSAL_CHECK.md`): PR_dual = Jauch–Piron (lattice-homomorphism) representability renamed; false: Bub–Clifton D Boolean, 'non-distributive ⟺ no joint distribution', VDR_σ ⇒ PR_dual. Anything below that relies on Paper II's ladder or these claims must be re-checked before it is used or cited. Definitions (EA ⊂ PR ⊂ VDR) may still be usable as labels; the theorems relating them are not.
+
+
 *2026-07-06. Captured from the design session
 (claude.ai/share/059e292f-97f0-4787-808e-c89a88dbced4, post-witness turns) by the
 verification session. **Division of labour declared by the user:** the design

@@ -1,5 +1,8 @@
 # spine (umbrella note) — status
 
+> **⚠ DEPENDENCY ALERT 2026-10-27:** Paper II was REVERSED → PARKED (`papers/paper_ii/PAPER_II_REVERSAL_CHECK.md`): PR_dual = Jauch–Piron (lattice-homomorphism) representability renamed; false: Bub–Clifton D Boolean, 'non-distributive ⟺ no joint distribution', VDR_σ ⇒ PR_dual. Anything below that relies on Paper II's ladder or these claims must be re-checked before it is used or cited. Definitions (EA ⊂ PR ⊂ VDR) may still be usable as labels; the theorems relating them are not.
+
+
 Created 2026-07-08. The corpus-level umbrella reading the trilogy (Paper II /
 distributivity&realism, sigma_essential, reconstruction) as one classification
 of "the price of realism", organised by Paper II's filtration

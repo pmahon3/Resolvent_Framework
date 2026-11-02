@@ -40,6 +40,10 @@
     "σ-Loomis–Sikorski gap",
     "fatal B2",
     "realization gap"
+   ],
+   "records": [
+    "papers/paper_i/notes/PAPER_I_REVERSAL_CHECK.md",
+    "papers/paper_i/notes/PAPER_I_REAUDIT_v21.md"
    ]
   },
   {
@@ -81,6 +85,10 @@
     "PR_dual",
     "no joint distribution",
     "Bub–Clifton"
+   ],
+   "records": [
+    "papers/paper_ii/PAPER_II_REVERSAL_CHECK.md",
+    "papers/paper_ii/PAPER_II_REAUDIT_v21.md"
    ]
   },
   {
@@ -140,6 +148,11 @@
     "MACHINE-CHECKED ZFC THEOREM",
     "ships first",
     "ZFC witness is machine-checked"
+   ],
+   "records": [
+    "papers/sigma_essential/SIGMA_ESSENTIAL_REVERSAL_CHECK.md",
+    "papers/sigma_essential/SIGMA_ESSENTIAL_REAUDIT_v21.md",
+    "papers/sigma_essential/KNOWN_ISSUES.md"
    ]
   },
   {
@@ -179,7 +192,79 @@
     "Admissible",
     "orthogonal famil"
    ],
-   "preregistered": "2026-11-02, labels taken ONLY from the brief's own wording, before reading the scoping inventory rows"
+   "preregistered": "2026-11-02, labels taken ONLY from the brief's own wording, before reading the scoping inventory rows",
+   "rests_on": [
+    "def.carrier_sigma_class"
+   ],
+   "records": [
+    "docs/join_choice_as_object_scoping.md"
+   ]
+  },
+  {
+   "id": "def.carrier_sigma_class",
+   "layer": 2,
+   "title": "Carriers are concrete σ-classes (Dynkin systems): closed under complement and countable disjoint union; orthogonal joins are unions",
+   "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialWitness.lean",
+   "grade": "lean",
+   "status": "active",
+   "labels": [
+    "σ-class",
+    "Dynkin system",
+    "sigma-class"
+   ],
+   "code_labels": [
+    "DynkinSystem",
+    "has_iUnion"
+   ],
+   "edge_provenance": "foundational definition node added 2026-11-02 (v1)"
+  },
+  {
+   "id": "paper.sigma_essential",
+   "layer": 2,
+   "title": "σ-essential paper",
+   "file": "papers/sigma_essential/sigma_essential_body.tex",
+   "grade": "hand-unverified",
+   "status": "not dissemination-ready",
+   "rests_on": [
+    "def.carrier_sigma_class"
+   ],
+   "edge_provenance": "v1 migration rule: each paper/spine/state doc rests on the carrier definition it adopts"
+  },
+  {
+   "id": "paper.spine",
+   "layer": 2,
+   "title": "Spine (corpus umbrella)",
+   "file": "papers/spine/spine_body.tex",
+   "grade": "hand-unverified",
+   "status": "reference-only",
+   "rests_on": [
+    "def.carrier_sigma_class"
+   ],
+   "edge_provenance": "v1 migration rule (KNOWN from the 2026-11-02 miss list; disclosed)"
+  },
+  {
+   "id": "state.frontier_map",
+   "layer": 1,
+   "title": "Frontier map (stale Aug 2026)",
+   "file": "notes/programme/frontier_map.md",
+   "grade": "hand-unverified",
+   "status": "stale",
+   "rests_on": [
+    "def.carrier_sigma_class"
+   ],
+   "edge_provenance": "v1 migration rule (KNOWN from the 2026-11-02 miss list; disclosed)"
+  },
+  {
+   "id": "state.program_overview",
+   "layer": 1,
+   "title": "Programme overview (authoritative state)",
+   "file": "notes/programme/program_overview.md",
+   "grade": "hand-verified",
+   "status": "active",
+   "rests_on": [
+    "def.carrier_sigma_class"
+   ],
+   "edge_provenance": "v1 migration rule"
   }
  ]
 }

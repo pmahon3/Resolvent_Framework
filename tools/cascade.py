@@ -20,7 +20,8 @@ import networkx as nx
 
 ROOT = Path(__file__).resolve().parent.parent
 DG = ROOT / "notes/programme/decision_graph.json"
-SEARCH_DIRS = ["notes", "papers", "docs", "formalization/QuerySystem/blueprint/src", "CLAUDE.md", "WHY.md"]
+SEARCH_DIRS = ["notes", "papers", "docs", "formalization/QuerySystem/blueprint/src",
+               "formalization/QuerySystem/QuerySystem", "CLAUDE.md", "WHY.md"]   # v1: Lean sources included
 GRADE = {"lean": 6, "hand-verified": 5, "hand-unverified": 4, "cited-read": 3,
          "cited-secondary": 2, "llm": 1, None: 0}
 LAYER_BY_KEY = {"theorems": 3, "conjectures": 3, "objects": 3, "examples": 4, "probes": 4,
@@ -119,24 +120,29 @@ def cmd_check(nodes):
     return err
 
 
-IGNORE = re.compile(r"(^notes/archive/|^archive/|\.py$|REVERSAL_CHECK|REAUDIT|KNOWN_ISSUES)")
+IGNORE = re.compile(r"(^notes/archive/|^archive/|\.py$)")   # v1: no global ignore of reversal records
 
 
-def grep_mentions(patterns):
-    """Undeclared mentions. Ignores archives, code, and the reversal records themselves
-    (in-sample tuning 2026-11-02: code hits like 'SURVIVOR' were noise)."""
-    hits = {}
+def grep_mentions(patterns, skip_files=(), lean_only=False):
+    """Undeclared mentions. v1: Lean sources searched; per-node `records` files skipped (the
+    reversal records OF this node), not all reversal records; returns {file: {(line, label)}} and
+    per-label file counts for specificity ranking."""
+    hits, per_label = {}, {}
+    dirs = ["formalization/QuerySystem/QuerySystem"] if lean_only else SEARCH_DIRS
     for p in patterns:
         if not p:
             continue
-        r = subprocess.run(["git", "grep", "-n", "-I", "-F", p, "--"] + SEARCH_DIRS, cwd=ROOT,
+        r = subprocess.run(["git", "grep", "-n", "-I", "-F", p, "--"] + dirs, cwd=ROOT,
                            capture_output=True, text=True)
+        files = set()
         for line in r.stdout.splitlines():
             f, ln = line.split(":", 2)[:2]
-            if IGNORE.search(f):
+            if IGNORE.search(f) or f in skip_files:
                 continue
             hits.setdefault(f, set()).add((int(ln), p))
-    return hits
+            files.add(f)
+        per_label[p] = len(files)
+    return hits, per_label
 
 
 def cmd_impact(nodes, target, cap=40):
@@ -165,13 +171,26 @@ def cmd_impact(nodes, target, cap=40):
         if b in affected:
             print(f"  INFORMS ({kind}, {date}): {a} was {kind} by an affected node -> re-prioritise")
     declared_files = {nodes[d]["_file"] for d in affected}
+    skip = set(nodes[target].get("records") or [])
     pats = [target.split(":")[-1]] + list(nodes[target].get("labels") or [])
-    hits = grep_mentions(pats)
+    hits, per_label = grep_mentions(pats, skip)
+    code_hits, code_per = grep_mentions(list(nodes[target].get("code_labels") or []), skip, lean_only=True)
+    for f, v in code_hits.items():
+        hits.setdefault(f, set()).update(v)
+    per_label.update(code_per)
     und = {f: v for f, v in hits.items() if f not in declared_files}
-    print(f"UNDECLARED mentions ({len(und)} files; add an edge or mark mentions_only):")
-    for f in sorted(und):
+    # v1 specificity: a file's score = best (smallest) file-count among the labels that hit it;
+    # labels matching more than BROAD files are marked broad and listed last.
+    BROAD = 25
+    def score(f):
+        return min(per_label.get(p, 999) for _, p in und[f])
+    print(f"UNDECLARED mentions ({len(und)} files; most specific first; add an edge or mark mentions_only):")
+    print("  label file-counts: " + ", ".join(f"{p}={n}{' (broad)' if n > BROAD else ''}"
+                                             for p, n in sorted(per_label.items(), key=lambda x: x[1])))
+    for f in sorted(und, key=lambda f: (score(f), f)):
         lines = sorted(und[f])
-        print(f"  {f}: " + ", ".join(f"{ln}[{p}]" for ln, p in lines[:8])
+        tag = " [broad-only]" if score(f) > BROAD else ""
+        print(f"  {f}{tag}: " + ", ".join(f"{ln}[{p}]" for ln, p in lines[:8])
               + (f" (+{len(lines) - 8})" if len(lines) > 8 else ""))
     return 0
 

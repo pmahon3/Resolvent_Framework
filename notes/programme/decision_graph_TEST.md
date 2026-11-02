@@ -56,3 +56,28 @@ Fixes to consider for v1 (each needs a fresh out-of-sample test, not this one): 
 drop reversal records only for the node they record, not globally; declared `rests_on` edges for
 foundational definitions (implicit commitments must be declared, since they cannot be grepped);
 rank grep hits by label specificity to cut noise.
+
+## 4. v1 fixes + DEVELOPMENT re-run on join-choice (2026-11-02; NOT out-of-sample — misses were known)
+
+Fixes: (1) Lean sources searched; (2) reversal records skipped only per node (`records`), not globally;
+(3) foundational-definition node `def.carrier_sigma_class` (labels + `code_labels` searched in Lean only)
+with declared `rests_on` from papers/spine/state docs — two of those edges (spine, frontier_map) were
+written KNOWING they were misses (disclosed in `edge_provenance`); (4) specificity ranking (label
+file-counts; labels hitting >25 files marked broad, listed last).
+
+Result vs the 12 inventory files (union of `impact def.join_equals_union` and `impact def.carrier_sigma_class`):
+- 11/12 covered (SigmaEssentialWitness.lean is the carrier node's own declared file).
+- Remaining miss: KernelClosureCalculus.lean — it never names the carrier; it inherits it through Lean
+  imports. A general v2 mechanism would be the Lean import graph (modules importing the carrier's module
+  rest on it), not another label.
+- Ranking: carrier run puts frontier_map, sigma_essential_body, spine_body, program_overview in the top 5
+  (declared edges); the join run's label grep is still noisy (72 files; inventory items at ranks 4–72).
+Reading: declared edges carry implicit commitments; label grep remains a broad worklist.
+
+## 5. Next out-of-sample test (pre-registered; tool FROZEN at the commit that adds this section)
+
+Case: the next real change that triggers propagation — first candidate, the dilation-question flag
+(D affirmative for two-valued states on σ-orthocomplete OMPs) if its independent check CONFIRMS a change.
+Protocol: the propagation is done by hand first (independent agent, file:line list) WITHOUT the tool;
+then `impact` on the changed node with v1 as frozen here; same adoption rule as §2 (ADOPT if every
+manual file found + ≥1 relevant missed; PAUSE if any manual file missed; DROP if no gain over grep).

@@ -9,10 +9,10 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 132,
+  "count": 134,
   "basis_counts": {
-   "abstract": 43,
-   "read": 56,
+   "abstract": 44,
+   "read": 57,
    "memory": 8
   }
  },
@@ -47,7 +47,8 @@
   "dynamics": "Dynamics and invariant states.",
   "operational_boundary": "Statistics side (archived operational boundary).",
   "philosophy_perspectives": "Perspectives, relational facts, relations vs relata (structural realism, perspectival realism, RQM, Wigner's friend).",
-  "audit_benchmark": "Evaluating LLM/auditor judgments of novelty and correctness (peer-review reliability, planted errors, contamination)."
+  "audit_benchmark": "Evaluating LLM/auditor judgments of novelty and correctness (peer-review reliability, planted errors, contamination).",
+  "research_process_graph": "Prior art for a research-decision dependency graph (justification/influence edges, retraction cascades). Programme: docs/research_decision_graph_prior_art.md."
  },
  "by_question": {
   "additivity_of_sums": [
@@ -3052,6 +3053,42 @@
     "notes/open_questions/cyclic_marginal/entry_audits/G4_countable_witness.md"
    ],
    "read_note": "full text read 2026-10-27"
+  },
+  {
+   "file": "dekleer_1986_assumption_based_tms.pdf",
+   "citation": "de Kleer, 'An assumption-based TMS', Artificial Intelligence 28 (1986) 127-162",
+   "what_it_proves": "ATMS: nodes labelled with minimal consistent sets of assumptions (environments); nogood sets; context switching free, retraction avoided; Sec. 3 lists Doyle-TMS limitations (single state, well-founded-support cost, unouting).",
+   "summary_basis": "read",
+   "verdict_for_us": "lens",
+   "programme_links": [
+    "docs/research_decision_graph_prior_art.md"
+   ],
+   "questions": [
+    "research_process_graph"
+   ],
+   "text_layer": true,
+   "pages": "36",
+   "read_trail": [
+    "docs/research_decision_graph_prior_art.md"
+   ]
+  },
+  {
+   "file": "clark_ciccarese_goble_2014_micropublications.pdf",
+   "citation": "Clark, Ciccarese & Goble, 'Micropublications: a semantic model for claims, evidence, arguments and annotations in biomedical communications', J Biomed Semantics 5:28 (2014), arXiv:1305.3506",
+   "what_it_proves": "Claim/evidence/argument model with typed supports and challenges (Toulmin rebuttal, Dung attack), minimal to maximal forms; attribution on every statement.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "lens",
+   "programme_links": [
+    "docs/research_decision_graph_prior_art.md"
+   ],
+   "questions": [
+    "research_process_graph"
+   ],
+   "text_layer": true,
+   "pages": "49",
+   "read_trail": [
+    "docs/research_decision_graph_prior_art.md"
+   ]
   }
  ]
 }

@@ -265,6 +265,24 @@
     "def.carrier_sigma_class"
    ],
    "edge_provenance": "v1 migration rule"
+  },
+  {
+   "id": "claim.dilation_question_open",
+   "layer": 3,
+   "title": "The dilation question D (does a two-valued state dilate / extend as posed in dilation_question_scoping.md) is open; checkpoint D-DIL-1",
+   "file": "docs/dilation_question_scoping.md",
+   "grade": "hand-unverified",
+   "status": "open (flagged 2026-11-02 as possibly trivially affirmative)",
+   "labels": [
+    "dilation question",
+    "D-DIL-1",
+    "question D",
+    "dilation"
+   ],
+   "records": [
+    "docs/dilation_question_scoping.md"
+   ],
+   "preregistered": "2026-11-02, before the independent check and before the manual propagation inventory; labels from doc/ledger names only"
   }
  ]
 }

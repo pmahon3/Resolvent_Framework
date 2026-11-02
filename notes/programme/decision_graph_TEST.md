@@ -30,3 +30,29 @@ The misses are NOT yet fixed (deliberately: fixing them is a separate, reviewed 
 - Adoption rule (pre-registered): ADOPT if `impact def.join_equals_union` surfaces every inventory
   file (file-level) plus ≥1 relevant file the inventory missed; PAUSE if it misses any inventory file;
   DROP if it adds nothing beyond a plain grep of the same labels.
+
+## 3. Out-of-sample result (2026-11-02, tool frozen at 1b708d5; no changes made after)
+
+`impact def.join_equals_union` surfaced 56 files. The scoping inventory (Q1, 23 rows) names 12 files.
+
+- Surfaced: 3/12 (program_overview.md, regularity_sigma_additivity_pullback.md, sigma_essential_body.tex).
+- **Missed: 9/12.** Causes:
+  1. Search scope: the Lean sources (`formalization/QuerySystem/QuerySystem/*.lean`: Admissibility,
+     ConcreteOMLBlocks, KernelClosureCalculus, SigmaEssentialLocalization, SigmaEssentialOpenCore,
+     SigmaEssentialWitness) are not in SEARCH_DIRS (only the blueprint is). 6 misses.
+  2. In-sample tuning backfired: the ignore list drops `*REVERSAL_CHECK*`, which removed
+     PAPER_I_REVERSAL_CHECK.md, a genuine inventory row. 1 miss.
+  3. Implicit commitment: frontier_map.md and spine_body.tex commit to join = union without using
+     the brief's words; no label grep can find an *implicit* commitment. 2 misses.
+- Extra: ~53 files beyond the inventory, mostly broad label hits ("⋁", "Admissible"); not assessed
+  for relevance.
+
+**Pre-registered verdict: PAUSE** (misses inventory files). Not adopted as-is.
+
+What this says: the tool is a good worklist for EXPLICIT assertions (in-sample: 100% recall, and it
+found real manual misses), but it cannot find implicit commitments, which is exactly what the join-choice
+question was about. The scoping read remains necessary; the tool complements it.
+Fixes to consider for v1 (each needs a fresh out-of-sample test, not this one): include Lean sources;
+drop reversal records only for the node they record, not globally; declared `rests_on` edges for
+foundational definitions (implicit commitments must be declared, since they cannot be grepped);
+rank grep hits by label specificity to cut noise.

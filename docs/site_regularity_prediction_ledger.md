@@ -556,3 +556,8 @@ conflict.
 
 **Evidence grade.** Read-only greps with file:line, plus hand arguments. No Lean or .tex
 changes.
+
+
+## D-DIL-1 update (2026-11-02)
+
+Status → **PARTIALLY ANSWERED; GENERAL OPEN; checkpoint dissolved.** Two-valued case trivially affirmative (Q = 2 × P, likely folklore); Navara's 𝓛_ℕ checkpoint not open (all states dilate, ⟦HAND⟧ formula μ(E_f)); open only outside the weak*-closed convex hull of two-valued states or for non-σ-orthocomplete P. Evidence: `docs/dilation_question_CHECK.md` (independent check); propagation list `docs/dilation_propagation_MANUAL.md`. Earlier lines (8–10, 256, 273–282, 544–549) stand as history.

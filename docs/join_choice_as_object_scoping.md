@@ -1,5 +1,7 @@
 # Join choice as object: scoping pass
 
+> **UPDATE 2026-11-02 (dilation check CONFIRMED, `docs/dilation_question_CHECK.md`):** D is trivially affirmative for two-valued states on σ-orthocomplete posets (Q = 2 × P; likely folklore, not claimed); D-DIL-1's checkpoint (Navara's 𝓛_ℕ) is NOT open — every state there dilates ⟦HAND⟧; D remains open only outside the weak*-closed convex hull of two-valued states or for non-σ-orthocomplete P. Status: PARTIALLY ANSWERED; GENERAL OPEN; checkpoint dissolved. Line-level list: `docs/dilation_propagation_MANUAL.md`.
+
 *2026-11-02. Read-and-report. reviewed: false. Branch `join-choice-scoping`, from `main` at
 a41cf31. No .tex, Lean or definition file was changed. Hand arguments are flagged ⟦HAND⟧.
 Ledger entry: `site_regularity_prediction_ledger.md`, Entry JC-OBJ-1.*

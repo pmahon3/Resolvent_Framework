@@ -81,3 +81,31 @@ Case: the next real change that triggers propagation — first candidate, the di
 Protocol: the propagation is done by hand first (independent agent, file:line list) WITHOUT the tool;
 then `impact` on the changed node with v1 as frozen here; same adoption rule as §2 (ADOPT if every
 manual file found + ≥1 relevant missed; PAUSE if any manual file missed; DROP if no gain over grep).
+
+## 6. Out-of-sample result for v1 (2026-11-02): the dilation-question change
+
+Ground truth: `docs/dilation_propagation_MANUAL.md` (independent agent, tool not used; 14 MUST-UPDATE hits
+in 3 files; SHOULD-NOTE in 6 files). Tool: v1 frozen at 84d46d2 (verified unchanged); node pre-registered
+at 931d5f1 before the check and before the manual inventory.
+
+| Manual file (class) | Tool |
+|---|---|
+| docs/site_regularity_prediction_ledger.md (MUST) | found (l.242, 277, 285, 523, 547, 549; manual also has l.8–10, 256, 544 — summary rows without the labels) |
+| docs/join_choice_as_object_scoping.md (MUST) | found |
+| docs/dilation_question_scoping.md (MUST) | node's own file (declared) |
+| docs/regularity_sigma_additivity_pullback.md (SHOULD) | found |
+| docs/state_of_play_2026-08.md (SHOULD) | found |
+| notes/literature_review/literature/SHELF_INDEX.json, Navara entry (SHOULD) | **missed** (mentions Navara's 𝓛_ℕ, not the labels) |
+
+Extras: the change record itself (CHECK doc) and the tool's own data files (self-reference noise). No
+relevant file beyond the manual inventory.
+
+**Pre-registered verdict: PAUSE** (one manual file missed; and no relevant file found beyond the manual
+pass). File-level recall 5/6 (all MUST-UPDATE files found); line-level recall partial.
+
+Reading across §1–§6: with no declared edges, the tool is exactly a label grep — useful as a quick
+worklist, no gain over grep. Its added value appeared only where edges were declared (implicit
+commitments, §4). Recommendation (for the user): do not adopt as a propagation authority; keep
+(a) the manual independent inventory as the propagation step, (b) `decision_graph.json` only for
+foundational definitions and strategic decisions whose dependents are implicit, and (c) `cascade.py
+check` for justification cycles and dangling references (it found a real dangling id).

@@ -1,0 +1,185 @@
+{
+ "$meta": {
+  "purpose": "Nodes that do not live in a *_taxonomy.json: aims/stance (layer 0-1), papers and verdicts (layer 2-3), strategic decisions. Read by tools/cascade.py. Edges: rests_on (justification, acyclic), rests_on_any (OR-groups), informs (dated influence). Statuses are advisory; cascade.py never writes them.",
+  "layers": "0 WHY | 1 aims/stance | 2 theories, papers, strategic decisions | 3 claims | 4 probes/gates | 5 evidence",
+  "created": "2026-11-02 (in-sample back-fill: the three 2026-10-27 reversals)"
+ },
+ "nodes": [
+  {
+   "id": "why.question",
+   "layer": 0,
+   "title": "When do local views add up to one world?",
+   "file": "WHY.md",
+   "grade": "hand-verified",
+   "status": "active"
+  },
+  {
+   "id": "aim.theory_first",
+   "layer": 1,
+   "title": "Build new theory; problems are probes",
+   "file": "CLAUDE.md",
+   "grade": "hand-verified",
+   "status": "active",
+   "informs": [
+    {
+     "to": "why.question",
+     "date": "2026-10-16",
+     "kind": "motivates"
+    }
+   ]
+  },
+  {
+   "id": "claim.paper_i_diagnosis",
+   "layer": 3,
+   "title": "Paper I fatal error = sigma-Loomis-Sikorski realization gap (B2)",
+   "file": "papers/paper_i/notes/PAPER_I_AUDIT_VERDICT.md",
+   "grade": "llm",
+   "status": "REVERSED 2026-10-27",
+   "labels": [
+    "σ-LS realization gap",
+    "σ-Loomis–Sikorski gap",
+    "fatal B2",
+    "realization gap"
+   ]
+  },
+  {
+   "id": "paper.paper_i_park",
+   "layer": 2,
+   "title": "Paper I parked",
+   "file": "papers/paper_i/notes/PAPER_I_AUDIT_VERDICT.md",
+   "grade": "hand-verified",
+   "status": "active",
+   "rests_on_any": [
+    [
+     "claim.paper_i_diagnosis"
+    ],
+    [
+     "claim.paper_i_folklore"
+    ]
+   ]
+  },
+  {
+   "id": "claim.paper_i_folklore",
+   "layer": 3,
+   "title": "Paper I contribution is folklore",
+   "file": "papers/paper_i/notes/PAPER_I_AUDIT_VERDICT.md",
+   "grade": "cited-read",
+   "status": "active"
+  },
+  {
+   "id": "claim.paper_ii_type6",
+   "layer": 3,
+   "title": "Paper II clears Type 6 (the survivor)",
+   "file": "papers/paper_ii/PAPER_II_AUDIT_VERDICT.md",
+   "grade": "llm",
+   "status": "REVERSED 2026-10-27",
+   "labels": [
+    "the survivor",
+    "SURVIVOR",
+    "Type 6 CLEARS",
+    "Type-6 bar CLEARS",
+    "PR_dual",
+    "no joint distribution",
+    "Bub–Clifton"
+   ]
+  },
+  {
+   "id": "decision.paper_ii_submit",
+   "layer": 2,
+   "title": "Paper II submission (BJPS draft)",
+   "file": "papers/paper_ii/PAPER_II_AUDIT_VERDICT.md",
+   "grade": "hand-unverified",
+   "status": "superseded",
+   "rests_on": [
+    "claim.paper_ii_type6"
+   ]
+  },
+  {
+   "id": "spine.filtration_reading",
+   "layer": 2,
+   "title": "Spine reads the corpus by Paper II's filtration",
+   "file": "papers/spine/notes/STATUS.md",
+   "grade": "hand-unverified",
+   "status": "active",
+   "rests_on": [
+    "claim.paper_ii_type6"
+   ]
+  },
+  {
+   "id": "reconstruction.commensurability_seed",
+   "layer": 3,
+   "title": "Commensurability = EA => PR (Paper II ladder)",
+   "file": "papers/reconstruction/notes/commensurability_classification_seed.md",
+   "grade": "hand-unverified",
+   "status": "active",
+   "rests_on": [
+    "claim.paper_ii_type6"
+   ]
+  },
+  {
+   "id": "calibration.type4_paper_ii",
+   "layer": 1,
+   "title": "Paper II calibrates a Type 4 / Type 6 pass",
+   "file": "notes/programme/contribution_evaluation.md",
+   "grade": "hand-unverified",
+   "status": "active",
+   "rests_on": [
+    "claim.paper_ii_type6"
+   ]
+  },
+  {
+   "id": "claim.sigma_psi_type1",
+   "layer": 3,
+   "title": "sigma-essential witness (Psi) is a new theorem (Type 1 PASS)",
+   "file": "papers/sigma_essential/witness_candidate/VERIFICATION_VERDICT.md",
+   "grade": "lean",
+   "status": "REVERSED 2026-10-27 (statement routine; irreducible form UNCLEAR)",
+   "labels": [
+    "dissemination-ready",
+    "psi_ZFC",
+    "MACHINE-CHECKED ZFC THEOREM",
+    "ships first",
+    "ZFC witness is machine-checked"
+   ]
+  },
+  {
+   "id": "decision.sigma_ships_first",
+   "layer": 2,
+   "title": "sigma-essential paper ships first and alone",
+   "file": "notes/programme/frontier_map.md",
+   "grade": "hand-unverified",
+   "status": "active",
+   "rests_on": [
+    "claim.sigma_psi_type1"
+   ]
+  },
+  {
+   "id": "blueprint.orthomodular_line",
+   "layer": 2,
+   "title": "Blueprint front matter: psi_ZFC is the theorem of the orthomodular line",
+   "file": "formalization/QuerySystem/blueprint/src/content.tex",
+   "grade": "lean",
+   "status": "active",
+   "rests_on": [
+    "claim.sigma_psi_type1"
+   ]
+  },
+  {
+   "id": "def.join_equals_union",
+   "layer": 3,
+   "title": "Countable joins of orthogonal families computed in the logic coincide with unions in the set representation (the corpus's implicit join choice)",
+   "file": "docs/join_choice_as_object_scoping.md",
+   "grade": "hand-unverified",
+   "status": "under scoping (out-of-sample test node)",
+   "labels": [
+    "join = union",
+    "⋁",
+    "Lemma R",
+    "collective exhaustion",
+    "Admissible",
+    "orthogonal famil"
+   ],
+   "preregistered": "2026-11-02, labels taken ONLY from the brief's own wording, before reading the scoping inventory rows"
+  }
+ ]
+}

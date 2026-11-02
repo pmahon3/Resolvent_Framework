@@ -504,3 +504,55 @@ retracted.
 **Evidence grade.** Direct restriction proof, checked against
 `FinitelyCoherent`, `IsMaxBlock`, `overlapMeasurableSpace`, and
 `BoundaryDescent`; no Lean changes.
+
+## Entry JC-OBJ-1 — join choice as object
+
+*Registered 2026-11-02 by the join-choice scoping brief (Patrick). reviewed: false.
+Detail: [join_choice_as_object_scoping.md](join_choice_as_object_scoping.md).*
+
+**Claim under test.** Making the choice between the abstract countable join (⋁xₙ) and the
+set join (⋃xₙ) the object of study (logic, representation, relation) yields mathematics,
+not taxonomy.
+
+**Falsifier named in advance (Patrick).** "The reframing is taxonomy only" is refuted iff
+some nontrivial statement quantified over choices of representation exists and is not a
+restatement of Lemma R (Entry R-SA-1).
+
+**Bins added during the pass** (after hand exploration began, so not a clean
+pre-registration). A candidate is substantively empty if it is: trivial isomorphism or
+σ-regular transfer; Lemma R or Fremlin restated; the parked question D (Entry D-DIL-1);
+the standard representation by two-valued states; or an existing corpus theorem restated.
+
+**Premise check.** **MISATTRIBUTED.** Join = union for orthogonal families holds, but it
+comes from the carrier type (`DynkinSystem` / σ-class: a disjoint union in the family is
+its least upper bound). It does not come from `Admissible`, which has no join content
+(`Admissibility.lean:82–83`). Within σ-classes the space of choices is a single point.
+
+**Outcome.** **FALSIFIER FIRES BY THE LETTER; EMPTY IN SUBSTANCE.** Statements quantified
+over representations exist and are not Lemma R. ⟦HAND⟧:
+
+- Every representation is a pullback of the two-valued state representation φ_St, and its
+  gaps are π⁻¹ of the non-σ-additive states.
+- A representation is a σ-class iff it is gap-free iff its points are σ-additive.
+- s₀ is σ-essential iff it has a point in φ_St but in no σ-class representation.
+- Thm 5.13 is equivalent to L₁ having a unique σ-class representation up to point-inflation.
+- Gap mass s(g) = m(⋁) − Σm(xₙ) is an invariant of m alone (Lemma R).
+- D for two-valued states on any σ-orthocomplete OMP P is trivially affirmative:
+  φ(a) = (m(a), a) into 2 × P, with s the first projection.
+
+All of these fall into the bins above. No new open statement is specific to the framing.
+The only non-folklore question nearby, D for non-two-valued states, stays parked as
+ADJACENT.
+
+Flag, ⟦HAND — unverified⟧: D-DIL-1's named checkpoint (Navara's 𝓛_ℕ) appears to be
+trivially affirmative. Every state there factors through f ↦ E_f into 𝒫(M); see the
+scoping doc, Q4. D-DIL-1 is not edited here. It needs an independent check.
+
+**Status.** **CLOSED — FRAMING-ONLY.** No change to the σ-essential paper.
+"Ships first and alone" is stale: it survives only in the spine, its STATUS note,
+shovel_plan and frontier_map, all superseded by the program_overview 2026-10-27 addendum
+and KNOWN_ISSUES. The paper is not dissemination-ready on its own fix list, so there is no
+conflict.
+
+**Evidence grade.** Read-only greps with file:line, plus hand arguments. No Lean or .tex
+changes.

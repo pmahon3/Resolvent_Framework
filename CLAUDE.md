@@ -105,7 +105,9 @@ which window-graph shape lets them be pointless.
   UNCLEAR; measurable-cardinal remarks false; not dissemination-ready
   (`papers/sigma_essential/SIGMA_ESSENTIAL_REVERSAL_CHECK.md`).
 - A countable witness on every ring L ≥ 4 is Lean-checked; no owner found after
-  three prior-art passes; not in the paper.
+  four passes (entry-level NOVEL 2026-10-27); not in the paper. **Active lead:** branch
+  `countable-ring-witness`, seed `notes/open_questions/cyclic_marginal/countable_ring_witness/SEED.md`
+  (Gate 1: does the cheap Binder–Navara route go countable?).
 - The OML/lattice and Φ forms are open.
 
 **Other papers.** Paper I is parked (diagnosis corrected 2026-10-27). Paper II was "the survivor" until
@@ -202,6 +204,21 @@ Broader lens, not broader standard. Each type has a concrete bar.
 - **Sharpen honestly.** Refining an open question is not a way to keep
   a dead one alive. Both guardrail conditions must hold (see lifecycle).
 - **Verify LLM proofs independently.** Lean or manual check only.
+- **Verify reversals before propagating them (adopted 2026-10-27).** When an audit
+  overturns a recorded verdict, first run an independent check (a fresh agent,
+  hostile to both sides, quoting the exact statements) and write it to
+  `*_REVERSAL_CHECK.md`. Only when it is CONFIRMED, update every place that asserts
+  the old verdict: CLAUDE.md, the dated addendum in `program_overview.md`, the
+  collection taxonomy and `taxonomies_index.json` row, a banner on the old verdict
+  file, dependent docs (grep for the claims themselves, not just the label), and
+  memory. Never edit the paper text itself for a reversal; list fixes in
+  `KNOWN_ISSUES.md`.
+- **Library access.** The user's SFU library session works in the browser
+  (Claude in Chrome): proxy hosts such as `link-springer-com.proxy.lib.sfu.ca`,
+  `onlinelibrary-wiley-com.proxy.lib.sfu.ca`; AMS back issues are free. Save PDFs
+  through the browser, then shelve and index them. Never enter credentials, never
+  spoof a user agent, never complete a CAPTCHA (ScienceDirect shows one: ask the
+  user to download).
 - **Search the shelf before the web.** `notes/literature_review/literature/`
   holds the PDF library. Its tracked index is
   `notes/literature_review/literature/SHELF_INDEX.json` (citation, what it
@@ -232,7 +249,24 @@ contribution type bars.
 | `/audit full [target]` | All contribution types evaluated against per-type bars |
 
 The skill runs in a forked context (opus, with web search) so
-audit results don't flood the main conversation.
+audit results don't flood the main conversation. It has
+`disable-model-invocation: true`: run it as an opus Agent given the skill text.
+
+**v2.1 (calibrated 2026-10-26/27 against community verdicts; live).** Every audit
+reports two things: the **programme bar** (unchanged, deliberately strict) and a
+**referee estimate** (ACCEPT-LIKELY / BORDERLINE / REJECT-LIKELY + venue class),
+which counts new theorems, better proofs within a field, frameworks that yield a
+new statement, and exposition that adds organisation or reach. Caps: novelty
+UNCLEAR ⇒ at most BORDERLINE; ACCEPT-LIKELY on a new theorem or proof needs the
+nearest prior work read beyond abstract; an uncredited owner in print ⇒
+REJECT-LIKELY. A BORDERLINE produced only by a cap means "read the named source
+first", not "weak". Taxonomy entries get the entry-level mode (pure + Types 3/4,
+no referee estimate; NOVEL needs the nearest neighbour read past abstract).
+`.claude/` is gitignored: the tracked copy of the skill is
+`notes/programme/audit_benchmark/AUDIT_SKILL_tracked_copy.md` (keep them identical).
+Calibration data and method: `notes/programme/audit_benchmark/` (blind sandboxes,
+"as-of" submission dates, dev/test split; results in
+`calibration_v2_2026-10-26/RESULTS.md`).
 
 ## Custom agents (`.claude/agents/`)
 
@@ -247,7 +281,9 @@ Six specialized agents for non-audit advisory and review:
 | `lean-reviewer` | "Debug Lean, find Mathlib APIs." | Phase 5 |
 | `repo-hygiene` | "Orphans, stale refs, structural issues." | Periodic / after reorg |
 
-Each agent has its own system prompt with detailed instructions.
+Each agent has its own system prompt with detailed instructions. If a custom
+agent type is not available in a session, run a `general-purpose` agent with the
+role brief (and the agent file's text) instead.
 
 Run `repo-hygiene` periodically (after major reorganizations,
 before commits that touch many files, or when the repo feels

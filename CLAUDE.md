@@ -213,6 +213,14 @@ Broader lens, not broader standard. Each type has a concrete bar.
   file, dependent docs (grep for the claims themselves, not just the label), and
   memory. Never edit the paper text itself for a reversal; list fixes in
   `KNOWN_ISSUES.md`.
+  **Propagation step (adopted 2026-11-04):** the list of places to update comes from a
+  fresh agent's manual inventory (file:line, MUST-UPDATE / SHOULD-NOTE / MENTION-ONLY,
+  searching synonyms and the mathematics, not only labels). `tools/cascade.py impact`
+  is NOT the authority: tested twice out-of-sample, it equals a label grep unless edges
+  are declared (`notes/programme/decision_graph_TEST.md`). Keep
+  `notes/programme/decision_graph.json` only for foundational definitions and strategic
+  decisions whose dependents are implicit, and run `tools/cascade.py check` as a lint
+  (justification cycles, dangling ids).
 - **Library access.** The user's SFU library session works in the browser
   (Claude in Chrome): proxy hosts such as `link-springer-com.proxy.lib.sfu.ca`,
   `onlinelibrary-wiley-com.proxy.lib.sfu.ca`; AMS back issues are free. Save PDFs

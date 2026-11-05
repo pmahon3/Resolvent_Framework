@@ -96,6 +96,14 @@
    "status": "OPEN - theory in construction. 2026-10-21: FINITE TRIANGLE CLASSIFIED (candidate): hides a probabilistic twist iff not compressed (sorted r2>=4, r3>=3); three kinds of twist (gauge/order/relational); relations+relata pair-local (proved); infinite two-valued side: triangle pointless (Lean)",
    "one_line": "Which finitely additive two-valued states on carriers glued from window events are points, ideal points, or pointless - and which window-graph invariant decides it. The seam: cycle x infinity, where neither sheaf contextuality (sigma-additive) nor charge theory (Boolean) reaches. Note: notes/open_questions/cyclic_marginal/pointless_coherence.tex.",
    "entries": 113
+  },
+  {
+   "id": "views_across_records",
+   "name": "Views across records (theory-shaped collection)",
+   "taxonomy": "notes/open_questions/cyclic_marginal/views_across_records_taxonomy.json",
+   "status": "OPEN 2026-11-05. Underlying question S0 (eps* budget across separate records; math largely OWNED: DKC 2020, Capotorti-Vantaggi, Vorob'ev) + streams S1 ecology multi-method loop (ACTIVE, ecology use NOT FOUND), S2 time series/embeddings across campaigns (ACTIVE, spectral loop/closure phase; scout pending), S3 neuro (RESTED).",
+   "one_line": "Can views from separate records (methods, campaigns, sites) be merged into one world within an externally fixed budget eps? Content only when records close a loop.",
+   "entries": 30
   }
  ],
  "not_yet_taxonomized": {
@@ -107,5 +115,5 @@
    "notes/archive/programme_reception_2026-05/* — reception of a withdrawn programme arc (archived 2026-07-10)"
   ]
  },
- "updated": "2026-10-21"
+ "updated": "2026-11-05"
 }

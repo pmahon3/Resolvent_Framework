@@ -1,0 +1,220 @@
+{
+ "$meta": {
+  "name": "Views across records (theory-shaped collection)",
+  "created": "2026-11-05",
+  "reviewed": false,
+  "the_question": "When can views recorded in SEPARATE records (methods, campaigns, sites, times) be merged into one world, allowing each record to deviate by a budget eps fixed in advance from outside the data (biology, instrument specs)? Simultaneous views always glue; the question has content only when the context hypergraph of records has a loop.",
+  "streams": {
+   "S0_underlying": "eps*(data) = least per-record deviation admitting one common joint; acyclic vs cyclic context hypergraphs; finite-sample tests under dependence.",
+   "S1_ecology_multimethod": "Binary presence, >=3 survey methods whose species sets overlap round a loop (camera/eDNA/transect). ACTIVE (user's favourite domain). Next = find a dataset with that loop design.",
+   "S2_time_series_embeddings": "Multiple time series from separate campaigns: linear/Gaussian = PSD of assembled cross-spectral matrix per frequency (loop phase = closure phase); nonlinear = one attractor across separately recorded multivariate embeddings (Deyle-Sugihara, multiview). ACTIVE: scout running 2026-11-05.",
+   "S3_neuro": "Seizure EEG (CHB-MIT chb01). RESTED 2026-11-05: both gates null/redundant; simultaneous record so eps*=0 by construction except via chosen delays."
+  },
+  "files": [
+   "heterogeneity_threshold.md",
+   "ecology_test_design_sketch.md",
+   "ecology_contextuality_prior_art.md",
+   "ecology_contextuality_prior_art_DEEP.md",
+   "ecology_owner_scout.md",
+   "ecology_owner_scout_DEEP.md",
+   "spectral_loop_scout.md (pending)",
+   "../neuro_critical/"
+  ]
+ },
+ "objects": [
+  {
+   "id": "O-records",
+   "name": "Records as contexts",
+   "def": "Each record k observes a variable set S_k jointly and yields a law P_k on S_k. The records' S_k form the context hypergraph.",
+   "stream": "S0"
+  },
+  {
+   "id": "O-epsstar",
+   "name": "Heterogeneity budget eps*",
+   "def": "eps* = min over joint Q of max_k TV(Q|S_k, P_k) (an LP). Compared against eps_cal fixed in advance.",
+   "stream": "S0"
+  },
+  {
+   "id": "O-loopphase",
+   "name": "Loop (closure) phase",
+   "def": "Phi(w) = phi_AB(w)+phi_BC(w)+phi_CA(w) from pairwise cross-spectra of separate campaigns.",
+   "stream": "S2"
+  }
+ ],
+ "theorems": [
+  {
+   "id": "T-simultaneous",
+   "statement": "Views computed from one simultaneous record always glue (eps* = 0): the record's empirical law is a common joint.",
+   "status": "hand-verified (trivial); confirmed in data (eps_sim = 0 in every window, chb01)",
+   "stream": "S0",
+   "scope": "any"
+  },
+  {
+   "id": "T-acyclic",
+   "statement": "Acyclic context hypergraph: pairwise-consistent margins always admit a joint. Hence two-dataset integration has no model-free test.",
+   "status": "owned",
+   "owned_by": "Vorob'ev 1962; Beeri-Fagin-Maier-Yannakakis 1983",
+   "stream": "S0"
+  },
+  {
+   "id": "T-VL",
+   "statement": "Binary L-cycle: eps* = V/L, V = max violation of the cycle inequalities on disagreement rates.",
+   "status": "lower bound hand-proved (ours); upper bound OWNED (Dzhafarov-Kujala-Cervantes 2020 Thm 15 + eq 56, p->inf), reversal check pending",
+   "uses": [
+    "T-V3"
+   ],
+   "stream": "S0",
+   "files": [
+    "heterogeneity_threshold.md"
+   ]
+  },
+  {
+   "id": "T-V3",
+   "statement": "Binary triangle: eps* = V/3, sup 1/3.",
+   "status": "hand-proved + LP-checked; special case of DKC 2020",
+   "stream": "S0"
+  },
+  {
+   "id": "T-gauss-sign",
+   "statement": "Sign-binarised jointly Gaussian pairs: triangle eps* > 0 iff the 3x3 correlation matrix [cos theta] is not PSD (Sheppard d = theta/pi + spherical triangle inequalities).",
+   "status": "hand (unverified in Lean)",
+   "stream": "S0/S3"
+  },
+  {
+   "id": "T-spectral-loop",
+   "statement": "Gaussian stationary, equal coherences c, loop phase Phi: one joint process iff cos Phi >= (3c^2-1)/(2c^3) (c=0.8 -> 26 deg; c=0.95 -> 5.3 deg; c<=0.5 always).",
+   "status": "hand + numerically checked 2026-11-05; likely owned (PD completion / closure phase) - scout pending",
+   "stream": "S2"
+  },
+  {
+   "id": "T-gauge",
+   "statement": "Per-instrument time offsets s_i shift phi_ij by w(s_i - s_j) and cancel in the loop phase: the test is invariant to per-instrument delays.",
+   "status": "hand (elementary); same as interferometric closure phase (Jennison 1958)",
+   "stream": "S2"
+  }
+ ],
+ "conjectures": [
+  {
+   "id": "Q-ecology",
+   "statement": "Real multi-method survey data with a loop design either sit inside a biology-calibrated eps ball (expected) or reveal a missed detection/disturbance channel.",
+   "status": "open; NOT FOUND in ecology (Goldstein et al. 2026 call model-free concordance tests future work)",
+   "stream": "S1"
+  },
+  {
+   "id": "Q-spectral",
+   "statement": "Separately recorded environmental time series closing a loop can fail the per-frequency PSD test beyond sampling error.",
+   "status": "open; scout running",
+   "stream": "S2"
+  },
+  {
+   "id": "Q-attractor",
+   "statement": "Nonlinear version: is there a usable test that separately recorded multivariate delay embeddings are charts of one attractor (beyond pairwise CCM)?",
+   "status": "open, unscoped",
+   "stream": "S2"
+  },
+  {
+   "id": "Q-finite-sample",
+   "statement": "A finite-sample eps*-test valid for autocorrelated / spatially dependent data.",
+   "status": "open; Berrett-Samworth assumes iid",
+   "stream": "S0"
+  }
+ ],
+ "probes": [
+  {
+   "id": "P-synthetic",
+   "file": "../neuro_critical/SYNTHETIC_GATE.md",
+   "outcome": "REDUNDANT (2026-11-04)",
+   "affects": [
+    "Q-finite-sample"
+   ],
+   "stream": "S3"
+  },
+  {
+   "id": "P-delay-chb01",
+   "file": "../neuro_critical/DELAY_GATE.md",
+   "outcome": "REDUNDANT/NULL (2026-11-04)",
+   "stream": "S3"
+  },
+  {
+   "id": "P-eig-chb01",
+   "file": "../neuro_critical/EIG_GATE.md",
+   "outcome": "ICTAL-ONLY by letter, redundant; 'global non-gluing' WITHDRAWN (interlacing + random-lag null)",
+   "stream": "S3"
+  },
+  {
+   "id": "P-spectral-scout",
+   "file": "spectral_loop_scout.md",
+   "outcome": "pending",
+   "affects": [
+    "Q-spectral",
+    "Q-attractor",
+    "T-spectral-loop"
+   ],
+   "stream": "S2"
+  }
+ ],
+ "examples": [
+  {
+   "id": "E-ring4",
+   "text": "Four friends, 3 pairs always agree, 1 always disagrees: eps* = 1/4 (move d to (1/4,1/4,1/4,3/4)).",
+   "scope": "binary 4-cycle"
+  },
+  {
+   "id": "E-pond",
+   "text": "Frogs-herons (camera), herons-fish (eDNA), fish-frogs (transect): triangle test by hand from three disagreement rates.",
+   "scope": "binary triangle"
+  },
+  {
+   "id": "E-rivers",
+   "text": "Three rivers, three campaigns, coherence 0.8 each: loop phase must be within 26 deg.",
+   "scope": "Gaussian stationary"
+  },
+  {
+   "id": "E-committees",
+   "text": "3x4x4 hidden twist: eps* = 1/27 (hidden twists fragile).",
+   "scope": "LP"
+  }
+ ],
+ "owned_regions": [
+  {
+   "id": "R-cbd",
+   "region": "cyclic systems, contextuality measures (L1/Lp distance to noncontextual polytope)",
+   "owned_by": "Dzhafarov-Kujala-Cervantes 2020 (shelf)"
+  },
+  {
+   "id": "R-coherence",
+   "region": "jointly incoherent separate sources; distance-minimising correction",
+   "owned_by": "Capotorti-Vantaggi 2011 (shelf)"
+  },
+  {
+   "id": "R-acyclic",
+   "region": "local consistency implies global iff acyclic",
+   "owned_by": "Vorob'ev 1962; Beeri-Fagin-Maier-Yannakakis 1983"
+  },
+  {
+   "id": "R-test",
+   "region": "finite-sample joint-existence test (iid)",
+   "owned_by": "Berrett-Samworth 2023"
+  },
+  {
+   "id": "R-measdep",
+   "region": "setting-dependent hidden-variable distributions (heterogeneity as explanation)",
+   "owned_by": "Hall 2010/2011 (unread, from memory)"
+  },
+  {
+   "id": "R-ecology-model",
+   "region": "model-based concordance in integrated SDMs / occupancy",
+   "owned_by": "Goldstein-Doser-Pease-Pacifici 2026; Tenan 2017; Nichols 2008"
+  },
+  {
+   "id": "R-closure",
+   "region": "closure phase as delay-gauge invariant",
+   "owned_by": "Jennison 1958 (interferometry)"
+  },
+  {
+   "id": "R-pdcompletion",
+   "region": "PSD completion on graphs (chordal)",
+   "owned_by": "Grone-Johnson-Sa-Wolkowicz 1984 (pending scout)"
+  }
+ ]
+}

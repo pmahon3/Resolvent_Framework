@@ -1,0 +1,39 @@
+# Synchrony dataset scout (for the NSI-triangle test)
+
+reviewed: false. 2026-11-05.
+
+Scope: standard web search only (about 12 queries) plus 3 page fetches. Items marked [unverified] come from memory or a snippet, not a fetched page. The shelf and taxonomy greps found no earlier dataset scout.
+
+## Ranked table
+| # | Dataset | Sites x years | Expected synchrony | Dispersal? | Contested cause? | Access (exact) | Notes |
+|---|---|---|---|---|---|---|---|
+| 1 | Larch budmoth defoliation, Swiss/Alpine (Bjørnstad et al. 2002) | 135 sites x 38 yr (1961-1998) | High within about 100 km, travelling wave | Yes (adult moth) | Yes: wave versus Moran | R package `ncf` (CRAN), `data(lbm)`. Docs: https://search.r-project.org/CRAN/refmans/ncf/html/lbm.html. No Dryad/Zenodo record found. Licence: GPL package [unverified] | VERIFIED dims. Only 38 yr. Cycle is about 8-9 yr, so about 4 cycles. Wave means lagged phase, so a zero-lag binarised test is weak by design. Use the lag follow-up. |
+| 2 | MASTREE+ (Hacket-Pain et al. 2022, GCB 28:3066) | 5971 series, 974 spp; 1122 series >= 20 yr, 187 >= 40 yr | Very high within species (beech, oak, spruce) | Pollen/seed (pollen coupling) | Yes: Moran (weather cue, NAO, solstice) versus pollen coupling | CSV; GitHub https://github.com/JJFoest/MASTREEplus; Dryad https://doi.org/10.5061/dryad.18931zd02; Shiny https://mastreeplus.shinyapps.io/mastreeplus/. CC-BY-4.0 (quoted from the paper). No login | VERIFIED hosting. Annual resolution. Pick populations with >= 40 yr by species and region. Many series are short and gappy. |
+| 3 | Spongy (gypsy) moth defoliation, NE USA | 20 km pixels; annual aerial maps 1975-2010 (also in `epimdr2::gypsymoth`, 1975-2002) | High at 4-5 and 9-10 yr cycles | Yes (larval ballooning, human spread) | Yes (Moran, dispersal, predators) | Package `epimdr2` (CRAN). Atlas/portal: https://www.uvm.edu/femc/data/foresthealthatlas (downloads claimed). Dryad deposit NOT found | Defoliation is aerial-sketch-map, a coarse proxy with an ordinal flavour. Many triples are possible. 28-36 yr. |
+| 4 | Canadian lynx, HBC fur returns by region (Elton-Nicholson 1942; Stenseth et al. 1998 PNAS) | 11 regions x about 120 yr (1820-1940) | High (the classic Moran case) | Yes (lynx mobile) | Yes (hare trophic versus climate) | NOT FOUND open. PMC28059 gives only fitted SETAR parameters (Table 1) and a plot. Raw counts are in Elton & Nicholson 1942 J Anim Ecol (scanned). Only MacKenzie River is in R (`lynx`). | Best length and best history, but the data-recovery cost is high. Fur returns are trapper effort, not abundance, and are aggregated by HBC district. Digitising the tables is a possibility. |
+| 5 | Rothamsted Insect Survey (moth+aphid catch totals) | UK traps, 1969-2016 | Moderate-high (aphids, weather) | Aerial | Partly | CC BY 4.0: https://repository.rothamsted.ac.uk/item/975qz . Per site-year totals summed over ALL species | The open version is totals over species, not species series. Species-level needs a data-steward email. Sheppard 2016 synchrony data unconfirmed. |
+| 6 | UK Butterfly Monitoring Scheme site indices | hundreds of sites, 1976- | Moderate-high | Yes | Partly | EIDC/UKCEH under OGL; some records need a click-through that requires offering co-authorship; request form https://ukbms.org/data-request-form | Licence varies by record, so check each. |
+| 7 | Finnish/Fennoscandian vole series | regional predator-nestling proxies and trapping, about 1960s- | High | Weak (voles) | Yes (predators/climate versus dispersal) | No open deposit found | Not directly downloadable as far as I could see. |
+| 8 | ITRDB tree rings, NABBS, GPDD, RAM, CPR [unverified] | various | Very high for tree rings | Not applicable (rings), none for rings | No (climate is known) | Mostly open (NOAA, USGS, GPDD) | Tree rings make a positive control, since the driver is known. BBS has 50 yr x thousands of routes, but the counts are noisy observer counts. Not scouted in depth. |
+
+## Top-3 prior art (Gisin/NSI/triplet test on these data)
+The searches below found no test of "synchrony requires a common ancestor" with a causal-compatibility, triangle or NSI inequality, or with any triplet statistic, on any of the three datasets. Verdict for all three: **NOT FOUND** (search-limited, about 6 queries, no citing-paper traversal).
+
+- **Larch budmoth.** The nearest work is Bjørnstad et al. 2002 (Science 298:1020), which gives a wave with an Alpine centre, and Johnson, Bjørnstad & Liebhold 2004 (landscape effects). I did not retrieve their text. The method is lagged correlation/phase mapping, i.e. pairwise [unverified]. **Verdict: NOT FOUND.**
+- **MASTREE+.** The nearest work is Maringer et al. 2017 (NAO as a common cue), Journé et al. 2024 (summer solstice as a common cue, per search snippet), and a bioRxiv preprint that notes "not clear whether synchrony is due to environmental variability or pollen coupling" (snippet). All are regression or climate-correlation tests. **Verdict: NOT FOUND**, and the cause is openly stated as unresolved, which is good for the test.
+- **Spongy moth.** The nearest work is Liebhold et al. 2004, Johnson et al. 2006 and Bjørnstad et al. 2010 (Ecology 91:106, spatial coupling in a model), all analysed for cycles and synchrony per a book-chapter snippet. **Verdict: NOT FOUND.**
+- **General methods.** The generic pairwise/regression toolbox is owned (Moran effect, partial Mantel/nonparametric covariance functions: Gouveia-Bjørnstad-Tkadlec; wavelet Moran theorem; Castorani et al. 2022). A search for "triangle inequality / Gisin / causal compatibility + spatial synchrony" returned nothing relevant. This agrees with `cyclic_marginal/seam_A_scout.md` row (e).
+
+## Most informative triples or regions
+1. **MASTREE+ beech (Fagus sylvatica), three well-separated European regions (e.g. UK/Poland/Italy), >= 40 yr.** A violation says the three share a common ancestor, namely weather, a cue, or pollen-coupling history. This does not choose between them. Combine with a lagged-response test.
+2. **MASTREE+ pairs in different species** (the control that mimics the lake zooplankton design): same region, different species should share the weather but not the pollen, so a pollen-only story predicts no violation.
+3. **Larch budmoth: three sites on a line of travel** versus three sites at equal distance from the centre. Equal-distance triples are the better case for a simultaneous common driver.
+4. **Spongy moth: three pixels across the 4-5 yr (xeric) and 9-10 yr (mesic) regimes.** Compare a within-regime triple (shared) with a cross-regime triple (should not violate).
+
+## Risks (measurement common causes)
+- **Median binarisation of a cyclic series** gives E near 1 for any shared phase. The bound is then weak for a cycle that is just a clock. Detrend or compare with the surrogate that keeps each series' autocorrelation (block bootstrap as in the lake gate).
+- **Aggregation:** HBC districts (shared trapping season/company), aerial survey (one observer team per state per year), UKBMS (shared protocol and weather-dependent counting), Rothamsted totals (shared trap design). A common measurement process is itself a common ancestor of all three and gives a "violation" with no ecological driver.
+- **Spatial interpolation:** `lbm` is a gridded, possibly smoothed product [unverified]. Smoothing manufactures triple correlations. Check how the 135 sites were built before using it.
+- **Short n:** 38 years with an 8-9 yr cycle gives only 4 cycles, so effective n is small. The lake gate needed a moving block bootstrap with n of about 44.
+- **MASTREE+ heterogeneity:** series were compiled from different observers and methods (counts, indices, litter traps). Use one method per triple.
+- **Outcome ambiguity:** a violation means a common ancestor exists, not which one. Dispersal history is excluded only via the lag test.

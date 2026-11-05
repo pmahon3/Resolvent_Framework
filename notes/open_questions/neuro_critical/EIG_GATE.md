@@ -31,10 +31,10 @@ was 0.06–0.36, with chb01_21 at 0.64 because its baseline contains the seizure
 The ICTAL-ONLY rule did not require beating baselines. g ties |xcorr0| ictally and loses to variance (7/7), and
 corr(g, |xcorr0|) = 0.34–0.64. As a seizure detector it is redundant.
 
-## Descriptive (not gated): where the non-gluing lives
+## Descriptive (not gated): where the non-gluing lives — ⚠ WITHDRAWN 2026-11-04, see "Correction" below
 - Windowed (10 s): when the 7×7 matrix is non-PSD, usually **no 3×3 principal submatrix is**. "Full non-PSD, every
-  triangle PSD" holds in 5–46% of windows, against 1–19% for any triangle failing. This explains DELAY_GATE's
-  null: the triangle test looked in the wrong place.
+  triangle PSD" holds in 5–46% of windows, against 1–19% for any triangle failing. [WITHDRAWN: forced by Cauchy interlacing,
+  so it carries no information.]
 - Long windows, over the whole period: every 3×3 submatrix is PSD in every period of every recording, with min
   λ_min(3×3) ≥ +0.012. The full 7×7 λ_min:
 
@@ -70,3 +70,19 @@ minutes 0–10 (for 21, only windows ending ≥ 60 s before onset).
 - Honest status: an anecdote from one patient. It is not shown to beat |xcorr0| or variance, and this "null" is a
   baseline distribution, not a surrogate. Descriptive scripts: `verification/neuro_eig_desc_{where,longwin,samelen_null}.py` (args: path to `neuro_eig_delay_chbmit.py`, data dir); they use
   `neuro_eig_delay_chbmit.py`'s `wcorr`/`shift` and `dg.shifted` helpers.
+
+## Correction (2026-11-04, same session): the "global non-gluing" reading is withdrawn
+- **Cauchy interlacing.** λ_min of a symmetric matrix is ≤ λ_min of every principal submatrix. So "7×7 non-PSD while every
+  3×3 is PSD" is what any perturbation produces first. It is not a structural finding, and does not explain DELAY_GATE's null.
+- **Random-lag null** (`verification/neuro_eig_desc_randomlag.py`). Replace the estimated lags with lags shuffled among pairs,
+  random sign, antisymmetric, 20 draws. The ictal long-window λ_min still drops below baseline in most draws (fraction
+  0.50–1.00 per seizure), often further than with the estimated lags (e.g. 04: −0.206 random against −0.046 estimated).
+  The zero-lag λ_min also drops ictally in 6/7 seizures (all but 26), from 0.05–0.15 to 0.05–0.10.
+- **Reading.** The zero-lag matrices are near singular: bipolar montage plus volume conduction. Ictal synchrony makes them
+  more collinear, so *any* lags tip them negative. The ictal λ_min drop is the |xcorr0|/collinearity effect again. It is not
+  evidence of anatomical delay holonomy failing to glue.
+- Also: the same-length baseline null is in-sample (minutes 0–10 also fitted the delays), while ictal is out-of-sample. And every
+  "glue" statement here is in the Gaussian sense: for binary data the relevant set is the cut polytope, not the PSD cone.
+- **Net for the neuro thread (chb01):** neither gate, nor the descriptives, shows delay-aligned views failing to glue beyond
+  what collinearity and arbitrary lags produce. The honest next probe would compare the estimated lags against random lags
+  as the null, on low-collinearity data (referential or intracranial montages). It is not run.

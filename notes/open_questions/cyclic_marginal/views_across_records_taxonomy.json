@@ -98,6 +98,15 @@
    "statement": "With a common clock, a loop's closure phase at a deterministic seasonal frequency equals the sum of visible single-variable phase differences across records: it carries no invisible information. Closure phase is informative only for records without a common clock.",
    "status": "hand (elementary), 2026-11-05",
    "stream": "S2"
+  },
+  {
+   "id": "T-thinning",
+   "statement": "No false positives + independent per-species detection + each shared species reported at equal rates across methods => reports admit one classical world (eps* = 0); any true world, any hypergraph.",
+   "status": "hand (elementary) + LP-checked instance, 2026-11-05",
+   "stream": "S1",
+   "files": [
+    "../views_across_records/DETECTION_FAKES.md"
+   ]
   }
  ],
  "conjectures": [
@@ -124,6 +133,12 @@
    "statement": "A finite-sample eps*-test valid for autocorrelated / spatially dependent data.",
    "status": "open; Berrett-Samworth assumes iid",
    "stream": "S0"
+  },
+  {
+   "id": "Q-detection-seam",
+   "statement": "A detection-aware gluing test (identify each method's channel from repeat visits, as in occupancy models, invert it, then test eps*) is not covered by occupancy models (assume one world) or by CbD (visible check only guards thinning).",
+   "status": "candidate seam 2026-11-05; prior-art check owed",
+   "stream": "S1"
   }
  ],
  "probes": [
@@ -199,6 +214,16 @@
    "id": "E-committees",
    "text": "3x4x4 hidden twist: eps* = 1/27 (hidden twists fragile).",
    "scope": "LP"
+  },
+  {
+   "id": "E-fake-dependence",
+   "text": "Equal detection rates, but detection positively coupled in two methods and anti-coupled in the third: eps* = 1/6 with consistent margins.",
+   "scope": "binary triangle, LP"
+  },
+  {
+   "id": "E-fake-falsepos",
+   "text": "One method with p = f = 1/2 matches the perfect methods' rates but reports noise: eps* = 1/6 with consistent margins.",
+   "scope": "binary triangle, LP"
   }
  ],
  "owned_regions": [

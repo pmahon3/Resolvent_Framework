@@ -44,3 +44,19 @@ the linear bound). Step 3: P(V_G > 0) high both with and without ΔT; the placeb
 V_G is model-free, so a **secondary model-free inference** is added: moving-block bootstrap of V_G (b = 3, no wrap, 2000 resamples; lower
 bound > 0). Reductions for compute: 2000 posterior draws (not 20 000). The placebo uses the point V_G of the residual correlation matrix per
 permutation (200 permutations), compared with the real-ΔT point V_G.
+
+## Step 3 result (2026-11-05): Poland, 10 sites jointly, 53 years (1951–2019). Script `verification/gaussian_poland.py` (57 s)
+| | point V_G | posterior P(V_G > 0) (2.5%) | bootstrap 5% lower bound |
+|---|---|---|---|
+| detrended, no cue | **+4.95** | 1.000 (+4.25) | +4.32 |
+| detrended + own ΔT | **+4.46** | 1.000 (+3.65) | +3.82 |
+
+- The sites' correlation loads reach ~6 against a pairwise budget of 1. Under ANY pairwise-only mechanism (step-2 theorem), that is
+  impossible. **A common cause of ≥ 3 sites is required, overwhelmingly**, by both the model-free bootstrap and the Gaussian posterior.
+- **The cue is special (placebo now passes):** the real ΔT lowers V_G by 0.50. 200 time-permuted placebos lower it by a median of 0.003, and
+  none lowers it as far (p < 0.005). Unlike the median-split statistic (audit V2), the continuous V_G is not moved by a meaningless regressor.
+- **But the cue accounts for only a small part:** V_G stays at +4.46 (bootstrap lower bound +3.82) after linear adjustment for ΔT. A large
+  common cause remains that ΔT, entered linearly, does not explain. Candidates: other weather channels (spring frost, drought, the
+  nonlinear/threshold form of the ΔT cue), shared history, and the shared monitoring protocol (one study). Linear adjustment cannot rule
+  out a nonlinear ΔT effect (audit V2 caveat).
+- Prediction ("P(V_G > 0) high with and without ΔT; the placebo shows whether ΔT is special") held. ΔT is special, but small.

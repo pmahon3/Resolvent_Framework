@@ -132,6 +132,12 @@
    "statement": "With a continuous candidate cue, 'the cue is the ONLY common cause' is not testable model-free at small n: coarse strata leave within-stratum cue variation (still common, so violations can persist under H0); fine strata leave too few years. Existence of a common cause is model-free; attribution needs an assumption (e.g. additive cue effect) or much more data.",
    "status": "hand (reasoning), 2026-11-05; prompted by audit V2",
    "stream": "S1"
+  },
+  {
+   "id": "T-covariance-pairwise",
+   "statement": "For ANY pairwise-only world (independent pair-sources, arbitrary site responses, local noise), the Pearson correlation matrix is pairwise-feasible: exists t_ij>0 with r_ij^2 <= t_ij t_ji and sum_j t_ij <= 1 for all i. V_G = min_w max_i sum_j t_ij - 1 <= 0. Three equal correlations: r <= 1/2.",
+   "status": "hand proof (Hoeffding/Efron-Stein + Cauchy-Schwarz), numerically confirmed on 8 nonlinear worlds; very likely OWNED as pairwise case of Kela-von Prillwitz-Aberg-Chaves-Gross semidefinite tests (unread)",
+   "stream": "S0/S1"
   }
  ],
  "conjectures": [
@@ -284,6 +290,15 @@
    "id": "P-mast-S2",
    "file": "../views_across_records/MAST_S2_GATE.md",
    "outcome": "2026-11-05: Poland within-study 40/120 Holm-significant (40/84 with n>=60) after detrending: widespread common cause (weather/history/protocol inseparable); cross-study far 0/421 at n~30 (weak null)",
+   "affects": [
+    "Q-synchrony-compat"
+   ],
+   "stream": "S1"
+  },
+  {
+   "id": "P-gaussian-poland",
+   "file": "../views_across_records/GAUSSIAN_PAIRWISE_MODEL.md",
+   "outcome": "2026-11-05: Poland 10 sites, n=53: V_G = +4.95 detrended (bootstrap lb +4.32), +4.46 after own dT (lb +3.82); dT special vs 200 placebos (drop 0.50 vs 0.003, p<0.005) but small: large residual common cause remains (other weather / nonlinear cue / history / protocol)",
    "affects": [
     "Q-synchrony-compat"
    ],

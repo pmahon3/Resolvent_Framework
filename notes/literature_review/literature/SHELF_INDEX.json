@@ -9,7 +9,7 @@
    "read_trail": "non-archive repo files mentioning the file stem or first-author surname (auto; surname matches can be noisy)"
   },
   "maintenance": "Every PDF saved to the shelf gets an entry in the same commit. Seed tool: notes/literature_review/tools/shelf_index_seed.py.",
-  "count": 137,
+  "count": 145,
   "basis_counts": {
    "abstract": 44,
    "read": 57,
@@ -154,7 +154,11 @@
    "dzhafarov_zhang_kujala_2016_behavioral_social_contextuality.pdf",
    "abramsky_barbosa_mansfield_2017_contextual_fraction.pdf",
    "elkouss_wehner_2016_optimal_p_values_bell.pdf",
-   "cervantes_dzhafarov_2018_true_contextuality_decision.pdf"
+   "cervantes_dzhafarov_2018_true_contextuality_decision.pdf",
+   "berrett_samworth_2023_compatibility_marginals_MCAR.pdf",
+   "wolfe_spekkens_fritz_2019_inflation_technique.pdf",
+   "evans_2012_graphical_inequality_constraints_mDAGs.pdf",
+   "wood_spekkens_2015_causal_discovery_bell_finetuning.pdf"
   ],
   "delay_embedding": [
    "botvinick_greenhouse_2025.pdf"
@@ -3230,6 +3234,70 @@
    "pages": "",
    "read_trail": [
     "notes/open_questions/cyclic_marginal/ecology_contextuality_prior_art.md"
+   ]
+  },
+  {
+   "file": "berrett_samworth_2023_compatibility_marginals_MCAR.pdf",
+   "citation": "Berrett & Samworth, 'Optimal nonparametric testing of Missing Completely At Random, and its connections to compatibility', arXiv:2205.08627 (2022)",
+   "what_it_proves": "Finite-sample-valid test of H0: a family of overlapping discrete marginals has a joint (Fraechet class nonempty), via Kellerer duality + LP; consistent against all incompatible alternatives; R package MCARtest. Assumes independent samples from ONE distribution per marginal.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_prior_art_DEEP.md"
+   ]
+  },
+  {
+   "file": "wolfe_spekkens_fritz_2019_inflation_technique.pdf",
+   "citation": "Wolfe, Spekkens & Fritz, 'The Inflation Technique for Causal Inference with Latent Variables', J. Causal Inference 7 (2019), arXiv:1609.00672",
+   "what_it_proves": "Inflation technique: necessary compatibility inequalities for causal structures with latent variables; recovers Bell inequalities and Pearl's instrumental inequality; treats population-level distributions (no sampling theory).",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_prior_art_DEEP.md"
+   ]
+  },
+  {
+   "file": "evans_2012_graphical_inequality_constraints_mDAGs.pdf",
+   "citation": "Evans, 'Graphical methods for inequality constraints in marginalized DAGs', arXiv:1209.2978 (2012)",
+   "what_it_proves": "Graphical criterion for when a latent-variable DAG model implies inequality constraints on the observed distribution; generalizes Pearl's instrumental inequality; notes it is exact for binary IV, insufficient for 3-state instrument (Bonet 2001).",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_prior_art_DEEP.md"
+   ]
+  },
+  {
+   "file": "wood_spekkens_2015_causal_discovery_bell_finetuning.pdf",
+   "citation": "Wood & Spekkens, 'The lesson of causal discovery algorithms for quantum correlations', New J. Phys. 17 (2015) 033002, arXiv:1208.4119",
+   "what_it_proves": "Bell violations cannot be causally explained without fine-tuning; explicitly works at population-distribution level and sets aside finite-sample inference of independences.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_prior_art_DEEP.md"
    ]
   }
  ]

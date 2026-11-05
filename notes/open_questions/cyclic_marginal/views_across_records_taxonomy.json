@@ -144,7 +144,8 @@
    "id": "Q-centre-vs-relations",
    "statement": "When views cohere, is the coherence held by a centre (common driver) or by local relations (interactions, no centre)? Snapshot views never decide: whenever any world fits, a pairwise max-entropy world (relations only) also fits, and for Gaussian data with equal pairwise correlations both stories give the same law. Deciding needs the driver measured, time order (propagation lags), distance/connectivity structure, or intervention.",
    "status": "owned empirically as spatial synchrony: Moran effect vs dispersal; reasoning hand, 2026-11-05",
-   "stream": "S0/S1"
+   "stream": "S0/S1",
+   "update_2026-11-05": "Owned map: centre_vs_relations_owned_map.md. Owners: Steudel-Ay (I_c>0 forces a common ancestor of >c variables; X=Y=Z needs a centre), triangle-network theory (Fritz 2012; Wolfe-Spekkens-Fritz inflation; Navascues-Wolfe; Rosset-Gisin-Wolfe: classical triangle set closed semialgebraic; Renou et al.), Gacs-Korner/Wyner common information, Angluin 1980 (coverings block leader election). Hand observation (unverified): relations-as-INTERACTIONS (pairwise MRF closure) reach perfect consensus X=Y=Z, relations-as-SOURCES (triangle) cannot - the two notions of 'no centre' split on the boundary. Seams: (A) triangle vs pairwise-MRF on binary alphabets incl. boundary; (B) finitely additive / Omega-free version (Markov-category work assumes standard Borel); (C) time order vs snapshot on loops (cyclic SCMs)."
   }
  ],
  "probes": [

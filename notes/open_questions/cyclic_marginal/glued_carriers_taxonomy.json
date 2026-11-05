@@ -523,7 +523,8 @@
     "region": "answers-first stance itself",
     "verified": "sec",
     "detail": "../../covered_leads/probability_before_realism_owned.md"
-   }
+   },
+   "update_2026-11-05": "Owned map: omega_free_owned_map.md. van den Berg-Heunen (Prop 8, Cor 10): the free Boolean cover (colimit) exists for any glued family; two-valued states = its Stone points. So at the two-valued level an Omega is always DERIVED (possibly empty/collapsing): no Omega-free pointless two-valued structure. Live residues: S1 sigma-complete colimit + sigma-additivity (= cycle x infinity); S2 states vs convex hull of two-valued states (finite side ~ Cabello-Severini-Winter); S3 injectivity of the cover map (low novelty prior)."
   },
   {
    "id": "conj.helly_transfer_bfmy",

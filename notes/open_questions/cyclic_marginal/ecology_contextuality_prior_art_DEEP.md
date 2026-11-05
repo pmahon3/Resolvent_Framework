@@ -99,3 +99,14 @@ differing populations (hidden idealisation: that the context did not change what
   = ε = 1 is the vacuous end. Likely owned in substance: ε*(P) is a distance to the marginal polytope, close
   to Berrett–Samworth's incompatibility statistic (metric to be checked); the contextual fraction is a different
   (mixture-weight) measure. The heterogeneity-budget reading tied to a biologically calibrated ε is the lens.
+
+### Theorem (2026-11-04) ⟦HAND; LP-checked on 6000 margin-consistent families, 1413 violating, max error 1.9e-16⟧
+For margin-consistent binary triangle families, ε*(P) = V/3, where V is the largest violation of the four
+metric inequalities on the disagreement probabilities d (three triangle inequalities and d_AB+d_BC+d_CA ≤ 2;
+with fixed marginals these plus the Fréchet ranges cut out the compatible set, CUT(K4) = MET(K4), Deza–Laurent).
+Hence sup ε* = 1/3, attained by the parity contradiction.
+Proof sketch: (≥) TV ≤ ε moves each d by ≤ ε, each inequality by ≤ 3ε. (≤) at most one inequality is violated
+(two would force a negative d or d > 1); switching reduces the perimeter case to a triangle case; move the three
+d's by V/3 along the facet normal — feasible within the Fréchet ranges and violating no other inequality
+(checked case by case); with fixed marginals TV = |Δd|. Likely folklore in substance (distance to a polytope with
+±1 facets); not claimed.

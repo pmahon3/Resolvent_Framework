@@ -41,3 +41,20 @@ for _ in range(4000):
     e=eps_star(fam)
     if e>best: best=e; arg=(m.round(2),rs.round(2))
 print("max eps* over 4000 margin-consistent families =",round(best,4),arg)
+
+# Theorem check: eps* = V/3 for margin-consistent families, V = max facet violation of the
+# metric inequalities on d (disagreement probabilities).
+def dis(t): return t[(0,1)]+t[(1,0)]
+def V_of(fam):
+    dab,dbc,dca=[dis(t) for t in fam]
+    f=[dca-dab-dbc, dab-dbc-dca, dbc-dab-dca, dab+dbc+dca-2]
+    return max(0,max(f))
+worst=0; n=0
+for trial in range(6000):
+    m=rng.uniform(0,1,3)
+    # bias towards extremes to stress the Frechet boundary
+    rs=rng.choice([0.0,1.0],3) if trial%3==0 else rng.uniform(0,1,3)
+    fam=[pair_table(m[0],m[1],rs[0]),pair_table(m[1],m[2],rs[1]),pair_table(m[2],m[0],rs[2])]
+    e=eps_star(fam); v=V_of(fam)/3
+    worst=max(worst,abs(e-v)); n+=v>1e-9
+print(f"max |eps* - V/3| over 6000 consistent families = {worst:.2e}  (violating families: {n})")

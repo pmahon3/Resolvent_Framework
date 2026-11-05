@@ -24,3 +24,19 @@ its own independent driver and nothing is shared by all three, under any physics
 - **Control passes** if temperature violates in ≥ 6/10 triples. If it fails, the test is too weak at n ≈ 40 and the zooplankton results are uninterpretable.
 - **Zooplankton:** report violations per group. A violation in an isolated-lake triple = evidence of a regional driver of interannual abundance (Moran).
 - Prediction (in advance): the control passes (shared weather, E ≈ 0.8+). Zooplankton shows 0–2 violations per group (weak interannual synchrony).
+
+## Result (2026-11-05): control PASSES 10/10; zooplankton 0/10 for every group (prediction held)
+Script `verification/synchrony_ceiling_gate.py` (n = 44–45 years per triple).
+- **Temperature:** E = 0.73–0.91 in every pair. V = +1.14 to +1.48, bootstrap lower bounds +0.33 to +0.75, all 10 triples significant after Holm.
+  Summer temperature synchrony across these lakes **cannot come from pairwise drivers under any physics**. A common
+  ancestor of all three is required: regional weather, as expected.
+- **Zooplankton (summer mean log density):** Daphnia E = −0.27…0.20 (V ≤ −0.52); copepods E = 0.09…0.47 (V ≤ −0.19);
+  rotifers E = 0.0…0.64 (one point estimate V = +0.17 for CR-SP-TR, lower bound −0.29). **0 violations in every group.**
+- Reading: the instrument works (the control is clear at n ≈ 45). The regional driver that synchronises temperature does not
+  propagate into synchronised interannual zooplankton abundance strongly enough to force a common cause. That matches what
+  limnologists call low "temporal coherence" of biological variables (Magnuson, Kratz et al., NTL lakes; Rusak et al. 1999,
+  from memory, unread), which the bound now gives a causal reading.
+- **Design rule:** with median splits and symmetric pairs, the bound bites only when pairwise synchrony E > √2 − 1 ≈ 0.41
+  (agreement > 70%). Below that, the triangle (pairwise drivers) can always explain the data.
+- What is new is only the reading: "above the ceiling ⇒ a common ancestor of all three, under any physics". The bound
+  (Gisin et al. 2020) and the phenomenon (temporal coherence) are both owned.

@@ -170,7 +170,7 @@
   {
    "id": "Q-synchrony-compat",
    "statement": "Apply network causal-compatibility tests (Steudel-Ay, inflation) to ecological synchrony data to test whether observed synchrony requires a common ancestor beyond pairwise drivers; then lag structure to separate regional driver from dispersal history.",
-   "status": "open; not found in ecology (2 searches, abstract level, 2026-11-05); Steudel-Ay has no empirical application found",
+   "status": "open; not found in ecology (2 searches, abstract level, 2026-11-05); Steudel-Ay has no empirical application found; 2026-11-05 first application on NTL lakes (control passes, zooplankton null). Next: dispersal-connected sites with E > 0.41 plus lag structure.",
    "stream": "S1"
   }
  ],
@@ -223,6 +223,15 @@
    "outcome": "TOOTHLESS by rule (2026-11-05; eps_split median 0, max 0.049 vs null 95th 0.0275). Descriptive: 5/60 designs beyond null max, ALL using Allequash's sat-T pair: loop singles out the lake with different coupling",
    "affects": [
     "Q-ecology"
+   ],
+   "stream": "S1"
+  },
+  {
+   "id": "P-synchrony-ceiling",
+   "file": "../views_across_records/SYNCHRONY_CEILING_GATE.md",
+   "outcome": "2026-11-05: temperature control 10/10 violations (common ancestor required: regional weather); zooplankton 0/10 per group (Daphnia, copepods, rotifers). Instrument validated; biology below ceiling (matches known low temporal coherence). Bound bites only for pairwise E > sqrt2-1.",
+   "affects": [
+    "Q-synchrony-compat"
    ],
    "stream": "S1"
   }

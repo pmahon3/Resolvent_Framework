@@ -43,3 +43,27 @@ Tenan 2017 consistency (fetched full HTML); NMA inconsistency loop Bucher node-s
 5. Plard-Turek-Schaub IPM review and Schaub-Abadi 2011 IPM: unconditional model-checking.
 6. Statistical matching in official statistics: papers using Frechet bounds to test incompatibility of two files (Conti, Marella, Scanu; "uncertainty in statistical matching"), possibly with an eps relaxation (coherence/de Finetti line: Capotorti-Vantaggi). Cross-field owner risk for (a), not ecology.
 7. Imprecise-probability "avoiding sure loss" / coherence checks in applied use.
+
+## Addendum 2026-11-05: top-risk sources read (SFU proxy, browser)
+- **Goldstein, Doser, Pease & Pacifici 2026, J Anim Ecol, doi:10.1111/1365-2656.70210 [full text, main body; appendices B/C unread].**
+  It is NOT an owner. The "a priori" concordance tests are ad hoc summaries: correlations of counts, cross-regression
+  slopes, separate GLMs on a covariate. The "a posteriori" tests are posterior predictive checks, cross-validation, and
+  joint-vs-single parameter comparison. All of them assume one shared process model (type (i)), and none reliably
+  separates concordant from discordant data.
+  - Key stance (theirs): concordance "is not meaningful outside of the context of a particular joint model".
+  - Their call: "we encourage statistical ecologists to pursue such tests in future work".
+  - Structural point (ours, owned mathematics: Vorob'ev 1962; Beeri–Fagin–Maier–Yannakakis 1983). Their setting is
+    two datasets on one species. That context hypergraph is acyclic, and for acyclic hypergraphs agreement on shared
+    margins already guarantees a joint. So a model-free joint-existence test **has nothing to test** in their setting.
+    It becomes informative only with ≥ 3 methods whose species sets overlap round a loop. That is why the ecology
+    question needs a design with a loop. It also explains why the ecology literature, which works with two datasets,
+    would not have met the question.
+- **Markov melding for wildlife surveys (arXiv:2211.12642) [abstract]:** an integration method. The abstract states no compatibility test.
+- **Conti–Marella–Scanu (statistical matching) [abstract/snippets]:** measures uncertainty over the Fréchet class.
+  They mention no incompatibility test. **Capotorti–Vantaggi 2011 (on shelf) [intro read]:** checks whether
+  separately collected sources are jointly coherent and corrects incoherence by distance minimisation. This is a
+  cross-field owner of the ε*-type computation, as expected, and is not ecological.
+- **Updated verdict:** (a) a model-free cross-method compatibility test in ecology is NOT FOUND. The nearest ecology
+  paper read in full explicitly lists such tests as missing future work. The mathematics is owned (CbD/DKC 2020,
+  Capotorti–Vantaggi, Vorob'ev). Still unread: Francis 2011 and Carvalho 2017 (fisheries data weighting, almost surely
+  type (i)); Goldstein appendices B/C.

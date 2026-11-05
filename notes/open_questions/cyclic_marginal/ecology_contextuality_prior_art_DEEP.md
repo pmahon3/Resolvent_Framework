@@ -110,3 +110,15 @@ Proof sketch: (≥) TV ≤ ε moves each d by ≤ ε, each inequality by ≤ 3ε
 d's by V/3 along the facet normal — feasible within the Fréchet ranges and violating no other inequality
 (checked case by case); with fixed marginals TV = |Δd|. Likely folklore in substance (distance to a polytope with
 ±1 facets); not claimed.
+
+### Loop iterations (2026-11-04)
+1. **Binary L-cycles** (`verification/eps_star_cycle.py`, LP over {0,1}^L): ε* = V/L for L = 3,4,5,6 (800
+   families each, max error ≤ 2e-16), V = max violation of the odd-cycle inequalities
+   Σ_{F} d − Σ_{¬F} d ≤ |F|−1 (Barahona–Mahjoub). So sup ε* = 1/L: longer loops tolerate less heterogeneity.
+   Lower bound ⟦hand⟧ as for L=3; upper bound numerically supported, hand feasibility written only for L=3.
+2. **3×4×4 committees hidden twist** (`verification/eps_star_committees.py`): ε* = 1/27 ≈ 0.037 (LP; rational
+   guess). The ±1 score certificate does NOT give a 1/18 lower bound here: its "every total ≥ 0" holds only on the
+   16 allowed triples; with heterogeneity Q may put mass on forbidden cells (score 0), so the certificate's support
+   argument dissolves. Reading: **hidden twists are fragile** — a 3.7% between-context shift explains the
+   3×4×4 example, versus 1/3 for the visible parity twist. Detecting a hidden twist in field data would need very
+   tight calibration of ε.

@@ -3,6 +3,12 @@
 reviewed: false. 2026-11-05. Methods note (draft). **Unaudited:** run `/audit full` before sharing (claimed types:
 7 methodology, 6 translation). Collection: `cyclic_marginal/views_across_records_taxonomy.json`.
 
+> ⚠ **2026-11-05 audit (`SYNCHRONY_CAUSALITY_METHOD_AUDIT.md`): REJECT-LIKELY as written. Three blocking fixes are pending.**
+> (1) The Poland conditioning reading is NOT supported: a time-permuted placebo cue lowers V as much as ΔT does in 17–67% of
+> draws, so "removes most of what the sites share" and "what a centre looks like" are withdrawn pending stratified conditioning
+> with a placebo control. (2) Shared trends can fake violations; a detrending step is required (Poland survives: V = 4.50 detrended).
+> (3) Conditioning and lag reasoning are owned; re-scope §6.
+
 ## 1. A worked case
 Three ponds. Each pair shares its own stream, each stream independently has good and bad years, and nothing is shared by all
 three. Each pond responds only to its two streams. How often can all three ponds agree (all frogs, or all none) if each has frogs

@@ -48,3 +48,8 @@ Script `verification/mast_conditional_gate.py` (ERA5 via Open-Meteo, nearest gri
 - Owned context: Kelly et al. 2013 (ΔT); Vacchiano/Ascoli et al. on beech masting cues (from memory, unread). The new element is
   only the reading: a causal-compatibility test showing that conditioning on the cue removes the *demonstrable* need for a
   further common cause.
+
+
+> ⚠ 2026-11-05 audit: a time-permuted placebo ΔT lowers V as much as the real cue in 17% (one shared permutation) to 67%
+> (per-site permutations) of draws. The VANISHES verdict stands by its rule, but the reading "a weak shared cue carries the common
+> part" is WITHDRAWN. Linear residualisation removes this much V almost regardless of the regressor. See `SYNCHRONY_CAUSALITY_METHOD_AUDIT.md`.

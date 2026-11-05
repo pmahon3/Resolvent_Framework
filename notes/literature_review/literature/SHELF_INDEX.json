@@ -3363,6 +3363,37 @@
    "read_trail": [
     "notes/open_questions/neuro_critical/prior_art.md"
    ]
+  },
+  {
+   "file": "gisin_et_al_2020_nsi_triangle_networks.pdf",
+   "citation": "Gisin, Bancal, Cai, Remy, Tavakoli, Zambrini Cruzeiro, Popescu, Brunner, 'Constraints on nonlocality in networks from no-signaling and independence', Nat. Commun. 11, 2378 (2020), arXiv:1906.06495",
+   "what_it_proves": "NSI (no-signalling + independent sources) constraints for the triangle: (1-E_AB)^2 - E_BC^2 - E_AC^2 >= 0 (uniform margins), hence sum (1+E_ij)^2 <= 6 and, symmetric, E2 <= sqrt2 - 1; symmetric case (1+2|E1|+E2)^2 <= 2(1+|E1|)^3, tight.",
+   "summary_basis": "statements read (pp. ~5-6)",
+   "verdict_for_us": "OWNER of the consensus ceiling: max P(all agree) with uniform margins = (3sqrt2-2)/4 for ANY NSI theory (incl. quantum); attained classically by the binary AND model",
+   "programme_links": [
+    "notes/open_questions/cyclic_marginal/seam_A_scout.md",
+    "notes/open_questions/cyclic_marginal/views_across_records_taxonomy.json"
+   ],
+   "questions": [
+    "centre_vs_relations"
+   ],
+   "text_layer": true,
+   "pages": ""
+  },
+  {
+   "file": "da_silva_pozas_parisio_2025_minimal_triangle_local_models.pdf",
+   "citation": "da Silva, Pozas-Kerstjens, Parisio, 'Local models and Bell inequalities for the minimal triangle network', arXiv:2503.16654 (2025)",
+   "what_it_proves": "Exhaustive numerical search for triangle-local models (binary outputs, no inputs); conjectured analytic local boundaries; GHZ-boundary model f(w,m)=1-2|max(w,m)-2| (contains the AND rule at x=0); proves the boundary equals the NSI bound on the plane E1+E2-E3=1 for E3 <= -2+sqrt2.",
+   "summary_basis": "main text + appendices C, E read",
+   "verdict_for_us": "owner of the local boundary; our AND point (0, sqrt2-1, sqrt2-2) sits at the edge of their proven-tight region",
+   "programme_links": [
+    "notes/open_questions/cyclic_marginal/seam_A_scout.md"
+   ],
+   "questions": [
+    "centre_vs_relations"
+   ],
+   "text_layer": true,
+   "pages": ""
   }
  ]
 }

@@ -260,7 +260,7 @@
   },
   {
    "id": "E-and-ponds",
-   "text": "Triangle of pairwise streams, each good w.p. q = 1/sqrt2; a pond has frogs iff both its streams are good (margins exactly 1/2). P(all agree) = q^3 + 3q(1-q)^2 + (1-q)^3 = 0.5607 (all-frogs 0.354, all-none 0.207). Best binary-source model on a grid search (0.559 at q=0.7). Interactions (pairwise Ising) reach any P(all agree) up to 1.",
+   "text": "Triangle of pairwise streams, each good w.p. q = 1/sqrt2; a pond has frogs iff both its streams are good (margins exactly 1/2). P(all agree) = q^3 + 3q(1-q)^2 + (1-q)^3 = 0.5607 (all-frogs 0.354, all-none 0.207). Best binary-source model on a grid search (0.559 at q=0.7). Interactions (pairwise Ising) reach any P(all agree) up to 1. OWNED: equals Gisin et al. 2020's NSI bound E2 <= sqrt2-1, i.e. (3sqrt2-2)/4; quantum sources cannot exceed it.",
    "scope": "binary outputs, binary sources, margins 1/2; not the symmetric noisy-GHZ family"
   }
  ],
@@ -336,6 +336,11 @@
    "region": "ceiling on consensus (noisy-GHZ visibility) for the classical input-free triangle with binary outputs",
    "owned_by": "da Silva & Parisio, PRA 108 052602 (2023, arXiv:2303.09954): conjectured critical visibilities, ~0.362 for (3,3,3); inflation outer bounds (arXiv:2311.02182; Wolfe-Spekkens-Fritz); binary-outcome triangle (arXiv:2503.16654). Exact threshold OPEN in that field.",
    "note": "Seam A (sources vs interactions boundary on binary loops) is OWNED as this benchmark; read level abstract/search."
+  },
+  {
+   "id": "R-nsi-consensus",
+   "region": "consensus ceiling for the triangle with uniform margins: P(all agree) <= (3sqrt2-2)/4 for ANY no-signalling theory with independent sources; tight (classical binary AND model)",
+   "owned_by": "Gisin et al. 2020 Nat Commun 11:2378 ineq (13)-(14) [read]; da Silva-Pozas-Kerstjens-Parisio arXiv:2503.16654 App. E [read]"
   }
  ]
 }

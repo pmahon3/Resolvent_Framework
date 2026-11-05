@@ -83,7 +83,7 @@
   {
    "id": "T-spectral-loop",
    "statement": "Gaussian stationary, equal coherences c, loop phase Phi: one joint process iff cos Phi >= (3c^2-1)/(2c^3) (c=0.8 -> 26 deg; c=0.95 -> 5.3 deg; c<=0.5 always).",
-   "status": "hand + numerically checked 2026-11-05; likely owned (PD completion / closure phase) - scout pending",
+   "status": "hand + numerically checked; matrix math OWNED (Barrett-Johnson-Loewy 1996 cycle completability); use on separate-campaign spectra: aeroacoustics nearest (unread past abstract)",
    "stream": "S2"
   },
   {
@@ -144,7 +144,7 @@
   {
    "id": "P-spectral-scout",
    "file": "spectral_loop_scout.md",
-   "outcome": "pending",
+   "outcome": "2026-11-05 (abstract-level, ~20 searches): (a) PSD completion test PARTLY OWNED (GJSW 1984, Barrett-Johnson-Loewy 1996 cycles; aeroacoustic non-synchronous CSM completion = same data shape, type (i), highest flip risk); (b) closure phase outside interferometry PARTLY OWNED (InSAR phase linking, misfit diagnostic); (c) eps-relaxation PARTLY OWNED (Robinson; Higham); (d) attractor version NOT FOUND; (e) ecology/hydrology NOT FOUND",
    "affects": [
     "Q-spectral",
     "Q-attractor",
@@ -214,7 +214,23 @@
   {
    "id": "R-pdcompletion",
    "region": "PSD completion on graphs (chordal)",
-   "owned_by": "Grone-Johnson-Sa-Wolkowicz 1984 (pending scout)"
+   "owned_by": "Grone-Johnson-Sa-Wolkowicz 1984; Barrett-Johnson-Loewy 1996 (cycles)"
+  },
+  {
+   "id": "R-aeroacoustic",
+   "region": "cross-spectral matrix completion from non-synchronous (moved-array) measurements",
+   "owned_by": "hal-01296491; Yu et al. 2021 (type (i) low-rank; abstract)"
+  },
+  {
+   "id": "R-insar",
+   "region": "closure phase on coherence matrices as misfit diagnostic",
+   "owned_by": "InSAR phase linking, arXiv 2510.24512 (abstract)"
+  },
+  {
+   "id": "R-robinson",
+   "region": "sheaf assignments: consistency radius c (local overlap discrepancy) and distance to nearest global section D; c <= (1+K) min_s D",
+   "owned_by": "Robinson, arXiv 1805.08927 (partly read)",
+   "note": "c is LOCAL (c = 0 on a cyclic system with consistent overlaps while eps* > 0); min_s D is the eps*-type GLOBAL quantity (metric choice differs)"
   }
  ]
 }

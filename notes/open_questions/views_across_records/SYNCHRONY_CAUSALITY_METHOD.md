@@ -59,7 +59,8 @@ years they agree) − (fraction they disagree).
 - Prefer one pre-chosen triple per region, or a pooled statistic (mean V over triples; under the null every V ≤ 0).
 - Same-programme triples mix real and protocol common causes.
 - Don't pool by averaging over many overlapping triples, and don't force a common year window across many sites: both cost
-  more power than pooling gains. A better null for many triples: circularly shift whole series to break cross-site alignment.
+  more power than pooling gains. For many triples, use simultaneous bootstrap lower bounds (max-type over a small pre-chosen family). Not a circular-shift null:
+  that breaks all cross-site dependence and so tests 'any synchrony', not 'beyond the pairwise ceiling' (corrected 2026-11-05).
 
 ## 6. What is owned and what is new
 - **Owned:**

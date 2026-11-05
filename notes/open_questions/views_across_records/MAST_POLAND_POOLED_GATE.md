@@ -39,6 +39,8 @@ short record set the common window, down from 72 years in the triple gate.
   3. The bootstrap distribution of a median-split statistic is wide at n ≈ 50.
 
   Better designs, each needing its own pre-registration: per-triple common years with one pre-chosen triple per sub-region, or
-  a max-type statistic calibrated against a null built by breaking cross-site alignment (circular shifts of whole series).
+  simultaneous bootstrap lower bounds across a small pre-chosen family (max-type). [Corrected 2026-11-05: an earlier draft proposed
+  a circular-shift null. That is wrong here: shifting breaks ALL cross-site dependence, so it tests 'any synchrony', not
+  'beyond the pairwise ceiling'. The correct null sits on the ceiling (V = 0), which is what bootstrap lower bounds on V test.]
 - Descriptive: point violations stay common after conditioning (68%), and V falls with distance. This is suggestive of a residual,
   distance-dependent common cause (pollen coupling would predict exactly that), but **not demonstrated**.

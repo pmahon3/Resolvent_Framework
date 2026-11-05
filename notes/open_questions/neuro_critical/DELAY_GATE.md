@@ -30,3 +30,14 @@ PhysioNet CHB-MIT Scalp EEG, case chb01, all recordings that contain a seizure (
 - **REDUNDANT / NULL:** otherwise.
 - Sanity: ε*_sim = 0 in every window.
 n is small (≈7 seizures, one patient): any outcome is anecdotal, not a result.
+
+## Implementation choices (fixed 2026-11-04 after download, BEFORE any indicator was computed)
+The spec left these open; settled here before running:
+- τ_ij is estimated on the high-passed *continuous* signal (not the sign), at 1-sample resolution. τ_ji = −τ_ij.
+- A window is assigned to a period only if it lies entirely inside it. Pre-ictal = [onset−300 s, onset).
+- Variance and AC1 are computed on the high-passed continuous signal. AC1 is at a lag of one sample (1/256 s), as written.
+- chb01_21 (onset 327 s): its minutes 0–10 contain the seizure. For its ictal test, interictal = windows in
+  0–600 s that do not overlap [onset−60, end+60]. The delays are still taken from minutes 0–10, as written.
+- Descriptive only (not a gated outcome): the delay holonomy h = τ_ij + τ_jk + τ_ki per triangle. If h = 0, the
+  three shifted pairs come from one shifted triple, so ε*_delay ≈ 0 up to window-edge effects. Only h ≠ 0 can twist.
+- The windows overlap (step 5 s < length 10 s), so Mann–Whitney p-values are anticonservative.

@@ -145,7 +145,8 @@
    "statement": "When views cohere, is the coherence held by a centre (common driver) or by local relations (interactions, no centre)? Snapshot views never decide: whenever any world fits, a pairwise max-entropy world (relations only) also fits, and for Gaussian data with equal pairwise correlations both stories give the same law. Deciding needs the driver measured, time order (propagation lags), distance/connectivity structure, or intervention.",
    "status": "owned empirically as spatial synchrony: Moran effect vs dispersal; reasoning hand, 2026-11-05",
    "stream": "S0/S1",
-   "update_2026-11-05": "Owned map: centre_vs_relations_owned_map.md. Owners: Steudel-Ay (I_c>0 forces a common ancestor of >c variables; X=Y=Z needs a centre), triangle-network theory (Fritz 2012; Wolfe-Spekkens-Fritz inflation; Navascues-Wolfe; Rosset-Gisin-Wolfe: classical triangle set closed semialgebraic; Renou et al.), Gacs-Korner/Wyner common information, Angluin 1980 (coverings block leader election). Hand observation (unverified): relations-as-INTERACTIONS (pairwise MRF closure) reach perfect consensus X=Y=Z, relations-as-SOURCES (triangle) cannot - the two notions of 'no centre' split on the boundary. Seams: (A) triangle vs pairwise-MRF on binary alphabets incl. boundary; (B) finitely additive / Omega-free version (Markov-category work assumes standard Borel); (C) time order vs snapshot on loops (cyclic SCMs)."
+   "update_2026-11-05": "Owned map: centre_vs_relations_owned_map.md. Owners: Steudel-Ay (I_c>0 forces a common ancestor of >c variables; X=Y=Z needs a centre), triangle-network theory (Fritz 2012; Wolfe-Spekkens-Fritz inflation; Navascues-Wolfe; Rosset-Gisin-Wolfe: classical triangle set closed semialgebraic; Renou et al.), Gacs-Korner/Wyner common information, Angluin 1980 (coverings block leader election). Hand observation (unverified): relations-as-INTERACTIONS (pairwise MRF closure) reach perfect consensus X=Y=Z, relations-as-SOURCES (triangle) cannot - the two notions of 'no centre' split on the boundary. Seams: (A) triangle vs pairwise-MRF on binary alphabets incl. boundary; (B) finitely additive / Omega-free version (Markov-category work assumes standard Borel); (C) time order vs snapshot on loops (cyclic SCMs).",
+   "update_2026-11-05b": "Seam A OWNED (network-nonlocality noisy-GHZ benchmark; exact threshold open there). Remaining distinctive seam: B (finitely additive / Omega-free version), which meets direction 1's sigma residue."
   }
  ],
  "probes": [
@@ -231,6 +232,11 @@
    "id": "E-fake-falsepos",
    "text": "One method with p = f = 1/2 matches the perfect methods' rates but reports noise: eps* = 1/6 with consistent margins.",
    "scope": "binary triangle, LP"
+  },
+  {
+   "id": "E-and-ponds",
+   "text": "Triangle of pairwise streams, each good w.p. q = 1/sqrt2; a pond has frogs iff both its streams are good (margins exactly 1/2). P(all agree) = q^3 + 3q(1-q)^2 + (1-q)^3 = 0.5607 (all-frogs 0.354, all-none 0.207). Best binary-source model on a grid search (0.559 at q=0.7). Interactions (pairwise Ising) reach any P(all agree) up to 1.",
+   "scope": "binary outputs, binary sources, margins 1/2; not the symmetric noisy-GHZ family"
   }
  ],
  "owned_regions": [
@@ -299,6 +305,12 @@
    "id": "R-maxent",
    "region": "pairwise max-entropy model fits any interior-consistent pairwise margins (relations-only world always available)",
    "owned_by": "Jaynes; exponential families (Wainwright-Jordan)"
+  },
+  {
+   "id": "R-triangle-ghz",
+   "region": "ceiling on consensus (noisy-GHZ visibility) for the classical input-free triangle with binary outputs",
+   "owned_by": "da Silva & Parisio, PRA 108 052602 (2023, arXiv:2303.09954): conjectured critical visibilities, ~0.362 for (3,3,3); inflation outer bounds (arXiv:2311.02182; Wolfe-Spekkens-Fritz); binary-outcome triangle (arXiv:2503.16654). Exact threshold OPEN in that field.",
+   "note": "Seam A (sources vs interactions boundary on binary loops) is OWNED as this benchmark; read level abstract/search."
   }
  ]
 }

@@ -150,7 +150,11 @@
    "dzhafarov_kujala_2016_cbd_context_content.pdf",
    "dzhafarov_kujala_2017.pdf",
    "dzhafarov_kujala_cervantes_2020_cyclic_systems_cbd.pdf",
-   "jiang_lim_yao_ye_2011_hodgerank.pdf"
+   "jiang_lim_yao_ye_2011_hodgerank.pdf",
+   "dzhafarov_zhang_kujala_2016_behavioral_social_contextuality.pdf",
+   "abramsky_barbosa_mansfield_2017_contextual_fraction.pdf",
+   "elkouss_wehner_2016_optimal_p_values_bell.pdf",
+   "cervantes_dzhafarov_2018_true_contextuality_decision.pdf"
   ],
   "delay_embedding": [
    "botvinick_greenhouse_2025.pdf"
@@ -3163,6 +3167,70 @@
     "notes/programme/audit_benchmark/calibration_v2_2026-10-26/retest_v21_positive/RV2/AUDIT.md"
    ],
    "read_note": "full text read 2026-10-27"
+  },
+  {
+   "file": "dzhafarov_zhang_kujala_2016_behavioral_social_contextuality.pdf",
+   "citation": "Dzhafarov, Zhang, Kujala, 'Is there contextuality in behavioural and social systems?', Phil. Trans. R. Soc. A 374 (2016) 20150099, arXiv:1504.07422",
+   "what_it_proves": "CbD applied to polls, illusions, conjoint choice, word combinations, psychophysics: no contextuality found; context dependence = direct influence. Cyclic binary criterion.",
+   "summary_basis": "skim",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_prior_art.md"
+   ]
+  },
+  {
+   "file": "abramsky_barbosa_mansfield_2017_contextual_fraction.pdf",
+   "citation": "Abramsky, Barbosa, Mansfield, 'The contextual fraction as a measure of contextuality', PRL 119 (2017) 050504, arXiv:1705.07918",
+   "what_it_proves": "Contextual fraction: LP-computable graded measure of contextuality; monotone under free operations. No finite-sample bounds.",
+   "summary_basis": "skim",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_prior_art.md"
+   ]
+  },
+  {
+   "file": "elkouss_wehner_2016_optimal_p_values_bell.pdf",
+   "citation": "Elkouss & Wehner, '(Nearly) optimal P values for all Bell inequalities', npj Quantum Inf. 2 (2016), arXiv:1510.07233",
+   "what_it_proves": "Finite-trial p-values for arbitrary Bell inequalities; assumes trial independence.",
+   "summary_basis": "abstract",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_prior_art.md"
+   ]
+  },
+  {
+   "file": "cervantes_dzhafarov_2018_true_contextuality_decision.pdf",
+   "citation": "Cervantes & Dzhafarov, 'True contextuality beats direct influences in human decision making', arXiv:1807.05684 (J. Exp. Psychol. Gen. 2019)",
+   "what_it_proves": "Crowdsourced Snow-Queen design: true CbD contextuality in 5 experiments, none in control; 6192 participants, 99.99% bootstrap CIs.",
+   "summary_basis": "skim",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/cyclic_marginal/ecology_contextuality_prior_art.md"
+   ]
   }
  ]
 }

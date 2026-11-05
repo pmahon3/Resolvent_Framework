@@ -60,3 +60,13 @@ permutation (200 permutations), compared with the real-ΔT point V_G.
   nonlinear/threshold form of the ΔT cue), shared history, and the shared monitoring protocol (one study). Linear adjustment cannot rule
   out a nonlinear ΔT effect (audit V2 caveat).
 - Prediction ("P(V_G > 0) high with and without ΔT; the placebo shows whether ΔT is special") held. ΔT is special, but small.
+
+## Independent check (2026-11-05, `COVARIANCE_CEILING_CHECK.md`)
+- Proof **correct with minor fixes:** the sources must be *mutually* independent; t ≥ 0 (not > 0) when r = 0; Var yᵢ > 0. The corollary sharpens to |r| ≤ ½.
+- **Closed form:** V_G = ρ(|R − I|) − 1, the Perron root of the matrix of |r|, minus 1. Main-session check: it agrees with the optimiser to
+  within 1.5×10⁻³ over 300 random R. It replaces the optimiser.
+- **Converse:** every feasible R is realised by a linear pairwise world, so the ceiling is exact.
+- **OWNED:** Kela, von Prillwitz, Åberg, Chaves & Gross 2020 (IEEE TIT 66), **Prop. 1** (covariance = PSD parts supported on each latent's
+  children, plus PSD). The pairwise-source case is exactly this ceiling. Shelved.
+- **Finite-sample bias:** the sample V̂_G is biased upward. At k = 10, n = 53 its 95th percentile is about +0.7 to +1 even in pairwise worlds.
+  Poland (+4.95 / +4.46, bootstrap lower bounds +4.3 / +3.8) stands. The size of the bootstrap test is checked in `VG_TEST_VALIDATION.md`.

@@ -3394,6 +3394,22 @@
    ],
    "text_layer": true,
    "pages": ""
+  },
+  {
+   "file": "kela_et_al_2020_semidefinite_tests_latent_causal.pdf",
+   "citation": "Kela, von Prillwitz, Aberg, Chaves, Gross, 'Semidefinite tests for latent causal structures', IEEE Trans. Inf. Theory 66 (2020); arXiv:1701.00652",
+   "what_it_proves": "Prop. 1: for bipartite latent DAGs, Cov(observed features) = R + sum_n C_n with R, C_n PSD, C_n supported on the children of latent n. Pairwise sources => the covariance pairwise ceiling (V_G <= 0); triangle in Fig. 3; per-site feature maps (Sec. VIII).",
+   "summary_basis": "full text read by independent checker (2026-11-05); Prop. 1 located by main session",
+   "verdict_for_us": "OWNER of the covariance pairwise ceiling used in GAUSSIAN_PAIRWISE_MODEL.md",
+   "programme_links": [
+    "notes/open_questions/views_across_records/COVARIANCE_CEILING_CHECK.md",
+    "notes/open_questions/views_across_records/GAUSSIAN_PAIRWISE_MODEL.md"
+   ],
+   "questions": [
+    "centre_vs_relations"
+   ],
+   "text_layer": true,
+   "pages": ""
   }
  ]
 }

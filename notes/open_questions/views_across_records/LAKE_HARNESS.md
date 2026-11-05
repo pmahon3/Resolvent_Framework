@@ -39,3 +39,29 @@ lakes AL, BM, CR, SP, TR (the bogs CB and TB are excluded as different systems).
 ε*_split small (≤ 0.05) and probably TOOTHLESS or LOOSE. The lakes share one climate and season, and median
 binarisation of seasonal series ties the groups mostly through their shared seasonality. δ_full may still be clearly
 above the pseudo-lake null, which would mean the lakes differ in ways the loop doesn't see.
+
+## Result (2026-11-05): pre-registered verdict TOOTHLESS (prediction held)
+Script `verification/lake_harness.py`. Group map fixed from codes/names before densities were read: Daphnia 51100–51199;
+copepods 20000–20999 (not 29900) + 30000–30999; rotifers 60000–63999 or "ROTIFER" in the name. Lakes AL, BM, CR, SP and TR,
+with 315–530 dates each, 1981–2025.
+- Sanity: same-lake V = 0 in every lake.
+- **ε*_split = 0 in all 60 real designs and all 30 pseudo-lake designs.** The bound ε*_split ≤ δ_full held (asserted).
+- δ_full (the truth from full data): real median 0.071 (max 0.086); pseudo-lake null median 0.076 (95th percentile 0.136).
+  Between-lake full-joint differences are not larger than one lake's year-thirds differ from each other. Caveat: the
+  pseudo-lakes have a third of the dates, so their δ_full carries more sampling noise and the two aren't strictly comparable.
+- **Why the loop is blind here:** the disagreement rates are all 0.28–0.54, in the slack interior of the triangle. The closest
+  design (TR, BM, AL: d = 0.301, 0.308, 0.540) has slack 0.069. A violation needs one pair tied much more strongly than the others,
+  i.e. some d near 0 or 1. This is the same failure as the neuro DELAY gate: moderate ties keep the triangle slack.
+
+## Reading
+- The sign loop test only has teeth on strongly tied groups. Median-binarised zooplankton groups are not strongly tied,
+  even with seasonality.
+- **Correction to the closure-phase idea for lakes (⟦HAND⟧).** With a shared calendar, each group's seasonal phase is
+  visible in each lake on its own. The annual-frequency loop phase then equals a sum of *visible* single-group phase
+  differences (CbD's visible part). It adds nothing invisible. Closure phase helps only when records have **no common
+  clock**: paleo cores with independent chronologies, unsynchronised instruments. Lakes on one calendar are not that case.
+- What the loop would need here: groups tied strongly *within* lakes, but in different ways across lakes. That is a
+  property of the system, not something better analysis can supply.
+- The next probe, if any, is a separate pre-registration. Candidates: strongly tied variable triples (e.g. temperature,
+  oxygen, chlorophyll in the physical-limnology data, where ties are near-deterministic); or paleo records with no
+  common clock.

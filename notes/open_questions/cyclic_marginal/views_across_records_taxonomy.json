@@ -91,6 +91,12 @@
    "statement": "Per-instrument time offsets s_i shift phi_ij by w(s_i - s_j) and cancel in the loop phase: the test is invariant to per-instrument delays.",
    "status": "hand (elementary); same as interferometric closure phase (Jennison 1958)",
    "stream": "S2"
+  },
+  {
+   "id": "T-shared-clock",
+   "statement": "With a common clock, a loop's closure phase at a deterministic seasonal frequency equals the sum of visible single-variable phase differences across records: it carries no invisible information. Closure phase is informative only for records without a common clock.",
+   "status": "hand (elementary), 2026-11-05",
+   "stream": "S2"
   }
  ],
  "conjectures": [
@@ -103,7 +109,7 @@
   {
    "id": "Q-spectral",
    "statement": "Separately recorded environmental time series closing a loop can fail the per-frequency PSD test beyond sampling error.",
-   "status": "open; scout running",
+   "status": "open; scout running; 2026-11-05: needs records WITHOUT a common clock (T-shared-clock) - paleo, unsynchronised instruments",
    "stream": "S2"
   },
   {
@@ -151,6 +157,16 @@
     "T-spectral-loop"
    ],
    "stream": "S2"
+  },
+  {
+   "id": "P-lake-harness",
+   "file": "../views_across_records/LAKE_HARNESS.md",
+   "outcome": "TOOTHLESS (2026-11-05, prediction held): eps*_split = 0 in all 60 designs; d in 0.28-0.54 (slack interior, min slack 0.069); delta_full real 0.071 vs pseudo-lake 0.076",
+   "affects": [
+    "Q-ecology",
+    "Q-spectral"
+   ],
+   "stream": "S1/S2"
   }
  ],
  "examples": [

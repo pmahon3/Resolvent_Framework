@@ -107,6 +107,18 @@
    "files": [
     "../views_across_records/DETECTION_FAKES.md"
    ]
+  },
+  {
+   "id": "T-triangle-identity",
+   "statement": "'Synchrony from static pairwise drivers only' and 'the classical triangle network' are the same mDAG marginal model (three independent pairwise latent sources); a single regional driver imposes no constraint. Network causal-compatibility tools (Steudel-Ay, inflation, Rosset-Gisin-Wolfe) apply unchanged.",
+   "status": "identity of definitions (hand); owners Fritz 2012, Evans 2016 (mDAGs)",
+   "stream": "S0/S1"
+  },
+  {
+   "id": "T-centre-in-time",
+   "statement": "Unrolled in time, interaction (dispersal) creates common ancestors: pond B at t-1 is a common cause of A_t and C_t. So consensus by interaction = no centre in SPACE but a centre in TIME (shared history). 'No centre' splits three ways: regional driver (space) / shared history (time) / static pairwise sources (neither; capped, ~0.56 for binary sources). A same-time Steudel-Ay violation cannot distinguish the first two; lag structure along dispersal paths can.",
+   "status": "hand, 2026-11-05 (refines the earlier 'interactions reach consensus without a centre')",
+   "stream": "S0/S1"
   }
  ],
  "conjectures": [
@@ -147,6 +159,12 @@
    "stream": "S0/S1",
    "update_2026-11-05": "Owned map: centre_vs_relations_owned_map.md. Owners: Steudel-Ay (I_c>0 forces a common ancestor of >c variables; X=Y=Z needs a centre), triangle-network theory (Fritz 2012; Wolfe-Spekkens-Fritz inflation; Navascues-Wolfe; Rosset-Gisin-Wolfe: classical triangle set closed semialgebraic; Renou et al.), Gacs-Korner/Wyner common information, Angluin 1980 (coverings block leader election). Hand observation (unverified): relations-as-INTERACTIONS (pairwise MRF closure) reach perfect consensus X=Y=Z, relations-as-SOURCES (triangle) cannot - the two notions of 'no centre' split on the boundary. Seams: (A) triangle vs pairwise-MRF on binary alphabets incl. boundary; (B) finitely additive / Omega-free version (Markov-category work assumes standard Borel); (C) time order vs snapshot on loops (cyclic SCMs).",
    "update_2026-11-05b": "Seam A OWNED (network-nonlocality noisy-GHZ benchmark; exact threshold open there). Remaining distinctive seam: B (finitely additive / Omega-free version), which meets direction 1's sigma residue."
+  },
+  {
+   "id": "Q-synchrony-compat",
+   "statement": "Apply network causal-compatibility tests (Steudel-Ay, inflation) to ecological synchrony data to test whether observed synchrony requires a common ancestor beyond pairwise drivers; then lag structure to separate regional driver from dispersal history.",
+   "status": "open; not found in ecology (2 searches, abstract level, 2026-11-05); Steudel-Ay has no empirical application found",
+   "stream": "S1"
   }
  ],
  "probes": [

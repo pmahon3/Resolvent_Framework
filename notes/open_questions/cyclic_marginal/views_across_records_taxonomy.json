@@ -126,6 +126,12 @@
    "statement": "Unrolled in time, interaction (dispersal) creates common ancestors: pond B at t-1 is a common cause of A_t and C_t. So consensus by interaction = no centre in SPACE but a centre in TIME (shared history). 'No centre' splits three ways: regional driver (space) / shared history (time) / static pairwise sources (neither; capped, ~0.56 for binary sources). A same-time Steudel-Ay violation cannot distinguish the first two; lag structure along dispersal paths can.",
    "status": "hand, 2026-11-05 (refines the earlier 'interactions reach consensus without a centre')",
    "stream": "S0/S1"
+  },
+  {
+   "id": "T-attribution-limit",
+   "statement": "With a continuous candidate cue, 'the cue is the ONLY common cause' is not testable model-free at small n: coarse strata leave within-stratum cue variation (still common, so violations can persist under H0); fine strata leave too few years. Existence of a common cause is model-free; attribution needs an assumption (e.g. additive cue effect) or much more data.",
+   "status": "hand (reasoning), 2026-11-05; prompted by audit V2",
+   "stream": "S1"
   }
  ],
  "conjectures": [
@@ -257,6 +263,27 @@
    "id": "P-mast-pooled",
    "file": "../views_across_records/MAST_POLAND_POOLED_GATE.md",
    "outcome": "2026-11-05: NO-BASE (pooled mean V over 120 triples, n=53: p=0.17 raw, 0.21 |dT); prediction failed; design lessons: forced common window and averaging dilute power; residual point-violations 68% and decline with distance (suggestive only)",
+   "affects": [
+    "Q-synchrony-compat"
+   ],
+   "stream": "S1"
+  },
+  {
+   "id": "P-test-validation",
+   "file": "../views_across_records/CEILING_TEST_VALIDATION.md",
+   "outcome": "2026-11-05: median-split NSI test size <= 0.02 (valid, conservative); power ~0.9/0.4/0.15 at rho 0.5/0.3/0.2 (n=72); run-1 tie-splitting artefact recorded",
+   "stream": "S1"
+  },
+  {
+   "id": "P-power-stats",
+   "file": "../views_across_records/CEILING_POWER_STATS.md",
+   "outcome": "2026-11-05: ADOPT S2 (max over quantiles 1/3,1/2,2/3): power 0.75 at rho=0.3, size <= 0.03; 27-combo version oversized; Steudel-Ay powerless",
+   "stream": "S1"
+  },
+  {
+   "id": "P-mast-S2",
+   "file": "../views_across_records/MAST_S2_GATE.md",
+   "outcome": "2026-11-05: Poland within-study 40/120 Holm-significant (40/84 with n>=60) after detrending: widespread common cause (weather/history/protocol inseparable); cross-study far 0/421 at n~30 (weak null)",
    "affects": [
     "Q-synchrony-compat"
    ],

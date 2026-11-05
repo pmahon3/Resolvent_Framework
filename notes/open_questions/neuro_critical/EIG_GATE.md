@@ -16,3 +16,40 @@ views glue iff the delay-aligned correlation matrix is PSD.
 ## Prediction (written in advance)
 g < 0 in most windows: weak correlations make R diagonally dominant. If g rises before onset, it will most likely
 track the zero-lag |xcorr| baseline (both grow with synchrony), so the expected verdict is REDUNDANT.
+
+## Result (2026-11-04): pre-registered verdict ICTAL-ONLY (by the letter); in substance not beyond baselines
+Sanity: g_sim < 0 in every window (zero-lag matrices PSD). Prediction "g < 0 in most windows" held (fraction g > 0
+was 0.06–0.36, with chb01_21 at 0.64 because its baseline contains the seizure).
+
+| indicator | pre-ictal (of 6) | ictal (of 7) |
+|---|---|---|
+| g_delay | 1/6 | 4/7 |
+| variance | 3/6 | 7/7 |
+| AC1 | 5/6 | 2/7 |
+| \|xcorr0\| | 3/6 | 4/7 |
+
+The ICTAL-ONLY rule did not require beating baselines. g ties |xcorr0| ictally and loses to variance (7/7), and
+corr(g, |xcorr0|) = 0.34–0.64. As a seizure detector it is redundant.
+
+## Descriptive (not gated): where the non-gluing lives
+- Windowed (10 s): when the 7×7 matrix is non-PSD, usually **no 3×3 principal submatrix is**. "Full non-PSD, every
+  triangle PSD" holds in 5–46% of windows, against 1–19% for any triangle failing. This explains DELAY_GATE's
+  null: the triangle test looked in the wrong place.
+- Long windows, over the whole period: every 3×3 submatrix is PSD in every period of every recording, with min
+  λ_min(3×3) ≥ +0.012. The full 7×7 λ_min:
+
+  | | 03 | 04 | 15 | 16 | 18 | 21* | 26 |
+  |---|---|---|---|---|---|---|---|
+  | minutes 0–10 | −0.034 | +0.187 | +0.212 | +0.109 | +0.110 | −0.140* | +0.137 |
+  | ictal | −0.131 | −0.046 | +0.165 | +0.090 | −0.036 | −0.250 | −0.037 |
+
+  (*21's minutes 0–10 contain its seizure.) Ictal λ_min < 0 in 5/7 seizures, and drops below the baseline in 7/7.
+- Reading (lens, ⟦HAND⟧ Gaussian scope): during seizures the delay-aligned pairwise views **fail to fit one Gaussian world as a
+  whole, while every three of them fit**. The obstruction is global rather than local, like a long cycle rather than a
+  triangle. Delays round loops (holonomy) make it possible, and ictal synchrony pushes the lagged correlations far enough.
+- **Not established:** a noise floor. The ictal periods are 27–101 s with high autocorrelation, so the eigenvalue
+  fluctuation may be comparable to the effect. Needed: a surrogate that keeps each channel's spectrum and the lagged
+  cross-covariance (multivariate phase randomisation). It answers "beyond linear-stationary?", not "beyond noise?",
+  because a stationary linear process with these lags can be non-PSD in population too. A separate bootstrap is
+  needed for noise. Also needed: more patients, and a check that frozen interictal delays are not the whole story
+  (re-estimate the delays ictally).

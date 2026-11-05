@@ -50,3 +50,10 @@ order +1) makes the conclusion plausible, but not shown.
 4. Reject if V̂_G(data) > the 95th percentile of the simulated values.
 - Validate on W1–W4, P1, P2 (n = 30/53, φ = ±0.5; 300 simulations). Pass rule as before (size ≤ 0.07 in boundary cells). Caveat:
   Gaussian boundary worlds are not proven least favourable, so the non-Gaussian W4 is the check.
+
+## Run 3 result (2026-11-05): calibrated boundary test (C) FAILS for 10 sites
+W1 (3 sites) 0.04–0.05 ✓; W4 0.00 ✓; W2 0.05–0.13 ✗ (borderline); **W3 ring 0.30–0.67 ✗**; power P1 0.12–0.30, P2 0.30–0.44 (partial).
+Cause: proportional shrinkage to the boundary is not least favourable. True-zero correlations inflate most under noise, and shrinkage
+leaves small nonzero values instead. The 3-site calibrated test is valid on this grid. **Next (per the new workflow rule): no further
+ad-hoc fixes. Read and implement the established method for non-differentiable functionals / moment inequalities (Fang–Santos 2019;
+Andrews–Soares 2010; Chernozhukov–Chetverikov–Kato 2019), then validate on the same grid.**

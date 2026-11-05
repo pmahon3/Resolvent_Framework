@@ -205,6 +205,11 @@ Broader lens, not broader standard. Each type has a concrete bar.
 - **Sharpen honestly.** Refining an open question is not a way to keep
   a dead one alive. Both guardrail conditions must hold (see lifecycle).
 - **Verify LLM proofs independently.** Lean or manual check only.
+- **Principled method before ad-hoc fix (adopted 2026-11-05).** For any methodological problem (inference, calibration,
+  estimation, testing at a boundary, multiple testing, resampling under dependence), first search the literature,
+  cross-field, for the established method and read it. Only then design. Invented fixes are a last resort, and must say
+  which established method was checked and why it doesn't apply. (Origin: ad-hoc calibrations of the V_G test failed
+  twice; the problem was textbook non-differentiable-functional / moment-inequality inference, Fang–Santos and Andrews–Soares.)
 - **Verify reversals before propagating them (adopted 2026-10-27).** When an audit
   overturns a recorded verdict, first run an independent check (a fresh agent,
   hostile to both sides, quoting the exact statements) and write it to

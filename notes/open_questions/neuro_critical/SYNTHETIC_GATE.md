@@ -20,3 +20,13 @@ non-stationarity control: TV change of one pair's table between window w and w+�
 - **REDUNDANT:** ε*(t) ≈ 0 throughout, or tracks pair drift (corr ≥ 0.8), or rises later than AC1/variance.
 - Prediction written in advance: regime (a) gives ε* ≈ 0 (positive correlations round a loop never violate
   a triangle inequality: no frustration); regime (b) may give ε* > 0, but driven by drift.
+
+## Result (2026-11-04) — pre-registered verdict: REDUNDANT
+- Simultaneous-window ε* = 0 exactly in both regimes (a joint exists within one window), as predicted.
+- Staggered-window ε* > 0 (max 0.057 excitatory, 0.187 frustrated; corr with pair drift 0.35–0.37 < 0.8),
+  so not purely drift — but it alarms LATER than variance and no earlier than AC1:
+  10 seeds, mean alarm λ (higher = earlier): excitatory ε* 0.69 / var 0.77 / AC1 0.67 / drift 0.65;
+  frustrated ε* 0.57 / var 0.76 / AC1 0.56 / drift 0.62. ε* earliest in 20% / 0% of seeds.
+- Prediction "(a) ε* ≈ 0" was WRONG: positive coupling still gave small ε*, most plausibly finite-sample noise
+  growing as autocorrelation cuts the effective sample size (needs a finite-sample correction, e.g. Berrett–Samworth).
+Reading: with an arbitrary stagger, ε* is a noisier, later non-stationarity indicator. Not adopted as an EWS.

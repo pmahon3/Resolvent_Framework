@@ -3299,6 +3299,70 @@
    "read_trail": [
     "notes/open_questions/cyclic_marginal/ecology_contextuality_prior_art_DEEP.md"
    ]
+  },
+  {
+   "file": "wilkat_rings_lehnertz_2019_no_evidence_critical_slowing_seizures.pdf",
+   "citation": "Wilkat, Rings, Lehnertz, 'No evidence for critical slowing down prior to human epileptic seizures', Chaos 2019, arXiv:1908.08973",
+   "what_it_proves": "Surrogate-based sensitivity/specificity test of variance and lag-1 AC1 on 28 subjects: no evidence of CSD before 105 seizures.",
+   "summary_basis": "abstract+skim",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/neuro_critical/prior_art.md"
+   ]
+  },
+  {
+   "file": "schneidman_berry_segev_bialek_2006_weak_pairwise_correlations.pdf",
+   "citation": "Schneidman, Berry, Segev, Bialek, 'Weak pairwise correlations imply strongly correlated network states in a neural population', Nature 440 (2006), arXiv:q-bio/0512013",
+   "what_it_proves": "Pairwise maximum-entropy (Ising) models describe retinal population patterns; pairwise statistics suffice there.",
+   "summary_basis": "abstract+skim",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/neuro_critical/prior_art.md"
+   ]
+  },
+  {
+   "file": "liegeois_et_al_2017_interpreting_dFC_fluctuations.pdf",
+   "citation": "Liegeois, Laumann, Snyder, Zhou, Yeo, 'Interpreting temporal fluctuations in resting-state functional connectivity MRI', NeuroImage 163 (2017), bioRxiv 135681",
+   "what_it_proves": "Stationarity tests for dFC via phase/AR randomisation; rejection may reflect nonlinearity/non-Gaussianity, not only non-stationarity.",
+   "summary_basis": "abstract+skim",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/neuro_critical/prior_art.md"
+   ]
+  },
+  {
+   "file": "rosas_mediano_gastpar_jensen_2019_high_order_interdependencies.pdf",
+   "citation": "Rosas, Mediano, Gastpar, Jensen, 'Quantifying high-order interdependencies via multivariate extensions of the mutual information', PRE 100 (2019), arXiv:1902.11239",
+   "what_it_proves": "Defines O-information (redundancy/synergy balance), a measure of interdependence beyond pairwise.",
+   "summary_basis": "abstract+skim",
+   "verdict_for_us": "neighbour",
+   "programme_links": [],
+   "questions": [
+    "data_tests"
+   ],
+   "text_layer": true,
+   "pages": "",
+   "read_trail": [
+    "notes/open_questions/neuro_critical/prior_art.md"
+   ]
   }
  ]
 }

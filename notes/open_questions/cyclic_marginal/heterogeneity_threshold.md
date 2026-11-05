@@ -2,6 +2,16 @@
 
 reviewed: false. 2026-11-04. Scripts: `notes/open_questions/verification/eps_star_{triangle,cycle,committees}.py`.
 
+> ⚠ **2026-11-05: result 4 ("general-L upper bound OPEN") is very likely OWNED.** Source: Dzhafarov–Kujala–Cervantes,
+> PRA 101 (2020) 042119, arXiv:1907.03328, on the shelf as `dzhafarov_kujala_cervantes_2020_cyclic_systems_cbd.pdf`.
+> Thm 15: for a contextual cyclic system of any rank n, with single margins fixed, the L1-distance to the
+> noncontextuality polytope is a single-coordinate distance equal to s₁ − Δ, the same for every coordinate.
+> Eq. (56): the Lp version is n^{(1−p)/p}·CNT2. As p → ∞ this gives the per-coordinate move (s₁ − Δ)/n, which in
+> d-units is **V/L**. With our lower bound (|Δd| ≤ TV, margins free) that yields ε* = V/L for all L. The "cancellation
+> lemma" is their Thm 15 geometry. Read level: statements read; the Lp claim is asserted as "easy to show" (proof not
+> given), and agrees with our LP numerics for L = 3..6. Not yet put through the reversal check (CLAUDE.md protocol).
+> The shelf was not searched before calling it open, the same failure as 2026-10-20.
+
 ## Puzzle
 L friends in a ring, each neighbouring pair reports whether they agree on a yes/no question. Every pair's
 report is fine. Suppose no single classical world fits the reports. How much would the population have to

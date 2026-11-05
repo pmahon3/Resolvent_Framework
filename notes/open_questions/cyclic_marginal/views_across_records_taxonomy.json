@@ -234,6 +234,15 @@
     "Q-synchrony-compat"
    ],
    "stream": "S1"
+  },
+  {
+   "id": "P-mast-ceiling",
+   "file": "../views_across_records/MAST_CEILING_GATE.md",
+   "outcome": "2026-11-05: prediction FAILED (far different-study beech triples weakly synchronous, 0 violations); same-study triples strongly synchronous (V up to 3.7, p 0.002-0.009) but 0 Holm-significant; DESIGN FLAW: 1000 resamples cannot reach Holm threshold for large families (recorded, not patched)",
+   "affects": [
+    "Q-synchrony-compat"
+   ],
+   "stream": "S1"
   }
  ],
  "examples": [

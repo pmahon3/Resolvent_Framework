@@ -139,6 +139,12 @@
    "statement": "A detection-aware gluing test (identify each method's channel from repeat visits, as in occupancy models, invert it, then test eps*) is not covered by occupancy models (assume one world) or by CbD (visible check only guards thinning).",
    "status": "candidate seam 2026-11-05; prior-art check owed",
    "stream": "S1"
+  },
+  {
+   "id": "Q-centre-vs-relations",
+   "statement": "When views cohere, is the coherence held by a centre (common driver) or by local relations (interactions, no centre)? Snapshot views never decide: whenever any world fits, a pairwise max-entropy world (relations only) also fits, and for Gaussian data with equal pairwise correlations both stories give the same law. Deciding needs the driver measured, time order (propagation lags), distance/connectivity structure, or intervention.",
+   "status": "owned empirically as spatial synchrony: Moran effect vs dispersal; reasoning hand, 2026-11-05",
+   "stream": "S0/S1"
   }
  ],
  "probes": [
@@ -282,6 +288,16 @@
    "region": "sheaf assignments: consistency radius c (local overlap discrepancy) and distance to nearest global section D; c <= (1+K) min_s D",
    "owned_by": "Robinson, arXiv 1805.08927 (partly read)",
    "note": "c is LOCAL (c = 0 on a cyclic system with consistent overlaps while eps* > 0); min_s D is the eps*-type GLOBAL quantity (metric choice differs)"
+  },
+  {
+   "id": "R-synchrony",
+   "region": "centre (shared environment) vs relations (dispersal) as sources of coherence across sites",
+   "owned_by": "Moran 1953; Liebhold, Koenig & Bjornstad 2004 Annu Rev; Vasseur & Fox 2009 Nature (from memory, unread)"
+  },
+  {
+   "id": "R-maxent",
+   "region": "pairwise max-entropy model fits any interior-consistent pairwise margins (relations-only world always available)",
+   "owned_by": "Jaynes; exponential families (Wainwright-Jordan)"
   }
  ]
 }

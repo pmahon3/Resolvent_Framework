@@ -45,7 +45,7 @@ V_G is model-free, so a **secondary model-free inference** is added: moving-bloc
 bound > 0). Reductions for compute: 2000 posterior draws (not 20 000). The placebo uses the point V_G of the residual correlation matrix per
 permutation (200 permutations), compared with the real-ΔT point V_G.
 
-## Step 3 result (2026-11-05): Poland, 10 sites jointly, 53 years (1951–2019). Script `verification/gaussian_poland.py` (57 s)
+## Step 3 result (2026-11-05) — ⚠ UNVALIDATED: the bootstrap and posterior used here are oversized for 10 sites (VG_TEST_VALIDATION.md run 2); see run 3: Poland, 10 sites jointly, 53 years (1951–2019). Script `verification/gaussian_poland.py` (57 s)
 | | point V_G | posterior P(V_G > 0) (2.5%) | bootstrap 5% lower bound |
 |---|---|---|---|
 | detrended, no cue | **+4.95** | 1.000 (+4.25) | +4.32 |

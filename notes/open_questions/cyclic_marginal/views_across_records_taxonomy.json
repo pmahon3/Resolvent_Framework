@@ -136,7 +136,7 @@
   {
    "id": "T-covariance-pairwise",
    "statement": "For ANY pairwise-only world (independent pair-sources, arbitrary site responses, local noise), the Pearson correlation matrix is pairwise-feasible: exists t_ij>0 with r_ij^2 <= t_ij t_ji and sum_j t_ij <= 1 for all i. V_G = min_w max_i sum_j t_ij - 1 <= 0. Three equal correlations: r <= 1/2.",
-   "status": "hand proof (Hoeffding/Efron-Stein + Cauchy-Schwarz), numerically confirmed on 8 nonlinear worlds; very likely OWNED as pairwise case of Kela-von Prillwitz-Aberg-Chaves-Gross semidefinite tests (unread)",
+   "status": "OWNED: Kela-von Prillwitz-Aberg-Chaves-Gross 2020 IEEE TIT Prop. 1 (shelved); proof independently checked (correct with minor fixes); closed form V_G = Perron root of |R-I| minus 1",
    "stream": "S0/S1"
   }
  ],
@@ -298,7 +298,7 @@
   {
    "id": "P-gaussian-poland",
    "file": "../views_across_records/GAUSSIAN_PAIRWISE_MODEL.md",
-   "outcome": "2026-11-05: Poland 10 sites, n=53: V_G = +4.95 detrended (bootstrap lb +4.32), +4.46 after own dT (lb +3.82); dT special vs 200 placebos (drop 0.50 vs 0.003, p<0.005) but small: large residual common cause remains (other weather / nonlinear cue / history / protocol)",
+   "outcome": "UNVALIDATED (2026-11-05: bootstrap/posterior inference oversized for 10 sites, size up to 1.00 in pairwise worlds; VG_TEST_VALIDATION.md). Was: 2026-11-05: Poland 10 sites, n=53: V_G = +4.95 detrended (bootstrap lb +4.32), +4.46 after own dT (lb +3.82); dT special vs 200 placebos (drop 0.50 vs 0.003, p<0.005) but small: large residual common cause remains (other weather / nonlinear cue / history / protocol)",
    "affects": [
     "Q-synchrony-compat"
    ],

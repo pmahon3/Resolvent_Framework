@@ -48,7 +48,9 @@ years they agree) − (fraction they disagree).
 - **Poland, three beech sites** (1951–2022): a clear violation (V = 2.97, p = 0.008). After conditioning on the Kelly ΔT cue (last
   summer's warmth minus the summer before), V drops to 1.27, p = 0.08. The cue explains only 5–9% of each site's own variation,
   yet removes most of what the sites share. A weak signal every stand hears is what a centre looks like.
-- Pooled test over all Polish sites: `MAST_POLAND_POOLED_GATE.md` (running).
+- **Pooled test over all 10 Polish sites:** NO-BASE (p = 0.17 even unconditionally). The all-sites common window cut n to 53, and the mean
+  over 120 triples diluted the signal. Point violations persist after conditioning (68% of triples) and weaken with distance:
+  suggestive of a residual, distance-dependent common cause (pollen?), not demonstrated. `MAST_POLAND_POOLED_GATE.md`.
 
 ## 5. Design rules learned
 - Only strongly synchronised sets are testable (E > ~0.41). Weak synchrony is never evidence against a common cause.
@@ -56,6 +58,8 @@ years they agree) − (fraction they disagree).
   20 × (number of tests)/α. One gate here was unable to detect anything for this reason.
 - Prefer one pre-chosen triple per region, or a pooled statistic (mean V over triples; under the null every V ≤ 0).
 - Same-programme triples mix real and protocol common causes.
+- Don't pool by averaging over many overlapping triples, and don't force a common year window across many sites: both cost
+  more power than pooling gains. A better null for many triples: circularly shift whole series to break cross-site alignment.
 
 ## 6. What is owned and what is new
 - **Owned:**

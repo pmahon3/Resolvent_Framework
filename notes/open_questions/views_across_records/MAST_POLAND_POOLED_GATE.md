@@ -25,3 +25,20 @@ same years, so one joint bootstrap applies.
 ## Prediction (in advance)
 Stage 1 clearly significant. Stage 2 V̄ significant (RESIDUAL COMMON CAUSE): the triple-level residual synchrony was E ≈ 0.5–0.6,
 above √2 − 1, and pooling adds power.
+
+## Result (2026-11-05): NO-BASE (prediction failed)
+Script `verification/mast_poland_pooled_gate.py` (80 s). All 10 sites kept, giving **53 common years (1951–2019)**. Site 015's
+short record set the common window, down from 72 years in the triple gate.
+- **Stage 1 (raw):** V̄ = +0.62, but the bootstrap 5% point is −0.40, p = 0.17. 69% of the 120 triples have point V > 0. Min
+  per-triple p = 0.005 (009-012-013, V = +4.48). 0 Holm-significant.
+- **Stage 2 (| ΔT):** V̄ = +0.44, p = 0.21. 68% point V > 0. 0 Holm-significant. corr(V, min distance) = −0.21 (stage 1: −0.34).
+- **Verdict NO-BASE:** the pooled design cannot even demonstrate the unconditional common cause that the single 72-year triple showed.
+- **Why (design lessons, recorded, not patched):**
+  1. Requiring every site to share years cost 19 years.
+  2. The mean over 120 overlapping triples dilutes the strongly synchronous ones with weak ones.
+  3. The bootstrap distribution of a median-split statistic is wide at n ≈ 50.
+
+  Better designs, each needing its own pre-registration: per-triple common years with one pre-chosen triple per sub-region, or
+  a max-type statistic calibrated against a null built by breaking cross-site alignment (circular shifts of whole series).
+- Descriptive: point violations stay common after conditioning (68%), and V falls with distance. This is suggestive of a residual,
+  distance-dependent common cause (pollen coupling would predict exactly that), but **not demonstrated**.

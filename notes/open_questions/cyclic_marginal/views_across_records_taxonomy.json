@@ -252,6 +252,15 @@
     "Q-synchrony-compat"
    ],
    "stream": "S1"
+  },
+  {
+   "id": "P-mast-pooled",
+   "file": "../views_across_records/MAST_POLAND_POOLED_GATE.md",
+   "outcome": "2026-11-05: NO-BASE (pooled mean V over 120 triples, n=53: p=0.17 raw, 0.21 |dT); prediction failed; design lessons: forced common window and averaging dilute power; residual point-violations 68% and decline with distance (suggestive only)",
+   "affects": [
+    "Q-synchrony-compat"
+   ],
+   "stream": "S1"
   }
  ],
  "examples": [

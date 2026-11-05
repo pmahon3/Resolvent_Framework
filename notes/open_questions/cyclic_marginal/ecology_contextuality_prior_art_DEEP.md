@@ -80,3 +80,22 @@ constrained-heterogeneity null. Neither found. Coverage caveat: US-only search s
 ecological "data integration consistency" tests (earlier file, section D) remain unread beyond snippets.
 Bearing on WHY.md: this is the loop question in field form: do three local surveys glue to one landscape, or is the failure just
 differing populations (hidden idealisation: that the context did not change what was sampled)?
+
+## Addendum (main session, 2026-11-04): is the heterogeneity-aware null vacuous? No — sharp threshold
+
+⟦HAND, LP-checked⟧ (`notes/open_questions/verification/eps_star_triangle.py`, scipy linprog, float).
+- Null H_ε: each context k sampled a classical world Q_k with TV(Q_k, Q) ≤ ε for one common classical Q.
+  Equivalent to: ∃ classical Q with TV(marg_k Q, P_k) ≤ ε for every context (marginalising contracts TV;
+  conversely, replace Q's k-margin by P_k keeping the conditional — moves Q by exactly that TV).
+- So ε*(data) := min ε for which H_ε holds is an LP, computable for any dataset: the smallest between-context
+  population shift a classical account needs.
+- Binary triangle, faked parity contradiction (A=B, B=C, A≠C uniform): ε* = 1/3 exactly (facet
+  P(A=B)+P(B=C)+P(A≠C) ≤ 2 violated by 1; each context can move its agreement by ≤ ε; achieved by the
+  equal mixture of the three one-failure worlds). LP: 0.333333.
+- Margin-consistent binary families: sampled max 0.238 (4000 families), parity case = 1/3 ⇒ conjecture:
+  sup ε* = 1/3, and ε* = (max facet violation)/3. Inconsistent (signalling) families reach ≈0.62 (sampled);
+  signalling is separately visible in the marginals (CbD direct influence).
+- Verdict: H_ε is vacuous only for ε ≥ sup ε* (here 1/3); below that it has content. "Unrestricted weights"
+  = ε = 1 is the vacuous end. Likely owned in substance: ε*(P) is a distance to the marginal polytope, close
+  to Berrett–Samworth's incompatibility statistic (metric to be checked); the contextual fraction is a different
+  (mixture-weight) measure. The heterogeneity-budget reading tied to a biologically calibrated ε is the lens.

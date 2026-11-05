@@ -41,3 +41,39 @@ The spec left these open; settled here before running:
 - Descriptive only (not a gated outcome): the delay holonomy h = τ_ij + τ_jk + τ_ki per triangle. If h = 0, the
   three shifted pairs come from one shifted triple, so ε*_delay ≈ 0 up to window-edge effects. Only h ≠ 0 can twist.
 - The windows overlap (step 5 s < length 10 s), so Mann–Whitney p-values are anticonservative.
+
+## Result (2026-11-04): pre-registered verdict REDUNDANT / NULL
+Script `notes/open_questions/verification/neuro_eps_delay_chbmit.py` (9 s, 0.5 GB). Sanity: ε*_sim = 0 exactly in every window of every recording.
+
+Tally of seizures with p < 0.01 (6 usable pre-ictal, 7 ictal):
+
+| indicator | pre-ictal | ictal |
+|---|---|---|
+| ε*_delay | **0/6** | 3/7 |
+| variance | 3/6 | 7/7 |
+| AC1 | 5/6 | 2/7 |
+| mean \|zero-lag xcorr\| | 3/6 | 2/7 |
+
+- The median ε*_delay is **0 in every period of every recording**. Nonzero windows have magnitude ≤ 3×10⁻³.
+  The fraction of nonzero windows rises during seizures (0.17–0.69, against 0.03–0.29 interictal), but at
+  these magnitudes this is far below the finite-sample noise floor. With AC1 ≈ 0.98 at 256 Hz, a 10 s window
+  holds only ~30 effective samples.
+- The holonomy is nonzero in 91–98% of triangles (median |h| = 7–22 samples = 27–86 ms), so the delays
+  do *not* cancel round loops. **Nonzero holonomy is present, yet the views still glue.** Holonomy is necessary for a twist, not sufficient.
+- The prediction implicit in the design (a twist appears pre-ictally) failed. AC1 is the best pre-ictal indicator here (5/6),
+  which does not match Wilkat 2019's population null: n = 1 patient, overlapping windows, anticonservative p.
+
+## Reading
+- Why ε* stays at zero: sign-binarised scalp EEG pairs have |ρ| ≈ 0.3, so the disagreement rates are d ≈ 0.4. A
+  triangle-inequality violation needs some pair near agreement (d → 0) or near anti-agreement (d → 1).
+  Moderate correlations keep d deep in the slack interior.
+- ⟦HAND⟧ Gaussian picture (scope: jointly Gaussian pairs, sign binarisation). Sheppard gives d = θ/π with
+  θ = arccos ρ. Three unit vectors with pairwise angles θ exist iff the 3×3 matrix [cos θ] is PSD, iff the
+  spherical triangle inequalities hold. Those are exactly the metric inequalities on d. So **ε*_delay > 0
+  iff the delay-aligned correlation matrix (entries ρ_ij(τ_ij)) is not positive semidefinite.** The question
+  "do the delay-aligned views glue?" is then the Higham nearest-correlation-matrix question. Its
+  noise-robust form is the minimum eigenvalue of the delay-aligned correlation matrix (≥ 0 ⟺ glue).
+- Bearing on WHY.md: here local views with real loop holonomy do add up to one world, to within noise.
+  Delay holonomy alone does not make a twist. A twist also needs correlations strong enough to reach the boundary.
+- Next probe, if any, is a separate pre-registration. Candidates: the min-eigenvalue indicator on the same files;
+  intracranial data (stronger correlations); a surrogate floor (Wilkat protocol). It is not run here.

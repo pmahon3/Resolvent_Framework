@@ -68,5 +68,5 @@ minutes 0–10 (for 21, only windows ending ≥ 60 s before onset).
 - The non-gluing is **not seizure-specific**: in chb01_03 and chb01_21 the baseline windows are already non-PSD at
   the median. Delay-aligned views fail to fit one Gaussian world in ordinary background EEG too, depending on the recording.
 - Honest status: an anecdote from one patient. It is not shown to beat |xcorr0| or variance, and this "null" is a
-  baseline distribution, not a surrogate. Script for these descriptives: inline (not saved). Rerun from
+  baseline distribution, not a surrogate. Descriptive scripts: `verification/neuro_eig_desc_{where,longwin,samelen_null}.py` (args: path to `neuro_eig_delay_chbmit.py`, data dir); they use
   `neuro_eig_delay_chbmit.py`'s `wcorr`/`shift` and `dg.shifted` helpers.

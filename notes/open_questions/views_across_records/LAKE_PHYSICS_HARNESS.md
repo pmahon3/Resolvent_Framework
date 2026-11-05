@@ -18,3 +18,18 @@ d(T, O2) high (≈ 0.8–0.9, anti-tied); d(O2, sat) low; d(sat, T) intermediate
 some designs may give ε*_split > 0. The physics is shared across lakes, though, so nonzero values should be comparable
 to the pseudo-lake null. Expected verdict: TOOTHLESS or LOOSE. A rule-defined INFORMATIVE would mean the lakes' coupling
 genuinely differs (e.g. productivity driving o2sat away from equilibrium in some lakes).
+
+## Result (2026-11-05): pre-registered verdict TOOTHLESS (prediction held), with one descriptive signal
+Script `verification/lake_physics_harness.py` (748–770 dates per lake). The same-lake V was ≤ 3e-17 (float).
+- d(T, O2) = 0.78–0.90, d(O2, sat) = 0.53–0.58, d(sat, T) = 0.23–0.34. As predicted, the triangles sit near the boundary.
+- Real designs: ε*_split > 0 in 47% of designs; median 0, max 0.049. Pseudo-lake null: median 0, 95th percentile 0.0275,
+  max 0.0306, > 0 in 40%. Rule: median 0 ≤ 0.0275, so **TOOTHLESS**. Spearman(ε*_split, δ_full) = 0.14.
+  δ_full: real median 0.052; null median 0.045 (95th percentile 0.060).
+- **Descriptive (not gated):** 5 of 60 designs exceed the null maximum (0.031). **All 5 take the sat–T pair from
+  Allequash (AL)**, whose saturation tracks temperature more closely than in the others (d = 0.226 against 0.28–0.34),
+  and whose T–O2 anti-tie is the weakest (0.78). The loop singles out one lake as differing in coupling, without
+  comparing the same pair across lakes. Here the full data confirms it directly, since every lake measures every pair.
+  A plausible mechanism (lens, unverified): more photosynthetic supersaturation in a more productive lake.
+- Reading: strong ties bring the loop to the boundary, where it begins to see between-lake *coupling* differences, but
+  only at the edge of the noise (1/12 of designs). Shared physics keeps the median at 0. The harness shows the instrument
+  works in the right regime, with the right failure mode, and is weak at n ≈ 750 per lake.

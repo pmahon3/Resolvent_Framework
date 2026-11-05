@@ -19,7 +19,8 @@
    "ecology_owner_scout_DEEP.md",
    "spectral_loop_scout.md (pending)",
    "../neuro_critical/"
-  ]
+  ],
+  "lesson_2026-11-05": "A loop twist needs (i) strong within-record ties (d near 0 or 1) AND (ii) ties that differ across records. Plankton fails (i); lake physics meets (i), shares physics so (ii) is weak; the loop then flags only the odd lake (Allequash) at the noise edge."
  },
  "objects": [
   {
@@ -167,6 +168,15 @@
     "Q-spectral"
    ],
    "stream": "S1/S2"
+  },
+  {
+   "id": "P-lake-physics",
+   "file": "../views_across_records/LAKE_PHYSICS_HARNESS.md",
+   "outcome": "TOOTHLESS by rule (2026-11-05; eps_split median 0, max 0.049 vs null 95th 0.0275). Descriptive: 5/60 designs beyond null max, ALL using Allequash's sat-T pair: loop singles out the lake with different coupling",
+   "affects": [
+    "Q-ecology"
+   ],
+   "stream": "S1"
   }
  ],
  "examples": [

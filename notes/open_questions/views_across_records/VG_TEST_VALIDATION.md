@@ -17,3 +17,12 @@ moving-block bootstrap (b = 3, no wrap) is > 0.
 ## Pass rule (fixed now)
 Size ≤ 0.07 in every boundary cell (with 100 simulations a true 0.05 can read up to ~0.09; 0.07 is the working bar). Otherwise
 report which world fails and do not use the test unmodified for such data.
+
+## Run 1 stopped (2026-11-05) after one cell; amendment before run 2
+- Run 1 (optimiser V_G): W1, n = 30, φ = −0.5 gave **size 0.12** (fails the 0.07 bar). This is consistent with the upward small-sample bias
+  found by the independent check. Stopped to switch to the exact closed form.
+- **Run 2:** V_G = ρ(|R − I|) − 1 (Perron root), the same statistic to within 1.5×10⁻³ and much faster. Full counts in every cell: 300 simulations, 1000
+  resamples. Two variants, declared before run 2:
+  - **(P) percentile:** reject if the 5% point of V_G* is > 0 (as specified);
+  - **(B) basic / bias-corrected:** reject if 2·V̂_G − (95% point of V_G*) is > 0.
+- Same worlds, grid and pass rule (size ≤ 0.07 in every boundary cell).

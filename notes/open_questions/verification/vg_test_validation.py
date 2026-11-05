@@ -39,25 +39,27 @@ def detrend(Y):
     b, *_ = np.linalg.lstsq(A, Y, rcond=None); return Y - A @ b
 
 
+def vgp(R):
+    k = len(R); return float(np.max(np.abs(np.linalg.eigvalsh(np.abs(R - np.eye(k)))))) - 1   # Perron root (symmetric nonneg)
+
+
 def reject(Y, nb, vg, rng):
-    E = detrend(Y); n = len(E); b = 3; nbl = math.ceil(n/b); vals = []
-    for _ in range(nb):
-        st = rng.integers(0, n-b+1, nbl); idx = (st[:, None] + np.arange(b)).ravel()[:n]
-        vals.append(vg(np.corrcoef(E[idx].T)))
-    return np.percentile(vals, 5) > 0
+    E = detrend(Y); n = len(E); b = 3; nbl = math.ceil(n/b)
+    st = rng.integers(0, n-b+1, (nb, nbl)); idx = (st[:, :, None] + np.arange(b)).reshape(nb, -1)[:, :n]
+    vals = np.array([vgp(np.corrcoef(E[ix].T)) for ix in idx]); v0 = vgp(np.corrcoef(E.T))
+    return np.percentile(vals, 5) > 0, 2*v0 - np.percentile(vals, 95) > 0
 
 
 def main():
     rng = np.random.default_rng(5)
-    print(f"{'world':6s} {'n':>3s} {'phi':>5s} {'rate':>6s}")
+    print(f"{'world':6s} {'n':>3s} {'phi':>5s} {'P':>6s} {'B':>6s}")
     for name in ("W1", "W4", "W4ns", "W2", "W3", "P1", "P2"):
         k = 3 if name in ("W1", "W4", "W4ns") else 10
-        nsim, nb = (300, 1000) if k == 3 else (100, 300)
-        vg = gp.FastVG(k)
+        nsim, nb = 300, 1000; vg = None
         for n in (30, 53):
             for phi in (-0.5, 0.5):
-                r = np.mean([reject(world(name, n, phi, rng), nb, vg, rng) for _ in range(nsim)])
-                print(f"{name:6s} {n:3d} {phi:+5.1f} {r:6.2f}", flush=True)
+                rr = np.array([reject(world(name, n, phi, rng), nb, vg, rng) for _ in range(nsim)])
+                print(f"{name:6s} {n:3d} {phi:+5.1f} {rr[:,0].mean():6.2f} {rr[:,1].mean():6.2f}", flush=True)
 
 
 if __name__ == "__main__":

@@ -57,3 +57,15 @@ Cause: proportional shrinkage to the boundary is not least favourable. True-zero
 leaves small nonzero values instead. The 3-site calibrated test is valid on this grid. **Next (per the new workflow rule): no further
 ad-hoc fixes. Read and implement the established method for non-differentiable functionals / moment inequalities (Fang–Santos 2019;
 Andrews–Soares 2010; Chernozhukov–Chetverikov–Kato 2019), then validate on the same grid.**
+
+## Run 4 (declared before running): Hong–Li numerical delta method (recipe in `VG_INFERENCE_METHODS.md`)
+- Per dataset: prep = per-site normal scores, then linear detrend on year. R̂ from prep; T = √n (ρ(|R̂ − I|) − 1).
+- Moving-block bootstrap of years (no wrap; block b = round(n^{1/3}); 1000 resamples), re-running the full prep inside each resample (years
+  carried with rows). Z* = √n (R̂* − R̂).
+- For each step ε ∈ {1/√n, √(ln n / n), n^{−1/6}, ∞}: D*(ε) = [ρ(|R̂ + εZ* − I|) − ρ(|R̂ − I|)]/ε, with D*(∞) = ρ(|Z*|) (Z* has zero
+  diagonal). Reject if T > the 95% quantile of D*(ε).
+- Worlds: W1, W2, W3, W4 (boundary); W0 = independent sites (R = I, interior); WD = degenerate Perron root (two disjoint 5-site rings);
+  P1, P2 (power). n ∈ {30, 53}, φ ∈ {−0.5, +0.5}; 300 simulations per cell.
+- **Selection rule (from the methods note, fixed now):** the smallest ε whose size is ≤ 0.07 in every boundary cell (W1–W4, WD). If none
+  passes, ε = ∞ is the conservative fallback, and if even ∞ fails, the 10-site test is not usable.
+- Expected (methods note): 1/√n reproduces run B's failure.

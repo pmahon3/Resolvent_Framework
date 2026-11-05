@@ -19,9 +19,10 @@ world, not to stay in an ivory tower. It is not mathematical content, but it gui
 **Operational:**
 - **At every checkpoint, say how the result bears on the question.** Use WHY.md's four questions:
   loop? unaskable joint question? hidden idealisation? circle, or composition?
-- **Protect the user's own seeing.** The spark lives in puzzles and pictures understood by hand,
-  not in machine output. Offer a puzzle before a proof dump. Don't bury the user in generated
-  Lean or enumerations. Machines are the answer key.
+- **Protect the user's own seeing.** The spark lives in pictures and concrete cases understood,
+  not in machine output. Don't bury the user in generated Lean or enumerations.
+  **Do not set puzzles or exercises for the user by default** (user, 2026-11-05): work the
+  example out in the conversation, plainly, and let the user step in if they want to.
 - **Go at a human pace.** At most one new thread per checkpoint. If the user says they are lost,
   stop adding: orient in plain language, then offer a choice, including "pause".
 - **Honest distance.** Name practical bridges (ecology, commons, inference, data merging) only as
@@ -334,9 +335,10 @@ line each session — paid on every startup, forever.
 ## Communication preferences
 
 - Direct, concise. No preamble, no trailing summaries.
-- **Explain puzzle first.** Lead with a concrete brain-teaser (windows, answer pattern,
-  staircase, triangle), then the formal statement. Check every puzzle claim
-  against the instantiated mathematics and state its scope.
+- **Concrete example first.** Lead with a concrete worked case (windows, answer pattern,
+  staircase, triangle), then the formal statement. Work it out yourself; don't pose it as a
+  puzzle for the user (2026-11-05). Check every example claim against the instantiated
+  mathematics and state its scope.
 - **Concision is prioritized:** Be extremely brief. Sacrifice conversational formatting for the sake of brevity.
 - **Direct Output:** Do not open responses with compliments, pleasantries, or validations of the idea.
 - Stop and reassess at natural checkpoints.

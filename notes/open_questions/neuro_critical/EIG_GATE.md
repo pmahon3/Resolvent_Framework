@@ -53,3 +53,20 @@ corr(g, |xcorr0|) = 0.34–0.64. As a seizure detector it is redundant.
   because a stationary linear process with these lags can be non-PSD in population too. A separate bootstrap is
   needed for noise. Also needed: more patients, and a check that frozen interictal delays are not the whole story
   (re-estimate the delays ictally).
+
+## Noise floor, part 1 (descriptive, 2026-11-04): same-length baseline windows
+For each seizure: λ_min of the whole ictal period, against λ_min over windows of the same length slid (step 5 s) through
+minutes 0–10 (for 21, only windows ending ≥ 60 s before onset).
+
+| | 03 | 04 | 15 | 16 | 18 | 21 | 26 |
+|---|---|---|---|---|---|---|---|
+| ictal λ_min | −0.131 | −0.046 | +0.165 | +0.090 | −0.036 | −0.250 | −0.037 |
+| baseline median | −0.071 | +0.137 | +0.192 | +0.069 | +0.082 | −0.187 | +0.119 |
+| frac baseline ≤ ictal | 0.12 | 0.01 | 0.06 | 0.60 | 0.00 | 0.00 | 0.00 |
+
+- In 4/7 seizures (04, 18, 21, 26) the ictal λ_min lies below ≥ 99% of same-length baseline windows.
+- The non-gluing is **not seizure-specific**: in chb01_03 and chb01_21 the baseline windows are already non-PSD at
+  the median. Delay-aligned views fail to fit one Gaussian world in ordinary background EEG too, depending on the recording.
+- Honest status: an anecdote from one patient. It is not shown to beat |xcorr0| or variance, and this "null" is a
+  baseline distribution, not a surrogate. Script for these descriptives: inline (not saved). Rerun from
+  `neuro_eig_delay_chbmit.py`'s `wcorr`/`shift` and `dg.shifted` helpers.

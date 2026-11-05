@@ -243,6 +243,15 @@
     "Q-synchrony-compat"
    ],
    "stream": "S1"
+  },
+  {
+   "id": "P-mast-conditional",
+   "file": "../views_across_records/MAST_CONDITIONAL_GATE.md",
+   "outcome": "2026-11-05: Poland triple VANISHES by rule (V 2.97 -> 1.27 after conditioning on Kelly dT, which explains only 5-9% per site; residual E 0.50-0.61, p 0.08: 'no longer demonstrable at n=72'); Germany NO-BASE (synchrony at the ceiling). Prediction failed.",
+   "affects": [
+    "Q-synchrony-compat"
+   ],
+   "stream": "S1"
   }
  ],
  "examples": [

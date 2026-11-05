@@ -16,12 +16,13 @@ def ar1(n, phi, rng):
 
 
 def world(n, phi, probs, rho, rng):
-    S = [ar1(n, phi, rng) > norm.ppf(1 - p) for p in probs]          # AB, BC, CA good-years
-    A = S[0] & S[2]; B = S[0] & S[1]; C = S[1] & S[2]
-    X = np.column_stack([A, B, C]).astype(float) + 1e-6 * rng.standard_normal((n, 3))   # break median ties
+    """Continuous AND worlds: site value = min of its two pair-driver margins; median split = AND rule exactly.
+    (v1 used 0/1 values + tiny noise: median splits then fell inside a tie cluster and split it at random - an artifact.)"""
+    S = [ar1(n, phi, rng) - norm.ppf(1 - p) for p in probs]            # AB, BC, CA (good iff > 0)
+    X = np.column_stack([np.minimum(S[0], S[2]), np.minimum(S[0], S[1]), np.minimum(S[1], S[2])])
     if rho > 0:
-        cm = rng.random(n) < rho; coin = (rng.random(n) < 0.5).astype(float)
-        X[cm] = coin[cm, None] + 1e-6 * rng.standard_normal((cm.sum(), 3))
+        cm = rng.random(n) < rho; c = rng.standard_normal(n)
+        X[cm] = c[cm, None] + 1e-9 * rng.standard_normal((cm.sum(), 3))
     return X
 
 

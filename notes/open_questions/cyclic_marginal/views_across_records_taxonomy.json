@@ -357,6 +357,12 @@
    "file": "../views_across_records/ASSUMPTION_BREAKERS.md",
    "outcome": "2026-11-06: regime shift fools raw test (0.50; detrended 0.09); pair-specific linear trends barely (0.05; prediction wrong, likely absorbed by automatic blocks); Segers-violating min world size 0.00 (robust); rule: report raw + detrended, check step changes",
    "stream": "S1"
+  },
+  {
+   "id": "P-power-curves",
+   "file": "../views_across_records/POWER_CURVES.md",
+   "outcome": "2026-11-06: m=2 test detects only wide, strong common causes (n=53: reach 10 with lam2>=0.2-0.3; reach 5 needs lam2~0.5); reach-3 causes invisible; a null at n~50 excludes little",
+   "stream": "S1"
   }
  ],
  "examples": [

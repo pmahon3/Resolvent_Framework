@@ -1,101 +1,87 @@
-# Does synchrony need a common cause? A model-free test across sites
+# Does coordination need a centre, and what shape is it? Model-free tests across sites
 
-reviewed: false. v2, 2026-11-05. A working note, raw material for the user's own write-up and not for circulation. It addresses
-audit fixes B1–B4 and N1, N2, N4 (`SYNCHRONY_CAUSALITY_METHOD_AUDIT.md`). A re-audit is owed before any further use. Collection:
-`cyclic_marginal/views_across_records_taxonomy.json`.
+reviewed: false. v3, 2026-11-06. A working note: raw material for the author's own-words write-up, not for circulation. v2 was audited
+REJECT-LIKELY as written (`SYNCHRONY_CAUSALITY_METHOD_AUDIT.md`); v3 rebuilds it on validated pieces. A re-audit is owed. Folder index:
+`README.md`. Collection: `../cyclic_marginal/views_across_records_taxonomy.json`.
 
 ## 1. A worked case
-Three ponds. Each pair shares its own stream, and the streams have good and bad years independently. Nothing is shared by all three,
-and each pond responds only to its two streams. If each pond has frogs half the time, how often can all three agree?
+Three ponds, each pair sharing its own stream; the streams have good and bad years independently, and nothing is shared by all three.
+- Best arrangement: a pond has frogs iff both its streams are good, each good with probability 1/√2.
+- Then all three agree in (3√2 − 2)/4 ≈ **56%** of years.
+- No arrangement of independent pairwise causes does better, whatever the mechanism, in any physics (Gisin et al. 2020).
+- More agreement needs a **centre**: something reaching all three.
 
-The best arrangement: a pond has frogs only when both its streams are good, each good with probability 1/√2.
-- All three full: (1/√2)³ ≈ 0.354.
-- All three empty, when at least two streams are bad: ≈ 0.207.
-- Total ≈ **0.561** = (3√2 − 2)/4.
+## 2. Ceilings and cones (all owned)
+- **Yes/no, three sites:** (1 − |E_k|)² ≥ Σ_{others} E² (Gisin et al. 2020, ineqs. 13/16).
+- **Continuous, any number of sites:** pairwise sources force R ∈ FW₂ (a "correlation budget" per site). Equivalently V₂ = ρ(|R − I|) − 1 ≤ 0
+  (Kela et al. 2020, Prop. 1; proof independently checked). It holds for any responses, local noise and per-site transforms.
+- **Any hypothesis about the centres:** a hypergraph H of candidate centres gives the cone FW_H = {D + Σ_{S∈H} C_S} (Kela et al.; factor width, Boman et
+  al. 2005). Special cases:
+  - "reach ≤ m" = FW_m;
+  - "local centres within radius d" = H(d).
+- **Which structures can show a centre at all:** from correlations, a centre beyond pairs can be revealed only on **frustrated** cycles (signs not
+  multiplying to (−1)^{length}). Antibalanced structure is always pairwise-explainable (Boman et al. 2005). The maximal excess on an odd L-cycle is
+  sec(π/L) − 1. Chordal patterns: their cliques suffice (Agler et al. 1988).
+- **Non-identifiability:** the minimal sufficient hypergraph need not be unique (K₄ example). Full distributions can separate more (Evans 2016).
 
-Independent ponds give 0.25. Gisin et al. 2020 prove that no arrangement of independent pairwise drivers exceeds 0.561 (below). More
-coordination needs something shared by all three: a regional driver, shared history, or a shared observer.
+## 3. Inference (ours: assembly and validation)
+- **Test:** T_H = √n·V_H(R̂) against the 95% quantile of V_H(√n(R̂* − R̂)) (moving-block bootstrap with re-ranking, no wrap, Politis–White automatic
+  block length).
+- **Proved, pointwise asymptotic validity for every H:** exact domination T_H ≤ V_H(√n(R̂ − R)) under H₀, from sublinearity. Plus Bücher–Volgushev 2013
+  (copula limit) and Bücher–Ruppert 2013 Thm 2 (block bootstrap). Conditions: Spearman correlations, jitter for ties, stationarity + geometric mixing,
+  Segers' condition, Cov(G) ≠ 0. Hand links independently checked.
+- **Validated by simulation:** size ≤ 0.06 on boundary worlds (rings, degenerate roots, ties, zero-inflation, |φ| ≤ 0.5), with persistence up to a = 0.95,
+  threshold mechanisms (Segers violated), and m = 3.
+- **Failure modes:**
+  - regime shifts fool the raw test (0.50); detrending fixes most of it (0.09);
+  - fixed short blocks fail under persistence (fixed by automatic blocks);
+  - all finite-ε Hong–Li variants fail size. Only the conservative ε = ∞ is valid.
+- **Power:** only strong, wide centres are visible at n ≈ 50 (reach 10, λ² ≳ 0.2–0.3). A reach-3 centre is invisible. Polycentric vs monocentric is
+  separable only for strong violations. **A null rules out little.**
 
-## 2. Two versions of the ceiling (both owned)
-**(A) Yes/no, three sites.** Split each site's series at its own quantile. With E = agreement − disagreement for a pair, the bound is:
-for each pair k, (1−|E_k|)² ≥ Σ_{others} E², in the general-margin form (Gisin, Bancal, Cai, Remy, Tavakoli, Zambrini Cruzeiro, Popescu &
-Brunner 2020, *Nat. Commun.* 11:2378, ineqs. 13/16). It bites only when pairs agree in more than ~70% of years (E > √2 − 1).
+## 4. What a detected centre is
+Some common ancestor of ≥ 3 sites:
+- **in space**: a shared driver;
+- **in time**: accumulated interaction, which needs long memory;
+- **in the observer**: a shared protocol.
 
-**(B) Continuous, any number of sites.** For Pearson correlations R, independent pair-sources force a "correlation budget": there are
-loads t_ij ≥ 0 with r_ij² ≤ t_ij t_ji and Σ_j t_ij ≤ 1 for each site. Equivalently,
-**V_G = (largest eigenvalue of |R − I|) − 1 ≤ 0** (Kela, von Prillwitz, Åberg, Chaves & Gross 2020, *IEEE TIT* 66, Prop. 1; pairwise case).
-- It holds for *any* nonlinear response and local noise. The proof is the Hoeffding decomposition plus Cauchy–Schwarz, independently checked.
-- It is exact: every R that passes is produced by some linear pairwise world.
-- Three equal correlations need r ≤ ½. With three sites a one-factor model is saturated, so this is not a tetrad test.
+**Separating space from time:** test the shocks (VAR innovations) rather than the levels. This is standard (SVAR; Eichler; MARSS); applying the cone
+tests to innovations is ours, by composition. Levels show the interaction-closure of the shock centres. That is owned (trek rule; Lande et al. 1999;
+Ripa 2000), and its content is a truncated bound, small unless memory is long. **Caveat:** propagation within one sampling interval looks same-time.
 
-**What a violation means.** Some common ancestor of ≥ 3 sites exists. **What it does not mean:** which one. And no violation means nothing.
+## 5. Applications (pre-registered gates; failed predictions recorded)
+- **Lake temperature:** a centre (weather); the control works. **Lake zooplankton across lakes:** none.
+- **Zooplankton within lakes:** frustrated triangles dominate (median 79%). Only Trout Lake needs a community-wide centre. Crystal Lake is guild-structured:
+  43% negative correlations but every triangle frustrated.
+- **Polish beech (positive control):**
+  - a centre is required (T 35 vs 9), robust to detrending, ties, transform and jitter;
+  - reach ≥ 4; regional (local centres within 368 km insufficient);
+  - the same in innovations, i.e. a region-wide cause acting within a year (weather or the solstice cue, within-year pollen, or the protocol), not
+    across-year history;
+  - the known cue is special against placebo but removes only ~10% linearly;
+  - the negative control (circular shifts) is silent. The literature (Journé et al. 2024; Bogdziewicz et al. 2021) owns the mechanism.
+- **Bristol Bay sockeye:**
+  - a centre is required (T 16 vs 10), robust to detrending and to the 1977 regime shift;
+  - sub-regional (> ~100 km);
+  - not demonstrable in innovations;
+  - not the basin-scale PDO (not special vs placebo);
+  - no across-year river interaction (0/9).
+  - So an unidentified local shared driver, or the protocol.
+- **North Pacific across agencies (n = 28):** nothing demonstrable (weak null).
 
-**Conditions (B1):**
-- Pair-sources must be *mutually* independent. Dependence between them is itself a shared cause.
-- Each site depends only on its own sources and its own noise.
-- **Stationarity across years:** a shared trend or regime shift acts as a common cause, because the pairwise-only set is not convex in
-  general and mixtures of years can violate. So detrend first; simulated shared trends gave 61% false alarms without it.
-- Within-site autocorrelation and per-site transforms (quantile splits, ranks, logs) do *not* invalidate the bound.
-
-## 3. The pipeline
-1. **Prepare.** Per-site normal scores (version B) or quantile splits (A). Linear detrend on year.
-2. **Detect, with validated inference.**
-   - (A) S2 = the largest excess over the 1/3, 1/2 and 2/3 quantile splits. Moving-block bootstrap lower bound, no wrap. Validated:
-     size ≤ 0.03, and power ~0.75 for a common cause active in 30% of years at n = 72. That is double the median-split version.
-   - (B) Numerical delta method (Hong & Li 2018, *J. Econometrics*; theory in Fang & Santos 2019, *REStud*), with step ε = ∞:
-     T = √n·V̂_G, compared with the 95% point of the bootstrap largest eigenvalue of |√n(R̂* − R̂)|. Validated: size ≤ 0.05 across hard
-     boundary worlds (rings, tied eigenvalues, φ = ±0.5, n = 30–53). **Power is low** for weak, diffuse common causes.
-   - Naive bootstraps are invalid for (B) at 10 sites, with size up to 1.00. Inference on kinked functionals needs this theory.
-3. **Candidate centres (model-conditional; B2).** Model-free tests establish *that* a common cause exists, not *which*. To probe a named
-   candidate, add it as a regressor, state the linear-additive assumption explicitly, re-test, and run a **placebo** (the candidate with its
-   years permuted). A violation that disappears means "no longer demonstrable", not "accounted for".
-4. **Space or time.** A regional driver acts at once. Shared history (dispersal) shows lags along dispersal paths. This step is owned
-   (Bjørnstad, Ims & Lambin 1999; Sheppard et al. 2016; Walter et al. 2017).
-5. **Measurement centres.** A shared observer, protocol or calibration is also a common cause. Compare independent programmes.
-
-## 4. Worked results (pre-registered gates in this folder)
-- **Lake summer temperature** (5 Wisconsin lakes, ~45 years): E = 0.73–0.91, 10/10 triples violate (A). Regional weather; the control works.
-- **Lake zooplankton:** 0/10 triples per group (A). Matches the known low temporal coherence of biological variables.
-- **Beech, across programmes** (300–900 km, ~30 common years): no violations (median E 0.11). Weak null; power is low at n ≈ 30.
-- **Beech, within the Polish programme:** median E 0.37 across same-study triples, top triples 0.7–0.86 (B4).
-  - (A, S2, detrended): 40/120 triples significant after Holm.
-  - (B, 10 sites jointly, validated): T = 34.9 against a critical value of 8.8. With each site's ΔT cue added: 29.7 against 9.2.
-  - **A common cause of ≥ 3 sites is required.**
-  - The ΔT cue lowers V_G by 0.50, where 200 placebo cues lower it by 0.003, so the cue is special. But most of the common cause remains
-    after linear adjustment. Weather (other channels, or a nonlinear cue), history and protocol cannot be separated within one programme.
-  - Bogdziewicz et al. 2021 (*Ecology*) already attribute beech synchrony to weather synchrony. The weather conclusion is theirs.
-  - Disclosure (B4): the first Poland triple result (p = 0.008) came from a 1047-triple family where nothing passed Holm. It was later
-    replicated by S2 and by (B).
-
-## 5. Design rules learned
-- Only strong synchrony is testable (A: E > ~0.41). Weak synchrony is never evidence against a common cause.
-- Validate inference by simulation at the boundary before using it. Choose established methods over ad-hoc fixes.
-- Resampling resolution must beat the multiple-testing threshold: resamples ≫ 20·(tests)/α.
-- Don't average V over overlapping triples, and don't force one year window across many sites (N4: this replaces the earlier
-  "pooled mean V" advice). Use per-triple windows with Holm, or the joint 10-site test (B).
-- Median splits of heavily tied data must not break ties at random.
-- Same-programme sites mix real and protocol common causes.
-
-## 6. What is owned and what may be new
-**Owned:**
-- the bounds (Gisin et al. 2020; Kela et al. 2020) and the triangle-network literature (Fritz 2012; Wolfe–Spekkens–Fritz; Rosset–Gisin–Wolfe);
-- classical common-ancestor tests (Steudel–Ay; Chaves et al. 2014);
-- inference for kinked functionals (Fang–Santos 2019; Hong–Li 2018; Andrews–Soares 2010);
-- synchrony science and its tools: Moran 1953; Liebhold, Koenig & Bjørnstad 2004; matrix regression / partial Mantel (Bogdziewicz et
-  al. 2021); the wavelet Moran decomposition (Sheppard et al. 2016; Walter et al. 2017); lag analysis (Bjørnstad et al. 1999);
-- conditioning on a candidate driver;
-- masting cues (Kelly et al. 2013);
-- the temporal coherence of lakes (Magnuson, Kratz et al.).
-
-**Possibly new (not found in scouts; not yet claimed):**
-- applying these causal-compatibility bounds to ecological synchrony, as a model-free test that synchrony *requires* a shared cause;
-- the validated many-site version for time series.
-
-Not compared yet: classical (not "any physics") inflation bounds, which may have more power (N5), and power against matrix-regression
-and wavelet approaches.
+## 6. Owned vs ours
+- **Owned:** every ceiling, cone and structural theorem; the closure and innovation methodology; the inference theory; the ecological mechanisms.
+- **Ours, as far as scouts found:**
+  - the assembly into one framework (cones over hypergraphs of centres) for ecological synchrony;
+  - the validity proof for any H and the validated inference recipe;
+  - the reach and radius tests;
+  - the space/time/observer reading on innovations;
+  - the applications.
+- A methods-and-synthesis contribution, not new theorems.
 
 ## 7. Limits
-- Low power at ecological sample sizes: only strong common causes are detectable.
+- Low power.
 - Attribution is model-conditional.
-- Stationarity is assumed after linear detrending.
-- Validation covers the simulated grid only (not extremely heavy tails, and not n < 30).
+- Stationarity is assumed: check for regime shifts.
+- Within-interval propagation counts as "same time".
+- Observer vs nature needs independent programmes, and the only cross-agency family had n = 28.

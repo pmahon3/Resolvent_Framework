@@ -69,3 +69,27 @@ Andrews–Soares 2010; Chernozhukov–Chetverikov–Kato 2019), then validate on
 - **Selection rule (from the methods note, fixed now):** the smallest ε whose size is ≤ 0.07 in every boundary cell (W1–W4, WD). If none
   passes, ε = ∞ is the conservative fallback, and if even ∞ fails, the 10-site test is not usable.
 - Expected (methods note): 1/√n reproduces run B's failure.
+
+## Run 4 result (2026-11-05): ε = ∞ selected by the pre-registered rule. Script `verification/vg_numdelta.py` (4 h wall)
+| world (boundary unless noted) | 1/√n | √(ln n/n) | n^{−1/6} | **∞** |
+|---|---|---|---|---|
+| W1 (3 sites) | 0.11–0.17 | 0.11–0.17 | 0.11–0.16 | **0.03–0.05** |
+| W4 spikes | 0 | 0 | 0 | **0** |
+| W2 (10, all pairs) | 0.20–0.38 | 0.05–0.16 | 0.02–0.07 | **0.00** |
+| W3 (10, ring) | 0.84–0.91 | 0.51–0.63 | 0.23–0.35 | **0.01** |
+| WD (two rings, degenerate root) | 0.87–0.91 | 0.52–0.64 | 0.23–0.33 | **0.00–0.02** |
+| W0 (independent, interior) | 0.01–0.18 | 0–0.03 | 0 | **0** |
+| P1 power (V_G = 0.4) | 0.42–0.56 | 0.23–0.33 | 0.12–0.22 | **0.01–0.03** |
+| P2 power (V_G = 0.8) | 0.71–0.75 | 0.47–0.60 | 0.33–0.44 | **0.05–0.13** |
+
+- **Only ε = ∞ holds size everywhere** (max 0.05). The finite steps fail even in W1, which has no kinks: the block bootstrap underestimates
+  variability at n = 30–53 with autocorrelation, as the methods note warned.
+- **Price: very low power for weak diffuse common causes** (V_G ≤ 0.8). The validated 10-site test detects only strong common causes.
+- Status: **valid (on this grid), conservative, low power.** That is what "model-free" costs at these sample sizes.
+
+## Poland with the validated test (declared before running)
+10 Polish sites, 53 years (1951–2019), validated ε = ∞ test, 10 000 resamples.
+- (a) Detrended (prep as validated).
+- (b) Prep plus each site's own ΔT as an extra regressor in the detrending regression.
+Report T, the critical value and reject/not for each. Prediction: both reject. The (b) – (a) drop is reported descriptively only;
+attribution is not model-free.

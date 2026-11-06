@@ -399,6 +399,12 @@
    "file": "../views_across_records/DYNAMIC_CLOSURE.md",
    "outcome": "2026-11-06: Poland innovations reproduce levels: m-hat*=4, d-hat=397 km -> regional SAME-TIME driver (or protocol), not accumulated local history | CORRECTED 2026-11-06: within-interval propagation looks same-time (Breitung-Swanson 2002) -> excludes across-year accumulated history only; within-year pollen coupling NOT excluded",
    "stream": "S1"
+  },
+  {
+   "id": "P-salmon-flow",
+   "file": "../views_across_records/SALMON_FLOW.md",
+   "outcome": "2026-11-06: Bristol Bay sockeye: common cause required (robust to detrend and 1977 regime shift), radius d-hat~128 km (sub-regional), reach beyond 3 not demonstrated; innovations not demonstrable (ambiguous: persistent common driver absorbed by own lags, or low power); cross-region/cross-agency: nothing (n=28, weak null)",
+   "stream": "S1"
   }
  ],
  "examples": [

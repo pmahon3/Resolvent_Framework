@@ -46,7 +46,7 @@ AUTO = len(sys.argv) > 2 and sys.argv[2] == "auto"
 
 def auto_b(X):
     from arch.bootstrap import optimal_block_length
-    R = np.apply_along_axis(rankdata, 0, X); b = int(np.ceil(optimal_block_length(R)['b_cb'].max()))
+    R = np.apply_along_axis(rankdata, 0, X); b = int(np.ceil(optimal_block_length(R)['circular'].max()))
     return int(min(max(b, 2), len(X) // 3))
 
 

@@ -70,3 +70,17 @@ method; van der Vaart's quantile lemma) were seen only via citing papers.
 | m = 2, W2 zero-inflated (jittered) | 0.00 |
 | m = 3, ring of triples | 0.00 (φ = 0, 0.5) |
 Max 0.06 ≤ 0.07 (m = 2), 0.00 ≤ 0.10 (m = 3). The Spearman ε = ∞ test, with jitter for ties and without detrending, holds size on all tested worlds.
+
+## V3 result (2026-11-05): Poland conclusions hold under the provable version. Script `verification/spearman_poland.py` (23 min)
+Tied fraction per site (53-year window): 0.38–0.60. 20 jitter draws each.
+| | m = 2 | m = 3 | m = 4 | m = 5 |
+|---|---|---|---|---|
+| (a) jittered Spearman, no detrend [provable] | T 34.2–35.0 vs crit 9.1–9.9: **20/20 reject** | T 13.5–13.9 vs 7.9–9.5: **20/20 reject** | T 6.6–6.8 vs 7.9–9.5: 0/20 | 0/20 |
+| (b) jittered Spearman, detrended [sensitivity] | 20/20 reject | 20/20 reject | 0/20 | 0/20 |
+- **Prediction held:** H₀(2) and H₀(3) are rejected and m̂* = 4 in every draw, in both versions.
+- **Status of "Polish beech synchrony needs a hidden cause reaching ≥ 4 of 10 stands":**
+  - proved asymptotically valid under (A1) stationarity + geometric mixing and (A2) continuity via jitter + Segers' condition (checked chain;
+    the ⟦HAND⟧ links independently checked);
+  - finite-sample size validated on all tested worlds (V2);
+  - robust to detrending, transform (normal scores vs Spearman) and jitter.
+  - Remaining assumptions, untested: stationarity of the raw series; Segers' condition for the true copula (it can fail for threshold mechanisms).

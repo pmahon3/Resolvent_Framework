@@ -138,6 +138,12 @@
    "statement": "For ANY pairwise-only world (independent pair-sources, arbitrary site responses, local noise), the Pearson correlation matrix is pairwise-feasible: exists t_ij>0 with r_ij^2 <= t_ij t_ji and sum_j t_ij <= 1 for all i. V_G = min_w max_i sum_j t_ij - 1 <= 0. Three equal correlations: r <= 1/2.",
    "status": "OWNED: Kela-von Prillwitz-Aberg-Chaves-Gross 2020 IEEE TIT Prop. 1 (shelved); proof independently checked (correct with minor fixes); closed form V_G = Perron root of |R-I| minus 1",
    "stream": "S0/S1"
+  },
+  {
+   "id": "T-reach-test-valid",
+   "statement": "Reach test (Spearman, eps=inf, moving-block bootstrap with re-ranking, no wrap): pointwise asymptotic size <= alpha for every m >= 2 under stationarity + geometric alpha-mixing, continuous margins (jitter for ties), Segers' condition, Cov(G) != 0.",
+   "status": "proof chain: exact domination (sublinearity) + Bucher-Volgushev 2013 + Bucher-Ruppert 2013 Thm 2 + continuous mapping; hand links independently checked (REACH_TEST_VALIDITY_CHECK.md, REACH_TEST_SPEARMAN_CHECK.md); finite-sample size validated by simulation",
+   "stream": "S0/S1"
   }
  ],
  "conjectures": [
@@ -332,6 +338,12 @@
    "id": "P-beech-positive-control",
    "file": "../views_across_records/BEECH_POSITIVE_CONTROL.md",
    "outcome": "2026-11-05: detection REJECT under all cue adjustments (V_G 4.82 -> 4.29-4.32); solstice cue no better than Jun-Jul (prediction i failed); real cue special vs 200 placebos (p<0.005); negative control (circular shifts) 0/50 rejections; instrument behaves on known case; linear attribution weak",
+   "stream": "S1"
+  },
+  {
+   "id": "P-spearman-poland",
+   "file": "../views_across_records/REACH_TEST_SPEARMAN.md",
+   "outcome": "2026-11-05: provable version (jittered Spearman, no detrend; asymptotic validity proved, size validated incl. tied/m=3 worlds <=0.06): Poland H0(2), H0(3) rejected 20/20 jitter draws, m-hat*=4 in all; same with detrending",
    "stream": "S1"
   }
  ],

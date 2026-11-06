@@ -4,7 +4,9 @@ import math
 import numpy as np
 from scipy.stats import rankdata
 from scipy.linalg import solve_discrete_lyapunov
-K, A, D = 10, 0.5, 0.25
+import sys
+K = 10
+A, D = (0.95, 0.15) if (len(sys.argv) > 1 and sys.argv[1] == "run2") else (0.5, 0.25)
 
 
 def rho(M): return float(np.max(np.abs(np.linalg.eigvalsh(M))))

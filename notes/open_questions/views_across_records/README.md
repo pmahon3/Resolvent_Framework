@@ -47,12 +47,13 @@ poland_rerun_prep2).
 - da Silva–Pozas-Kerstjens–Parisio 2025;
 - Dzhafarov–Kujala–Cervantes 2020, and other CbD papers;
 - Capotorti–Vantaggi 2011;
-- Fritz–Chaves 2013.
+- Fritz–Chaves 2013;
+- Fang–Santos 2019; Hong–Li 2018; Steudel–Ay (arXiv 2010).
 
 **Cited, not shelved (to fetch):**
-- inference: Hong & Li 2018 (J. Econometrics); Fang & Santos 2019 (REStud); Andrews & Soares 2010 (Econometrica); copula-bootstrap
+- inference: Andrews & Soares 2010 (Econometrica); copula-bootstrap
   sources in `SPEARMAN_PROOF_SOURCES.md`;
 - ecology: Kelly et al. 2013 (ΔT cue); Bogdziewicz et al. 2021 *Ecology* (beech synchrony from weather synchrony; owns that conclusion);
   Moran 1953; Liebhold, Koenig & Bjørnstad 2004; Sheppard et al. 2016; Walter et al. 2017; Bjørnstad, Ims & Lambin 1999;
   Reuman et al. 2023; Goldstein, Doser, Pease & Pacifici 2026 (*J. Anim. Ecol.*, read in full via SFU, not saved);
-- other: Boman, Chen, Parekh & Toledo 2005 (factor width); Steudel & Ay 2015; Chaves et al. 2014.
+- other: Boman, Chen, Parekh & Toledo 2005 (factor width); Chaves et al. 2014.

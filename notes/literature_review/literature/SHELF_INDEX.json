@@ -3410,6 +3410,51 @@
    ],
    "text_layer": true,
    "pages": ""
+  },
+  {
+   "file": "fang_santos_2019_directionally_differentiable_inference.pdf",
+   "citation": "Fang & Santos, 'Inference on directionally differentiable functions', Rev. Econ. Stud. 86 (2019); arXiv:1404.3763",
+   "what_it_proves": "Bootstrap/delta-method theory for Hadamard directionally differentiable maps; standard bootstrap inconsistent at kinks; consistent derivative-estimator bootstrap.",
+   "summary_basis": "title page checked; content via VG_INFERENCE_METHODS.md reader",
+   "verdict_for_us": "theory behind the validated V_G / V_m inference",
+   "programme_links": [
+    "notes/open_questions/views_across_records/VG_INFERENCE_METHODS.md"
+   ],
+   "questions": [
+    "centre_vs_relations"
+   ],
+   "text_layer": true,
+   "pages": ""
+  },
+  {
+   "file": "hong_li_2018_numerical_delta_method.pdf",
+   "citation": "Hong & Li, 'The numerical delta method', J. Econometrics 206 (2018) 379-394 (NSF PAR copy)",
+   "what_it_proves": "Numerical-derivative delta method for directionally differentiable functionals; step-size conditions; uniform size control for convex functionals (Thm 3.5 per reader).",
+   "summary_basis": "title page checked; content via VG_INFERENCE_METHODS.md reader",
+   "verdict_for_us": "the recipe used for the eps=inf test",
+   "programme_links": [
+    "notes/open_questions/views_across_records/VG_TEST_VALIDATION.md"
+   ],
+   "questions": [
+    "centre_vs_relations"
+   ],
+   "text_layer": true,
+   "pages": ""
+  },
+  {
+   "file": "steudel_ay_2010_common_ancestors.pdf",
+   "citation": "Steudel & Ay, 'Information-theoretic inference of common ancestors', arXiv:1010.5720 (Entropy 17, 2015)",
+   "what_it_proves": "If sum_i H(X_i) > c H(X_1..X_n), some common ancestor of more than c variables exists (any DAG).",
+   "summary_basis": "title page checked; statement via scouts",
+   "verdict_for_us": "owner of entropic common-ancestor test; powerless vs NSI bound in our simulations (CEILING_POWER_STATS.md)",
+   "programme_links": [
+    "notes/open_questions/views_across_records/CEILING_POWER_STATS.md"
+   ],
+   "questions": [
+    "centre_vs_relations"
+   ],
+   "text_layer": true,
+   "pages": ""
   }
  ]
 }

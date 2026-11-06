@@ -4,6 +4,9 @@ draft 2026-10-17, updated 2026-10-22, reviewed: false. Drafted by Claude from a 
 rewrite it in his own words. This is the compass the mathematics answers to. It is not
 mathematical content.
 
+*Sidecar:* `WHY_SIDECAR.md` collects dated observations from the work that bear on this question (drafted by Claude, for the
+author's own-words pass).
+
 ## The question
 
 > **When do local views, each correct as far as it goes, add up to one world? And when they

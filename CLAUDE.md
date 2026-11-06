@@ -19,6 +19,8 @@ world, not to stay in an ivory tower. It is not mathematical content, but it gui
 **Operational:**
 - **At every checkpoint, say how the result bears on the question.** Use WHY.md's four questions:
   loop? unaskable joint question? hidden idealisation? circle, or composition?
+- **Keep the WHY sidecar (adopted 2026-11-06).** When a result refines, extends or tempers WHY.md, append a dated entry to
+  `WHY_SIDECAR.md` (claim; status owned/ours/lens; where it lives). Never rewrite WHY.md's body: it stays in the author's voice.
 - **Protect the user's own seeing.** The spark lives in pictures and concrete cases understood,
   not in machine output. Don't bury the user in generated Lean or enumerations.
   **Do not set puzzles or exercises for the user by default** (user, 2026-11-05): work the

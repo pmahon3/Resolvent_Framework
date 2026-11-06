@@ -64,3 +64,19 @@ n ∈ {53, 200}; 100 simulations × 500 resamples.
 - D2: L rejects with power rising in n (high persistence shrinks the effective n, so power may be modest at 53); I ≤ 0.10.
 - M2: L and I reject.
 - P2: L and I ≤ 0.10 (P2's level correlations equal its innovation correlations, since every site has the same a, so the population is still on the boundary).
+
+## Run 2 result (2026-11-06): the innovation test separates space from time; the LEVELS test fails size under high persistence
+| world (a = 0.95) | population V_G levels / innov. | n = 53: L, I | n = 200: L, I |
+|---|---|---|---|
+| M2 Moran | +3.50 / +3.50 | 0.90, 1.00 | 0.98, 1.00 |
+| D2 dispersal (d = 0.15) | +1.31 / −1.00 | 0.10, 0.00 | 0.37, 0.00 |
+| **P2 pairwise boundary** | 0.00 / 0.00 | **0.55**, 0.00 | **0.60**, 0.00 |
+- **Validity failure (not predicted):** the levels test L is oversized at a = 0.95, with 55–60% false alarms on the boundary world. Blocks of
+  b = round(n^{1/3}) ≈ 4–6 years cannot capture ~20-year memory, so the bootstrap understates the variability of the correlations. The earlier
+  validations covered |φ| ≤ 0.5 only. The beech results are unaffected (beech masting has negative lag-1 autocorrelation, covered by the
+  φ = −0.5 cells). Persistent systems are not covered.
+- **Innovation test I:** valid (0.00 on P2), detects the same-time common shock in M2 (1.00), silent on D2 (0.00). It separates "centre in
+  space" from its absence, as predicted.
+- **Centre-in-time demonstration: INCONCLUSIVE.** D2's levels rejections (0.37 at n = 200) cannot be read as power, given P2's size.
+- **Next, by the established method:** automatic block-length selection for dependent data (Politis & White 2004; Patton, Politis & White 2009
+  correction). Read, implement, re-validate L on P2 and D2 (a = 0.95), then retry D2. Until then, **do not apply L to strongly persistent series.**

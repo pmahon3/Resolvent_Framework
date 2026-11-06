@@ -345,6 +345,12 @@
    "file": "../views_across_records/REACH_TEST_SPEARMAN.md",
    "outcome": "2026-11-05: provable version (jittered Spearman, no detrend; asymptotic validity proved, size validated incl. tied/m=3 worlds <=0.06): Poland H0(2), H0(3) rejected 20/20 jitter draws, m-hat*=4 in all; same with detrending",
    "stream": "S1"
+  },
+  {
+   "id": "P-space-time",
+   "file": "../views_across_records/SPACE_TIME_DYNAMICS.md",
+   "outcome": "2026-11-06: VAR-innovation test separates centre in space (Moran: 1.00) from dispersal (0.00), valid at boundary (0.00); population scan: dispersal breaks pairwise ceiling only with high persistence (a>=0.9); LEVELS test OVERSIZED at a=0.95 (0.55-0.60 on boundary) - fixed n^(1/3) blocks too short; centre-in-time demonstration inconclusive; fix = Politis-White automatic block length",
+   "stream": "S0/S1"
   }
  ],
  "examples": [

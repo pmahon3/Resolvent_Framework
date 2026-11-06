@@ -23,7 +23,13 @@ reviewed: false. 2026-11-05. Collection: `../cyclic_marginal/views_across_record
 6. Side results:
    - `DETECTION_FAKES.md` (detection error vs fake twists);
    - `synchrony_dataset_scout.md`.
-7. Audit: `SYNCHRONY_CAUSALITY_METHOD_AUDIT.md` (of note v1; a re-audit of v2 is owed).
+7. Audits: `SYNCHRONY_CAUSALITY_METHOD_AUDIT.md` (v2); `SYNCHRONY_CAUSALITY_METHOD_AUDIT_v3.md` (v3: BORDERLINE; B6 head-to-head and B8 placebo open).
+8. Later threads:
+   - `HYPERGRAPH_CENTRES.md` (+ `_PRIOR_ART`), `HYPERGRAPH_METHOD.md`;
+   - `DYNAMIC_CLOSURE.md` (+ `_PRIOR_ART`), `SPACE_TIME_DYNAMICS.md`, `ASSUMPTION_BREAKERS.md`, `POWER_CURVES.md`, `FINITE_EPS_REVALIDATION.md`;
+   - `FRUSTRATION_ZOOPLANKTON.md`;
+   - `SALMON_DATA_SCOUT.md`, `SALMON_FLOW.md`, `SALMON_OCEAN_DRIVER.md`.
+   - Data: salmon from KNB df35b (spawner–recruit df35b.296.15, coordinates df35b.300.6) and the NOAA ERSST v5 PDO.
 
 Scripts: `../verification/` (lake_*, synchrony_ceiling_gate, mast_*, ceiling_*, gaussian_*, vg_*, source_reach*, reach_m3_validation,
 poland_rerun_prep2).

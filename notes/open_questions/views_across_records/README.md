@@ -13,8 +13,10 @@ reviewed: false. 2026-11-05. Collection: `../cyclic_marginal/views_across_record
    3. `VG_INFERENCE_METHODS.md` (literature: Hong–Li, Fang–Santos, GMS);
    4. `VG_TEST_VALIDATION.md` (runs 1–4; ε = ∞ validated; Poland validated result);
    5. `REACH_TEST_VALIDITY.md` and `REACH_TEST_VALIDITY_CHECK.md` (proof for every m; independent check; corrected pipeline);
-   6. `SPEARMAN_PROOF_SOURCES.md` (closing the bootstrap gap; in progress).
+   6. `SPEARMAN_PROOF_SOURCES.md` (theorem chain for the bootstrap);
+   7. `REACH_TEST_SPEARMAN.md` and `REACH_TEST_SPEARMAN_CHECK.md` (the provable version: proposition, check, validation V2, Poland V3).
 4. Minimum source reach: `SOURCE_REACH_SCOUT.md` (FW_m, V_m, formal check, Poland m̂* = 4).
+   **Positive control (complete):** `BEECH_POSITIVE_CONTROL.md` (known cue vs placebo; negative control).
 5. Pre-registered gates, chronologically:
    - lakes: `LAKE_HARNESS.md`, `LAKE_PHYSICS_HARNESS.md`, `SYNCHRONY_CEILING_GATE.md`;
    - beech: `MAST_CEILING_GATE.md`, `MAST_CONDITIONAL_GATE.md`, `MAST_POLAND_POOLED_GATE.md`, `MAST_S2_GATE.md`.
@@ -48,7 +50,8 @@ poland_rerun_prep2).
 - Dzhafarov–Kujala–Cervantes 2020, and other CbD papers;
 - Capotorti–Vantaggi 2011;
 - Fritz–Chaves 2013;
-- Fang–Santos 2019; Hong–Li 2018; Steudel–Ay (arXiv 2010).
+- Fang–Santos 2019; Hong–Li 2018; Steudel–Ay (arXiv 2010);
+- Journé et al. 2024 (solstice cue).
 
 **Cited, not shelved (to fetch):**
 - inference: Andrews & Soares 2010 (Econometrica); copula-bootstrap

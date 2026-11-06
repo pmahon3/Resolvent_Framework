@@ -55,3 +55,5 @@ method; van der Vaart's quantile lemma) were seen only via citing papers.
   - **V2:** add a tied-data world (W1 discretised to 5 levels, plus a zero-inflated W2), analysed with jitter.
   - **V3:** (a) jittered Spearman, no detrend (the provable version under (A1) and Segers' condition for the jittered copula); (b) jittered
     Spearman on log1p-detrended series (sensitivity). 20 jitter draws each. Verdicts per draw; adopt the verdict that holds in ≥ 19/20.
+- **Compute amendment (before running):** V3 uses m ∈ {2, 3, 4, 5}, with 1000 resamples for m = 2 and 300 for m = 3–5, per jitter draw (20 draws).
+  V2 tied worlds: m = 2 only, n = 53, φ ∈ {−0.5, 0.5}, 300 simulations × 1000 resamples, one jitter per simulated dataset.

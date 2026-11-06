@@ -22,6 +22,22 @@ def test(Y, stat, rng, NB):
     return T > np.percentile(D, 95)
 
 
+def jit(Y, rng):
+    J = Y.astype(float).copy()
+    for j in range(Y.shape[1]):
+        u = np.unique(Y[:, j]); gap = np.min(np.diff(u)) if len(u) > 1 else 1.0
+        J[:, j] += rng.normal(0, 1e-3 * gap, len(Y))
+    return J
+
+
+def tied_world(name, n, phi, rng):
+    if name == "W1disc":                       # boundary W1, each site discretised to 5 quantile levels
+        Y = nd.world("W1", n, phi, rng)
+        return np.column_stack([np.searchsorted(np.quantile(Y[:, j], [.2, .4, .6, .8]), Y[:, j]) for j in range(Y.shape[1])]).astype(float)
+    Y = nd.world("W2", n, phi, rng)            # zero-inflated W2: values below the 40th percentile set to 0
+    return np.where(Y < np.quantile(Y, 0.4, axis=0), 0.0, Y)
+
+
 def main(part):
     rng = np.random.default_rng(14)
     if part == "m2":
@@ -31,6 +47,12 @@ def main(part):
                 for phi in (-0.5, 0.5):
                     r = np.mean([test(nd.world(w, n, phi, rng), stat, rng, 1000) for _ in range(300)])
                     print(f"m=2 {w:3s} n={n} phi={phi:+.1f} size={r:.2f}", flush=True)
+    elif part == "tied":
+        stat = lambda R: nd.rho(np.abs(R - np.eye(len(R)))) - 1
+        for w in ("W1disc", "W2zi"):
+            for phi in (-0.5, 0.5):
+                r = np.mean([test(jit(tied_world(w, 53, phi, rng), rng), stat, rng, 1000) for _ in range(300)])
+                print(f"m=2 {w} n=53 phi={phi:+.1f} size={r:.2f} (jittered)", flush=True)
     else:
         Rs, v = r3.boundary_R(); sol = r3.sr.VmSolver(len(Rs), 3)
         for phi in (0.0, 0.5):

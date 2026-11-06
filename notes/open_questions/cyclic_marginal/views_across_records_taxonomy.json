@@ -154,7 +154,7 @@
   {
    "id": "T-dynamic-closure",
    "statement": "VAR(1) x_{t+1}=Bx_t+eps, Q=Cov(eps) in FW_H => stationary level covariance in FW_{H*}, H* = {N_k(S)}: the interaction-closure of the shock centres (reach-k weight ~ ||B^k||^2). Levels conflate shock centres with interactions; innovations decouple.",
-   "status": "hand; likely owned as time-series trek rule (Sullivant-Talaska-Draisma) - unchecked; validated by simulation (local+dispersal: levels 0.78, innovations 0.00; regional: all ~1)",
+   "status": "OWNED (Stein series + Wright trek rule; Sullivant-Talaska-Draisma 2010; Lande-Engen-Saether 1999; Ripa 2000). As stated VACUOUS for strongly connected B; content = truncated bound V_{H*_K} <= ||Q|| sum_{k>=K} ||B^k||^2. Innovations testing = standard (SVAR, Eichler, MARSS).",
    "stream": "S0"
   }
  ],
@@ -397,7 +397,7 @@
   {
    "id": "P-poland-innovations",
    "file": "../views_across_records/DYNAMIC_CLOSURE.md",
-   "outcome": "2026-11-06: Poland innovations reproduce levels: m-hat*=4, d-hat=397 km -> regional SAME-TIME driver (or protocol), not accumulated local history",
+   "outcome": "2026-11-06: Poland innovations reproduce levels: m-hat*=4, d-hat=397 km -> regional SAME-TIME driver (or protocol), not accumulated local history | CORRECTED 2026-11-06: within-interval propagation looks same-time (Breitung-Swanson 2002) -> excludes across-year accumulated history only; within-year pollen coupling NOT excluded",
    "stream": "S1"
   }
  ],

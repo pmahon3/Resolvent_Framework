@@ -54,3 +54,18 @@ Politis–White blocks, 300 resamples.
   > ~370 km apart. The Polish regionality is a **regional same-time driver** (weather, the solstice-timed cue) or the shared protocol. It is **not** local
   history accumulated by interaction. This fits beech's anti-persistence: a centre in time needs long memory, which beech lacks.
 - Within the restricted VAR's assumptions (linear; two-neighbour lags). The protocol confound remains.
+
+## Prior-art check and corrections (2026-11-06, `DYNAMIC_CLOSURE_PRIOR_ART.md`)
+- **Proposition: OWNED and routine.** The Stein/Lyapunov series plus Wright's trek rule (Sullivant–Talaska–Draisma 2010; continuous time: Hansen 2025,
+  arXiv:2407.21223). Ecology: Lande, Engen & Sæther 1999; Ripa 2000 (dispersal synchronises widely only near instability, i.e. our persistence finding).
+- **Correction: as stated it is vacuous** when the graph of B is strongly connected (H* then contains all sites, FW_{H*} = PSD). Its content is the
+  **truncated, quantitative** form: V_{H*_K} ≤ ‖Q‖·Σ_{k≥K}‖Bᵏ‖². That is a bound, not a scaling law; non-normal transient growth can substitute for ρ(B) ≈ 1.
+- **Innovations-vs-levels testing: OWNED as standard practice** (Swanson–Granger 1997; SVAR identification; Eichler's mixed graphs; SVAR-FCI, LPCMCI;
+  Krampe–Margaritella on common shocks vs spillovers; MARSS tests of Q, Ward et al. 2010).
+- **Caveats (owned) that qualify the Poland reading:**
+  1. **Within-interval propagation appears as a same-time shock** (Breitung & Swanson 2002). Beech pollen moves between stands within the flowering year,
+     so the innovation result **excludes coordination accumulated across years, but not within-year pollen coupling.** Corrected reading: Polish beech
+     synchrony needs a region-wide cause acting *within a year*: weather or the solstice cue, within-year pollen coupling, or the protocol.
+  2. Observation error: VAR residuals are not the true shocks.
+  3. A misspecified restricted VAR biases toward finding a centre.
+- **Residue (ours, composition only):** hypergraph-cone tests of required reach and radius applied to VAR innovations.

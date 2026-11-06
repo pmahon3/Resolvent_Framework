@@ -11,7 +11,9 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
   long-memory interaction look like one big centre. Innovations (same-time shocks after removing the lagged dynamics) separate the two.
   Validated by simulation.
 - **Polish beech:** after removing the dynamics, the same-time shocks still need a centre binding stands > ~370 km apart (reach ≥ 4). The order is held
-  by something acting now across the region (or the shared protocol), not by local relations whose history has spread. `notes/open_questions/views_across_records/DYNAMIC_CLOSURE.md`.
+  by something acting now across the region (or the shared protocol), not by local relations whose history has spread.
+  **Corrected (prior art):** propagation *within* a year (e.g. pollen) also looks same-time. So the result excludes relations accumulated *across years*,
+  not within-year relations. The closure statement itself is owned (trek rule), and as first stated it was vacuous; its content is the truncated bound. `notes/open_questions/views_across_records/DYNAMIC_CLOSURE.md`.
 - **For the question:** this is the first case where the tools say *which kind* of non-pairwise order holds a real system together, a present regional
   centre rather than accumulated relations. It does not decide between nature and observer.
 

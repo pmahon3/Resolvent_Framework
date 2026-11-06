@@ -144,6 +144,12 @@
    "statement": "Reach test (Spearman, eps=inf, moving-block bootstrap with re-ranking, no wrap): pointwise asymptotic size <= alpha for every m >= 2 under stationarity + geometric alpha-mixing, continuous margins (jitter for ties), Segers' condition, Cov(G) != 0.",
    "status": "proof chain: exact domination (sublinearity) + Bucher-Volgushev 2013 + Bucher-Ruppert 2013 Thm 2 + continuous mapping; hand links independently checked (REACH_TEST_VALIDITY_CHECK.md, REACH_TEST_SPEARMAN_CHECK.md); finite-sample size validated by simulation",
    "stream": "S0/S1"
+  },
+  {
+   "id": "T-frustration-centres",
+   "statement": "Correlation-level: a centre larger than a pair can be required only on frustrated cycles (support not antibalanced); antibalanced support => FW_2 = PSD (Boman et al. 2005); max excess on a positive odd L-cycle = sec(pi/L) - 1; chordal support => maximal cliques suffice (Agler et al. 1988); minimal sufficient hypergraph not unique (K4).",
+   "status": "owned components (Boman 2005; Agler 1988; Evans 2016 for distribution level); assembled + verified numerically 2026-11-06",
+   "stream": "S0"
   }
  ],
  "conjectures": [
@@ -362,6 +368,18 @@
    "id": "P-power-curves",
    "file": "../views_across_records/POWER_CURVES.md",
    "outcome": "2026-11-06: m=2 test detects only wide, strong common causes (n=53: reach 10 with lam2>=0.2-0.3; reach 5 needs lam2~0.5); reach-3 causes invisible; a null at n~50 excludes little",
+   "stream": "S1"
+  },
+  {
+   "id": "P-hypergraph-step3",
+   "file": "../views_across_records/HYPERGRAPH_METHOD.md",
+   "outcome": "2026-11-06: V_H test valid (size 0); poly vs mono not separable at matched weak strength (needs V_H >~ 1.1 at n=53)",
+   "stream": "S0/S1"
+  },
+  {
+   "id": "P-hypergraph-poland",
+   "file": "../views_across_records/HYPERGRAPH_METHOD.md",
+   "outcome": "2026-11-06: spatial-radius test d-hat = 397 km: local centres within <=368 km (up to 7 stands) insufficient; centre is regional (binds stands >370 km apart), not a patchwork of local centres; protocol confound remains",
    "stream": "S1"
   }
  ],

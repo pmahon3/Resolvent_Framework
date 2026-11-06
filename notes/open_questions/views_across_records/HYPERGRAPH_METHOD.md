@@ -47,3 +47,21 @@ Poland, 10 sites, H(d) with d over the observed inter-site distances (km), givin
 - Report T, the critical value and reject/not per d; d̂ = the smallest d not rejected (in ≥ 4/5 draws).
 - **Prediction:** H(d) is rejected at the smallest deciles (local centres of ~100–150 km cannot carry the synchrony) and d̂ falls at an intermediate
   decile. Power falls as d grows, so d̂ is a lower bound on the spatial reach of the centre.
+
+## Step 4 result (2026-11-06): Poland's centre is regional, not a patchwork of local centres. Script `verification/hypergraph_poland.py` (70 s)
+Inter-site distances 102–460 km. H(d) = pairs ∪ maximal cliques of "distance ≤ d".
+| d (km) | largest local centre allowed | T | rejected (5 jitter draws) |
+|---|---|---|---|
+| 129 | 2 sites | 34.2 | 5/5 |
+| 143 / 156 | 3 | 30.8 / 28.8 | 5/5 |
+| 226 | 4 | 24.6 | 5/5 |
+| 249 / 270 / 312 | 6 | 20.4 / 17.5 / 14.4 | 5/5 |
+| 368 | 7 | 10.8 | 5/5 |
+| **397** | 7 | 8.1 | **0/5** |
+- **d̂ = 397 km.** Even local centres spanning everything within 368 km (up to 7 stands at once) cannot carry the synchrony. The common cause must reach
+  stands > ~370 km apart, i.e. nearly the full extent of the network (max 460 km). Prediction ("d̂ at an intermediate decile") **partly wrong**: d̂ is at the
+  top decile.
+- **Consistency with m̂* = 4:** the reach test allows *any* 4-site groups. The radius test requires groups to be spatially local. Both together mean the
+  needed centres are **not geographically local**: they bind distant stands, i.e. a regional centre (weather, the solstice clock) or the shared protocol.
+  The protocol confound remains, since one programme also spans the region.
+- First demonstration of the cone-based spatial scale of a centre on real data. Step 3 shows such separations need strong violations, and Poland qualifies.

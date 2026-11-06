@@ -1,86 +1,101 @@
-# Does synchrony need a common cause? A model-free test for three or more sites
+# Does synchrony need a common cause? A model-free test across sites
 
-reviewed: false. 2026-11-05. Methods note (draft). **Unaudited:** run `/audit full` before sharing (claimed types:
-7 methodology, 6 translation). Collection: `cyclic_marginal/views_across_records_taxonomy.json`.
-
-> ⚠ **2026-11-05 audit (`SYNCHRONY_CAUSALITY_METHOD_AUDIT.md`): REJECT-LIKELY as written. Three blocking fixes are pending.**
-> (1) The Poland conditioning reading is NOT supported: a time-permuted placebo cue lowers V as much as ΔT does in 17–67% of
-> draws, so "removes most of what the sites share" and "what a centre looks like" are withdrawn pending stratified conditioning
-> with a placebo control. (2) Shared trends can fake violations; a detrending step is required (Poland survives: V = 4.50 detrended).
-> (3) Conditioning and lag reasoning are owned; re-scope §6.
+reviewed: false. v2, 2026-11-05. A working note, raw material for the user's own write-up and not for circulation. It addresses
+audit fixes B1–B4 and N1, N2, N4 (`SYNCHRONY_CAUSALITY_METHOD_AUDIT.md`). A re-audit is owed before any further use. Collection:
+`cyclic_marginal/views_across_records_taxonomy.json`.
 
 ## 1. A worked case
-Three ponds. Each pair shares its own stream, each stream independently has good and bad years, and nothing is shared by all
-three. Each pond responds only to its two streams. How often can all three ponds agree (all frogs, or all none) if each has frogs
-half the time?
+Three ponds. Each pair shares its own stream, and the streams have good and bad years independently. Nothing is shared by all three,
+and each pond responds only to its two streams. If each pond has frogs half the time, how often can all three agree?
 
-Best arrangement: a pond has frogs only when both of its streams are good, with each stream good with probability 1/√2.
-- All three have frogs when all three streams are good: (1/√2)³ ≈ 0.354.
-- All three are empty when at least two streams are bad: ≈ 0.207.
-- Total agreement: (3√2 − 2)/4 ≈ **0.561**.
+The best arrangement: a pond has frogs only when both its streams are good, each good with probability 1/√2.
+- All three full: (1/√2)³ ≈ 0.354.
+- All three empty, when at least two streams are bad: ≈ 0.207.
+- Total ≈ **0.561** = (3√2 − 2)/4.
 
-Independent ponds give 0.25. **No arrangement of pairwise drivers beats 0.561, whatever the mechanism** (Gisin et al. 2020, below).
-Anything more coordinated needs something common to all three.
+Independent ponds give 0.25. Gisin et al. 2020 prove that no arrangement of independent pairwise drivers exceeds 0.561 (below). More
+coordination needs something shared by all three: a regional driver, shared history, or a shared observer.
 
-## 2. The test
-For each site, split its annual series at the site's own median ("high" vs "low" year). For each pair of sites, E = (fraction of
-years they agree) − (fraction they disagree).
+## 2. Two versions of the ceiling (both owned)
+**(A) Yes/no, three sites.** Split each site's series at its own quantile. With E = agreement − disagreement for a pair, the bound is:
+for each pair k, (1−|E_k|)² ≥ Σ_{others} E², in the general-margin form (Gisin, Bancal, Cai, Remy, Tavakoli, Zambrini Cruzeiro, Popescu &
+Brunner 2020, *Nat. Commun.* 11:2378, ineqs. 13/16). It bites only when pairs agree in more than ~70% of years (E > √2 − 1).
 
-- **Bound** (Gisin, Bancal, Cai, Remy, Tavakoli, Zambrini Cruzeiro, Popescu & Brunner 2020, *Nat. Commun.* 11:2378, ineq. 13; the
-  general-margin form is their eq. 16). If each pair of sites shares only its own independent driver, then for every pair k:
-  (1 − |E_k|)² ≥ sum of the squared E of the other two pairs.
-- **Violation ⇒** some common ancestor of all three sites exists. That holds under any mechanism of response, including any local
-  randomness, and in any physics with independent sources.
-- **No violation ⇒** nothing. Pairwise drivers can explain the data, but so can a weak common one.
-- **Where it bites:** for equal pairs, only when E > √2 − 1 ≈ 0.41, i.e. sites agree in more than ~70% of years.
+**(B) Continuous, any number of sites.** For Pearson correlations R, independent pair-sources force a "correlation budget": there are
+loads t_ij ≥ 0 with r_ij² ≤ t_ij t_ji and Σ_j t_ij ≤ 1 for each site. Equivalently,
+**V_G = (largest eigenvalue of |R − I|) − 1 ≤ 0** (Kela, von Prillwitz, Åberg, Chaves & Gross 2020, *IEEE TIT* 66, Prop. 1; pairwise case).
+- It holds for *any* nonlinear response and local noise. The proof is the Hoeffding decomposition plus Cauchy–Schwarz, independently checked.
+- It is exact: every R that passes is produced by some linear pairwise world.
+- Three equal correlations need r ≤ ½. With three sites a one-factor model is saturated, so this is not a tetrad test.
+
+**What a violation means.** Some common ancestor of ≥ 3 sites exists. **What it does not mean:** which one. And no violation means nothing.
+
+**Conditions (B1):**
+- Pair-sources must be *mutually* independent. Dependence between them is itself a shared cause.
+- Each site depends only on its own sources and its own noise.
+- **Stationarity across years:** a shared trend or regime shift acts as a common cause, because the pairwise-only set is not convex in
+  general and mixtures of years can violate. So detrend first; simulated shared trends gave 61% false alarms without it.
+- Within-site autocorrelation and per-site transforms (quantile splits, ranks, logs) do *not* invalidate the bound.
 
 ## 3. The pipeline
-1. **Detect.** Compute V = (largest left-minus-right excess of the bound). Test V > 0 with a moving-block bootstrap over years.
-2. **Name a candidate centre.** Choose a driver measured at each site (e.g. a weather cue). Residualise each site's series on it and
-   re-test. If the violation disappears, the candidate accounts for the common cause, as far as the data can show. If it persists,
-   something else is common.
-3. **Centre in space or in time.** A violation means a common ancestor, which can be a regional driver (sites respond at once)
-   or shared history through dispersal (a site's past influences its neighbours' present). Lags along dispersal paths separate them.
-4. **Rule out measurement centres.** A shared observer, lab, protocol or calibration is also a common cause. Prefer triples from
-   independent programmes, and report same-programme triples separately.
+1. **Prepare.** Per-site normal scores (version B) or quantile splits (A). Linear detrend on year.
+2. **Detect, with validated inference.**
+   - (A) S2 = the largest excess over the 1/3, 1/2 and 2/3 quantile splits. Moving-block bootstrap lower bound, no wrap. Validated:
+     size ≤ 0.03, and power ~0.75 for a common cause active in 30% of years at n = 72. That is double the median-split version.
+   - (B) Numerical delta method (Hong & Li 2018, *J. Econometrics*; theory in Fang & Santos 2019, *REStud*), with step ε = ∞:
+     T = √n·V̂_G, compared with the 95% point of the bootstrap largest eigenvalue of |√n(R̂* − R̂)|. Validated: size ≤ 0.05 across hard
+     boundary worlds (rings, tied eigenvalues, φ = ±0.5, n = 30–53). **Power is low** for weak, diffuse common causes.
+   - Naive bootstraps are invalid for (B) at 10 sites, with size up to 1.00. Inference on kinked functionals needs this theory.
+3. **Candidate centres (model-conditional; B2).** Model-free tests establish *that* a common cause exists, not *which*. To probe a named
+   candidate, add it as a regressor, state the linear-additive assumption explicitly, re-test, and run a **placebo** (the candidate with its
+   years permuted). A violation that disappears means "no longer demonstrable", not "accounted for".
+4. **Space or time.** A regional driver acts at once. Shared history (dispersal) shows lags along dispersal paths. This step is owned
+   (Bjørnstad, Ims & Lambin 1999; Sheppard et al. 2016; Walter et al. 2017).
+5. **Measurement centres.** A shared observer, protocol or calibration is also a common cause. Compare independent programmes.
 
-## 4. Worked results (NTL-LTER lakes, MASTREE+ beech; pre-registered gates in this folder)
-- **Lake summer water temperature** (5 Wisconsin lakes, ~45 years): E = 0.73–0.91, 10/10 triples violate. Regional weather is the
-  centre, as expected: the control works at n ≈ 45.
-- **Lake zooplankton** (Daphnia, copepods, rotifers): 0/10 triples per group. The isolated lakes' biology keeps its own time,
-  consistent with the known low "temporal coherence" of biological variables.
-- **Beech masting:** sites from different programmes 300–900 km apart do not violate (median E 0.11). Within regional programmes
-  (100–400 km) synchrony is strong (E 0.7–0.86).
-- **Poland, three beech sites** (1951–2022): a clear violation (V = 2.97, p = 0.008). After conditioning on the Kelly ΔT cue (last
-  summer's warmth minus the summer before), V drops to 1.27, p = 0.08. The cue explains only 5–9% of each site's own variation,
-  yet removes most of what the sites share. A weak signal every stand hears is what a centre looks like.
-- **Pooled test over all 10 Polish sites:** NO-BASE (p = 0.17 even unconditionally). The all-sites common window cut n to 53, and the mean
-  over 120 triples diluted the signal. Point violations persist after conditioning (68% of triples) and weaken with distance:
-  suggestive of a residual, distance-dependent common cause (pollen?), not demonstrated. `MAST_POLAND_POOLED_GATE.md`.
+## 4. Worked results (pre-registered gates in this folder)
+- **Lake summer temperature** (5 Wisconsin lakes, ~45 years): E = 0.73–0.91, 10/10 triples violate (A). Regional weather; the control works.
+- **Lake zooplankton:** 0/10 triples per group (A). Matches the known low temporal coherence of biological variables.
+- **Beech, across programmes** (300–900 km, ~30 common years): no violations (median E 0.11). Weak null; power is low at n ≈ 30.
+- **Beech, within the Polish programme:** median E 0.37 across same-study triples, top triples 0.7–0.86 (B4).
+  - (A, S2, detrended): 40/120 triples significant after Holm.
+  - (B, 10 sites jointly, validated): T = 34.9 against a critical value of 8.8. With each site's ΔT cue added: 29.7 against 9.2.
+  - **A common cause of ≥ 3 sites is required.**
+  - The ΔT cue lowers V_G by 0.50, where 200 placebo cues lower it by 0.003, so the cue is special. But most of the common cause remains
+    after linear adjustment. Weather (other channels, or a nonlinear cue), history and protocol cannot be separated within one programme.
+  - Bogdziewicz et al. 2021 (*Ecology*) already attribute beech synchrony to weather synchrony. The weather conclusion is theirs.
+  - Disclosure (B4): the first Poland triple result (p = 0.008) came from a 1047-triple family where nothing passed Holm. It was later
+    replicated by S2 and by (B).
 
 ## 5. Design rules learned
-- Only strongly synchronised sets are testable (E > ~0.41). Weak synchrony is never evidence against a common cause.
-- **Bootstrap resolution must beat the multiple-testing threshold.** With B resamples the smallest p is 1/B, so B must exceed about
-  20 × (number of tests)/α. One gate here was unable to detect anything for this reason.
-- Prefer one pre-chosen triple per region, or a pooled statistic (mean V over triples; under the null every V ≤ 0).
-- Same-programme triples mix real and protocol common causes.
-- Don't pool by averaging over many overlapping triples, and don't force a common year window across many sites: both cost
-  more power than pooling gains. For many triples, use simultaneous bootstrap lower bounds (max-type over a small pre-chosen family). Not a circular-shift null:
-  that breaks all cross-site dependence and so tests 'any synchrony', not 'beyond the pairwise ceiling' (corrected 2026-11-05).
+- Only strong synchrony is testable (A: E > ~0.41). Weak synchrony is never evidence against a common cause.
+- Validate inference by simulation at the boundary before using it. Choose established methods over ad-hoc fixes.
+- Resampling resolution must beat the multiple-testing threshold: resamples ≫ 20·(tests)/α.
+- Don't average V over overlapping triples, and don't force one year window across many sites (N4: this replaces the earlier
+  "pooled mean V" advice). Use per-triple windows with Holm, or the joint 10-site test (B).
+- Median splits of heavily tied data must not break ties at random.
+- Same-programme sites mix real and protocol common causes.
 
-## 6. What is owned and what is new
-- **Owned:**
-  - the bound (Gisin et al. 2020; the triangle-network literature: Fritz 2012, Wolfe–Spekkens–Fritz inflation, Rosset–Gisin–Wolfe);
-  - common-ancestor inference (Steudel–Ay);
-  - synchrony science (Moran 1953; Liebhold–Koenig–Bjørnstad 2004; Sheppard et al. 2016; Walter et al. 2017; Reuman et al. 2023);
-  - masting cues (Kelly et al. 2013);
-  - temporal coherence of lakes (Magnuson, Kratz et al.).
-- **New, as far as two scouts found:** carrying a network causal-compatibility bound into ecology, as a model-free test that
-  synchrony *requires* a common cause; the condition-on-a-named-centre step; and the space/time reading of a violation. In ecology,
-  concordance between data sources is currently checked only inside fitted models (Goldstein et al. 2026, *J. Anim. Ecol.*, who
-  list model-free tests as future work).
+## 6. What is owned and what may be new
+**Owned:**
+- the bounds (Gisin et al. 2020; Kela et al. 2020) and the triangle-network literature (Fritz 2012; Wolfe–Spekkens–Fritz; Rosset–Gisin–Wolfe);
+- classical common-ancestor tests (Steudel–Ay; Chaves et al. 2014);
+- inference for kinked functionals (Fang–Santos 2019; Hong–Li 2018; Andrews–Soares 2010);
+- synchrony science and its tools: Moran 1953; Liebhold, Koenig & Bjørnstad 2004; matrix regression / partial Mantel (Bogdziewicz et
+  al. 2021); the wavelet Moran decomposition (Sheppard et al. 2016; Walter et al. 2017); lag analysis (Bjørnstad et al. 1999);
+- conditioning on a candidate driver;
+- masting cues (Kelly et al. 2013);
+- the temporal coherence of lakes (Magnuson, Kratz et al.).
+
+**Possibly new (not found in scouts; not yet claimed):**
+- applying these causal-compatibility bounds to ecological synchrony, as a model-free test that synchrony *requires* a shared cause;
+- the validated many-site version for time series.
+
+Not compared yet: classical (not "any physics") inflation bounds, which may have more power (N5), and power against matrix-regression
+and wavelet approaches.
 
 ## 7. Limits
-- Binarisation discards magnitude. Conditioning is linear. Years are treated as exchangeable within blocks.
-- Three sites at a time. Larger networks need inflation-type bounds.
-- A violation says that a common cause exists, never which one. Naming it takes step 2, one candidate at a time.
+- Low power at ecological sample sizes: only strong common causes are detectable.
+- Attribution is model-conditional.
+- Stationarity is assumed after linear detrending.
+- Validation covers the simulated grid only (not extremely heavy tails, and not n < 30).

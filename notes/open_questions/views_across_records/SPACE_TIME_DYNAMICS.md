@@ -80,3 +80,13 @@ n ∈ {53, 200}; 100 simulations × 500 resamples.
 - **Centre-in-time demonstration: INCONCLUSIVE.** D2's levels rejections (0.37 at n = 200) cannot be read as power, given P2's size.
 - **Next, by the established method:** automatic block-length selection for dependent data (Politis & White 2004; Patton, Politis & White 2009
   correction). Read, implement, re-validate L on P2 and D2 (a = 0.95), then retry D2. Until then, **do not apply L to strongly persistent series.**
+
+## Run 3 (declared 2026-11-06, before running): automatic block length
+- Method: Politis & White 2004, with the Patton, Politis & White 2009 correction, as implemented in `arch` 8.0.0 `optimal_block_length` (b_cb). The
+  moving-block bootstrap and the circular-block bootstrap share the optimal block order.
+- Rule: b = ceil(max over sites of b_cb(rank series of that site)), clipped to [2, n/3]. For the innovation test, b is computed on the levels
+  (pairs are resampled as blocks of years).
+- Worlds: M2, D2, P2 (a = 0.95) at n ∈ {53, 200}. Re-check of the earlier grid with the new rule: W1 and W3 (static, φ = ±0.5, n = 53). 100
+  simulations × 500 resamples.
+- Pass: P2, W1, W3 size ≤ 0.10 (100 simulations). Then read D2 L as power.
+- Prediction: P2 L size falls to ≤ 0.10. D2 L power is modest at n = 53 and higher at n = 200. I is unchanged.

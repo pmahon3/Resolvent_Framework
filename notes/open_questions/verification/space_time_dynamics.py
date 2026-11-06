@@ -41,6 +41,15 @@ def var_resid(X):            # VAR(1) with intercept by OLS; rows of X are conse
     Z = np.column_stack([np.ones(len(X) - 1), X[:-1]]); C, *_ = np.linalg.lstsq(Z, X[1:], rcond=None); return X[1:] - Z @ C
 
 
+AUTO = len(sys.argv) > 2 and sys.argv[2] == "auto"
+
+
+def auto_b(X):
+    from arch.bootstrap import optimal_block_length
+    R = np.apply_along_axis(rankdata, 0, X); b = int(np.ceil(optimal_block_length(R)['b_cb'].max()))
+    return int(min(max(b, 2), len(X) // 3))
+
+
 def test(X, innov, rng, NB=500):
     if innov:                                  # resample blocks of (x_{t-1}, x_t) pairs; refit VAR on pairs
         P0, P1 = X[:-1], X[1:]; n = len(P0)
@@ -50,7 +59,7 @@ def test(X, innov, rng, NB=500):
     else:
         n = len(X); R_of = lambda idx: spear(X[idx])
     full = np.arange(n); R = R_of(full); T = math.sqrt(n) * vg(R)
-    b = max(1, round(n ** (1/3))); nbl = math.ceil(n / b); D_ = np.empty(NB)
+    b = auto_b(X) if AUTO else max(1, round(n ** (1/3))); nbl = math.ceil(n / b); D_ = np.empty(NB)
     for s in range(NB):
         st = rng.integers(0, n - b + 1, nbl); idx = (st[:, None] + np.arange(b)).ravel()[:n]
         Z = math.sqrt(n) * (R_of(idx) - R); np.fill_diagonal(Z, 0); D_[s] = rho(np.abs(Z))
@@ -59,6 +68,14 @@ def test(X, innov, rng, NB=500):
 
 def main():
     rng = np.random.default_rng(16)
+    if AUTO:
+        import importlib.util as iu
+        from pathlib import Path
+        sp = iu.spec_from_file_location("nd", Path(__file__).with_name("vg_numdelta.py")); nd = iu.module_from_spec(sp); sp.loader.exec_module(nd)
+        for w in ("W1", "W3"):
+            for phi in (-0.5, 0.5):
+                r = np.mean([test(nd.world(w, 53, phi, rng), False, rng) for _ in range(100)])
+                print(f"static {w} n=53 phi={phi:+.1f}: L size {r:.2f}", flush=True)
     for name in ("M", "D", "P"):
         B, Q = system(name); S = solve_discrete_lyapunov(B, Q); d = np.sqrt(np.diag(S))
         Rlev = S / np.outer(d, d); dq = np.sqrt(np.diag(Q)); Rinn = Q / np.outer(dq, dq)

@@ -48,3 +48,29 @@ Primal blocks: C(10,m) blocks of m×m. m=2: 45 (SOCP or closed form); m=3: 120×
 - Whether FW_m membership has polynomial algorithm beyond SDP (Boman et al. asked; later "factor width rank" arXiv:2405.11556 not read).
 - GNME paper (2002.02773) witness construction, Gisin 2020 and the multipartite-depth literature were not read beyond abstracts; a covariance-level analogue may exist there.
 - Next owed: (i) numerical check of the dual formula; (ii) read Boman Thm 9 and Kela Sec. XI statement against the repo's m = 2 note; (iii) one pass on "factor width" in statistics/signal processing citations.
+
+## Formal check (main session, 2026-11-05; ⟦HAND⟧ by me, so not independent; numerics via `verification/source_reach.py`)
+- H₀(m) "every latent touches ≤ m sites" (covariance version) ⟺ R ∈ FW_m, since diagonal noise terms are 1×1 pieces. V_m ≤ 0 ⟺ H₀(m)
+  (if R + tI ∈ FW_m with t ≤ 0, then R = (R + tI) + |t|I ∈ FW_m).
+- m = 2: FW₂ = scaled diagonally dominant ⟺ the comparison matrix (1 + t)I − |R − I| is PSD ⟺ V₂ = ρ(|R − I|) − 1 (standard SDD/H-matrix fact).
+- m = k: FW_k = PSD, so V_k = −λ_min(R).
+- Dual: FW_m* = {X : every m×m principal submatrix PSD}. V_m = max_{X ∈ FW_m*, tr X = 1} −⟨X, R⟩ is convex.
+- **ε = ∞ (recession) statistic for inference:** lim_{ε→∞} V_m(R̂ + εZ)/ε = max_X −⟨X, Z⟩ = V_m(I + Z) + 1. For m = 2 this is ρ(|Z|),
+  the validated statistic.
+- **Numerics (15 random R, k = 4–6):**
+  - |primal − dual| ≤ 4×10⁻⁸;
+  - |V₂ − (ρ − 1)| ≤ 7×10⁻⁹;
+  - |V_k + λ_min| ≤ 1×10⁻⁸;
+  - V_m non-increasing in m;
+  - equal triangle r = 0.6: V₂ = +0.2, V₃ = −0.4.
+  - Timing for k = 10: 0.1–0.25 s per solve.
+
+## Poland minimum-reach run (declared before running)
+10 Polish beech sites, 53 years, prep = normal scores plus linear detrend (as validated). For m = 2…9:
+- T_m = √n·V_m(R̂).
+- Moving-block bootstrap (b = round(n^{1/3}), no wrap, 1000 resamples, full prep inside). Z* = √n(R̂* − R̂). D*_m = V_m(I + Z*) + 1.
+- Reject H₀(m) if T_m > the 95% point of D*_m.
+- **m̂\* = the smallest m not rejected. It is a lower bound on the true minimum reach,** since power falls with m.
+- Inference is validated only for m = 2. For m ≥ 3 the ε = ∞ bracket is justified by theory (convexity), not by our simulations: **provisional**.
+- Within one programme, so a shared protocol also has full reach.
+- Prediction: H₀(2) rejected (known), and m̂\* = 3 or 4, because power is low.

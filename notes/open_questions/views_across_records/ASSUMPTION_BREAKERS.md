@@ -19,3 +19,19 @@ Two variants: **raw** (the provable version, no detrend) and **detrended** (log-
 The rejection rate per world and variant. These are false-alarm rates *relative to the mechanistic, per-year causal structure*. For T and S
 the calendar is a legitimate common cause in the pooled data, so rejection there means "the test reads a shared trend or shift as a common
 cause" (the audit's V1 point), and the stationarity assumption is what rules it out.
+
+## Result (2026-11-06). Script `verification/assumption_breakers.py`
+| world | raw (provable) | detrended |
+|---|---|---|
+| C stationary boundary ring (φ = 0.5) | 0.01 | 0.01 |
+| T pair-specific linear trends | **0.05** | 0.00 |
+| S regime shift at n/2 | **0.50** | 0.09 |
+| N min-world, Segers breaker (φ = −0.5 / +0.5) | 0.00 / 0.00 | 0.00 / 0.00 |
+- **Regime shifts are the dangerous case:** the raw test fires 50% of the time, reading the shared step as a common cause (a calendar centre).
+  Linear detrending removes most of it (0.09), more than predicted ("partly").
+- **Linear trends barely matter** here (raw 0.05; predicted "often": **wrong**). Most likely the automatic block length grows with the trend
+  (it reads it as persistence), which widens the bootstrap and absorbs the effect. Not verified.
+- **Segers' condition is not needed in practice** on this world: the min-world, whose copula has a singular component, gives size 0.00. The test is
+  robust beyond the proof's smoothness assumption here (one world only).
+- **Rule for applications:** check for step changes (regime shifts) before reading a violation as a natural common cause. Report raw and
+  detrended; a violation that appears raw only is suspect.

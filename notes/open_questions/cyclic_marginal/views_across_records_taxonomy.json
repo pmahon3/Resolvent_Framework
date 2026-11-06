@@ -188,7 +188,7 @@
   {
    "id": "Q-source-reach",
    "statement": "Minimum source reach m*: the smallest m such that the correlation matrix is explained by latent sources each touching <= m sites (Cov in D + factor-width-m cone). Statistic V_m(R) = min{t: R + tI in FW_m} (dual: -min <X,R> over trace-1 X with all m x m principal minors PSD); V_2 = rho(|R-I|)-1, V_k = -lambda_min. 'How big must the centre be?'",
-   "status": "2026-11-05 scout: no established estimator/test of minimum source reach FOUND; objects owned (Kela et al. 2020 Prop 1, necessary; factor width, Boman et al. 2005); V_m derivation unverified; inference needs per-m validation; needs an SDP solver (cvxpy/SCS not installed)",
+   "status": "2026-11-05 scout: no established estimator/test of minimum source reach FOUND; objects owned (Kela et al. 2020 Prop 1, necessary; factor width, Boman et al. 2005); V_m derivation unverified; inference needs per-m validation; needs an SDP solver (cvxpy/SCS not installed); formulas checked (hand + numerics: primal=dual, m=2 Perron, m=k lambda_min); first application Poland m-hat*=4",
    "stream": "S0/S1",
    "files": [
     "../views_across_records/SOURCE_REACH_SCOUT.md"
@@ -317,6 +317,15 @@
    "id": "P-vg-validation",
    "file": "../views_across_records/VG_TEST_VALIDATION.md",
    "outcome": "2026-11-05: percentile/basic bootstrap and shrink-calibration INVALID for 10 sites; Hong-Li numerical delta with eps=inf VALID (max size 0.05), low power (P1 0.01-0.03, P2 0.05-0.13); finite eps fail (block bootstrap underestimates variance at n<=53)",
+   "stream": "S1"
+  },
+  {
+   "id": "P-reach-poland",
+   "file": "../views_across_records/SOURCE_REACH_SCOUT.md",
+   "outcome": "2026-11-05: m-hat* = 4 (H0(3) rejected T=13.8 vs 7.65): a hidden cause reaching >= 4 of 10 Polish beech stands is required; point V_m crosses 0 at m=7 (hint of reach ~7, biased); provisional for m>=3; protocol (reach 10) not excluded",
+   "affects": [
+    "Q-source-reach"
+   ],
    "stream": "S1"
   }
  ],

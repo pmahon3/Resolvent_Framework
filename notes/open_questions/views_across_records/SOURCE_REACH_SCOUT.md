@@ -74,3 +74,18 @@ Primal blocks: C(10,m) blocks of m×m. m=2: 45 (SOCP or closed form); m=3: 120×
 - Inference is validated only for m = 2. For m ≥ 3 the ε = ∞ bracket is justified by theory (convexity), not by our simulations: **provisional**.
 - Within one programme, so a shared protocol also has full reach.
 - Prediction: H₀(2) rejected (known), and m̂\* = 3 or 4, because power is low.
+
+### Poland minimum-reach result (2026-11-05): m̂\* = 4 (prediction held). Script `verification/source_reach_poland.py` (7 min)
+| m | V_m | T = √n V_m | 95% crit | H₀(m) "every latent ≤ m sites" |
+|---|---|---|---|---|
+| 2 | +4.79 | 34.9 | 8.65 | rejected |
+| 3 | +1.90 | 13.8 | 7.65 | **rejected** |
+| 4 | +0.93 | 6.8 | 7.65 | not rejected |
+| 5 | +0.45 | 3.3 | 7.65 | not rejected |
+| 6 | +0.16 | 1.2 | 7.65 | not rejected |
+| 7–9 | −0.03 … −0.09 | < 0 | 7.65 | not rejected |
+- **Demonstrated:** Polish beech synchrony needs a hidden cause reaching **at least 4 of the 10 stands** (H₀(3) rejected, T = 13.8 against 7.65).
+  This is provisional for m ≥ 3 (inference not simulation-validated there).
+- **Suggested, not demonstrated:** the point estimates stay positive to m = 6 and cross 0 at m = 7, i.e. a reach of about 7. Point V_m is
+  biased upward, so this is an upper-side hint only.
+- A shared protocol has full reach (10), so it remains a live explanation. The reach result does not separate it from regional weather.

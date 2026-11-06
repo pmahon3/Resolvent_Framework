@@ -25,7 +25,9 @@ S_AB > τ_AB and S_CA > τ_CA (the AND rule), and similarly for B and C.
 v1 generated 0/1 site values and broke ties with 1e-6 noise. When a sample's share of 1s was below ½, the median fell inside the
 0-cluster and the noise split that cluster at random, destroying correlations. Result: power ≈ 0.28 even at ρ = 0.5, which is
 implausible given V_pop ≈ 2.7. **Lesson for real data:** median splits of heavily tied (ordinal or zero-inflated) series must not
-break ties at random. Real beech seed counts are continuous, so the gate runs are unaffected.
+break ties at random. [CORRECTED 2026-11-05: the claim "real beech seed counts are continuous" was FALSE. Polish D00013 series are
+integers with 58–79% tied values (`REACH_TEST_SPEARMAN_CHECK.md`). The gate scripts split with a deterministic strict ">" at the quantile, never
+random tie-breaking, so the yes/no gate runs are unaffected. Ties do matter for the continuous-copula theory.]
 
 ## Run 2 (valid, 2026-11-05): continuous worlds (site value = min of its two pair-driver margins; median split = AND exactly)
 Rejection rates, 400 simulations per cell, resamples without wrap-around:

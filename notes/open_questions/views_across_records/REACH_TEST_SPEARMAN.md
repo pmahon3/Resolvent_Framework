@@ -39,3 +39,19 @@ method; van der Vaart's quantile lemma) were seen only via citing papers.
 - **V3 (Poland):** 10 sites, 53 years. (a) The provable version: Spearman, no detrend, reach m = 2…9 and V_G. (b) Sensitivity: Spearman on
   log1p-detrended series. Prediction: H₀(2), H₀(3) rejected and m̂* = 4 in both (normal scores and Spearman are nearly linear transforms of each
   other here; the trends were weak).
+
+## Independent check (2026-11-05, `REACH_TEST_SPEARMAN_CHECK.md`) and amendment (before V2/V3 are run)
+- The proposition holds under its stated hypotheses. Fixes:
+  - link 3 (bridge): correct with a bounded-Lipschitz Slutsky step, and needs no ties in the sample (A2′);
+  - link 5 (no-atom): correct; add that the distribution function is strictly increasing on [0, ∞);
+  - the cited statements match the sources;
+  - the null via Kela holds with ties; latents must be independent as whole processes.
+  - Segers' condition can fail for threshold mechanisms.
+- **Poland is outside (A2):** integer seed counts, 58–79% tied values per site. "Provable version" does not apply to the raw Polish data.
+- **Amendment, the established remedy: jittering** (continuous extension for count data: Denuit & Lambert 2005; caveats in Genest & Nešlehová
+  2007). Add independent N(0, σ²) noise to each observation before ranking, with σ = 10⁻³ × the site's smallest positive gap between distinct
+  values. This breaks ties without reordering distinct values. Jitter is independent local noise, so H₀(m) is preserved and the jittered data
+  have continuous margins, so (A2) holds for the jittered process. Each analysis is repeated over **20 jitter draws**; report the range.
+  - **V2:** add a tied-data world (W1 discretised to 5 levels, plus a zero-inflated W2), analysed with jitter.
+  - **V3:** (a) jittered Spearman, no detrend (the provable version under (A1) and Segers' condition for the jittered copula); (b) jittered
+    Spearman on log1p-detrended series (sensitivity). 20 jitter draws each. Verdicts per draw; adopt the verdict that holds in ≥ 19/20.

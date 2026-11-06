@@ -381,6 +381,12 @@
    "file": "../views_across_records/HYPERGRAPH_METHOD.md",
    "outcome": "2026-11-06: spatial-radius test d-hat = 397 km: local centres within <=368 km (up to 7 stands) insufficient; centre is regional (binds stands >370 km apart), not a patchwork of local centres; protocol confound remains",
    "stream": "S1"
+  },
+  {
+   "id": "P-frustration-zoo",
+   "file": "../views_across_records/FRUSTRATION_ZOOPLANKTON.md",
+   "outcome": "2026-11-06: negative pairs 4-43%, antibalanced triangles 0-46% (median 21%; predictions wrong); only Trout Lake needs a common cause of >=3 species; Crystal Lake: 43% negatives but 0 antibalanced triangles = two anticorrelated guilds (guild competition keeps triangles frustrated; pairwise competition masks)",
+   "stream": "S1"
   }
  ],
  "examples": [

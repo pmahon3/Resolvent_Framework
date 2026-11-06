@@ -21,3 +21,20 @@ log10(density + 1) per year. Spearman correlations; years with all 8 present onl
 1. Negative correlations 20–40% of pairs.
 2. Antibalanced triangles 30–50%: a substantial share of triples where a shared driver is undetectable even in principle.
 3. A whole-set common cause is required in ≥ 3 of 5 lakes (shared lake environment), but weakly.
+
+## Result (2026-11-06). Script `verification/frustration_zooplankton.py` (4 s)
+| lake | n (yrs) | negative pairs | antibalanced triangles | max triangle V₂ (frustr.) | whole-set test raw / detrended |
+|---|---|---|---|---|---|
+| AL | 32 | 0.07 | 0.21 | −0.21 | no / no |
+| BM | 41 | 0.25 | 0.46 | −0.17 | no / no |
+| CR | 32 | 0.43 | **0.00** | +0.04 | no / no |
+| SP | 33 | 0.11 | 0.25 | −0.04 | no / no |
+| TR | 34 | 0.04 | 0.11 | +0.13 | **REJECT / REJECT** (T 9.8 vs 8.4; 10.2 vs 9.6) |
+- Prediction 1 (20–40% negative pairs): **mostly wrong.** Range 4–43%; 3 of 5 lakes below 20%.
+- Prediction 2 (antibalanced 30–50%): **wrong** in 4 of 5. Median 0.21; only BM at 0.46.
+- Prediction 3 (common cause in ≥ 3 of 5 lakes): **wrong.** Only Trout Lake requires a common cause of ≥ 3 species (raw and detrended).
+- **Structural finding (CR):** 43% negative correlations yet **zero** antibalanced triangles. The negatives must split the 8 species into two groups that
+  are positively correlated within and negatively correlated between (every triangle has 0 or 2 negative edges). Competition between guilds, not
+  between pairs. Guild-level anticorrelation keeps every triangle frustrated, so it does **not** hide shared drivers. Pairwise-scattered competition (BM) does.
+- Reading: zooplankton communities carry mostly frustrated triangles (median 79%), so masking by competition is modest in this data. Within-lake
+  common drivers are mostly not demonstrable at n ≈ 33, consistent with the power limits (only strong, wide centres are visible).

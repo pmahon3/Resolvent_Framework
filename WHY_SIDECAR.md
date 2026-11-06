@@ -6,6 +6,28 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 
 ---
 
+## 2026-11-06 (later): one record, which world? PARKED (revisit if it comes up again)
+
+- **Claim (lens):** with a single record (the universe), "does it add up to one world?" is trivially yes. "*Which* world, described how?" is never
+  fixed by data alone. It needs a selection principle: independence of settings, typicality of the initial state, simplicity, a state-fixing theory,
+  or a global constraint. The law/initial-state split is itself one such choice ("centre in law" vs "centre in the past").
+- **Formal anchors (owned; from memory, unread):**
+  - cosmology: Glymour 1977; Malament 1977; Manchak 2009, "Can we know the global structure of spacetime?" (observationally indistinguishable,
+    non-isometric spacetimes are generic);
+  - inference: Kelly 1996 *The Logic of Reliable Inquiry* and the Ockham efficiency theorems; Wolpert's No Free Lunch; MDL / Solomonoff;
+  - statistics: identifiability;
+  - quantum: Bell + Hall's measurement dependence.
+- **Alternatives to the law–state split:**
+  - Unger & Smolin 2014, the "cosmological fallacy";
+  - Hartle–Hawking no-boundary (the theory fixes the state);
+  - all-at-once / global-constraint views (Wharton; Price & Wharton), which are close to the programme's answers-first stance and its cones;
+  - Humean best-system laws.
+- **Possible seam (unscoped):** the programme mostly asks *existence* of a gluing (can local views form one world?). Manchak-type results concern
+  *uniqueness* of gluing (do they form only one?), and his constructions cut and paste local regions. A gluing-uniqueness counterpart to the cone
+  theory might exist. Not checked.
+- **Why parked:** heavily owned territory; it pulls toward abstract physics, away from the ecology and anarchism fire; another thread was in flight.
+  Suggested reading for the author: Manchak 2009 (short).
+
 ## 2026-11-06: from the views-across-records work (`notes/open_questions/views_across_records/README.md`)
 
 1. **Tempering the bridges (most important).** Real local views mostly *do* add up.

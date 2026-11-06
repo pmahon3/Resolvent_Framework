@@ -184,6 +184,15 @@
    "statement": "Apply network causal-compatibility tests (Steudel-Ay, inflation) to ecological synchrony data to test whether observed synchrony requires a common ancestor beyond pairwise drivers; then lag structure to separate regional driver from dispersal history.",
    "status": "open; not found in ecology (2 searches, abstract level, 2026-11-05); Steudel-Ay has no empirical application found; 2026-11-05 first application on NTL lakes (control passes, zooplankton null). Next: dispersal-connected sites with E > 0.41 plus lag structure.",
    "stream": "S1"
+  },
+  {
+   "id": "Q-source-reach",
+   "statement": "Minimum source reach m*: the smallest m such that the correlation matrix is explained by latent sources each touching <= m sites (Cov in D + factor-width-m cone). Statistic V_m(R) = min{t: R + tI in FW_m} (dual: -min <X,R> over trace-1 X with all m x m principal minors PSD); V_2 = rho(|R-I|)-1, V_k = -lambda_min. 'How big must the centre be?'",
+   "status": "2026-11-05 scout: no established estimator/test of minimum source reach FOUND; objects owned (Kela et al. 2020 Prop 1, necessary; factor width, Boman et al. 2005); V_m derivation unverified; inference needs per-m validation; needs an SDP solver (cvxpy/SCS not installed)",
+   "stream": "S0/S1",
+   "files": [
+    "../views_across_records/SOURCE_REACH_SCOUT.md"
+   ]
   }
  ],
  "probes": [
@@ -425,6 +434,11 @@
    "id": "R-nsi-consensus",
    "region": "consensus ceiling for the triangle with uniform margins: P(all agree) <= (3sqrt2-2)/4 for ANY no-signalling theory with independent sources; tight (classical binary AND model)",
    "owned_by": "Gisin et al. 2020 Nat Commun 11:2378 ineq (13)-(14) [read]; da Silva-Pozas-Kerstjens-Parisio arXiv:2503.16654 App. E [read]"
+  },
+  {
+   "id": "R-factor-width",
+   "region": "factor-width-m cones of PSD matrices (m=2: scaled diagonally dominant / H-matrices)",
+   "owned_by": "Boman, Chen, Parekh & Toledo 2005 (snippet level)"
   }
  ]
 }

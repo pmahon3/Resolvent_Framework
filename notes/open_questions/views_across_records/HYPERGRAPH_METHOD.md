@@ -25,3 +25,25 @@ Synthetic geometry: 10 sites on a ring, adjacent-site distance 1, so H(1) = pair
 
 ## Step 4 (conditional on step 3 passing)
 Poland, 10 sites, H(d) with d over the observed inter-site distances (km), giving d̂ km. Prediction to be written after step 3.
+
+## Step 3 result (2026-11-06). Script `verification/hypergraph_method.py` (2.5 min)
+| world | V₂ | V_{H(2)} | rejection of H(2), n = 53 (50 simulations) |
+|---|---|---|---|
+| size: H(2) boundary (ring of triples) | +0.97 | 0.00 | **0.00** |
+| Poly (triples, inside H(2)) | +0.68 | −0.15 | 0.00 |
+| Mono (one 10-site factor, λ² = 0.19, V₂ matched) | +0.68 | **+0.35** | **0.00** |
+- **Size: valid.** **Discrimination: FAILED at this strength** (pre-registered expectation "Mono clearly higher" did not hold).
+- Cause: with H ⊇ pairs, the ε = ∞ critical value is ≈ that of −λ_min(Z*) for every H (≈ 8 at n = 53). Detection needs √n·V_H ≳ 8, i.e. V_H ≳ 1.1 at
+  n = 53. The matched Mono world has V_H = 0.35.
+- **Implication:** at ~50 years, poly vs mono is separable only when the violation is strong. Poland's V₂ ≈ 4.8 is ~7× the matched worlds, so step 4
+  can still bound the spatial reach there.
+- **Power route (principled, not yet run):** the finite-ε Hong–Li version re-validated with Politis–White blocks. Its earlier size failure was traced
+  to fixed n^{1/3} blocks underestimating variance.
+
+## Step 4 declaration (Poland; before running)
+10 Polish sites, 53 years (1951–2019), jittered Spearman, no detrend, Politis–White blocks, 300 resamples, 5 jitter draws.
+- d grid: the 9 deciles of the 45 inter-site distances (km).
+- H(d) = pairs ∪ maximal cliques of the graph "distance ≤ d".
+- Report T, the critical value and reject/not per d; d̂ = the smallest d not rejected (in ≥ 4/5 draws).
+- **Prediction:** H(d) is rejected at the smallest deciles (local centres of ~100–150 km cannot carry the synchrony) and d̂ falls at an intermediate
+  decile. Power falls as d grows, so d̂ is a lower bound on the spatial reach of the centre.

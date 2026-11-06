@@ -1,0 +1,41 @@
+# The reach test with Spearman correlations: proposition, assumptions, validation and Poland re-run (declared 2026-11-05, before running)
+
+reviewed: false. Sources: `SPEARMAN_PROOF_SOURCES.md` (theorem chain); proof skeleton: `REACH_TEST_VALIDITY.md` and its check.
+
+## Procedure (the provable version)
+Data Y_t ∈ ℝ^k, t = 1..n, **not detrended**. R̂ = Spearman correlation matrix (Pearson correlation of within-series midranks).
+T_m = √n·V_m(R̂). Moving-block bootstrap of time points (block b = round(n^{1/3}), no wrap), **re-ranking inside each resample**;
+Z* = √n(R̂* − R̂). Reject H₀(m) : R_S ∈ FW_m when T_m > the (1−α)-quantile of V_m(Z*), where R_S is the population Spearman (grade) correlation matrix.
+
+## Proposition (pointwise asymptotic validity)
+Assume:
+- (A1) Y is strictly stationary and α-mixing, with Σ_r (r+1)^{16(k+1)} √α(r) < ∞ (e.g. geometric mixing);
+- (A2) continuous marginals, and the copula satisfies Segers' condition (Bücher–Volgushev 2013, Cond. 2.3; holds e.g. for full-rank Gaussian copulas);
+- (A3) Cov(G) ≠ 0 for the Gaussian limit G of √n(R̂ − R_S).
+
+Then, for every m ≥ 2 and every R_S ∈ FW_m: lim sup P(T_m > ĉ_m) ≤ α.
+
+**Validity of the null itself:** if every latent source touches ≤ m sites, then R_S ∈ FW_m. Ranks are per-site transforms (the grade
+transform), so Kela et al. Prop. 1 applies to the grade-transformed variables.
+
+## Proof chain
+1. **Domination (exact):** under H₀, T_m ≤ V_m(√n(R̂ − R_S)) (sublinearity of V_m; `REACH_TEST_VALIDITY.md`, independently checked).
+2. **Limit:** under (A1)–(A2), the empirical copula process converges (Bücher–Volgushev 2013, Thm 2.4 / Cor 2.5). Spearman is a continuous
+   linear functional of the copula (their Ex. 2.7), and the map to all k(k−1)/2 pairs is linear and continuous. So √n(R̂_plugin − R_S) ⇒ G.
+3. **Bridge ⟦HAND⟧:** midrank-Pearson R̂ = R̂_plugin + o_p(n^{−1/2}), ties from duplicated bootstrap blocks included.
+4. **Bootstrap:** the moving-block bootstrap with re-ranking and no wrap is consistent for the empirical copula process (Bücher–Ruppert 2013,
+   Thm 2; block O(n^{1/2−ε})). The continuous mapping and the bridge carry this to √n(R̂* − R̂).
+5. **Quantile ⟦HAND⟧:** under (A3) the law of V_m(G) has no atom at its (1−α) quantile (convexity argument in `SPEARMAN_PROOF_SOURCES.md`),
+   so ĉ_m → c₁₋α(V_m(G)) and the size bound follows. ∎ (pointwise; not uniform)
+
+**Open in the proof:** the two ⟦HAND⟧ links (3 and 5) need an independent check. Three references (Bühlmann 1993; Kosorok's bootstrap delta
+method; van der Vaart's quantile lemma) were seen only via citing papers.
+
+## Declared runs (before running)
+- **V1 (independent check):** a fresh agent checks the proposition, links 3 and 5, and the conditions.
+- **V2 (finite-sample size, Spearman, no detrend):** m = 2 with V_m(Z*) = ρ(|Z*|) on W1, W2, W3, W4, WD (as in `VG_TEST_VALIDATION.md` run 4;
+  n ∈ {30, 53}, φ ∈ {−0.5, 0.5}; 300 simulations × 1000 resamples); m = 3 on the ring-of-triples boundary world (n = 53, φ ∈ {0, 0.5};
+  100 × 300). Pass: size ≤ 0.07 (m = 2), ≤ 0.10 (m = 3).
+- **V3 (Poland):** 10 sites, 53 years. (a) The provable version: Spearman, no detrend, reach m = 2…9 and V_G. (b) Sensitivity: Spearman on
+  log1p-detrended series. Prediction: H₀(2), H₀(3) rejected and m̂* = 4 in both (normal scores and Spearman are nearly linear transforms of each
+  other here; the trends were weak).

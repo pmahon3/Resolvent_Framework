@@ -31,3 +31,21 @@ Report the point V_G, T, critical value and verdict for A0–A3, and V_G's place
 ## 2. Negative control (does the test stay silent without shared timing?)
 Shift each site's series circularly by its own random offset (offsets distinct, ≥ 5 years apart), destroying cross-site alignment but
 keeping each site's own dynamics. 50 shift draws; the V_G test on each (1000 resamples). **Expected rejection rate ≤ 0.10.**
+
+## Result (2026-11-05). Script `verification/beech_positive_control.py` (63 min; pipeline prep2 with normal scores, as declared)
+| covariates | V_G | T | crit | verdict |
+|---|---|---|---|---|
+| A0 year only | +4.82 | 35.07 | 9.02 | REJECT |
+| A1 ΔT Jun 1–Jul 31 | +4.32 | 31.46 | 9.56 | REJECT |
+| A2 ΔT solstice (Jun 21–Jul 31) | +4.32 | 31.45 | 9.15 | REJECT |
+| A3 T1_sol, T2_sol | +4.29 | 31.21 | 10.23 | REJECT |
+- **Placebo** (A2 years permuted, 200): V_G median +4.84, 5th percentile +4.70. **None** is as low as A2 or A1, so the real cue is special (p < 0.005).
+  Prediction (ii) held.
+- **Negative control** (50 circular-shift draws): rejection rate **0.00**. The test is silent when cross-site timing is destroyed. Passes.
+- Prediction (i) **failed**: the solstice window removes no more than the full June–July window (difference < 0.01). June 1–20 adds little,
+  so the two cues are nearly the same variable here.
+- Prediction (iii) held: a common cause is still required after every linear cue adjustment. The known cue, entered linearly, removes ~10% of
+  V_G. Either the cue acts nonlinearly or with thresholds (masting; tail dependence) or a further shared cause exists (other weather, protocol).
+  Model-free inference cannot separate these.
+- **Positive-control verdict:** the detection step finds the known common cause; the negative control is silent; the known cue is special against
+  placebo. Attribution by linear adjustment is weak, consistent with a threshold-like cue. The instrument behaves as it should on a known case.

@@ -327,6 +327,12 @@
     "Q-source-reach"
    ],
    "stream": "S1"
+  },
+  {
+   "id": "P-beech-positive-control",
+   "file": "../views_across_records/BEECH_POSITIVE_CONTROL.md",
+   "outcome": "2026-11-05: detection REJECT under all cue adjustments (V_G 4.82 -> 4.29-4.32); solstice cue no better than Jun-Jul (prediction i failed); real cue special vs 200 placebos (p<0.005); negative control (circular shifts) 0/50 rejections; instrument behaves on known case; linear attribution weak",
+   "stream": "S1"
   }
  ],
  "examples": [

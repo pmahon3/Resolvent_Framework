@@ -57,3 +57,16 @@ method; van der Vaart's quantile lemma) were seen only via citing papers.
     Spearman on log1p-detrended series (sensitivity). 20 jitter draws each. Verdicts per draw; adopt the verdict that holds in ≥ 19/20.
 - **Compute amendment (before running):** V3 uses m ∈ {2, 3, 4, 5}, with 1000 resamples for m = 2 and 300 for m = 3–5, per jitter draw (20 draws).
   V2 tied worlds: m = 2 only, n = 53, φ ∈ {−0.5, 0.5}, 300 simulations × 1000 resamples, one jitter per simulated dataset.
+
+## V2 result (2026-11-05): PASS in every cell. Script `verification/spearman_validation.py`
+| world | size (n = 30 / 53; φ = ±0.5) |
+|---|---|
+| m = 2, W1 (3 sites, r = ½) | 0.03–0.06 |
+| m = 2, W4 spikes | 0.00 |
+| m = 2, W2 (10 sites, all pairs) | 0.00 |
+| m = 2, W3 ring | 0.00–0.01 |
+| m = 2, WD (degenerate root) | 0.01–0.02 |
+| m = 2, W1 discretised to 5 levels (jittered) | 0.01 |
+| m = 2, W2 zero-inflated (jittered) | 0.00 |
+| m = 3, ring of triples | 0.00 (φ = 0, 0.5) |
+Max 0.06 ≤ 0.07 (m = 2), 0.00 ≤ 0.10 (m = 3). The Spearman ε = ∞ test, with jitter for ties and without detrending, holds size on all tested worlds.

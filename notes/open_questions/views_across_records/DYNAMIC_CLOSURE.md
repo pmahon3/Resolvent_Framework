@@ -29,3 +29,12 @@ Bᵏ C_S Bᵏᵀ ⪰ 0 is supported on N_k(S) (sites reachable from S in k steps
 Restricted VAR per site: own lag + the lags of its 2 nearest sites. Innovations → (i) the pairwise V_G test; (ii) the reach test m = 3, 4; (iii) the radius test H(d) on the
 same d grid as step 4. Jittered Spearman, 5 jitter draws. **Prediction:** the innovations still require a regional centre (a regional same-time driver), with d̂ in the top
 deciles; or, if d̂ drops, the level-scale regionality was partly accumulated local history.
+
+## Validation result (2026-11-06): PASS, predictions held. Script `verification/dynamic_closure.py` (4 min)
+| world | population V_G levels / innovations | n = 53: L, I_full, I_ring | n = 200: L, I_full, I_ring |
+|---|---|---|---|
+| Lc local shocks + dispersal | +2.40 / 0.00 | 0.22, 0.00, 0.00 | **0.78**, **0.00**, **0.00** |
+| Rg regional shock | +3.50 / +3.50 | 0.71, 1.00, 0.99 | 0.93, 1.00, 1.00 |
+- **Decoupling demonstrated:** in Lc the levels need a big centre (the dynamic closure), while the innovations correctly stay pairwise (size 0.00, full and
+  restricted VAR). In Rg the regional same-time shock is detected in both.
+- The restricted VAR is as good as the full one here. It is used for Poland.

@@ -42,3 +42,17 @@ correlation R_s, common AR coefficient φ ∈ {0, 0.5}, n = 53. 100 simulations 
 prep2 = log1p, then OLS detrend on year, then per-site normal scores (inside every resample too). Re-run with prep2:
 (a) the validated V_G test (m = 2), detrended and with ΔT added to the detrending regression; (b) the reach sequence m = 2…9. The same
 seeds, resample counts and rules as before. Earlier results stand only if these reproduce them.
+
+## Results (2026-11-05)
+- **Finite-sample check at m = 3** (sparse ring-of-triples boundary world, V₃ = 0, V₂ = +0.97, n = 53): size **0.00** at φ = 0 and at φ = 0.5
+  (100 simulations each). Conservative, as the power analysis predicts. `verification/reach_m3_validation.py`.
+- **Poland re-run with the corrected pipeline** (log1p → detrend → normal scores), `verification/poland_rerun_prep2.py`:
+  - V_G test: T = 35.1 vs crit 9.0 (detrended); 31.5 vs 9.5 (+ ΔT). Both REJECT, as before.
+  - Reach: H₀(2) rejected (35.1 vs 8.95); **H₀(3) rejected (13.9 vs 8.01)**; H₀(4…9) not rejected. **m̂\* = 4 reproduced.**
+  - All conclusions reproduce under the corrected order. The trends were weak.
+- **Status:** Poland's "a common cause reaching ≥ 4 of 10 stands is required" now rests on:
+  1. the proved domination bound;
+  2. asymptotic validity, modulo the cited bootstrap gap for normal scores (closable via Spearman + Bücher–Ruppert 2013, proposed);
+  3. finite-sample size checks at m = 2 (grid) and m = 3 (one hard world).
+
+  The "provisional" label is downgraded to "validated on the tested worlds; one cited gap open".

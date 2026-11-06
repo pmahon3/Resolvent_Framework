@@ -322,7 +322,7 @@
   {
    "id": "P-reach-poland",
    "file": "../views_across_records/SOURCE_REACH_SCOUT.md",
-   "outcome": "2026-11-05: m-hat* = 4 (H0(3) rejected T=13.8 vs 7.65): a hidden cause reaching >= 4 of 10 Polish beech stands is required; point V_m crosses 0 at m=7 (hint of reach ~7, biased); provisional for m>=3; protocol (reach 10) not excluded",
+   "outcome": "2026-11-05: m-hat* = 4 (H0(3) rejected T=13.8 vs 7.65): a hidden cause reaching >= 4 of 10 Polish beech stands is required; point V_m crosses 0 at m=7 (hint of reach ~7, biased); provisional for m>=3; protocol (reach 10) not excluded | 2026-11-05 update: reproduced with corrected detrend-then-rank pipeline (H0(3) T=13.9 vs 8.01); m=3 finite-sample size 0.00 on hard boundary world; proof (domination + bootstrap consistency) independently checked: pointwise asymptotic validity, one cited bootstrap gap (normal scores) open",
    "affects": [
     "Q-source-reach"
    ],

@@ -3455,6 +3455,21 @@
    ],
    "text_layer": true,
    "pages": ""
+  },
+  {
+   "file": "journe_et_al_2024_summer_solstice_mast_synchrony.pdf",
+   "citation": "Journé, Szymkowiak, Foest, Hacket-Pain, Kelly & Bogdziewicz, 'Summer solstice orchestrates the subcontinental-scale synchrony of mast seeding', Nature Plants 10 (2024) 367-373 (AAM, CC-BY)",
+   "what_it_proves": "Beech seed production correlates with temperature after, not before, the summer solstice (7-day moving windows; corr 0.095 before vs 0.37 after); T1 (summer t-1) positive, T2 (summer t-2) negative; solstice anchoring makes the cue window simultaneous across ~2000 km.",
+   "summary_basis": "main text pp. ~3-6 + methods excerpt read (main session)",
+   "verdict_for_us": "the known candidate centre for the beech positive control (solstice-anchored dT)",
+   "programme_links": [
+    "notes/open_questions/views_across_records/BEECH_POSITIVE_CONTROL.md"
+   ],
+   "questions": [
+    "centre_vs_relations"
+   ],
+   "text_layer": true,
+   "pages": ""
   }
  ]
 }

@@ -349,7 +349,7 @@
   {
    "id": "P-space-time",
    "file": "../views_across_records/SPACE_TIME_DYNAMICS.md",
-   "outcome": "2026-11-06: VAR-innovation test separates centre in space (Moran: 1.00) from dispersal (0.00), valid at boundary (0.00); population scan: dispersal breaks pairwise ceiling only with high persistence (a>=0.9); LEVELS test OVERSIZED at a=0.95 (0.55-0.60 on boundary) - fixed n^(1/3) blocks too short; centre-in-time demonstration inconclusive; fix = Politis-White automatic block length",
+   "outcome": "2026-11-06: VAR-innovation test separates centre in space (Moran: 1.00) from dispersal (0.00), valid at boundary (0.00); population scan: dispersal breaks pairwise ceiling only with high persistence (a>=0.9); LEVELS test OVERSIZED at a=0.95 (0.55-0.60 on boundary) - fixed n^(1/3) blocks too short; centre-in-time demonstration inconclusive; fix = Politis-White automatic block length | run 3 (2026-11-06): Politis-White automatic blocks restore size (P2 0.06/0.03); centre in time detected weakly (dispersal-only L 0.20 at n=200 vs 0.03 null; I 0.00); innovation test separates space from time",
    "stream": "S0/S1"
   }
  ],

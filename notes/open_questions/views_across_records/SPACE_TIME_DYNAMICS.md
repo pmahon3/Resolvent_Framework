@@ -90,3 +90,22 @@ n ∈ {53, 200}; 100 simulations × 500 resamples.
   simulations × 500 resamples.
 - Pass: P2, W1, W3 size ≤ 0.10 (100 simulations). Then read D2 L as power.
 - Prediction: P2 L size falls to ≤ 0.10. D2 L power is modest at n = 53 and higher at n = 200. I is unchanged.
+
+## Run 3 result (2026-11-06): automatic block length fixes size; centre in time detectable with long series
+| world | n = 53: L, I | n = 200: L, I |
+|---|---|---|
+| static W1 (φ = ∓0.5) | L 0.04 / 0.02 | — |
+| static W3 ring (φ = ∓0.5) | L 0.01 / 0.00 | — |
+| M2 Moran (a = 0.95) | 0.73, 0.98 | 0.87, 1.00 |
+| **D2 dispersal (a = 0.95)** | 0.03, 0.00 | **0.20, 0.00** |
+| **P2 boundary (a = 0.95)** | **0.06**, 0.00 | **0.03**, 0.00 |
+- **Size restored** with Politis–White blocks: P2 0.06 / 0.03 (was 0.55 / 0.60). The static worlds stay valid.
+- **Centre in time, demonstrated (weakly):** in the dispersal-only world the levels test rejects 20% at n = 200, against 3% under the boundary null,
+  and the innovation test never fires (0.00). Reading: "a common ancestor exists, and it is not a same-time shared shock", i.e. coordination built
+  by history. At n = 53 it is essentially undetectable (0.03).
+- The price: power for the Moran levels test drops (0.73 at n = 53). The innovation test keeps the Moran detection (0.98–1.00).
+- **Adopted rule:** use Politis–White automatic blocks (`arch` `optimal_block_length`, circular column; max over sites; clipped to [2, n/3]) for
+  the levels test. The innovation test separates space from time.
+- Prediction held (P2 ≤ 0.10; D2 modest at 53, higher at 200; I unchanged).
+- The beech results used fixed n^{1/3} blocks on anti-persistent series (validated at φ = −0.5). They are not re-run here; doing so with the new rule
+  would be a consistency check.

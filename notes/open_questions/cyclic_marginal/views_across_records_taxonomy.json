@@ -405,6 +405,12 @@
    "file": "../views_across_records/SALMON_FLOW.md",
    "outcome": "2026-11-06: Bristol Bay sockeye: common cause required (robust to detrend and 1977 regime shift), radius d-hat~128 km (sub-regional), reach beyond 3 not demonstrated; innovations not demonstrable (ambiguous: persistent common driver absorbed by own lags, or low power); cross-region/cross-agency: nothing (n=28, weak null)",
    "stream": "S1"
+  },
+  {
+   "id": "P-salmon-ocean-driver",
+   "file": "../views_across_records/SALMON_OCEAN_DRIVER.md",
+   "outcome": "2026-11-06: Bristol Bay common cause NOT accounted for by PDO (drop 0.056, not special vs placebo); neighbour-lag interaction 0/9 rivers: shared sub-regional driver (local ocean/freshwater or protocol), not across-year interaction",
+   "stream": "S1"
   }
  ],
  "examples": [

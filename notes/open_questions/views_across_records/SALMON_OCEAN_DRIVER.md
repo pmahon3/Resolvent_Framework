@@ -21,3 +21,16 @@ covariation (Mueter, Peterman & Pyper 2002; PDO: Mantua et al. 1997).
   index; local ocean conditions matter more for Bristol Bay).
 - (b) Neighbour lags are not significant (0–1 rivers after Holm): little across-year interaction between rivers, consistent with salmon life history
   (homing; no between-river exchange within a generation).
+
+## Result (2026-11-06). Script `verification/salmon_ocean_driver.py`
+- corr(PDO at the first marine summer, mean productivity) = +0.29.
+- **(a)** V_G: +2.36 with no covariate → **+2.30 with PDO** (T = 15.8 vs 10.6, still REJECT). The real drop (+0.056) is **not special**: 18.5% of placebos
+  drop as much (placebo 95th percentile +0.18). **The basin-scale PDO does not account for the common cause.** Prediction: half wrong (still required ✓;
+  "drops more than every placebo" ✗).
+- **(b)** Neighbour-lag terms: Holm-significant **0/9** (lag 1), and **0/9** with own lags 4 and 5 added (cohort echo). Smallest p = 0.03–0.05 before Holm.
+  No evidence of across-year interaction between rivers. Prediction held.
+- **Reading:** Bristol Bay's common cause is **not** across-year interaction between rivers, and **not** the basin-scale PDO. A shared driver at the
+  bay/sub-regional scale remains (local ocean or freshwater conditions at entry, or the shared ADF&G protocol), unidentified by this index. The earlier
+  innovation null is then best read as a persistent shared driver absorbed by own lags, or as low power, not as interaction.
+- **Next principled candidate (not run):** a *local* driver, e.g. Bristol Bay / eastern Bering Sea SST in the entry summer (ERA5 SST via Open-Meteo
+  or NOAA OISST). Basin indices are known to be weaker for local stocks.

@@ -10,12 +10,20 @@ def mod(n, f):
 m = mod("m", "mast_ceiling_gate.py"); c = mod("c", "mast_conditional_gate.py"); nd = mod("nd", "vg_numdelta.py")
 
 
-def prep(Y, cov):            # normal scores, then OLS on [1, covariates...] per site (cov: list of n x k arrays or n-vectors)
-    n, k = Y.shape; Z = norm.ppf((np.apply_along_axis(rankdata, 0, Y) - 0.5) / n); out = np.empty_like(Z)
-    for j in range(k):
-        X = np.column_stack([np.ones(n)] + [cv[:, j] if cv.ndim == 2 else cv for cv in cov])
-        b, *_ = np.linalg.lstsq(X, Z[:, j], rcond=None); out[:, j] = Z[:, j] - X @ b
-    return out
+ORDER = "rank_then_detrend"   # set to "detrend_then_rank" for the corrected pipeline (REACH_TEST_VALIDITY.md)
+
+
+def prep(Y, cov):            # per site: residualise on [1, covariates...] and normal-score transform, in ORDER
+    n, k = Y.shape
+    def ns(A): return norm.ppf((np.apply_along_axis(rankdata, 0, A) - 0.5) / n)
+    def resid(A):
+        out = np.empty_like(A)
+        for j in range(k):
+            X = np.column_stack([np.ones(n)] + [cv[:, j] if cv.ndim == 2 else cv for cv in cov])
+            b, *_ = np.linalg.lstsq(X, A[:, j], rcond=None); out[:, j] = A[:, j] - X @ b
+        return out
+    if ORDER == "detrend_then_rank": return ns(resid(np.log1p(Y)))
+    return resid(ns(Y))
 
 
 def test(Y, cov, rng, NB=10_000):

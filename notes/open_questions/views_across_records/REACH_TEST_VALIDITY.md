@@ -29,3 +29,16 @@ for every m and every null R, provided the bootstrap is consistent for √n(R̂ 
 World: 10 sites on a ring with one latent per consecutive triple {i, i+1, i+2} (10 latents), linear loadings, no local noise. Population R,
 then R_s = I + s(R − I) with s chosen by bisection so that V₃(R_s) = 0 (on the boundary; the same structure, sparse). Data: stationary Gaussian VAR,
 correlation R_s, common AR coefficient φ ∈ {0, 0.5}, n = 53. 100 simulations × 300 resamples. Pass: rejection rate of H₀(3) ≤ 0.10 (100 simulations).
+
+## Independent check (2026-11-05, `REACH_TEST_VALIDITY_CHECK.md`): survives, with fixes
+- Step 1 is correct and simpler: V_m is sublinear (a support function), so h_m = V_m, and domination is subadditivity. Holds for m ≥ 2.
+- Step 2 is correct with a no-atom condition at the (1−α) quantile (Tsirelson, cited from memory). The result is **pointwise**, not uniform.
+- Bootstrap consistency for this exact pipeline is covered by no single theorem: Berghaus–Bücher–Volgushev 2017 give a CLT for normal
+  scores without a bootstrap; Bücher–Ruppert 2013 bootstrap the empirical copula. **Cited gap, stays open.**
+- **Break: rank-then-detrend.** A real trend leaves spurious shared correlation, so the order must be detrend-then-rank (or Y stationary).
+- Power: for m ≥ 3 the critical value is effectively that of −λ_min(Z*), the same for every m ≥ 3 (7.65 in Poland). Power for m ≥ 3 is low by construction.
+
+## Corrected pipeline and Poland re-runs (declared 2026-11-05, before running)
+prep2 = log1p, then OLS detrend on year, then per-site normal scores (inside every resample too). Re-run with prep2:
+(a) the validated V_G test (m = 2), detrended and with ΔT added to the detrending regression; (b) the reach sequence m = 2…9. The same
+seeds, resample counts and rules as before. Earlier results stand only if these reproduce them.

@@ -38,3 +38,19 @@ deciles; or, if d̂ drops, the level-scale regionality was partly accumulated lo
 - **Decoupling demonstrated:** in Lc the levels need a big centre (the dynamic closure), while the innovations correctly stay pairwise (size 0.00, full and
   restricted VAR). In Rg the regional same-time shock is detected in both.
 - The restricted VAR is as good as the full one here. It is used for Poland.
+
+## Poland innovations result (2026-11-06): the regional centre is a SAME-TIME shock, not accumulated local history
+Script `verification/dynamic_closure_poland.py` (2.5 min). Restricted VAR (own lag + 2 nearest sites' lags), n = 52 innovations, 5 jitter draws,
+Politis–White blocks, 300 resamples.
+| hypothesis on the same-time shocks | T | rejected |
+|---|---|---|
+| pairwise only | 32.0 | 5/5 |
+| reach ≤ 3 | 12.4 | 5/5 |
+| reach ≤ 4 | 5.9 | 0/5 |
+| radius ≤ 129 … 368 km | 32.0 … 10.2 | 5/5 at every radius |
+| radius ≤ 397 km | 7.6 | 0/5 |
+- **The innovations reproduce the levels exactly:** m̂* = 4 and d̂ = 397 km. Prediction (first branch) held.
+- **Reading:** after removing what the lagged dynamics (own and neighbour carry-over) spread, the *same-time* shocks still need a centre binding stands
+  > ~370 km apart. The Polish regionality is a **regional same-time driver** (weather, the solstice-timed cue) or the shared protocol. It is **not** local
+  history accumulated by interaction. This fits beech's anti-persistence: a centre in time needs long memory, which beech lacks.
+- Within the restricted VAR's assumptions (linear; two-neighbour lags). The protocol confound remains.

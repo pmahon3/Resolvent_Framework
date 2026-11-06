@@ -150,6 +150,12 @@
    "statement": "Correlation-level: a centre larger than a pair can be required only on frustrated cycles (support not antibalanced); antibalanced support => FW_2 = PSD (Boman et al. 2005); max excess on a positive odd L-cycle = sec(pi/L) - 1; chordal support => maximal cliques suffice (Agler et al. 1988); minimal sufficient hypergraph not unique (K4).",
    "status": "owned components (Boman 2005; Agler 1988; Evans 2016 for distribution level); assembled + verified numerically 2026-11-06",
    "stream": "S0"
+  },
+  {
+   "id": "T-dynamic-closure",
+   "statement": "VAR(1) x_{t+1}=Bx_t+eps, Q=Cov(eps) in FW_H => stationary level covariance in FW_{H*}, H* = {N_k(S)}: the interaction-closure of the shock centres (reach-k weight ~ ||B^k||^2). Levels conflate shock centres with interactions; innovations decouple.",
+   "status": "hand; likely owned as time-series trek rule (Sullivant-Talaska-Draisma) - unchecked; validated by simulation (local+dispersal: levels 0.78, innovations 0.00; regional: all ~1)",
+   "stream": "S0"
   }
  ],
  "conjectures": [
@@ -386,6 +392,12 @@
    "id": "P-frustration-zoo",
    "file": "../views_across_records/FRUSTRATION_ZOOPLANKTON.md",
    "outcome": "2026-11-06: negative pairs 4-43%, antibalanced triangles 0-46% (median 21%; predictions wrong); only Trout Lake needs a common cause of >=3 species; Crystal Lake: 43% negatives but 0 antibalanced triangles = two anticorrelated guilds (guild competition keeps triangles frustrated; pairwise competition masks)",
+   "stream": "S1"
+  },
+  {
+   "id": "P-poland-innovations",
+   "file": "../views_across_records/DYNAMIC_CLOSURE.md",
+   "outcome": "2026-11-06: Poland innovations reproduce levels: m-hat*=4, d-hat=397 km -> regional SAME-TIME driver (or protocol), not accumulated local history",
    "stream": "S1"
   }
  ],

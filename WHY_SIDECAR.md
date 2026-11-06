@@ -6,6 +6,15 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 
 ---
 
+## 2026-11-06 (latest): decoupling the shape of the centre from dynamics
+- **Claim (ours; owned pieces):** what you see in levels is the *interaction-closure* of what happens at once. Small local shocks spread by
+  long-memory interaction look like one big centre. Innovations (same-time shocks after removing the lagged dynamics) separate the two.
+  Validated by simulation.
+- **Polish beech:** after removing the dynamics, the same-time shocks still need a centre binding stands > ~370 km apart (reach ≥ 4). The order is held
+  by something acting now across the region (or the shared protocol), not by local relations whose history has spread. `notes/open_questions/views_across_records/DYNAMIC_CLOSURE.md`.
+- **For the question:** this is the first case where the tools say *which kind* of non-pairwise order holds a real system together, a present regional
+  centre rather than accumulated relations. It does not decide between nature and observer.
+
 ## 2026-11-06 (later): one record, which world? PARKED (revisit if it comes up again)
 
 - **Claim (lens):** with a single record (the universe), "does it add up to one world?" is trivially yes. "*Which* world, described how?" is never

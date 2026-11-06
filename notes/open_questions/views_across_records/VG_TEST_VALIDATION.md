@@ -93,3 +93,13 @@ Andrews–Soares 2010; Chernozhukov–Chetverikov–Kato 2019), then validate on
 - (b) Prep plus each site's own ΔT as an extra regressor in the detrending regression.
 Report T, the critical value and reject/not for each. Prediction: both reject. The (b) – (a) drop is reported descriptively only;
 attribution is not model-free.
+
+### Poland result (2026-11-05), validated test
+| | T = √n·V̂_G | V̂_G | 95% critical value | p | verdict |
+|---|---|---|---|---|---|
+| (a) detrended | 34.87 | +4.79 | 8.79 | < 10⁻⁴ | **REJECT** |
+| (b) + own ΔT | 29.66 | +4.07 | 9.19 | < 10⁻⁴ | **REJECT** |
+Prediction held. **With a test validated for size on boundary worlds (rings, degenerate roots, autocorrelation, n = 30–53), Polish beech
+synchrony across 10 sites requires a common cause of ≥ 3 sites**, before and after linear adjustment for ΔT. T is about 4× the critical
+value, far beyond what the conservative test needs. This restores the Poland conclusion that `GAUSSIAN_PAIRWISE_MODEL.md` step 3 reached
+with invalid inference. Within one study, so weather, history and protocol remain inseparable. The ΔT drop is descriptive only.

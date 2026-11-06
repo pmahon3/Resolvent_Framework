@@ -298,10 +298,16 @@
   {
    "id": "P-gaussian-poland",
    "file": "../views_across_records/GAUSSIAN_PAIRWISE_MODEL.md",
-   "outcome": "UNVALIDATED (2026-11-05: bootstrap/posterior inference oversized for 10 sites, size up to 1.00 in pairwise worlds; VG_TEST_VALIDATION.md). Was: 2026-11-05: Poland 10 sites, n=53: V_G = +4.95 detrended (bootstrap lb +4.32), +4.46 after own dT (lb +3.82); dT special vs 200 placebos (drop 0.50 vs 0.003, p<0.005) but small: large residual common cause remains (other weather / nonlinear cue / history / protocol)",
+   "outcome": "CONFIRMED with validated test (2026-11-05): Hong-Li numerical delta, eps=inf (size <= 0.05 on boundary grid incl. rings/degenerate roots; low power for weak factors). Poland 10 sites n=53: T=34.9 vs crit 8.8 (detrended), 29.7 vs 9.2 (+dT): common cause of >=3 sites required. Earlier inverse-Wishart/bootstrap inference was invalid.",
    "affects": [
     "Q-synchrony-compat"
    ],
+   "stream": "S1"
+  },
+  {
+   "id": "P-vg-validation",
+   "file": "../views_across_records/VG_TEST_VALIDATION.md",
+   "outcome": "2026-11-05: percentile/basic bootstrap and shrink-calibration INVALID for 10 sites; Hong-Li numerical delta with eps=inf VALID (max size 0.05), low power (P1 0.01-0.03, P2 0.05-0.13); finite eps fail (block bootstrap underestimates variance at n<=53)",
    "stream": "S1"
   }
  ],

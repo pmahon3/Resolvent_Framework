@@ -113,3 +113,16 @@ which and why. No theorem in `CONVEX_GLUING_FRAMEWORK.md` is stated as settled u
   - My suspected diagonal-coupling counterexample fails: any coupling of σ-additive marginals on ℕ×ℕ is tight.
   - Scope fix: Lemma E needs a charge on all subsets of Ω, while states live on D. So "gluing is automatically σ-additive" holds only for *coherent* states.
 - Script cross-check (binary triangle): |D₃| = 70; 7-term formula everywhere; no singleton in D₃; states determined by window values.
+
+## Prior art on the restated T1 (2026-11-06, `CONVEX_GLUING_T1_PRIOR_ART.md`)
+- **No shelf witness falsifies it.** Every printed pointless state has a **non-flat** (twisted) window family, checked fibre by fibre at full-text read level:
+  Navara–Pták ℚ², Dravecký–Šipoš Ex. 6, De Simone–Navara–Pták Ex. 2.2, Navara 1984 ℤ×ℕ₀.
+- **Q1, determination by generating blocks: PARTLY OWNED.**
+  - σ-additive form (Navara–Pták 1983 Thm 1 proof; Navara 1984 Prop.): any counterexample must be *purely finitely additive*.
+  - Finite carriers: trivial. Finitely built sets: `obs.forced_functional`.
+  - The general form is false (free ultrafilters on the finite–cofinite algebra), so on D₃ the link "determined ⇔ not pointless" rests on the
+    ⟦HAND⟧ Lemma A / Prop B.
+- **Q3:** printed non-linear states are finite or σ-additive, and there non-linear forces non-flat (⟦HAND⟧). Nothing found on the infinite triangle.
+- **Remaining open case = a purely finitely additive two-valued state on D₃ over an infinite alphabet** (the attempt note's gate).
+- **Book pointers (not yet blocking):** *Theory of Charges* §3.2 (Horn–Tarski; a signed version?), Thm 3.5.1(v), any uniqueness-of-extension result.
+  Pták–Pulmannová 1991: no table of contents online; sections listed by topic.

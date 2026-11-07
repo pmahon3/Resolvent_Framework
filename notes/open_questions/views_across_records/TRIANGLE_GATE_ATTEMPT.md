@@ -170,6 +170,11 @@ family, and O1 holds on the triangle.
   excluded from the carrier.
 
 **§5b. Stacking probe: pre-registered 2026-11-07 (before running).**
+> **Reversal (2026-11-07, `TRIANGLE_5BC_CHECK.md`): the gate was settled before it ran.** No nonempty set inside a
+> product S₀×S₁×S₂ of proper subsets is in D₃ over any alphabets ⟦HAND, checked here⟧: take (a,b,c) ∈ F and a′, b′, c′
+> outside the projections; the box identity (Lean `box_of_mem`) has left side 1 (only the corner (a,b,c) is in F) and
+> right side 0. So **no nonempty finite set is a carrier set on ℕ³**, the YES branch was impossible, fact (2) below is
+> true but vacuous, and "which finite sets are in D₃(ℕ³)" has answer ∅. The computed results stand as computed.
 - **Facts (⟦HAND⟧).** (1) Pullback along any coordinatewise map maps D₃ into D₃. Hence for finite A ⊆ [n]³:
   A ∈ D₃(ℕ³) ⟺ A ∈ D₃([n+1]³) (collapse values ≥ n; include [n+1] ⊂ ℕ), and A ∈ D₃(ℕ³) ⇒ A ∈ D₃(grid with a spare
   value on any one coordinate). (2) A Dynkin system is closed under increasing unions, E* = ⋃ₙ E*∩[n]³, and E* ∉ D₃
@@ -185,8 +190,9 @@ family, and O1 holds on the triangle.
   carrier sets when x₂ has a spare value; 13,170 are lost, of every size 3–24. So losing E₃ is generic, not special to
   cyclic orders, and "which finite sets are in D₃(ℕ³)" is not the informative rephrase.
 - **What the gate does show.** Finite-grid carrier sets live in ℕ³ only as *collapse pullbacks*: the top value means
-  "≥ that value". So the ℕ-sets available are Ẽₙ := {x : E* holds at (min(x₀,n−1), min(x₁,n−1), min(x₂,n−1))}, all in
-  D₃(ℕ³). Ẽₙ → E* pointwise (not monotonically), and E* ∉ D₃. **Reformulated L1 probe:** E* is a pointwise limit of
+  "≥ that value". So the candidate ℕ-sets are Ẽₙ := {x : E* holds at (min(x₀,n−1), min(x₁,n−1), min(x₂,n−1))}.
+  (Fix: the capping map has a section, so Ẽₙ ∈ D₃(ℕ³) ⟺ E*|[n]³ ∈ D₃([n]³); verified for n ≤ 3, **unverified for
+  n ≥ 4**, where the 4³ closure is too heavy for the laptop.) Ẽₙ → E* pointwise (not monotonically), and E* ∉ D₃. **Reformulated L1 probe:** E* is a pointwise limit of
   carrier sets that is not a carrier set. Do two states with the same window family agree on the Ẽₙ eventually, and
   can a countable disjoint rearrangement of pieces of the Ẽₙ stay in the carrier? Affects `conj.window_restriction_r`.
 - §5a's counts are unaffected: they describe collapse pullbacks, which are legitimate ℕ-sets.
@@ -195,17 +201,23 @@ family, and O1 holds on the triangle.
 - **Worked case.** Free window family (all marginals pᵢ non-principal). 1_{Ẽₙ} = [c₀≤c₁] + [c₁<c₂] + [c₂<c₀] − 1 with
   cᵢ = min(xᵢ, n−1), each term a window event. On {xᵢ, xⱼ ≥ n−1}, a set of value 1 for u_ij, the caps tie: cᵢ = cⱼ.
   So u₀₁(c₀≤c₁) = 1, u₁₂(c₁<c₂) = 0, u₂₀(c₂<c₀) = 0, and Λ(Ẽₙ) = 0. Ẽₙ is finitary (a pullback of a finite-grid set),
-  so s(Ẽₙ) = Λ(Ẽₙ) = 0 for **every** state with a free family, for every n. Capping sends all three coordinates to
+  so s(Ẽₙ) = Λ(Ẽₙ) = 0 for **every** state with a free family, for every n with Ẽₙ ∈ D₃ (n ≤ 3 verified). Capping sends all three coordinates to
   the corner (n−1, n−1, n−1), where everything is tied and E* fails.
 - Compare E* itself: Λ(E*) = u₀₁(x₀≤x₁) + u₁₂(x₁<x₂) + u₂₀(x₂<x₀) − 1 reads the *order at infinity* in each window,
-  and is 2 for a cyclically oriented (staircase-type) family, which is why E* cannot be a carrier set. The capped
+  and is 2 for a cyclically oriented (staircase-type) family (Lean `sstar`), which gives a second proof that E* is not a
+  carrier set (Lean `estar_not_mem` itself uses only the box identity and a far-point lift). The capped
   approximations see none of this, so **the route "approximate E* by carrier sets" yields no disagreement.**
 - **General form.** For any coordinatewise map g into a finite grid G and any A ∈ D₃(G): s(g⁻¹A) = [g(p) ∈ A], where
   g(p) = (g₀₊p₀, g₁₊p₁, g₂₊p₂) is the image point. Reason: g⁻¹A is finitary, so s = Λ; each window value is the
   pushforward of u_ij to a finite set, a point fixed by the marginals; and the pair-sum of 1_A evaluated there is 1_A(g(p)).
-- **Reading.** Every state, pointless or not, looks like a point on every finite coarse-graining: the point
-  (p₀, p₁, p₂) of βℕ×βℕ×βℕ. What the windows add is the *order between* coordinates at infinity (which tensor
-  product, p⊗q or q⊗p), and that is exactly the gap between βℕ×βℕ×βℕ and β(ℕ³) (owned: Hindman–Strauss §11.1, read).
+- **Status: folklore bookkeeping, not a theory item** (an ultrafilter's image on a finite set is principal; βX is the
+  inverse limit of finite partitions, Stone). Checked correct, `TRIANGLE_5BC_CHECK.md`.
+- **Reading (fixed).** Every state, pointless or not, looks like a point on every finite coarse-graining: the point
+  (p₀, p₁, p₂) of βℕ×βℕ×βℕ. What the windows add is a choice of ultrafilter u_ij on ℕ² over each pair of marginals,
+  for example a tensor product p⊗q or q⊗p (Hindman–Strauss §11.1, read). Window families map onto (βℕ)³
+  non-injectively, and β(ℕ³) maps to window families neither injectively nor onto (pointless families, Lean
+  `triangle_pointless_state`). The genuinely new content for the gate: states with *different* families but equal
+  marginals agree on every pullback.
   So a disagreement, if any, is invisible at every finite resolution. (Corrected same day: it does *not* follow that it
   must live in sets that are not finite-grid pullbacks, since window events such as {x₀ ≤ x₁} are not pullbacks yet are
   forced. What follows is that any disagreement must use the order at infinity carried by window events, combined by

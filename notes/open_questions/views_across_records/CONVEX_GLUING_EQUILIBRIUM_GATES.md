@@ -70,3 +70,18 @@ which and why. No theorem in `CONVEX_GLUING_FRAMEWORK.md` is stated as settled u
 | G4 pointless | tension: **decision owed** (recommend: ideal points are not pointless) |
 | G5 gauge | passes |
 | G6 uniqueness | revised: fibre only |
+
+## Update after the prior-art check (2026-11-06, `CONVEX_GLUING_PRIOR_ART.md`)
+- **Framework definition: OWNED.** Abramsky–Brandenburger distribution presheaf; Kharoof–Okay (TAC 2025) convex-categorical version; the existence /
+  uniqueness / extremes agenda belongs to marginal-problem theory (Kellerer; Douglas–Lindenstrauss–Winkler) and Gibbs theory (Georgii; Dynkin).
+  "Location" is handled per instance; no uniform definition was found.
+- **G2 REVISED (my verdict was wrong):** with the weak* closure, conv‾(P_C) = *all* finitely additive states, so every state, free ultrafilters
+  included, is "locally ordinary". The definition is vacuous there. With the σ-additive closure, gluing also needs compactness (standard Borel),
+  independent of twist. **G2 now FAILS; it needs a non-vacuous notion** (e.g. countably additive *and* tight, or "realised by a finite configuration
+  on each window").
+- **G3 informed:** cohomological (Čech) twist has false negatives. A full-support CHSH-violating model has trivial cohomological twist and no joint.
+  So "twist" cannot be the cohomology class if T1 is to hold. Either twist = the full convex obstruction (then T1 is near-circular), or T1 must
+  assume F_x ≠ ∅. **Strong T1 is FALSE.**
+- **T3: OWNED** (Fang–Santos 2019 §4; Fang & Seo, Econometrica 2021).
+- **Surviving residue R:** on a cyclic cover with infinite local algebras, does trivial *ultrafilter holonomy* force coherence (a σ-additive / ordinary
+  global point)? First check the shelf witnesses (Dravecký–Šipoš Ex. 6; Navara–Pták 1983) for trivial holonomy; Kellerer 1964 §§3–4 is unread.

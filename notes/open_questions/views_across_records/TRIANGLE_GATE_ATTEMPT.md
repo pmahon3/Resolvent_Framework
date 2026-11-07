@@ -191,6 +191,24 @@ family, and O1 holds on the triangle.
   can a countable disjoint rearrangement of pieces of the Ẽₙ stay in the carrier? Affects `conj.window_restriction_r`.
 - §5a's counts are unaffected: they describe collapse pullbacks, which are legitimate ℕ-sets.
 
+**§5c. What a state does on the capped sets: every finite shadow is a point ⟦HAND, 2026-11-07; not independently checked⟧.**
+- **Worked case.** Free window family (all marginals pᵢ non-principal). 1_{Ẽₙ} = [c₀≤c₁] + [c₁<c₂] + [c₂<c₀] − 1 with
+  cᵢ = min(xᵢ, n−1), each term a window event. On {xᵢ, xⱼ ≥ n−1}, a set of value 1 for u_ij, the caps tie: cᵢ = cⱼ.
+  So u₀₁(c₀≤c₁) = 1, u₁₂(c₁<c₂) = 0, u₂₀(c₂<c₀) = 0, and Λ(Ẽₙ) = 0. Ẽₙ is finitary (a pullback of a finite-grid set),
+  so s(Ẽₙ) = Λ(Ẽₙ) = 0 for **every** state with a free family, for every n. Capping sends all three coordinates to
+  the corner (n−1, n−1, n−1), where everything is tied and E* fails.
+- Compare E* itself: Λ(E*) = u₀₁(x₀≤x₁) + u₁₂(x₁<x₂) + u₂₀(x₂<x₀) − 1 reads the *order at infinity* in each window,
+  and is 2 for a cyclically oriented (staircase-type) family, which is why E* cannot be a carrier set. The capped
+  approximations see none of this, so **the route "approximate E* by carrier sets" yields no disagreement.**
+- **General form.** For any coordinatewise map g into a finite grid G and any A ∈ D₃(G): s(g⁻¹A) = [g(p) ∈ A], where
+  g(p) = (g₀₊p₀, g₁₊p₁, g₂₊p₂) is the image point. Reason: g⁻¹A is finitary, so s = Λ; each window value is the
+  pushforward of u_ij to a finite set, a point fixed by the marginals; and the pair-sum of 1_A evaluated there is 1_A(g(p)).
+- **Reading.** Every state, pointless or not, looks like a point on every finite coarse-graining: the point
+  (p₀, p₁, p₂) of βℕ×βℕ×βℕ. What the windows add is the *order between* coordinates at infinity (which tensor
+  product, p⊗q or q⊗p), and that is exactly the gap between βℕ×βℕ×βℕ and β(ℕ³) (owned: Hindman–Strauss §11.1, read).
+  So a disagreement, if any, is invisible at every finite resolution and must live in genuinely infinitary sets:
+  countable unions that are not pullbacks from any finite grid.
+
 **L1 (level-2 step, as first stated).** Pairwise disjoint complements of D¹ sets (equivalently, co-covering Hₙ ∈ D¹) admit an alignment
 lemma like Step 3. Then a 𝒰-large subfamily is a pullback along a coordinatewise map with one finite coordinate.
 - This needs a normal form for co-D¹ sets. Finite evidence that they are genuinely new: at 3×3×3, the closure of window

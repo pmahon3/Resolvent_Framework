@@ -206,8 +206,10 @@ family, and O1 holds on the triangle.
 - **Reading.** Every state, pointless or not, looks like a point on every finite coarse-graining: the point
   (p₀, p₁, p₂) of βℕ×βℕ×βℕ. What the windows add is the *order between* coordinates at infinity (which tensor
   product, p⊗q or q⊗p), and that is exactly the gap between βℕ×βℕ×βℕ and β(ℕ³) (owned: Hindman–Strauss §11.1, read).
-  So a disagreement, if any, is invisible at every finite resolution and must live in genuinely infinitary sets:
-  countable unions that are not pullbacks from any finite grid.
+  So a disagreement, if any, is invisible at every finite resolution. (Corrected same day: it does *not* follow that it
+  must live in sets that are not finite-grid pullbacks, since window events such as {x₀ ≤ x₁} are not pullbacks yet are
+  forced. What follows is that any disagreement must use the order at infinity carried by window events, combined by
+  countable unions into a set outside D_fin, which §2 already requires.)
 
 **L1 (level-2 step, as first stated).** Pairwise disjoint complements of D¹ sets (equivalently, co-covering Hₙ ∈ D¹) admit an alignment
 lemma like Step 3. Then a 𝒰-large subfamily is a pullback along a coordinatewise map with one finite coordinate.

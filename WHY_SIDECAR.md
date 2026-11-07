@@ -6,6 +6,23 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 
 ---
 
+## 2026-11-06 (latest): an abstraction over the map (lens; to draft when wanted)
+- **Local-to-global (gluing):** local pieces on overlapping parts of a whole. Three questions:
+  - **existence** (any global object?);
+  - **uniqueness** (only one?);
+  - **location** (an ordinary point, or at infinity?).
+
+  These are asked over different kinds of local data (coefficients):
+  - *group values* (holonomy; frustration as a ℤ₂ class; HodgeRank's harmonic part);
+  - *probabilities* (marginal problem / contextuality / ε*; Gibbs phases = non-uniqueness; boundary conditions at infinity);
+  - *cones* (covariance decompositions; centres needed; non-unique minimal centres);
+  - *yes/no states* (pointless coherence; ultrafilter choices; ideal points / the invisible dictator);
+  - *observations of spacetime* (Manchak: non-uniqueness).
+- **Owned language:** sheaf/Čech obstructions; Abramsky–Brandenburger; Robinson; DLR consistency; discrete Hodge theory; Harary balance.
+- **Not seen anywhere:** the grid itself (results across fields as cells of the same three questions × coefficients, with the empty cells marked,
+  e.g. uniqueness and location for cones). Possible framework/exposition contribution (Types 3/6). Close to `theory_shape.md`. Draft a one-page grid
+  when the author wants it.
+
 ## 2026-11-06 (latest): how twist returns practically (lens; owned)
 - **Three practical forms of twist:**
   1. *Frustration*: reveals that a centre is needed (used in the synchrony tests).

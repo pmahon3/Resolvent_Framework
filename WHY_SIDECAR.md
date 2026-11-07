@@ -6,6 +6,20 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 
 ---
 
+## 2026-11-07: PBR and the product assumption (lens; unread, from memory)
+- **Claim (lens):** the Pusey–Barrett–Rudolph theorem (*Nature Physics* 2012) [unverified] gets "one world behind the
+  state" (ψ-ontic) from *preparation independence*: independent parts combine as the **product** of their marginals.
+  The triangle work finds that this is exactly what local views cannot guarantee. Every finite coarse-graining of an
+  answer pattern looks like the product point of its marginals, but the windows carry *which* joint sits over those
+  marginals (e.g. p⊗q vs q⊗p), and the twist lives there (`TRIANGLE_GATE_ATTEMPT.md` §5c; Hindman–Strauss §11.1).
+- **Status:** lens only. PBR is points-first (an ontic space Λ, σ-additive measures); the programme is answers-first,
+  and its open case is finitely additive and two-valued, outside PBR's frame. Nothing here bears on PBR's proof.
+- **Prior art to check before using:** critiques of preparation independence (Hall; Emerson–Serbin–Sutherland–Veitch;
+  Schlosshauer–Fine) [unverified]; Leifer 2014, "Is the quantum state real?" [unverified]; Spekkens' ψ-epistemic
+  programme and preparation contextuality [unverified]. None is on the shelf.
+- **For the question:** PBR is a "centre" theorem bought with a product assumption. Order without a centre, if it
+  exists, has to live where joints are not products of their parts.
+
 ## 2026-11-06 (latest): an abstraction over the map (lens; to draft when wanted)
 - **Local-to-global (gluing):** local pieces on overlapping parts of a whole. Three questions:
   - **existence** (any global object?);

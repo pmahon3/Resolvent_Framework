@@ -6,6 +6,19 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 
 ---
 
+## 2026-11-06 (latest): how twist returns practically (lens; owned)
+- **Three practical forms of twist:**
+  1. *Frustration*: reveals that a centre is needed (used in the synchrony tests).
+  2. *Holonomy*: pairwise conversions or calibrations that do not close round a loop, so there is no common scale. Owned: geodesy loop misclosure;
+     metrology; AHP/Koczkodaj; synchronization. **HodgeRank** (Jiang–Lim–Yao–Ye 2011) splits pairwise comparisons into gradient + local loops (curl) +
+     global loops (harmonic). The harmonic part, "pairwise fine, globally twisted", is a clean, owned mathematical home for WHY's image "the twist lives
+     in the loop".
+  3. *Cyclic order*: intransitive competition, Condorcet cycles. Owned as question and answer (Kendall & Babington Smith 1940; Allesina & Levine
+     2011; Godoy et al. 2017).
+- **Practically:** the strict "no world at all" twist is rare (decoherence). Twist returns as *no common scale* and *no global order*.
+- **Ecology:** no open dataset with a true A–B, B–C, A–C calibration loop was found (`CALIBRATION_DATA_SCOUT.md`). The closure question for multi-method
+  surveys is left as a lens. Files: `notes/open_questions/views_across_records/CALIBRATION_LOOPS_PRIOR_ART.md`.
+
 ## 2026-11-06 (latest): seam B closed. "Consensus no one holds" is a centre at infinity, not pointless (owned)
 - **Reversal of the 2026-11-05 lens:** I had suggested finitely additive "consensus no one holds" might be pointless coherence. For exact consensus that is
   **false**. Independent sources forced to agree give an *ultrafilter*: a common value "at infinity", i.e. an **ideal point**. This is the invisible dictator of

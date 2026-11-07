@@ -5,10 +5,10 @@ Prior art for level 1: NOT FOUND, UNCLEAR (`TRIANGLE_LEVEL1_CHECK.md`); nothing 
 (`checks.py`, `two_vertex.py`, `kform.py`, `altrank.py`). Gate source: `CONVEX_GLUING_T1_ATTEMPT.md` §7.
 
 > **2026-11-07 update.** Level-1 rigidity is **⟦HAND, independently checked⟧** (`TRIANGLE_LEVEL1_CHECK.md`: correct with
-> fixes, now applied in Steps 3–4). §3b gives a shorter proof that needs no ultrafilter and yields a normal form for D¹
-> (⟦HAND, not yet independently checked⟧). §5 restates L1 accordingly: the whole gate now sits on countable disjoint
-> unions of *finitary* carrier sets, and at 3×3×3 the sets that need a second round are exactly the relabelled cyclic
-> orders (§5a, computed). Prior art for level 1: NOT FOUND (nearest Navara–Pták 1983 Thm 1, Navara 1984).
+> fixes, now applied in Steps 3–4). §3b gives a shorter proof that needs no ultrafilter and a normal form for D¹, also
+> **independently checked** (`TRIANGLE_3B_CHECK.md`: correct). The restated L1 in §5 was first overstated as "the whole
+> gate"; corrected the same day: it is the level-2 step only. A second round adds finite cyclic orders, possibly padded
+> by window events (§5a, computed on three grids). Prior art for level 1: NOT FOUND (nearest Navara–Pták 1983 Thm 1, Navara 1984).
 
 **Verdict: neither (A) nor (B) closed.** One rung of (B) is proved ⟦HAND⟧: the first countable level of the carrier
 cannot carry a disagreement. The remaining step is reduced to two named lemmas (§5).
@@ -114,7 +114,7 @@ only when Λ_u|D₃ is itself a state, i.e. for flat families (W|D₃), principa
   lie outside Dᵏ.
 - k = 1 is the first case. In the principal case, s(F) = 1, s(Ω∖Hₙ) = 0 and a ∉ F.
 
-## 3b. A shorter proof, and a normal form for D¹ ⟦HAND, 2026-11-07; not yet independently checked⟧
+## 3b. A shorter proof, and a normal form for D¹ ⟦HAND, 2026-11-07; independently checked, `TRIANGLE_3B_CHECK.md`⟧
 
 - **No ultrafilter is needed in Step 5.** Fix any index m. Every n lies in [m]₀ ∪ [m]₁ ∪ [m]₂ (Step 3). Assign each n
   to the first class containing it. Each class is aligned at one coordinate i with one set Aᵢ (after replacing Sⁿ by
@@ -124,6 +124,9 @@ only when Λ_u|D₃ is itself a state, i.e. for flat families (W|D₃), principa
   plus a window event.
 - **Normal form.** D¹ = {R ⊔ K¹ ⊔ K² ⊔ K³ : R ∈ R0, at most three disjoint nondegenerate antipodal pairs}. In
   particular **D¹ ⊆ D_fin**, so rigidity on D¹ is the finitary forcing of §2, and Step 5's ultrafilter is not needed.
+- **Sharper (checker's hand argument, not independently checked):** "at most three pairs" can be "at most one". Two
+  disjoint pairs align, so their union pulls back from the two-point vertex, where Step 4 leaves at most one pair.
+  Finite data agree (3³, 2×3×3, 2×3×4; unions of two pairs on 3×3×4 and 3×4×4, 0 failures).
 - **Worked case.** Ω∖(A ⊔ K(S)), with A a {0,1}-event inside {x₀∉S₀, x₁∈S₁}, equals
   W′₀₁ ⊔ {x₀∉S₀, x₁∈S₁, (x₀,x₁)∉A} ⊔ K(S₀, S₁, S₂ᶜ), where W′₀₁ = {x₀∈S₀, x₁∉S₁}. That is again of the D¹ form: the
   complement trades one antipodal pair for another.
@@ -141,10 +144,13 @@ only when Λ_u|D₃ is itself a state, i.e. for flat families (W|D₃), principa
 
 ## 5. Named blockers (what would settle the gate)
 
-**L1, restated after §3b (2026-11-07).** Since D¹ ⊆ D_fin and D_fin is closed under complements, D² is just the countable
-disjoint unions of D_fin sets. The whole gate is therefore: **does every state respect countable disjoint unions of
-finitary carrier sets?** The strongest sufficient form is "D_fin is σ-closed", i.e. D₃ = D_fin. Then every state equals
-Λ of its family, and O1 holds on the triangle.
+**L1, restated after §3b (2026-11-07; corrected after `TRIANGLE_3B_CHECK.md`).** Since D¹ ⊆ D_fin and D_fin is closed
+under complements, D² ⊆ {countable disjoint unions of D_fin sets} (equality iff D_fin ⊆ D²; true on every tested grid,
+unproved over ℕ). The **level-2 step** is therefore: **do two states with the same window family agree on countable
+disjoint unions of finitary carrier sets?** (Not "does every state add up over them": that fails for every
+non-principal family, since window singletons are already finitary.) Levels D³ and above are not touched by this.
+A sufficient condition for the whole gate is "D_fin is σ-closed", i.e. D₃ = D_fin: then every state is fixed by its
+family, and O1 holds on the triangle.
 
 **§5a. What a second round adds: cyclic orders (computed 2026-11-07, `orbit.py`, `r2check.py`).**
 - At 3×3×3 the Dynkin closure is reached at round 2 (R2 is closed under complement and disjoint union), so the "72 sets"
@@ -152,10 +158,14 @@ finitary carrier sets?** The strongest sufficient form is "D_fin is σ-closed", 
 - The 72 sets outside the D¹ form are **exactly** the images of E*∩[3]³ under independent relabellings of the three
   coordinates (orbit size 72, equal as sets). Here E* is "exactly two of x₀ ≤ x₁, x₁ < x₂, x₂ < x₀", a cyclic order.
   Each has 9 points; their complements (18 points) are already of the D¹ form.
-- So on the smallest grid the only thing a second round adds is **a finite cyclic order**. And the infinite cyclic
+- So on the smallest grid the only thing a second round adds is **a finite cyclic order**.
+- **Larger grids (`TRIANGLE_3B_CHECK.md`):** 2×3×4: nothing new (Step 4). 3×3×4: 1,296 new sets, all cyclic-order sets.
+  3×4×4: 28,512 new sets; 26,784 are cyclic-order sets and the other 1,728 are a cyclic-order set ⊔ an R0 set. Here a
+  "cyclic-order set" is the positive cyclic order of some interleaving of the labelled values, a wider family than
+  relabelled E* (they coincide at 3³). Every finite cyclic-order set is in D₃; E* over ℕ is not. And the infinite cyclic
   order E* is in B but not in D₃ (Lean `estar_not_mem`).
-- **Sharpened L1 question.** Over ℕ, can countably many disjoint finitary sets, for instance finite cyclic-order patches,
-  add up to a set that a state values differently from the sum? A yes needs a union whose pieces sum to 0 while the
+- **Sharpened L1 question.** Over ℕ, can countably many disjoint finitary sets, for instance finite cyclic-order patches
+  (possibly padded by window events), add up to a set on which two states with the same family disagree? A yes needs a union whose pieces sum to 0 while the
   union gets 1, which is exactly the shape of E* built as a limit of its finite truncations, except that E* itself is
   excluded from the carrier.
 

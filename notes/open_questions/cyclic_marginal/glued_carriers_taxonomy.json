@@ -409,7 +409,7 @@
   {
    "id": "thm.triangle_level1_rigidity",
    "name": "level-1 rigidity on the triangle (any alphabets)",
-   "status": "proved-hand, independently checked 2026-11-06 (TRIANGLE_LEVEL1_CHECK.md: correct with fixes, applied). Prior art NOT FOUND (UNCLEAR: Pták–Pulmannová 1991 and Theory of Charges bodies unread; nearest Navara–Pták 1983 Thm 1, Navara 1984). Shorter ultrafilter-free proof + D¹ normal form 2026-11-07: proved-hand, NOT yet independently checked.",
+   "status": "proved-hand, independently checked 2026-11-06 (TRIANGLE_LEVEL1_CHECK.md: correct with fixes, applied). Prior art NOT FOUND (UNCLEAR: Pták–Pulmannová 1991 and Theory of Charges bodies unread; nearest Navara–Pták 1983 Thm 1, Navara 1984). Shorter ultrafilter-free proof + D¹ normal form 2026-11-07: proved-hand, independently checked 2026-11-07 (TRIANGLE_3B_CHECK.md: correct). Sharper 'at most one pair' form: hand, unchecked.",
    "one_line": "Two two-valued states on D₃ with the same window family agree on D¹ (countable disjoint unions of window-event sums and their complements). Normal form: every D¹ set is R ⊔ at most three disjoint antipodal cube pairs, so D¹ ⊆ D_fin.",
    "detail": "../views_across_records/TRIANGLE_GATE_ATTEMPT.md §3, §3b",
    "scope": "triangle {01,12,20}, arbitrary alphabets; level 1 only",
@@ -605,7 +605,7 @@
   {
    "id": "conj.window_restriction_r",
    "name": "Window restriction r: S(D) -> F (injective? onto?)",
-   "status": "OPEN (2026-10-23). 2026-11-07: on the triangle, O1 holds on D¹ (thm.triangle_level1_rigidity); the remaining gate is whether states respect countable disjoint unions of finitary sets (D_fin σ-closed would suffice). At 3×3×3 the second round adds exactly the relabelled finite cyclic orders. ",
+   "status": "OPEN (2026-10-23). 2026-11-07: on the triangle, O1 holds on D¹ (thm.triangle_level1_rigidity); the level-2 step is whether same-family states agree on countable disjoint unions of finitary sets (D_fin σ-closed would settle the whole gate; levels ≥3 otherwise untouched). On finite grids the second round adds finite cyclic orders, possibly padded by window events (TRIANGLE_3B_CHECK.md). ",
    "one_line": "O1: does the compatible window family determine the two-valued state? O2: does every compatible family of window ultrafilters extend to a state on D? O3: which families come from ideal points (partial: forward-sum windows, triangle_glues_iff).",
    "detail": "stone_role_prior_art.md; chat 2026-10-23"
   },

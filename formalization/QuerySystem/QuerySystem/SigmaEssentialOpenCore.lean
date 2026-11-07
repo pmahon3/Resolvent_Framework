@@ -199,7 +199,13 @@ The taxonomy's hybrid verdict (large_cardinal_bounds §3d), as proved implicatio
 The center route's mechanism: route the obstruction through the OML's Boolean center.
 We model "the obstruction lives in the center" as the center being intersection-closed
 for the pattern — which is exactly `InterClosed`, which §4 shows kills the
-witness. So the center route is a costume, provably. -/
+witness. So the center route is a costume, provably.
+
+Standard names (terminology pass 2026-11-07, prose only): "center" here is the lattice
+centre of the OML, the set of elements compatible with every element (Kalmbach 1983); an
+OML with trivial centre {0,1} is *irreducible* (older repo notes say "centre-free").
+"Costume" is a programme workflow word: a reformulation that adds no content. See
+`formalization/README.md` § Terminology. -/
 
 /-- **Center-route failure (proved).** Routing the obstruction "through a Boolean
 center" means the relevant structure is intersection-closed — but then there is no

@@ -101,3 +101,15 @@ which and why. No theorem in `CONVEX_GLUING_FRAMEWORK.md` is stated as settled u
   Ex. 2.2, identity checked by script), and a triangle counterexample would transport to every graph containing a triangle.
 - **G4 (pointless) decision now concrete:** with twist := non-flat, recommendation (i) reads "pointless ⇒ twisted (non-flat)", and the flat (ideal-point)
   case is exactly "not pointless".
+
+## Independent check of the T1 attempt (2026-11-06, `CONVEX_GLUING_T1_CHECK.md`): no item wrong
+- (i) Lemma A + Prop B: **CORRECT WITH FIXES.**
+  - `box_of_mem` = the 8-corner identity for X = ℕ on the triangle only (it matches the 7-term formula). The other alphabets, general graphs and Prop B are
+    routine hand steps.
+  - s = Λ holds for *finitely built* sets for any state (on all of D if X is finite), so "finitely built" must be stated.
+  - Cite `triangle_pointless_state`, not the ring staircase.
+- (ii) Prop C (triangle-free graphs): **CORRECT** given the shape lemma (hand-proved; prior art UNCLEAR). "V finite" is used only for finite degree.
+- (iii) Lemma E: **CORRECT and KNOWN** (folklore: *Theory of Charges* + tightness).
+  - My suspected diagonal-coupling counterexample fails: any coupling of σ-additive marginals on ℕ×ℕ is tight.
+  - Scope fix: Lemma E needs a charge on all subsets of Ω, while states live on D. So "gluing is automatically σ-additive" holds only for *coherent* states.
+- Script cross-check (binary triangle): |D₃| = 70; 7-term formula everywhere; no singleton in D₃; states determined by window values.

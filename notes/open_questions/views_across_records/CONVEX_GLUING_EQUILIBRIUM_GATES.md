@@ -48,7 +48,9 @@ which and why. No theorem in `CONVEX_GLUING_FRAMEWORK.md` is stated as settled u
   - (ii) *revise the intuition*: accept that ideal points count as pointless and split T1 into "ideal" vs "twisted" sources.
 
   Recommendation: (i). It matches the WHY reading ("consensus has a centre at infinity, pointlessness needs twist") and makes T1 sharper:
-  *no-twist ⇒ ordinary or ideal point*. **Decision owed (user).**
+  *no-twist ⇒ ordinary or ideal point*. **DECIDED 2026-11-07 (user): (i).** Ideal points count as a centre at infinity, so a
+  state reached through an ideal point is *not* pointless. The user notes this leaves room for philosophical quibbling
+  (is a point at infinity a centre?) but is the same in practice either way: T1 reads *pointless ⇒ twisted (non-flat)*.
 
 ## G5. "Gauge" (existence budget) and T3
 - **Intended meaning:** how far the data are from what the hypothesised structure can produce, in units where 0 means "explainable".
@@ -69,7 +71,7 @@ which and why. No theorem in `CONVEX_GLUING_FRAMEWORK.md` is stated as settled u
 | G1 ordinary point | revised: split P_Dirac / P_normal |
 | G2 locally ordinary | passes (to recheck) |
 | G3 twist | pending (needs a unified definition) |
-| G4 pointless | tension: **decision owed** (recommend: ideal points are not pointless) |
+| G4 pointless | **decided 2026-11-07: (i)**, ideal points are not pointless |
 | G5 gauge | passes |
 | G6 uniqueness | revised: fibre only |
 

@@ -23,6 +23,8 @@ arguments. Prior-art check and proof attempts are running (`CONVEX_GLUING_PRIOR_
 - **Existence:** is x ∈ Comp in ρ(K_I)?
 - **Uniqueness:** is the fibre F_x = ρ⁻¹(x) a singleton?
 - **Location:** are the extreme points of F_x in P (ordinary) or ideal? x is **pointless** if F_x ≠ ∅ and F_x ∩ conv‾(P) = ∅.
+  **Revised by G4 (decided 2026-11-07):** pointless also excludes ideal points: F_x contains no ordinary *and no ideal* extreme
+  point (an ideal point is a centre at infinity). On glued carriers this is "no ultrafilter on Ω induces the state".
 
 ## 3. Instances (owned)
 | instance | K_C | gluing question | owners |

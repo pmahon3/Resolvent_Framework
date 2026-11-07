@@ -6,6 +6,15 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 
 ---
 
+## 2026-11-06 (latest): seam B closed. "Consensus no one holds" is a centre at infinity, not pointless (owned)
+- **Reversal of the 2026-11-05 lens:** I had suggested finitely additive "consensus no one holds" might be pointless coherence. For exact consensus that is
+  **false**. Independent sources forced to agree give an *ultrafilter*: a common value "at infinity", i.e. an **ideal point**. This is the invisible dictator of
+  infinite-electorate social choice (Kirman & Sondermann 1972).
+- **For the question:** even when no individual holds the consensus, the consensus still has a centre. It is pushed to infinity, not abolished. In physics
+  the same shape is the boundary condition at infinity that selects one ordered phase (Gibbs measures). Pointlessness, order with no centre even at infinity,
+  needs twist, and consensus has none. **So "order without a centre", if it exists, lives in twisted loops, not in agreement.**
+- Residue (conditional, `SEAM_B_PRIOR_ART.md`): on infinite-valued rings, whether all-pairs-agree states always come from ultrafilters. The expected answer is yes.
+
 ## 2026-11-06 (latest): decoupling the shape of the centre from dynamics
 - **Claim (ours; owned pieces):** what you see in levels is the *interaction-closure* of what happens at once. Small local shocks spread by
   long-memory interaction look like one big centre. Innovations (same-time shocks after removing the lagged dynamics) separate the two.

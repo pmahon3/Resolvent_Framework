@@ -1,8 +1,14 @@
 # Triangle gate attempt: does the window family fix the state on the infinite triangle?
 
 reviewed: false. 2026-11-06. Machine-assisted. ⟦HAND⟧ marks arguments checked by neither Lean nor an independent agent.
-No prior-art pass has been run, so nothing here is claimed as new. Scripts: `~/.claude/jobs/26482d7b/tmp/tri/`
+Prior art for level 1: NOT FOUND, UNCLEAR (`TRIANGLE_LEVEL1_CHECK.md`); nothing here is claimed as new. Scripts: `../verification/triangle_gate/` (moved from the job tmp dir 2026-11-07)
 (`checks.py`, `two_vertex.py`, `kform.py`, `altrank.py`). Gate source: `CONVEX_GLUING_T1_ATTEMPT.md` §7.
+
+> **2026-11-07 update.** Level-1 rigidity is **⟦HAND, independently checked⟧** (`TRIANGLE_LEVEL1_CHECK.md`: correct with
+> fixes, now applied in Steps 3–4). §3b gives a shorter proof that needs no ultrafilter and yields a normal form for D¹
+> (⟦HAND, not yet independently checked⟧). §5 restates L1 accordingly: the whole gate now sits on countable disjoint
+> unions of *finitary* carrier sets, and at 3×3×3 the sets that need a second round are exactly the relabelled cyclic
+> orders (§5a, computed). Prior art for level 1: NOT FOUND (nearest Navara–Pták 1983 Thm 1, Navara 1984).
 
 **Verdict: neither (A) nor (B) closed.** One rung of (B) is proved ⟦HAND⟧: the first countable level of the carrier
 cannot carry a disagreement. The remaining step is reduced to two named lemmas (§5).
@@ -64,8 +70,11 @@ The value of s on R0 is u₀₁(A) + u₁₂(B) + u₂₀(C).
 
 **Step 3. Alignment.**
 - Let K(S) and K(T) be disjoint and nondegenerate. Then for some i, Tᵢ = Sᵢ or Tᵢ = Sᵢᶜ.
-  - Reason: the four cube intersections need a disjoint coordinate, an S ⊆ T coordinate, a T ⊆ S coordinate and a
-    covering coordinate. Three coordinates can supply four conditions only if one coordinate is equal or complementary.
+  - Reason: K(S)∩K(T) = ∅ needs four empty cube intersections, hence four coordinates (not necessarily distinct):
+    i_a with Sᵢ∩Tᵢ = ∅ (S-cube vs T-cube), i_b with Sᵢ∪Tᵢ = Xᵢ (co-cubes), i_c with Sᵢ ⊆ Tᵢ (S-cube vs Tᶜ-cube),
+    i_d with Tᵢ ⊆ Sᵢ. With three coordinates, two of the four conditions share one (pigeonhole). The six pairings:
+    (a,b) ⇒ Tᵢ = Sᵢᶜ; (c,d) ⇒ Tᵢ = Sᵢ; (a,c) ⇒ Sᵢ = ∅; (a,d) ⇒ Tᵢ = ∅; (b,c) ⇒ Tᵢ = Xᵢ; (b,d) ⇒ Sᵢ = Xᵢ. The last
+    four contradict nondegeneracy. No finiteness is used (check, 2026-11-07).
   - Exhaustive check: 0 violations among 17,784 / 64,104 / 215,880 disjoint pairs on 3×3×4, 3×4×4 and 4×4×4
     (`checks.py` (2)).
 - The relation m ~ᵢ n ⟺ Sᵢᵐ ∈ {Sᵢⁿ, Sᵢⁿᶜ} is an equivalence relation, and ~₀ ∪ ~₁ ∪ ~₂ covers all pairs.
@@ -78,7 +87,12 @@ The value of s on R0 is u₀₁(A) + u₁₂(B) + u₂₀(C).
 - The sumset bound leaves two cases:
   - d depends on one coordinate, and then E ∈ R0;
   - d = [x₁∈U] + [x₂∈V] − 1, and then E = K(U,V) ⊔ (a {1,2}-event).
-- So D₃(2×X×Y) = B(2×X×Y) ⊆ D_fin, and **every state there equals Λ of its family.**
+- **D₃(2×X×Y) ⊆ B(2×X×Y)** (fix 2026-11-07; this was used but not argued): B is the eight-corner identity, which is
+  checked pointwise, and a countable disjoint union meets each 8-corner set in at most 8 pieces, so B is closed under
+  countable disjoint unions and complements. This is Lean `box_of_mem` (`TriangleCyclic.lean`, over ℕ³); the argument
+  works for any alphabet.
+- So every set of D₃(2×X×Y) is either in R0 or of the form K(U,V) ⊔ ({1,2}-event); both are finitary, so
+  **D₃(2×X×Y) ⊆ D_fin**, and every state's value there is fixed by its family.
 - Check: all box sets on 2×2×2, 2×3×3 and 2×3×4 (70 / 2350 / 17,878) have one of these two forms (`two_vertex.py`).
 
 **Step 5. Collapse.**
@@ -100,6 +114,20 @@ only when Λ_u|D₃ is itself a state, i.e. for flat families (W|D₃), principa
   lie outside Dᵏ.
 - k = 1 is the first case. In the principal case, s(F) = 1, s(Ω∖Hₙ) = 0 and a ∉ F.
 
+## 3b. A shorter proof, and a normal form for D¹ ⟦HAND, 2026-11-07; not yet independently checked⟧
+
+- **No ultrafilter is needed in Step 5.** Fix any index m. Every n lies in [m]₀ ∪ [m]₁ ∪ [m]₂ (Step 3). Assign each n
+  to the first class containing it. Each class is aligned at one coordinate i with one set Aᵢ (after replacing Sⁿ by
+  its full complement where needed, which leaves Kₙ unchanged).
+- So K* = K*₀ ⊔ K*₁ ⊔ K*₂, and each K*ᵢ = πᵢ⁻¹(L) with L ∈ D₃(2-point vertex at i), using πᵢ(x) = ([xᵢ ∈ Aᵢ], x_j, x_k).
+  By Step 4, L is in R0 or is K(U,V) ⊔ (window event). Pulled back, K*ᵢ is a window-event union or one antipodal pair
+  plus a window event.
+- **Normal form.** D¹ = {R ⊔ K¹ ⊔ K² ⊔ K³ : R ∈ R0, at most three disjoint nondegenerate antipodal pairs}. In
+  particular **D¹ ⊆ D_fin**, so rigidity on D¹ is the finitary forcing of §2, and Step 5's ultrafilter is not needed.
+- **Worked case.** Ω∖(A ⊔ K(S)), with A a {0,1}-event inside {x₀∉S₀, x₁∈S₁}, equals
+  W′₀₁ ⊔ {x₀∉S₀, x₁∈S₁, (x₀,x₁)∉A} ⊔ K(S₀, S₁, S₂ᶜ), where W′₀₁ = {x₀∈S₀, x₁∉S₁}. That is again of the D¹ form: the
+  complement trades one antipodal pair for another.
+
 ## 4. The DNP Example 2.2 transport collapses into the same blocker
 
 - Flat family W: on D¹ every state equals W|D₃, which is linear. So an MO₄ copy (1_A + 1_{Bᶜ} + 1_C + 1_{Dᶜ} = 2) can be
@@ -113,10 +141,28 @@ only when Λ_u|D₃ is itself a state, i.e. for flat families (W|D₃), principa
 
 ## 5. Named blockers (what would settle the gate)
 
-**L1 (level-2 step).** Pairwise disjoint complements of D¹ sets (equivalently, co-covering Hₙ ∈ D¹) admit an alignment
+**L1, restated after §3b (2026-11-07).** Since D¹ ⊆ D_fin and D_fin is closed under complements, D² is just the countable
+disjoint unions of D_fin sets. The whole gate is therefore: **does every state respect countable disjoint unions of
+finitary carrier sets?** The strongest sufficient form is "D_fin is σ-closed", i.e. D₃ = D_fin. Then every state equals
+Λ of its family, and O1 holds on the triangle.
+
+**§5a. What a second round adds: cyclic orders (computed 2026-11-07, `orbit.py`, `r2check.py`).**
+- At 3×3×3 the Dynkin closure is reached at round 2 (R2 is closed under complement and disjoint union), so the "72 sets"
+  claim is now verified, not dependent on `altrank`.
+- The 72 sets outside the D¹ form are **exactly** the images of E*∩[3]³ under independent relabellings of the three
+  coordinates (orbit size 72, equal as sets). Here E* is "exactly two of x₀ ≤ x₁, x₁ < x₂, x₂ < x₀", a cyclic order.
+  Each has 9 points; their complements (18 points) are already of the D¹ form.
+- So on the smallest grid the only thing a second round adds is **a finite cyclic order**. And the infinite cyclic
+  order E* is in B but not in D₃ (Lean `estar_not_mem`).
+- **Sharpened L1 question.** Over ℕ, can countably many disjoint finitary sets, for instance finite cyclic-order patches,
+  add up to a set that a state values differently from the sum? A yes needs a union whose pieces sum to 0 while the
+  union gets 1, which is exactly the shape of E* built as a limit of its finite truncations, except that E* itself is
+  excluded from the carrier.
+
+**L1 (level-2 step, as first stated).** Pairwise disjoint complements of D¹ sets (equivalently, co-covering Hₙ ∈ D¹) admit an alignment
 lemma like Step 3. Then a 𝒰-large subfamily is a pullback along a coordinatewise map with one finite coordinate.
 - This needs a normal form for co-D¹ sets. Finite evidence that they are genuinely new: at 3×3×3, the closure of window
-  events and antipodal pairs under disjoint unions misses 72 sets of D₃ (`kform.py`).
+  events and antipodal pairs under disjoint unions misses 72 sets of D₃ (`kform.py`); §5a identifies them.
 - Literature that might supply it (neither book is on the shelf; both are pinned hardcopy checks, `pinned_book_checks.md`):
   - Pták–Pulmannová 1991, the concrete-logic chapters: σ-classes generated by several sub-σ-algebras, disjoint-union
     normal form. Exact location unverified.
@@ -128,7 +174,8 @@ lemma like Step 3. Then a 𝒰-large subfamily is a pullback along a coordinatew
 **L2 (one finite vertex).** For finite m ≥ 3, every state on D₃(m×X×Y) is determined by its window family (proved for
 m = 2, Step 4). With L1 this closes level 2. The transfinite step needs L1 at every level, stated uniformly.
 
-**L1′ (shortcut that would replace L1 + L2).** "A two-valued state on the Dynkin join of three σ-algebras, σ-additive on
+**L1′ (first labelled a shortcut; the check shows it is not).** On ℕ³ it *is* the principal sub-gate (σ-additive
+marginals on a countable set are principal), so it opens no new route (`TRIANGLE_LEVEL1_CHECK.md` (b)). "A two-valued state on the Dynkin join of three σ-algebras, σ-additive on
 each, is σ-additive." This is the principal case only, so it would answer (B) only at points.
 - It is the two-valued, finite-V analogue of the per-level versus glued σ-additivity gap (Andersen–Jessen;
   `papers/paper_i/notes/PAPER_I_REVERSAL_CHECK.md`). There, it fails for infinitely many levels.

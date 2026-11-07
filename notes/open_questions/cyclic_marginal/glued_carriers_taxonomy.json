@@ -2,7 +2,7 @@
  "$meta": {
   "title": "Pointless coherence on glued carriers",
   "purpose": "Zoom-out index of a THEORY in construction (theory-shaped collection, TAXONOMY_SCHEMA.md 2026-10-16). Load first; follow detail pointers. Problems here are probes at a seam, not ends.",
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "what_is_it": "Which finitely additive two-valued states (states) on Dynkin carriers glued from window events are points, ideal points (ultrafilters on Omega), or pointless - and which shape of window graph decides it.",
   "status": "OPEN",
   "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive states on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle'). UPDATE 2026-10-16: triangle-free => locality (stars); forests => no pointless states; any induced cycle of length >= 4 => pointless states (transport). Open = chordal non-forest graphs, decided by the triangle. UPDATE 2026-10-17: TRIANGLE PROBE FIRED (a) - the triangle carries a pointless state (Lean, thm.triangle_pointless); with loops-travel + forests (hand): pointless <=> not a forest. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
@@ -405,6 +405,18 @@
    "scope": "two-valued finitely additive states on sigma-classes containing an infinite disjoint sequence of nonempty members",
    "detail": "stone_role_prior_art.md addendum",
    "scope_previous": "two-valued finitely additive states on sigma-classes"
+  },
+  {
+   "id": "thm.triangle_level1_rigidity",
+   "name": "level-1 rigidity on the triangle (any alphabets)",
+   "status": "proved-hand, independently checked 2026-11-06 (TRIANGLE_LEVEL1_CHECK.md: correct with fixes, applied). Prior art NOT FOUND (UNCLEAR: Pták–Pulmannová 1991 and Theory of Charges bodies unread; nearest Navara–Pták 1983 Thm 1, Navara 1984). Shorter ultrafilter-free proof + D¹ normal form 2026-11-07: proved-hand, NOT yet independently checked.",
+   "one_line": "Two two-valued states on D₃ with the same window family agree on D¹ (countable disjoint unions of window-event sums and their complements). Normal form: every D¹ set is R ⊔ at most three disjoint antipodal cube pairs, so D¹ ⊆ D_fin.",
+   "detail": "../views_across_records/TRIANGLE_GATE_ATTEMPT.md §3, §3b",
+   "scope": "triangle {01,12,20}, arbitrary alphabets; level 1 only",
+   "uses": [
+    "thm.triangle_estar_not_built"
+   ],
+   "check": "../verification/triangle_gate/ (checks.py, two_vertex.py, orbit.py, r2check.py)"
   }
  ],
  "conjectures": [
@@ -593,7 +605,7 @@
   {
    "id": "conj.window_restriction_r",
    "name": "Window restriction r: S(D) -> F (injective? onto?)",
-   "status": "OPEN (2026-10-23)",
+   "status": "OPEN (2026-10-23). 2026-11-07: on the triangle, O1 holds on D¹ (thm.triangle_level1_rigidity); the remaining gate is whether states respect countable disjoint unions of finitary sets (D_fin σ-closed would suffice). At 3×3×3 the second round adds exactly the relabelled finite cyclic orders. ",
    "one_line": "O1: does the compatible window family determine the two-valued state? O2: does every compatible family of window ultrafilters extend to a state on D? O3: which families come from ideal points (partial: forward-sum windows, triangle_glues_iff).",
    "detail": "stone_role_prior_art.md; chat 2026-10-23"
   },

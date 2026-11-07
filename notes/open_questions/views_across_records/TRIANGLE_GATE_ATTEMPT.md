@@ -169,6 +169,28 @@ family, and O1 holds on the triangle.
   union gets 1, which is exactly the shape of E* built as a limit of its finite truncations, except that E* itself is
   excluded from the carrier.
 
+**§5b. Stacking probe: pre-registered 2026-11-07 (before running).**
+- **Facts (⟦HAND⟧).** (1) Pullback along any coordinatewise map maps D₃ into D₃. Hence for finite A ⊆ [n]³:
+  A ∈ D₃(ℕ³) ⟺ A ∈ D₃([n+1]³) (collapse values ≥ n; include [n+1] ⊂ ℕ), and A ∈ D₃(ℕ³) ⇒ A ∈ D₃(grid with a spare
+  value on any one coordinate). (2) A Dynkin system is closed under increasing unions, E* = ⋃ₙ E*∩[n]³, and E* ∉ D₃
+  (Lean). So **some finite truncation E*∩[n]³ is not in D₃(ℕ³)**, though E*∩[3]³ ∈ D₃([3]³).
+- **Gate P-stack.** Is E₃ := E*∩[3]³ in D₃ of 4×3×3, 3×4×3 and 3×3×4 (one spare value)?
+  - NO on some grid ⇒ E₃ ∉ D₃(ℕ³): finite cyclic orders are carriers only when they use every value; the shells of E*
+    are not available, and the stacking route is blocked at its first piece. Affects: the sharpened L1 question
+    (rephrase as "which finite sets are in D₃(ℕ³)?"), `conj.window_restriction_r` (level 2).
+  - YES on all three ⇒ necessary condition passes; locate the first n with E*∩[n]³ ∉ D₃([n+1]³) (needs n ≥ 4).
+- **FIRED 2026-11-07: NO on all three** (`pstack.py`: E₃ ∉ D₃ of 4×3×3, 3×4×3, 3×3×4; |D₃| = 131,290 each). So
+  E₃ ∉ D₃(ℕ³), as pre-registered.
+- **Control (`pstack_control.py`) tempers the reading.** On 3×3×4, only 2,744 of the 15,914 carrier sets of 3³ remain
+  carrier sets when x₂ has a spare value; 13,170 are lost, of every size 3–24. So losing E₃ is generic, not special to
+  cyclic orders, and "which finite sets are in D₃(ℕ³)" is not the informative rephrase.
+- **What the gate does show.** Finite-grid carrier sets live in ℕ³ only as *collapse pullbacks*: the top value means
+  "≥ that value". So the ℕ-sets available are Ẽₙ := {x : E* holds at (min(x₀,n−1), min(x₁,n−1), min(x₂,n−1))}, all in
+  D₃(ℕ³). Ẽₙ → E* pointwise (not monotonically), and E* ∉ D₃. **Reformulated L1 probe:** E* is a pointwise limit of
+  carrier sets that is not a carrier set. Do two states with the same window family agree on the Ẽₙ eventually, and
+  can a countable disjoint rearrangement of pieces of the Ẽₙ stay in the carrier? Affects `conj.window_restriction_r`.
+- §5a's counts are unaffected: they describe collapse pullbacks, which are legitimate ℕ-sets.
+
 **L1 (level-2 step, as first stated).** Pairwise disjoint complements of D¹ sets (equivalently, co-covering Hₙ ∈ D¹) admit an alignment
 lemma like Step 3. Then a 𝒰-large subfamily is a pullback along a coordinatewise map with one finite coordinate.
 - This needs a normal form for co-D¹ sets. Finite evidence that they are genuinely new: at 3×3×3, the closure of window

@@ -3,6 +3,8 @@
 reviewed: false. Tests the interpretive step "a violation is either a shared driver (space) or shared history (time)", which no run so far
 has checked.
 
+**Name (added 2026-11-06, terminology pass).** V_G here is the same quantity as V₂ = ρ(|R − I|) − 1 (proved in `COVARIANCE_CEILING_CHECK.md`): the generalized diagonal dominance (H-matrix) margin. R ∈ FW₂ (scaled diagonal dominance) iff V₂ ≤ 0. New text says V₂; script and file names keep V_G.
+
 ## Established tool (workflow rule)
 Contemporaneous correlation of VAR innovations: common shocks vs dynamics (standard in time-series econometrics, e.g. Lütkepohl 2005,
 *New Introduction to Multiple Time Series Analysis*, ch. 2, 9). Fit a VAR(1) by OLS; the residual (innovation) correlation measures same-time

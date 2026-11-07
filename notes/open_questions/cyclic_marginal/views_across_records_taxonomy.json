@@ -2,6 +2,7 @@
  "$meta": {
   "name": "Views across records (theory-shaped collection)",
   "created": "2026-11-05",
+  "updated": "2026-11-06",
   "reviewed": false,
   "the_question": "When can views recorded in SEPARATE records (methods, campaigns, sites, times) be merged into one world, allowing each record to deviate by a budget eps fixed in advance from outside the data (biology, instrument specs)? Simultaneous views always glue; the question has content only when the context hypergraph of records has a loop.",
   "streams": {
@@ -39,12 +40,22 @@
   {
    "id": "O-epsstar",
    "name": "Heterogeneity budget eps*",
+   "standard_name": "TV distance to joint existence; candidate identification with the L-infinity end of the CbD CNT2 (Lp) distance (Dzhafarov-Kujala-Cervantes 2020): candidate identification, unchecked. Not the contextual fraction.",
+   "aka": [
+    "heterogeneity budget",
+    "incoherence-correction distance (Capotorti-Vantaggi 2011 [R-coherence])",
+    "consistency radius"
+   ],
    "def": "eps* = min over joint Q of max_k TV(Q|S_k, P_k) (an LP). Compared against eps_cal fixed in advance.",
    "stream": "S0"
   },
   {
    "id": "O-loopphase",
    "name": "Loop (closure) phase",
+   "standard_name": "closure phase (interferometry: Jennison 1958 [R-closure]; InSAR phase-linking closure [R-insar])",
+   "aka": [
+    "loop phase (former repo term)"
+   ],
    "def": "Phi(w) = phi_AB(w)+phi_BC(w)+phi_CA(w) from pairwise cross-spectra of separate campaigns.",
    "stream": "S2"
   }
@@ -137,19 +148,33 @@
    "id": "T-covariance-pairwise",
    "statement": "For ANY pairwise-only world (independent pair-sources, arbitrary site responses, local noise), the Pearson correlation matrix is pairwise-feasible: exists t_ij>0 with r_ij^2 <= t_ij t_ji and sum_j t_ij <= 1 for all i. V_G = min_w max_i sum_j t_ij - 1 <= 0. Three equal correlations: r <= 1/2.",
    "status": "OWNED: Kela-von Prillwitz-Aberg-Chaves-Gross 2020 IEEE TIT Prop. 1 (shelved); proof independently checked (correct with minor fixes); closed form V_G = Perron root of |R-I| minus 1",
-   "stream": "S0/S1"
+   "stream": "S0/S1",
+   "standard_name": "R in FW_2 (scaled diagonal dominance, Boman et al. 2005); V_G = V_2 = rho(|R-I|) - 1, the generalized diagonal dominance (H-matrix) margin",
+   "aka": [
+    "correlation budget (former repo term)",
+    "V_G (same quantity as V_2)",
+    "covariance ceiling"
+   ]
   },
   {
    "id": "T-reach-test-valid",
    "statement": "Reach test (Spearman, eps=inf, moving-block bootstrap with re-ranking, no wrap): pointwise asymptotic size <= alpha for every m >= 2 under stationarity + geometric alpha-mixing, continuous margins (jitter for ties), Segers' condition, Cov(G) != 0.",
    "status": "proof chain: exact domination (sublinearity) + Bucher-Volgushev 2013 + Bucher-Ruppert 2013 Thm 2 + continuous mapping; hand links independently checked (REACH_TEST_VALIDITY_CHECK.md, REACH_TEST_SPEARMAN_CHECK.md); finite-sample size validated by simulation",
-   "stream": "S0/S1"
+   "stream": "S0/S1",
+   "standard_name": "test of cause arity / factor width m (validity theorem)",
+   "aka": [
+    "reach test (former repo term; id and file names keep 'reach')"
+   ]
   },
   {
    "id": "T-frustration-centres",
    "statement": "Correlation-level: a centre larger than a pair can be required only on frustrated cycles (support not antibalanced); antibalanced support => FW_2 = PSD (Boman et al. 2005); max excess on a positive odd L-cycle = sec(pi/L) - 1; chordal support => maximal cliques suffice (Agler et al. 1988); minimal sufficient hypergraph not unique (K4).",
    "status": "owned components (Boman 2005; Agler 1988; Evans 2016 for distribution level); assembled + verified numerically 2026-11-06",
-   "stream": "S0"
+   "stream": "S0",
+   "standard_name": "cycles that are not antibalanced (sign product not (-1)^length), i.e. frustration of -R, not of R; antibalanced signed graph (Harary 1957, Behavioral Science 2:255-265); scaled diagonal dominance / factor width 2 (Boman et al. 2005 [R-factor-width])",
+   "aka": [
+    "frustrated (former repo term; reads backwards to a signed-graph reader, who calls product -1 frustrated)"
+   ]
   },
   {
    "id": "T-dynamic-closure",
@@ -210,6 +235,11 @@
    "stream": "S0/S1",
    "files": [
     "../views_across_records/SOURCE_REACH_SCOUT.md"
+   ],
+   "standard_name": "minimum factor width / cause arity m of the latent common causes (factor width: Boman et al. 2005 [R-factor-width]; hypergraph covariance cone: Kela et al. 2020 Prop 1)",
+   "aka": [
+    "source reach (former repo term; 'reach' is kept for the reconstruction paper's lem:reach)",
+    "reach of a centre"
    ]
   }
  ],
@@ -385,7 +415,7 @@
   {
    "id": "P-hypergraph-poland",
    "file": "../views_across_records/HYPERGRAPH_METHOD.md",
-   "outcome": "2026-11-06: spatial-radius test d-hat = 397 km: local centres within <=368 km (up to 7 stands) insufficient; centre is regional (binds stands >370 km apart), not a patchwork of local centres; protocol confound remains",
+   "outcome": "2026-11-06: spatial-radius test d-hat = 397 km: local centres within <=368 km (up to 7 stands) insufficient; centre is regional (binds stands >370 km apart), not a patchwork of local centres; method (batch) effect, formerly \"protocol confound\", remains",
    "stream": "S1"
   },
   {

@@ -1,5 +1,7 @@
 # W-P feasibility ladder + the ramen-fold crux (ORIENTATION, PARKED)
 
+> **Terminology legend (added 2026-11-06; reviewed: false).** "Twist" / "twist count" in this file = the count of forced perspectivity bridges. New text says **bridge count**. It is unrelated to the glued-carriers "twist" (a gluing obstruction). The text below is kept as written. Source: `../../programme/TERMINOLOGY_CROSSWALK.md` (C4).
+
 *Operating structure for testing whether the perspectivity constraint W-P
 (`PERSPECTIVITY_WALL_CANDIDATE_2026-07-19.md`) has a way forward.
 Provenance: LLM-derived (Claude, in chat) 2026-07-19 design conversation,

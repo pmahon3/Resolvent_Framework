@@ -1,5 +1,7 @@
 # W-P rung-2 twist-count experiment (the tight-packing picture) — PARKED behind rung 1
 
+> **Terminology legend (added 2026-11-06; reviewed: false).** "Twist" / "twist count" in this file = the count of forced perspectivity bridges. New text says **bridge count**. It is unrelated to the glued-carriers "twist" (a gluing obstruction). The text below is kept as written. Source: `../../programme/TERMINOLOGY_CROSSWALK.md` (C4).
+
 *Continues `W_P_FEASIBILITY_LADDER_2026-07-19.md` (rung 2, made concrete)
 and `PERSPECTIVITY_WALL_CANDIDATE_2026-07-19.md` §6. Provenance:
 LLM-derived (Claude, in chat) 2026-07-19, user-driven hand intuition.

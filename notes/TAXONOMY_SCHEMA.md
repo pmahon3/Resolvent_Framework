@@ -68,6 +68,8 @@ the collection's actual shape. List them in `$meta.categories`.
 | `owned_by` | optional | `{cite, region, verified: "read"\|"bib"\|"sec", detail}` — who owns this region of the map. Makes seams machine-visible. *(added 2026-10-16)* |
 | `uses` | optional | list of ids in the same file this item depends on — the hand-proof dependency DAG, mirroring the blueprint's `\uses`. *(added 2026-10-16)* |
 | `scope` | optional | the conditions under which the claim holds, e.g. `"alphabet=3"`, `"sub-carrier only"`, `"L>=4"`. Puzzle checks showed that scope can flip truth. *(added 2026-10-16)* |
+| `standard_name` | optional | the established term for the object, with its owner, e.g. `"tensor product of ultrafilters (Hindman–Strauss)"`. Tag a citation not on the shelf or in `owned_regions` as `[unverified]`. Source: `programme/TERMINOLOGY_CROSSWALK.md`. *(added 2026-11-06)* |
+| `aka` | optional | list of other names: older repo words (marked `"(former repo term)"`) and synonyms in other fields. `name` and `id` stay as they are. *(added 2026-11-06)* |
 
 ## Theory-shaped collections (added 2026-10-16)
 

@@ -1,5 +1,7 @@
 # σ-essential-state research campaign log
 
+> **Terminology legend (added 2026-11-06; reviewed: false).** "Centre-free" / "trivial centre" below = an **irreducible** OML (centre {0,1}; Kalmbach 1983). New text says "irreducible (trivial centre)". The lattice centre is unrelated to the synchrony "centre" (a common cause) and to WHY's "order without a centre". "Carrier" here = a concrete σ-complete logic. Existing entries are records and are not rewritten. Source: `../../programme/TERMINOLOGY_CROSSWALK.md` (C2).
+
 Direct research on the OML branch is the active workflow. Iterations are
 appended below the baseline; each records question, construction/lemma,
 evidence class, gates passed, first failure, obstruction, strategic update,

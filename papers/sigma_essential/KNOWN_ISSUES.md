@@ -3,3 +3,10 @@
 REVERSAL 2026-10-27 (v2.1 re-audit, independently CONFIRMED in papers/sigma_essential/SIGMA_ESSENTIAL_REVERSAL_CHECK.md): the Lean-checked `Psi`/`psi_ZFC` statement is a ROUTINE consequence (Binder–Navara carrier + 4-point even-subsets fibre + ultrafilter limit of its non-Dirac state meets every conjunct); the paper's Def 1.2 with essential irreducibility (`targetA_sharp_ZFC`) is UNCLEAR, not owned. Measurable-cardinal remarks §2(c)/Rem 3.7 FALSE (countable–cocountable algebra on ω₁); Rem 6.1 partly. arXiv:1905.08267 misattributed; Akemann–Weaver needs CH; 'formalized in full' overclaims (Cor 5.12 quotient-centre half not in Lean). NOT dissemination-ready.
 
 Required before any dissemination: state the Binder–Navara route and credit the 4-point fibre; restrict the Type 1 claim to the essentially-irreducible form; fix or delete §2(c), Rem 3.7 (and the explanatory clause of Rem 6.1); fix citations (arXiv:1905.08267; Akemann–Weaver under CH; Wright); replace 'formalized in full' with an exact list of Lean receipts; update Q 6.5 with the countable literally-irreducible witness `WindowGluing.Cyclic.targetA_sharp_countable_literal` (not yet hand-audited). Details: SIGMA_ESSENTIAL_REAUDIT_v21.md, SIGMA_ESSENTIAL_REVERSAL_CHECK.md.
+
+## Terminology (added 2026-11-06; reviewed: false)
+
+From `notes/programme/TERMINOLOGY_CROSSWALK.md` (Batch 6). Paper text not edited; apply at the next revision.
+- **"carrier"**: gloss at first use as a concrete σ-complete logic (a set-representable σ-complete OML). Note the clash with "carrier" = support of a measure (Bhaskara Rao, Bourbaki) [unverified] (crosswalk C6).
+- **"product Ulam carrier"**: add "after Binder–Navara 1987 (Thm 4)" at every use, not only at §4's opening (body l.453–454). Uncredited now at body l.19, the abstract (`sigma_essential.tex` l.62) and the title (l.39).
+- **"centre"**: always the lattice centre (centre {0,1} = irreducible; Kalmbach 1983). State it once, since the programme also uses "centre" for a common cause (crosswalk C2).

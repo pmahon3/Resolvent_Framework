@@ -7,6 +7,8 @@
 reviewed: false. Machine-assisted (the user lifted the by-hand cap, 2026-11-06). Statements are drafts to be attacked. ⟦HAND⟧ marks unverified
 arguments. Prior-art check and proof attempts are running (`CONVEX_GLUING_PRIOR_ART.md`, `CONVEX_GLUING_T1_ATTEMPT.md`).
 
+*Terminology (added 2026-11-06, terminology pass).* "Flat" below = **globally glued / amalgamable**: the window family has a global section (Abramsky–Brandenburger 2011), here one ultrafilter on Ω. New text uses that term; "flat" was dropped because a flat connection can still have holonomy round a loop. Records below are kept as written. See `../../programme/TERMINOLOGY_CROSSWALK.md`. "Frustrated" (correlation sense) = **not antibalanced**: signs not multiplying to (−1)^{length}, i.e. frustration of −R, the reverse of the signed-graph usage on triangles (Toulouse 1977; Zaslavsky; Harary 1953 says "unbalanced").
+
 ## 1. Objects
 - **Cover.** A set of sites I and a family 𝒞 of contexts C ⊆ I, closed under the intersections that occur, as a poset under inclusion.
 - **Convex gluing system.** A contravariant functor K: 𝒞 → (convex sets, affine maps). Each K_C is a convex set (compact, or a closed cone) of *local states*;

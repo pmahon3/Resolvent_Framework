@@ -4,6 +4,8 @@ reviewed: false. Known answer from the literature: beech masting synchrony is dr
 (Journé et al. 2024, *Nature Plants*, shelved: T1 = summer t−1 positive, T2 = summer t−2 negative, window opening at June 21), plus
 weather synchrony (Bogdziewicz et al. 2021) and tail-dependent synchrony.
 
+**Name (added 2026-11-06, terminology pass).** V_G here is the same quantity as V₂ = ρ(|R − I|) − 1 (proved in `COVARIANCE_CEILING_CHECK.md`): the generalized diagonal dominance (H-matrix) margin. R ∈ FW₂ (scaled diagonal dominance) iff V₂ ≤ 0. New text says V₂; script and file names keep V_G.
+
 ## Already established (validated)
 - Common cause of ≥ 3 stands required: V_G test T = 35.1 against crit 9.0.
 - Minimum reach ≥ 4 of 10 stands.

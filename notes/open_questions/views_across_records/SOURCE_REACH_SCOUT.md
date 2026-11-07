@@ -2,6 +2,8 @@
 
 reviewed: false. 2026-11-05. Scout: Kela PDF read (Prop 1, Prop 3, Sec XI); web searches were snippet-level only. "Not read" means exactly that.
 
+**Terminology note (added 2026-11-06; reviewed: false).** "Source reach" m in this scout is the **factor width** m (Boman et al. 2005) or **cause arity** m: the largest number of sites one latent common cause touches. New text says "cause arity" or "factor width". "Reach" is kept for the reconstruction paper's `lem:reach` (digraph reachability), a different object. The scout text, the file name and the taxonomy id `Q-source-reach` are left as they are. See `../../programme/TERMINOLOGY_CROSSWALK.md` (C3).
+
 ## 1. Owned-region table
 
 | Region | Owner | Read level |

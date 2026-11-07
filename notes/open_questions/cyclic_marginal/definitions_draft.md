@@ -56,13 +56,19 @@ results and cases, and revised. Nothing here is claimed beyond the status labels
 - The loop is **flat** if they are compatible (equal when rigid; a member of the set when flexible),
   and **twisted** otherwise.
 
+*Terminology (added 2026-11-06; reviewed: false).* New text says **globally glued** (amalgamable: the family has a
+global section, Abramsky–Brandenburger 2011) for "flat" (formerly "flat" in this repo). Reason: in geometry a *flat*
+connection can still have nontrivial holonomy round a loop, which is exactly the cycle case. **Twisted** = a gluing
+obstruction (contextuality; strong contextuality for deterministic supports). **Holonomy** is used in its standard sense.
+See `../../programme/TERMINOLOGY_CROSSWALK.md`.
+
 ## 6. Candidate classification
 
 For a family of local information that agrees on overlaps:
 
 | Class | Meaning |
 |---|---|
-| **Flat (W)** | a world exists |
+| **Flat (W)** (= globally glued) | a world exists |
 | **Twisted–visible (Tv)** | no world, and the twist shows on some locally generated question (no coherent state) |
 | **Twisted–hidden (Th)** | no world, yet a coherent state on all locally generated questions exists: *pointless coherence* |
 | **Underdetermined (U)** | many worlds |
@@ -590,6 +596,13 @@ needed before any claim.
 
 ## 16. Problem 1 resolved NEGATIVELY: the finite triangle can hide a twist at four values (2026-10-20)
 ⟦exact computation + owned criterion; REVERSAL of "finite triangle sees every twist"⟧
+
+*Terminology (added 2026-11-06).* A **hidden twist** (Th) is a state on the carrier that is not a mixture of points (not in
+the marginal polytope), with no forced functional negative on a carrier set. Approximately (≈, not an identity): a contextual
+family that satisfies every exclusivity (0/1) inequality (cf. the exclusivity principle, Fritz et al. 2013,
+`glued_carriers_taxonomy.json` own.exclusivity_principle). A **visible twist** (Tv) has some forced functional negative on a
+carrier set. By §22 the triangle has a hidden twist iff its marginal polytope is not compressed (Sullivant 2006, owned per
+the 2026-10-26 audit).
 
 - **Statement.** On the triangle with values {0,1,2,3}, there is a consistent family of pair laws
   which is a state on the carrier D (non-negative on every buildable question) but is not a mixture

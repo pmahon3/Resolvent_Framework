@@ -4,6 +4,8 @@ reviewed: false. 2026-11-06. Machine-assisted attempt. ⟦HAND⟧ marks argument
 agent. No prior-art pass has been run on anything here, so nothing below is claimed as new. Scripts:
 `~/.claude/jobs/26482d7b/tmp/t1/checks.py`.
 
+*Terminology (added 2026-11-06, terminology pass).* "Flat" below = **globally glued / amalgamable**: the window family has a global section (Abramsky–Brandenburger 2011), here one ultrafilter on Ω. New text uses that term; "flat" was dropped because a flat connection can still have holonomy round a loop. Records below are kept as written. See `../../programme/TERMINOLOGY_CROSSWALK.md`.
+
 ## Puzzle
 
 Three friends sit at a triangle, and each pair-window shows the pair's actual seat numbers. The views agree, so they give

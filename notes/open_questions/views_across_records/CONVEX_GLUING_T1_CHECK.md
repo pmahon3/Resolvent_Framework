@@ -5,6 +5,8 @@ Script: `~/.claude/jobs/26482d7b/tmp/chk/t1chk.py` (binary triangle: |D₃| = 70
 for every E ∈ D₃ at every base point; no singleton lies in D₃; additive signed states on D₃ are fixed by their window values,
 with 0 free dimensions left).
 
+*Terminology (added 2026-11-06, terminology pass).* "Flat" below = **globally glued / amalgamable**: the window family has a global section (Abramsky–Brandenburger 2011), here one ultrafilter on Ω. New text uses that term; "flat" was dropped because a flat connection can still have holonomy round a loop. Records below are kept as written. See `../../programme/TERMINOLOGY_CROSSWALK.md`.
+
 Definitions were used consistently with `pointless_coherence.tex` (Appendix): Ω = X^V, carrier D = Dynkin closure of the
 window questions (all subsets of X^w pulled back); a state is finitely additive and {0,1}-valued on D; ideal point = W|D for an
 ultrafilter W on P(Ω); flat = the window family amalgamates to such a W (`CONVEX_GLUING_EQUILIBRIUM_GATES.md` G3).

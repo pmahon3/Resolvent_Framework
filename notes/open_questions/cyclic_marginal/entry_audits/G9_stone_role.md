@@ -7,6 +7,8 @@ own.compressed_threshold, own.ncycle_facets), `stone_role_prior_art.md` + addend
 already recorded for Paper I: `notes/taxonomies_index.json` CE entry; `covered_leads/mixing_barycenter_transfer_rhyme.md`
 "P(N) is Krein–Milman-trivial"). Then 5 standard web searches (snippet level only).
 
+*Terminology (added 2026-11-06, terminology pass).* **Pointless** = no ultrafilter on Ω induces the state (no two-valued extension to 2^Ω). It is not pointless topology (locales); on infinite Ω it is not Pták's "free" (free includes ideal points); it is weaker than De Simone–Navara–Pták non-extendability. **Ideal point** = restriction of an ultrafilter on Ω (an extendable two-valued state). See `../../../programme/TERMINOLOGY_CROSSWALK.md`.
+
 Read levels used below: **R** = primary text read this pass; **H** = hand-verified here, textbook location not opened;
 **S** = secondary/snippet.
 

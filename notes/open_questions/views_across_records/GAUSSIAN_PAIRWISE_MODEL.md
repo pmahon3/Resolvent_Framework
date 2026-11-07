@@ -3,6 +3,8 @@
 reviewed: false. Follows `MAST_S2_GATE.md`. Plan agreed with the user: the model-free test establishes *that* a common cause
 exists, and a model asks *which*.
 
+**Name (added 2026-11-06, terminology pass).** V_G here is the same quantity as V₂ = ρ(|R − I|) − 1 (proved in `COVARIANCE_CEILING_CHECK.md`): the generalized diagonal dominance (H-matrix) margin. R ∈ FW₂ (scaled diagonal dominance) iff V₂ ≤ 0. New text says V₂; script and file names keep V_G.
+
 ## Model and ceiling ⟦HAND⟧
 Standardised site values yᵢ = Σⱼ bᵢⱼ Sᵢⱼ + eᵢ, with independent pair-drivers Sᵢⱼ (unit variance) and independent local noise eᵢ.
 Then rᵢⱼ = bᵢⱼ bⱼᵢ and Σⱼ bᵢⱼ² ≤ 1. With tᵢⱼ = bᵢⱼ², **R is pairwise-feasible ⟺ ∃ tᵢⱼ > 0 with tᵢⱼ tⱼᵢ = rᵢⱼ² and Σⱼ tᵢⱼ ≤ 1 ∀i.**

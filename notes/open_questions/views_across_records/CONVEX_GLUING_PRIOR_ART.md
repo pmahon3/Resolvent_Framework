@@ -4,6 +4,8 @@ reviewed: false. 2026-11-06. Hostile, cross-field scout of `CONVEX_GLUING_FRAMEW
 and proofs read, [abs], [snip] = search snippet, [recall] = from memory, unverified. Rows that `glued_carriers_taxonomy.json` already
 records are cited by their id and not re-derived.
 
+*Terminology (added 2026-11-06, terminology pass).* "Frustrated" (correlation sense) = **not antibalanced**: signs not multiplying to (−1)^{length}, i.e. frustration of −R, the reverse of the signed-graph usage on triangles (Toulouse 1977; Zaslavsky; Harary 1953 says "unbalanced").
+
 ## 1. Owned regions
 
 | Region | Owner(s) | Read |

@@ -3,6 +3,8 @@
 reviewed: false. Responds to: "to what extent have we decoupled the polycentric reading from any dynamical reading?" Answer so far: not for the
 shape tests on levels.
 
+**Terminology note (added 2026-11-06; reviewed: false).** The standard names: "dynamic closure" / "interaction-closure of the shock centres" = the **trek-rule closure** (Wright; Sullivant–Talaska–Draisma 2010; the discrete Lyapunov/Stein series). "Shock centre" = an **innovation (shock) common cause**. "Reach" of a centre = **cause arity** (factor width). The pre-registered text below is kept as written.
+
 ## Proposition (⟦HAND⟧; likely owned as the time-series trek rule, cf. Sullivant–Talaska–Draisma 2010; to check)
 VAR(1): x_{t+1} = B x_t + ε_t, with ε i.i.d. (0, Q), ρ(B) < 1. Stationary S = Σ_{k≥0} Bᵏ Q Bᵏᵀ. If Q ∈ FW_H, i.e. Q = D + Σ_{S∈H} C_S, then
 Bᵏ C_S Bᵏᵀ ⪰ 0 is supported on N_k(S) (sites reachable from S in k steps of G_B), and Bᵏ D Bᵏᵀ is supported on the N_k({i}). Hence

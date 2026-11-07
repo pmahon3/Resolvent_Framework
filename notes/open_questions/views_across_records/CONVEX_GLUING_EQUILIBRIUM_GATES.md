@@ -5,6 +5,8 @@ equilibrium (cf. memory feedback-reflective-equilibrium: generalisations must su
 **Rule:** a definition passes a gate only if it classifies every test case as intended. On a failure, revise the definition *or* the intuition, and record
 which and why. No theorem in `CONVEX_GLUING_FRAMEWORK.md` is stated as settled until its definitions pass.
 
+*Terminology (added 2026-11-06, terminology pass).* "Flat" below = **globally glued / amalgamable**: the window family has a global section (Abramsky–Brandenburger 2011), here one ultrafilter on Ω. New text uses that term; "flat" was dropped because a flat connection can still have holonomy round a loop. Records below are kept as written. See `../../programme/TERMINOLOGY_CROSSWALK.md`. "Frustrated" (correlation sense) = **not antibalanced**: signs not multiplying to (−1)^{length}, i.e. frustration of −R, the reverse of the signed-graph usage on triangles (Toulouse 1977; Zaslavsky; Harary 1953 says "unbalanced").
+
 ## G1. "Ordinary point" (P)
 - **Intended meaning:** a global state realised by an actual configuration of the world. "There is a world behind the answers."
 - **Test cases:** (a) a Dirac state on a configuration → ordinary; (b) a free ultrafilter on ℕ (the invisible dictator) → **not** ordinary; (c) an extreme

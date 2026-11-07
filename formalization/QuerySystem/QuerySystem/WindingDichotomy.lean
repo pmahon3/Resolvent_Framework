@@ -35,6 +35,15 @@ polytope-vertex step (`C ≠ R ⟺ ∃ fractional vertex`) has no Mathlib home.
 So the honest one-line summary of this file is:
   **"winding-1 ⟺ config correspondence + injectivity"** — NOT "the winding
   characterization is Lean-certified".
+
+## Prior art (prose note, 2026-11-07; identifiers unchanged)
+
+The fixed-length winding criterion for the contextual vertices of cycle
+scenarios is Kharoof–Ipek–Okay 2024, Thm 4.4. It is cited, not claimed: this
+file certifies only the finite kernel above. The programme's "commensurable"
+(coherence polytope C = realisability polytope R) is not the quantum-mechanical
+sense (jointly measurable observables). See
+`notes/programme/TERMINOLOGY_CROSSWALK.md`.
 -/
 import Mathlib.Data.ZMod.Basic
 import Mathlib.Data.Fintype.Basic

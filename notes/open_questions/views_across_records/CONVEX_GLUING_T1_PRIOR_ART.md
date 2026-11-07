@@ -2,6 +2,8 @@
 
 reviewed: false. 2026-11-06. Hostile, cross-field scout of the restated T1 in `CONVEX_GLUING_T1_ATTEMPT.md`.
 
+*Terminology (added 2026-11-06, terminology pass).* "Flat" below = **globally glued / amalgamable**: the window family has a global section (Abramsky–Brandenburger 2011), here one ultrafilter on Ω. New text uses that term; "flat" was dropped because a flat connection can still have holonomy round a loop. Records below are kept as written. See `../../programme/TERMINOLOGY_CROSSWALK.md`.
+
 Read levels:
 - [full]: primary text read (shelf PDF, pdftotext);
 - [meth]: theorem statements read;

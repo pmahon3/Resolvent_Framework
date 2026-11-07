@@ -2,6 +2,8 @@
 
 reviewed: false. Gap 1 from the "is the model-free method nailed down" review.
 
+**Name (added 2026-11-06, terminology pass).** V_G here is the same quantity as V₂ = ρ(|R − I|) − 1 (proved in `COVARIANCE_CEILING_CHECK.md`): the generalized diagonal dominance (H-matrix) margin. R ∈ FW₂ (scaled diagonal dominance) iff V₂ ≤ 0. New text says V₂; script and file names keep V_G.
+
 ## Test
 V_G (`gaussian_poland.py` FastVG) on the sample Pearson correlation matrix after linear detrending. Reject when the 5% point of a
 moving-block bootstrap (b = 3, no wrap) is > 0.

@@ -1,5 +1,7 @@
 # σ-essential-state problem: current mathematical state
 
+> **Terminology legend (added 2026-11-06; reviewed: false).** "Centre-free" / "trivial centre" below = an **irreducible** OML (centre {0,1}; Kalmbach 1983). New text says "irreducible (trivial centre)". The lattice centre is unrelated to the synchrony "centre" (a common cause) and to WHY's "order without a centre". "Carrier" here = a concrete σ-complete logic. Existing entries are records and are not rewritten. Source: `../../programme/TERMINOLOGY_CROSSWALK.md` (C2).
+
 This is the compact starting index for further work. Git history and the cited notes remain authoritative for proofs and computations.
 
 ## Problem and evidence boundary

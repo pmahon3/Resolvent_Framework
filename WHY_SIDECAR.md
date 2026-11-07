@@ -25,7 +25,7 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 
 ## 2026-11-06 (latest): how twist returns practically (lens; owned)
 - **Three practical forms of twist:**
-  1. *Frustration*: reveals that a centre is needed (used in the synchrony tests).
+  1. *Frustration* (of −R, i.e. a loop that is not antibalanced): reveals that a centre is needed (used in the synchrony tests).
   2. *Holonomy*: pairwise conversions or calibrations that do not close round a loop, so there is no common scale. Owned: geodesy loop misclosure;
      metrology; AHP/Koczkodaj; synchronization. **HodgeRank** (Jiang–Lim–Yao–Ye 2011) splits pairwise comparisons into gradient + local loops (curl) +
      global loops (harmonic). The harmonic part, "pairwise fine, globally twisted", is a clean, owned mathematical home for WHY's image "the twist lives
@@ -49,7 +49,7 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 - **Claim (ours; owned pieces):** what you see in levels is the *interaction-closure* of what happens at once. Small local shocks spread by
   long-memory interaction look like one big centre. Innovations (same-time shocks after removing the lagged dynamics) separate the two.
   Validated by simulation.
-- **Polish beech:** after removing the dynamics, the same-time shocks still need a centre binding stands > ~370 km apart (reach ≥ 4). The order is held
+- **Polish beech:** after removing the dynamics, the same-time shocks still need a centre binding stands > ~370 km apart (cause arity ≥ 4). The order is held
   by something acting now across the region (or the shared protocol), not by local relations whose history has spread.
   **Corrected (prior art):** propagation *within* a year (e.g. pollen) also looks same-time. So the result excludes relations accumulated *across years*,
   not within-year relations. The closure statement itself is owned (trek rule), and as first stated it was vacuous; its content is the truncated bound. `notes/open_questions/views_across_records/DYNAMIC_CLOSURE.md`.
@@ -90,19 +90,19 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 2. **The question has a second half: what holds the order, and what shape is it?**
    - *Static relations cap coordination:* with only pairwise links, three sites can agree at most (3√2 − 2)/4 ≈ 56%, under any physics
      (Gisin et al. 2020; owned).
-   - The continuous, many-site version is a correlation budget per site (Kela et al. 2020; owned).
+   - The continuous, many-site version is scaled diagonal dominance (formerly "a correlation budget per site" here; Kela et al. 2020, Boman et al. 2005; owned).
    - Beyond the cap, coordination needs a **centre**:
      - *in space*, a shared driver;
      - *in time*, accumulated history, which requires long memory (a ≳ 0.9; the general reason is that the effective centre is the
-       interaction-closure of the shock centres, weighted by ρ(B)^{2k});
-     - *in the observer*, a shared protocol.
+       trek-rule closure of the innovation (shock) common causes, weighted by ρ(B)^{2k});
+     - *in the observer*, a shared protocol (a method or batch effect).
 3. **"Loops are where order without a centre lives", sharpened.** A centre larger than a pair can be revealed (from correlations) only on
-   **frustrated** loops, where the signs round the loop do not multiply to (−1)^{length}. Unfrustrated (antibalanced) structure is always
+   loops that are **not antibalanced**, where the signs round the loop do not multiply to (−1)^{length} (formerly "frustrated" here: frustration of −R, the reverse of Harary's usage on triangles). Antibalanced structure is always
    explainable by pairs (Boman et al. 2005; owned).
    - Same parity as the original cycle twist.
    - The signal fades with loop length (sec(π/L) − 1 ≈ π²/2L²).
    - Trees always glue (Vorob'ev; owned), as WHY says.
-4. **Ostrom, refined: polycentric order is the hardest to see.**
+4. **Ostrom, refined: polycentric order is the hardest to see.** (The word is V. Ostrom–Tiebout–Warren's (Amer. Polit. Sci. Rev. 55(4), 1961, 831–842) and E. Ostrom's (Amer. Econ. Rev. 100(3), 2010, 641–672). Lens only: their governance sense and the hypergraph sense here are different things.)
    - A single small centre (reaching 3 sites) is invisible.
    - Different polycentric structures can explain the same correlations (the minimal set of centres is not unique).
    - "Regionality" in levels can be local interaction spread over time.
@@ -116,7 +116,7 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
    - At cosmic scale, "a shared origin of everything" can explain any correlation (superdeterminism), so it needs an independent bound,
      like no-signalling. (Lens, from a conversation.)
 7. **Honest distance, updated.**
-   - There is now one real-data tool: a model-free test that coordination requires a common cause, with its minimum reach and spatial
+   - There is now one real-data tool: a model-free test that coordination requires a common cause, with its minimum cause arity and spatial
      extent. Asymptotic validity is proved; size is validated by simulation.
    - **Positive control (Polish beech):** a centre is required; it reaches at least 4 of 10 stands; it is regional (local centres within
      368 km cannot carry it). Weather and protocol are not yet separable.

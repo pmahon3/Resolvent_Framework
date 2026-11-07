@@ -55,4 +55,4 @@ covariation variable (Peterman, Pyper et al.).
   (4–5 years) adds lag dependence a VAR(1) misses. And n = 46 has low power.
 - Across regions (BB ↔ Fraser ↔ Skeena ↔ Alaska Gulf), no common cause is demonstrated at n = 28 (weak null; mean |r| 0.15). With independent agencies
   no protocol-free common cause is found, but power at n = 28 is very low.
-- The protocol confound for F1 remains (one agency).
+- The protocol confound (method or batch effect) for F1 remains (one agency).

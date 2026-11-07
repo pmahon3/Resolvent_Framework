@@ -44,6 +44,17 @@ non-Polish-representability are *forced* by the witness they are conjoined to
 conjuncts proved, no repo-local axiom. That is the Ψ-fidelity gap
 `ADMISSIBILITY_SCOPE.md` describes: `Psi` did not carry essential irreducibility
 as a hypothesis, and now the carrier it is witnessed on provably has it.
+
+## Standard names (prose gloss, 2026-11-07; identifiers unchanged)
+
+`Centre` is the lattice centre of the carrier read as an orthomodular poset:
+the elements compatible with every element (Kalmbach 1983). A carrier whose
+centre is trivial is an *irreducible* OML; the programme's older word for this
+was "centre-free". `EssentiallyIrreducible` is the programme's weakening:
+trivial centre modulo the countable ideal. It is not to be confused with the
+"centre" of a common-cause model or of a hypergraph used in other notes. See
+`notes/programme/TERMINOLOGY_CROSSWALK.md` and `formalization/QuerySystem/README.md`
+(section "Terminology").
 -/
 
 namespace SigmaEssential

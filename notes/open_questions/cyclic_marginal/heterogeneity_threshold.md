@@ -22,6 +22,12 @@ Binary variables x_1..x_L on a cycle; context k observes (x_k, x_{k+1}); margins
 d_k = P(x_k ≠ x_{k+1}). Heterogeneity null H_ε: some classical joint Q has every pair margin within total
 variation ε of the observed table. ε*(P) = least such ε (an LP).
 
+*Terminology (added 2026-11-06; reviewed: false).* ε* is the **TV distance to joint existence**: how far the pair
+laws must move, in the worst pair, to admit one joint. It matches the L∞ (p → ∞) end of DKC's Lp distance to the
+noncontextual polytope (Thm 15, Eq. 56, CNT2). That is a **candidate identification, unchecked**: it has not been
+through the reversal check (see the banner above). Related names: incoherence-correction distance (Capotorti–Vantaggi
+2011), consistency radius (Robinson). ε* is **not** the contextual fraction.
+
 ## Results
 1. **Reduction** ⟦HAND, proved⟧: H_ε ⟺ each context sampled a classical world within TV ε of a common one.
 2. **Lower bound, all L** ⟦HAND, proved⟧: ε* ≥ V/L, where V is the largest violation of the rim cycle

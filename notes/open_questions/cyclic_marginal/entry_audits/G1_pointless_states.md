@@ -5,6 +5,8 @@ Date: 2026-10-27. Mode: `/audit pure`, theory-items mode, entry level (v2.1 cap)
 Taxonomy: `glued_carriers_taxonomy.json`. Entries: `thm.triangle_pointless`, `thm.staircase_no_ideal`,
 `thm.ring_conceptual`, `obs.ring_forced_formula`.
 
+*Terminology (added 2026-11-06, terminology pass).* **Pointless** = no ultrafilter on Ω induces the state (no two-valued extension to 2^Ω). It is not pointless topology (locales); on infinite Ω it is not Pták's "free" (free includes ideal points); it is weaker than De Simone–Navara–Pták non-extendability. **Ideal point** = restriction of an ultrafilter on Ω (an extendable two-valued state). See `../../../programme/TERMINOLOGY_CROSSWALK.md`.
+
 ## What was read for this audit, and at what level
 
 **Taxonomy `owned_regions` (cited, not rediscovered):**

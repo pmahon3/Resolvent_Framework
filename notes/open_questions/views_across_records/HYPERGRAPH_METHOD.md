@@ -63,5 +63,5 @@ Inter-site distances 102–460 km. H(d) = pairs ∪ maximal cliques of "distance
   top decile.
 - **Consistency with m̂* = 4:** the reach test allows *any* 4-site groups. The radius test requires groups to be spatially local. Both together mean the
   needed centres are **not geographically local**: they bind distant stands, i.e. a regional centre (weather, the solstice clock) or the shared protocol.
-  The protocol confound remains, since one programme also spans the region.
+  The protocol confound (method or batch effect) remains, since one programme also spans the region.
 - First demonstration of the cone-based spatial scale of a centre on real data. Step 3 shows such separations need strong violations, and Poland qualifies.

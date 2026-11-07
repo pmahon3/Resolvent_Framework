@@ -85,6 +85,20 @@ The analytic hypothesis needed for σ-subadditivity of the cylinder premeasure.
 
 * note.tex: Observational Foundations of Probability
 * Classical Kolmogorov extension theorem
+
+## Standard names (prose gloss, 2026-11-07; identifiers unchanged)
+
+* `Query` = one *observable*: an outcome space with its σ-algebra (a random
+  variable, possibly vector-valued). Caution: in the programme's prose since
+  2026-10-18 a "query" means a window, i.e. a *context* in the
+  Abramsky–Brandenburger sense. The Lean identifier keeps the older,
+  finer-grained meaning.
+* `QuerySystem` = a *projective (inverse) system* of measurable spaces;
+  `QuerySystem.Omega` is its projective limit, and `CompatibleMarginals` is the
+  consistency hypothesis of the Kolmogorov–Bochner extension theorem
+  [unverified].
+
+See `notes/programme/TERMINOLOGY_CROSSWALK.md`.
 -/
 
 open MeasureTheory

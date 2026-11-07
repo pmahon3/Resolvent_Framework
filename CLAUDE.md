@@ -31,8 +31,14 @@ world, not to stay in an ivory tower. It is not mathematical content, but it gui
   lenses and questions, with the gap to applicability stated. Never overclaim.
 - **Vocabulary.** In prose a window is a **query** (the repo's word; neutral about any reality
   behind it), and "measurement" is the physics translation. The board is "**the questions you can
-  ask**" in prose and the **carrier** in formal text. Glossary: `theory_shape.md` §3. Avoid
-  private jargon like "board" without saying what it is.
+  ask**" in prose and the **carrier** in formal text. Glossary: `theory_shape.md` §3 and §3a. Avoid
+  private jargon like "board" without saying what it is. A query is a *context* (a jointly answerable
+  set of questions); "measurement" is only a loose translation.
+- **Established terms first (crosswalk 2026-11-07).** `notes/programme/TERMINOLOGY_CROSSWALK.md` maps
+  internal words to community names and owners. In new text use: *not antibalanced* (not "frustrated"),
+  *cause arity / factor width* (not a centre's "reach"; `lem:reach` keeps its name), *method (batch) effect*,
+  *trek-rule closure*, *closure phase*, *globally glued / amalgamable* (not "flat"), *irreducible* (not
+  "centre-free" for OMLs), *tensor product of ultrafilters*. Gloss the rest at first use. Lean names stay frozen.
 - **Reversals cost.** When a result overturns something recently framed as central, lead with
   that, plainly, and update every place that asserts it.
 

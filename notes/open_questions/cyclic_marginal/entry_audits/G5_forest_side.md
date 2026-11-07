@@ -8,6 +8,8 @@ entries: thm.amalgamation, thm.path, thm.shape_lemma, thm.flat_iff_ideal
 
 # G5: the forest side. Entry-level pure audit
 
+*Terminology (added 2026-11-06, terminology pass).* "Flat" below = **globally glued / amalgamable**: the window family has a global section (Abramsky–Brandenburger 2011), here one ultrafilter on Ω. New text uses that term; "flat" was dropped because a flat connection can still have holonomy round a loop. Records below are kept as written. See `../../../programme/TERMINOLOGY_CROSSWALK.md`.
+
 **Puzzle (what is audited).** Windows look at pairs of coordinates. Each window gives a yes/no
 answer to every question about its pair, and neighbouring windows agree on the coordinate they
 share. If the windows form a tree, is there always one ultrafilter "world" that gives all these

@@ -37,6 +37,18 @@ is finitely additive, normalised, {0,1}-valued on D₃, and equals 1 on the stai
 C₀, C₁, C₂ with C₀ ∩ C₁ ∩ C₂ = ∅, so no ultrafilter on Ω reproduces it: the triangle carries a
 pointless state. Two-valuedness: a bad value forces (ultrafilter Ramsey for triples, `ramsey3`,
 plus two box identities, `pat_arith`) the cyclic or anticyclic pattern on an infinite P.
+
+Standard names (prose gloss, 2026-11-07; identifiers unchanged).
+* "Pointless" = no ultrafilter on Ω reproduces the state, i.e. it has no two-valued extension
+  to 2^Ω. Compare the stronger non-extendability of De Simone–Navara–Pták 2007 (Ex. 2.2), which
+  also forbids [0,1]-valued extensions. Unrelated to pointless topology (locales).
+* The eight-corner box identity (`Box`, `box_of_mem`) = no-three-way interaction: a vanishing
+  2×2×2 interaction contrast in counts (cf. Sullivant 2006; Bishop–Fienberg–Holland 1975
+  [unverified]).
+* The staircase (`stair01`, `stair12`, `stair20`) restricts, on each window, to the tensor
+  product p⊗p of the ultrafilter with itself in that window's orientation (Hindman–Strauss
+  §11.1). The glued functional `sstar` is not an ultrafilter on Ω; that is the theorem.
+See `notes/programme/TERMINOLOGY_CROSSWALK.md`.
 -/
 import Mathlib.MeasureTheory.PiSystem
 import Mathlib.MeasureTheory.MeasurableSpace.Pi

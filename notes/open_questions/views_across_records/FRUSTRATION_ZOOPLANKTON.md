@@ -5,6 +5,8 @@ reviewed: false. Theory: `HYPERGRAPH_CENTRES.md` F2 (owned, Boman et al. 2005). 
 and pairwise sources explain it whatever its strength. Competition (A–B negative) inside a shared environment (A–C, B–C positive) gives
 antibalanced triangles, which hide the shared driver at correlation level.
 
+**Convention note (added 2026-11-06, terminology pass).** "Frustrated" in this record means **not antibalanced** (frustration of −R). A signed-graph reader calls product −1 "frustrated" (Toulouse 1977; Zaslavsky; Harary 1953 says "unbalanced"), the opposite on triangles. The record is kept as written. "V_G" below is the same quantity as V₂ = ρ(|R − I|) − 1.
+
 ## Data
 NTL-LTER zooplankton (ntl37 rev 42), lakes AL, BM, CR, SP, TR. Per lake: species-level taxa (codes not ending in 00; excluding nauplii and unknowns)
 present (density > 0) in ≥ 80% of years' summer samples. Take the 8 with the highest mean summer density. Series = summer (Jun–Aug) mean

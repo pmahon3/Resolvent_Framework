@@ -85,3 +85,19 @@ which and why. No theorem in `CONVEX_GLUING_FRAMEWORK.md` is stated as settled u
 - **T3: OWNED** (Fang–Santos 2019 §4; Fang & Seo, Econometrica 2021).
 - **Surviving residue R:** on a cyclic cover with infinite local algebras, does trivial *ultrafilter holonomy* force coherence (a σ-additive / ordinary
   global point)? First check the shelf witnesses (Dravecký–Šipoš Ex. 6; Navara–Pták 1983) for trivial holonomy; Kellerer 1964 §§3–4 is unread.
+
+## Update after the T1 attempt (2026-11-06, `CONVEX_GLUING_T1_ATTEMPT.md`; machine-assisted, ⟦HAND⟧, not independently checked)
+- **T1 as drafted is a tautology.** With "locally ordinary" = principal on each window, compatible principal views give a point a, and δ_a is in the
+  fibre. With the weak* reading it is false (consensus ultrafilters).
+- **G3 resolved by a definition:** twist := **non-flatness**. A window family is *flat* if it glues to one ultrafilter. This separates the pointless
+  triangle (twisted) from consensus (flat). Principal families are always flat.
+- **Restated T1:** *no pointless state has a flat window family.* This is the programme's own open question O1 (`conj.window_restriction_r`: does the
+  window family determine the state?) in other words.
+- **Proved (⟦HAND⟧):**
+  - (i) a linearly extending state is determined by its window family (via the triangle Box identity `box_of_mem`, Lean);
+  - (ii) restated T1 holds on triangle-free finite graphs, incl. every ring L ≥ 4 (via `thm.shape_lemma`);
+  - (iii) finitely many sites + countable alphabet: a finitely additive gluing of σ-additive marginals is σ-additive.
+- **Open:** the triangle with an infinite alphabet. A counterexample must be a non-linear state. Such states exist on concrete logics (De Simone–Navara–Pták
+  Ex. 2.2, identity checked by script), and a triangle counterexample would transport to every graph containing a triangle.
+- **G4 (pointless) decision now concrete:** with twist := non-flat, recommendation (i) reads "pointless ⇒ twisted (non-flat)", and the flat (ideal-point)
+  case is exactly "not pointless".

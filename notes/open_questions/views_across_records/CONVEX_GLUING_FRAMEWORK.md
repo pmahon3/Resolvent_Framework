@@ -1,7 +1,8 @@
 # Convex gluing systems: one framework for existence, uniqueness and location (draft 2026-11-06)
 
 > ⚠ 2026-11-06 prior art: the framework definition is OWNED (Abramsky–Brandenburger; Kharoof–Okay 2025); strong T1 is FALSE (CHSH: no cohomological
-> twist, no joint); T3 is OWNED (Fang–Santos; Fang–Seo). Surviving residue: R (ultrafilter holonomy on cyclic covers). See `CONVEX_GLUING_EQUILIBRIUM_GATES.md`.
+> twist, no joint); T3 is OWNED (Fang–Santos; Fang–Seo). Surviving residue: R (ultrafilter holonomy on cyclic covers). **Restated T1 (T1 attempt):** no pointless state has a flat window family (= programme O1);
+> proved ⟦HAND⟧ for triangle-free graphs; **open on the triangle with infinite alphabet.** See `CONVEX_GLUING_EQUILIBRIUM_GATES.md`.
 
 reviewed: false. Machine-assisted (the user lifted the by-hand cap, 2026-11-06). Statements are drafts to be attacked. ⟦HAND⟧ marks unverified
 arguments. Prior-art check and proof attempts are running (`CONVEX_GLUING_PRIOR_ART.md`, `CONVEX_GLUING_T1_ATTEMPT.md`).

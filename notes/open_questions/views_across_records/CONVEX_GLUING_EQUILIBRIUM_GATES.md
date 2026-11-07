@@ -126,3 +126,17 @@ which and why. No theorem in `CONVEX_GLUING_FRAMEWORK.md` is stated as settled u
 - **Remaining open case = a purely finitely additive two-valued state on D₃ over an infinite alphabet** (the attempt note's gate).
 - **Book pointers (not yet blocking):** *Theory of Charges* §3.2 (Horn–Tarski; a signed version?), Thm 3.5.1(v), any uniqueness-of-extension result.
   Pták–Pulmannová 1991: no table of contents online; sections listed by topic.
+
+## Infinite-triangle attack (2026-11-06, `TRIANGLE_GATE_ATTEMPT.md`): neither proof nor counterexample; one rung proved ⟦HAND⟧
+- **Level-1 rigidity (⟦HAND⟧, finite scripts):** two two-valued states with the same window family agree on D¹ (countable disjoint unions of
+  window-event unions, and complements). Any alphabets; flatness not used. Gives s = Λ_u where Λ_u is a state (flat, principal, staircase).
+- Also:
+  - principal case: s = δ_a ⟺ s is σ-additive on D₃;
+  - over ℕ, D₃ ⊊ box sets (E* is a 0/1 pair-sum not in D₃);
+  - the De Simone–Navara–Pták Ex. 2.2 transport collapses into the same blocker.
+- **Counterexample shape:** at the first level k+1 ≥ 2 where two same-family states differ, F = H ⊔ ⊔ₙ(Ω∖Hₙ), with H, Hₙ ∈ Dᵏ and the Hₙ pairwise co-covering.
+- **Blockers:**
+  - **L1:** an alignment / normal-form lemma for complements at the next level (needed at every level).
+  - **L2:** rigidity when one vertex is finite with m ≥ 3 values (proved for m = 2).
+  - **L1′ shortcut:** "a two-valued state σ-additive on each of three σ-algebras is σ-additive on their Dynkin join" (settles the principal case only).
+  - Likely owners: the pinned hardcopies (Pták–Pulmannová 1991 concrete-logic chapters; *Theory of Charges* Ch. 3 §3.2). Exact locations unverified.

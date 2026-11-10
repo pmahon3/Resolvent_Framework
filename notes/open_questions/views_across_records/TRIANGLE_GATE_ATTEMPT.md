@@ -253,6 +253,38 @@ each, is σ-additive." This is the principal case only, so it would answer (B) o
   - Yes, but only with m ≥ 3 ⇒ L2 becomes the live blocker.
   - No ⇒ the non-factoring pair is the finite template for (A), and O1 leans false.
 
+## 5d. Hardcopy read: Bhaskara Rao & Bhaskara Rao, *Theory of Charges* (1983), Ch. 3 (user, 2026-11-10)
+
+Primary source, read by the user from the hardcopy; statements relayed in chat, not re-checked by a second reader.
+- **Def 3.2.1.** C any collection of subsets of Ω. μ is a *real partial charge* if Σμ(Aᵢ) = Σμ(Bⱼ) whenever
+  ΣI_{Aᵢ} = ΣI_{Bⱼ} (the functional T on L(C) is well defined); *positive* real partial charge: the same with ≤.
+- **Thm 3.1.9.** (b) the indicator-sum inequality ⟺ (c) T well defined and positive; (b) ⇒ μ ≥ 0; all three equivalent
+  for a charge on a field. This is the Horn–Tarski criterion.
+- **Prop 3.2.3.** Restrictions of (positive) real charges are (positive) real partial charges.
+- **Thm 3.2.4 / 3.2.5.** A real partial charge on C extends to C ∪ {A}, and to a real charge on any field F ⊇ C.
+- **Thm 3.2.7.** Ω ∈ C, μ positive partial charge: any positive partial-charge extension to C ∪ {A} has
+  μ_i(A) ≤ μ̄(A) ≤ μ_e(A).
+- **Thm 3.2.10.** Ω ∈ C, μ a positive real partial charge on C, F any field ⊇ C: there is a positive charge μ̄ on F
+  extending μ. (Proof: transfinite induction with Thm 3.2.9, as for 3.2.5.) This is the theorem Derr–Williamson 2023
+  Thm 4.5 cites, and the number in our notes is **confirmed correct**. (A same-day note here said 3.2.10 was a remark;
+  that was a misreading, withdrawn.)
+- **Not found in Ch. 3:** any {0,1}-valued statement; any statement about domains closed under complement and disjoint
+  union as such.
+- **Scope of our citations.** 3.2.10 is real-valued. Where our notes cite it for the two-valued trichotomy, one more
+  step is used ⟦HAND, unchecked; folklore⟧: the positive extensions of a two-valued state form a face of the charges on
+  F, so an extreme one is two-valued (an ultrafilter).
+
+**Reading ⟦HAND, unchecked⟧.**
+- The staircase family on window events is a real partial charge (Λ well defined) and not a positive one: the three
+  window events x₀≤x₁, x₁<x₂, x₂<x₀ have indicator sum ≤ 2 pointwise and value sum 3. So it extends to a signed charge on
+  all subsets (3.2.5) and to no positive charge (3.1.9). Owned (signed global sections, Abramsky–Brandenburger).
+- A state on D₃ is asked only to add over disjoint unions inside D₃, which is weaker than Def 3.2.1.
+  **Gate in the book's terms:** is every two-valued state on D₃ a real partial charge on D₃? If so, and if the
+  pair-sum representation of each D₃ indicator can be taken bounded (a finite combination of window indicators), the
+  window family fixes the state. Known on D_fin (s = Λ). This renames L1; it does not advance it.
+- The book owns existence and the uniqueness interval among partial charges. It does not address whether a
+  Dynkin-additive state is a partial charge. Blocker status of the Ch. 3 check: **discharged** for L1 (no shortcut).
+
 ## Bearing on WHY.md
 
 - **Loop and hidden idealisation.** On the triangle, questions patched in one round cannot hide a disagreement between

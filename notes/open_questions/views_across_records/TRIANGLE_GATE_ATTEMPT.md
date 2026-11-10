@@ -256,24 +256,33 @@ each, is σ-additive." This is the principal case only, so it would answer (B) o
 **FIRED 2026-11-10: NO, and vacuous** (`factor_gate.py`, 3×3×3). The gate was ill-posed on this grid.
 - co-R1 has 15,842 sets; 72 are not R1 sets (the finite cyclic orders of §5a). **None of the 72 factors through a
   2-class partition at any coordinate**, so no pair containing one can: 0 of 10,944 disjoint pairs (new, nonempty
-  co-R1) factor with m ≤ 2. With three values per coordinate, m = 3 is the identity partition and always factors.
+  co-R1; 10,764 unordered, the script double-counts the 180 new–new pairs) factor with m ≤ 2. Only pairs with a new
+  member were tested. The NO is forced on every grid: a set factoring through a 2-class partition is a pullback from
+  2×X×Y, hence of D¹ form by Step 4 (`TRIANGLE_5DE_CHECK.md` A1). With three values per coordinate, m = 3 is the identity partition and always factors.
   So the three pre-registered outcomes do not discriminate here; "O1 leans false" is **not** drawn.
 - Side facts (computed): 180 disjoint pairs among the 72; the grid splits into three of them in 24 ways, once with E₃
   as a part. The level sets of x₀+x₁+x₂ mod 3 are not in D₃.
 - **Corrected gate (pre-registered, not run).** The level-1 alignment says disjoint antipodal pairs share a 2-class
-  partition at some coordinate. Its level-2 analogue: two disjoint cyclic-order sets share their (≤ 3-class) partition
-  at some coordinate, or one refines the other. This needs ≥ 4 values on every coordinate (4×4×4 at least), with the
+  partition at some coordinate. Its level-2 analogue: two disjoint pullbacks of the 72 sets of 3³ share their 3-class partition
+  at some coordinate. (Fix 2026-11-10: "or one refines the other" dropped, it is void between 3-class partitions and
+  not an equivalence relation; "cyclic-order sets" made precise. The check finds the gate not forced by a known lemma,
+  feasible without closure, and moot if its claim C6 survives.) This needs ≥ 4 values on every coordinate (4×4×4 at least), with the
   cyclic-order sets generated directly (the closure is too heavy). Yes ⇒ attempt L1 by the Step 3–5 pattern with a
   3-point vertex (then L2 at m = 3 is needed). No ⇒ a non-aligned disjoint pair, the finite template for (A).
   Before running: confirm the outcome is not forced by a known lemma (lesson of §5b).
 
-**§5e. The gate sits entirely on D₃∖D_fin ⟦HAND, 2026-11-10, unchecked⟧.**
+**§5e. The gate sits entirely on D₃∖D_fin ⟦HAND, 2026-11-10; independently checked, `TRIANGLE_5DE_CHECK.md` C1–C5:
+correct with the two wording fixes applied below⟧.**
+> **Claimed reversal, UNVERIFIED (2026-11-10).** The same check claims a hand proof that **D₃ = D_fin over any
+> alphabets** (its C6), which would close the gate YES (O1 holds on the triangle). It has been checked by nobody but
+> its author. Not propagated: the verdict line above, the taxonomy and CLAUDE.md are unchanged pending
+> `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`.
 - On D_fin a state respects every indicator identity (it is a real partial charge there): {F : s(F) = Λ(1_F)} holds
   the window events and is closed under complement and finite disjoint union; Λ is well defined on bounded pair-sums.
-- For F = ⊔Fₙ with every Fₙ finitary: if some s(Fₙ) = 1 then s(F) = 1. If all are 0, additivity leaves s(F) free,
+- For F = ⊔Fₙ with every Fₙ finitary: if some s(Fₙ) = 1 then s(F) = 1. If all are 0, this step does not force s(F),
   unless F is itself finitary. So two same-family states can differ only on a set of D₃∖D_fin.
 - **No member of D₃(ℕ³)∖D_fin is known.** Level 1 gives D¹ ⊆ D_fin. Pieces confined to a product of proper subsets are
-  excluded (box identity). So the sharp form of the gate is: **is D_fin closed under countable disjoint unions?**
+  excluded (box identity). A sufficient form of the gate (equivalent to D₃ = D_fin, only sufficient for O1) is: **is D_fin closed under countable disjoint unions?**
   Yes ⇒ D₃ = D_fin and O1 holds on the triangle. No ⇒ the witness set is where a disagreement must be sought.
 
 ## 5d. Hardcopy read: Bhaskara Rao & Bhaskara Rao, *Theory of Charges* (1983), Ch. 3 (user, 2026-11-10)
@@ -294,17 +303,19 @@ Primary source, read by the user from the hardcopy; statements relayed in chat, 
 - **Not found in Ch. 3:** any {0,1}-valued statement; any statement about domains closed under complement and disjoint
   union as such.
 - **Scope of our citations.** 3.2.10 is real-valued. Where our notes cite it for the two-valued trichotomy, one more
-  step is used ⟦HAND, unchecked; folklore⟧: the positive extensions of a two-valued state form a face of the charges on
-  F, so an extreme one is two-valued (an ultrafilter).
+  step is used ⟦HAND, checked `TRIANGLE_5DE_CHECK.md` B3; folklore⟧: the positive extensions of a two-valued state form
+  a face of the probability charges on F, nonempty by 3.2.10 (positive μ only, so not for the staircase) and compact,
+  so by Krein–Milman it has an extreme point, which is two-valued (an ultrafilter).
 
 **Reading ⟦HAND, unchecked⟧.**
-- The staircase family on window events is a real partial charge (Λ well defined) and not a positive one: the three
-  window events x₀≤x₁, x₁<x₂, x₂<x₀ have indicator sum ≤ 2 pointwise and value sum 3. So it extends to a signed charge on
+- (Fixes from `TRIANGLE_5DE_CHECK.md` B1–B4 applied 2026-11-10.) The staircase family on window events is a real partial charge (Λ well defined) and not a positive one: the three
+  window events x₀≤x₁, x₁<x₂, x₂<x₀ have indicator sum ≤ 2 pointwise and value sum 3 (Lean has the strict events, `sstar_C₀/C₁/C₂` = 1; the value 1 on
+  x₀≤x₁ is by hand). So it extends to a signed charge on
   all subsets (3.2.5) and to no positive charge (3.1.9). Owned (signed global sections, Abramsky–Brandenburger).
 - A state on D₃ is asked only to add over disjoint unions inside D₃, which is weaker than Def 3.2.1.
-  **Gate in the book's terms:** is every two-valued state on D₃ a real partial charge on D₃? If so, and if the
-  pair-sum representation of each D₃ indicator can be taken bounded (a finite combination of window indicators), the
-  window family fixes the state. Known on D_fin (s = Λ). This renames L1; it does not advance it.
+  **Gate in the book's terms:** is every two-valued state on D₃ a real partial charge on D₃? If so, the window family fixes the state: the box identity with a base point writes every D₃ indicator as seven
+  window indicators, so no boundedness caveat is needed. Known on D_fin (s = Λ). This is "s = Λ on D₃": sufficient for
+  O1 and a priori stronger than L1, not a renaming of it.
 - The book owns existence and the uniqueness interval among partial charges. It does not address whether a
   Dynkin-additive state is a partial charge. Blocker status of the Ch. 3 check: **discharged** for L1 (no shortcut).
 

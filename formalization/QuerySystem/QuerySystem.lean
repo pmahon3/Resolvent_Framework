@@ -71,6 +71,7 @@ import QuerySystem.TheoremB
 import QuerySystem.ThickTrace
 import QuerySystem.TransportGeneral
 import QuerySystem.TriangleCyclic
+import QuerySystem.TriangleFinitary
 import QuerySystem.UlamWitnessCore
 import QuerySystem.UlamWitnessFidelity
 import QuerySystem.UlamWitnessInvariant

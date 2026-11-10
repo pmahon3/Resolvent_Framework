@@ -253,6 +253,29 @@ each, is σ-additive." This is the principal case only, so it would answer (B) o
   - Yes, but only with m ≥ 3 ⇒ L2 becomes the live blocker.
   - No ⇒ the non-factoring pair is the finite template for (A), and O1 leans false.
 
+**FIRED 2026-11-10: NO, and vacuous** (`factor_gate.py`, 3×3×3). The gate was ill-posed on this grid.
+- co-R1 has 15,842 sets; 72 are not R1 sets (the finite cyclic orders of §5a). **None of the 72 factors through a
+  2-class partition at any coordinate**, so no pair containing one can: 0 of 10,944 disjoint pairs (new, nonempty
+  co-R1) factor with m ≤ 2. With three values per coordinate, m = 3 is the identity partition and always factors.
+  So the three pre-registered outcomes do not discriminate here; "O1 leans false" is **not** drawn.
+- Side facts (computed): 180 disjoint pairs among the 72; the grid splits into three of them in 24 ways, once with E₃
+  as a part. The level sets of x₀+x₁+x₂ mod 3 are not in D₃.
+- **Corrected gate (pre-registered, not run).** The level-1 alignment says disjoint antipodal pairs share a 2-class
+  partition at some coordinate. Its level-2 analogue: two disjoint cyclic-order sets share their (≤ 3-class) partition
+  at some coordinate, or one refines the other. This needs ≥ 4 values on every coordinate (4×4×4 at least), with the
+  cyclic-order sets generated directly (the closure is too heavy). Yes ⇒ attempt L1 by the Step 3–5 pattern with a
+  3-point vertex (then L2 at m = 3 is needed). No ⇒ a non-aligned disjoint pair, the finite template for (A).
+  Before running: confirm the outcome is not forced by a known lemma (lesson of §5b).
+
+**§5e. The gate sits entirely on D₃∖D_fin ⟦HAND, 2026-11-10, unchecked⟧.**
+- On D_fin a state respects every indicator identity (it is a real partial charge there): {F : s(F) = Λ(1_F)} holds
+  the window events and is closed under complement and finite disjoint union; Λ is well defined on bounded pair-sums.
+- For F = ⊔Fₙ with every Fₙ finitary: if some s(Fₙ) = 1 then s(F) = 1. If all are 0, additivity leaves s(F) free,
+  unless F is itself finitary. So two same-family states can differ only on a set of D₃∖D_fin.
+- **No member of D₃(ℕ³)∖D_fin is known.** Level 1 gives D¹ ⊆ D_fin. Pieces confined to a product of proper subsets are
+  excluded (box identity). So the sharp form of the gate is: **is D_fin closed under countable disjoint unions?**
+  Yes ⇒ D₃ = D_fin and O1 holds on the triangle. No ⇒ the witness set is where a disagreement must be sought.
+
 ## 5d. Hardcopy read: Bhaskara Rao & Bhaskara Rao, *Theory of Charges* (1983), Ch. 3 (user, 2026-11-10)
 
 Primary source, read by the user from the hardcopy; statements relayed in chat, not re-checked by a second reader.

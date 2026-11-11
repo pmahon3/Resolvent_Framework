@@ -6,6 +6,146 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 
 ---
 
+## 2026-11-10 (late night): richness ↔ synchrony, and observability that depends on the phase (lens; night science; corrected after a summary-level check)
+- **The author's upshot:** the practical object is phenomena (networks) that can switch regimes from **maximal
+  richness to total synchrony**. **The switch changes the very nature of the phenomenon's observability.** This is the
+  thread joining the two entries below.
+- **Mechanism (share/total decomposition; lens):** a shared finite resource has a total T split into shares sᵢ, so
+  node i receives sᵢ·T.
+  - *Share variance:* the shares sum to 1, so each node has at least one negative covariance (Chayes 1960). All
+    pairs are negative only for special share laws (Dirichlet). The result is compensatory structure with high
+    effective dimension. *(Corrected: not "the centre hidden". If T does not move at all there is no cause to hide;
+    with a little movement in T it is a weak common factor.)*
+  - *Total variance:* the total hits every node with the same sign. The result is synchrony: effective dimension ≈ 1,
+    with the centre all you can see.
+  - **The regime change needs no new coupling,** only variance shifting from the shares to the total (T stalls or
+    binds). Same network, same constraint, different phase. *(Known: Forbes–Rigobon 2002; Boyer–Gibson–Loretan 1999.)*
+- **Against owned theory:**
+  - Kuramoto (rising coupling to a mean field): here the mean field's own variance rises instead.
+  - Moran effect: a shared driver, but one that does not also produce a compensatory phase.
+  - Hubbell zero-sum dynamics.
+  - The Loreau–de Mazancourt synchrony decomposition.
+  - Houlahan et al. 2007: compensatory dynamics are rarer than expected, a caution.
+  - Finance: "correlations go to one in a crisis"; the absorption ratio (Kritzman) as effective dimension.
+- **Observability depends on the phase (the core point):**
+  - Standard critical transitions become *more* legible near the tipping point: critical slowing down, rising
+    variance and autocorrelation (Scheffer et al.; owned).
+  - Here the approach is *masked*. Share competition scrambles the centre's signature (the 2026-11-06 antibalanced
+    result), so correlation-based warnings are suppressed by the dynamics that create the risk. What follows is
+    abrupt legibility.
+  - **The blindness feeds back:** observers inside the system read low correlation as diversification, act on it
+    (leverage, concentration on the shared resource) and raise the stakes. Owned economic cousins: Minsky,
+    "stability is destabilising"; Brunnermeier–Sannikov's volatility paradox. Antibalanced hiding supplies the
+    structural reason the stability *looks* real.
+  - **Warning signs live in the total, not the correlations:** measure the centre directly (the variance of T against
+    share churn) instead of inferring it from the nodes. *(Corrected: if the nodes add up to the whole total, the
+    variance of T is the sum of all the covariances, so this is the same data, not new information. It helps only
+    when T is observed independently. And Kritzman et al. report their ratio rising before turbulence, which cuts
+    against "masked".)*
+- **For the stance (answers first):** with the questions one can ask held fixed, whether they reveal a centre depends
+  on the phase. *(Corrected: this is the standard notion that what can be identified depends on where the truth sits;
+  keep it as vocabulary, not as a new seam. In econometrics a variance regime shift usually* helps *identification,
+  Rigobon 2003.)*
+- **Prediction withdrawn.** "The share/total ratio should shift before correlation rises" cannot work: in this model
+  correlation is a function of that ratio, so they carry the same information.
+- **What the check turned up (ours, unclaimed; hand + simulation, one agent, unchecked):** there is a range where
+  every pair of nodes is positively correlated and the model-free common-cause test still registers nothing. Example,
+  5 nodes with even shares: correlations turn positive early, but the test only responds once the total's swings are
+  about four times larger. With very uneven shares it never responds. This is a fact about the tool's sensitivity
+  (the applied "power" gap of 2026-11-06), not a new theory.
+- **Status:** lens. Mechanism assembled from owned pieces; no seam survives as first stated. Checked 2026-11-10 against the literature at summary level only (abstracts, no full papers): `notes/open_questions/views_across_records/PHASE_IDENTIFIABILITY_PRIOR_ART.md`.
+  Worth a full read: Loreau–de Mazancourt 2008, which appears to state the share/total split in other words.
+- **Honest distance:**
+  - "Maximal" and "total" are idealised ends; real transitions are partial.
+  - Systems with several resources can have partial centres.
+  - Nothing has been shown on data yet.
+
+## 2026-11-10 (night): is information a finite resource? (lens; night science, from a conversation; corrected after a summary-level check)
+- **The author's question:** "is information a finite resource? … it depends, specifically on what the information is
+  about." Refinement offered: it depends on *which operations count as free* and on *which questions can be jointly
+  asked*, more than on the subject matter.
+- **Four kinds:**
+  1. **Copies:** non-rival, so not finite. What sits in the span V of the askable is shared by everyone once a context
+     reveals it.
+  2. **Derivations:** unlimited in volume, bounded in content. By the data processing inequality, processing cannot
+     add information about the world (owned). *(Corrected: this is not the mechanism of AI model collapse. Collapse is
+     estimation error compounding when generated data replace real data, Shumailov et al. 2024, and it is avoided
+     when real data keep accumulating.)* Synthetic data adds nothing beyond what its generator already holds.
+  3. **Contact:** new information *about* something needs a measurement, record or transaction. It is finite in
+     rate and costly. Grossman–Stiglitz (1980): prices cannot be fully informative when information is costly
+     (owned; corrected wording).
+  4. **Absent:** the joint question no context asks (outside V). It is unavailable at *any* price until a new context
+     exists (an instrument, a record, or reality itself, e.g. an option's expiry).
+- **Resource-theory form:** fix the free operations (copying, processing). Information about the world is then a
+  resource, and the data processing inequality is its monotone. Contextuality has been treated as a resource in the
+  same way (Abramsky–Barbosa–Mansfield 2017; owned).
+- **Where it parts from the economics:** *(corrected)* complete-markets models assume every question can be asked at
+  some price; Grossman–Stiglitz itself does not. "Absent, not merely scarce" is already known as missing or
+  incomplete markets. What is specific here is only the cause: the gap can come from a loop in which questions can be
+  asked together.
+- **Bridges (lens):**
+  - *AI scaling:* if the binding input is fresh contact with the world rather than compute, extra capex runs into the
+    data processing inequality, which would give the logistic curve. A bend in capability slope while compute keeps
+    rising would point to the informational reading.
+  - *Markets:* coupling through a shared finite resource is information the price system structurally lacks.
+  - *Ecology:* populations register a shared driver only through contact with it; synchrony is the record of that
+    contact.
+- **Against the four questions:** *Loop:* yes; the absent kind lives on loops. *Unaskable joint question:* that is
+  the absent category itself. *Hidden idealisation:* the economics presumes every question is priceable.
+  *Circle, or composition?* Not yet clear.
+- **Status:** lens. The four kinds and the resource-theory reading are assembled from owned pieces. "Absent ≠ scarce"
+  is owned (missing markets). "The AI bend would be informational" is conjectural and unsourced. Checked 2026-11-10 against the literature at summary level only (abstracts, no full papers): `notes/open_questions/views_across_records/PHASE_IDENTIFIABILITY_PRIOR_ART.md`.
+- **Where:** conversation only (trading session, 2026-11-10). Companion entry: the option-markets entry below.
+
+## 2026-11-10 (later): option markets as a gluing problem (lens; from a trading conversation; corrected after a summary-level check)
+- **Claim (lens):** option prices are local views. Each chain is a context: a single name, or an ETF read as a linear
+  *projection* of its basket. No-arbitrage is the claim that the contexts glue into one global pricing measure.
+  - EA ↔ pairwise no-arbitrage (ETF vs its basket, CDS vs bond, calendar spreads).
+  - PR ↔ one risk-neutral measure.
+  - A Farkas certificate of non-gluing ↔ an arbitrage portfolio. The fundamental theorem of asset pricing is this
+    duality exactly only for finitely many states; in general it needs extra closure conditions (Harrison–Kreps
+    1979; Dalang–Morton–Willinger 1990; owned; corrected).
+  - Bid–ask turns equalities into intervals (Jouini–Kallal 1995; owned).
+  - *(Added.)* This whole reading is mostly the field's own, in other words: "arbitrage = Dutch book = outside a
+    marginal polytope" is de Finetti and Pitowsky, and Steeger–Teh 2018 already ties Dutch books to the
+    Abramsky–Brandenburger hierarchy.
+- **Trees glue, in time:** one stock's expiries form a chain. Marginals increasing in convex order always glue into a
+  martingale (Strassen 1965; owned). *(Corrected: the tree analogy is loose; the martingale condition is Strassen's,
+  not Vorob'ev's.)*
+- **Loops, across overlapping baskets:**
+  - Single-name chains alone are disjoint contexts, so they always glue (vacuous).
+  - Overlapping baskets make the context hypergraph cyclic: NVDA, AVGO and AMD sit in SMH, QQQ and XLK at once.
+  - Dealers enforce coherence pairwise (each ETF against its own basket).
+  - The hidden-twist analogue: every two-instrument check passes, yet there is no global measure. The certificate is
+    then an arbitrage needing legs in every context round the loop, so limits to arbitrage gain a *topological*
+    component.
+  - Nearby owned ground: PSD completion is guaranteed on chordal patterns (Grone–Johnson–Sá–Wolkowicz 1984); the
+    dependence-uncertainty literature (Rüschendorf, Puccetti, Embrechts, Wang); martingale transport bounds for one
+    asset across expiries (Beiglböck–Henry-Labordère–Penkner 2013; corrected, not cross-asset); overlapping baskets
+    as static-arbitrage bounds (d'Aspremont–El Ghaoui 2006; Hobson–Laurence–Wang 2005).
+- **Antibalanced competition hides the finite-resource centre:** this applies the 2026-11-06 Crystal Lake observation.
+  - A sector of firms competing pairwise for the same contracts shows low correlation and high dispersion. In the AI
+    compute cluster, 2026, the absorption ratio is near a record low [data claim, unchecked].
+  - On the zooplankton finding, scattered pairwise competition is exactly what hides a shared driver. So low
+    correlation is not evidence that no shared finite resource (power, capital, end-user revenue) binds them.
+  - Centres map as follows:
+    - pricing kernel or shared resource = shared driver;
+    - dealers' common balance sheets and vol-surface models = shared protocol (a method effect; question 5, "rule or
+      cause?").
+- **Real loop, star-shaped questions:** the actual exposure graph is cyclic (circular financing among chip vendor,
+  labs, clouds and lenders). The questions one can ask (instruments) form roughly a star: single names plus a few
+  indices. The loop's closure is a joint question no context asks, so no price must reflect it (WHY question 2).
+- **Status:** lens, and mostly a restatement of known finance in this programme's words. A sheaf-theoretic account
+  of no-arbitrage was not found in two searches (a weak negative). Possible question: gluing with overlapping
+  *linear-projection* (basket) contexts rather than pair tables. Not claimed. Checked 2026-11-10 against the literature at summary level only (abstracts, no full papers): `notes/open_questions/views_across_records/PHASE_IDENTIFIABILITY_PRIOR_ART.md`.
+- **Honest distance:**
+  - The triangle results concern pair-marginal tables, but option data gives one-dimensional marginals plus
+    projections: a different marginal problem.
+  - Bid–ask noise may swamp any hidden incoherence (as in the merging gap).
+  - The model-free common-cause test could in principle run on daily implied-vol co-movements, but option panels are
+    short (power).
+- **Where:** conversation only. Applied side: `~/Projects/trading`.
+
 ## 2026-11-10: the triangle hides nothing above its windows (ours, unclaimed; hand + partial Lean)
 - **Claim:** on the triangle of three pair-queries, every question the carrier can ask is three window questions plus
   one question on a finite coarse-graining. So an answer pattern is fixed by what the windows say.

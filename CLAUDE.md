@@ -94,7 +94,7 @@ which window-graph shape lets them be pointless.
 - State (2026-10-21): the finite triangle is classified. It hides
   a probabilistic twist iff not compressed (sorted r₂≥4, r₃≥3). **2026-10-26 audit: this
   equivalence is OWNED (Sullivant 2006 Thm 2.4(2) + Prop 5.8, plus Farkas); surviving kernel =
-  carrier contains all 0/1 span vectors at compressed sizes** (`hidden_failure/AUDIT_PHASE2.md`). The yes/no
+  carrier contains all 0/1 span vectors at compressed sizes** (`hidden_failure/AUDIT_PHASE2.md`). **2026-11-10: holds at every finite size** (always closed, positive iff compressed; Lean core `box_iff_mem_of_finDet` + short hand identification, exact at 3×4×4; prior art weak pass; not claimed; `views_across_records/TRIANGLE_CONSEQUENCES_CHECK.md` C2). The yes/no
   pointless side needs infinity (Lean).
 - **2026-11-10 (reversal of the open "triangle gate"): the triangle carrier is finitary.** D₃ = D_fin: every carrier
   set is three window events ⊔ one finite-grid pattern, so the window family determines the state. Evidence: hand proof, two independent checks; **fully machine-checked** the same day (`TriangleFinitary.lean`: `mem_dfin`, `state_ext`, `normal_form`, no `sorry`; alphabet ℕ); prior art: one weak scout pass, nearest sources unread; not claimed.

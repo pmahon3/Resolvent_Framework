@@ -1,5 +1,7 @@
 # Re-audit (audit skill v2.1, mode full): hidden failure, narrowed (2026-10-27)
 
+> **Banner 2026-11-10 (scope change; the body below is the dated verdict and is not altered).** The kernel this audit records as "D = V01 at compressed sizes (r×s×2, r×3×3)" now holds more widely: D = all 0/1 vectors of V₀₁ at EVERY finite size, not only the compressed ones. In Ovchinnikov's (PAMS 1999) terms: the finite triangle logic is always closed; it is positive iff compressed. The classification "hides a probabilistic twist iff not compressed" (owned: Sullivant 2006 Thm 2.4(2) + Prop 5.8, plus Farkas) is unchanged: at non-compressed sizes the hidden state is separated from mixtures by a non-0/1 non-negative span vector, never by a missing yes/no question. Evidence level: Lean-checked core, `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, theorem `box_iff_mem_of_finDet` (for a subset of ℕ³ determined by finitely many labels per coordinate: box identity ⟺ carrier set), no `sorry`; plus two short hand identifications, checked by one agent (`notes/open_questions/views_across_records/TRIANGLE_CONSEQUENCES_CHECK.md`, C2): (a) box set ⟺ 0/1 vector of V₀₁ (the box identity with a base point writes the indicator as seven pair terms), (b) finite grid ⟷ finitely-labelled subsets of ℕ³ by pullback along a coordinatewise map with a section; exact computation at the non-compressed size 3×4×4 (|B| = |D₃| = 1,299,250) and sampled certificates at 4×4×4, 3×4×5, 4×4×5; exact 3×4×4 hidden-state certificate `notes/open_questions/verification/triangle_gate/hidden_state_344_exact_on_box_sets.py` (single agent, unreviewed). Prior art for the all-sizes form: one weak scout pass (`notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md`: partly owned vocabulary, Ovchinnikov 1999; no source found stating it; unread caps Sultanbekov 1996, Fishburn–Lagarias–Reeds–Shepp 1990/91, Kemperman 1991, Pták–Pulmannová 1991). Not claimed as new. This audit's verdict on the compressed-size statement is not itself re-audited. The owed exact 3×4×4 certificate now exists (`hidden_state_344_exact_on_box_sets.py`, unreviewed).
+
 reviewed: false. Auditor: Claude (opus), fresh context. Target: `SEED.md` as narrowed by its "Sullivant read"
 section. Items: (a) carrier relaxation exact ⇔ compressed; (b) the kernel D = V₀₁ at compressed sizes;
 (c) an exposition. Supporting files read: `definitions_draft.md` §§16, 18, 21, 22; `merging_seam_prior_art.md`;
@@ -31,7 +33,7 @@ bars are declared in the seed.
 - Let V₀₁ be the set of 0/1 vectors in the linear span of the pair-cell indicators. Then D ⊆ V₀₁ trivially:
   complement and disjoint union preserve both span membership and the 0/1 property.
 - **Kernel (b) reads: the concrete logic D contains every 0/1 element of its own linear span.** It is claimed
-  at sizes r×s×2 and r×3×3.
+  at sizes r×s×2 and r×3×3. [2026-11-10: see banner]
 
 ### Pure Verdict
 **(a) KNOWN modulo (b).**
@@ -235,7 +237,7 @@ Main risk a referee would raise: full scope: "the central 'every check you can r
 
 ## Owed exactness items (consolidated)
 1. **3×4×4 hiddenness (Λ ≥ 0 on every 0/1 span vector):** float MILP (`certify_344.py`, solver optimality
-   certificate). **Owed: an exact certificate.** The "no joint" half is exact (±1 score certificate, hand, and
+   certificate). **Owed: an exact certificate.** [2026-11-10: see banner] The "no joint" half is exact (±1 score certificate, hand, and
    integer g with Λ(g) = −1/9).
 2. **Exclusivity comparison:** exact at 3×3×3 per the brief. The script was not located by this audit; record
    its path. Extension to r×3×3 needs the zero-padding lemma ⟦HAND, owed⟧.

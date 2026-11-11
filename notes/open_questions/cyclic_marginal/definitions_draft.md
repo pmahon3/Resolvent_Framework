@@ -774,6 +774,8 @@ twist locates the disagreement exactly.
 
 ## 18. Problem 2(b): what the 3×4×4 hidden twist looks like (2026-10-21) ⟦candidate; certified on a supply, not on all of D⟧
 
+**2026-11-10:** now exact on all of D = V₀₁ at 3×4×4 (all 1,299,250 0/1 span vectors, integers only): `notes/open_questions/verification/triangle_gate/hidden_state_344_exact_on_box_sets.py` (single agent, unreviewed). Full evidence level: the 2026-11-10 clause on the REVERSAL banner at the end of §21.
+
 **Computation** (`verification/hidden_twist_344.py`; output saved alongside).
 - Minimise Λ(g) for an exact non-binary extreme ray g, over consistent pair laws with Λ ≥ 0 on a
   supply of **592,185 buildable sets**. The supply is pullbacks of the exact carriers at 3×3×3,
@@ -1067,7 +1069,7 @@ no r×s×2 triangle hides a twist.**
   - whether these 120 are relabellings of one pattern (orbit count under 3!·4!·4! value
     permutations; vertices not saved this run);
   - whether S′ has hidden vertices not reachable this way;
-  - whether S′ = S (the carrier-state set itself).
+  - whether S′ = S (the carrier-state set itself). **2026-11-10:** answered yes at every finite size: S′ = S because D = V₀₁ (Lean core `box_iff_mem_of_finDet` + two hand identifications checked by one agent; exact at 3×4×4; prior art one weak scout pass; not claimed as new; full evidence level at the REVERSAL banner at the end of §21).
 
 **r×3×3 (the remaining case of "hiding ⇔ non-compressed"): reduction recorded.**
 - Slices along x₀ pairwise differ by additive {−1,0,1} patterns on 3×3. Merging x₀-values with
@@ -1096,7 +1098,7 @@ no r×s×2 triangle hides a twist.**
   becomes substantive only at larger sizes (4×4×4, 5×4×3), where several ray orbits may exist:
   do all their extremal hidden twists reduce to embedded copies of this pattern?
 
-> **REVERSAL 2026-10-26 (Phase-2 audit):** 2026-10-26 audit: the equivalence itself is Sullivant 2006 Thm 2.4(2) + Prop 5.8 restated, plus Farkas; not ours. Surviving candidate kernel: the carrier contains every 0/1 span vector at compressed sizes (r×s×2, r×3×3), strictly stronger than exclusivity at r×3×3. Owed: Ovchinnikov 1999 read; exact 3×4×4 certificate. `cyclic_marginal/hidden_failure/AUDIT_PHASE2.md`
+> **REVERSAL 2026-10-26 (Phase-2 audit):** 2026-10-26 audit: the equivalence itself is Sullivant 2006 Thm 2.4(2) + Prop 5.8 restated, plus Farkas; not ours. Surviving candidate kernel: the carrier contains every 0/1 span vector at compressed sizes (r×s×2, r×3×3), strictly stronger than exclusivity at r×3×3. Owed: Ovchinnikov 1999 read; exact 3×4×4 certificate. `cyclic_marginal/hidden_failure/AUDIT_PHASE2.md` **2026-11-10:** new scope: D = all 0/1 vectors of V₀₁ at EVERY finite size, not only the compressed ones. In Ovchinnikov's (PAMS 1999) terms: the finite triangle logic is always closed; it is positive iff compressed. The classification "hides a probabilistic twist iff not compressed" (owned: Sullivant 2006 Thm 2.4(2) + Prop 5.8, plus Farkas) is unchanged: at non-compressed sizes the hidden state is separated from mixtures by a non-0/1 non-negative span vector, never by a missing yes/no question. Evidence level: Lean-checked core, `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, theorem `box_iff_mem_of_finDet` (for a subset of ℕ³ determined by finitely many labels per coordinate: box identity ⟺ carrier set), no `sorry`; plus two short hand identifications, checked by one agent (`notes/open_questions/views_across_records/TRIANGLE_CONSEQUENCES_CHECK.md`, C2): (a) box set ⟺ 0/1 vector of V₀₁ (the box identity with a base point writes the indicator as seven pair terms), (b) finite grid ⟷ finitely-labelled subsets of ℕ³ by pullback along a coordinatewise map with a section; exact computation at the non-compressed size 3×4×4 (|B| = |D₃| = 1,299,250) and sampled certificates at 4×4×4, 3×4×5, 4×4×5; exact 3×4×4 hidden-state certificate `notes/open_questions/verification/triangle_gate/hidden_state_344_exact_on_box_sets.py` (single agent, unreviewed). Prior art for the all-sizes form: one weak scout pass (`notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md`: partly owned vocabulary, Ovchinnikov 1999; no source found stating it; unread caps Sultanbekov 1996, Fishburn–Lagarias–Reeds–Shepp 1990/91, Kemperman 1991, Pták–Pulmannová 1991). Not claimed as new.
 
 ## 22. CLASSIFICATION: a triangle hides a probabilistic twist ⇔ its marginal polytope is not compressed (2026-10-21) ⟦THEOREM modulo owned results (Sullivant, Ohsugi–Hibi, Maharam) and finite exact enumerations; prior-art pass on the combination pending⟧
 
@@ -1164,7 +1166,7 @@ r₂ ≥ 4 and r₃ ≥ 3**. Equivalently, iff the no-three-way-interaction conf
   - the dual test (Maharam 6.1; possibly also Berti–Rigo on finitely additive mixtures of coherent
     functionals, unchecked).
 - **Not found:**
-  - (c) the λ-closure containing every 0/1 span vector at compressed sizes;
+  - (c) the λ-closure containing every 0/1 span vector at compressed sizes; **2026-11-10:** holds at every finite size (Lean core `box_iff_mem_of_finDet` + two hand identifications checked by one agent; exact at 3×4×4; prior art one weak scout pass; not claimed as new); compressedness enters only through positivity.
   - (d) the hidden finitely additive state at non-compressed sizes, read on the carrier;
   - the equivalence itself.
 - **Closest neighbour (shelved, abstract read):** Burešová–Pták–Ševic, arXiv:2609.10770 (Sept
@@ -1203,6 +1205,6 @@ r₂ ≥ 4 and r₃ ≥ 3**. Equivalently, iff the no-three-way-interaction conf
 - **Updated verdict on §22:**
   - Ingredients (a) and (b) and the size table are owned.
   - The equivalence "state on the carrier is a mixture ⇔ compressed", via (c) (the λ-closure
-    contains every 0/1 span vector at compressed sizes) and (d) (the carrier reading of the hidden
+    contains every 0/1 span vector at compressed sizes) [**2026-11-10:** at every finite size; Lean core `box_iff_mem_of_finDet` + two hand identifications checked by one agent; exact at 3×4×4; prior art one weak scout pass; not claimed as new] and (d) (the carrier reading of the hidden
     state), was **not found** after two passes.
   - Coverage is still moderate (snippet level in algebraic statistics).

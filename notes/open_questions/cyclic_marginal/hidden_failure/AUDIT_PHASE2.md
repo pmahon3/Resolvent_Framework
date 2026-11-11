@@ -1,5 +1,7 @@
 ## Audit: notes/open_questions/cyclic_marginal/hidden_failure/SEED.md (mode: full) — Phase 2, 2026-10-26
 
+> **Banner 2026-11-10 (scope change; the body below is the dated verdict and is not altered).** The kernel this audit records as "D = V01 at compressed sizes (r×s×2, r×3×3)" now holds more widely: D = all 0/1 vectors of V₀₁ at EVERY finite size, not only the compressed ones. In Ovchinnikov's (PAMS 1999) terms: the finite triangle logic is always closed; it is positive iff compressed. The classification "hides a probabilistic twist iff not compressed" (owned: Sullivant 2006 Thm 2.4(2) + Prop 5.8, plus Farkas) is unchanged: at non-compressed sizes the hidden state is separated from mixtures by a non-0/1 non-negative span vector, never by a missing yes/no question. Evidence level: Lean-checked core, `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, theorem `box_iff_mem_of_finDet` (for a subset of ℕ³ determined by finitely many labels per coordinate: box identity ⟺ carrier set), no `sorry`; plus two short hand identifications, checked by one agent (`notes/open_questions/views_across_records/TRIANGLE_CONSEQUENCES_CHECK.md`, C2): (a) box set ⟺ 0/1 vector of V₀₁ (the box identity with a base point writes the indicator as seven pair terms), (b) finite grid ⟷ finitely-labelled subsets of ℕ³ by pullback along a coordinatewise map with a section; exact computation at the non-compressed size 3×4×4 (|B| = |D₃| = 1,299,250) and sampled certificates at 4×4×4, 3×4×5, 4×4×5; exact 3×4×4 hidden-state certificate `notes/open_questions/verification/triangle_gate/hidden_state_344_exact_on_box_sets.py` (single agent, unreviewed). Prior art for the all-sizes form: one weak scout pass (`notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md`: partly owned vocabulary, Ovchinnikov 1999; no source found stating it; unread caps Sultanbekov 1996, Fishburn–Lagarias–Reeds–Shepp 1990/91, Kemperman 1991, Pták–Pulmannová 1991). Not claimed as new. This audit's verdict on the compressed-size statement is not itself re-audited. The owed exact 3×4×4 certificate now exists (`hidden_state_344_exact_on_box_sets.py`, unreviewed). "3×3×4 is float-level only, since D was not closed" below means the closure was not computed.
+
 reviewed: false. Hostile referee, opus. Shelf first (SHELF_INDEX, taxonomy `owned_regions`), then about 10 standard web
 searches. Read levels are given per source. One probe was computed for this audit (§2), with its script kept outside
 the repo at `notes/open_questions/verification/audit_exclusivity/ (copied from /tmp/audit_ce/)ce1_test.py`. Nothing in the repo was edited except this file.
@@ -33,7 +35,7 @@ Let K_{V01} be the set of μ that are ≥ 0 on every 0/1 vector in L. Then:
   costume here, since every state on a finite D is finitely additive and every union is finite. **Trivial given
   Sullivant.**
 - **(c) Compressed ⇒ K_D = K_{V01}.** It suffices that every 0/1 facet functional lies in cone(1_D). The seed proves
-  the stronger **D = V01 at r×s×2 and r×3×3**. This is the **only candidate new mathematics**. It is a combinatorial
+  the stronger **D = V01 at r×s×2 and r×3×3**. This is the **only candidate new mathematics**. [2026-11-10: see banner] It is a combinatorial
   lemma about a generated λ-system, and it does not follow from Sullivant: a λ-system is in general smaller than the
   0/1 part of its span (cf. Keleti–Preiss for the infinite case, and the in-repo E* over ℤ).
 
@@ -131,7 +133,7 @@ What can be claimed is lemma (c), with the CE¹ separation as the reason it is n
 
 **Rigour gaps a referee would flag:**
 - **i. Explicit 3×4×4 example.** `certify_344.py` rests "Λ ≥ 0 on all of V01" on HiGHS MILP optimality, which is
-  float. Only the optimum's value is re-checked exactly, so the explicit example is **not exactly certified**.
+  float. Only the optimum's value is re-checked exactly, so the explicit example is **not exactly certified**. [2026-11-10: see banner]
   - `intuition_kit.tex` §3 has "certified by computation" struck through, while the seed says "certified": they are
     inconsistent.
   - The abstract existence of a hidden state is unaffected, because the ray is exact.
@@ -172,7 +174,7 @@ direction is closed. Type 4 was not declared and was not tested.
 The components are known: the threshold, the relaxation template, the mixture criterion, and the state-extension
 problem on finite concrete logics.
 
-The novelty is confined to one combinatorial lemma (D = V01 at compressed sizes). It is non-trivial only on r×3×3,
+The novelty is confined to one combinatorial lemma (D = V01 at compressed sizes). [2026-11-10: see banner] It is non-trivial only on r×3×3,
 where the probe shows that the standard exclusivity relaxation fails. Type 3 and Type 6 add nothing beyond Type 1.
 
 **Taxonomy updates (owned_by):**

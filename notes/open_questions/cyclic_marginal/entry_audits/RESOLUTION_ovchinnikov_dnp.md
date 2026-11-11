@@ -15,7 +15,7 @@ sources (read in full, pdftotext, every page):
 1994a). Hidden failure is exactly **non-positivity** in his sense. He proves positive ⇒ closed. So (b) is
 not an independent bridge lemma. Together with Sullivant, it is *equivalent* to "no hidden failure" at
 compressed sizes. Ovchinnikov does **not** prove (b) for any pair-generated product logic, and has no
-sufficient criterion for positivity. The kernel survives, renamed.
+sufficient criterion for positivity. The kernel survives, renamed. **2026-11-10:** the kernel now holds at every finite size, not only compressed ones (see the dated answer at "Open probe" below).
 
 ## Page key
 - O99 page numbers are taken from the running headers: 1957–1966.
@@ -122,6 +122,7 @@ of the pair-cell indicators.
 - **Open probe the vocabulary suggests:** is the triangle D closed at *non*-compressed sizes too? If
   so, the classification reads "the triangle logic is always closed; it is positive iff compressed".
   OS98 p.149 notes closed-nonpositive logics exist already at card Ω = 6.
+  **2026-11-10: answered yes.** The finite triangle logic is always closed; it is positive iff compressed. D = all 0/1 vectors of V₀₁ at EVERY finite size, not only the compressed ones. In Ovchinnikov's (PAMS 1999) terms: the finite triangle logic is always closed; it is positive iff compressed. The classification "hides a probabilistic twist iff not compressed" (owned: Sullivant 2006 Thm 2.4(2) + Prop 5.8, plus Farkas) is unchanged: at non-compressed sizes the hidden state is separated from mixtures by a non-0/1 non-negative span vector, never by a missing yes/no question. Evidence level: Lean-checked core, `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, theorem `box_iff_mem_of_finDet` (for a subset of ℕ³ determined by finitely many labels per coordinate: box identity ⟺ carrier set), no `sorry`; plus two short hand identifications, checked by one agent (`notes/open_questions/views_across_records/TRIANGLE_CONSEQUENCES_CHECK.md`, C2): (a) box set ⟺ 0/1 vector of V₀₁ (the box identity with a base point writes the indicator as seven pair terms), (b) finite grid ⟷ finitely-labelled subsets of ℕ³ by pullback along a coordinatewise map with a section; exact computation at the non-compressed size 3×4×4 (|B| = |D₃| = 1,299,250) and sampled certificates at 4×4×4, 3×4×5, 4×4×5; exact 3×4×4 hidden-state certificate `notes/open_questions/verification/triangle_gate/hidden_state_344_exact_on_box_sets.py` (single agent, unreviewed). Prior art for the all-sizes form: one weak scout pass (`notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md`: partly owned vocabulary, Ovchinnikov 1999; no source found stating it; unread caps Sultanbekov 1996, Fishburn–Lagarias–Reeds–Shepp 1990/91, Kemperman 1991, Pták–Pulmannová 1991). Not claimed as new.
 
 **Suggested taxonomy edits (not applied):**
 - `thm.triangle_hiding_classification` / `own.compressed_threshold` status: replace "Owed:
@@ -201,4 +202,4 @@ Ovchinnikov's vocabulary splits "local checks certify one world" into two separa
 - every buildable question passing while no world exists (not positive).
 
 The triangle result says the second failure happens exactly when the table is not compressed. The
-open kernel says the first never happens at compressed sizes.
+open kernel says the first never happens at compressed sizes. **2026-11-10:** the first never happens at any finite size (always closed; positive iff compressed; Lean core `box_iff_mem_of_finDet` + two hand identifications checked by one agent; exact at 3×4×4; prior art one weak scout pass; not claimed as new; full evidence level at the "Open probe" item above).

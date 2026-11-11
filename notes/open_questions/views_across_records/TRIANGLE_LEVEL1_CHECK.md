@@ -1,5 +1,7 @@
 # Triangle level-1 rigidity: independent check and prior art
 
+> **Superseded in part (2026-11-10).** The triangle gate closed YES: D₃ = D_fin, so the window family determines the state on the triangle. Evidence: hand proof, re-derived by two independent agents (`TRIANGLE_5DE_CHECK.md` C6; `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES); steps 1–2 machine-checked in `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, steps 3–4 `sorry` there; Lean alphabet ℕ; prior art NOT searched (Pták–Pulmannová 1991 hardcopy check pending); not claimed as new. This file is kept as a dated record; statements below that call the infinite triangle, L1, L2 or the level-2 step open are overtaken. See `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`.
+
 reviewed: false. 2026-11-06. Independent check + prior art. Target: `TRIANGLE_GATE_ATTEMPT.md` §3, §5. ⟦HAND⟧ throughout.
 
 ## Task 1. Verdict: CORRECT WITH FIXES (no step wrong; one gap, in Step 4)

@@ -144,3 +144,12 @@ which and why. No theorem in `CONVEX_GLUING_FRAMEWORK.md` is stated as settled u
   - **L2:** rigidity when one vertex is finite with m ≥ 3 values (proved for m = 2).
   - **L1′ shortcut:** "a two-valued state σ-additive on each of three σ-algebras is σ-additive on their Dynkin join" (settles the principal case only).
   - Likely owners: the pinned hardcopies (Pták–Pulmannová 1991 concrete-logic chapters; *Theory of Charges* Ch. 3 §3.2). Exact locations unverified.
+
+## 2026-11-10: triangle gate closed YES (supersedes the blocker list L1/L2 above)
+
+- **Result.** D₃ = D_fin on the triangle, any alphabets: every carrier set is three window events ⊔ one finite-grid
+  pattern. Hence O1 holds on the triangle: the window family determines the state. Restated T1 holds there.
+- **Evidence.** hand proof, re-derived by two independent agents (`TRIANGLE_5DE_CHECK.md` C6; `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES); steps 1–2 machine-checked in `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, steps 3–4 `sorry` there; Lean alphabet ℕ; prior art NOT searched (Pták–Pulmannová 1991 hardcopy check pending); not claimed as new.
+- **Still open.** Graphs properly containing a triangle; O2 (which families extend) and O3. Residue R: its condition
+  "O1" is discharged on the triangle; the ring-extension condition remains.
+- **Record.** `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md` (repaired proof), `TRIANGLE_GATE_ATTEMPT.md` (banner).

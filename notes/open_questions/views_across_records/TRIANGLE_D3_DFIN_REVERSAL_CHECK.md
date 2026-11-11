@@ -1,5 +1,7 @@
 reviewed: false. 2026-11-10. Independent reversal check by a fresh agent, hostile to both sides.
 
+> **Update 2026-11-10.** Since this check: steps 1–2 machine-checked in `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean` (`no_infinite_clique`, `finite_cover`, sorry-free; commit 6598c02); steps 3–4 are `sorry` there (`residue`, `dfin_of_box_finDet`). Propagated by a separate manual inventory the same day.
+
 # Reversal check: D₃ = D_fin on the triangle (`TRIANGLE_5DE_CHECK.md` C6)
 
 **Verdict: CONFIRMED WITH FIXES.** Every step was re-derived by hand ⟦HAND⟧; no step is wrong. Steps 1, 2 and 5

@@ -6,6 +6,18 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
 
 ---
 
+## 2026-11-10: the triangle hides nothing above its windows (ours, unclaimed; hand + partial Lean)
+- **Claim:** on the triangle of three pair-queries, every question the carrier can ask is three window questions plus
+  one question on a finite coarse-graining. So an answer pattern is fixed by what the windows say.
+- **Against the four questions.** *Loop:* yes, and all of it shows at the windows (three answers of 1 where at most
+  two can hold at any point). *Unaskable joint question:* the infinite cyclic order is the one question the carrier
+  cannot ask. *Hidden idealisation:* none above the windows; "anything hidden sits in patchworks of patchworks"
+  (2026-11-06) is withdrawn, and the 2026-11-07 entry's "open case" is closed on the triangle. *Circle, or
+  composition?* Composition.
+- **Status:** hand proof, two independent checks; Lean steps 1–2 sorry-free, steps 3–4 `sorry` (`TriangleFinitary.lean`); prior art not searched; not claimed. Triangle only; longer cycles and graphs containing a triangle are not covered.
+- **Where:** `notes/open_questions/views_across_records/TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`.
+- **Honest distance:** a statement about idealised yes/no answer patterns. Lens only for data merging.
+
 ## 2026-11-07: PBR and the product assumption (lens; unread, from memory)
 - **Claim (lens):** the Pusey–Barrett–Rudolph theorem (*Nature Physics* 2012) [unverified] gets "one world behind the
   state" (ψ-ontic) from *preparation independence*: independent parts combine as the **product** of their marginals.

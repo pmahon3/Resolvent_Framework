@@ -2,10 +2,10 @@
  "$meta": {
   "title": "Pointless coherence on glued carriers",
   "purpose": "Zoom-out index of a THEORY in construction (theory-shaped collection, TAXONOMY_SCHEMA.md 2026-10-16). Load first; follow detail pointers. Problems here are probes at a seam, not ends.",
-  "updated": "2026-11-07",
+  "updated": "2026-11-10",
   "what_is_it": "Which finitely additive two-valued states (states) on Dynkin carriers glued from window events are points, ideal points (ultrafilters on Omega), or pointless - and which shape of window graph decides it.",
   "status": "OPEN",
-  "the_shape": "Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive states on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle'). UPDATE 2026-10-16: triangle-free => locality (stars); forests => no pointless states; any induced cycle of length >= 4 => pointless states (transport). Open = chordal non-forest graphs, decided by the triangle. UPDATE 2026-10-17: TRIANGLE PROBE FIRED (a) - the triangle carries a pointless state (Lean, thm.triangle_pointless); with loops-travel + forests (hand): pointless <=> not a forest. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
+  "the_shape": "UPDATE 2026-11-10: on the triangle the carrier is finitary and the window family determines the state (thm.triangle_carrier_finitary; hand, two checks, partial Lean, prior art not searched). Cycle x infinity is the seam. Cycle-only theory is owned (Vorob'ev/BFMY, sheaf contextuality, Kharoof-Ipek-Okay 2024 for cycle-scenario vertices). Infinity-only theory is owned (de Finetti, Howson 2008). No theory found treats finitely additive states on glued non-Boolean carriers. Data points so far: paths never pointless (hand); rings L>=4 pointless and sigma-forbidden (Lean); triangle open (sub-carrier evidence leans 'any cycle'). UPDATE 2026-10-16: triangle-free => locality (stars); forests => no pointless states; any induced cycle of length >= 4 => pointless states (transport). Open = chordal non-forest graphs, decided by the triangle. UPDATE 2026-10-17: TRIANGLE PROBE FIRED (a) - the triangle carries a pointless state (Lean, thm.triangle_pointless); with loops-travel + forests (hand): pointless <=> not a forest. Scope: pair windows over N (countably infinite alphabet). Over a finite alphabet every state is a point; a window covering the whole triangle makes the carrier Boolean.",
   "categories": {
    "objects": "definitions the theory is about",
    "theorems": "proved results (lean or hand), with uses/scope",
@@ -16,7 +16,7 @@
   },
   "headline": {
    "objects": 6,
-   "theorems": 25,
+   "theorems": 27,
    "conjectures": 22,
    "probes": 14,
    "examples": 3,
@@ -412,11 +412,25 @@
    "status": "proved-hand, independently checked 2026-11-06 (TRIANGLE_LEVEL1_CHECK.md: correct with fixes, applied). Prior art NOT FOUND (UNCLEAR: Pták–Pulmannová 1991 and Theory of Charges bodies unread; nearest Navara–Pták 1983 Thm 1, Navara 1984). Shorter ultrafilter-free proof + D¹ normal form 2026-11-07: proved-hand, independently checked 2026-11-07 (TRIANGLE_3B_CHECK.md: correct). Sharper 'at most one pair' form: hand, unchecked.",
    "one_line": "Two two-valued states on D₃ with the same window family agree on D¹ (countable disjoint unions of window-event sums and their complements). Normal form: every D¹ set is R ⊔ at most three disjoint antipodal cube pairs, so D¹ ⊆ D_fin.",
    "detail": "../views_across_records/TRIANGLE_GATE_ATTEMPT.md §3, §3b",
-   "scope": "triangle {01,12,20}, arbitrary alphabets; level 1 only",
+   "scope": "triangle {01,12,20}, arbitrary alphabets; level 1 only. 2026-11-10: subsumed by thm.triangle_carrier_finitary (D¹ is the case of the finite-grid pattern K on 2³); kept as the independently checked rung.",
    "uses": [
     "thm.triangle_estar_not_built"
    ],
    "check": "../verification/triangle_gate/ (checks.py, two_vertex.py, orbit.py, r2check.py)"
+  },
+  {
+   "id": "thm.triangle_carrier_finitary",
+   "name": "the triangle carrier is finitary: D₃ = D_fin (window family determines the state)",
+   "status": "proved-hand 2026-11-10, re-derived by two independent agents (TRIANGLE_5DE_CHECK.md C6; TRIANGLE_D3_DFIN_REVERSAL_CHECK.md CONFIRMED WITH FIXES). Lean: steps 1–2 sorry-free, steps 3–4 sorry. Prior art NOT SEARCHED (Pták–Pulmannová 1991 pending; nearest recorded neighbours Ovchinnikov PAMS 1999 Thm 3.3, Navara 1984). NOT CLAIMED.",
+   "one_line": "Every set in the Dynkin closure D₃ of the three pair-window algebras is finitely built: three window events ⊔ the pullback of a box set on a finite grid. Equivalently D₃ = {box sets with no infinite K-clique}. Hence any additive function on D₃ is fixed by its values on window events (O1 on the triangle).",
+   "detail": "../views_across_records/TRIANGLE_D3_DFIN_REVERSAL_CHECK.md (repaired proof); ../views_across_records/TRIANGLE_GATE_ATTEMPT.md (banner, §5e)",
+   "scope": "triangle {01,12,20}; hand: arbitrary alphabets; Lean: alphabet ℕ. Says nothing about graphs properly containing a triangle, rings L≥4, or which window families occur (O2, O3). By-product (hand): on every finite grid every box set is a carrier set.",
+   "lean": "TriangleFinitary.lean: no_infinite_clique, finite_cover (sorry-free; axioms propext, Classical.choice, Quot.sound); mem_dfin, state_ext modulo sorry lemmas residue (step 3), dfin_of_box_finDet (step 4)",
+   "uses": [
+    "thm.triangle_estar_not_built",
+    "thm.triangle_level1_rigidity"
+   ],
+   "check": "../verification/triangle_gate/ (count_box_sets.py, check5e_structure.py, reversal_check_step4.py)"
   }
  ],
  "conjectures": [
@@ -605,7 +619,7 @@
   {
    "id": "conj.window_restriction_r",
    "name": "Window restriction r: S(D) -> F (injective? onto?)",
-   "status": "OPEN (2026-10-23). 2026-11-07: on the triangle, O1 holds on D¹ (thm.triangle_level1_rigidity); the level-2 step is whether same-family states agree on countable disjoint unions of finitary sets (D_fin σ-closed would settle the whole gate; levels ≥3 otherwise untouched). On finite grids the second round adds finite cyclic orders, possibly padded by window events (TRIANGLE_3B_CHECK.md). ",
+   "status": "OPEN (2026-10-23). 2026-11-07: on the triangle, O1 holds on D¹ (thm.triangle_level1_rigidity); the level-2 step is whether same-family states agree on countable disjoint unions of finitary sets (D_fin σ-closed would settle the whole gate; levels ≥3 otherwise untouched). On finite grids the second round adds finite cyclic orders, possibly padded by window events (TRIANGLE_3B_CHECK.md). 2026-11-10: O1 HOLDS ON THE TRIANGLE, any alphabets (thm.triangle_carrier_finitary: D₃ = D_fin); hand proof, re-derived by two independent agents (TRIANGLE_5DE_CHECK.md C6; TRIANGLE_D3_DFIN_REVERSAL_CHECK.md: CONFIRMED WITH FIXES); steps 1–2 machine-checked in formalization/QuerySystem/QuerySystem/TriangleFinitary.lean, steps 3–4 sorry there; Lean alphabet ℕ; prior art NOT searched (Pták–Pulmannová 1991 hardcopy check pending); not claimed as new. Remains OPEN for graphs properly containing a triangle, and for O2, O3. Gate not auto-propagated: manual inventory 2026-11-10.",
    "one_line": "O1: does the compatible window family determine the two-valued state? O2: does every compatible family of window ultrafilters extend to a state on D? O3: which families come from ideal points (partial: forward-sum windows, triangle_glues_iff).",
    "detail": "stone_role_prior_art.md; chat 2026-10-23"
   },

@@ -1,5 +1,7 @@
 reviewed: false. 2026-11-10. Hostile check by a fresh agent.
 
+> **Update 2026-11-10.** C6 has since been independently checked (`TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES 1–3 to steps 3–4); steps 1–2 are machine-checked in `TriangleFinitary.lean` (commit 6598c02), steps 3–4 `sorry`. The reversal was propagated the same day. "Unverified" below is the record at the time of writing.
+
 # Independent check of TRIANGLE_GATE_ATTEMPT.md: fired gate (end of §5), §5d Reading, §5e
 
 ⟦HAND⟧ = checked by hand here, not Lean. Scripts in `../verification/triangle_gate/`: reran `factor_gate.py`;

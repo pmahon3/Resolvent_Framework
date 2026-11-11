@@ -1,5 +1,7 @@
 # Independent check of TRIANGLE_GATE_ATTEMPT.md §5b–§5c
 
+> **Superseded in part (2026-11-10).** The triangle gate closed YES: D₃ = D_fin, so the window family determines the state on the triangle. Evidence: hand proof, re-derived by two independent agents (`TRIANGLE_5DE_CHECK.md` C6; `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES); steps 1–2 machine-checked in `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, steps 3–4 `sorry` there; Lean alphabet ℕ; prior art NOT searched (Pták–Pulmannová 1991 hardcopy check pending); not claimed as new. This file is kept as a dated record; statements below that call the infinite triangle, L1, L2 or the level-2 step open are overtaken. See `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`.
+
 reviewed: false. 2026-11-07. Hostile check by a fresh agent. ⟦HAND⟧ = checked by hand here, not Lean.
 Script: `../verification/triangle_gate/check5b_box.py` (new). Reran `pstack.py`, `pstack_control.py`.
 

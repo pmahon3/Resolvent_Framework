@@ -67,7 +67,7 @@ Expected answer: no. ⟦HAND⟧
 - **Ring:** equality windows have zero shift. The recorded translation-type flatness statement ("flat iff d02 = d01 + d12") makes d = 0 flat. Its scope is stated for the triangle; L-rings are not checked.
 
 A "no" is **conditional** on two things:
-1. the window family determining the state on D: open question O1 (`definitions_draft.md` / `glued_carriers_taxonomy.json`, OPEN since 2026-10-23);
+1. the window family determining the state on D: open question O1 (`definitions_draft.md` / `glued_carriers_taxonomy.json`, OPEN since 2026-10-23; **2026-11-10: O1 holds on the triangle**, hand + partial Lean, `views_across_records/TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`; still open on graphs properly containing a triangle);
 2. extending the flatness statement from the triangle to L-rings.
 
 Pointlessness on loops comes from **twist** (the staircase), and pure consensus carries none. So the seam does not hold a separate "consensus" theory. It folds back into the existing cycle × infinity programme.

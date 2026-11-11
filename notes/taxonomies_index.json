@@ -93,9 +93,9 @@
    "id": "glued_carriers",
    "name": "Pointless coherence on glued carriers (theory-shaped collection)",
    "taxonomy": "notes/open_questions/cyclic_marginal/glued_carriers_taxonomy.json",
-   "status": "OPEN - theory in construction. 2026-10-21: FINITE TRIANGLE CLASSIFIED (candidate): hides a probabilistic twist iff not compressed (sorted r2>=4, r3>=3); three kinds of twist (gauge/order/relational); relations+relata pair-local (proved); infinite two-valued side: triangle pointless (Lean)",
+   "status": "OPEN - theory in construction. 2026-10-21: FINITE TRIANGLE CLASSIFIED (candidate): hides a probabilistic twist iff not compressed (sorted r2>=4, r3>=3); three kinds of twist (gauge/order/relational); relations+relata pair-local (proved); infinite two-valued side: triangle pointless (Lean). 2026-11-10: triangle carrier finitary, D3 = D_fin, so the window family determines the state (hand, two independent checks; Lean steps 1-2, steps 3-4 sorry; prior art not searched; not claimed)",
    "one_line": "Which finitely additive two-valued states on carriers glued from window events are points, ideal points, or pointless - and which window-graph invariant decides it. The seam: cycle x infinity, where neither sheaf contextuality (sigma-additive) nor charge theory (Boolean) reaches. Note: notes/open_questions/cyclic_marginal/pointless_coherence.tex.",
-   "entries": 113
+   "entries": 116
   },
   {
    "id": "views_across_records",

@@ -10,7 +10,18 @@ Prior art for level 1: NOT FOUND, UNCLEAR (`TRIANGLE_LEVEL1_CHECK.md`); nothing 
 > gate"; corrected the same day: it is the level-2 step only. A second round adds finite cyclic orders, possibly padded
 > by window events (§5a, computed on three grids). Prior art for level 1: NOT FOUND (nearest Navara–Pták 1983 Thm 1, Navara 1984).
 
-**Verdict: neither (A) nor (B) closed.** One rung of (B) is proved ⟦HAND⟧: the first countable level of the carrier
+> **REVERSAL 2026-11-10: the gate is closed, YES: (B) holds.** Every carrier set on the triangle is finitely built
+> (D₃ = D_fin; normal form: three window events ⊔ one finite-grid pattern), so two states with the same window
+> family are equal; in fact any additive integer-valued function on D₃ is fixed by its values on window events.
+> Evidence: hand proof, re-derived by two independent agents (`TRIANGLE_5DE_CHECK.md` C6; `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES); steps 1–2 machine-checked in `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, steps 3–4 `sorry` there; Lean alphabet ℕ; prior art NOT searched (Pták–Pulmannová 1991 hardcopy check pending); not claimed as new.
+> Consequences inside this file: L1 and L2 (§5) are moot, bypassed by the normal form (L2 is now a corollary, hand);
+> the "sharpened" and "reformulated" L1 questions are answered no; the corrected 4×4×4 factoring gate is superseded
+> and was never run; E*|[n]³ ∈ D₃([n]³) for every n (hand; script n ≤ 6), so "unverified for n ≥ 4" in §5b–§5c is
+> settled; D₃∖D_fin is empty (§5e); on the triangle every state is a real partial charge (§5d). Unaffected:
+> pointless states exist (Lean `triangle_pointless_state`), E* is not a carrier set, longer cycles are other carriers.
+> Everything below is the dated record of the attempt.
+
+**Verdict as recorded 2026-11-06/07 (superseded): neither (A) nor (B) closed.** One rung of (B) is proved ⟦HAND⟧: the first countable level of the carrier
 cannot carry a disagreement. The remaining step is reduced to two named lemmas (§5).
 
 ## Puzzle
@@ -274,9 +285,8 @@ each, is σ-additive." This is the principal case only, so it would answer (B) o
 **§5e. The gate sits entirely on D₃∖D_fin ⟦HAND, 2026-11-10; independently checked, `TRIANGLE_5DE_CHECK.md` C1–C5:
 correct with the two wording fixes applied below⟧.**
 > **Claimed reversal, UNVERIFIED (2026-11-10).** The same check claims a hand proof that **D₃ = D_fin over any
-> alphabets** (its C6), which would close the gate YES (O1 holds on the triangle). It has been checked by nobody but
-> its author. Not propagated: the verdict line above, the taxonomy and CLAUDE.md are unchanged pending
-> `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`.
+> alphabets** (its C6), which would close the gate YES (O1 holds on the triangle). Update, same day: independently checked (`TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES),
+> steps 1–2 machine-checked (`TriangleFinitary.lean`), and propagated 2026-11-10 (banner at the top of this file).
 - On D_fin a state respects every indicator identity (it is a real partial charge there): {F : s(F) = Λ(1_F)} holds
   the window events and is closed under complement and finite disjoint union; Λ is well defined on bounded pair-sums.
 - For F = ⊔Fₙ with every Fₙ finitary: if some s(Fₙ) = 1 then s(F) = 1. If all are 0, this step does not force s(F),
@@ -321,7 +331,9 @@ Primary source, read by the user from the hardcopy; statements relayed in chat, 
 
 ## Bearing on WHY.md
 
-- **Loop and hidden idealisation.** On the triangle, questions patched in one round cannot hide a disagreement between
+- **2026-11-10 (supersedes the lines below).** Nothing is hidden at any number of rounds: every askable question is
+  three window questions plus one question on a finite coarse-graining. "Patchworks of patchworks" is withdrawn.
+- **Loop and hidden idealisation (as written 2026-11-06).** On the triangle, questions patched in one round cannot hide a disagreement between
   views that agree window by window. Anything hidden sits in patchworks of patchworks.
 - **Circle, or composition?** Composition: each σ-algebra behaves well, and a disagreement is collapsed one vertex at a
   time onto a two-point vertex. L1 asks whether that keeps working up the levels.

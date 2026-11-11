@@ -2,7 +2,7 @@
 
 > ⚠ 2026-11-06 prior art: the framework definition is OWNED (Abramsky–Brandenburger; Kharoof–Okay 2025); strong T1 is FALSE (CHSH: no cohomological
 > twist, no joint); T3 is OWNED (Fang–Santos; Fang–Seo). Surviving residue: R (ultrafilter holonomy on cyclic covers). **Restated T1 (T1 attempt):** no pointless state has a flat window family (= programme O1);
-> proved ⟦HAND⟧ for triangle-free graphs; **open on the triangle with infinite alphabet.** See `CONVEX_GLUING_EQUILIBRIUM_GATES.md`.
+> proved ⟦HAND⟧ for triangle-free graphs; ~~open on the triangle with infinite alphabet~~ **2026-11-10: holds on the triangle too** (the window family determines the state, so a globally glued family gives the ideal point; hand proof, re-derived by two independent agents (`TRIANGLE_5DE_CHECK.md` C6; `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES); steps 1–2 machine-checked in `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, steps 3–4 `sorry` there; Lean alphabet ℕ; prior art NOT searched (Pták–Pulmannová 1991 hardcopy check pending); not claimed as new); open only on graphs properly containing a triangle. See `CONVEX_GLUING_EQUILIBRIUM_GATES.md`.
 
 reviewed: false. Machine-assisted (the user lifted the by-hand cap, 2026-11-06). Statements are drafts to be attacked. ⟦HAND⟧ marks unverified
 arguments. Prior-art check and proof attempts are running (`CONVEX_GLUING_PRIOR_ART.md`, `CONVEX_GLUING_T1_ATTEMPT.md`).

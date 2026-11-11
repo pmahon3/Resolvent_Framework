@@ -1,5 +1,7 @@
 # T1 attempt: independent check
 
+> **Superseded in part (2026-11-10).** The triangle gate closed YES: D₃ = D_fin, so the window family determines the state on the triangle. Evidence: hand proof, re-derived by two independent agents (`TRIANGLE_5DE_CHECK.md` C6; `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES); steps 1–2 machine-checked in `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, steps 3–4 `sorry` there; Lean alphabet ℕ; prior art NOT searched (Pták–Pulmannová 1991 hardcopy check pending); not claimed as new. This file is kept as a dated record; statements below that call the infinite triangle, L1, L2 or the level-2 step open are overtaken. See `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`.
+
 reviewed: false. 2026-11-06. Independent check of `CONVEX_GLUING_T1_ATTEMPT.md` (hostile; tried to break each item).
 Script: `~/.claude/jobs/26482d7b/tmp/chk/t1chk.py` (binary triangle: |D₃| = 70, matching the paper; the 7-term formula holds
 for every E ∈ D₃ at every base point; no singleton lies in D₃; additive signed states on D₃ are fixed by their window values,

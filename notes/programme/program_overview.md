@@ -2,6 +2,22 @@
 
 ## STATE AS OF 2026-08-31 (read this first)
 
+### 2026-11-10 addendum (read first): triangle gate closed YES (reversal)
+
+- **Old status.** Since 2026-11-06 the "triangle gate" was open: on the triangle of three pair-windows, do two
+  two-valued states with the same window answers agree on the whole carrier D₃? Blockers L1, L2.
+- **New status.** Yes. **D₃ = D_fin**: every carrier set is three window events ⊔ one finite-grid pattern, so any
+  additive function on D₃ is fixed by its values on window events. The only infinite obstruction is the cyclic order
+  (Lean `not_inP_of_mem`).
+- **Evidence level.** hand proof, two independent checks; Lean steps 1–2 sorry-free, steps 3–4 `sorry` (`TriangleFinitary.lean`); prior art not searched; not claimed. Reversal check:
+  `notes/open_questions/views_across_records/TRIANGLE_D3_DFIN_REVERSAL_CHECK.md` (CONFIRMED WITH FIXES).
+- **Scope.** Triangle only. Open: graphs properly containing a triangle; which window families extend (O2, O3).
+  Unaffected: pointless states on the triangle (Lean), rings L ≥ 4, the countable-ring witness.
+- **Not yet decided (user):** the by-product "every box set on a finite grid is a carrier set" bears on the finite
+  triangle's surviving kernel (2026-10-26 audit); inventory item C2, not propagated.
+- **Owed.** Prior-art gate (Pták–Pulmannová 1991, hardcopy); Lean steps 3–4.
+- Also 2026-11-10: *Theory of Charges* Ch. 3 read from hardcopy; Thm 3.2.10 citation confirmed (real-valued only).
+
 ### 2026-10-27 addendum (read first): audit recalibrated; two paper reversals
 
 - **/audit v2.1** calibrated against community verdicts (`notes/programme/audit_benchmark/`): programme bar unchanged,

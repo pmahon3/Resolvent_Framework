@@ -150,6 +150,6 @@ which and why. No theorem in `CONVEX_GLUING_FRAMEWORK.md` is stated as settled u
 - **Result.** D₃ = D_fin on the triangle, any alphabets: every carrier set is three window events ⊔ one finite-grid
   pattern. Hence O1 holds on the triangle: the window family determines the state. Restated T1 holds there.
 - **Evidence.** hand proof, re-derived by two independent agents (`TRIANGLE_5DE_CHECK.md` C6; `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES); **fully machine-checked later the same day** in `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean` (`mem_dfin`, `state_ext`, `normal_form`; no `sorry`; axioms propext, Classical.choice, Quot.sound; alphabet ℕ, other alphabets by a hand pullback remark); prior art: one weak scout pass (`TRIANGLE_CARRIER_PRIOR_ART.md`: finite case partly owned, infinite normal form and determination not found; Fishburn–Lagarias–Reeds–Shepp, Kemperman and Pták–Pulmannová 1991 unread); not claimed as new.
-- **Still open.** Graphs properly containing a triangle; O2 (which families extend) and O3. Residue R: its condition
+- **Still open.** Graphs properly containing a triangle. (O2 and O3 on the triangle were settled later the same day, Lean `TriangleExtension.lean`: every compatible family extends uniquely; ideal point ⟺ globally glued.) Residue R: its condition
   "O1" is discharged on the triangle; the ring-extension condition remains.
 - **Record.** `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md` (repaired proof), `TRIANGLE_GATE_ATTEMPT.md` (banner).

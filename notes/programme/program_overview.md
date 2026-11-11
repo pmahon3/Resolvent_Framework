@@ -9,13 +9,14 @@
 - **New status.** Yes. **D₃ = D_fin**: every carrier set is three window events ⊔ one finite-grid pattern, so any
   additive function on D₃ is fixed by its values on window events. The only infinite obstruction is the cyclic order
   (Lean `not_inP_of_mem`).
-- **Evidence level.** hand proof, two independent checks; Lean steps 1–2 sorry-free, steps 3–4 `sorry` (`TriangleFinitary.lean`); prior art not searched; not claimed. Reversal check:
+- **Evidence level.** hand proof, two independent checks; **fully machine-checked** the same day (`TriangleFinitary.lean`: `mem_dfin`, `state_ext`, `normal_form`, no `sorry`; alphabet ℕ); prior art: one weak scout pass, nearest sources unread; not claimed. Reversal check:
   `notes/open_questions/views_across_records/TRIANGLE_D3_DFIN_REVERSAL_CHECK.md` (CONFIRMED WITH FIXES).
 - **Scope.** Triangle only. Open: graphs properly containing a triangle; which window families extend (O2, O3).
   Unaffected: pointless states on the triangle (Lean), rings L ≥ 4, the countable-ring witness.
 - **Not yet decided (user):** the by-product "every box set on a finite grid is a carrier set" bears on the finite
   triangle's surviving kernel (2026-10-26 audit); inventory item C2, not propagated.
-- **Owed.** Prior-art gate (Pták–Pulmannová 1991, hardcopy); Lean steps 3–4.
+- **Owed.** Prior-art gate: Pták–Pulmannová 1991 (hardcopy) and the additive-sets papers (Fishburn–Lagarias–Reeds–Shepp 1990/91, Kemperman 1991).
+- **Lean route differs from the hand proof:** step 4 uses an inclusion-minimal class instead of the total order and swaps; `mem_dfin` uses a collapse along the finite cover, so the column analysis (step 3) is needed only for the normal form.
 - Also 2026-11-10: *Theory of Charges* Ch. 3 read from hardcopy; Thm 3.2.10 citation confirmed (real-valued only).
 
 ### 2026-10-27 addendum (read first): audit recalibrated; two paper reversals

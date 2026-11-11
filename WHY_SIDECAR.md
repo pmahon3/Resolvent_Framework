@@ -14,7 +14,7 @@ absorbs them in an own-words pass. Newest first. Each entry gives the claim, its
   cannot ask. *Hidden idealisation:* none above the windows; "anything hidden sits in patchworks of patchworks"
   (2026-11-06) is withdrawn, and the 2026-11-07 entry's "open case" is closed on the triangle. *Circle, or
   composition?* Composition.
-- **Status:** hand proof, two independent checks; Lean steps 1–2 sorry-free, steps 3–4 `sorry` (`TriangleFinitary.lean`); prior art not searched; not claimed. Triangle only; longer cycles and graphs containing a triangle are not covered.
+- **Status:** hand proof, two independent checks; **fully machine-checked** the same day (`TriangleFinitary.lean`: `mem_dfin`, `state_ext`, `normal_form`, no `sorry`; alphabet ℕ); prior art: one weak scout pass, nearest sources unread; not claimed. Triangle only; longer cycles and graphs containing a triangle are not covered.
 - **Where:** `notes/open_questions/views_across_records/TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`.
 - **Honest distance:** a statement about idealised yes/no answer patterns. Lens only for data merging.
 

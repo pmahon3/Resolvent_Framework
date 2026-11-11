@@ -1,5 +1,7 @@
 reviewed: false. 2026-11-10. Independent check of inferred consequences, by a fresh agent.
 
+> **Update 2026-11-10 (after this check).** D₃ = D_fin is now fully machine-checked over ℕ (`TriangleFinitary.lean`, no `sorry`), including the normal form (`normal_form`) and the finite by-product (`box_iff_mem_of_finDet`). "Conditional on the hand theorem" below is therefore discharged for alphabet ℕ. The new extension claim under C6 is still one-author and unchecked.
+
 # Consequences of D₃ = D_fin on the triangle: which inferences hold
 
 **Headline.** All five inferences are true, each conditional on the hand theorem (Steps 3–4 are still `sorry` in

@@ -13,7 +13,7 @@ Prior art for level 1: NOT FOUND, UNCLEAR (`TRIANGLE_LEVEL1_CHECK.md`); nothing 
 > **REVERSAL 2026-11-10: the gate is closed, YES: (B) holds.** Every carrier set on the triangle is finitely built
 > (D₃ = D_fin; normal form: three window events ⊔ one finite-grid pattern), so two states with the same window
 > family are equal; in fact any additive integer-valued function on D₃ is fixed by its values on window events.
-> Evidence: hand proof, re-derived by two independent agents (`TRIANGLE_5DE_CHECK.md` C6; `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES); steps 1–2 machine-checked in `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean`, steps 3–4 `sorry` there; Lean alphabet ℕ; prior art NOT searched (Pták–Pulmannová 1991 hardcopy check pending); not claimed as new.
+> Evidence: hand proof, re-derived by two independent agents (`TRIANGLE_5DE_CHECK.md` C6; `TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES); **fully machine-checked later the same day** in `formalization/QuerySystem/QuerySystem/TriangleFinitary.lean` (`mem_dfin`, `state_ext`, `normal_form`; no `sorry`; axioms propext, Classical.choice, Quot.sound; alphabet ℕ, other alphabets by a hand pullback remark); prior art: one weak scout pass (`TRIANGLE_CARRIER_PRIOR_ART.md`: finite case partly owned, infinite normal form and determination not found; Fishburn–Lagarias–Reeds–Shepp, Kemperman and Pták–Pulmannová 1991 unread); not claimed as new.
 > Consequences inside this file: L1 and L2 (§5) are moot, bypassed by the normal form (L2 is now a corollary, hand);
 > the "sharpened" and "reformulated" L1 questions are answered no; the corrected 4×4×4 factoring gate is superseded
 > and was never run; E*|[n]³ ∈ D₃([n]³) for every n (hand; script n ≤ 6), so "unverified for n ≥ 4" in §5b–§5c is
@@ -286,7 +286,7 @@ each, is σ-additive." This is the principal case only, so it would answer (B) o
 correct with the two wording fixes applied below⟧.**
 > **Claimed reversal, UNVERIFIED (2026-11-10).** The same check claims a hand proof that **D₃ = D_fin over any
 > alphabets** (its C6), which would close the gate YES (O1 holds on the triangle). Update, same day: independently checked (`TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`: CONFIRMED WITH FIXES),
-> steps 1–2 machine-checked (`TriangleFinitary.lean`), and propagated 2026-11-10 (banner at the top of this file).
+> fully machine-checked (`TriangleFinitary.lean`, no `sorry`), and propagated 2026-11-10 (banner at the top of this file).
 - On D_fin a state respects every indicator identity (it is a real partial charge there): {F : s(F) = Λ(1_F)} holds
   the window events and is closed under complement and finite disjoint union; Λ is well defined on bounded pair-sums.
 - For F = ⊔Fₙ with every Fₙ finitary: if some s(Fₙ) = 1 then s(F) = 1. If all are 0, this step does not force s(F),

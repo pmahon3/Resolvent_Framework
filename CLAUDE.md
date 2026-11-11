@@ -97,7 +97,7 @@ which window-graph shape lets them be pointless.
   carrier contains all 0/1 span vectors at compressed sizes** (`hidden_failure/AUDIT_PHASE2.md`). The yes/no
   pointless side needs infinity (Lean).
 - **2026-11-10 (reversal of the open "triangle gate"): the triangle carrier is finitary.** D₃ = D_fin: every carrier
-  set is three window events ⊔ one finite-grid pattern, so the window family determines the state. Evidence: hand proof, two independent checks; Lean steps 1–2 sorry-free, steps 3–4 `sorry` (`TriangleFinitary.lean`); prior art not searched; not claimed.
+  set is three window events ⊔ one finite-grid pattern, so the window family determines the state. Evidence: hand proof, two independent checks; **fully machine-checked** the same day (`TriangleFinitary.lean`: `mem_dfin`, `state_ext`, `normal_form`, no `sorry`; alphabet ℕ); prior art: one weak scout pass, nearest sources unread; not claimed.
   Record: `notes/open_questions/views_across_records/TRIANGLE_D3_DFIN_REVERSAL_CHECK.md`. Pointless states on the triangle still exist (Lean).
 - The seam: cycle × infinity.
 - **Stance: answers first.** Questions and states (consistent answer patterns) are

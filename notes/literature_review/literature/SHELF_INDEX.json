@@ -63,9 +63,12 @@
    "minguzzi_2005_simultaneity_holonomy.pdf"
   ],
   "carrier_membership": [
+   "fishburn_lagarias_reeds_shepp_1990_projections_axes_I_continuous.pdf",
+   "kemperman_1991_sets_of_uniqueness_inequalities_unique_solution.pdf",
    "keleti_preiss_2000_balls_dynkin.pdf"
   ],
   "carriers_logics": [
+   "sultanbekov_2002_33_homogeneous_greechie_omps.pdf",
    "abramsky_barbosa_2021_logic_of_contextuality.pdf",
    "abramsky_barbosa_2025_duality_pBA_talk.pdf",
    "bunce_wright_1992.pdf",
@@ -225,6 +228,9 @@
    "maharam_1972.pdf"
   ],
   "marginal_problem": [
+   "vallejo_2014_kronecker_stability_discrete_tomography.pdf",
+   "fishburn_lagarias_reeds_shepp_1990_projections_axes_I_continuous.pdf",
+   "kemperman_1991_sets_of_uniqueness_inequalities_unique_solution.pdf",
    "fritz_chaves_2013_entropic_inequalities_marginal_problems.pdf",
    "kellerer_1964_mass_theoretic_marginal_problems.pdf",
    "maharam_1972.pdf",
@@ -310,6 +316,7 @@
    "todorcevic_2000_chain_condition.pdf"
   ],
   "states": [
+   "sultanbekov_2002_33_homogeneous_greechie_omps.pdf",
    "ptak_1987.pdf",
    "shultz_1974.pdf",
    "buresova_ptak_2024_point_distinguishing_somp.pdf",
@@ -1699,7 +1706,7 @@
   {
    "file": "kellerer_1964_mass_theoretic_marginal_problems.pdf",
    "citation": "Kellerer, 'Maßtheoretische Marginalprobleme', Math. Ann. 153 (1964) 168-198",
-   "what_it_proves": "Satz 2.2 (p.178): compatible marginals on a product always have a bounded SIGNED joint (inclusion-exclusion formula); fails in general for infinite index families (p.179). Positive case (sections 3-4) unread.",
+   "what_it_proves": "Section 1 (pp.174-177), any finite product of measurable spaces, any family T of coordinate subsets: Satz 1.1: a bounded measurable g is a sum of functions g_T(x_T), T in T, iff sum over subfamilies S of T of (-1)^|S| g(x on the intersection of S, y elsewhere) = 0 for all x, y (for the three pairs of a triple product this is the eight-corner identity); Satz 1.2: these sums and the functions with vanishing T-marginals are closed, mutually orthogonal and span everything; Satz 1.4: dimensions for finite sets (three pairs: sum m_i m_j - sum m_i + 1; complement prod (m_i - 1)). Satz 2.1 (p.177-178): compatibility iff sum_T int g_T dnu_T = 0 whenever sum g_T = 0. Satz 2.2 (p.178): compatible marginals on a product always have a bounded SIGNED joint (inclusion-exclusion formula); p.179: so a signed measure is in general NOT determined by its proper marginals (only non-uniqueness is stated; no uniqueness theorem); fails in general for infinite index families (p.179). Positive case (sections 3-4) unread.",
    "summary_basis": "read",
    "verdict_for_us": "owns",
    "programme_links": [],
@@ -1718,7 +1725,7 @@
     "notes/open_questions/oml_attack/oml_lattice_regularity_attack.md",
     "notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md"
    ],
-   "read_note": "targeted reading pass 2026-10-20 (theorem pages; see entry text for unread parts)"
+   "read_note": "targeted reading pass 2026-10-20 (theorem pages); pp.168-180 re-read from page images 2026-11-10 (scan, no usable text layer): section 1 owns the sum-of-pair-functions space and its corner identity, see notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
   },
   {
    "file": "kelley_1959.pdf",
@@ -3470,6 +3477,86 @@
    ],
    "text_layer": true,
    "pages": ""
+  },
+  {
+   "file": "kemperman_1991_sets_of_uniqueness_inequalities_unique_solution.pdf",
+   "citation": "J. H. B. Kemperman, 'Sets of uniqueness and systems of inequalities having a unique solution', Pacific J. Math. 148 (1991) 275-301",
+   "what_it_proves": "Setting: ANY measurable space X with reference measure lambda and ANY family of maps pi_j: X -> Y_j (so pair projections are covered). F = functions sum_j f_j(pi_j x) (Def 2.8); integrals of F-functions are fixed by the marginals (2.1). Additive set = {f >= 0}, f in F (Def 2.11); additive => strong set of uniqueness (Lemma 2.14; unique among densities 0<=phi<=1 with the same marginals). Stepwise additivity of degree m, also transfinite (Def 3.1, Rem 3.15), still gives uniqueness (Thm 3.11); non-additive sets of uniqueness in R^n, n>=3, axis projections (Thm 3.23). Finite X, arbitrary maps: unique solution of a bounded linear system iff a sign-pattern row combination exists plus a rank condition (Thm 4.15, 4.27, 4.42); set of uniqueness iff additive (Thm 4.50). Nothing on families of sets closed under complement/disjoint union, on exact (unthresholded) sum representations of indicators, or on finitely additive measures.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-10 second pass, 5.1)",
+    "thm.triangle_carrier_finitary (nearest neighbour for general marginal families; does not own S1/S2/S3)"
+   ],
+   "questions": [
+    "marginal_problem",
+    "carrier_membership"
+   ],
+   "text_layer": true,
+   "pages": "275-301",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "body read 2026-11-10 (sections 1, 2, 3.1-3.17, 4.11-4.51 in full; construction 3.17-3.32 and proofs 4.1-4.10, 4.21-4.26 skimmed). Open access msp.org."
+  },
+  {
+   "file": "fishburn_lagarias_reeds_shepp_1990_projections_axes_I_continuous.pdf",
+   "citation": "P. C. Fishburn, J. C. Lagarias, J. A. Reeds, L. A. Shepp, 'Sets uniquely determined by projections on axes I. Continuous case', SIAM J. Appl. Math. 50 (1990) 288-306",
+   "what_it_proves": "R^n, Lebesgue measure, projections onto the n coordinate AXES only (hyperplane integrals). Additive set: x in S iff sum_i f_i(x_i) >= 0 (1.2); additive => set of uniqueness (Thm 1.1); set of uniqueness has no bad configuration (Thm 1.2; k points in Int S and k in Int S^c with equal counts in every hyperplane x_i = c); bad = weakly bad for open sets (Thm 2.1); n=2: uniqueness iff additive (Thm 2.2, via Lorentz 1949); open sets in R^2: uniqueness among open sets iff no bad configuration (Thm 2.3); S0 = {x3 >= max(x1,x2)} is a monotone limit of additive sets, not additive and not a set of uniqueness (Thm 3.2, 3.3); Lemma 2.5: two disjoint bounded open sets in R^3 with equal projections and no finite bad configuration (every bad configuration is infinite); Remark p.297: infinite checkerboard staircase counterexample in infinite area.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-10 second pass, 5.2)"
+   ],
+   "questions": [
+    "marginal_problem",
+    "carrier_membership"
+   ],
+   "text_layer": true,
+   "pages": "288-306",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "sections 1-2 and statements of section 3 read 2026-11-10; proofs of Thm 3.2/3.3 and the Appendix skimmed. From the Penn institutional repository."
+  },
+  {
+   "file": "vallejo_2014_kronecker_stability_discrete_tomography.pdf",
+   "citation": "E. Vallejo, 'Stability of Kronecker coefficients via discrete tomography', arXiv:1408.6219",
+   "what_it_proves": "Uses uniqueness and additivity of 3-dimensional binary matrices with given 1-MARGINALS (plane sums = axis projections, FLRS setting). Recalls Torres-Chazaro-Vallejo: G(A) is a matrix of uniqueness iff A is minimal and pi-unique, and then A is a plane partition (Thm 3.4); A additive iff G(A) is (0,1)-additive. No 2-marginal (line-sum / pair-projection) uniqueness theory.",
+   "summary_basis": "sections 1 and 3 read; rest not read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-10 second pass, 5.5)"
+   ],
+   "questions": [
+    "marginal_problem"
+   ],
+   "text_layer": true,
+   "pages": "22",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "read 2026-11-10 only to check whether the Vallejo line leaves axis projections: it does not."
+  },
+  {
+   "file": "sultanbekov_2002_33_homogeneous_greechie_omps.pdf",
+   "citation": "F. F. Sultanbekov, 'On (3,3)-homogeneous Greechie orthomodular posets', arXiv:math/0211311",
+   "what_it_proves": "Classifies small (3,3)-homogeneous Greechie logics (15, 17, 27 atoms) and their two-valued/pure states; recalls the regularity criterion dim E^o + dim V(E) = card Omega (Thm 1.2, from Ovchinnikov-Sultanbekov 1998, Ovchinnikov 1999). No product carriers, no marginals, no closed-logic result for products.",
+   "summary_basis": "sections 1 and 2 start read, rest grepped",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-10 second pass, 5.7)"
+   ],
+   "questions": [
+    "carriers_logics",
+    "states"
+   ],
+   "text_layer": true,
+   "pages": "6",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "read 2026-11-10; not an owner of anything on the triangle carrier."
   }
  ]
 }

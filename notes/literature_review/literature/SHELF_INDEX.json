@@ -65,7 +65,11 @@
   "carrier_membership": [
    "fishburn_lagarias_reeds_shepp_1990_projections_axes_I_continuous.pdf",
    "kemperman_1991_sets_of_uniqueness_inequalities_unique_solution.pdf",
-   "keleti_preiss_2000_balls_dynkin.pdf"
+   "keleti_preiss_2000_balls_dynkin.pdf",
+   "kemperman_1990_sets_uniquely_determined_restricted_integrals.pdf",
+   "ovchinnikov_1994_galois_correspondence_extension_charges_sigma_class.pdf",
+   "sultanbekov_1998_finite_concrete_logics_with_pc.pdf",
+   "fishburn_lagarias_reeds_shepp_1991_projections_axes_II_discrete.pdf"
   ],
   "carriers_logics": [
    "sultanbekov_2002_33_homogeneous_greechie_omps.pdf",
@@ -90,7 +94,14 @@
    "vandenberg_heunen_2012_noncommutativity_colimit.pdf",
    "ovchinnikov_1999_measures_finite_concrete_logics.pdf",
    "ovchinnikov_sultanbekov_1998_finite_concrete_logics.pdf",
-   "desimone_navara_ptak_2015_states_symmetric_difference.pdf"
+   "desimone_navara_ptak_2015_states_symmetric_difference.pdf",
+   "ovchinnikov_1994_galois_correspondence_extension_charges_sigma_class.pdf",
+   "sultanbekov_1993_set_logics_and_their_representations.pdf",
+   "sultanbekov_1995_operation_partitions_best_extension_signed_measures.pdf",
+   "sultanbekov_1998_finite_concrete_logics_with_pc.pdf",
+   "ptak_1987_hidden_variables_concrete_logics_extensions.pdf",
+   "tylec_kus_2015_nonsignaling_boxes_quantum_logics.pdf",
+   "tylec_kus_krajczok_2016_nonsignalling_theories_generalized_probability.pdf"
   ],
   "clock_holonomy": [
    "dravecky_sipos_1980_additivity_gudder_integral.pdf",
@@ -108,7 +119,10 @@
    "walley_1991.pdf",
    "ovchinnikov_1999_measures_finite_concrete_logics.pdf",
    "ovchinnikov_sultanbekov_1998_finite_concrete_logics.pdf",
-   "desimone_navara_ptak_2015_states_symmetric_difference.pdf"
+   "desimone_navara_ptak_2015_states_symmetric_difference.pdf",
+   "ovchinnikov_1994_galois_correspondence_extension_charges_sigma_class.pdf",
+   "ptak_1987_hidden_variables_concrete_logics_extensions.pdf",
+   "tylec_kus_krajczok_2016_nonsignalling_theories_generalized_probability.pdf"
   ],
   "completeness_points": [
    "espindola_2020.pdf",
@@ -131,13 +145,16 @@
    "dzhafarov_kujala_2017.pdf",
    "hhln_1711.03748_boolean_subalgebras.pdf",
    "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf",
-   "morton_2017_contextuality_missing_versioned_data.pdf"
+   "morton_2017_contextuality_missing_versioned_data.pdf",
+   "tylec_kus_2015_nonsignaling_boxes_quantum_logics.pdf",
+   "tylec_kus_krajczok_2016_nonsignalling_theories_generalized_probability.pdf"
   ],
   "cycle_scenarios": [
    "abramsky_barbosa_kishida_lal_mansfield_2016_possibilities_determine.pdf",
    "araujo_quintino_budroni_terracunha_cabello_2013_ncycle.pdf",
    "dzhafarov_kujala_cervantes_2020_cyclic_systems_cbd.pdf",
-   "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf"
+   "kharoof_ipek_okay_2024_extremal_cycle_arbitrary_outcomes.pdf",
+   "tylec_kus_2015_nonsignaling_boxes_quantum_logics.pdf"
   ],
   "data_merging": [
    "biesel_2024.pdf",
@@ -239,7 +256,9 @@
    "sullivant_2006_compressed_polytopes_disclosure.pdf",
    "atserias_kolaitis_2020_consistency_acyclicity_positive_semirings.pdf",
    "deloera_onn_2002_complexity_three_way_tables.pdf",
-   "atserias_kolaitis_2021_structure_complexity_bag_consistency.pdf"
+   "atserias_kolaitis_2021_structure_complexity_bag_consistency.pdf",
+   "kemperman_1990_sets_uniquely_determined_restricted_integrals.pdf",
+   "fishburn_lagarias_reeds_shepp_1991_projections_axes_II_discrete.pdf"
   ],
   "methodology_bridges": [
    "caramello_2018/"
@@ -321,7 +340,12 @@
    "shultz_1974.pdf",
    "buresova_ptak_2024_point_distinguishing_somp.pdf",
    "svozil_2001_generalized_probabilities_correlation_polytopes.pdf",
-   "ovchinnikov_1999_measures_finite_concrete_logics.pdf"
+   "ovchinnikov_1999_measures_finite_concrete_logics.pdf",
+   "sultanbekov_1993_set_logics_and_their_representations.pdf",
+   "sultanbekov_1995_operation_partitions_best_extension_signed_measures.pdf",
+   "ptak_1987_hidden_variables_concrete_logics_extensions.pdf",
+   "tylec_kus_2015_nonsignaling_boxes_quantum_logics.pdf",
+   "tylec_kus_krajczok_2016_nonsignalling_theories_generalized_probability.pdf"
   ],
   "audit_benchmark": [
    "beygelzimer_et_al_2023_neurips2021_consistency_experiment.pdf",
@@ -1713,7 +1737,7 @@
    "questions": [
     "marginal_problem"
    ],
-   "text_layer": true,
+   "text_layer": false,
    "pages": "32",
    "read_trail": [
     "notes/covered_leads/descent_ladder_mechanistic_feasibility.md",
@@ -3557,6 +3581,192 @@
     "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
    ],
    "read_note": "read 2026-11-10; not an owner of anything on the triangle carrier."
+  },
+  {
+   "file": "kemperman_1990_sets_uniquely_determined_restricted_integrals.pdf",
+   "citation": "J. H. B. Kemperman, 'On sets that are uniquely determined by a restricted set of integrals', Trans. Amer. Math. Soc. 322 (1990) 417-458",
+   "what_it_proves": "General system (X, lambda, F): sigma-finite measure space and a class F of functions; phi in [0,1] is a uniqueness function if no other psi in [0,1] has the same F-moments (Def 1.3, 2.10). s-additive / generalized additive sets: lexicographic thresholding by f_0..f_s in span F (1.6, 3.10); Thm 3.17: generalized additive => uniqueness; Thm 4.16: if dim F < oo, uniqueness iff (m-1)-additive; Thm 4.11 (nonatomic, zero sets null): uniqueness iff S = {f_0 >= 0}; Rem 4.26: X finite => uniqueness iff 0-additive. Richness: Thm 5.15, 5.18 (strongly rich => every non-unique phi shares its moments with infinitely many sets). Section 6: marginals under arbitrary maps pi_j: X -> Y_j, F_pi = functions g_j(pi_j x) (6.4), special generalized additive sets (6.10), Thm 6.23, 6.26, 6.31-6.32 (R^n with finitely many central projections is strongly rich). Sigma-additive densities only; thresholded sums only; nothing on sets whose indicator EQUALS a sum, on generated families of sets, or on finitely additive measures.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-12 third pass, 6.1)"
+   ],
+   "questions": [
+    "marginal_problem",
+    "carrier_membership"
+   ],
+   "text_layer": true,
+   "pages": "417-458",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "sections 1, 6 and the statements of sections 2-5 read 2026-11-12 (OCR text layer, symbols partly garbled); proofs of sections 3-5 skimmed. From ams.org free archive via the browser."
+  },
+  {
+   "file": "ovchinnikov_1994_galois_correspondence_extension_charges_sigma_class.pdf",
+   "citation": "P. G. Ovchinnikov, 'Galois correspondence associated with the extension of charges on the sigma-class of subsets of a finite set' (Russian), Izv. Vyssh. Uchebn. Zaved. Mat. 1994 no. 5, 36-40; Engl. transl. Russian Math. (Iz. VUZ) 38:5 (1994)",
+   "what_it_proves": "Finite Omega. Polar S^0 for S in M = {charges on P(Omega) with mu(Omega)=0} and T^0 for T in P(P(Omega)); Remarks 1-4: a Galois correspondence, closed elements S^00 = S, T^00 = T; N = closed sigma-classes; Fig. 1 = Hasse diagrams of N for n <= 4 (card N = 1, 1, 2, 5, 18). Section 1: regular (every charge on E extends to P(Omega)); Prop 1: regular iff dim E^0 + dim V(E) = n. Section 2: positive (every regular measure extends to a measure); Prop 2: P subset N (positive => closed). Section 3: algebras are regular and positive; on 6 points the inclusions among A, P, N, R, E are strict (Examples 1-3). Final example: Omega = m x m permutation matrices, atoms x_ij = {a_ij = 1}; states = doubly stochastic matrices, so Birkhoff's theorem gives E regular and positive, hence closed, for every m. No product carriers, no pair marginals, nothing infinite.",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-12 third pass, 6.2)"
+   ],
+   "questions": [
+    "carriers_logics",
+    "coherence_extension",
+    "carrier_membership"
+   ],
+   "text_layer": false,
+   "pages": "36-40",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "read in full from page images 2026-11-12 (Russian; 5 short pages, all statements and proofs understood). Scan, no usable text layer. From mathnet.ru (free). Owns the closed/regular/positive vocabulary and 'positive => closed'; the 1999 PAMS paper repeats it in English."
+  },
+  {
+   "file": "sultanbekov_1993_set_logics_and_their_representations.pdf",
+   "citation": "F. Sultanbekov, 'Set logics and their representations', Int. J. Theor. Phys. 32 (1993) 2177-2186",
+   "what_it_proves": "Representations of a set logic (OMP with a full set of two-valued finitely additive states) as concrete logics; separating, minimal, A-regular, regular representations; Thm 1.5 (credited to Ovchinnikov): a representation of a finite set logic is regular iff dim E^0 + dim V(E) = number of atoms of the generated algebra. Section 2: n-gon Greechie logics E_n, L_n: automorphisms, extreme states, Fibonacci counts of two-valued states (Thm 2.2); E_4, E_5, E_6 absolutely regular, E_n (n >= 7) has a non-regular minimal representation (Thm 2.3); minimal regular A-regular representations with about 2n points (Thm 2.4); the ten minimal representations of E_6. Finite only; no products, no marginals.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-12 third pass, 6.3)"
+   ],
+   "questions": [
+    "carriers_logics",
+    "states"
+   ],
+   "text_layer": true,
+   "pages": "2177-2186",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "read in full 2026-11-12 (OCR text layer). Springer, institutional network access."
+  },
+  {
+   "file": "sultanbekov_1995_operation_partitions_best_extension_signed_measures.pdf",
+   "citation": "F. Sultanbekov, 'Operation associated to partitions and best extension of signed measures on set logics', Int. J. Theor. Phys. 34 (1995) 1735-1739",
+   "what_it_proves": "Thm 1.1: partitions E = E_0 u E_1 of a logic = two-valued states. Thm 1.3: for concrete logics (E, X), (F, Y) and a two-valued state p on F, the family {Z in X x Y : every x-section lies in F and {x : section has p-value 1} in E} is a concrete logic on X x Y containing all rectangles A x B (extends Mueller-Ptak-Tkadlec 1992). Section 2: an order on extensions of a signed measure to P(X). Open problems 3.1-3.5; Problem 3.3 asks when the intersection of these product logics equals the least concrete logic containing all rectangles A x B. The only item in the Kazan papers read that puts a concrete logic on a Cartesian product; two factors, rectangles of two logics, no pair marginals on a triple product.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-12 third pass, 6.3)"
+   ],
+   "questions": [
+    "carriers_logics",
+    "states"
+   ],
+   "text_layer": true,
+   "pages": "1735-1739",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "read in full 2026-11-12 (OCR text layer). Springer, institutional network access."
+  },
+  {
+   "file": "sultanbekov_1998_finite_concrete_logics_with_pc.pdf",
+   "citation": "F. Sultanbekov, 'Solving problems on finite concrete logics with the help of a PC', Int. J. Theor. Phys. 37 (1998) 199-202",
+   "what_it_proves": "The paper cited as 'Sultanbekov 1996, submitted' in Ovchinnikov-Sultanbekov 1998. Routines GENER (atoms and blocks of the concrete logic generated by given sets), BIPOLAR (bipolar E^00), MINRE (minimal representations). Results: the grid logic D_n = Delta({0..n-1}^2) (generated by fibres of x, y, x+y) is CLOSED for 1 <= n <= 10, by computation (Table I: atoms, blocks); reports that Ovchinnikov 1992 proved the Gudder-Marchand logics S(L,s) closed for all L >= 2, s >= 3; E_7 has 546 minimal representations. No theorem that a logic generated by partitions on a product is closed at all sizes.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-12 third pass, 6.3)"
+   ],
+   "questions": [
+    "carriers_logics",
+    "carrier_membership"
+   ],
+   "text_layer": true,
+   "pages": "199-202",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "read in full 2026-11-12. Springer, institutional network access."
+  },
+  {
+   "file": "fishburn_lagarias_reeds_shepp_1991_projections_axes_II_discrete.pdf",
+   "citation": "P. C. Fishburn, J. C. Lagarias, J. A. Reeds, L. A. Shepp, 'Sets uniquely determined by projections on axes II. Discrete case', Discrete Math. 91 (1991) 149-159",
+   "what_it_proves": "Finite S in {1..N}^n with coordinate projection counts (axes only). Thm 1: set of uniqueness iff no k-bad configuration, all k >= 2; Thm 2: additive (x in S iff sum f_i(x_i) >= 0) iff no weakly k-bad configuration; Thm 3 (n=2): uniqueness, additive, no bad rectangle are equivalent; Thm 4: 14-point set in 3^3 with a 3-bad but no 2-bad configuration; Thm 5: a set of uniqueness in 5^3 that is not additive. N=2 is threshold-function theory (Chow parameters). Nothing on pair projections, generated families, infinite sets or finitely additive measures.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-12 third pass, 6.4 (extract in the 2026-11-10 second pass, 5.3))"
+   ],
+   "questions": [
+    "marginal_problem",
+    "carrier_membership"
+   ],
+   "text_layer": true,
+   "pages": "149-159",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "body read from page images in the browser 2026-11-10; PDF shelved 2026-11-12 (ScienceDirect open archive, no bot check this time); not re-read."
+  },
+  {
+   "file": "ptak_1987_hidden_variables_concrete_logics_extensions.pdf",
+   "citation": "P. Ptak, '\"Hidden variables\" on concrete logics (extensions)', Comment. Math. Univ. Carolinae 28 (1987) 157-163",
+   "what_it_proves": "A concrete logic is smooth if every two-valued measure on it extends to every concrete logic on the same set containing it as a sublogic. Prop 2: the even-cardinality logic on 4 points has a free (pointless) two-valued measure, on n >= 6 points none. Example 3: a non-smooth finite logic. Thm 4: a two-valued measure on a Boolean sublogic extends to a two-valued measure on any concrete logic containing it (compactness argument); Corollary: every set representation of a Boolean algebra is smooth. Extension from ONE Boolean piece, existence only.",
+   "summary_basis": "statements and the proof of Thm 4 read; remaining pages skimmed",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-12 third pass, 6.6)"
+   ],
+   "questions": [
+    "coherence_extension",
+    "states",
+    "carriers_logics"
+   ],
+   "text_layer": true,
+   "pages": "157-163",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "read 2026-11-12 for S4 (one-window extension of two-valued states). From dml.cz (free). Distinct from ptak_1987.pdf (Exotic logics)."
+  },
+  {
+   "file": "tylec_kus_2015_nonsignaling_boxes_quantum_logics.pdf",
+   "citation": "T. I. Tylec, M. Kus, 'Non-signaling boxes and quantum logics', arXiv:1305.3449v3 (2015; journal reference not checked)",
+   "what_it_proves": "(2,2)-box world (two parties, two binary inputs each: the 4-cycle scenario). Builds the logic L from the 16 propositions [ab, alpha beta] by negation and exclusive sums, modulo equality on all non-signalling states: 82 elements. Thm 14 (exhaustive computer check): L is an atomistic orthomodular poset, not a lattice; the states on L are exactly the non-signalling box states; L has exactly 16 two-valued states and is set-representable; blocks share two atoms (no Greechie diagram). Section 4.2: L is isomorphic to the concrete logic on Gamma = {0,1}^4 formed by the pair cylinders E([ab, alpha beta]); the PR box is a state on a concrete logic that is not a mixture of point states.",
+   "summary_basis": "read",
+   "verdict_for_us": "neighbour",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-12 third pass, 6.6)"
+   ],
+   "questions": [
+    "carriers_logics",
+    "states",
+    "contextuality_finite",
+    "cycle_scenarios"
+   ],
+   "text_layer": true,
+   "pages": "17",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "sections 1-4.2 read 2026-11-12; 4.3-5 skimmed. From arXiv. Finite probabilistic neighbour of 'compatible window families = states on the generated concrete logic'."
+  },
+  {
+   "file": "tylec_kus_krajczok_2016_nonsignalling_theories_generalized_probability.pdf",
+   "citation": "T. I. Tylec, M. Kus, J. Krajczok, 'Non-signalling theories and generalized probability', Int. J. Theor. Phys. 55 (2016) 3832-3842, arXiv:1512.02457",
+   "what_it_proves": "Arbitrary bipartite box world (N and M inputs, finite outcome sets). Gamma = product of all outcome sets; L = the sublogic of 2^Gamma GENERATED by the pair cylinders [a alpha, b beta] = {x_a = alpha, y_b = beta}. Observation 10: every element of L is a finite disjoint union of such cylinders. Lemma 11: normal form of the elements above a cylinder. Thm 12: every non-signalling state defines a state on L by additivity over cylinder decompositions (well defined by no-signalling), and every state on L restricts to a non-signalling state: states on the generated concrete logic = compatible families. Prop 13, 15, Thm 16: one-party propositions of different parties are compatible. Finite, real-valued states, complete bipartite window graph only; the triangle of pair windows is not a box world, and there Observation 10 fails (HAND: in {0,1}^3 the complement of {00*} u {*10} u {1*1} is {011, 100}, an atom of D that is not a cylinder).",
+   "summary_basis": "read",
+   "verdict_for_us": "owns",
+   "programme_links": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md (2026-11-12 third pass, 6.6)"
+   ],
+   "questions": [
+    "carriers_logics",
+    "states",
+    "contextuality_finite",
+    "coherence_extension"
+   ],
+   "text_layer": true,
+   "pages": "7",
+   "read_trail": [
+    "notes/open_questions/views_across_records/TRIANGLE_CARRIER_PRIOR_ART.md"
+   ],
+   "read_note": "pp.1-5 read in full 2026-11-12 (definitions, Observation 10, Lemma 11, Thm 12 with proofs, Props 13-16); the rest skimmed. From arXiv. Owns the finite bipartite case of 'every compatible family is the window family of exactly one state on the generated concrete logic'; cite before stating the triangle extension theorem."
   }
  ]
 }

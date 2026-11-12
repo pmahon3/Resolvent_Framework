@@ -108,6 +108,14 @@ wherever the name is used for others.
 | sum of local facts | span of the marginal map (design-matrix row space) | Sullivant (toric) |
 | box identity | no-three-way interaction (vanishing 2×2×2 interaction contrast) | Bishop–Fienberg–Holland, Discrete Multivariate Analysis, MIT Press 1975; Sullivant 2006 |
 | shape lemma; detection rank; asynchrony | none found (provisional names) | G5 audit UNCLEAR; detection rank ~ amalgamation rank [tax own.type_amalgamation] |
+| window ultrafilter (one observer's pair) *(added 2026-11-12)* | amalgamation of two ultrafilters; 2-type; coupling (probability word, by analogy) | Goldberg §3 [tax own.ultrafilter_products]; Hrushovski 2012 [tax own.type_amalgamation] |
+| compatible window family *(2026-11-12)* | compatible family of local sections; non-signalling family (finite, probabilistic) | AB 2011; Tylec–Kuś–Krajczok 2016 Thm 12 [shelf] |
+| box identity, owner of the criterion *(2026-11-12)* | Kellerer's alternating-sum criterion | Kellerer 1964 Satz 1.1, 1.4 [shelf] |
+| carrier = all 0/1 span vectors *(2026-11-12)* | the logic is closed; positive ⇒ closed | Ovchinnikov 1994 Prop 2; 1999 Thm 2.6 [shelf] |
+| finitary / D_fin *(2026-11-12)* | finite Dynkin closure; the generated concrete logic | Gudder; Ovchinnikov |
+| real partial charge *(2026-11-12)* | (established term) | Bhaskara Rao & Bhaskara Rao 1983 Def 3.2.1 |
+| K-related; cover *(2026-11-12)* | none found; do not write "entangled" | Lean `KRel`, `Cover` |
+| ~~additive set~~ *(2026-11-12)* | taken (thresholded sums): do not use for carrier sets | Fishburn–Lagarias–Reeds–Shepp; Kemperman [shelf] |
 | possibility space Ω | sample / outcome space | standard |
 | Ω-free | abstract OML / orthomodular poset (not set-representable) | Kalmbach 1983 [shelf] |
 

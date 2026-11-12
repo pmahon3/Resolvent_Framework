@@ -8,11 +8,16 @@
   describes. Concretely: which compatible triples of couplings (window ultrafilters; amalgamations; 2-types) are
   pointless, described in terms of the couplings themselves.
 - **What is known.** Pointless ⟺ the triple does not glue (Lean `pointless_iff_not_glued`) ⟺ some three yes-answers,
-  one per observer, have no common triple (hand, standard finite-intersection argument). For tensor-type couplings:
-  pointless ⟺ cyclic orientation (hand, known).
-- **What is open.** Whether an order cycle is the only way to fail for arbitrary couplings (`theory_shape.md` T3);
-  a classification of couplings (tied by a map / one runs ahead / sums) fine enough to state it. Model theory owns
-  the neighbouring 3-amalgamation problem and its obstructions (Hrushovski 2012). "Generic" is not yet defined.
+  one per observer, have no common triple (hand, standard finite-intersection argument). **Composition law (Lean,
+  2026-10-19, `CompositionLaw.lean` `triangle_glues_iff`):** if two of the couplings are *forward*, the triple glues
+  iff the third equals their composite; the twist is the holonomy of composition. Special cases: tensor type ⟺ cyclic
+  orientation; maps ⟺ trivial monodromy; sums ⟺ d₀₂ = d₀₁ + d₁₂.
+- **Correction (same day).** This addendum first listed "an order cycle is the only way to fail" as open. It is
+  **refuted** (2026-10-17/19, `theory_shape.md` §5 and the 2026-10-19 update): sum-type couplings give an acyclic
+  orientation that still fails to glue.
+- **What is open.** Couplings that are forward in neither direction (Goldberg's general amalgamations); a
+  classification of couplings fine enough to state the criterion for every compatible triple; prior art for the
+  composition law (not found; folklore risk recorded as high). "Generic" is not yet defined.
 - Prior art for the triangle results: three passes and both hardcopy books; not found; must cite Kellerer 1964,
   Tylec–Kuś–Krajczok 2016, Abramsky–Barbosa 2021. Nothing claimed.
 

@@ -2,6 +2,20 @@
 
 ## STATE AS OF 2026-08-31 (read this first)
 
+### 2026-11-12 addendum (read first): central goal pinned (user)
+
+- **Central goal (user, 2026-11-12):** a clear explication of the objects, relations and class the triangle result
+  describes. Concretely: which compatible triples of couplings (window ultrafilters; amalgamations; 2-types) are
+  pointless, described in terms of the couplings themselves.
+- **What is known.** Pointless ⟺ the triple does not glue (Lean `pointless_iff_not_glued`) ⟺ some three yes-answers,
+  one per observer, have no common triple (hand, standard finite-intersection argument). For tensor-type couplings:
+  pointless ⟺ cyclic orientation (hand, known).
+- **What is open.** Whether an order cycle is the only way to fail for arbitrary couplings (`theory_shape.md` T3);
+  a classification of couplings (tied by a map / one runs ahead / sums) fine enough to state it. Model theory owns
+  the neighbouring 3-amalgamation problem and its obstructions (Hrushovski 2012). "Generic" is not yet defined.
+- Prior art for the triangle results: three passes and both hardcopy books; not found; must cite Kellerer 1964,
+  Tylec–Kuś–Krajczok 2016, Abramsky–Barbosa 2021. Nothing claimed.
+
 ### 2026-11-10 addendum (read first): triangle gate closed YES (reversal)
 
 - **Old status.** Since 2026-11-06 the "triangle gate" was open: on the triangle of three pair-windows, do two

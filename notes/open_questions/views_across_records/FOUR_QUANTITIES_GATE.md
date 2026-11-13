@@ -155,6 +155,7 @@ Scripts `../verification/four_quantities/k4_3333_stage1.py`, `k4_3333_sanity.py`
 
 **Beat 2 (explain) — not done.** No hand argument yet for why irreducible sets are absent.
 **Beat 3 (relocate).** The question is now:
+> **WITHDRAWN the same day (false at 2×2×2×2: 24 irreducible sets; see "Hand session 2" below).**
 > **Conjecture (unnamed, 2026-11-13).** On four quantities with every pair seen, every pair-sum set over finite
 > alphabets is reducible: some coordinate has two values whose slices differ through at most one other coordinate.
 If true, S1₄ in finite form follows by induction from the triangle theorem, and the only irreducible content of the
@@ -162,3 +163,62 @@ four-quantity carrier is the triangle's cyclic orders sitting on three of the fo
 sizes: 3×3×4×4 and up; 4×4×4×4 is the first size where a genuinely four-quantity order pattern would have room.
 Heuristic for the conjecture (unverified, from memory): the linear ordering polytope on four elements has only the
 trivial and three-cycle facets.
+
+## Hand session 2 (2026-11-13): why irreducible sets vanish, and the one place they do not ⟦HAND, unchecked by a second reader; prediction tested by computation⟧
+
+**Correction first.** "Every pair-sum set on four quantities is reducible" is false. With two values per quantity
+there are irreducible sets. The sizes tested above (3333, 3334) simply have none.
+
+**Definitions.** F is *irreducible* if every coordinate has ≥ 2 values and any two distinct values at any coordinate
+are K-related (T1). For a K-related pair a, b at coordinate 0 via {1,2}, T4's argument (it never used |X₀| = 2) gives:
+- (II) F_a and F_b do not depend on x₃; or
+- (I) F_b = Uᶜ×Vᶜ ⊔ Uᶜ×V×T ⊔ U×Vᶜ×Tᶜ and F_a = U×V ⊔ Uᶜ×V×T ⊔ U×Vᶜ×Tᶜ for a proper T ⊂ X₃.
+
+**Lemma A (a third value kills case (I)).** Let a, b be K-related via {1,2} in case (I), and c a third value K-related
+to b. Then contradiction.
+- (b,c) via {1,2} with (U′,V′): F_b is full for all x₃ only on Uᶜ×Vᶜ and empty for all x₃ only on U×V, so
+  U′ = Uᶜ, V′ = Vᶜ, and d_ac = d_ab + d_bc = 0: a and c are not K-related.
+- (b,c) via {1,3} with (U′,W): F_b(x₁,·,t) is full for all x₂ iff x₁∈Uᶜ, t∈T, and empty for all x₂ iff x₁∈U, t∈T.
+  So W ⊆ T and Wᶜ ⊆ T, i.e. T = X₃. Via {2,3}: the same with Tᶜ.
+
+**Lemma B (types on a triple).** For a, b, c pairwise K-related at one coordinate, the three types are all equal or
+all different. (Two pairs of type {1,2} sum to a function of x₁, x₂ only. Types {1,2} and {1,3} force U′ = Uᶜ and
+the third type {2,3}.)
+
+**Proposition (irreducible ⇒ two values everywhere).** Suppose F is irreducible and coordinate 0 has ≥ 3 values.
+By Lemma A every pair at coordinate 0 is in case (II).
+- If all pairs have one type, say {1,2}: every slice is independent of x₃, so F is, and two values of x₃ have equal
+  slices. Reducible.
+- Otherwise some triple a, b, c has three different types (Lemma B, and any two differently typed pairs lie in or
+  next to a two-type triple). Case (II) three times: F_a depends on x₂ only, F_b on x₁ only, F_c on x₃ only. For any
+  further value e, the pair (a,e) must have a type containing 2 (else F_e takes a value outside {0,1}), and then F_e
+  depends on one coordinate only. So F = ⊔_e {x₀ = e} × {x_{σ(e)} ∈ S_e}, a **selector**. At coordinate 1 two values
+  differ by a function of x₀ alone. Reducible.
+Either way a contradiction. So an irreducible set has exactly two values at every coordinate.
+
+**Proposition (the atom).** On 2×2×2×2 an irreducible set is in case (I) at each coordinate, hence an image of
+  A₄ := {(u,v,t) ∈ {011, 100}} ⊔ {(p,u,v) ∈ {000, 111}}   (coordinates p, u, v, t; 8 worlds),
+"if u and v agree, does p agree with them; if they differ, does t side with v?". A₄ ∈ D₄ (T4).
+
+**Theorem (finite S1₄) ⟦HAND⟧.** On four quantities with every pair seen, over finite alphabets, D₄ = V₀₁.
+Induction on the total number of values: a coordinate with one value ⇒ triangle theorem; a simple pair ⇒ merge (T2);
+otherwise F is an image of A₄.
+
+**Prediction and test** (`../verification/four_quantities/k4_irreducible_small.py`): irreducible sets should exist
+only at 2×2×2×2 and should be exactly the images of A₄ under relabelling, reordering and complement.
+
+| size | \|V₀₁\| | irreducible |
+|---|---|---|
+| 2×2×2×2 | 222 | **24** = the 24 images of A₄, as sets |
+| 2×2×2×3 | 1,006 | 0 |
+| 2×2×3×3 | 5,134 | 0 |
+| 2×3×3×3 | 23,206 | 0 |
+| 3×3×3×3 | 67,742 | 0 |
+| 3×3×3×4 | 466,630 | 0 |
+
+The prediction held at all six sizes. Status of the theorem: hand, one author, not independently checked, not Lean.
+Uses the triangle theorem in finite form (Lean core + hand grid transfer). Prior art not searched.
+
+**Reading.** The four-quantity carrier has two kinds of atom: the triangle's cyclic orders on three of the four
+quantities, and A₄, which exists only with two values and vanishes as soon as any quantity has a third.
+Not addressed: infinite alphabets (S1₄ infinite form), S2₄, S3₄, five or more quantities.

@@ -84,7 +84,7 @@ hierarchical models (Bishop–Fienberg–Holland 1975 [mem]).
 
 | Write | Means |
 |---|---|
-| G | the **shape**: which groups of quantities are seen together. For pair observers, the standard graph names, alphanumeric only: **K₃** (triangle, all three pairs), **C₄** (4-cycle: neighbouring pairs of four), **K₄⁻** (K₄ minus an edge, the diamond graph: a 4-cycle with one diagonal), **P₄** (path: four in a line), **K₄** (four, every pair); in general K_m, C_L, P_m. Any other shape, including observers of three or more quantities, in brackets: [01][12][23], [012][23]. **No glyphs** (K₃, C₄, K₄⁻): C₄ and K₄⁻ are the modal operators (decided with the author 2026-11-13). |
+| G | the **shape**: which groups of quantities are seen together. For pair observers, the standard graph names, alphanumeric only: **K₃** (triangle, all three pairs), **C₄** (4-cycle: neighbouring pairs of four), **K₄⁻** (K₄ minus an edge, the diamond graph: a 4-cycle with one diagonal), **P₄** (path: four in a line), **K₄** (four, every pair); in general K_m, C_L, P_m. Any other shape, including observers of three or more quantities, in brackets: [01][12][23], [012][23]. **No glyphs**: a triangle, box or lozenge symbol must not be used for a shape, since the box and the lozenge are the modal operators (necessity, possibility) (decided with the author 2026-11-13). |
 | n = (n₀, …, n_m) | the **sizes**: quantity i takes nᵢ values. One number if all equal: K₃(3), K₄(2). ℕ for all natural numbers: K₃(ℕ). |
 | G(n) | the scenario, e.g. K₃(3,4,4), K₄(3,3,4,4), C₄(2). |
 | Ω(S) | the worlds of S (the grid); \|Ω\| = n₀·n₁·…·n_m. |

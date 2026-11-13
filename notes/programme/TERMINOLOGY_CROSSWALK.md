@@ -76,6 +76,36 @@ reviewed: false. 2026-11-06. Read-only audit. No other file was edited. Nothing 
 | ~~additive set~~ | — | **TAKEN**: a set {f ≥ 0} with f a sum of coordinate functions (a *thresholded* sum); also "set of uniqueness", "bad configuration" | Fishburn–Lagarias–Reeds–Shepp 1990/91; Kemperman 1990/91 [shelf, read] | — | — | **DO NOT USE** for carrier sets: a carrier set's indicator *equals* a pair-sum, a strictly narrower notion. |
 | "Specker triangle" | three bits, pairwise perfectly anticorrelated: a compatible probabilistic family with no joint | Specker's triangle (parable of the overprotective seer) | Specker 1960; Liang–Spekkens–Wiseman 2011 [mem, unverified] | new | — | **USE** as the landmark for "compatible but not extendable" in the probabilistic case. |
 
+#### A″. Notation for scenarios (adopted 2026-11-13; notes and prose only, Lean names stay frozen)
+
+A **scenario** is a shape together with sizes, written **G(n)**. "Scenario" is the contextuality term (measurement
+scenario, Abramsky–Brandenburger 2011); the bracket form for shapes is the statisticians' generator notation for
+hierarchical models (Bishop–Fienberg–Holland 1975 [mem]).
+
+| Write | Means |
+|---|---|
+| G | the **shape**: which groups of quantities are seen together. Named shapes: △ (triangle, all three pairs), □ (square, neighbouring pairs of four), ◇ (square with one diagonal), P₄ (four in a line), K₄ (four, every pair). Any other shape in brackets: [01][12][23]. |
+| n = (n₀, …, n_m) | the **sizes**: quantity i takes nᵢ values. One number if all equal: △(3), K₄(2). ℕ for all natural numbers: △(ℕ). |
+| G(n) | the scenario, e.g. △(3,4,4), K₄(3,3,4,4), □(2). |
+| Ω(S) | the worlds of S (the grid); \|Ω\| = n₀·n₁·…·n_m. |
+| V(S), V₀₁(S) | the span of the window indicators; its 0/1 members = the questions that **add up** (existing usage in `definitions_draft.md`, kept). |
+| D(S) | the questions that can be **built** (the carrier); D_fin(S) the finitely built ones. Always D(S) ⊆ V₀₁(S). |
+| Irr(S) | the **irreducible** members of V₀₁(S): every quantity has ≥ 2 values and no two values of any quantity differ simply. |
+| St(S) | the answer patterns (states) on D(S). |
+| coarsening n → n′ | merging values; questions pull back along it (D and V₀₁ are preserved). |
+| G′ ⊆ G | forgetting observers; D(G′(n)) ⊆ D(G(n)). |
+
+Lean: `D₃` is D(△(ℕ)); `Dfin` is D_fin(△(ℕ)); `Box` is membership in V₀₁(△(ℕ)) (Kellerer's criterion).
+
+**Results in this notation** (status in brackets):
+- D(△(n)) = V₀₁(△(n)) for every finite n [Lean core + hand grid transfer].
+- D(△(ℕ)) = D_fin(△(ℕ)) ⊊ V₀₁(△(ℕ)); the cyclic order E* is left out [Lean].
+- St(△(ℕ)) ≅ compatible window families [Lean; the routine direction by hand].
+- D(□(2)) ⊊ V₀₁(□(2)), 82 against 90 [computed].
+- D(K₄(n)) = V₀₁(K₄(n)) for every finite n [hand, under independent check 2026-11-13; computed at six sizes].
+- Irr(△(3)) = the 72 cyclic orders and their complements [computed]. Irr(K₄(n)) = ∅ unless n = (2,2,2,2), where it
+  is the 24 images of A₄ [hand, under check; computed at six sizes].
+
 ### B. Cycle side / reconstruction (`papers/reconstruction/`, commensurability taxonomy)
 
 | Internal term | Meaning | Established | Owner | Occ. | Papers / Lean | Rec. |

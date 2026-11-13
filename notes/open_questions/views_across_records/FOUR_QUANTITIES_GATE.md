@@ -5,6 +5,7 @@ Motivation and choice of move: chat 2026-11-13 (turn one dial at a time; the sha
 rock–paper–scissors (Ranta–Lundberg–Kaitala 2005, ch. 11).
 
 ## Setup
+*Notation (crosswalk §A″, adopted later the same day): this file studies the scenarios K₄(n); "D₄" below is D(K₄(n)), "V₀₁" is V₀₁(K₄(n)), the square is □(2), and sizes written 3×3×3×3 are n = (3,3,3,3).*
 Ω = X₀×X₁×X₂×X₃. Six observers, one per pair of coordinates (window graph K₄). D₄ = closure of the six families of
 pair events under complement and (countable) disjoint union. V₀₁ = sets whose indicator is a sum of six pair functions.
 Always D₄ ⊆ V₀₁. Criterion for V₀₁ ⟦HAND⟧: the eight-corner identity on every three coordinates with the fourth held

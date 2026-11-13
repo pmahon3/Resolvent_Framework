@@ -252,6 +252,18 @@ Broader lens, not broader standard. Each type has a concrete bar.
   This is the healthy route, not a failure: the hand work is what locates the real question. (Origin: three gates in a
   row were forced in advance: P-stack 2026-11-07 by `box_of_mem`; the factoring gate 2026-11-10 by grid size; the
   four-quantities gate 2026-11-13 because every size run had a two-valued coordinate.)
+- **Horizon: step back and orient (adopted 2026-11-13).** Crank-turning runs in bounded batches. Declare the batch
+  before starting it; while it runs, open no new shapes or questions (write tempting ones down for the step-back).
+  Step back at the FIRST of:
+  - the declared batch is complete;
+  - about five cranks since the last orientation;
+  - a reversal, or a result that redraws the map;
+  - three results in a row that came from the machine with no hand understanding on the user's side;
+  - the user says they are lost, or simply wants to.
+  **Orienting** is short and in plain words: (1) what we now believe, in five sentences or fewer; (2) bearing on the
+  question, through WHY.md's four questions; (3) a *pull check*: for each open item, does it serve what lights the
+  fire, or is it merely the next thing the machine can do? (4) choose: continue this dial, turn another, do the
+  own-words pass, or pause. An owed own-words pass is taken up at the step-back before more is built on top.
 - **Verify reversals before propagating them (adopted 2026-10-27).** When an audit
   overturns a recorded verdict, first run an independent check (a fresh agent,
   hostile to both sides, quoting the exact statements) and write it to

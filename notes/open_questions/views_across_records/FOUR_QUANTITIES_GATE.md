@@ -233,7 +233,11 @@ set or at A₄. A₄ is the only irreducible set and is irreducible only on 2×2
 The proof uses the full symmetry of K₄ and does not transfer as it stands to a shape with a missing pair.
 Not addressed: infinite alphabets (S1₄ infinite form), S2₄, S3₄, five or more quantities.
 
-## The diamond K₄⁻, and gluing along a seen pair (2026-11-13) ⟦HAND, unchecked by a second reader⟧
+> **Independent check 2026-11-13: CONFIRMED WITH FIXES** (`GLUING_LEMMA_CHECK.md`; fixes applied below, marked [fix]).
+> The gluing lemma was **false as first worded** and is true as restated. Status now: hand, two readers, not Lean;
+> prior art not searched (clique-sum / decomposable-model literature is where to look).
+
+## The diamond K₄⁻, and gluing along a seen pair (2026-11-13) ⟦HAND; independently checked, see banner⟧
 
 Shape: quantities 0,1,2,3; pairs seen 01, 12, 02, 23, 03; the pair 13 is **not** seen. Two triangles, 012 and 023,
 sharing the seen pair 02. Finite alphabets.
@@ -247,19 +251,21 @@ P (F depends on x₁ only, genuinely), Q (on x₃ only, genuinely), or R (consta
 - F_R := the full cells. A window event of the pair 02.
 - F₁ := F on the P cells. It does not depend on x₃. Put g = f₀₁ + f₁₂ + f₀₂ and G = g + θ(x₀,x₂), with θ chosen cell
   by cell so that G = 1_F on P cells and G = 0 elsewhere; this is possible because g is constant in x₁ on every cell
-  not in P. Then G = 1_{F₁} is a sum of pair functions on the triangle 012, so F₁ ∈ V₀₁(K₃) = D(K₃) by the triangle
+  not in P, and because on a P cell 1_F − g = f₂₃(c,·) + f₀₃(a,·) is constant in x₃ (α non-constant forces β constant) [fix]. Then G = 1_{F₁} is a sum of pair functions on the triangle 012, so F₁ ∈ V₀₁(K₃) = D(K₃) by the triangle
   theorem, and D(K₃ on 012) ⊆ D(K₄⁻).
 - F₃ := F on the Q cells: the same on the triangle 023.
 F = F₁ ⊔ F₃ ⊔ F_R, pairwise disjoint (different cells). ∎
 
-**What the proof really uses.** Two pieces glued along a set of quantities whose cells are window events and whose
-functions are window functions: a single quantity, or a **seen pair**. So:
-> **Gluing lemma.** If G is G₁ and G₂ glued along one quantity or one seen pair, and D = V₀₁ at every finite size for
-> G₁ and for G₂, then D = V₀₁ at every finite size for G.
-(The same three-kinds-of-cell argument, with "x₁" and "x₃" replaced by the quantities private to each piece.)
-This covers lines and trees (gluing pairs along a quantity), the diamond, and every shape built from K₃'s, K₄'s and
-single pairs by such gluings. It does **not** cover gluing along a triangle (two K₄'s sharing three quantities), nor
-K₅, and says nothing about shapes that fail (C₄).
+**What the proof really uses [fix: restated after the check].** A hinge that **one observer sees in each piece**.
+> **Gluing lemma.** Let the quantities be V = V₁ ∪ V₂ with hinge S = V₁ ∩ V₂ (possibly empty). Suppose every observer
+> lies inside V₁ or inside V₂, and S is contained in some observer inside V₁ and in some observer inside V₂. Let Gᵢ be
+> the observers inside Vᵢ. If D = V₀₁ for G₁ and for G₂ at the given sizes, then D = V₀₁ for G at those sizes.
+Size by size; observers of any width; alphabets need not be finite. For pair observers the hinge has at most two
+quantities. **Counterexample to the first wording** ("S seen in G" is not enough): the line [01][12][23] glued to the
+pair [03] along {0,3} gives the square C₄, which fails.
+**Scope.** With pair observers this covers exactly the shapes built from single quantities, pairs, K₃'s and K₄'s by
+gluing along a quantity or a seen pair, and disjoint unions: the chordal graphs with no K₅ and no induced K₅⁻ (the
+two graph facts are from memory). Not covered: K₅⁻ (two K₄'s sharing a triangle), K₅, and larger.
 
 **Prediction (to test the proof, not as independent evidence):** gap 0 for K₄⁻ at every size the script reaches,
 including sizes where the two unseen quantities and the two shared ones have different numbers of values.
@@ -281,7 +287,16 @@ As predicted. These runs check the hand proof; they are not independent evidence
 **Contrast, same script:** the square C₄ keeps its gap at larger sizes: (2,2,3,3) gives 1,546 against 1,618 and
 (2,3,2,3) gives 570 against 642, a gap of **72** each time (8 at (2,2,2,2)). Not analysed.
 
-**Where this leaves the chordal guess.** Closed at every finite size: K₃ (Lean core), K₄ (hand, two readers), and by
-the gluing lemma everything built from those and single pairs by gluing along a quantity or a seen pair (hand, one
-reader). Not closed: C₄. Smallest undecided shapes: two K₄'s sharing a triangle (five quantities, one pair unseen),
-and K₅. The converse (a loop with no shortcut always leaves a gap) is untouched beyond C₄.
+**The square's 72 [check].** They are exactly the pullbacks of the 8 gap sets of C₄(2) along value-merging maps
+(72 = 8×3×3). Nothing new at larger sizes.
+
+**REVERSAL of the chordal guess (2026-11-13, from the check; computed, exact).** The guess "closed at every finite
+size ⟺ every loop of length ≥ 4 has a shortcut" is **false as an iff**: the five-loop C₅ has no shortcut and has **no
+gap** at (2,2,2,2,2) (102 = 102) and (2,2,2,2,3) (314 = 314). Adding one chord to C₅ creates a gap of 8 (152 against
+160): the chord leaves a four-loop. So at these sizes the obstruction looks like **a four-loop with no shortcut**, not
+"any long loop". Odd versus even length is now a live question (the user raised parity on 2026-11-13; Claude guessed,
+wrongly, that a five-loop would fail). Untested: C₅ at larger sizes; C₆ and longer.
+
+**Where things stand.** Closed at every finite size: K₃ (Lean core); K₄ (hand, two readers); everything in the
+gluing lemma's scope (hand, two readers). Closed at the sizes computed: K₅⁻ (422, 1,302, 1,930), K₅ and K₆ (nine
+sizes), C₅ (two sizes). Not closed: C₄ at every size tried, and C₅ plus a chord.

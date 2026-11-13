@@ -98,6 +98,12 @@ hierarchical models (Bishop–Fienberg–Holland 1975 [mem]).
 
 Lean: `D₃` is D(K₃(ℕ)); `Dfin` is D_fin(K₃(ℕ)); `Box` is membership in V₀₁(K₃(ℕ)) (Kellerer's criterion).
 
+**Earned or provisional** (rule "Notation is earned", CLAUDE.md, 2026-11-13):
+- *Established:* G(n) with graph names; Ω(S); V₀₁(S) and D(S) (many results); St(S) (Lean description on K₃(ℕ); conventional meaning).
+- *Provisional:* Irr(S) (two results, definition one day old); Pr(S) (no result of ours yet uses it); the name A₄ for the
+  four-bit pattern; "coarsening", "forgetting an observer" as named moves. Use with a plain-words gloss until they pass
+  the thresholds, or drop them.
+
 **Results in this notation** (status in brackets):
 - D(K₃(n)) = V₀₁(K₃(n)) for every finite n [Lean core + hand grid transfer].
 - D(K₃(ℕ)) = D_fin(K₃(ℕ)) ⊊ V₀₁(K₃(ℕ)); the cyclic order E* is left out [Lean].

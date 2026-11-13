@@ -49,6 +49,14 @@ world, not to stay in an ivory tower. It is not mathematical content, but it gui
   - A good symbol makes a structural link visible (St recalls Stone duality; K_m, C_L recall chordality). If a
     notation hides a connection a neighbouring field would see, change the notation.
   - Record every choice in `notes/programme/TERMINOLOGY_CROSSWALK.md` §A″ with its reason.
+- **Notation is earned (user, 2026-11-13).** A symbol should emerge from a well-formed exposition, not precede it.
+  Until the thresholds are met, use plain words, and mark any shorthand "provisional" (working files and chat only).
+  A symbol is **established** (enters the crosswalk as such, may be used in notes for others) only when all hold:
+  1. the object has a settled definition, stated first in plain words with one worked example;
+  2. it occurs in at least two banked results (or three statements) that become shorter or clearer with the symbol;
+  3. the neighbour check is done (rule above);
+  4. the definition has survived at least one independent check or one change of example without being revised.
+  Same spirit as "Name things last". A symbol that has not earned its place after a few sessions is dropped.
 - **Reversals cost.** When a result overturns something recently framed as central, lead with
   that, plainly, and update every place that asserts it.
 

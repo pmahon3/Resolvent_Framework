@@ -232,3 +232,34 @@ Uses the triangle theorem in finite form (Lean core + hand grid transfer). Prior
 set or at A₄. A₄ is the only irreducible set and is irreducible only on 2×2×2×2; its pullbacks occur at every size.
 The proof uses the full symmetry of K₄ and does not transfer as it stands to a shape with a missing pair.
 Not addressed: infinite alphabets (S1₄ infinite form), S2₄, S3₄, five or more quantities.
+
+## The diamond K₄⁻, and gluing along a seen pair (2026-11-13) ⟦HAND, unchecked by a second reader⟧
+
+Shape: quantities 0,1,2,3; pairs seen 01, 12, 02, 23, 03; the pair 13 is **not** seen. Two triangles, 012 and 023,
+sharing the seen pair 02. Finite alphabets.
+
+**Claim.** D(K₄⁻(n)) = V₀₁(K₄⁻(n)) for every finite n.
+
+**Proof.** Let 1_F = f₀₁ + f₁₂ + f₀₂ + f₂₃ + f₀₃. Fix a cell (x₀,x₂) = (a,c). On it,
+1_F = α(x₁) + β(x₃) with α = f₀₁(a,·) + f₁₂(·,c) and β = f₂₃(c,·) + f₀₃(a,·) + f₀₂(a,c). A 0/1-valued sum
+α(x₁) + β(x₃) cannot have both parts non-constant (it would take three values). So each cell is of exactly one kind:
+P (F depends on x₁ only, genuinely), Q (on x₃ only, genuinely), or R (constant: full or empty).
+- F_R := the full cells. A window event of the pair 02.
+- F₁ := F on the P cells. It does not depend on x₃. Put g = f₀₁ + f₁₂ + f₀₂ and G = g + θ(x₀,x₂), with θ chosen cell
+  by cell so that G = 1_F on P cells and G = 0 elsewhere; this is possible because g is constant in x₁ on every cell
+  not in P. Then G = 1_{F₁} is a sum of pair functions on the triangle 012, so F₁ ∈ V₀₁(K₃) = D(K₃) by the triangle
+  theorem, and D(K₃ on 012) ⊆ D(K₄⁻).
+- F₃ := F on the Q cells: the same on the triangle 023.
+F = F₁ ⊔ F₃ ⊔ F_R, pairwise disjoint (different cells). ∎
+
+**What the proof really uses.** Two pieces glued along a set of quantities whose cells are window events and whose
+functions are window functions: a single quantity, or a **seen pair**. So:
+> **Gluing lemma.** If G is G₁ and G₂ glued along one quantity or one seen pair, and D = V₀₁ at every finite size for
+> G₁ and for G₂, then D = V₀₁ at every finite size for G.
+(The same three-kinds-of-cell argument, with "x₁" and "x₃" replaced by the quantities private to each piece.)
+This covers lines and trees (gluing pairs along a quantity), the diamond, and every shape built from K₃'s, K₄'s and
+single pairs by such gluings. It does **not** cover gluing along a triangle (two K₄'s sharing three quantities), nor
+K₅, and says nothing about shapes that fail (C₄).
+
+**Prediction (to test the proof, not as independent evidence):** gap 0 for K₄⁻ at every size the script reaches,
+including sizes where the two unseen quantities and the two shared ones have different numbers of values.

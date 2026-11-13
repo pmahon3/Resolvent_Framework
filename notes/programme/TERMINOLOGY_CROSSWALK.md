@@ -91,7 +91,8 @@ hierarchical models (Bishop–Fienberg–Holland 1975 [mem]).
 | V(S), V₀₁(S) | the span of the window indicators; its 0/1 members = the questions that **add up** (existing usage in `definitions_draft.md`, kept). |
 | D(S) | the questions that can be **built** (the carrier); D_fin(S) the finitely built ones. Always D(S) ⊆ V₀₁(S). |
 | Irr(S) | the **irreducible** members of V₀₁(S): every quantity has ≥ 2 values and no two values of any quantity differ simply. |
-| St(S) | the answer patterns (states) on D(S). |
+| St(S) | the **two-valued** answer patterns on D(S), with the product topology: the Stone-type space of the carrier. When D(S) is a Boolean algebra this is its Stone space in the usual sense, so the symbol keeps its conventional meaning (decided with the author 2026-11-13). Cf. `stone_role_prior_art.md`; Gudder's representation (Pták–Pulmannová 1991 Thm 2.2.1). |
+| Pr(S) | **all** answer patterns on D(S), probability-valued included: a compact convex set. St(S) lies among its extreme points; on a Boolean algebra the extreme points are exactly St(S), on our carriers there can be extreme points outside St(S) (e.g. the hidden state on △(3,4,4)). Quantum-logic literature writes S(L) and S₂(L); avoided here because S names a scenario. |
 | coarsening n → n′ | merging values; questions pull back along it (D and V₀₁ are preserved). |
 | G′ ⊆ G | forgetting observers; D(G′(n)) ⊆ D(G(n)). |
 
@@ -100,7 +101,8 @@ Lean: `D₃` is D(△(ℕ)); `Dfin` is D_fin(△(ℕ)); `Box` is membership in V
 **Results in this notation** (status in brackets):
 - D(△(n)) = V₀₁(△(n)) for every finite n [Lean core + hand grid transfer].
 - D(△(ℕ)) = D_fin(△(ℕ)) ⊊ V₀₁(△(ℕ)); the cyclic order E* is left out [Lean].
-- St(△(ℕ)) ≅ compatible window families [Lean; the routine direction by hand].
+- St(△(ℕ)) ≅ compatible window families [Lean; the routine direction by hand]. Three layers: points of Ω, ultrafilters on Ω, pointless.
+- Pr(△(n)) has extreme points outside St(△(n)) iff n is not compressed [owned: Sullivant 2006 + Farkas; exact example at △(3,4,4)].
 - D(□(2)) ⊊ V₀₁(□(2)), 82 against 90 [computed].
 - D(K₄(n)) = V₀₁(K₄(n)) for every finite n [hand, two readers 2026-11-13 (`FOUR_QUANTITIES_CHECK.md`), not Lean; prior art not searched].
 - Irr(△(3)) = the 72 cyclic orders and their complements [computed]. Irr(K₄(n)) = ∅ unless n = (2,2,2,2), where it

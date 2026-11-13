@@ -116,3 +116,24 @@ With a, b, c at coordinate 0: a–b via {1,2} with (U, V), b–c via {1,3} with 
 Same-type triples are chains as in the triangle. The triangle's "inclusion-minimal class" merge does not go through as
 it stands, because the common value on the cell U×Vᶜ can depend on the third coordinate. Next: classify the all-K
 sets (the analogue of "all-K ⇒ order set"), or find an all-K set with every quantity ≥ 3 that is not buildable.
+
+## Gate `gate.four_quantities_3333` (pre-registered 2026-11-13, before running; "compute, explain, relocate" beat 3)
+**Why here.** T4 explains every size already run (each had a two-valued coordinate). 3×3×3×3 is the smallest case it
+does not reach.
+**Forcedness check.** No Lean lemma covers four coordinates. T1–T4 need a two-valued coordinate. Positivity fails.
+The triangle theorem constrains slices only. Not forced, as far as checked.
+**Method (certificates, no closure on 81 points).**
+1. Enumerate V₀₁ exactly as triples of slices at x₃ = 0, 1, 2: a triangle pair-sum set on 3³ (15,914 of them) plus two
+   slice differences that are sums of one-coordinate functions with values in {−1, 0, 1}.
+2. Call a set *reducible* if at some coordinate two values have a simple slice difference (T1). A reducible set is in
+   D₄: merging the two values is a pair of Dynkin moves with window events (T2), and lands on a grid with a
+   two-valued coordinate, where D = V₀₁ was computed as sets (2×3×3×3).
+3. For each irreducible set, search for one Dynkin move (remove a contained window event, or add a disjoint one) to a
+   reducible set; then two moves.
+**Outcomes.**
+- (a) every V₀₁ set certified ⇒ D₄ = V₀₁ at 3×3×3×3. Supports S1₄ beyond the hand result. Then: describe the
+  irreducible sets (orders? selectors? other?), which is the input the hand proof needs.
+- (b) some sets uncertified after two moves ⇒ not a verdict; they are the candidates for a gap. Describe them, then
+  decide membership by a targeted argument.
+Affects: the unnamed "closed ⟺ chordal" candidate; `conj.window_restriction_r` (graphs containing a triangle).
+**Prior guess (unvalidated):** (a) about 70%.

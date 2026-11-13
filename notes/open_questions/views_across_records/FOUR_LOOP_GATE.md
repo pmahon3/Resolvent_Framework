@@ -45,3 +45,39 @@ Predictions, all for two values per quantity:
 **Prior guesses (unvalidated):** C₆ gap 0: 85%. All six rows: 60%.
 Not addressed by this gate: more than two values (where selectors can involve many quantities), and why A₄ cannot be
 built on the bare four-loop (computed; the October "shape lemma" for triangle-free shapes would explain it).
+
+## FIRED 2026-11-13: all six predictions hold exactly
+Script `../verification/four_quantities/bits_shape_gap.py` (exact integer arithmetic; closure to a fixed point).
+
+| shape (two values each) | \|D\| | \|V₀₁\| | gap | predicted |
+|---|---|---|---|---|
+| C₄ | 82 | 90 | 8 | 8, all images of A₄ ✓ (8 images of A₄ add up on C₄; none is buildable) |
+| C₅ | 102 | 102 | 0 | (known) |
+| **C₆** | 122 | 122 | **0** | 0 ✓ |
+| C₇ | 142 | 142 | 0 | 0 ✓ |
+| C₆ + long chord 03 | 164 | 180 | 16 | 16 ✓ |
+| C₆ + short chord 02 | 172 | 172 | 0 | 0 ✓ |
+| K₂,₃ | 144 | 168 | 24 | 24 ✓ |
+| C₅ + chord 02 | 152 | 160 | 8 | (known) |
+| K₄⁻ | 148 | 148 | 0 | (known) |
+
+- **"Even loops" is refuted as the rule**: the six-loop has no gap.
+- **The four-loop is the obstruction, with bits**: every gap observed is 8 sets per four-loop without a diagonal, and
+  on C₄ those 8 are exactly the images of the four-bit pattern A₄.
+- Loops satisfy |D| = |V₀₁| = 20·L + 2 for L = 5, 6, 7 (observed; not explained).
+
+## Reading
+- With two values, a question that adds up from pairs involves at most four quantities (remembered bound; our counts
+  agree up to six quantities). The only kind that needs four is A₄. It **adds up** when the four-loop p–u–t–v is seen,
+  and can be **built** once a diagonal is also seen. On a bare four-loop it adds up and cannot be built.
+- So the parity the user sensed is real but sits one level down: the gap sets are half-counts of disagreements round a
+  loop, and a half-count is a yes/no question only at lengths 3 and 4. Length 3 is buildable, length 4 is not.
+- Conjecture (bits): **D(G(2)) = V₀₁(G(2)) iff G has no four-loop without a diagonal**, with gap = 8 × (number of such
+  four-loops). Evidence: nine shapes. Status: hand reasoning by one author, resting on a remembered bound; not checked.
+
+## Not addressed
+More than two values per quantity: C₄ keeps exactly the pullbacks of its 8 (checked at two sizes), C₅ has no gap at
+(2,2,2,2,3); nothing else is known, and selectors show that questions can involve many quantities once sizes reach 4.
+Why A₄ cannot be built on the bare four-loop is computed, not explained (the October shape lemma for triangle-free
+shapes is the candidate explanation). Prior art: not searched; "degree ≤ 2 Boolean functions" and "graphs with no
+induced four-cycle" are the terms to search.

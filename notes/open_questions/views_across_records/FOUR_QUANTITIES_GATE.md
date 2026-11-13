@@ -75,3 +75,44 @@ first on the two recorded cases: square 2⁴ gives 82 / 90 (gap 8), K₄ 2⁴ gi
   with data: triangle (all sizes, Lean core), K₄ (four sizes), diamond and path (two values), square fails (two values).
 - **Next (pre-registered direction, from outcome (a)).** Try to transfer the triangle proof by hand: fix x₃, compare
   slices (now triangle carrier sets whose difference is a sum of three one-coordinate functions), merge values.
+
+## Hand transfer, first session (2026-11-13) ⟦HAND, unchecked by a second reader⟧
+
+Finite alphabets. F ⊆ Ω with 1_F a sum of six pair functions. Fix coordinate 0 and two values a, b. Slices
+F_a, F_b ⊆ X₁×X₂×X₃ are pair-sum sets on the triangle of the other three coordinates, and
+
+  d := 1_{F_a} − 1_{F_b} = h₁(x₁) + h₂(x₂) + h₃(x₃),  with values in {−1, 0, 1}.
+
+**T1 (dichotomy; replaces "α + β").** Write h_j = min h_j + g_j with g_j ≥ 0 integer-valued (differences of d).
+Then max g₁ + max g₂ + max g₃ ≤ 2, so exactly one of:
+- *simple*: d depends on at most one coordinate x_j (shapes (0,0,0), (1,0,0), (2,0,0));
+- *K-type via {j,k}*: d = [x_j ∈ U] + [x_k ∈ V] − 1 with U, V proper and nonempty, independent of the third coordinate.
+d never depends on all three coordinates. New relative to the triangle: a K-related pair has a **type**, the pair
+{j,k} ⊂ {1,2,3}.
+
+**T2 (merge of a simple pair; transfers verbatim).** If d depends only on x_j, then F_a is obtained from F_b by
+removing a contained set {x_j ∈ U₊} and adding a disjoint set {x_j ∈ U₋}. With x₀ = a these are events of the window
+{0, j}. So F ∈ D₄ iff the set with a merged into b is in D₄ of the smaller grid.
+
+**T3 (reduction).** By T2 and induction on the total number of values, it suffices to treat sets in which, at every
+coordinate, any two distinct values are K-related. If some coordinate has one value left, F is a pullback from a
+triangle and the triangle theorem applies (`TriangleFinitary.box_iff_mem_of_finDet` + the hand grid transfer).
+
+**T4 (one two-valued quantity: closed).** Let X₀ = {a, b} with a, b K-related via {1,2}: d = [x₁∈U] + [x₂∈V] − 1.
+Then F_b is empty on U×V and full on Uᶜ×Vᶜ. The triangle box identity for F_b at y∈U, y′∈Uᶜ, z∈V, z′∈Vᶜ, t, t′ gives
+1_{F_b}(y′,z,t) + 1_{F_b}(y,z′,t) independent of t. Hence either
+- (II) F_b, and so F, does not depend on x₃: F is a pullback from the triangle {0,1,2}, in D₄; or
+- (I) there is a proper T ⊂ X₃ with F_b = Uᶜ×Vᶜ ⊔ (Uᶜ×V×T) ⊔ (U×Vᶜ×Tᶜ). Then, with bits p = [x₀=a], u, v, t,
+  F = C ⊔ K where C = {(u,v,t) ∈ {011, 100}} (a triangle carrier set on coordinates 1,2,3) and
+  K = {(p,u,v) ∈ {000, 111}} (an antipodal pair on coordinates 0,1,2). Both are in D₄ and they are disjoint.
+So **for K₄ with one two-valued coordinate and the other three finite of any size, D₄ = V₀₁.**
+
+**Consequence for the gate (tempering).** All four sizes run had a two-valued coordinate. If T1–T4 are right, the
+gate's outcome on those sizes was forced, and it is **no evidence for the case where every quantity has ≥ 3 values**.
+The smallest untested case is 3×3×3×3 (81 points; outside the present script, N ≤ 62).
+
+**Where the transfer is not done.** The all-K case with ≥ 3 values per coordinate. New phenomenon: types can mix.
+With a, b, c at coordinate 0: a–b via {1,2} with (U, V), b–c via {1,3} with (Uᶜ, W) gives a–c via {2,3} with (V, W).
+Same-type triples are chains as in the triangle. The triangle's "inclusion-minimal class" merge does not go through as
+it stands, because the common value on the cell U×Vᶜ can depend on the third coordinate. Next: classify the all-K
+sets (the analogue of "all-K ⇒ order set"), or find an all-K set with every quantity ≥ 3 that is not buildable.

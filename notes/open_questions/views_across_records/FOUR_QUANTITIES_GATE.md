@@ -137,3 +137,28 @@ The triangle theorem constrains slices only. Not forced, as far as checked.
   decide membership by a targeted argument.
 Affects: the unnamed "closed ⟺ chordal" candidate; `conj.window_restriction_r` (graphs containing a triangle).
 **Prior guess (unvalidated):** (a) about 70%.
+
+## FIRED 2026-11-13: `gate.four_quantities_3333`, outcome (a), with a surprise
+Scripts `../verification/four_quantities/k4_3333_stage1.py`, `k4_3333_sanity.py`, `k4_3333_stage2.py`.
+- **Sanity first.** The slice method reproduces 23,206 on 2×3×3×3 (the closure count). The reducibility test, run on
+  the triangle 3³, finds exactly 144 irreducible sets: the 72 cyclic orders and their complements, E₃ among them.
+- **3×3×3×3:** |V₀₁| = 67,742. **Every one is reducible, and the merge certificate was verified mechanically for all
+  67,742** (the removed window event is contained, the added one is disjoint, and afterwards the two slices agree).
+  A merged set is a pullback from 2×3×3×3, where D = V₀₁ was computed as sets. So **D₄ = V₀₁ at 3×3×3×3**, given
+  one elementary hand lemma (pullback along a coordinatewise map preserves D).
+- **3×3×3×4:** |V₀₁| = 466,630, all reducible, certificates verified. (Base for the merged grids: 3×3×3×3 above, or
+  T4 by hand for 2×3×3×4, which was not computed.)
+- **The surprise: no irreducible set at all.** On the triangle the irreducible sets are the cyclic orders. With four
+  quantities and every pair seen, at these sizes every pair-sum set has two values at some coordinate that differ
+  simply. The selector pattern of the hand session is reducible at its other coordinates.
+- 1.3 s and 16 s; peak 0.7 GB.
+
+**Beat 2 (explain) — not done.** No hand argument yet for why irreducible sets are absent.
+**Beat 3 (relocate).** The question is now:
+> **Conjecture (unnamed, 2026-11-13).** On four quantities with every pair seen, every pair-sum set over finite
+> alphabets is reducible: some coordinate has two values whose slices differ through at most one other coordinate.
+If true, S1₄ in finite form follows by induction from the triangle theorem, and the only irreducible content of the
+four-quantity carrier is the triangle's cyclic orders sitting on three of the four quantities. Smallest untested
+sizes: 3×3×4×4 and up; 4×4×4×4 is the first size where a genuinely four-quantity order pattern would have room.
+Heuristic for the conjecture (unverified, from memory): the linear ordering polytope on four elements has only the
+trivial and three-cycle facets.

@@ -116,7 +116,7 @@ wherever the name is used for others.
 | real partial charge *(2026-11-12)* | (established term) | Bhaskara Rao & Bhaskara Rao 1983 Def 3.2.1 |
 | K-related; cover *(2026-11-12)* | none found; do not write "entangled" | Lean `KRel`, `Cover` |
 | ~~additive set~~ *(2026-11-12)* | taken (thresholded sums): do not use for carrier sets | Fishburn–Lagarias–Reeds–Shepp; Kemperman [shelf] |
-| scenario G(n): shape G (△, □, ◇, P₄, K₄, or brackets [01][12]…) with sizes n; Ω(S), V₀₁(S), D(S), Irr(S), St(S) (two-valued patterns = Stone-type space), Pr(S) (all patterns) *(notation adopted 2026-11-13; full table in `notes/programme/TERMINOLOGY_CROSSWALK.md` §A″)* | measurement scenario; generator notation for hierarchical models | AB 2011; Bishop–Fienberg–Holland 1975 [mem] |
+| scenario G(n): shape G (graph names K₃, C₄, K₄⁻, P₄, K₄, in general K_m, C_L, P_m; or brackets [01][12]…; no glyphs) with sizes n; Ω(S), V₀₁(S), D(S), Irr(S), St(S) (two-valued patterns = Stone-type space), Pr(S) (all patterns) *(notation adopted 2026-11-13; full table in `notes/programme/TERMINOLOGY_CROSSWALK.md` §A″)* | measurement scenario; generator notation for hierarchical models | AB 2011; Bishop–Fienberg–Holland 1975 [mem] |
 | possibility space Ω | sample / outcome space | standard |
 | Ω-free | abstract OML / orthomodular poset (not set-representable) | Kalmbach 1983 [shelf] |
 

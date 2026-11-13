@@ -84,28 +84,28 @@ hierarchical models (Bishop–Fienberg–Holland 1975 [mem]).
 
 | Write | Means |
 |---|---|
-| G | the **shape**: which groups of quantities are seen together. Named shapes: △ (triangle, all three pairs), □ (square, neighbouring pairs of four), ◇ (square with one diagonal), P₄ (four in a line), K₄ (four, every pair). Any other shape in brackets: [01][12][23]. |
-| n = (n₀, …, n_m) | the **sizes**: quantity i takes nᵢ values. One number if all equal: △(3), K₄(2). ℕ for all natural numbers: △(ℕ). |
-| G(n) | the scenario, e.g. △(3,4,4), K₄(3,3,4,4), □(2). |
+| G | the **shape**: which groups of quantities are seen together. For pair observers, the standard graph names, alphanumeric only: **K₃** (triangle, all three pairs), **C₄** (4-cycle: neighbouring pairs of four), **K₄⁻** (K₄ minus an edge, the diamond graph: a 4-cycle with one diagonal), **P₄** (path: four in a line), **K₄** (four, every pair); in general K_m, C_L, P_m. Any other shape, including observers of three or more quantities, in brackets: [01][12][23], [012][23]. **No glyphs** (K₃, C₄, K₄⁻): C₄ and K₄⁻ are the modal operators (decided with the author 2026-11-13). |
+| n = (n₀, …, n_m) | the **sizes**: quantity i takes nᵢ values. One number if all equal: K₃(3), K₄(2). ℕ for all natural numbers: K₃(ℕ). |
+| G(n) | the scenario, e.g. K₃(3,4,4), K₄(3,3,4,4), C₄(2). |
 | Ω(S) | the worlds of S (the grid); \|Ω\| = n₀·n₁·…·n_m. |
 | V(S), V₀₁(S) | the span of the window indicators; its 0/1 members = the questions that **add up** (existing usage in `definitions_draft.md`, kept). |
 | D(S) | the questions that can be **built** (the carrier); D_fin(S) the finitely built ones. Always D(S) ⊆ V₀₁(S). |
 | Irr(S) | the **irreducible** members of V₀₁(S): every quantity has ≥ 2 values and no two values of any quantity differ simply. |
 | St(S) | the **two-valued** answer patterns on D(S), with the product topology: the Stone-type space of the carrier. When D(S) is a Boolean algebra this is its Stone space in the usual sense, so the symbol keeps its conventional meaning (decided with the author 2026-11-13). Cf. `stone_role_prior_art.md`; Gudder's representation (Pták–Pulmannová 1991 Thm 2.2.1). |
-| Pr(S) | **all** answer patterns on D(S), probability-valued included: a compact convex set. St(S) lies among its extreme points; on a Boolean algebra the extreme points are exactly St(S), on our carriers there can be extreme points outside St(S) (e.g. the hidden state on △(3,4,4)). Quantum-logic literature writes S(L) and S₂(L); avoided here because S names a scenario. |
+| Pr(S) | **all** answer patterns on D(S), probability-valued included: a compact convex set. St(S) lies among its extreme points; on a Boolean algebra the extreme points are exactly St(S), on our carriers there can be extreme points outside St(S) (e.g. the hidden state on K₃(3,4,4)). Quantum-logic literature writes S(L) and S₂(L); avoided here because S names a scenario. |
 | coarsening n → n′ | merging values; questions pull back along it (D and V₀₁ are preserved). |
 | G′ ⊆ G | forgetting observers; D(G′(n)) ⊆ D(G(n)). |
 
-Lean: `D₃` is D(△(ℕ)); `Dfin` is D_fin(△(ℕ)); `Box` is membership in V₀₁(△(ℕ)) (Kellerer's criterion).
+Lean: `D₃` is D(K₃(ℕ)); `Dfin` is D_fin(K₃(ℕ)); `Box` is membership in V₀₁(K₃(ℕ)) (Kellerer's criterion).
 
 **Results in this notation** (status in brackets):
-- D(△(n)) = V₀₁(△(n)) for every finite n [Lean core + hand grid transfer].
-- D(△(ℕ)) = D_fin(△(ℕ)) ⊊ V₀₁(△(ℕ)); the cyclic order E* is left out [Lean].
-- St(△(ℕ)) ≅ compatible window families [Lean; the routine direction by hand]. Three layers: points of Ω, ultrafilters on Ω, pointless.
-- Pr(△(n)) has extreme points outside St(△(n)) iff n is not compressed [owned: Sullivant 2006 + Farkas; exact example at △(3,4,4)].
-- D(□(2)) ⊊ V₀₁(□(2)), 82 against 90 [computed].
+- D(K₃(n)) = V₀₁(K₃(n)) for every finite n [Lean core + hand grid transfer].
+- D(K₃(ℕ)) = D_fin(K₃(ℕ)) ⊊ V₀₁(K₃(ℕ)); the cyclic order E* is left out [Lean].
+- St(K₃(ℕ)) ≅ compatible window families [Lean; the routine direction by hand]. Three layers: points of Ω, ultrafilters on Ω, pointless.
+- Pr(K₃(n)) has extreme points outside St(K₃(n)) iff n is not compressed [owned: Sullivant 2006 + Farkas; exact example at K₃(3,4,4)].
+- D(C₄(2)) ⊊ V₀₁(C₄(2)), 82 against 90 [computed].
 - D(K₄(n)) = V₀₁(K₄(n)) for every finite n [hand, two readers 2026-11-13 (`FOUR_QUANTITIES_CHECK.md`), not Lean; prior art not searched].
-- Irr(△(3)) = the 72 cyclic orders and their complements [computed]. Irr(K₄(n)) = ∅ unless n = (2,2,2,2), where it
+- Irr(K₃(3)) = the 72 cyclic orders and their complements [computed]. Irr(K₄(n)) = ∅ unless n = (2,2,2,2), where it
   is the 24 images of A₄ [hand, two readers; exhaustive count at twelve sizes up to K₄(4), 53,994,750 sets].
 
 ### B. Cycle side / reconstruction (`papers/reconstruction/`, commensurability taxonomy)

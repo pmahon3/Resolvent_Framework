@@ -39,6 +39,16 @@ world, not to stay in an ivory tower. It is not mathematical content, but it gui
   *cause arity / factor width* (not a centre's "reach"; `lem:reach` keeps its name), *method (batch) effect*,
   *trek-rule closure*, *closure phase*, *globally glued / amalgamable* (not "flat"), *irreducible* (not
   "centre-free" for OMLs), *tensor product of ultrafilters*. **Added 2026-11-12 (crosswalk §A′):** a window ultrafilter is a *coupling* (set theory: *amalgamation* of two ultrafilters; model theory: *2-type*); cite the box identity as *Kellerer's criterion*; "carrier = all 0/1 span vectors" is *closed* (Ovchinnikov); never call carrier sets "additive sets" (taken) and never write "entangled" for K-related values. **Notation (2026-11-13, crosswalk §A″):** write a scenario as G(n), shape then sizes, shapes by standard graph names and never glyphs (K₃(3,4,4), K₄(2), C₄(2), K₃(ℕ); K₄⁻ = diamond), with Ω(S), V₀₁(S) (adds up), D(S) (can be built), Irr(S), St(S) (two-valued patterns: the Stone-type space, conventional meaning kept), Pr(S) (all patterns, probabilities included). Gloss the rest at first use. Lean names stay frozen.
+- **Notation: fit the neighbours, show the structure (user, 2026-11-13).** Choose symbols within the constraints of
+  neighbouring fields, and let them emphasise structural connections.
+  - Before adopting a symbol, check what it already means next door (logic, graph theory, statistics, quantum logic,
+    Stone duality). Keep a conventional meaning intact or pick another symbol; never silently repurpose one.
+  - Prefer established alphanumeric names to glyphs. Cases decided: shapes by graph names (K₃, C₄, K₄⁻), not triangle /
+    box / lozenge symbols (modal operators); St(S) reserved for the Stone-type space of two-valued patterns, Pr(S) for
+    all patterns; V₀₁ kept from earlier notes.
+  - A good symbol makes a structural link visible (St recalls Stone duality; K_m, C_L recall chordality). If a
+    notation hides a connection a neighbouring field would see, change the notation.
+  - Record every choice in `notes/programme/TERMINOLOGY_CROSSWALK.md` §A″ with its reason.
 - **Reversals cost.** When a result overturns something recently framed as central, lead with
   that, plainly, and update every place that asserts it.
 

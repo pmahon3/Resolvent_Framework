@@ -49,3 +49,29 @@ previous step stayed under 1 GB and 5 minutes. One size at a time.
   count round?). The boundary of the theory then lies between the triangle and K₄. Affects the same entries, negatively.
 - Either way S2₄ and S3₄ are not decided by this gate.
 **Prior guess (unvalidated, for calibration only):** (a) about 65%.
+
+## FIRED 2026-11-13: outcome (a), equal at every size run
+Script `../verification/four_quantities/k4_closed.py` (V₀₁ by an information set of the span, D by closure). Validated
+first on the two recorded cases: square 2⁴ gives 82 / 90 (gap 8), K₄ 2⁴ gives 222 / 222.
+
+| K₄ size | points | span dimension | \|D₄\| | \|V₀₁\| | gap | rounds of closure |
+|---|---|---|---|---|---|---|
+| 2×2×2×2 | 16 | 11 | 222 | 222 | 0 | 4 |
+| 2×2×2×3 | 24 | 15 | 1,006 | 1,006 | 0 | 4 |
+| 2×2×3×3 | 36 | 20 | 5,134 | 5,134 | 0 | 4 |
+| 2×3×3×3 | 54 | 26 | 23,206 | 23,206 | 0 | 5 |
+
+- Largest run: 38 s, peak 1.1 GB (just over the 1 GB step rule; it was the last registered size, so no further step).
+- D ⊆ V₀₁ confirmed as sets at each size; equality is equality of sets.
+- At 2×3×3×3 the fifth round adds exactly 72 sets. 72 is the number of relabelled cyclic orders on 3×3×3 (§5a of
+  `TRIANGLE_GATE_ATTEMPT.md`); whether these are the same objects on the 3×3×3 face is **not checked**.
+- **Reading.** Supports S1₄ in finite form on four sizes. It is evidence, not proof: the triangle also agreed on small
+  grids long before the general statement was known. Not tested: any size with all four coordinates ≥ 3; the
+  infinite form; S2₄, S3₄.
+- **Caveat on the method.** V₀₁ membership uses float32 with a 1e-3 tolerance on a rational reduced basis; it
+  reproduces both known counts. An exact-arithmetic recount has not been done.
+- **Conjectures touched (not auto-propagated).** `conj.window_restriction_r` (graphs containing a triangle): mild
+  support. New candidate, unnamed: "closed at every finite size ⟺ every loop of length ≥ 4 has a shortcut (chordal)",
+  with data: triangle (all sizes, Lean core), K₄ (four sizes), diamond and path (two values), square fails (two values).
+- **Next (pre-registered direction, from outcome (a)).** Try to transfer the triangle proof by hand: fix x₃, compare
+  slices (now triangle carrier sets whose difference is a sum of three one-coordinate functions), merge values.

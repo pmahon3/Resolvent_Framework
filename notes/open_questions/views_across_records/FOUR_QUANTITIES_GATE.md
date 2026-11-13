@@ -5,6 +5,7 @@ Motivation and choice of move: chat 2026-11-13 (turn one dial at a time; the sha
 rock–paper–scissors (Ranta–Lundberg–Kaitala 2005, ch. 11).
 
 ## Setup
+*Established names (prior art 2026-11-13, `BITS_AND_FOUR_LOOP_PRIOR_ART.md`): the pattern called A₄ below is the 4-sortedness function (Filmus 2022); a selector is a q-ary decision tree; "depends on" = has as a relevant variable.*
 *Notation (crosswalk §A″, adopted later the same day): this file studies the scenarios K₄(n); "D₄" below is D(K₄(n)), "V₀₁" is V₀₁(K₄(n)), the square is C₄(2), the triangle K₃(n), the diamond K₄⁻(n), and sizes written 3×3×3×3 are n = (3,3,3,3).*
 Ω = X₀×X₁×X₂×X₃. Six observers, one per pair of coordinates (window graph K₄). D₄ = closure of the six families of
 pair events under complement and (countable) disjoint union. V₀₁ = sets whose indicator is a sum of six pair functions.

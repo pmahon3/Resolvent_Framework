@@ -81,3 +81,29 @@ More than two values per quantity: C₄ keeps exactly the pullbacks of its 8 (ch
 Why A₄ cannot be built on the bare four-loop is computed, not explained (the October shape lemma for triangle-free
 shapes is the candidate explanation). Prior art: not searched; "degree ≤ 2 Boolean functions" and "graphs with no
 induced four-cycle" are the terms to search.
+
+## Prior art, first pass 2026-11-13 (`BITS_AND_FOUR_LOOP_PRIOR_ART.md`; web negatives are snippet-level and weak)
+- **OWNED: the bound and the classification.** A Boolean function of real degree d has at most d·2^(d−1) relevant
+  variables (Nisan–Szegedy 1994; statement checked in full-text secondary sources, original body unread); tight at
+  d = 2, so exactly 4 (Chiarelli–Hatami–Saks 2020, arXiv:1801.08564, read in full). Degree-2 Boolean functions are
+  classified up to NPN equivalence in Filmus, "Quadratic Boolean functions on the cube" (2022, read in full): constant,
+  identity, XOR, OR, all-equal, 3-sortedness, 4-sortedness; exactly one four-variable class.
+- **The four-bit pattern has a name.** "A₄" is the **4-sortedness function** (Filmus), also Ξ₂ (Chiarelli–Hatami–Saks).
+  The provisional name A₄ is dropped in new text.
+- **OWNED: the half-count observation.** Filmus's proof shows the quadratic terms form an edge or a cycle with
+  coefficients ±1/2 and that the length is at most 4; the triangle gives all-equal, the square has one minus sign.
+  Only the wording in terms of disagreements round a loop is ours.
+- **NOT FOUND: the statement about what can be built.** That the family generated from pair events by complement and
+  disjoint union equals all degree-2 functions iff the graph has no induced four-cycle, with 8 lost per such cycle.
+  Nearest neighbours read in full: Sultanbekov 1993, Ovchinnikov 1999 (shelf).
+- **Beyond two values: PARTLY OWNED.** "Sum of functions of pairs" on [q]ⁿ is junta-degree ≤ 2, with an active
+  literature on relevant-variable bounds (Valyuzhenich, arXiv:2609.12540, read in full; no classification, no exact
+  bound). Selectors are known there as q-ary decision trees, the extremal examples. Not found: a classification for
+  q ≥ 3, the merge reduction, the K₄ theorem.
+- **Gluing lemma: NOT FOUND** as a statement about the generated set family; the nearest owned statement concerns
+  existence of joints on decomposable schemes (Vorob'ev, Kellerer). Unread caps: Lauritzen 1996; Dawid–Lauritzen 1993.
+- **A rhyme to check, not an owner (snippet level only):** Greechie's loop lemma, in which a pasting of Boolean
+  algebras is an orthomodular lattice iff every loop has order at least 5, also singles out loops of length 3 and 4.
+- **Vocabulary to use:** relevant variable; k-junta; real degree (never GF(2) degree, which is the Reed–Muller
+  notion); junta-degree on [q]ⁿ; NPN equivalence; 4-sortedness function; q-ary decision tree for selectors.
+

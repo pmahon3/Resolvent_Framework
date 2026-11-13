@@ -100,8 +100,11 @@ Lean: `D₃` is D(K₃(ℕ)); `Dfin` is D_fin(K₃(ℕ)); `Box` is membership in
 
 **Earned or provisional** (rule "Notation is earned", CLAUDE.md, 2026-11-13):
 - *Established:* G(n) with graph names; Ω(S); V₀₁(S) and D(S) (many results); St(S) (Lean description on K₃(ℕ); conventional meaning).
-- *Provisional:* Irr(S) (two results, definition one day old); Pr(S) (no result of ours yet uses it); the name A₄ for the
-  four-bit pattern; "coarsening", "forgetting an observer" as named moves. Use with a plain-words gloss until they pass
+- *Replaced by an established name (2026-11-13):* "A₄" → the **4-sortedness function** (Filmus 2022), also Ξ₂
+  (Chiarelli–Hatami–Saks 2020). "Depends on k quantities" → has k **relevant variables**; "adds up from pairs" on bits →
+  **real degree ≤ 2**; on larger alphabets → **junta-degree ≤ 2**; "selector" → **q-ary decision tree**; relabelling values,
+  reordering quantities and complement → **NPN equivalence**. Never GF(2) degree (Reed–Muller), a different notion.
+- *Provisional:* Irr(S) (two results, definition one day old); Pr(S) (no result of ours yet uses it); "coarsening", "forgetting an observer" as named moves. Use with a plain-words gloss until they pass
   the thresholds, or drop them.
 
 **Results in this notation** (status in brackets):

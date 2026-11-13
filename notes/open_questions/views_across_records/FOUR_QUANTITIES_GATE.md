@@ -263,3 +263,25 @@ K₅, and says nothing about shapes that fail (C₄).
 
 **Prediction (to test the proof, not as independent evidence):** gap 0 for K₄⁻ at every size the script reaches,
 including sizes where the two unseen quantities and the two shared ones have different numbers of values.
+
+**Test of the prediction, run 2026-11-13** (`../verification/four_quantities/k4_closed.py … diamond`; sizes listed
+as (n₀,n₁,n₂,n₃), the shared pair is 02):
+
+| K₄⁻ size | \|D\| | \|V₀₁\| | gap |
+|---|---|---|---|
+| (2,2,2,2) | 148 | 148 | 0 |
+| (2,3,2,3) | 892 | 892 | 0 |
+| (3,2,3,2) | 4,740 | 4,740 | 0 |
+| (2,2,3,3) | 3,304 | 3,304 | 0 |
+| (3,3,3,2) | 19,696 | 19,696 | 0 |
+| (2,3,3,3) | 7,084 | 7,084 | 0 |
+| (3,2,3,3) | 19,696 | 19,696 | 0 |
+
+As predicted. These runs check the hand proof; they are not independent evidence beyond it.
+**Contrast, same script:** the square C₄ keeps its gap at larger sizes: (2,2,3,3) gives 1,546 against 1,618 and
+(2,3,2,3) gives 570 against 642, a gap of **72** each time (8 at (2,2,2,2)). Not analysed.
+
+**Where this leaves the chordal guess.** Closed at every finite size: K₃ (Lean core), K₄ (hand, two readers), and by
+the gluing lemma everything built from those and single pairs by gluing along a quantity or a seen pair (hand, one
+reader). Not closed: C₄. Smallest undecided shapes: two K₄'s sharing a triangle (five quantities, one pair unseen),
+and K₅. The converse (a loop with no shortcut always leaves a gap) is untouched beyond C₄.

@@ -148,6 +148,8 @@ theorems, conjectures, probes, examples and owned regions. See
    before running it.
 4. **Run probes.** Use oracles and computation, and hand proofs (flagged
    ⟦HAND⟧).
+   - Follow **compute, explain, relocate** (Key rules): forcedness check first, hand explanation after, then move
+     the question to the smallest unexplained case.
    - Check every puzzle or example claim against the instantiated mathematics,
      and record `scope`.
 5. **Bank theory items.**
@@ -221,6 +223,17 @@ Broader lens, not broader standard. Each type has a concrete bar.
   cross-field, for the established method and read it. Only then design. Invented fixes are a last resort, and must say
   which established method was checked and why it doesn't apply. (Origin: ad-hoc calibrations of the V_G test failed
   twice; the problem was textbook non-differentiable-functional / moment-inequality inference, Fang–Santos and Andrews–Soares.)
+- **Compute, explain, relocate (adopted 2026-11-13).** A probe is a three-beat cycle, and all three beats are the work:
+  1. *Before running:* check the probe can discriminate. Grep the Lean lemmas and the notes for a result that
+     forces the outcome; check the test sizes are not degenerate (the object of interest needs room: a 3×3×3 grid
+     cannot coarsen a cyclic order; a grid with a two-valued coordinate is the easy case); write down a prior guess.
+  2. *After running:* before counting the result as evidence, try to explain it by hand. If a short argument explains
+     it, the computation only covered the easy region. Say so plainly and withdraw it as evidence for the general case.
+  3. *Relocate:* restate the open question as the smallest case the hand argument does not reach, and aim the next
+     probe there.
+  This is the healthy route, not a failure: the hand work is what locates the real question. (Origin: three gates in a
+  row were forced in advance: P-stack 2026-11-07 by `box_of_mem`; the factoring gate 2026-11-10 by grid size; the
+  four-quantities gate 2026-11-13 because every size run had a two-valued coordinate.)
 - **Verify reversals before propagating them (adopted 2026-10-27).** When an audit
   overturns a recorded verdict, first run an independent check (a fresh agent,
   hostile to both sides, quoting the exact statements) and write it to

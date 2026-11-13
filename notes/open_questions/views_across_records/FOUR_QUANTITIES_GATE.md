@@ -77,7 +77,13 @@ first on the two recorded cases: square 2⁴ gives 82 / 90 (gap 8), K₄ 2⁴ gi
 - **Next (pre-registered direction, from outcome (a)).** Try to transfer the triangle proof by hand: fix x₃, compare
   slices (now triangle carrier sets whose difference is a sum of three one-coordinate functions), merge values.
 
-## Hand transfer, first session (2026-11-13) ⟦HAND, unchecked by a second reader⟧
+> **Independent check 2026-11-13: CONFIRMED WITH FIXES** (`FOUR_QUANTITIES_CHECK.md`; fixes applied below, marked
+> [fix]). The theorem D(K₄(n)) = V₀₁(K₄(n)) for every finite n is now: hand, two readers, not Lean; it imports the
+> finite triangle theorem. The check also counted irreducible sets exhaustively up to 4×4×4×4 (53,994,750 sets): none
+> beyond the 24 on 2×2×2×2. The clean repaired proof (steps L0–L8) is in the check file and is the source for any
+> Lean version.
+
+## Hand transfer, first session (2026-11-13) ⟦HAND; independently checked, see banner⟧
 
 Finite alphabets. F ⊆ Ω with 1_F a sum of six pair functions. Fix coordinate 0 and two values a, b. Slices
 F_a, F_b ⊆ X₁×X₂×X₃ are pair-sum sets on the triangle of the other three coordinates, and
@@ -91,8 +97,9 @@ Then max g₁ + max g₂ + max g₃ ≤ 2, so exactly one of:
 d never depends on all three coordinates. New relative to the triangle: a K-related pair has a **type**, the pair
 {j,k} ⊂ {1,2,3}.
 
-**T2 (merge of a simple pair; transfers verbatim).** If d depends only on x_j, then F_a is obtained from F_b by
-removing a contained set {x_j ∈ U₊} and adding a disjoint set {x_j ∈ U₋}. With x₀ = a these are events of the window
+**T2 (merge of a simple pair; transfers verbatim).** If d depends only on x_j, then F_b is obtained from F_a by
+removing the contained set {x_j ∈ U₊} and adding the disjoint set {x_j ∈ U₋} [fix: roles of a and b were swapped;
+the three-line argument is written out in the check file]. With x₀ = a these are events of the window
 {0, j}. So F ∈ D₄ iff the set with a merged into b is in D₄ of the smaller grid.
 
 **T3 (reduction).** By T2 and induction on the total number of values, it suffices to treat sets in which, at every
@@ -175,10 +182,10 @@ are K-related (T1). For a K-related pair a, b at coordinate 0 via {1,2}, T4's ar
 - (II) F_a and F_b do not depend on x₃; or
 - (I) F_b = Uᶜ×Vᶜ ⊔ Uᶜ×V×T ⊔ U×Vᶜ×Tᶜ and F_a = U×V ⊔ Uᶜ×V×T ⊔ U×Vᶜ×Tᶜ for a proper T ⊂ X₃.
 
-**Lemma A (a third value kills case (I)).** Let a, b be K-related via {1,2} in case (I), and c a third value K-related
-to b. Then contradiction.
+**Lemma A (a third value kills case (I)).** Let a, b, c be pairwise K-related [fix: "pairwise" was missing], with
+a, b via {1,2} in case (I). Then contradiction.
 - (b,c) via {1,2} with (U′,V′): F_b is full for all x₃ only on Uᶜ×Vᶜ and empty for all x₃ only on U×V, so
-  U′ = Uᶜ, V′ = Vᶜ, and d_ac = d_ab + d_bc = 0: a and c are not K-related.
+  U′ = Uᶜ, V′ = Vᶜ, and d_ac = d_ab + d_bc = 0, so F_c = F_a, against a, c K-related.
 - (b,c) via {1,3} with (U′,W): F_b(x₁,·,t) is full for all x₂ iff x₁∈Uᶜ, t∈T, and empty for all x₂ iff x₁∈U, t∈T.
   So W ⊆ T and Wᶜ ⊆ T, i.e. T = X₃. Via {2,3}: the same with Tᶜ.
 
@@ -197,7 +204,8 @@ By Lemma A every pair at coordinate 0 is in case (II).
   differ by a function of x₀ alone. Reducible.
 Either way a contradiction. So an irreducible set has exactly two values at every coordinate.
 
-**Proposition (the atom).** On 2×2×2×2 an irreducible set is in case (I) at each coordinate, hence an image of
+**Proposition (the atom).** On 2×2×2×2 an irreducible set is in case (I) at coordinate 0 (case (II) would make F
+independent of a coordinate, hence reducible) [fix], hence an image of
   A₄ := {(u,v,t) ∈ {011, 100}} ⊔ {(p,u,v) ∈ {000, 111}}   (coordinates p, u, v, t; 8 worlds),
 "if u and v agree, does p agree with them; if they differ, does t side with v?". A₄ ∈ D₄ (T4).
 
@@ -220,6 +228,7 @@ only at 2×2×2×2 and should be exactly the images of A₄ under relabelling, r
 The prediction held at all six sizes. Status of the theorem: hand, one author, not independently checked, not Lean.
 Uses the triangle theorem in finite form (Lean core + hand grid transfer). Prior art not searched.
 
-**Reading.** The four-quantity carrier has two kinds of atom: the triangle's cyclic orders on three of the four
-quantities, and A₄, which exists only with two values and vanishes as soon as any quantity has a third.
+**Reading [fix: reworded after the check].** The reduction of a K₄ pair-sum set ends either at a triangle pair-sum
+set or at A₄. A₄ is the only irreducible set and is irreducible only on 2×2×2×2; its pullbacks occur at every size.
+The proof uses the full symmetry of K₄ and does not transfer as it stands to a shape with a missing pair.
 Not addressed: infinite alphabets (S1₄ infinite form), S2₄, S3₄, five or more quantities.

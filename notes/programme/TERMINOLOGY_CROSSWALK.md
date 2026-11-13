@@ -102,9 +102,9 @@ Lean: `D₃` is D(△(ℕ)); `Dfin` is D_fin(△(ℕ)); `Box` is membership in V
 - D(△(ℕ)) = D_fin(△(ℕ)) ⊊ V₀₁(△(ℕ)); the cyclic order E* is left out [Lean].
 - St(△(ℕ)) ≅ compatible window families [Lean; the routine direction by hand].
 - D(□(2)) ⊊ V₀₁(□(2)), 82 against 90 [computed].
-- D(K₄(n)) = V₀₁(K₄(n)) for every finite n [hand, under independent check 2026-11-13; computed at six sizes].
+- D(K₄(n)) = V₀₁(K₄(n)) for every finite n [hand, two readers 2026-11-13 (`FOUR_QUANTITIES_CHECK.md`), not Lean; prior art not searched].
 - Irr(△(3)) = the 72 cyclic orders and their complements [computed]. Irr(K₄(n)) = ∅ unless n = (2,2,2,2), where it
-  is the 24 images of A₄ [hand, under check; computed at six sizes].
+  is the 24 images of A₄ [hand, two readers; exhaustive count at twelve sizes up to K₄(4), 53,994,750 sets].
 
 ### B. Cycle side / reconstruction (`papers/reconstruction/`, commensurability taxonomy)
 
